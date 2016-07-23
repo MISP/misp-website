@@ -4,6 +4,10 @@ title: Download
 permalink: /download/
 ---
 
+* TOC
+{:toc}
+
+
 ## Download and Install MISP
 
 [MISP source code is available on GitHub](https://github.com/MISP/MISP) including documentation and scripts for installation.

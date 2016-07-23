@@ -4,6 +4,9 @@ title: Who
 permalink: /who/
 ---
 
+* TOC
+{:toc}
+
 ## Who is behind the MISP project?
 
 The core team behind the MISP project is composed of motivated people who think that information sharing can be improved and supported by creating
@@ -54,7 +57,7 @@ The [full list of contributors](https://github.com/MISP/MISP/blob/2.4/AUTHORS) i
 
 ## Companies Providing MISP Support
 
-The list is provided as-is without any warranty.
+**The list is provided as-is without any warranty.**
 
 - [Iglocska](mailto:andras.iklody+misp-project@gmail.com), for custom software development and integration. (the main developer of MISP)
 - [Signal 11](http://signal11.eu), for technical support. (previous developer of MISP)
