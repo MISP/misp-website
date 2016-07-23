@@ -6,9 +6,9 @@
 -->
 <html>
 	<head>
-		<title>Arcana by HTML5 UP</title>
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
+        <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="{{ site.baseurl }}/assets/css/ie/html5shiv.js"></script><![endif]-->
 		<script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
