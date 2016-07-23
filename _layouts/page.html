@@ -1,24 +1,14 @@
 {% include header.html %}
-<!-- Main -->
-	<section class="wrapper style1">
-		<div class="container">
+<section class="wrapper style1">
+                <div class="container">
+                        <div id="content">
+                        <article>
+	                    {{ content | markdownify }}
+                        </article>
+                </div>
 
-			<!-- Blog -->
-				<section>
-					<header class="major">
-						<h2>{{ page.title }}</h2>
-						<p>Posted {{ page.date | date_to_string }}</p>
-					</header>
-					<div class="row">
-						<div class="8u -2u">
-							<section class="box">
-								<a href="#" class="image left"><img src="{{ site.baseurl }}{{ page.featured }}" alt="" /></a>
-								{{ page.content | markdownify }}
-							</section>
-						</div>
-					</div>
-				</section>
+</div>
+</section>
 
-		</div>
-	</section>
+
 {% include footer.html %}
