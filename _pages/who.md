@@ -16,6 +16,9 @@ practical open source tools, open format and practises. The current team is comp
 * Christophe Vandeplas [@cvandeplas](https://twitter.com/cvandeplas)
 * Raphaël Vinot [@rafi0t](https://twitter.com/rafi0t)
 
+### Contact
+
+If you have any enquiries or willing to contribute or support the project, don't hesitate to contact the team at [info@misp-project.org](info@misp-project.org).
 
 ### History
 
