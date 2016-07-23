@@ -44,10 +44,11 @@ As the MISP project expanded, MISP is not only covering the malware indicators b
 
 The [full list of contributors](https://github.com/MISP/MISP/blob/2.4/AUTHORS) is available on GitHub.
 
-## Core contributing organization
+## Core Contributing Organizations
 
 ## Lead Partners
 
 ## Supporters
 
+## Integrated Services and Products with MISP
 
