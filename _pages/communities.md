@@ -1,7 +1,7 @@
 ---
 layout: page
 title: MISP communities
-permalink: /communtiies/
+permalink: /communities/
 ---
 
 # MISP Communities
