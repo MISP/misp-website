@@ -29,9 +29,16 @@ Each communities might have specific rules to join them. Take a look and feel fr
 
 ## MISP Feed Communities
 
-MISP integrates a functionality called feed that allows to fetch directly MISP events from a server without prior agreement. Two OSINT feeds are included by default in MISP and can be enabled in any new installation. Provides and partners can provide easily their feeds by using the simple PyMISP feed-generator.
+MISP integrates a functionality called feed that allows to fetch directly MISP events from a server without prior agreement. Two OSINT feeds are included by default in MISP and can be enabled in any new installation. Providers and partners can provide easily their feeds by using the simple [PyMISP feed-generator](https://github.com/CIRCL/PyMISP/tree/master/examples/feed-generator).
 
 ### CIRCL OSINT Feed
 
-### Botvrij.be OSINT feed
+[CIRCL](https://www.circl.lu/) provides a MISP OSINT feed from various sources including their own analysis.
 
+MISP URL location is [https://www.circl.lu/doc/misp/feed-osint](https://www.circl.lu/doc/misp/feed-osint).
+
+### Botvrij.eu OSINT feed
+
+[Botvrij.eu](http://www.botvrij.eu/) provides a MISP OSINT feed out of public report.
+
+MISP URL location is [http://www.botvrij.eu/data/feed-osint](http://www.botvrij.eu/data/feed-osint).
