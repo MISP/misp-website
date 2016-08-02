@@ -18,6 +18,8 @@ Each communities might have specific rules to join them. Take a look and feel fr
 
 ### CiviCERT MISP community
 
+[CiviCERT](https://civicert.org/) is an umbrella organizations formed by the partnership between Internet Content and Service Providers, Non Governmental Organizations and individuals that contribute some of their time and resources to the community in order to globally improve the security awareness of civil society. The community is fairly new but uses MISP into inform its constituents of malicious activities in their infrastructure.
+
 ### Fidelis malware/RAT community
 
 ### NATO MISP community
