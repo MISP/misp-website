@@ -2,11 +2,8 @@
 layout: page
 title: Download
 permalink: /download/
+toc: true
 ---
-
-* TOC
-{:toc}
-
 
 ## Download and Install MISP
 
