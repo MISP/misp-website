@@ -15,14 +15,15 @@ layout: default
 								<header class="major">
 									<h2>News</h2>
 								</header>
-								{% for post in site.posts offset: 0 limit: 4 %}
+								{% for post in site.posts offset: 0 limit: 10 %}
 									<div class="row">
 										<section class="12u">
 											<div class="box post">
-												<a href="#" class="image left"><img src="{{ site.baseurl }}{{ post.featured }}" alt=""></a>
+												<a href="#" class="image left"><img src="{{ site.baseurl }}{{ post.featured }}" alt="" style="width: 25%; height: 25%"></a>
 												<div class="inner">
 													<h3>{{ post.title }}</h3>
-													{{ post.excerpt }}
+                                                    <i>Posted on {{ post.date | date_to_string }}</i>
+                                                    {{ content | truncatewords: 50 }}
 													<footer>
 														<a href="{{ site.baseurl }}{{ post.url }}" class="button">Continue Reading</a>
 													</footer>
