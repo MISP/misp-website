@@ -2,6 +2,7 @@
 layout: page
 title: Who
 permalink: /who/
+toc: true
 ---
 
 ## Who is behind the MISP project?
@@ -62,10 +63,4 @@ The [full list of contributors](https://github.com/MISP/MISP/blob/2.4/AUTHORS) i
 - [B2SP](mailto:info@b2sp.be), for integration services, business processes and support.
 - [SLC Security Services](http://slcsecurity.com) LLC, using MISP as part of a larger program for corporations and government clients.
 - [Truesec.be](mailto:xavier@truesec.be) for installation services and integration with 3rd party solutions (MISP Docker container).
-
-## Table of Content
-
-* TOC
-{:toc}
-
 

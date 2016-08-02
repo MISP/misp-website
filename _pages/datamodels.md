@@ -2,6 +2,7 @@
 layout: page
 title: MISP data models - MISP core format - MISP taxonomies
 permalink: /datamodels/
+toc: true
 ---
 
 MISP is not only a software but also a series of data models created by the MISP community. MISP includes a simple and practical information sharing format expressed in JSON that can be used with MISP software or by any other software.

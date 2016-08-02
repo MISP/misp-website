@@ -2,6 +2,7 @@
 layout: page
 title: MISP Communities and MISP Feeds
 permalink: /communities/
+toc: true
 ---
 
 ## MISP Communities
@@ -22,6 +23,8 @@ Each communities might have specific rules to join them. Take a look and feel fr
 
 ### Fidelis malware/RAT community
 
+[Fidelis Barncat™ Intelligence Database ](https://www.fidelissecurity.com/resources/fidelis-barncat) includes more than 100,000 records with remote access tool (RAT) configuration settings. You can [apply for access](https://www.fidelissecurity.com/resources/fidelis-barncat) at the following location.
+
 ### NATO MISP community
 
 ## MISP Feed Communities
@@ -31,5 +34,4 @@ MISP integrates a functionality called feed that allows to fetch directly MISP e
 ### CIRCL OSINT Feed
 
 ### Botvrij.be OSINT feed
-
 
