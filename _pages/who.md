@@ -41,17 +41,13 @@ Meanwhile other organisations started to adopt the software and promoted it arou
 
 Nowadays, Andras Iklody is the lead developer of the MISP project and works for CIRCL.
 
-As the MISP project expanded, MISP is not only covering the malware indicators but also fraud or vulnerability information. The name is now MISP, threat sharing which includes the core MISP software and a myriad of tools (PyMISP) and format (core format, MISP taxonomies, warning-lists) to support MISP.  MISP is now a community project lead by a team of volunteers.
+As the MISP project expanded, MISP is not only covering the malware indicators but also fraud or vulnerability information. The name is now MISP, threat sharing which includes the core MISP software and a myriad of tools (PyMISP) and format (core format, MISP taxonomies, warning-lists) to support MISP.  **MISP is now a community project lead by a team of volunteers**.
 
 The [full list of contributors](https://github.com/MISP/MISP/blob/2.4/AUTHORS) is available on GitHub.
 
-## Core Contributing Organizations
-
-## Lead Partners
-
-## Supporters
-
 ## Integrated Services and Products with MISP
+
+Many third-parties and organizations provide services or software to integrate with MISP via [misp-modules](https://github.com/MISP/misp-modules), [MISP API](https://www.circl.lu/doc/misp/automation/index.html) or [MISP data models]({{ "/datamodels" | prepend: site.baseurl | prepend: site.url }}).
 
 ## Companies Providing MISP Support
 
