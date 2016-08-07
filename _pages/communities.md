@@ -27,7 +27,7 @@ Each communities might have specific rules to join them. Take a look and feel fr
 
 ### NATO MISP community
 
-The NATO Communications and Information (NCI) Agency provides operates MISP community, [for more information](https://www.ncia.nato.int/Documents/Agency%20publications/Malware%20Information%20Sharing%20Platform%20(MISP).pdf).
+The NATO Communications and Information (NCI) Agency operates a MISP community, [for more information](https://www.ncia.nato.int/Documents/Agency%20publications/Malware%20Information%20Sharing%20Platform%20(MISP).pdf).
 
 ## MISP Feed Communities
 
