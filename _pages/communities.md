@@ -27,6 +27,8 @@ Each communities might have specific rules to join them. Take a look and feel fr
 
 ### NATO MISP community
 
+The NATO Communications and Information (NCI) Agency provides operates MISP community, [for more information](https://www.ncia.nato.int/Documents/Agency%20publications/Malware%20Information%20Sharing%20Platform%20(MISP).pdf).
+
 ## MISP Feed Communities
 
 MISP integrates a functionality called feed that allows to fetch directly MISP events from a server without prior agreement. Two OSINT feeds are included by default in MISP and can be enabled in any new installation. Providers and partners can provide easily their feeds by using the simple [PyMISP feed-generator](https://github.com/CIRCL/PyMISP/tree/master/examples/feed-generator). For more information, an article about "[Using open source intelligence feeds, OSINT, with MISP](https://www.vanimpe.eu/2016/03/23/using-open-source-intelligence-osint-with-misp/)".
