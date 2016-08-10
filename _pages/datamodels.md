@@ -9,6 +9,8 @@ MISP is not only a software but also a series of data models created by the MISP
 
 ## MISP Core Format
 
+The MISP core format is a simple JSON format used by MISP and other tools to exchange events and attributes. The JSON schema 2.4 is described on the MISP core software and many sample files are available in the OSINT feed.
+
 ### MISP default attributes and categories
 
 ### Attribute Categories vs Types
