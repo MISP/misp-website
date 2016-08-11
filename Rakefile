@@ -4,6 +4,9 @@ require "tmpdir"
 require "bundler/setup"
 require "jekyll"
 
+# Usage:
+# rake site:publish -> testing: http://misp.github.io/misp-website
+# rake publish -> prod: http://www.misp-project.org/ or http://misp.github.io
 
 # Testing website
 GITHUB_TESTING = "MISP/misp-website"
