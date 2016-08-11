@@ -1,0 +1,2442 @@
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+    <title>MISP data models - MISP core format - MISP taxonomies</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="MISP - a threat information sharing platform" />
+		<meta name="keywords" content="MISP, CTI, malware, threat, cyber, intelligence, information exchange, sharing, open source, MISP threat sharing, Malware Information Sharing Platform" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/misp-website//assets/images/ico/favicon-144.png">
+          <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/misp-website//assets/images/ico/favicon-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/misp-website//assets/images/ico/favicon-72.png">
+    <link rel="apple-touch-icon-precomposed" href="/misp-website//assets/images/ico/favicon-57.png">
+                  <link rel="shortcut icon" href="/misp-website//assets/images/ico/favicon.png">
+    <script src="/misp-website//assets/js/jquery.min.js"></script>
+    <script src="/misp-website//assets/js/jquery.dropotron.min.js"></script>
+    <script src="/misp-website//assets/js/skel.min.js"></script>
+    <script src="/misp-website//assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="/misp-website//assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="/misp-website//assets/js/main.js"></script>
+    <!--[if lte IE 8]><script src="/misp-website//assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/misp-website//assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="/misp-website//assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="/misp-website//assets/css/ie9.css" /><![endif]-->
+    <link rel="alternate" type="application/rss+xml" title="" href="/misp-website//feed.xml">
+   </head>
+	<body>
+
+		<!-- Header -->
+			<div id="header">
+				<!-- Logo -->
+                <h1><em><a href="/misp-website//index.html" id="MISP"><img src="/misp-website//assets/images/misp-small.png" /></em></a></h1>
+                <h1> MISP Malware Information Sharing Platform and Threat Sharing. </h1>
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							
+							<li ><a href="/misp-website//index.html">Home</a></li>
+							<li ><a href="/misp-website//features.html">Features</a></li>
+							<li ><a href="/misp-website//news">News</a></li>
+							<li ><a href="/misp-website//download">Download</a></li>
+                            <li>
+                            <a href="/misp-website//datamodels">Data models</a>
+                                <ul>
+                                        <li><a href="/misp-website//datamodels#misp-core-format">MISP core format</a></li>
+                                        <li><a href="/misp-website//datamodels#misp-taxonomies">MISP taxonomies</a></li>
+                                </ul>
+                            </li>
+                            <li ><a href="/misp-website//documentation">Documentation</a></li>
+                            <li ><a href="/misp-website//who">Who</a></li>
+                            <li ><a href="/misp-website//communities">Communities</a></li>
+
+						</ul>
+					</nav>
+
+			</div>
+
+<section class="wrapper style1">
+                <div class="container">
+                        <div id="content">
+                        <div class="row double">
+                        <div class="8u">
+                        <article>
+	                    <p>MISP is not only a software but also a series of data models created by the MISP community. MISP includes a simple and practical information sharing format expressed in JSON that can be used with MISP software or by any other software.</p>
+
+<h2 id="misp-core-format">MISP Core Format</h2>
+
+<p>The MISP core format is a simple JSON format used by MISP and other tools to exchange events and attributes. The JSON schema 2.4 is described on the MISP core software and many sample files are available in the OSINT feed.</p>
+
+<h3 id="misp-default-attributes-and-categories">MISP default attributes and categories</h3>
+
+<h3 id="attribute-categories-vs-types">Attribute Categories vs Types</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th style="text-align: center">Internal reference</th>
+      <th style="text-align: center">Targeting data</th>
+      <th style="text-align: center">Antivirus detection</th>
+      <th style="text-align: center">Payload delivery</th>
+      <th style="text-align: center">Artifacts dropped</th>
+      <th style="text-align: center">Payload installation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>md5</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>sha1</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>sha256</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>filename</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>pdb</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|md5</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>filename|sha1</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>filename|sha256</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>ip-src</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>ip-dst</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>hostname</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>domain|ip</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>email-src</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>email-dst</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>email-subject</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>email-attachment</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>http-method</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>user-agent</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>regkey</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>regkey|value</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>AS</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>snort</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>pattern-in-file</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>pattern-in-traffic</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>pattern-in-memory</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>yara</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>vulnerability</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>attachment</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>malware-sample</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>link</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>comment</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>text</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>other</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>named pipe</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>mutex</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-user</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-email</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-machine</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-org</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-location</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-external</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>btc</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>iban</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>bic</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>bank-account-nr</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>aba-rtn</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>bin</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>cc-number</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>prtn</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>threat-actor</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>campaign-name</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>campaign-id</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>malware-type</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>uri</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>authentihash</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>ssdeep</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>imphash</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>pehash</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>sha224</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>sha384</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>sha512</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>sha512/224</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>sha512/256</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>tlsh</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>filename|authentihash</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>filename|ssdeep</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>filename|imphash</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>filename|pehash</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>filename|sha224</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>filename|sha384</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>filename|sha512</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>filename|sha512/224</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>filename|sha512/256</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>filename|tlsh</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>windows-scheduled-task</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>windows-service-name</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>windows-service-displayname</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>whois-registrant-email</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>whois-registrant-phone</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>whois-registrant-name</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>whois-registrar</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>whois-creation-date</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>targeted-threat-index</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>mailslot</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>pipe</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>ssl-cert-attributes</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>x509-fingerprint-sha1</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th style="text-align: center">Persistence mechanism</th>
+      <th style="text-align: center">Network activity</th>
+      <th style="text-align: center">Payload type</th>
+      <th style="text-align: center">Attribution</th>
+      <th style="text-align: center">External analysis</th>
+      <th style="text-align: center">Financial fraud</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>md5</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>sha1</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>sha256</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>pdb</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|md5</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|sha1</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|sha256</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>ip-src</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>ip-dst</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>hostname</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>domain|ip</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>email-src</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>email-dst</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>email-subject</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>email-attachment</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>http-method</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>user-agent</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>regkey</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>regkey|value</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>AS</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>snort</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>pattern-in-file</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>pattern-in-traffic</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>pattern-in-memory</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>yara</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>vulnerability</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>attachment</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>malware-sample</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>link</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>comment</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>text</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>other</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>named pipe</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>mutex</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-user</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-email</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-machine</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-org</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-location</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-external</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>btc</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>iban</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>bic</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>bank-account-nr</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>aba-rtn</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>bin</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>cc-number</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>prtn</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>threat-actor</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>campaign-name</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>campaign-id</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>malware-type</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>uri</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>authentihash</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>ssdeep</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>imphash</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>pehash</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>sha224</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>sha384</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>sha512</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>sha512/224</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>sha512/256</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>tlsh</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|authentihash</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|ssdeep</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|imphash</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|pehash</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|sha224</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|sha384</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|sha512</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|sha512/224</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|sha512/256</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|tlsh</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>windows-scheduled-task</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>windows-service-name</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>windows-service-displayname</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>whois-registrant-email</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>whois-registrant-phone</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>whois-registrant-name</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>whois-registrar</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>whois-creation-date</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>targeted-threat-index</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>mailslot</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>pipe</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>ssl-cert-attributes</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>x509-fingerprint-sha1</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th style="text-align: center">Other</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>md5</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>sha1</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>sha256</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>pdb</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|md5</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|sha1</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|sha256</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>ip-src</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>ip-dst</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>hostname</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>domain|ip</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>email-src</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>email-dst</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>email-subject</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>email-attachment</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>http-method</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>user-agent</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>regkey</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>regkey|value</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>AS</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>snort</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>pattern-in-file</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>pattern-in-traffic</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>pattern-in-memory</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>yara</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>vulnerability</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>attachment</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>malware-sample</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>link</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>comment</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>text</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>other</td>
+      <td style="text-align: center">X</td>
+    </tr>
+    <tr>
+      <td>named pipe</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>mutex</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-user</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-email</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-machine</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-org</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-location</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>target-external</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>btc</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>iban</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>bic</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>bank-account-nr</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>aba-rtn</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>bin</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>cc-number</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>prtn</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>threat-actor</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>campaign-name</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>campaign-id</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>malware-type</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>uri</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>authentihash</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>ssdeep</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>imphash</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>pehash</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>sha224</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>sha384</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>sha512</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>sha512/224</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>sha512/256</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>tlsh</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|authentihash</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|ssdeep</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|imphash</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|pehash</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|sha224</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|sha384</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|sha512</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|sha512/224</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|sha512/256</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>filename|tlsh</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>windows-scheduled-task</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>windows-service-name</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>windows-service-displayname</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>whois-registrant-email</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>whois-registrant-phone</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>whois-registrant-name</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>whois-registrar</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>whois-creation-date</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>targeted-threat-index</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>mailslot</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>pipe</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>ssl-cert-attributes</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>x509-fingerprint-sha1</td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="categories">Categories</h3>
+
+<ul>
+  <li><strong>Internal reference</strong>: Reference used by the publishing party (e.g. ticket number)</li>
+  <li><strong>Targeting data</strong>: Targeting information to include recipient email, infected machines, department, and or locations.</li>
+  <li><strong>Antivirus detection</strong>: List of anti-virus vendors detecting the malware or information on detection performance (e.g. 13/43 or 67%). Attachment with list of detection or link to VirusTotal could be placed here as well.</li>
+  <li><strong>Payload delivery</strong>: Information about the way the malware payload is initially delivered, for example information about the email or web-site, vulnerability used, originating IP etc. Malware sample itself should be attached here.</li>
+  <li><strong>Artifacts dropped</strong>: Any artifact (files, registry keys etc.) dropped by the malware or other modifications to the system</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>Payload installation</strong>: Location where the payload was placed in the system and the way it was installed. For example, a filename</td>
+          <td>md5 type attribute can be added here like this: c:\windows\system32\malicious.exe</td>
+          <td>41d8cd98f00b204e9800998ecf8427e.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><strong>Persistence mechanism</strong>: Mechanisms used by the malware to start at boot. This could be a registry key, legitimate driver modification, LNK file in startup</li>
+  <li><strong>Network activity</strong>: Information about network traffic generated by the malware</li>
+  <li><strong>Payload type</strong>: Information about the final payload(s). Can contain a function of the payload, e.g. keylogger, RAT, or a name if identified, such as Poison Ivy.</li>
+  <li><strong>Attribution</strong>: Identification of the group, organisation, or country behind the attack</li>
+  <li><strong>External analysis</strong>: Any other result from additional analysis of the malware like tools output Examples: pdf-parser output, automated sandbox analysis, reverse engineering report.</li>
+  <li><strong>Financial fraud</strong>: Financial Fraud indicators, for example: IBAN Numbers, BIC codes, Credit card numbers, etc.</li>
+  <li><strong>Other</strong>: Attributes that are not part of any other category</li>
+</ul>
+
+<h3 id="types">Types</h3>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>md5</strong>: You are encouraged to use filename</td>
+          <td>md5 instead. A checksum in md5 format, only use this if you don’t know the correct filename</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>sha1</strong>: You are encouraged to use filename</td>
+          <td>sha1 instead. A checksum in sha1 format, only use this if you don’t know the correct filename</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>sha256</strong>: You are encouraged to use filename</td>
+          <td>sha256 instead. A checksum in sha256 format, only use this if you don’t know the correct filename</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><strong>filename</strong>: Filename</li>
+  <li><strong>pdb</strong>: Microsoft Program database (PDB) path information</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>filename!md5</strong>: A filename and an md5 hash separated by a</td>
+          <td>(no spaces)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>filename!sha1</strong>: A filename and an sha1 hash separated by a</td>
+          <td>(no spaces)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>filename!sha256</strong>: A filename and an sha256 hash separated by a</td>
+          <td>(no spaces)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><strong>ip-src</strong>: A source IP address of the attacker</li>
+  <li><strong>ip-dst</strong>: A destination IP address of the attacker or C&amp;C server. Also set the IDS flag on when this IP is hardcoded in malware</li>
+  <li><strong>hostname</strong>: A full host/dnsname of an attacker. Also set the IDS flag on when this hostname is hardcoded in malware</li>
+  <li><strong>domain</strong>: A domain name used in the malware. Use this instead of hostname when the upper domain is important or can be used to create links between events.</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>domain!ip</strong>: A domain name and its IP address (as found in DNS lookup) separated by a</td>
+          <td>(no spaces)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><strong>email-src</strong>: The email address (or domainname) used to send the malware.</li>
+  <li><strong>email-dst</strong>: A recipient email address that is not related to your constituency.</li>
+  <li><strong>email-subject</strong>: The subject of the email</li>
+  <li><strong>email-attachment</strong>: File name of the email attachment.</li>
+  <li><strong>url</strong>: url</li>
+  <li><strong>http-method</strong>: HTTP method used by the malware (e.g. POST, GET, …).</li>
+  <li><strong>user-agent</strong>: The user-agent used by the malware in the HTTP request.</li>
+  <li><strong>regkey</strong>: Registry key or value</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>regkey!value</strong>: Registry value + data separated by</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><strong>AS</strong>: Autonomous system</li>
+  <li><strong>snort</strong>: An IDS rule in Snort rule-format. This rule will be automatically rewritten in the NIDS exports.</li>
+  <li><strong>pattern-in-file</strong>: Pattern in file that identifies the malware</li>
+  <li><strong>pattern-in-traffic</strong>: Pattern in network traffic that identifies the malware</li>
+  <li><strong>pattern-in-memory</strong>: Pattern in memory dump that identifies the malware</li>
+  <li><strong>yara</strong>: Yara signature</li>
+  <li><strong>vulnerability</strong>: A reference to the vulnerability used in the exploit</li>
+  <li><strong>attachment</strong>: Please upload files using the <em>Upload Attachment</em> button.</li>
+  <li><strong>malware-sample</strong>: Please upload files using the <em>Upload Attachment</em> button.</li>
+  <li><strong>link</strong>: Link to an external information</li>
+  <li><strong>comment</strong>: Comment or description in a human language. This will not be correlated with other attributes</li>
+  <li><strong>text</strong>: Name, ID or a reference</li>
+  <li><strong>other</strong>: Other attribute</li>
+  <li><strong>named pipe</strong>: Named pipe, use the format .\pipe&lt;PipeName&gt;</li>
+  <li><strong>mutex</strong>: Mutex, use the format \BaseNamedObjects&lt;Mutex&gt;</li>
+  <li><strong>target-user</strong>: Attack Targets Username(s)</li>
+  <li><strong>target-email</strong>: Attack Targets Email(s)</li>
+  <li><strong>target-machine</strong>: Attack Targets Machine Name(s)</li>
+  <li><strong>target-org</strong>: Attack Targets Department or Organization(s)</li>
+  <li><strong>target-location</strong>: Attack Targets Physical Location(s)</li>
+  <li><strong>target-external</strong>: External Target Organizations Affected by this Attack</li>
+  <li><strong>btc</strong>: Bitcoin Address</li>
+  <li><strong>iban</strong>: International Bank Account Number</li>
+  <li><strong>bic</strong>: Bank Identifier Code Number</li>
+  <li><strong>bank-account-nr</strong>: Bank account number without any routing number</li>
+  <li><strong>aba-rtn</strong>: ABA routing transit number</li>
+  <li><strong>bin</strong>: Bank Identification Number</li>
+  <li><strong>cc-number</strong>: Credit-Card Number</li>
+  <li><strong>prtn</strong>: Premium-Rate Telephone Number</li>
+  <li><strong>threat-actor</strong>: A string identifying the threat actor</li>
+  <li><strong>campaign-name</strong>: Associated campaign name</li>
+  <li><strong>campaign-id</strong>: Associated campaign ID</li>
+  <li><strong>malware-type</strong>:</li>
+  <li><strong>uri</strong>: Uniform Resource Identifier</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>authentihash</strong>: You are encouraged to use filename</td>
+          <td>authentihash instead, authenticode executable signature hash, only use this if you don’t know the correct filename</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>ssdeep</strong>: You are encouraged to use filename</td>
+          <td>ssdeep instead. A checksum in the SSDeep format, only use this if you don’t know the correct filename</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>imphash</strong>: You are encouraged to use filename</td>
+          <td>imphash instead. A hash created based on the imports in the sample, only use this if you don’t know the correct filename</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><strong>pehash</strong>: PEhash - a hash calculated based of certain pieces of a PE executable file</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>sha224</strong>: You are encouraged to use filename</td>
+          <td>sha224 instead. A checksum in sha224 format, only use this if you don’t know the correct filename</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>sha384</strong>: You are encouraged to use filename</td>
+          <td>sha384 instead. A checksum in sha384 format, only use this if you don’t know the correct filename</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>sha512</strong>: You are encouraged to use filename</td>
+          <td>sha512 instead. A checksum in sha512 format, only use this if you don’t know the correct filename</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>sha512/224</strong>: You are encouraged to use filename</td>
+          <td>sha512/224 instead. A checksum in sha512/224 format, only use this if you don’t know the correct filename</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>sha512/256</strong>: You are encouraged to use filename</td>
+          <td>sha512/256 instead. A checksum in sha512/256 format, only use this if you don’t know the correct filename</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>tlsh</strong>: You are encouraged to use filename</td>
+          <td>tlsh instead. A checksum in the Trend Micro Locality Sensitive Hash format, only use this if you don’t know the correct filename</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><strong>filename!authentihash</strong>: A checksum in md5 format</li>
+  <li><strong>filename!ssdeep</strong>: A checksum in ssdeep format</li>
+  <li><strong>filename!imphash</strong>: Import hash - a hash created based on the imports in the sample.</li>
+  <li><strong>filename!pehash</strong>: A filename and a PEhash separated by a pipe</li>
+  <li><strong>filename!sha224</strong>: A filename and a sha-224 hash separated by a pipe</li>
+  <li><strong>filename!sha384</strong>: A filename and a sha-384 hash separated by a pipe</li>
+  <li><strong>filename!sha512</strong>: A filename and a sha-512 hash separated by a pipe</li>
+  <li><strong>filename!sha512/224</strong>: A filename and a sha-512/224 hash separated by a pipe</li>
+  <li><strong>filename!sha512/256</strong>: A filename and a sha-512/256 hash separated by a pipe</li>
+  <li><strong>filename!tlsh</strong>: A filename and a Trend Micro Locality Sensitive Hash separated by a pipe</li>
+  <li><strong>windows-scheduled-task</strong>: A scheduled task in windows</li>
+  <li><strong>windows-service-name</strong>: A windows service name. This is the name used internally by windows. Not to be confused with the windows-service-displayname.</li>
+  <li><strong>windows-service-displayname</strong>: A windows service’s displayname, not to be confused with the windows-service-name. This is the name that applications will generally display as the service’s name in applications.</li>
+  <li><strong>whois-registrant-email</strong>: The e-mail of a domain’s registrant, obtained from the WHOIS information.</li>
+  <li><strong>whois-registrant-phone</strong>: The phone number of a domain’s registrant, obtained from the WHOIS information.</li>
+  <li><strong>whois-registrant-name</strong>: The name of a domain’s registrant, obtained from the WHOIS information.</li>
+  <li><strong>whois-registrar</strong>: The registrar of the domain, obtained from the WHOIS information.</li>
+  <li><strong>whois-creation-date</strong>: The date of domain’s creation, obtained from the WHOIS information.</li>
+  <li><strong>targeted-threat-index</strong>:</li>
+  <li><strong>mailslot</strong>: MailSlot interprocess communication</li>
+  <li><strong>pipe</strong>: Pipeline (for named pipes use the attribute type “named pipe”)</li>
+  <li><strong>ssl-cert-attributes</strong>: SSL certificate attributes</li>
+  <li><strong>x509-fingerprint-sha1</strong>: X509 fingerprint in SHA-1 format</li>
+</ul>
+
+<h2 id="misp-taxonomies">MISP Taxonomies</h2>
+
+<p>Along with the core format, <a href="https://www.github.com/MISP/misp-taxonomies/">MISP taxonomies</a> provide a set of already defined classifications modeling estimative language, CSIRTs/CERTs classifications, national classifications or threat model classification. The fixed taxonomies provide a practical method to tag efficiently events and attributes within a set of MISP instances where taxonomies can be easily cherry-picked or extended to meet the local requirements of an organization or a specific sharing community. When using MISP, the MISP taxonomies are available and can be freely used based on the community practises.</p>
+
+<ul>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/admiralty-scale">Admiralty Scale</a></li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/adversary">adversary</a> - description of an adversary infrastructure</li>
+  <li>CIRCL <a href="https://github.com/MISP/misp-taxonomies/tree/master/circl">Taxonomy - Schemes of Classification in Incident Response and Detection</a></li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/kill-chain">Cyber Kill Chain</a> from Lockheed Martin</li>
+  <li>DE German (DE) <a href="https://github.com/MISP/misp-taxonomies/tree/master/de-vs">Government classification markings (VS)</a></li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/dhs-ciip-sectors">DHS CIIP Sectors</a></li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/ecsirt">eCSIRT</a> and IntelMQ incident classification</li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/enisa">ENISA</a> ENISA Threat Taxonomy</li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/estimative-language">Estimative Language</a> Estimative Language (ICD 203)</li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/eu-critical-sectors">EU critical sectors</a> - EU critical sectors</li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/euci">EUCI</a> - EU classified information marking</li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/europol-incident">Europol Incident</a> - Europol class of incident taxonomy</li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/europol-events">Europol Events</a> - Europol type of events taxonomy</li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/csirt_case_classification">FIRST CSIRT Case</a> classification</li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/iep">FIRST Information Exchange Policy (IEP)</a> framework</li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/information-security-indicators">Information Security Indicators</a> -  ETSI GS ISI 001-1 (V1.1.2): ISI Indicators</li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/dni-ism">Information Security Marking Metadata</a> from DNI (Director of National Intelligence - US)</li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/malware">Malware</a> classification based on a SANS document</li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/ms-caro-malware">ms-caro-malware</a> Malware Type and Platform classification based on Microsoft’s implementation of the Computer Antivirus Research Organiza
+tion (CARO) Naming Scheme and Malware Terminology.</li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/nato">NATO Classification Marking</a></li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/open-threat">Open Threat Taxonomy v1.1 (SANS)</a></li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/osint">OSINT Open Source Intelligence - Classification</a></li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/pap">The Permissible Actions Protocol - or short: PAP - was designed to indicate how the received information can be used.</a></li>
+  <li><a href="https://github.com/MISP/misp-taxonomies/tree/master/tlp">TLP - Traffic Light Protocol</a></li>
+  <li>Vocabulary for Event Recording and Incident Sharing <a href="https://github.com/MISP/misp-taxonomies/tree/master/veris">VERIS</a></li>
+</ul>
+
+
+                        </article>
+                        </div>
+                        <div class="4u" id="toc">
+                        <h3> Table of Content </h3>
+                        <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#misp-core-format">MISP Core Format</a></li>
+<li class="toc-entry toc-h3"><a href="#misp-default-attributes-and-categories">MISP default attributes and categories</a></li>
+<li class="toc-entry toc-h3"><a href="#attribute-categories-vs-types">Attribute Categories vs Types</a></li>
+<li class="toc-entry toc-h3"><a href="#categories">Categories</a></li>
+<li class="toc-entry toc-h3"><a href="#types">Types</a></li>
+<li class="toc-entry toc-h2"><a href="#misp-taxonomies">MISP Taxonomies</a></li>
+</ul>
+                        </div>
+                        </div>
+                </div>
+
+</div>
+</section>
+
+
+		<!-- Footer -->
+			<div id="footer">
+				<div class="container">
+					<div class="row ">
+						<div class="6u">
+							<div class="row collapse-at-2">
+								<section class="6u">
+                                <!-- Icons -->
+                                <h3>Join us!</h3>
+					<ul class="icons">
+                            <li><a href="https://twitter.com/MISPProject" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/MISP" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                        <li><a href="https://gitter.im/MISP" class="icon fa-gitter"><span class="label">Gitter</span></a></li>
+					</ul>
+								</section>
+							</div>
+						</div>
+						<section class="6u">
+							<h3>Get In Touch</h3>
+                            <p>MISP is a community-driven project lead by the community of users.</p>
+                            <p>You can get in touch with the MISP core team at the following email: <a href="mailto:info@misp-project.org">info@misp-project.org</a></p>
+						</section>
+					</div>
+				</div>
+
+				<!-- Copyright -->
+					<div class="copyright">
+						<ul class="menu">
+							<li>&copy; MISP project. Software released under the AGPL license and content released as CC-BY-SA.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li> Jekyll Template: <a href="http://cloudcannon.com">Cloud Cannon</a></li>
+						</ul>
+					</div>
+
+			</div>
+
+	</body>
+</html>
+
