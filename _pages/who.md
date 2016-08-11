@@ -49,6 +49,8 @@ The [full list of contributors](https://github.com/MISP/MISP/blob/2.4/AUTHORS) i
 
 Many third-parties and organizations provide services or software to integrate with MISP via [misp-modules](https://github.com/MISP/misp-modules), [MISP API](https://www.circl.lu/doc/misp/automation/index.html) or [MISP data models]({{ "/datamodels" | prepend: site.baseurl | prepend: site.url }}).
 
+Check out the [tools page]({{  "/tools" | prepend: site.baseurl | prepend: site.url }}).
+
 ## Companies Providing MISP Support
 
 **The list is provided as-is without any warranty.**
