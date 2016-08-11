@@ -23,12 +23,17 @@ is also to explore new ideas, concepts or functionality which can be integrated 
      * IPASN - a hover and expansion to get the BGP ASN of an IP address.
      * ASN History - a hover and expansion module to expand an AS number with the ASN description and its history.
      * CVE a hover module to give more information about a vulnerability (CVE).
-* [Viper](http://www.viper.li/) - is a binary management and analysis framework dedicated to malware and exploit researchers including a MISP module.
 * [misp-workbench](https://github.com/MISP/misp-workbench) - Tools to export data out of the MISP MySQL database and use and abuse them outside of this platform.
 * [MISpego](https://github.com/MISP/MISPego) - Maltego Transform to put entities into MISP events.
 * [MISP-maltego](https://github.com/MISP/MISP-maltego) - Set of Maltego transforms to inferface with a MISP instance.
 
+For the additional software created by the MISP project, check our [MISP project organization](https://github.com/MISP/).
+
 ### Software or Services with MISP support
 
-* [Hybrid analysis](https://www.hybrid-analysis.com/) (export in MISP format).
+* [Viper](http://www.viper.li/) - is a binary management and analysis framework dedicated to malware and exploit researchers including a MISP module.
+* [cve-search](https://github.com/cve-search) - a tool to perform local searches for known vulnerabilities include a [MISP plug-in](https://github.com/cve-search/Plugins/tree/master/plugins/plugins/MISP).
+* [Cuckoo modified](https://github.com/spender-sandbox/cuckoo-modified) - heavily modified version of Cuckoo Sandbox including a [MISP reporting module](https://github.com/spender-sandbox/cuckoo-modified/blob/master/modules/reporting/misp.py) to put the information into a MISP instance.
+* [Hybrid analysis](https://www.hybrid-analysis.com/) exports in MISP format.
+* [Joe Sanbox](https://www.joesecurity.org/) outputs analysis in MISP format.
 
