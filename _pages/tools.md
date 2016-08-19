@@ -26,6 +26,7 @@ is also to explore new ideas, concepts or functionality which can be integrated 
 * [misp-workbench](https://github.com/MISP/misp-workbench) - Tools to export data out of the MISP MySQL database and use and abuse them outside of this platform.
 * [MISpego](https://github.com/MISP/MISPego) - Maltego Transform to put entities into MISP events.
 * [MISP-maltego](https://github.com/MISP/MISP-maltego) - Set of Maltego transforms to inferface with a MISP instance.
+* [PyMISP](https://github.com/CIRCL/PyMISP) - Python library using the MISP Rest API.
 
 For the additional software created by the MISP project, check our [MISP project organization](https://github.com/MISP/).
 
