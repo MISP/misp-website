@@ -1,8 +1,535 @@
 Changelog
 =========
 
-%%version%% (unreleased)
-------------------------
+v2.4.51 (2016-08-29)
+--------------------
+
+New
+~~~
+
+- Add default role to the user creation, fixes #256. [iglocska]
+
+- New piece by piece stix export allowing large datasets to be exported.
+  [iglocska]
+
+- Add e-mail in event history view, fixes #1389. [iglocska]
+
+  - Only visible to site admins and org members
+
+- Simple diagnostic tool for the modules added. [iglocska]
+
+- Screenshot preview in the event view. [iglocska]
+
+- Added a way to clear worker queues. [iglocska]
+
+- Improved jobs overview. [iglocska]
+
+  - Correctly interpreting job states
+  - Show errored background jobs
+  - Show jobs that cannot proceed because no active worker is monitoring the queue
+  - Allow site admins to view the reason of the failure (up to 24h after the fact) including a stack trace
+
+Changes
+~~~~~~~
+
+- Enabled 2.4.51 db upgrade. [iglocska]
+
+- Version bump. [iglocska]
+
+- UI changes for the email field in the event history. [iglocska]
+
+- New filename regex & separate functions. [Andreas Ziegler]
+
+- Cleanup of the controllers and models. [iglocska]
+
+  - removed incorrect, useless boiler plate comments
+  - kept useful comments intact
+  - added some missing line breaks to make the codebase a bit more uniform
+  - removed some obviously obsolete TODO comments
+
+- Internal reference category attributes should always default to your
+  org only. [iglocska]
+
+- Remove obsolete backups of config files. [Andreas Ziegler]
+
+- Use central function for CIDR checks. [Andreas Ziegler]
+
+- Add central function for CIDR check. [Andreas Ziegler]
+
+- Cleanup TemplatesController.php. [Andreas Ziegler]
+
+- Filename regex changes. [Andreas Ziegler]
+
+- Fix indention of 4 files. [Andreas Ziegler]
+
+- Better readability of config files. [Andreas Ziegler]
+
+- Fix indention in some files. [Andreas Ziegler]
+
+- Add space after keywords if/for/foreach/while/switch/catch. [Andreas
+  Ziegler]
+
+- Add spaces before opening curly brackets. [Andreas Ziegler]
+
+- Remove whitespace at end of line. [Andreas Ziegler]
+
+- Remove whitespace (space/tab) from empty lines. [Andreas Ziegler]
+
+- Add newline character before EOF. [Andreas Ziegler]
+
+- Cleanup Sighting.php. [Andreas Ziegler]
+
+- Remove usage of App::import in favor of ::uses. [Andreas Ziegler]
+
+- Remove not used old plugin file. [Andreas Ziegler]
+
+- If the quickfilter on the event index only returns a single event,
+  redirect to the event view directly, fixes #1430. [Iglocska]
+
+  - the perfect last-minute-saturday-night patch
+
+- Rename FileAccess to FileAccessTool. [Andreas Ziegler]
+
+  every other tool classes name in the Lib/Tools/ folder also ends with "Tool"
+
+- Change FileAccess from static to instantiable class. [Andreas Ziegler]
+
+- Use 1/0 not true/false for conditions & other boolean sqlquery
+  elements. [Andreas Ziegler]
+
+- Org UUID visible on the organisations/view/ page #1445 - uuid field
+  always visible even when value is empty. [Cristian Bell]
+
+- Org UUID visible on the organisations/view/ page #1445. [Cristian
+  Bell]
+
+- Update cakephp to 2.8.6. [Andreas Ziegler]
+
+- Dont depend on MySQL-result-format of select-count() [Andreas Ziegler]
+
+- Remove obsolete upgrade stuff, unsupported. [Andreas Ziegler]
+
+- Remove obsolete Schema stuff. [Andreas Ziegler]
+
+- Add index for cake_sessions expires to MYSQL.sql. [Andreas Ziegler]
+
+- Added missing new line at the end of file. [iglocska]
+
+- Added the db changes needed for PR #1268. [iglocska]
+
+  - Since 2.4.50 was released without any DB modifications and a current commit required it, it was a good opportunity to add this, as we can fast-track PR 1268 this way
+
+- Replace a MySQL specific function by PHP code. [Andreas Ziegler]
+
+- Remove obsolete backticks from sql queries. [Andreas Ziegler]
+
+  backticks are only necessary to escape reserved keywords.
+  as backticks are MySQL-specific, having them only where really necessary
+   makes integrating support for other DBMS easier.
+
+- Fix typo. [Andreas Ziegler]
+
+- Added the tracking to all queued jobs. [iglocska]
+
+- Removed incorrect comments. [iglocska]
+
+- Made histogram.ctp a bit more readable. [iglocska]
+
+- Attribute list on view event page sort by date issue #1355. [Cristian
+  Bell]
+
+- Attribute list on view event page sort by date issue #1355. [Cristian
+  Bell]
+
+- Attribute list on view event page sort by date issue #1355. [Cristian
+  Bell]
+
+- Redundant members list and organisations page - tab versus 4spaces.
+  [Cristian Bell]
+
+- Redundant members list and organisations page. [Cristian Bell]
+
+- Redundant members list and organisations page #1013. [Cristian Bell]
+
+Fix
+~~~
+
+- Pushing upgraded to respect the internal sync setting. [iglocska]
+
+  - Allows the push of org only attributes
+  - No downgrading of attributes/events
+
+- Fixed an invalid log entry breaking the publishing process. [iglocska]
+
+- Added missing job exception viewer view file. [iglocska]
+
+- Fixes to the internal server setup. [iglocska]
+
+  - Only allow enabling internal mode if the host organisation is set and it is chosen as the remote organisation when adding the server sync
+  - This ensures that internal sync only happens when the same organisation owns both instances
+
+- Some minor fixes to the client_certs for the sync to align it with the
+  other upstream changes. [iglocska]
+
+- Some exports (HIDS, NIDS) failing on certain MySQL versions due to an
+  only_full_group_by policy violation in the attribute fetcher, fixes
+  #1390. [iglocska]
+
+- Updated the stix export files to support separate packaging.
+  [iglocska]
+
+- Update to the caching task. [iglocska]
+
+- Refactoring of the STIX export. [iglocska]
+
+  - Also adding it to the caching mechanism
+  - still WIP
+
+- Differentiate queued and running jobs if no granular progress is
+  returned. [iglocska]
+
+- Version bump. [iglocska]
+
+- Updated to the latest version of the MISP taxonomies. [Alexandre
+  Dulaunoy]
+
+- Update to latest version of PyMISP. [Alexandre Dulaunoy]
+
+- Corrected attribute degradation on pull. [iglocska]
+
+  - events were correctly degrading, however, attributes weren't on a pull
+  - also removed some ancient compatibility code that was there for MISP 2.0 which is a version that hasn't been supported in ~3 years
+
+- Cleaner way of handling no correlations in the correlation engine
+  changes. [iglocska]
+
+- Fixed a missing field in the correlation lookup causing travis to
+  fail. [iglocska]
+
+- Remove incorrect correlations on deleted attributes. [iglocska]
+
+- Performance boost for the correlations. [iglocska]
+
+  Going through insertMulti to insert correlations to get a massive speed boost
+
+- Removed debug from previous commit. [iglocska]
+
+- Resolved slow ingestion of warninglists. [iglocska]
+
+  - switched to a more direct database access approach for the warninglist entry insertion
+
+- Cleanup of some unused code. [iglocska]
+
+  - based on @rotanid's findings
+
+- Removed incorrect uses of pass by reference, fixes #1472. [iglocska]
+
+- Remove substr() from value in CIDR part of restSearch. [Andreas
+  Ziegler]
+
+- Add missing $ to variable name in CIDR part of attribute search.
+  [Andreas Ziegler]
+
+- Fixed an invalid array_merge in the attribute fetcher. [iglocska]
+
+- Raised the default timeout for modules. [iglocska]
+
+  - possible fix for #1466
+
+- Some exports (HIDS, NIDS) failing on certain MySQL versions due to an
+  only_full_group_by policy violation in the attribute fetcher, fixes
+  #1390. [iglocska]
+
+- Missing ACL entries added. [Iglocska]
+
+- Small fix to the Shibboleth authentication. [Iglocska]
+
+- Minor code issues: - added brackets to the IF/ELSE statement.
+  [Cristian Bell]
+
+- Minor code issues: - redundant var initialisation - for the
+  automatically created organization the "created_by" is 0, which
+  produces a Notice error in /View/Organization/view.ctp. [Cristian
+  Bell]
+
+- Attribute delete should not return the full event via REST, instead a
+  message saying that it was deleted similar to the event deletion is
+  enough, fixes #1449. [iglocska]
+
+- Added check for instances not using database sessions to skip the
+  automatic session cleanup. [iglocska]
+
+  - But... Use database sessions.
+
+- Fixed an issue with the histogram on newer MySQL versions. [iglocska]
+
+- Invalid response by the queryEnrichment() function if the module
+  server is not reachable. [iglocska]
+
+- Overwrite cached json exports, fixes #1439. [Richard van den Berg]
+
+- Cleaner input for caching jobs. [iglocska]
+
+- Fixed an issue with large samples from modules causing the import
+  process to fail. [iglocska]
+
+- Don't show the No worker active message in the jobs index if a job is
+  already completed. [iglocska]
+
+- Fixed the performance issues with the self cleaning by adding an index
+  to the expired field. [iglocska]
+
+- Some performance tuning for the auto-session-cleanup. [iglocska]
+
+- Debug mode not set throws notices. [iglocska]
+
+- Added automatic cleanup of expired sessions. [iglocska]
+
+  - on page load for site admins
+
+- View for the new jobs screen. [iglocska]
+
+- Invalid permission check order leads to a notice. [iglocska]
+
+- Show tag value in event history, fixes #1422. [iglocska]
+
+  - also log removed tags
+
+- Organisation index view fixes. [iglocska]
+
+  - Changed the name of the User count field
+  - Fixed an issue where the lookup of an invalid index not handled in the user count array occured when an organisation had no members (for example an external organisation, or a newly created local organisation)
+
+- Moved lookup function from controller to model and fixed some other
+  issues. [iglocska]
+
+  - That function has no reason not to be in a model
+  - Removed invalid contain
+  - Simple lookup against the users table is more efficient
+
+- Permissions for non-auth enabled users to use the API fixed.
+  [iglocska]
+
+- Hover not working correctly for users viewing the events of another
+  organisation. [iglocska]
+
+Other
+~~~~~
+
+- Merge branch '2.4.51' into 2.4. [iglocska]
+
+- Model/Server.php modified so the settings remain the same after config
+  change on the web UI. [ppanero]
+
+- Merge branch '2.4' into 2.4.51. [iglocska]
+
+- Merge branch '2.4' into 2.4.51. [iglocska]
+
+- Merge branch '2.4' into 2.4.51. [iglocska]
+
+- Merge branch '2.4' into 2.4.51. [iglocska]
+
+- Merge branch 'sslclientsync' into 2.4.51. [iglocska]
+
+- Merge branch 'sslclientcert' into sslclientsync. [iglocska]
+
+- Example API script using client cert. [Richard van den Berg]
+
+- Merge branch '2.4' into sslclientsync. [iglocska]
+
+- Add support for sync server SSL client certificates. [Richard van den
+  Berg]
+
+- Merge branch '2.4' into 2.4.51. [iglocska]
+
+- Merge branch '2.4' into 2.4.51. [iglocska]
+
+- First iteration of the internal sync rework. [iglocska]
+
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+
+- Merge pull request #1482 from Rafiot/travis. [Raphaël Vinot]
+
+  Fix travis
+
+- Fix travis. [Raphaël Vinot]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1476 from rotanid/filename-regexes. [Andras
+  Iklody]
+
+  new filename regex & separate functions
+
+- Merge pull request #1462 from rotanid/obsolete-files. [Andras Iklody]
+
+  remove obsolete backups of config files
+
+- Merge pull request #1469 from rotanid/centralize-cidr-check. [Andras
+  Iklody]
+
+  Centralize CIDR checks
+
+- Merge pull request #1470 from rotanid/cleanup-tplctr. [Andras Iklody]
+
+  cleanup TemplatesController.php
+
+- Merge pull request #1471 from rotanid/filename-regexes. [Andras
+  Iklody]
+
+  filename regex changes
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1468 from rotanid/bugfixes. [Andreas Ziegler]
+
+  Bugfixes
+
+- Merge pull request #1464 from rotanid/indention-fixes. [Andreas
+  Ziegler]
+
+  fix indention of 4 files
+
+- Merge pull request #1463 from rotanid/config-readability. [Andreas
+  Ziegler]
+
+  better readability of config files
+
+- Revert "chg: remove not used old plugin file" [Iglocska]
+
+  This reverts commit dd8ec54e2a6512a12c0214287db79a676a8dc968.
+
+- Merge pull request #1461 from rotanid/cleanup. [Andreas Ziegler]
+
+  Cleanup
+
+- Merge pull request #1460 from rotanid/sightings-cleanup. [Andreas
+  Ziegler]
+
+  chg: cleanup Sighting.php
+
+- Merge pull request #1459 from rotanid/uses-import. [Andras Iklody]
+
+  remove several usages of App::import() in favor of App::uses()
+
+- Merge pull request #1458 from rotanid/cleanup-old-plugin-orphans.
+  [Andras Iklody]
+
+  chg: remove not used old plugin file
+
+- Merge pull request #1454 from ppanero/sso_integration_plugin. [Andras
+  Iklody]
+
+  Bug fixing on shibboleth auth. DB group loading and missing email bug…
+
+- Bug fixing on shibboleth auth. DB group loading and missing email bugs
+  fixed. [ppanero]
+
+- Merge pull request #1456 from rotanid/fileaccess-overhaul. [Andras
+  Iklody]
+
+  FileAccess cleanup/consistency
+
+- Merge pull request #1451 from cristianbell/fix_minor_code_fixes.
+  [Andras Iklody]
+
+  fix: minor code issues:
+
+- Merge pull request #1443 from rotanid/boolean-datatype-handling.
+  [Andras Iklody]
+
+  change of boolean datatype handling #2
+
+- Merge pull request #1446 from
+  cristianbell/chg_1445_OrgUUID_visible_to_everyone. [Andras Iklody]
+
+  chg: Org UUID visible on the organisations/view/ page #1445
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1447 from rotanid/cakephp-update-286. [Andras
+  Iklody]
+
+  update cakephp to 2.8.6
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1444 from Rafiot/bump_pymisp. [Raphaël Vinot]
+
+  Bump PyMISP
+
+- Bump PyMISP. [Raphaël Vinot]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1442 from rotanid/less-mysql-dependency. [Andreas
+  Ziegler]
+
+  chg: dont depend on MySQL-result-format of select-count()
+
+- Merge pull request #1441 from rotanid/cleanup. [Andras Iklody]
+
+  Cleanup
+
+- Merge pull request #1440 from RichieB2B/ncsc-nl/cachejson-fix. [Andras
+  Iklody]
+
+  Overwrite cached json exports instead of appending
+
+- Added placeholder for authkey on server edit. [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Delete old and unused configuration file. [Alexandre Dulaunoy]
+
+  Delete old and unused configuration file
+
+- Merge pull request #1438 from rotanid/mysql-index-add-expires. [Andras
+  Iklody]
+
+  chg: add index for cake_sessions expires to MYSQL.sql
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1437 from rotanid/less-mysql-dependency. [Andras
+  Iklody]
+
+  Less mysql dependency
+
+- Merge pull request #1436 from rotanid/typofix. [Andreas Ziegler]
+
+  chg: fix typo
+
+- Merge branch 'memberslist' into 2.4. [iglocska]
+
+- Merge branch '2.4' into memberslist. [iglocska]
+
+- PyMISP updated to the latest version including the tests. [Alexandre
+  Dulaunoy]
+
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+
+- Merge pull request #1435 from cristianbell/fix_#1355. [Andras Iklody]
+
+  chg: attribute list on view event page sort by date issue #1355
+
+- Merge pull request #1429 from cristianbell/fix_misp2.49.50.js_#1428.
+  [Andras Iklody]
+
+  GET misp2.4.49.js - 404 Not Found #1428
+
+- GET misp2.4.49.js - 404 Not Found #1428. [Cristian Bell]
+
+- Update to the latest version of PyMISP. [Alexandre Dulaunoy]
 
 - Version bump. [iglocska]
 
