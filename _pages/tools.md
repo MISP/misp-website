@@ -37,6 +37,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [Cuckoo modified](https://github.com/spender-sandbox/cuckoo-modified) - heavily modified version of Cuckoo Sandbox including a [MISP reporting module](https://github.com/spender-sandbox/cuckoo-modified/blob/master/modules/reporting/misp.py) to put the information into a MISP instance.
 * [Hybrid analysis](https://www.hybrid-analysis.com/) exports in MISP format.
 * [Joe Sanbox](https://www.joesecurity.org/) outputs analysis in MISP format.
+* [Loki - Simple IOC Scanner](https://github.com/Neo23x0/Loki) includes a MISP receiver.
 * [MISP-Extractor](https://github.com/PidgeyL/MISP-Extractor) extracts information from MISP via the API and automate some tasks.
 * [IntelMQ](https://github.com/certtools/intelmq) support MISP to retrieve events and update tags.
 * [misp-to-autofocus](https://github.com/PaloAltoNetworks/misp-to-autofocus) - script for pulling events from a MISP database and converting them to Autofocus queries.
