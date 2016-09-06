@@ -23,5 +23,6 @@ A [docker container for MISP](https://github.com/xme/misp-docker) is maintained 
 
 ## License
 
-MISP is an open source and free software released under the AGPL (Affero General Public License). We are committed to ensure that MISP will remain a free and open source project on the long-run.
+The MISP software is an open source and free software released under the AGPL (Affero General Public License). We are committed to ensure that MISP will remain a free and open source project on the long-run.
 
+The MISP taxonomies are licensed under CC0 1.0 Universal (CC0 1.0) - Public Domain Dedication. This allows interoperability with any product. (open source or proprietary) 
