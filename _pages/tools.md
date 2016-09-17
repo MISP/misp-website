@@ -12,7 +12,7 @@ or MISP itself. A series of additional software are supported and handled by the
 The additional software supported by the MISP project allow the community to rely on additional tools to support their day-to-day operations. The objective
 is also to explore new ideas, concepts or functionality which can be integrated in MISP core software later on.
 
-### Software created by the MISP project
+### Software within the MISP project
 
 
 * [misp-modules](https://github.com/MISP/misp-modules) - Modules for expansion services in MISP
@@ -27,6 +27,7 @@ is also to explore new ideas, concepts or functionality which can be integrated 
 * [MISpego](https://github.com/MISP/MISPego) - Maltego Transform to put entities into MISP events.
 * [MISP-maltego](https://github.com/MISP/MISP-maltego) - Set of Maltego transforms to inferface with a MISP instance.
 * [PyMISP](https://github.com/CIRCL/PyMISP) - Python library using the MISP Rest API.
+* [MISP-STIX-Converter](https://github.com/MISP/MISP-STIX-Converter) -  An utility repo to assist with converting between MISP and STIX formats.
 
 For the additional software created by the MISP project, check our [MISP project organization](https://github.com/MISP/).
 
