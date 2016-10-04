@@ -14,6 +14,8 @@ We will participate to the following events:
 
 - Friday, November 11 at the [O'Reilly Security conference in Amsterdam](http://conferences.oreilly.com/security/network-data-security-eu/public/schedule/detail/52807), Alexandre Dulaunoy will talk about "Building and designing MISP - a practical information sharing tool for cybersecurity and fraud indicators.". The talk will also include the fundamental elements of free software and community in the MISP project and how the security community is evolving in sharing information.
 
+- Tuesday, November 29 at [Botconf 2016](https://www.botconf.eu/botconf-2016/programme/). We will talk about "MISP, the Threat Sharing Platform, a Developer Perspective to Extensions and Collaboration".
+
 and last but not least, there is the [annual MISP summit](https://2016.hack.lu/misp-summit/) that will take place in Luxembourg, Monday, October 17 (from 14:00 to 18:00) before the hack.lu conference. Don't forget [to register](https://www.eventbrite.com/e/misp-summit-ii-tickets-25259946179).
 
 
