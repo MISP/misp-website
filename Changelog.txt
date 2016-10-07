@@ -1,6 +1,811 @@
 Changelog
 =========
 
+v2.4.52 (2016-10-07)
+--------------------
+
+New
+~~~
+
+- First implementation of the freetext feed pull. [Iglocska]
+
+- View proposal count on event index and filter events on whether they
+  have proposals. [Iglocska]
+
+  - only non deleted proposals are counted
+  - allows users to quickly set up filters to view all events that have pending proposals
+
+- Rework of the attribute/proposal views and popovers round 2.
+  [Iglocska]
+
+  - also fixes to a bunch of small UI bugs and code style issues
+
+- First cut of the popover rework for form selects. [Iglocska]
+
+- Add the sightings cont to the event index. [Iglocska]
+
+- Add Tool for random string generation. [Andreas Ziegler]
+
+- Add compatibility Lib for random_int. [Andreas Ziegler]
+
+- Added the metadata flag to the event restsearch API. [Iglocska]
+
+  - allows fetching metadata only without including attributes/proposals
+
+- Db structure&data file for PostgreSQL support. [Andreas Ziegler]
+
+- Add basic documentation on experimental PostgreSQL support. [Andreas
+  Ziegler]
+
+- Add basic experimental support for PostgreSQL. [Andreas Ziegler]
+
+Changes
+~~~~~~~
+
+- Updated to the latest MISP taxonomies. [Alexandre Dulaunoy]
+
+- Cleanup of removed functionality. [Iglocska]
+
+- MISP taxonomies updated to the latest version. [Alexandre Dulaunoy]
+
+- Misp-warninglists updated to the latest version. [Alexandre Dulaunoy]
+
+- External analysis/text attributes containing a uuid converted to a
+  link to a MISP event. [Iglocska]
+
+- Simpler handling of empty/temporary arrays. [Andreas Ziegler]
+
+- Remove duplicate array key. [Andreas Ziegler]
+
+- Remove obsolete files. [Andreas Ziegler]
+
+- Update deb8/ubu1604 setup, composer to 1.2.1 (#1569) [Andreas Ziegler]
+
+- Update cakephp to 2.8.9 (#1560) [Andreas Ziegler]
+
+- MISP taxonomies updated to the latest version. [Alexandre Dulaunoy]
+
+- Set var eventIDs only if necessary. [Andreas Ziegler]
+
+- Html input text element should not have a separate closing elem.
+  [Andreas Ziegler]
+
+- Remove obsolete count variable. [Andreas Ziegler]
+
+- Default roles all have API access. [Andreas Ziegler]
+
+  - changed the default role set to have api access enabled
+  - existing installations not affected
+  - if a community wants to restrict API access for certain users they're free to do it
+
+  (same as aa0383064345d24e1ceb32621457ec156c2cd809 but for postgres this time)
+
+- Default roles all have API access. [Iglocska]
+
+  - changed the default role set to have api access enabled
+  - existing installations not affected
+  - if a community wants to restrict API access for certain users they're free to do it
+
+- Added sane defaults to the describeTypes api. [Iglocska]
+
+- GeneratePassword now uses random passwords with a minimum length of 12
+  characters. [iglocska]
+
+- Allow the usage of posted JSON objects in the bro export. [Iglocska]
+
+- Cleanup of removed Hids and Nids BroExport libraries that got merged
+  into BroExport.php. [Iglocska]
+
+- Refactor of the Bro export. [Iglocska]
+
+- Reverted the changes to the NIDS export. [Iglocska]
+
+- Correct some spelling issues. [Andreas Ziegler]
+
+- Remove duplicate check for fullAddress. [Andreas Ziegler]
+
+  got already checked a few lines above, can't be something else
+
+- Remove redundant call to beforeFilter, just calling its parent.
+  [Andreas Ziegler]
+
+- Remove a variable that isnt used. [Andreas Ziegler]
+
+- Remove obsolete code from TagsController. [Andreas Ziegler]
+
+- Remove obsolete js function submitTagForm. [Andreas Ziegler]
+
+- Remove obsolete file view.ctp. [Andreas Ziegler]
+
+- Remove obsolete variables. [Andreas Ziegler]
+
+- Remove redundant className attributes. [Andreas Ziegler]
+
+- Remove some references to variables. [Andreas Ziegler]
+
+- Use new Tool for random string generation. [Andreas Ziegler]
+
+- Remove some obsolete code from View/Layouts. [Andreas Ziegler]
+
+- Remove obsolete files succes.ctp. [Andreas Ziegler]
+
+- Use correct closing tag in view element. [Andreas Ziegler]
+
+- Creator e-mail in the event details, fixes #1252 (#1535) [Cristian
+  Bell]
+
+  * chg: creator e-mail in the event details, fixes #1252
+
+- Cleanup of old acl system config files that hasn't been used in years.
+  [Iglocska]
+
+- Update cakephp to 2.8.7. [Andreas Ziegler]
+
+- Use dependency instead of explicit deleteAll. [Andreas Ziegler]
+
+- Made the new attribute marker in the notification e-mails a bit more
+  obvious. [Iglocska]
+
+- Replace 2 spaces after tab by double tab. [Andreas Ziegler]
+
+- Replace 4 spaces after tab by double tab. [Andreas Ziegler]
+
+- Replace spaces before tabs by tabs. [Andreas Ziegler]
+
+- Replace spaces between tabs by tabs. [Andreas Ziegler]
+
+- Text moved to the first choice for internal reference category
+  attributes. [iglocska]
+
+- Changed the response of the functionality in the PR to be in line with
+  other ajax request responses in MISP. [Iglocska]
+
+- Removed requirement for findAdminsResponsibleForUser for not site
+  admin. [Iglocska]
+
+  - Take own org's admins / siteadmins before looking for site admins from other orgs
+
+- Chg: only show API/authkey to user with API key rights, fixes #1311 -
+  code improvements as per @iglocska 's comments.  thanks. [Cristian
+  Bell]
+
+- Only show API/authkey to user with API key rights, fixes #1311 - adds
+  some missing code parts from the initial commit. [Cristian Bell]
+
+- Only show API/authkey to user with API key rights, fixes #1311.
+  [Cristian Bell]
+
+- Rename findTags() to findEventIdsByTagNames() [Andreas Ziegler]
+
+- Remove some obsolete code. [Andreas Ziegler]
+
+- Changed the default event table engine to InnoDB. [iglocska]
+
+- Set "User" as the default role for new installations. [iglocska]
+
+Fix
+~~~
+
+- Fixes to the ssdeep detection as it was way too loose. [Iglocska]
+
+- Resolved several issues with error handling in the new feed system.
+  [Iglocska]
+
+- Removed already removed file that got reverted. [Iglocska]
+
+  - As first committed by @rotanid
+  - The file is not used any longer, however removing it causes issues unless we clean the model cache
+  - upgrading to a new version will force the cleaning of the model cache, so it's a great time to finally remove it
+
+- Various fixes to the feed system. [Iglocska]
+
+  - allow users to override the IDS flags and keep all attributes pulled from a freetext feed IDS = off
+  - UI changes
+  - fix to a bug that caused already deleted attributes to be counted as existing ones
+
+- Added missing initialisation of the synctool. [Iglocska]
+
+- Added some missing entries to gitignore. [Iglocska]
+
+- Added missing changes to the javascript file. [Iglocska]
+
+- The JSON schema regarding the related event from Array -> Object.
+  [Alexandre Dulaunoy]
+
+- Left off the actual file affected for the last commit. [Iglocska]
+
+- Fixed a bug with the event view. [Iglocska]
+
+  - the fetcher was moving proposals within an attribute if the proposal was directed at the attribute (correctly)
+  - this left the event proposal list in a non progressive array key format, which lead to a weird situation where the JSON format used string numeral keys in a dict as opposed to the desired list. Nobody in their right mind would ever want that.
+  - fixed
+
+- Fixed the incorrect column order on the event index. [Iglocska]
+
+- Fixed the broken check that prevented the sightings count from
+  displaying. [Iglocska]
+
+- Really restrict the shown proposal count to non deleted proposals.
+  [Iglocska]
+
+- Added changes to JS. [Iglocska]
+
+- Added the capability to merge attachments/samples. [Iglocska]
+
+- Fixed the event index in various places (such as the user admin view)
+  [Iglocska]
+
+  - also added missing view files from previous patch
+
+- Left off the changes to the js. [Iglocska]
+
+- Various fixes to the user index, fixes #1597, fixes #1598. [Iglocska]
+
+  - highlight deleted users
+  - use the same index for the org user view (without the filter options)
+  - fixes the pagination of the users when viewing it through the organisation view
+
+- Added the git commit ID to the feed request. [Iglocska]
+
+- Org id potentially not being set when capturing tags. [Iglocska]
+
+- Fixed an issue that resulted in empty event tags showing up in the
+  event index JSON. [Iglocska]
+
+- Small fix to the worker start script. [Iglocska]
+
+- Even dirtier hack to only replace the STIX_Package object with a
+  Package object. [Iglocska]
+
+- Several fixes to the STIX export. [Iglocska]
+
+  - based on the findings of @RichieB2B
+
+- Fixed an issue with the restsearch export potentially incorrectly
+  loading all eligible events in one go into memory. [Iglocska]
+
+- Fix an issue where duplicates of auth methods in Security.auth keep
+  piling up. [Iglocska]
+
+  - due to a bug, each change in the server settings with an auth plugin enabled would reappend the full list of enabled auth plugins to Security.auth
+  - this lead to an exponential growth of the number of entries in the array in the config file
+
+- Missing new TLDs in free text import, solves #1149 (#1574) [Cristian
+  Bell]
+
+  * fix: missing new TLDs in free text import, solves #1149
+
+- Php warning on buildAlertEmailBody in Event.php. [Andreas Ziegler]
+
+  if an attributes type was longer than $appendlen-2 a php warning was logged.
+  str_repeat()'s 2nd parameter, an integer, must not be smaller than 0.
+
+- Don't show the org restriction of a tag in the event view JSON.
+  [Iglocska]
+
+- Set the org_id field to 0 if it is not set. [Iglocska]
+
+- Removed accidentally committed code. [Iglocska]
+
+- Fixed an anchor in the documentation. [Iglocska]
+
+  - as pointed out by @rotanid
+
+- Removed functions needed for the delegation restored. [Iglocska]
+
+  - as discovered by @RichieB2B
+
+- Fixed an issue with the thread index that prevented your org only
+  threads from ever being visible to users, as highlited in #1570.
+  [Iglocska]
+
+- Typo in comment. [Andreas Ziegler]
+
+- The server add view incorrectly allowed the internal server settin to
+  be set even if the default organisation picked wasn't the host
+  organisation. [Iglocska]
+
+- Hide the salt key in the UI unless it's the old default key, fixes
+  #1566. [Iglocska]
+
+- No tag set in the remote index leads to notice errors. [Iglocska]
+
+- Sort server preview events by timestamp, fixes #1558. [Iglocska]
+
+- Don't try to show sightings count if sightings aren't enabled.
+  [Iglocska]
+
+- Missing return keyword before a message-string. [Andreas Ziegler]
+
+- PostgreSQL handling in __dropIndex() [Andreas Ziegler]
+
+- DropIndex before adding indexes on tags/org_id &
+  cake_sessions/expires. [Andreas Ziegler]
+
+  to make sure they are created from scratch
+
+- Restrict tag usage for restricted tags in a place where it was missed.
+  [Iglocska]
+
+- Don't load relations when running the password shell. [Iglocska]
+
+- Removed left in debug line. [Iglocska]
+
+- Append text to variable (as originally intended) [Andreas Ziegler]
+
+  without this change, the text won't be used or display ever
+
+- Add keyword 'new' to an exception throw. [Andreas Ziegler]
+
+- Force order of the regex entries. [Iglocska]
+
+- Fixes to the API request e-mail. [Iglocska]
+
+- Fixes a bug introduced by f37963fde4ad91b625d3ee80eb52ebd048f3dc71
+  where on API request the user itself receives an e-mail and not his
+  org_admin or site_admin. [Cristian Bell]
+
+- Added a fallback for no active flag being set on sharing group
+  capture. [Iglocska]
+
+- Issue resulting from references removal, #1501, 25e52a6 (#1544)
+  [Andreas Ziegler]
+
+- Fallback to insecure random for php 5.x if the random_compat submodule
+  isn't loaded. [iglocska]
+
+- Fixed the inversed namespacing in the STIX export, fixes #1543.
+  [iglocska]
+
+- Added missing changes needed for the new description of the bro
+  export. [Iglocska]
+
+- Updated the bro documentation. [Iglocska]
+
+- Remove the temp directory after generating the bro cache. [Iglocska]
+
+- Refactor of the bro export to always create a zip archive with
+  separate files if "all" types are queried. [Iglocska]
+
+- Some changes to the bro export. [Iglocska]
+
+  - moved the whitelisting out of the plugin
+  - source now contains the instance host org name (if applicable), the event UUID and the creator org name
+
+- Removing some unused code. [Cristian Bell]
+
+- Fix to an invalid parameter description on the automation page, fixes
+  #1530. [Iglocska]
+
+- Fixed an issue where non API users could not download events in
+  JSON/XML format, fixes #1525. [Iglocska]
+
+- Updated to the latest version. [Alexandre Dulaunoy]
+
+- Fix the broken bruteforce protection. [Iglocska]
+
+  - Moved the bruteforce protection directly to the login action
+  - Fixed the datetime format used by the protection
+  - Cleaned up the logging of failed attempts
+
+- Removed deprecated path from functions that are allowed for API users.
+  [Iglocska]
+
+- Fixed the style of a page header. [Iglocska]
+
+- Fixed an issue with internal sync failing on more than one added
+  server. [Iglocska]
+
+- Further fixes to the internal sync. [Iglocska]
+
+- Internal sync fixed for pushes on your org only events. [Iglocska]
+
+- Fixed various issue with the stix export, fixes #1505. [Iglocska]
+
+- Typo recurisve/recursive in EventsController. [Andreas Ziegler]
+
+- Fix to an invalid namespace in CIQ based elements in STIX. [Iglocska]
+
+- Revert to the old functionality of the stix export where the data is
+  passed back from the internal stix method, fixes #1509. [Iglocska]
+
+- Notify the user requesting API key access if e-mailing is disabled on
+  the instance. [Iglocska]
+
+- Fixed an issue where fetching the PGP key without entering an e-mail
+  address in the user creation form wasn't handled cleanly. [iglocska]
+
+- Some clarification on the user creation/edit forms. [iglocska]
+
+- Cleanup of the routes file. [iglocska]
+
+- Removed unreachable line referencing a non-existing variable.
+  [iglocska]
+
+- Cleanup of missing whitespaces in PR. [Iglocska]
+
+- Fixed a newly introduced bug that breaks the NIDS exports, as
+  referenced in #1489. [iglocska]
+
+- Added the default role selector to the ACLComponent. [iglocska]
+
+- Removed filename check from the AppController. [iglocska]
+
+  - rerouted all calls to the method to the Model equivalent
+
+- Check whether e-mailing is enabled or not before publishing.
+  [iglocska]
+
+  - before the publishing process (wheter by a background worker or not) would be executed before checking whether e-mailing was even enabled
+  - this lead to a lot of e-mail jobs that ended up doing nothing but creating a log entry
+
+- Invalid indeces used for the MISP.host_org_id setting. [iglocska]
+
+- Add key length to text field index. [iglocska]
+
+- Removed incorrect index in the previous commit. [iglocska]
+
+- Update version number to 2.4.51 in MYSQL.sql. [Andreas Ziegler]
+
+- Removed unused lookup in EventsController::index(), fixes #1484.
+  [iglocska]
+
+  - old code became obsolete when the taxonomies were implemented
+
+- Fixed a copy paste issue with the description comment of a method,
+  fixes #1483. [iglocska]
+
+- Added 2.4.51's database changes to MYSQL.sql. [iglocska]
+
+- Added internal convenience method to check remote server version.
+  [iglocska]
+
+- Event index should respect pagination requests for API users.
+  [iglocska]
+
+- Inverse conditional for cleaning up the expired sessions. [iglocska]
+
+- Moved the example API script using SSL client certificate. [iglocska]
+
+Other
+~~~~~
+
+- Merge branch '2.4.52' into 2.4. [Iglocska]
+
+- Revert "fix: Removed already removed file that got reverted"
+  [Iglocska]
+
+  This reverts commit 832321a77c77bf325cc301772792e39a01cad198.
+
+- Merge pull request #1600 from RichieB2B/ncsc-nl/update-tags. [Andras
+  Iklody]
+
+  Add missing tags from pushed events
+
+- Add missing tags from pushed events. [Richard van den Berg]
+
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+
+- Merge branch 'attribute_merge' into 2.4. [Iglocska]
+
+- Allow merging for site admins. [Richard van den Berg]
+
+- Allow merging of event attributes. [Richard van den Berg]
+
+- Merge branch 'publishalert' into 2.4. [Iglocska]
+
+- Fix indication of new attributes in E-mail alerts, fixes #1521.
+  [Richard van den Berg]
+
+- Merge branch 'taginfo' into 2.4. [Iglocska]
+
+- Merge branch '2.4' into taginfo. [Iglocska]
+
+- Merge pull request #1595 from RichieB2B/ncsc-nl/stix-fix. [Andras
+  Iklody]
+
+  Fix STIX XML and JSON exports
+
+- Avoid duplicate key-sequence to satisfy STIX unique identity-
+  constraint. [Richard van den Berg]
+
+- Fix STIX XML and JSON exports. [Richard van den Berg]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Put tag info from event in E-mail subject, fixes #1107. [Richard van
+  den Berg]
+
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge pull request #1591 from thomai/patch-2. [Andras Iklody]
+
+  sudo is needed to create new ssl key.
+
+- Sudo is needed to create new ssl key. [Thomas Maier]
+
+  A normal user does not have permissions to the used folder /etc/ssl/private in Ubuntu 16.04/Mint 18 by default.
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- MISP rfc repository added. [Alexandre Dulaunoy]
+
+- Basic README added to explain the two JSON schemas. [Alexandre
+  Dulaunoy]
+
+- Merge pull request #1590 from Rafiot/upschema. [Alexandre Dulaunoy]
+
+  Update JSON schema
+
+- Add lax JSON schema for PyMISP. [Raphaël Vinot]
+
+- Merge pull request #1589 from thomai/patch-1. [Alexandre Dulaunoy]
+
+  Added python-setuptools for ubuntu install howto
+
+- Added python-setuptools for ubuntu install howto. [Thomas Maier]
+
+  You need to install the package python-setuptools on Ubuntu 16.04/Mint 18 to use the setup.py for the STIX installation.
+
+- Merge pull request #1588 from RichieB2B/ncsc-nl/stix-fix. [Andras
+  Iklody]
+
+  Two small STIX fixes (again)
+
+- Use consistent STIX/CyBOX IDs for domain|ip entries. [Richard van den
+  Berg]
+
+- Correct CIQ namespace. [Richard van den Berg]
+
+- Merge pull request #1585 from RichieB2B/ncsc-nl/stix-fix. [Andras
+  Iklody]
+
+  Make STIX validate
+
+- - correct namespace order - stix set_id_namespace calls cybox
+  set_id_namespace. [Richard van den Berg]
+
+- Revert "fix: missing new TLDs in free text import, solves #1149
+  (#1574)" [Cristian Bell]
+
+  This reverts commit e3bb9d3a4204ca00931e3f77afc318aaf292382e.
+
+- Merge pull request #1571 from rotanid/bugfix-php-warning. [Andras
+  Iklody]
+
+  fix: php warning on buildAlertEmailBody in Event.php
+
+- Merge pull request #1575 from RichieB2B/ncsc-nl/small-fixes. [Andras
+  Iklody]
+
+  Two small fixes
+
+- Only show publish links for site admins. [Richard van den Berg]
+
+- Log target org instead of requesting org. [Richard van den Berg]
+
+- Separated a2enmod lines to prevent some confusion. [Andras Iklody]
+
+- Merge pull request #1570 from rotanid/cleanup-obsolete. [Andras
+  Iklody]
+
+  cleanup
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge pull request #1567 from ppanero/shibbsso. [Alexandre Dulaunoy]
+
+  default org changed to id instead of name
+
+- Default org changed to id instead of name. [ppanero]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge pull request #1559 from rotanid/bugfixes. [Andras Iklody]
+
+  Bugfixes
+
+- Merge pull request #1382 from treyka/patch-2. [Alexandre Dulaunoy]
+
+  Add install procedure for current version of ZeroMQ
+
+- Add install procedure for current version of ZeroMQ. [Trey Darley]
+
+  Debian 8 has an ancient version of ZeroMQ which is not compatible with the latest pyzmq on PyPI. Manually installing the current ZeroMQ release is a viable workaround.
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge pull request #1551 from rotanid/bugfixes. [Andras Iklody]
+
+  Bugfixes & Cleanup
+
+- Merge pull request #1550 from rotanid/mysql-postgresl-too. [Andras
+  Iklody]
+
+  chg: Default roles all have API access
+
+- Merge pull request #1549 from ppanero/shibbsso. [Alexandre Dulaunoy]
+
+  warining  due to session start fixed, warning due to org assigment wh…
+
+- Warining  due to session start fixed, warning due to org assigment
+  when possible null fixed, readme updated. [ppanero]
+
+- Merge pull request #1547 from
+  cristianbell/fix_request_API_wrong_user_emailed. [Andras Iklody]
+
+  fix: fixes a bug introduced by f37963fde4ad91b625d3ee80eb52ebd048f3dc…
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch '1541' into 2.4. [iglocska]
+
+- Merge branch '2.4' into 1541. [iglocska]
+
+- Merge branch '1457' into 2.4. [iglocska]
+
+- Merge branch '2.4' into 1457. [iglocska]
+
+- Merge branch '1501' into 2.4. [iglocska]
+
+- Merge branch '2.4' into 1501. [iglocska]
+
+- Merge branch '1503' into 2.4. [iglocska]
+
+- Merge branch '2.4' into 1503. [iglocska]
+
+- Merge branch '1511' into 2.4. [iglocska]
+
+- Merge branch '2.4' into 1511. [iglocska]
+
+- Merge branch 'feature/bro-export' into 2.4. [iglocska]
+
+- Merge branch '2.4' into feature/bro-export. [iglocska]
+
+- Merge branch '2.4' into feature/bro-export. [Iglocska]
+
+  Conflicts:
+  	app/Model/Event.php
+
+- Model/Server.php modified so the settings remain the same after config
+  change on the web UI. [ppanero]
+
+- Bro export funtionality. [ppanero]
+
+- Merge pull request #1538 from rotanid/small-cleanup. [Andreas Ziegler]
+
+  Small cleanup
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge pull request #1527 from rotanid/cakephp-update-287. [Andras
+  Iklody]
+
+  update cakephp to 2.8.7
+
+- Merge pull request #1512 from rotanid/cleaner-delete. [Andras Iklody]
+
+  Tag.php: use dependency instead of explicit deleteAll
+
+- Merge pull request #1520 from ppanero/shibbsso. [Andras Iklody]
+
+  stringer checks on email and nids_sid of user calculated from max
+
+- Stringer checks on email and nids_sid of user calculated from max.
+  [ppanero]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge pull request #1504 from ppanero/shibbsso. [Alexandre Dulaunoy]
+
+  shibboleth sso debug log capabilities added
+
+- Deny by default instead of read-only. [ppanero]
+
+- Typosfixed for PR. [ppanero]
+
+- Shibboleth sso plugin index failure fixed. [ppanero]
+
+- Shibboleth sso debug log capabilities added. [ppanero]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge pull request #1510 from rotanid/bugfix. [Andreas Ziegler]
+
+  fix: typo recurisve/recursive in EventsController
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge pull request #1502 from rotanid/tabs-spaces. [Andreas Ziegler]
+
+  Tabs vs. spaces indention
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge pull request #1448 from TheDr1ver/2.4. [Andras Iklody]
+
+  Add support to export an OpenIOC file via API
+
+- Extra indent. [Nick Driver]
+
+- Spaces to Tabs. [Nick Driver]
+
+- Add support to export an OpenIOC file via API (Change spaces to tabs)
+  [Nick Driver]
+
+- Merge branch 'apirequest' into 2.4. [Iglocska]
+
+- Merge branch '2.4' into apirequest. [Iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch 'cristianbell-
+  fix_1311_only_show_API/authkey_to_user_with_rights' into 2.4.
+  [Cristian Bell]
+
+- Merge branch 'fix_1311_only_show_API/authkey_to_user_with_rights' of
+  https://github.com/cristianbell/MISP into cristianbell-
+  fix_1311_only_show_API/authkey_to_user_with_rights. [Cristian Bell]
+
+- Merge pull request #1497 from ppanero/centos_install. [Andras Iklody]
+
+  Update INSTALL.centos7.txt
+
+- Update INSTALL.centos7.txt. [Pablo Panero]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1493 from ppanero/centos_install. [Andras Iklody]
+
+  change in SELtype, httpd_sys_content_rw_t does not exists
+
+- Change in SELtype, httpd_sys_content_rw_t does not exists. [ppanero]
+
+- Merge pull request #1485 from MISP/feature/postgresql. [Andras Iklody]
+
+  support PostgreSQL database backend
+
+- Merge pull request #1491 from rotanid/rename-findtags-function.
+  [Andras Iklody]
+
+  rename findTags() to findEventIdsByTagNames()
+
+- Merge pull request #1492 from rotanid/small-cleanup. [Andras Iklody]
+
+  chg: remove some obsolete code
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1486 from rotanid/update-version-nr-in-sql-file.
+  [Andras Iklody]
+
+  fix: update version number to 2.4.51 in MYSQL.sql
+
 v2.4.51 (2016-08-29)
 --------------------
 
