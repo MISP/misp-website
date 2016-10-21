@@ -6,9 +6,9 @@ featured: /assets/images/misp-small.png
 
 We recently released two Internet-Drafts describing the MISP format:
 
- - [misp-core-format]() - the core JSON format of MISP which describes the Event format including meta-information, attributes, shadow
+ - [misp-core-format](https://tools.ietf.org/html/draft-dulaunoy-misp-core-format) -  the core JSON format of MISP which describes the Event format including meta-information, attributes, shadow
  attributes. In addition, the Manifest format which bundles MISP events is described.
- - [misp-taxonomy-format]() - The MISP taxonomy JSON format describes how to define a machine tag namespace in a parseable format.
+ - [misp-taxonomy-format](https://tools.ietf.org/html/draft-dulaunoy-misp-taxonomy-format) - The MISP taxonomy JSON format describes how to define the complete namespace of machine tags in a parseable format.
 
 The [misp-rfc](https://www.github.com/MISP/misp-rfc) project was started to better document and describe MISP formats. The specifications are
 based from the real implementation cases (**code is law**). As we received many requests of vendors or software developers willing to integrate MISP.
