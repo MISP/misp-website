@@ -1,6 +1,168 @@
 Changelog
 =========
 
+v2.4.53 (2016-10-21)
+--------------------
+
+New
+~~~
+
+- Added a way to disable the default HTTP_ header namespace or to alter
+  it to something else for the custom auth plugin. [Iglocska]
+
+- Added quick search in tag selection popup. [Iglocska]
+
+- CSV feeds and various fixes. [Iglocska]
+
+  - Added the CSV feed format
+    - users can specify which fields in the CSV should be parsed
+    - comment lines are automatically omitted
+    - new settings system added to feeds, currently only used for the value fields
+
+  - Slight rework of the correlation lookup for the feeds
+    - got the Speed Force treatment
+    - correctly checks against value1 and value2 instead of value
+
+  - Various freetext import fixes
+
+- Added correlations to the freetext feed preview. [Iglocska]
+
+Changes
+~~~~~~~
+
+- Added the capability to search for attributes by uuid. [Iglocska]
+
+  - ID field in the attribute search now accepts attribute UUIDs
+  - Partially dealing with #1618
+
+- Made the attribute search fields smaller and the form insta-submit on
+  ctrl+enter. [Iglocska]
+
+  - Deals with sme of the issues in #1618
+
+- Rename CENTOS install files to get to the end of the list of install
+  guides. [Iglocska]
+
+  - people seem to think that we recommend CentOS for MISP which is absolutely not the case
+
+- Added UUID to attribute list in event view. [Iglocska]
+
+- Keep the event ID in the correlation graph's event nodes' name in
+  addition to the info field. [Iglocska]
+
+- Changed the event node names to (partial) event info fields for the
+  correlation graph. [Iglocska]
+
+- Validate the event_id as a numeric value. [Iglocska]
+
+- Some changes to event defaults. [Iglocska]
+
+  - Added default analysis value in case it is not set when adding a new event
+  - Changed the threat level default to undefined if no default has been set
+
+- MISP taxonomies updated to the latest version (OSINT + Manifest
+  updated) [Alexandre Dulaunoy]
+
+Fix
+~~~
+
+- Fixes an issue where adding a new user allowed an invalid role choice.
+  [Iglocska]
+
+  - as reported by: Vytautas Paulikas and Robert Giruckas from SEC Consult.
+
+- Fixes an issue where an invalid role could be assigned to a user.
+  [Iglocska]
+
+  - As reported by: Vytautas Paulikas and Robert Giruckas from SEC Consult.
+
+- Separate the GFI upload directory from the attachment directories.
+  [Iglocska]
+
+  - ensure that no one can't retrieve GFI export files
+  - As reported by Vytautas Paulikas and Robert Giruckas from SEC Consult
+
+- Don't correlate shadow attributes to attributes in the same event.
+  [Iglocska]
+
+- Fixed the titles of some columns on the event index. [Iglocska]
+
+- Resolved an issue where the new uuid field didn't get coloured the
+  same way as the remaining proposal fields. [Iglocska]
+
+- Don't destroy the session on failed customauth login if customauth is
+  not enforced. [Iglocska]
+
+- If the custom auth is not required, throw the user to the usual login
+  if the custom auth login failed. [Iglocska]
+
+- Fixes a bug that returned the wrong user's email address on the event
+  view, viewed by an org admin. [Iglocska]
+
+- Added default values to some of the event fields when adding a new
+  event. [Iglocska]
+
+  - basically the only required field now is the info field, everything else uses sane defaults
+
+- Fixed an inverse lookup. [Iglocska]
+
+- Fixed an issue with editing feeds. [Iglocska]
+
+- Pull icon visible even when pull is not enabled for an instance, fixes
+  #1608. [Iglocska]
+
+- Log name of remote server in event history, fixes #1607. [Iglocska]
+
+  - currently only affects pull
+  - it is becoming more and more crucial that we differentiate between a normal REST add and a push sync. This would allow us to log source servers also on pushes.
+
+- Default setting change when browsing the preview index. [Iglocska]
+
+  Automatically set a threat level based on the server config
+
+- Changed the default value of the threat level ID to match the previous
+  fix. [Iglocska]
+
+- Fixed an issue where a validation fail would only semi-populate the
+  feed add form fields. [Iglocska]
+
+- Fixed an error on the automation page. [Iglocska]
+
+- Fixed various minor issues and a potential more serious bug.
+  [Iglocska]
+
+  - various UI issues prevented the freetext/csv feed related fields from being hidden when adding a new MISP feed
+  - issue that potentially prevented new feeds from being saved if no target event is set (cannot reproduce)
+
+- Fixed an issue where adding an empty event would set the error key in
+  the returned JSON. [Iglocska]
+
+- Fixed an issue with the type restrictions, fixes #1603. [Iglocska]
+
+  - fixes an issue where the type list in the attribute add/edit view wouldn't automatically restrict to the valid options
+
+- Fixes an issue where the csv feed pull would be routed through the
+  freetext code path. [Iglocska]
+
+Other
+~~~~~
+
+- Version bump. [Iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge pull request #1610 from RichieB2B/ncsc-nl/bcmath. [Andras
+  Iklody]
+
+  Add rh-php56-bcmath as a requirement for CentOS
+
+- Add rh-php56-bcmath as a requirement for CentOS. [Richard van den
+  Berg]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
 v2.4.52 (2016-10-07)
 --------------------
 
