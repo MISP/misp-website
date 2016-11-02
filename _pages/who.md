@@ -51,6 +51,21 @@ Many third-parties and organizations provide services or software to integrate w
 
 Check out the [tools page]({{  "/tools" | prepend: site.baseurl | prepend: site.url }}).
 
+## Research using MISP and Attribution
+
+If you are writing an academic paper relying or using MISP, you can cite MISP with the following BibTeX entry:
+
+~~~~
+@inproceedings{wagner2016misp,
+  title={MISP: The Design and Implementation of a Collaborative Threat Intelligence Sharing Platform},
+  author={Wagner, Cynthia and Dulaunoy, Alexandre and Wagener, G{\'e}rard and Iklody, Andras},
+  booktitle={Proceedings of the 2016 ACM on Workshop on Information Sharing and Collaborative Security},
+  pages={49--56},
+  year={2016},
+  organization={ACM}
+}
+~~~~
+
 ## Companies Providing MISP Support
 
 **The list is provided as-is without any warranty.**
