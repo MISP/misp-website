@@ -1,6 +1,237 @@
 Changelog
 =========
 
+v2.4.54 (2016-11-04)
+--------------------
+
+New
+~~~
+
+- Added new statistics page, fixes #1648, fixes #1557. [Iglocska]
+
+  - brought back the quick organisation overview as it's a much missed feature
+  - added treemap for tags
+  - brought attribute histogram into statistics page
+
+  - more coming in the future
+
+- Added a check and deletion tools for orphaned attributes to the
+  diagnostics page. [Iglocska]
+
+- Added two additional api filters to the event index (timestamp,
+  publishtimestamp) [Iglocska]
+
+  - Currently these are not exposed to the filter UI
+  - Easy way to get metadata newer than timestamp/publish timestamp
+
+- Enrichment queries now pass the base64 encoded data to the enrichment
+  modules. [Iglocska]
+
+  - first implementation, malware is sent as an encryptet zip base64 encoded
+
+- Added admin user APIs. [Iglocska]
+
+  - The following urls are now available via the API:
+    - /admin/users/add
+    - /admin/users/edit/id
+    - /admin/users/view/id
+    - /admin/users/index
+    - /users/resetauthkey/id
+
+  - For add and edit, sending a GET request will describe the APIs
+
+  - New API response system's initial implementation, to be used for other APIs in the future
+    - standardised responses
+    - standardised error codes
+    - convenience functions
+
+  - TODO:
+    - tie non admin functions into the APIs (maybe?)
+    - reuse the new API system for other APIs
+
+- First commit for the user API rework and the new response handler.
+  [Iglocska]
+
+- Show file sizes on the export page, fixes #1640. [Iglocska]
+
+- Added new feature to block attributes from IDS sensitive exports based
+  on proposals. [Iglocska]
+
+  - Enabled via a new server setting (MISP.proposals_block_attributes)
+  - Attributes are skipped from exports that require the to_ids flag if:
+    - they have an active proposal that proposes to remove the to_ids flag
+    - they have an active proposal that proposes to delete the attribute
+
+  - Currently affected exports:
+    - OpenIOC
+    - All HIDS exports
+    - All NIDS exports
+    - All text exports
+    - RPZ Zone file export
+
+Changes
+~~~~~~~
+
+- Further work on the user APIs. [Iglocska]
+
+- Remove obsolete getEnrichmentSettings() [Andreas Ziegler]
+
+  seems to have been replaced by Module.php getModuleSettings
+
+- Remove obsolete variables. [Andreas Ziegler]
+
+- Remove obsolete dropIndex() [Andreas Ziegler]
+
+  not needed for reference, as there's a duplicate in AppModel.php (& in git)
+
+- Use the TLD lists from the warninglists, fixes #1149. [Iglocska]
+
+  - simply load any enable warninglist entries from the pre-defined TLD warninglists
+  - Pass the resulting array to the complex type tool
+  - during domain type heuristics, if the TLD list is not empty use the supplied list
+  - alternatively generate a list based on the old TLD rules
+  - does not alter any functionality otherwise
+
+Fix
+~~~
+
+- PyMISP to the latest version. [Alexandre Dulaunoy]
+
+- Fixed an issue with an incorrect condition on the admin index.
+  [Iglocska]
+
+- Increased space between taxonomy names in the treemap as some of them
+  can be quite long. [Iglocska]
+
+- PyMISP updated to the latest version. [Alexandre Dulaunoy]
+
+- PyMISP updated to the latest version. [Alexandre Dulaunoy]
+
+- MISP name fixed. [Alexandre Dulaunoy]
+
+- Fixed annoying capitalisation mess in the event index parameters.
+  [Iglocska]
+
+  - just throw everything to lowercase
+
+- Fixed an invalid path for attribute downloads, fixes #1647. [Iglocska]
+
+- Fixed some merge issues. [Iglocska]
+
+- Fixes an invalid check allowing user profile modifications to target
+  different users within the org. [Iglocska]
+
+  - User edit had an incorrect check that allowed a normal user edit on a different account within the same org
+  - Also removed the deprectated option for this function to be used by org/site admins to be used as an alternative to the admin edit
+
+  - as reported by: Vytautas Paulikas and Robert Giruckas from SEC Consult.
+
+- Attempted fix for an issue with large stix exports getting truncated.
+  [Iglocska]
+
+- Certificate typo fixed. [Alexandre Dulaunoy]
+
+- Lowercasing in the tag search wasn't exactly great. [Iglocska]
+
+- Removed test code. [Iglocska]
+
+- Fixed an issue where pushing events worked even if the remote user
+  wasn't a sync user. [Iglocska]
+
+- Fixed an issue with the attribute search. [Iglocska]
+
+  - a typo prevented the lookup based on event UUIDs
+
+- Check if the taxonomy directory contains the machinetag.json file
+  before trying to read it, fixes MISP/misp-taxonomies#45. [Iglocska]
+
+- Fixed several issues with the import modules. [Iglocska]
+
+  - config settings are not passed correctly to the import modules
+  - not having any paste/file upload in an import module would fail
+    - removed the requirement to have either filled, if a module doesn't use any of the two fields it will simple pass an empty data field
+    - this could be handy for modules that create event data based on the userconfig fields
+
+- Fixes an issue where attachments / malware samples were erroneously
+  coloured white. [Iglocska]
+
+  - placeholder hard-coded white class replaced with dynamic value
+  - Can't check the referenced issue, shame on Norwegian.no for claiming to have wi-fi onboard...
+
+- Invalid bro export generation due to invalid syntax on the intel
+  field. [Iglocska]
+
+- Made the UUID field in the event view optional. [Iglocska]
+
+  - displaying the UUID field seemed to clutter the UI for some users
+  - by default it is now disabled and a new control called show context is introduced
+  - could be reused in the future for similar use-cases
+
+- Fixed a UI issue with proposals and links, fixes #1624. [Iglocska]
+
+  - fixed an issue where link type attribute values were not visible due to links being too similar of a colour to the blue background of attributes with indicators
+
+- Better fix than the previous one. [Iglocska]
+
+- Fixed a potential empty event_id field that blocked new CSV feeds from
+  being added. [Iglocska]
+
+- Removed double sanitisation of the resolved attributes. [Iglocska]
+
+Other
+~~~~~
+
+- Version bump. [Iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Add: Screenshot updated. [Alexandre Dulaunoy]
+
+- Add: Screenshot of an event - version 2.4.53. [Alexandre Dulaunoy]
+
+- Merge branch 'features/userapi' into 2.4. [Iglocska]
+
+  Conflicts:
+  	app/Controller/UsersController.php
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Add: Hackathon drawing added. [Alexandre Dulaunoy]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Taxonomies updated to the latest version. [Alexandre Dulaunoy]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge pull request #1578 from rotanid/cleanup. [Andras Iklody]
+
+  Cleanup
+
+- Merge pull request #1637 from deralexxx/patch-3. [Andras Iklody]
+
+  mention Roadmap in readme
+
+- Mention Roadmap in readme. [Alexander J]
+
+  .
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Removed Imported via the Freetext Import ... text. [Christophe
+  Vandeplas]
+
 v2.4.53 (2016-10-21)
 --------------------
 
