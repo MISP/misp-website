@@ -4,13 +4,13 @@ layout: post
 featured: /assets/images/misp-small.png
 ---
 
-After the recent news of a [Threat Intelligence Platform vendor to stop its activities](http://soltra.com/en/articles/soltra-wind-down/), we received some questions about our strategies as a Threat Intelligence Platform.
+After the recent news of a [Threat Intelligence Platform vendor stopping its activities](http://soltra.com/en/articles/soltra-wind-down/), we have received some questions about our strategies as a Threat Intelligence Platform.
 
-MISP is an open-source and free software released some years ago in the interest of the community. The MISP project became a significant project
-allowing people to freely and openly contribute. Our objective is not to lock-down users but on the contrary, we want a large and diverse community to collect
-more interesting feedback on how information sharing is done and how MISP could support these respective use-cases. As an example, the [financial sector was taken into consideration](https://www.circl.lu/assets/files/MISP-financial-sector-infosharing.pdf) because many of our users decided to support financial indicators in addition to cyber security indicators.
+MISP is open-source and free software released some years ago in the interest of the community. The MISP project became a significant undertaking
+allowing people to freely and openly contribute. Our objective is not to lock-down users. On the contrary, we want a large and diverse community to gather
+valuable feedback on how information sharing is done and how MISP could support these respective use-cases. As an example, the [financial sector was taken into consideration when extending the datamodel](https://www.circl.lu/assets/files/MISP-financial-sector-infosharing.pdf) because many of our users decided to support financial indicators in addition to cyber security indicators.
 
-Our social contract is simple, MISP is an open-source software (licensed under the [AGPL](https://www.gnu.org/licenses/agpl-3.0.en.html)) and MISP is secured to remain open-source forever.
+Our social contract is simple: MISP is open-source software (licensed under the [AGPL](https://www.gnu.org/licenses/agpl-3.0.en.html)) and MISP is secured to remain open-source forever.
 
 When joining and contributing to the MISP project, it's a **reciprocal model**. While contributing to MISP, you bring value into the MISP project and this value is shared among the community and not captured in the sole benefit of one user or organisation.
 
@@ -20,8 +20,8 @@ How can you contribute to MISP?
  - Taking the time to report bugs or sharing ideas via [GitHub issues](https://github.com/MISP/MISP/issues/).
  - Helping us improve the documentation of [MISP](https://github.com/MISP/misp-book).
  - Creating [trusted communities](http://www.misp-project.org/communities/) of information sharing.
- - and if you want to support us financialy you can also get in touch with us at info@misp-project.org.
+ - and if you want to support us financially you can also get in touch with us at info@misp-project.org.
 
-Our work is public and transparent. Each contribution is a seed to improve MISP and information sharing. We are enthusiastic to get contributions and this is how we build the MISP project.
+Our work is public and transparent. Each contribution is a seed to improve MISP and information sharing. We are always enthusiastic to get contributions as this is a vital part of how we build the MISP project.
 
 
