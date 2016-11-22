@@ -1,6 +1,164 @@
 Changelog
 =========
 
+v2.4.55 (2016-11-22)
+--------------------
+
+New
+~~~
+
+- Sightings enabled by default. [Iglocska]
+
+- Added timestamps of shadow attributes wherever appropriate. [Iglocska]
+
+- Added uuid as a restsearch parameter, fixes #1683. [Iglocska]
+
+  - search for events/attributes by uuid
+
+- Added checks for the loaded php extensions, fixes #1672. [Iglocska]
+
+  - Diagnosing not loaded extensions was a nightmare
+  - New system checks the loaded extensions via php and php-cli (could help with un****ing some RHEL/CentOS issues)
+  - Version check for the php-cli php version added
+
+  - only one extension is checked currently, to be updated at a later point in time (remember to also update the web and the cli extension list!)
+
+- Show the date of the latest sighting / organisation on the event view.
+  [Iglocska]
+
+- Added multiselect for attributes on the event view. [Iglocska]
+
+  - simply check the checkbox of an attribute/proposal then shift click the checkbox of another to select the full range
+  - affects #1618
+
+Changes
+~~~~~~~
+
+- Version bump. [Iglocska]
+
+- Changed the behaviour of the proposal index. [Iglocska]
+
+  - choose between own events / all visible events
+  - show timestamps on the proposal index and the creator org of the event
+
+- Updated the NIDS exports. [Iglocska]
+
+  - allow posting JSON/XML payloads with filter options
+  - Added the type field to be able to restrict / attribute type
+
+Fix
+~~~
+
+- Some additional changes to accomodate for the automatically enabled
+  sightings. [Iglocska]
+
+- Tell MISP to run the db update. [Iglocska]
+
+- MISP taxonomies updated to the latest version. [Alexandre Dulaunoy]
+
+- Fixed annoying issues with the tags not looking OK on a feed/server
+  event preview. [Iglocska]
+
+- Added sighting time to the event sighting summary. [Iglocska]
+
+- Do not try to sort on fields that are not paginated. [Iglocska]
+
+- Opened up attributes/editField to the API, fixes #1674. [Iglocska]
+
+- Fixed an issue where adding an attribute to an empty temlate as a
+  first element caused an error, fixes #1635. [Iglocska]
+
+- Invalid error returned to the STIX/CyBox diagnostics if no version is
+  installed, fixes #1661. [Iglocska]
+
+- Revert to previous commit. [Alexandre Dulaunoy]
+
+- Travis move to MySQL 5.6. [Alexandre Dulaunoy]
+
+- Mysql requirements. [Alexandre Dulaunoy]
+
+- Travis mysql requirement. [Alexandre Dulaunoy]
+
+- Fixed an issue with editing MISP feeds, fixes #1664. [Iglocska]
+
+- Fixed pagination issues with the taxonomy view, fixes #1660.
+  [Iglocska]
+
+- Tightened check for tag removals. [Iglocska]
+
+  - users could remove tags via the api for other organisations
+
+- Fixes an issue where the wrong set of tags were applied when
+  populating an event from a template, fixes #1636. [Iglocska]
+
+- Left off changes in attribute.php for the previous commit. [Iglocska]
+
+- Added domain|ip to nids exports. [Iglocska]
+
+- Tag API only returns a subset of the results, fixes #1656. [Iglocska]
+
+  - pagination was used even for the API, changed it to a simple find
+
+- Fixed annoyting column order in the statistics. [Iglocska]
+
+- Some small fixes to the add user API, affects #1621. [Iglocska]
+
+  - Do not force change_pw/termsaccepted default settings based on role when using the API
+  - Some cleanup
+
+Other
+~~~~~
+
+- Merge branch '2.4.55' into 2.4. [Iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge pull request #1670 from Rafiot/travis. [Alexandre Dulaunoy]
+
+  Fix mysql on travis
+
+- Fix mysql on travis. [Raphaël Vinot]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Update to UPDATE.txt. [Andras Iklody]
+
+  - indicate that a git pull is all that is normally needed.
+
+- Merge branch '1641' into 2.4. [Iglocska]
+
+- - search input for "select tag" is fixed and does not scroll up
+  anymore - removed input end tag - added css classes to select tag and
+  select tag source popups - so they can be easily changed via the local
+  extra css. [cristian.bell@freenet.de]
+
+- Merge branch '1652' into 2.4. [Iglocska]
+
+- Replaced ip address with * for the virtualHost. [cristian bell]
+
+- Merge branch '1651' into 2.4. [Iglocska]
+
+- Block alert e-mails based on tag. [Richard van den Berg]
+
+- Merge branch '1642' into 2.4. [Iglocska]
+
+- Update UPDATE.txt. [Deventual]
+
+- Update UPDATE.txt. [Deventual]
+
+- Merge branch '1653' into 2.4. [Iglocska]
+
+- Sorts the "Attributes per organization" array by the total number of
+  attr, highest on top. [cristian bell]
+
 v2.4.54 (2016-11-04)
 --------------------
 
