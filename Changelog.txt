@@ -1,6 +1,245 @@
 Changelog
 =========
 
+v2.4.57 (2016-12-19)
+--------------------
+
+New
+~~~
+
+- Added new option to the attribute level restsearch. [iglocska]
+
+  - filter on attributes using timestamps newer than parameter
+
+- Added the warninglist enforcement flag to the remaining exports.
+  [iglocska]
+
+  - still missing: Export modules
+  - consider having the flag for misp JSON/XML and STIX perhaps?
+
+- WIP: Parameter to remove warning list hits from exports. [iglocska]
+
+- Added a way to disable certain tags from the UI, fixes #1733.
+  [iglocska]
+
+  - also added a new setting to set the default posture when an event containing a tag is pushed (via the API/sync/etc)
+    - new setting allows to automatically set new tags to hidden
+
+  - the hidden setting only hides the tags from the tag selection when tagging an event
+
+- First iteration of the new types. [iglocska]
+
+Changes
+~~~~~~~
+
+- Added documentation on the warninglist enforcement to the automation
+  page. [iglocska]
+
+  - also added a bunch of missing parameter descriptions
+  - added missing code for some of the warninglist enforcement calls
+
+- Added mobile-application-id to payload installation. [iglocska]
+
+- Exposed the new warninglist override via APIs and moved the lookup
+  method to the warninglist model. [iglocska]
+
+- Added new attribute type: mobile applicaiton id. [iglocska]
+
+  - Also some further changes to the warninglist enforcement
+
+- Added twitter-id and mapped github-repo to external analysis.
+  [iglocska]
+
+- Rework of the galaxy UI, fixes #1738. [iglocska]
+
+  - Reworked the UI elements to allow for more convenient pivoting between event index/event view/galaxy pages
+  - Reworked the galaxy quick view on the event view
+  - country flags added to the country fields
+  - added authors to the clusters
+  - tightened the access control to not show non-working buttons for users that don't have tagging rights
+
+- Changed the event download as filename to misp.event.id.uuid.format,
+  fixes #1515. [Iglocska]
+
+- Added missing description field and ordered galaxy fields, fixes
+  #1744. [iglocska]
+
+Fix
+~~~
+
+- Failtypo fixed. [iglocska]
+
+- Taxonomies updated to the latest version. [Alexandre Dulaunoy]
+
+- Added exception for site admins to be able to add galaxies to events
+  of other users. [iglocska]
+
+- Galaxy updated to the latest version. [Alexandre Dulaunoy]
+
+- Added additional refanging patterns to the complex type tool, fixes
+  #470. [iglocska]
+
+- Better validation of links, fixes #1745. [iglocska]
+
+  - move to the built in url validation instead of the regex we used before
+
+- Fixed several issues with the template file uploads, fixes #1743.
+  [iglocska]
+
+  - Bug with uploading attachments as described in the issue
+    - move from pass by reference for a loop was still lacking the correct selector to update the array element instead of the loop's copy
+    - attachment uploader tried to base64 the file-name instead of the file-data and store it as the attachment
+
+  - Fix to an unrelated bug that didn't encrypt malicious files when going through the template uploader
+
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+
+- Issue with new installations not correctly setting the default
+  password for the initial user. [iglocska]
+
+- Fixed an invalid link used when pivoting from galaxies to clusters in
+  the add cluster flow. [iglocska]
+
+- Fixed an issue with the warninglist detection. [iglocska]
+
+- On newer MySQL versions proposing a deletion to an attribute failed,
+  fixes #1741. [iglocska]
+
+- Fixed an issue with the freetext importer. [iglocska]
+
+  - It looks like PHP does parse single quoted strings and replaces double backslashes with a single literal backslash
+
+- Fixes the missing default for the descriptions of galaxy clusters.
+  [iglocska]
+
+- Fixes MySQL 5.7 group by issues. [iglocska]
+
+- Python3 tests. [Raphaël Vinot]
+
+- Pivot to the filtered event index from the event view using the
+  selected cluster as a filter, affects #1731. [Iglocska]
+
+- Galaxy permission issue fixes #1. [Iglocska]
+
+  - affects #1731
+
+Other
+~~~~~
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+
+- Merge pull request #1769 from RichieB2B/ncsc-nl/tl-in-subj. [Andras
+  Iklody]
+
+  Make threat level in E-mail subject optional
+
+- Make threatlevel in E-mail subject optional. [Richard van den Berg]
+
+- Merge branch '2.4.57' into 2.4. [iglocska]
+
+- Some fixes and pre-validation modifications. [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1767 from RichieB2B/ncsc-nl/backupdir. [Andras
+  Iklody]
+
+  Don't let misp-backup.sh fill up /tmp
+
+- Use OutputDirName for temporary storage. [Richard van den Berg]
+
+- Merge pull request #1766 from RichieB2B/ncsc-nl/speedup. [Andras
+  Iklody]
+
+  Speed up MISP by factor 10
+
+- Add missing indexes. [Richard van den Berg]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1760 from moshekaplan/patch-2. [Andras Iklody]
+
+  Update xINSTALL.centos7.txt
+
+- Update xINSTALL.centos7.txt. [Moshe Kaplan]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge pull request #1757 from RichieB2B/ncsc-nl/24h-sighting. [Andras
+  Iklody]
+
+  Use 24 hour clock
+
+- Use 24 hour clock. [Richard van den Berg]
+
+- Merge pull request #1755 from RichieB2B/ncsc-nl/fulltext. [Andras
+  Iklody]
+
+  Add fulltext indexes from AppModel.php to MYSQL.sql
+
+- Add fulltext indexes from AppModel.php to MYSQL.sql. [Richard van den
+  Berg]
+
+- Merge pull request #1754 from moshekaplan/patch-1. [Andras Iklody]
+
+  Update xINSTALL.centos7.txt
+
+- Update xINSTALL.centos7.txt. [Moshe Kaplan]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1742 from RichieB2B/ncsc-nl/proposal_to_delete.
+  [Andras Iklody]
+
+  Set proposal_to_delete default to 0
+
+- Set proposal_to_delete default to 0. [Richard van den Berg]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge pull request #1728 from RichieB2B/ncsc-nl/backup. [Andras
+  Iklody]
+
+  Some adjustments to misp-backup.sh:
+
+- Some adjustments to misp-backup.sh: - allow setting MISPPath in misp-
+  backup.conf - use MySQL username/password from database.php by default
+  - use machine sortable date for output file - do not store TmdDir name
+  in tar - use tar non-verbosely. [Richard van den Berg]
+
+- Merge pull request #1722 from MISP/travis. [Raphaël Vinot]
+
+  up: Run tests in python3
+
+- Merge branch '2.4' into travis. [Raphaël Vinot]
+
+- Merge branch '2.4' into travis. [Raphaël Vinot]
+
+- Up: Run tests in python3. [Raphaël Vinot]
+
+- Merge pull request #1727 from kirzaks/2.4. [Andras Iklody]
+
+  Snort optimisation
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4. [Armins]
+
+- Added fast_pattern. [Armins]
+
 v2.4.56 (2016-12-07)
 --------------------
 
