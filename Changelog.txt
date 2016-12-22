@@ -1,6 +1,95 @@
 Changelog
 =========
 
+v2.4.58 (2016-12-22)
+--------------------
+
+New
+~~~
+
+- Disable correlation. [iglocska]
+
+  - globally
+  - on an event level
+  - on an attribute level
+
+Changes
+~~~~~~~
+
+- Updated misp galaxies. [iglocska]
+
+Fix
+~~~
+
+- MISP galaxy update. [Alexandre Dulaunoy]
+
+- Set event to locked = 1 when importing from a MISP export. [iglocska]
+
+- Changed bro cached export to the .intel extension. [iglocska]
+
+- Changed bro file extension to .intel. [Andras Iklody]
+
+- Broken bro export. [Andras Iklody]
+
+  - Sanitisation issues with linebreaks in comments breaking the export
+
+- Cluster synonyms were shown twice on the event view, fixes #1777.
+  [iglocska]
+
+- Pull not respecting negated tag rules fixed, fixes #1775. [Andras
+  Iklody]
+
+- Don't show the attribute level correlation checkboxes if the event
+  correlation is disabled. [iglocska]
+
+- Invalid closing tag. [iglocska]
+
+  - copy pasta fail supreme
+
+- Added an alternative to bcmod if it doesn't exist. [iglocska]
+
+  - simply threw an exception if the module wasn't loaded on the event view if it contained an IBAN number
+
+- Added ACL changes. [iglocska]
+
+- Some fixes with the automatic publish/unpublish feedback. [iglocska]
+
+  - automatically set the event to unpublished in the view when adding/removing tags
+  - officially the keep @RichieB2B happy patch ;)
+
+- Unpublish events when tagging/removing tags. [iglocska]
+
+  - same for galaxy clusters
+  - also, new ajax way of showing/hiding published status
+
+- Invalid lookup caused the same message to be displayed on correlation
+  disabling and enabling for attributs. [iglocska]
+
+Other
+~~~~~
+
+- Merge branch 'feature/disable_correlation' into 2.4. [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  feature/disable_correlation. [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1779 from RichieB2B/nscs-nl/fuzzyhash. [Andras
+  Iklody]
+
+  Use Fuzzy_Hash_Value for ssdeep
+
+- Use Fuzzy_Hash_Value for ssdeep. [Richard van den Berg]
+
+- Merge pull request #1774 from enemarke/2.4. [Andras Iklody]
+
+  Added support for creating users into different roles depending on ld…
+
+- Added support for creating users into different roles depending on
+  ldap group membership. [Emil Enemærke]
+
 v2.4.57 (2016-12-19)
 --------------------
 
