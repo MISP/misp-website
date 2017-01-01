@@ -1,15 +1,133 @@
 Changelog
 =========
 
-%%version%% (unreleased)
-------------------------
+v2.4.59 (2017-01-01)
+--------------------
+
+New
+~~~
+
+- Added a new field for an exclude regex for the CSV / Freetext feeds.
+  [iglocska]
+
+  - just set a php compatible PCRE regex pattern to exclude values
+
+- Added feed metadata download link. [iglocska]
+
+- Various new feed features. [iglocska]
+
+  - import feed descriptor json pastes to add a list of pre-defined feeds
+  - improvements to the feed pull (a single non validating attribute shouldn't break the process)
+  - altered the saving of the attributes to happen in chunks during a feed pull to avoid very large feeds from stalling the process
+  - split the feeds into 3 tabs: default, custom, all
+
+- Added caching and pagination to freetext/csv feeds. [iglocska]
+
+- Added session settings to the server settings. [iglocska]
+
+  - also, new method for writing the MISP config file
+
+Changes
+~~~~~~~
+
+- Version bump. [iglocska]
+
+- Changed the feed cache locations. [iglocska]
+
+- Added description for feed metadata download. [iglocska]
+
+- Added colour fields to sql files. [iglocska]
+
+- Colour field backticks removed. [iglocska]
+
+- Added colour fields to taxonomies. [iglocska]
+
+- View the feed index via the API (to easily extract / share the
+  settings) [iglocska]
 
 Fix
 ~~~
 
-- Small fix on the attribute correlation popup's header. [iglocska]
+- Copy paste fail. [iglocska]
 
-  - F-A-I-L
+- Left off changes to the complextypetool. [iglocska]
+
+  - oops
+
+- Fixed a copy paste bug and the default feed index scope. [iglocska]
+
+  - defaults to all feeds now
+
+- Fix to several issues with the feeds: [iglocska]
+
+  - settings (csv column number, delimiter) were ignored
+  - skipped fields were still counted by the paginator showing some pages with fewer than the expected 60 values
+
+- Setting naming consistency fail. [iglocska]
+
+  - separator != delimiter
+
+- Fixed some minor issues with the feed import. [iglocska]
+
+- Updated the ACL. [iglocska]
+
+- Added rest response to the importFeeds method. [iglocska]
+
+- Fixed the colour settings for taxonomies. [iglocska]
+
+- Updated to the latest version of the galaxy. [Alexandre Dulaunoy]
+
+- Org field missing in log entry causing proposal sync to fail.
+  [iglocska]
+
+  - Added SYSTEM as the default value
+
+- Allow users to fetch their PGP keys. [iglocska]
+
+- Updated to the latest version of misp galaxy. [Alexandre Dulaunoy]
+
+- PyMISP updated to the latest version. [Alexandre Dulaunoy]
+
+- Show additional flags for non MISP feeds. [iglocska]
+
+- Fixed a new issue introduced in ajax response handling. [iglocska]
+
+- Invalid element load while browsing the galaxies, fixes #1752.
+  [iglocska]
+
+  - was hard to spot at first, but indeed the bug is as described in the issue and masked by an ajax load of the contents
+
+- Only show related events in red if it's created by the same org, fixes
+  #1528. [iglocska]
+
+  - was using the local owner id instead of the creator id
+
+Other
+~~~~~
+
+- Merge branch '2.4.59' into 2.4. [iglocska]
+
+- Merge branch '2.4' into 2.4.59. [iglocska]
+
+- Merge branch 'feature/colour' into 2.4.59. [iglocska]
+
+- Merge pull request #1786 from RichieB2B/ncsc-nl/fix-fuzzy. [Andras
+  Iklody]
+
+  Fix STIX exports for malware-sample attributes
+
+- Fix STIX exports for malware-sample attributes. [Richard van den Berg]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1784 from SteveClement/patch-1. [Andras Iklody]
+
+  Broken Image Typo
+
+- Broken Image Typo. [Steve Clement]
+
+  Remove bang (!) so it doesn't get interpreted as an image.
 
 v2.4.58 (2016-12-22)
 --------------------
@@ -30,6 +148,10 @@ Changes
 
 Fix
 ~~~
+
+- Small fix on the attribute correlation popup's header. [iglocska]
+
+  - F-A-I-L
 
 - MISP galaxy update. [Alexandre Dulaunoy]
 
