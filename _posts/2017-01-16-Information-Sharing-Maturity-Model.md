@@ -4,25 +4,25 @@ layout: post
 featured: /assets/images/misp-small.png
 ---
 
-At MISP project, we are practical. We do software (from MISP core to MISP workbench, data models (from taxonomy, warning-lists, galaxies and practical standards) to solve our problems with information sharing and improve the state of the information shared. If we lack something, we build it.
+Here at the *MISP project*, we are practical oriented people. We create software (from *MISP core* to *MISP workbench*), develop data models (from taxonomy, warning-lists, galaxies) and build practical standards to solve information sharing challenges and improve the state of art of information sharing. That's what we strive for. If we lack something, we build it. If we see a requirement, we fullfil it. Unbureaucratically, result-orientedly and professionally.
 
-Various information sharing communities are relying on MISP core to support the sharing of cybersecurity indicators, fraud information, incidents or even threat-actor details. We received interesting feedback of organisations wanting to know the maturity of a specific sharing partner while they are on their sharing community. Understanding the maturity and information sharing capabilities of an organisation can help to better serve them by knowing which scheme of contribution they usually use. From an open source software perspective, this model supports us to discover where functionallities are lacking or under used.
+These days, various information sharing communities built their Information Sharing infrastructure on *MISP core* to support the sharing of cybersecurity indicators, fraud information, incidents or even threat-actor details. We received interesting feedback of organizations, wanting to know the maturity of a specific sharing partner while [TODO: not clear enough] they are on their sharing community. Understanding the maturity and information sharing capabilities of an organisation can help to better serve them by knowing which scheme of contribution they usually use. From an open source software perspective, this model supports us to discover where functionallities are lacking or under used.
 
-So we were wondering whether we could build an automatic calculation of a maturity model that solves the above issue using the information shared within a sharing community relying on MISP. We therefore took our favourite tools and designed a simple maturity model based on real information available in a sharing community.
+One day we asked ourselves the question if we could build an automatic calculation of a maturity model that solves the above issue, using the information shared within a sharing community in MISP. We therefore took our favourite tools and designed a simple maturity model based on real information available in a sharing community.
 
-The sharing model is based on 2 different scoring types, C which are the different contributions that an organisation can do in the community and EC which are external contributors to the MISP project community providing an independent score.
+The maturity model is based on 2 different scoring types: *C* which describes the different types of contributions  that an organisation can do in the community and *EC* which are external contributors [TODO: should it not be 'contributions'?] to the MISP project community, facilitating an independent score. The different types of contributions are defined further down.
 
-Community maturity level (SUM(C)) which is the score of an organisation based on the contribution within a specific community. This score can be calculated on a each instance/community.
+Community maturity level *(SUM(C))*, which is the score of an organisation based on the contribution within a specific community. This score can be calculated on each instance/community. 
 
-The community maturity level of an organisation can remain private to a community or shared with the community at large depending of the instance configuration.
+The community maturity level of an organisation can remain private to a community or be shared with the community at large, depending on the configuration of the instance.
 
-Global MISP project contribution score (SUM(EC)) which is the score calculated from the MISP project contributions of an organisation. This score is calculated globally by the MISP project.
+Global MISP project contribution score *(SUM(EC))*, which is the score calculated from the MISP project contributions by an organisation. This score is calculated globally by the MISP project.
 
 # Information Sharing Maturity Level (ISML)
 
-The Information Sharing Maturity Level (ISML) is calculated from the sum of values which can be extracted automatically from the MISP instance holding the access to a sharing community. Each value is independent from each others meaning that depending of the information sharing practices of an organisation, a maturity level can be calculated. The maturity level can be represented by a simple vector to show the gap or the current practices and capabilities of an organisation (e.g. an organisation only consuming information via the API has a specific capability which can be rated). As previously stated, this information can be kept privately in a specific sharing community or shared globally.
+The Information Sharing Maturity Level (ISML) is calculated from the sum of values which can be extracted automatically from the MISP instance provisioning access to a sharing community. Each value is independent from each others meaning that depending of the information sharing practices of an organisation, a maturity level can be calculated [TODO: not clear for me]. The maturity level can be represented by a simple vector to show the gap or the current practices and capabilities of an organisation (e.g. an organisation only consuming information via the API has a specific capability which can be rated). As previously stated, this information can be kept privately in a specific sharing community or shared globally.
 
-- L1 Have access to a MISP instance accessing a community, have at least one user with an encryption key and receive encrypted notification. This is the minimal requirement to start calculating the ISML. (M)
+- L1 Have access to a MISP instance accessing a community, have at least one user with an encryption key and receive encrypted notifications. This is the minimal requirement to start calculating the ISML. (M)
 - C1 Contributing via proposals or discussions at least once a year. (M)
 - C2 Actively contributing proposals to recent events. (M)
 - C3 Adding events at least once a year. (M)
@@ -33,15 +33,16 @@ The Information Sharing Maturity Level (ISML) is calculated from the sum of valu
 - C8 Having their own MISP instance. (M)
 - C9 Having own and connected MISP instance. (M)
 - C10 Running their own connected sharing communities.
-- C11 Ensuring best security practices when sharing information. (e.g. when TLP:AMBER information is shared, encryption of the notification is enabled.)
+- C11 Ensuring best security practices when sharing information (e.g. when TLP:AMBER information is shared, encryption of the notification is enabled).
 
 The aim behind this score is to help organisations contributing **to know where they are, what they can still do to improve their practices and to fully benefit from information sharing**.
 
-MISP events are composed of one or more attributes which describe the intent of the event package from indicators, vulnerabilities or any relevant information. The scoring is based on the events contributed or the proposal made as described at each level. A value is usually derived from an automatic analysis within the MISP instance (where M is mentioned). Some values parameter are still under investigation on how the value is properly derived from an instance (where M is lacking).
+MISP events are composed of one or more attributes which describe the intent of the event package from indicators, vulnerabilities or any relevant information. The scoring is based on contributed events or the proposals made as described at each level. A value is usually derived from an automatic analysis within the MISP instance (where M is mentioned). Some values parameter are still under investigation on how the value is properly derived from an instance (where M is lacking).
+[TODO: Previous paragraph is about automatically fetching data. Suggestion to replace M with A. (M) naturally feels like 'manual' and (A) like automatic, so the (M) is confusing]
 
 ## Global MISP Project Contribution Score
 
-Global MISP project contribution score is independent of the Information Sharing Maturity Level. This score is for scoring the level of contribution within the open source project MISP. it's an additional score to see how far an organisation is contributing to the MISP project.
+Global MISP project contribution score is independent from the Information Sharing Maturity Level. This score is for calculating the level of contribution within the open source project MISP. It is an additional score to see how far an organisation is contributing to the MISP project.
 
 - EC1 Contributing to taxonomies. (M)
 - EC2 Contributing to warning-lists. (M)
@@ -50,7 +51,7 @@ Global MISP project contribution score is independent of the Information Sharing
 - EC5 Contributing to MISP core. (M)
 - EC6 Reporting bugs or issues or ideas. (M)
 
-Contributing stands for at least one pull-request at least every year on the corresponding public git repository. Reporting means to open at least one issue per year.
+Contributing stands for at least one pull-request at least every year on the corresponding public git repository. Reporting means to open at least one issue per year. [TODO: more points for more?]
 
 # Next Steps
 
