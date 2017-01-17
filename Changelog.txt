@@ -1,6 +1,264 @@
 Changelog
 =========
 
+v2.4.60 (2017-01-17)
+--------------------
+
+New
+~~~
+
+- Request encryption of samples via the event REST api. [iglocska]
+
+  - Add the encrypt flag to attributes to be added via the events/add or events/edit api
+  - simply add "encrypt": true to the attributes that have a sample attached in the "data" field
+  - make sure that the attribute value is the desired filename, the hashes will be added automagically
+
+- Add a new api to check the supported PyMISP version. [iglocska]
+
+- Index API for sightings added. [iglocska]
+
+- Sightings API improvements WIP. [iglocska]
+
+  - reworked responses
+  - started work on the new index
+
+- Show attributetags on sync event preview. [Andreas Ziegler]
+
+- Show attributetags on api calls for single attributes. [Andreas
+  Ziegler]
+
+- Show usage count of an attributetag in tag list. [Andreas Ziegler]
+
+- Show usage count of an attributetag in taxonomies detail view.
+  [Andreas Ziegler]
+
+- Search for attributetag by clicking on one. [Andreas Ziegler]
+
+  including major reorganisation of attributes search() method
+
+- Add&remove attributetags on event view. [Andreas Ziegler]
+
+- Add search&result for attributetags. [Andreas Ziegler]
+
+- Add findAttributeIdsByAttributeTagNames() to Tag Model. [Andreas
+  Ziegler]
+
+- Show attributetags on event view. [Andreas Ziegler]
+
+- Show attributetags on attribute index. [Andreas Ziegler]
+
+- Add config options for attribute tagging. [Andreas Ziegler]
+
+- Add AttributeTag. [Andreas Ziegler]
+
+- Add table attribute_tags on updates to 2.4.53. [Andreas Ziegler]
+
+- Add sql for attribute_tags (PostgreSQL) [Andreas Ziegler]
+
+- Add sql for attribute_tags (MySQL) [Andreas Ziegler]
+
+Changes
+~~~~~~~
+
+- Use cakeresponse for JSON response in updateGraph instead of
+  serialize. [Iglocska]
+
+- Update of the JS filename. [Iglocska]
+
+- Version bump. [Iglocska]
+
+- Some UI love. [Iglocska]
+
+  - back button fixed on tag selection popup
+  - esc now closes popup forms / field edits
+
+- Allow disabling/enabling publishing of events imported via the UI,
+  fixes #1845. [Iglocska]
+
+- Updated the taxonomies. [Iglocska]
+
+- Description of session.timeout updated. [Iglocska]
+
+- Added event ID to the attribute level tags. [iglocska]
+
+- Made the attribute level tagging mandatory. [iglocska]
+
+  - despite my earlier request to @rotanid, there is no need for this feature to be optional, it's one of the few cases where it should be universally enabled
+
+Fix
+~~~
+
+- Fix a unicode issue with the correlation graphs. [Iglocska]
+
+- Fix an issue with the graphs when no relations are found. [Iglocska]
+
+- Clarification a selectable group is also an active group. [Alexandre
+  Dulaunoy]
+
+  or an active group is also selectable.
+
+- Epic fail due to missing brackets. [Iglocska]
+
+  - mimicing Apple's gotofail well.
+
+- Some UI love. [Iglocska]
+
+- Update the attribute timestamp on attaching/removing tags. [Iglocska]
+
+- Unpublish event when adding/removing an attribute tag. [Iglocska]
+
+  - also show the event being unpublished immediately
+
+- Fixed some issues with the galaxies that got broken. [iglocska]
+
+- Fixed some issues with the addTag/removeTag APIs. [iglocska]
+
+- Fixed an issue that prevented tas to be added from attributes.
+  [iglocska]
+
+  - whenever the "all" taxonomy was chosen
+
+- Further merge fixes. [iglocska]
+
+- Merge issue fixed. [iglocska]
+
+- Cleaner fix, testBool doesn't need to run testForEmpty. [Iglocska]
+
+- Don't show value not set on boolean false values that are actually set
+  in the server settings. [Iglocska]
+
+- Disable_correlation not updated using the events/edit api. [Iglocska]
+
+- Edit events by uuid instead of id, fixes #1842. [Iglocska]
+
+- Only allow malware-samples to be created using the upload_sample api,
+  fixes #1843. [Iglocska]
+
+  - contrary to the documentation, setting the IDS flag decided the type of the resulting upload (malware-sample vs attachment)
+  - attachments can easily be created without any black magic using the add attribute api anyway
+
+  - also fixed a bug that prevented the timestamp of events receiving a sample via the upload_sample api from being re-timestamped
+
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+
+- [misp-warninglists] updated to the latest version. [Alexandre
+  Dulaunoy]
+
+- Cannot list users in own org - but button to do so is shown #1749.
+  [iglocska]
+
+  - normal users saw the option to see their own orgs' users but clicking the button resulted in an exception caused by the ACL
+  - fixed a bug that caused the button to show up in the first place
+
+- Fixed an issue with an empty SMIME field preventing users from being
+  added, fixes #1821. [iglocska]
+
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+
+- Debug alert removed. [iglocska]
+
+- Copyright dates updated. [Alexandre Dulaunoy]
+
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+
+- Added sightings index to the ACL. [iglocska]
+
+- Fixed some UI issues. [iglocska]
+
+- Fixed an issue where the published field would disappear on the event
+  view. [iglocska]
+
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+
+- [misp-galaxy] Galaxy updated to the latest version. [Alexandre
+  Dulaunoy]
+
+- [misp-galaxy] New clusters exploit-kit and TDS added. [Alexandre
+  Dulaunoy]
+
+- Small UI issue fixed. [Iglocska]
+
+- Fixed some UI issues with the correlation status on the event view.
+  [Iglocska]
+
+- Fix empty space issues with server settings. [Iglocska]
+
+  - on input trim the string
+  - on the not empty check, first trim the string to warn users about existing issues
+
+- Show that an event is unpublished when you accept a proposal, fixes
+  #1763. [iglocska]
+
+  - we've had the system for a while for adding tags already anyway
+
+- Fixed the editing of tags using the rest API. [iglocska]
+
+- Merge issues fixed. [iglocska]
+
+- Create attributetags during import of attributes. [Andreas Ziegler]
+
+- Prepare attributetags in import data. [Andreas Ziegler]
+
+- Export attributetags as Tag elements (like eventtags) [Andreas
+  Ziegler]
+
+Other
+~~~~~
+
+- Merge branch 'feature/attribute-tagging' into 2.4. [Iglocska]
+
+- Merge branch '2.4' into feature/attribute-tagging. [Iglocska]
+
+- Merge branch '2.4' into feature/attribute-tagging. [Iglocska]
+
+- Merge branch '2.4' into feature/attribute-tagging. [iglocska]
+
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1834 from mdtro/patch-1. [Andras Iklody]
+
+  Fixed typo in dependency installs
+
+- Fixed typo in dependency installs. [mdtro]
+
+  rh-php56-bcmath should be rh-php56-php-bcmath
+
+- Merge pull request #1833 from BenDrysdale/2.4. [Andras Iklody]
+
+  Fixed typo in xINSTALL.centos7.txt
+
+- Fixed typo in xINSTALL.centos7.txt. [Ben Drysdale]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1815 from Rafiot/travis. [Raphaël Vinot]
+
+  Fixing travis
+
+- Update pymisp. [Raphaël Vinot]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge branch '2.4' into feature/attribute-tagging. [iglocska]
+
 v2.4.59 (2017-01-01)
 --------------------
 
