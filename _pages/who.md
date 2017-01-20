@@ -65,15 +65,3 @@ If you are writing an academic paper relying or using MISP, you can cite MISP wi
   organization={ACM}
 }
 ~~~~
-
-## Companies Providing MISP Support
-
-**The list is provided as-is without any warranty.**
-
-- [Iglocska](mailto:andras.iklody+misp-project@gmail.com), for custom software development and integration. (the main developer of MISP)
-- [Signal 11](http://signal11.eu), for technical support. (previous developer of MISP)
-- [Cthulhu Solutions](mailto:david@cthulhu-solutions.com), for integration services and support. (active contributor of MISP)
-- [B2SP](mailto:info@b2sp.be), for integration services, business processes and support.
-- [SLC Security Services](http://slcsecurity.com) LLC, using MISP as part of a larger program for corporations and government clients.
-- [Truesec.be](mailto:xavier@truesec.be) for installation services and integration with 3rd party solutions (MISP Docker container).
-
