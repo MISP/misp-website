@@ -1,6 +1,125 @@
 Changelog
 =========
 
+v2.4.61 (2017-01-22)
+--------------------
+
+New
+~~~
+
+- New warninglist type: hostname. [Iglocska]
+
+  - use lists designated as hostname lists (which can be domains too)
+
+- Allow the new type "substring" to be used for warninglists. [Iglocska]
+
+Changes
+~~~~~~~
+
+- Version bump. [Iglocska]
+
+- Updated warninglists. [Iglocska]
+
+- Nicer screenshot view. [Iglocska]
+
+- Click a screenshot to expand/collapse it. [Iglocska]
+
+- Updated the warninglists. [Iglocska]
+
+- Warninglists updated. [Iglocska]
+
+Fix
+~~~
+
+- Critical fix to an issue with event add fixed. [Andras Iklody]
+
+  - a reuse of a pointer causes an invalid duplication of an attribute on entry, leading to the last attribute being dropped
+
+- Fixed the org edit API. [Iglocska]
+
+  - it only worked if all fields were set
+  - switched to a different strategy where any changed field is updated
+
+- Badges, badges and more badges! [Alexandre Dulaunoy]
+
+- Badges more badges! [Alexandre Dulaunoy]
+
+- PyMISP updated to the latest version. [Alexandre Dulaunoy]
+
+- Organisation UI and API improvements. [Iglocska]
+
+  - opened up the organisations controller to API actions
+    - this includes index/add/edit/delete
+    - uses the still new-ish standardised REST library
+    - send GET requests to add/edit to view the parameters
+
+  - reworked the org index to paginate 60 items instead of 20 and to have a view all button
+
+- Fixed an issue that erroneously updated the date of an org creation on
+  edit. [Iglocska]
+
+- Just force utf8 encoding if it's not set. [Iglocska]
+
+- Added a warning if utf8 encoding isn't set up in the database config.
+  [Iglocska]
+
+  - also, changed the default database config to enforce utf8
+
+- Do the centering after the screenshot is shown. [Iglocska]
+
+  - otherwise it returns 0 as the width
+
+- Left off css changes. [Iglocska]
+
+- Whois-registrant-email added as type when an email is detected in
+  freetext. [Alexandre Dulaunoy]
+
+- ACL updated for attribute level tagging. [Iglocska]
+
+- Don't try to add the attribute tag field to proposals. [Iglocska]
+
+- Andreas Ziegler significant contribution acknowledged in Copyright.
+  [Alexandre Dulaunoy]
+
+- Temporary fix for no relatedattributes producing an empty string
+  instead of an empty array in the retrieved data. [Iglocska]
+
+Other
+~~~~~
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge pull request #1857 from deralexxx/patch-6. [Alexandre Dulaunoy]
+
+  Updating Authors to add Andreas
+
+- Updating Authors to add Andreas. [Alexander J]
+
+  and myself as well
+  https://github.com/MISP/MISP/commit/ce5973f273420ef602a1c577f35927823014e17b
+
+- Merge pull request #1856 from deralexxx/patch-5. [Andras Iklody]
+
+  Small UI patch to make users aware to upload *.pem files
+
+- Update add.ctp. [Alexander J]
+
+- Update edit.ctp. [Alexander J]
+
+  (*.pem) https://github.com/MISP/MISP/issues/1246
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- [misp-galaxy] - latest version included. [Alexandre Dulaunoy]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
 v2.4.60 (2017-01-17)
 --------------------
 
