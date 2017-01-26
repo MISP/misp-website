@@ -1,6 +1,85 @@
 Changelog
 =========
 
+v2.4.62 (2017-01-26)
+--------------------
+
+New
+~~~
+
+- Added the option to delete files after ingestion of local feed.
+  [iglocska]
+
+- Local feeds. [iglocska]
+
+  - still needs testing
+
+- Added two new parameters for the attribute restsearch. [iglocska]
+
+  - to_ids, with the following options
+    - false (default): include all attributes, no matter the to_ids flag
+    - true: include only to_ids attributes
+    - "exclude": exclude attributes marked to_ids
+
+  - deleted with the following options
+    - false (default): only include non deleted attributes
+    - true: include deleted attributes
+    - "only": ONLY include deleted attributes
+
+Changes
+~~~~~~~
+
+- Version bump. [iglocska]
+
+- Added validation errors for a local feed pointing to the wrong
+  resource. [iglocska]
+
+  - should be a file for non misp feeds
+  - should be a directory for misp feeds
+
+Fix
+~~~
+
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+
+- Fixed an invalid lookup for the site admin debug. [iglocska]
+
+- Fixed an issue where setting site admin debug to false resulted in a
+  critical warning. [iglocska]
+
+- Empty delimiter for CSV feeds causing grief. [iglocska]
+
+- Fixed an issue that prevented a feed to be convertable between types.
+  [iglocska]
+
+- Fixed an issue with the feed url validation. [iglocska]
+
+- Fixed an old bug returning an invalid feed pull result. [iglocska]
+
+  - no new events / nothing to update returned an error before
+
+- Views left off. [iglocska]
+
+Other
+~~~~~
+
+- Merge branch 'feature/localfeeds' into 2.4. [iglocska]
+
+- Merge branch '2.4' into feature/localfeeds. [iglocska]
+
+- Add: Code of conduct added to the MISP Project - fix #1858. [Alexandre
+  Dulaunoy]
+
+- Add: Code of conduct added to the MISP Project - fix #1858. [Alexandre
+  Dulaunoy]
+
+- Merge pull request #1860 from RichieB2B/ncsc-nl/brobesitas. [Alexandre
+  Dulaunoy]
+
+  Truncate bro cached export files
+
+- Truncate bro cached export files. [Richard van den Berg]
+
 v2.4.61 (2017-01-22)
 --------------------
 
