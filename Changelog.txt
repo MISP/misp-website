@@ -1,6 +1,103 @@
 Changelog
 =========
 
+v2.4.63 (2017-02-01)
+--------------------
+
+New
+~~~
+
+- Small rework of the thread functionalities. [iglocska]
+
+  - API get /threads/view/<thread_id> and /threads/viewEvent/<event_id>
+  - Added new setting to show post count on the event index including a notification if it has a post newer than 24 hours
+
+- Add and remove tags from object by uuid. [iglocska]
+
+  - /tags/attachTagToObject/uuid/tag
+  - /tags/removeTagFromObject/uuid/tag
+
+  - tag can be tag ID or tag name (must be an exact match)
+  - Affects events and attributes
+
+Changes
+~~~~~~~
+
+- Changes to the email notification. [iglocska]
+
+  - added attribute tags
+
+- Version bump and changed default session engine to php. [iglocska]
+
+- Misp-galaxy update. [iglocska]
+
+Fix
+~~~
+
+- Fixing a notice introduced in the last commit. [iglocska]
+
+- Warning list updated to the latest version. [Alexandre Dulaunoy]
+
+- Composite attributes displayed in 2 lines. [iglocska]
+
+- Fixed a bug causing CSRF issues for tag removal. [iglocska]
+
+  - at least I hope it did for others.
+
+- Added missing view file, some small fixes, pymisp version bump.
+  [iglocska]
+
+- Added new functionality to the ACL. [iglocska]
+
+- Cosmetic copy pasta issue fixed. [iglocska]
+
+- [misp-galaxy] updated to the latest version including ransomware.
+  [Alexandre Dulaunoy]
+
+- Fixed an attribute type description. [iglocska]
+
+- Removing tags now spans its own CSRF tokens in the confirmation popup.
+  [iglocska]
+
+  - fixes some CSRF issues
+  - improves rendering performance
+
+- Galaxy source should act as a link if a link is provided. [iglocska]
+
+- Remove the admin setting changes too using the prune job. [iglocska]
+
+- Fix and cleanup script for a specific bug. [iglocska]
+
+  - rare occurance, but some MISP servers enter an upgrade loop causing massive amounts of log entries
+  - this patch cleans up the bug preventing further upgrade loops as well as offers a script to clean up the fallout
+
+- Fixed a bug that didn't correctly handle validation errors on the
+  attribute add popup, fixes #1875. [iglocska]
+
+- Removed malware-sample and attachment from the attribute type options.
+  [iglocska]
+
+  - should not be possible to select these via the add/edit attribute functions
+
+- Fixed various tagging issues. [iglocska]
+
+  - event tag when editing an event wasn't added correctly
+  - tags that were not exportable returned weird empty lists via the API
+
+Other
+~~~~~
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+
+- Merge branch 'feature/db_fix' into 2.4. [iglocska]
+
 v2.4.62 (2017-01-26)
 --------------------
 
