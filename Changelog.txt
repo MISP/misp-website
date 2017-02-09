@@ -1,6 +1,178 @@
 Changelog
 =========
 
+v2.4.65 (2017-02-09)
+--------------------
+
+Changes
+~~~~~~~
+
+- Allow the creation of read only auth users/auditors. [iglocska]
+
+  - also add creator email to json output for auditors
+
+Fix
+~~~
+
+- Fixed the new indexer generating a notice on a successful indexing.
+  [iglocska]
+
+- Import whitelist - add a description to make it clearer, fixes #1902.
+  [iglocska]
+
+- Labels in Add/Edit feed, fixes #1913. [iglocska]
+
+- Remove possible duplicate entries coming from a freetext feed import.
+  [iglocska]
+
+  - Since we use saveMany() for saving attributes from the freetext/csv feed import the unique attribute constraint was ineffective
+  - The constraint checks if the event already has a similar type/category/value combination
+
+  - TODO: Refactor this, each insert is also an expensive non buffered SELECT query besides the correlation creation!
+
+- Fix several strict issues. [iglocska]
+
+- Fix to the advanced correlation when no hits are found. [iglocska]
+
+- API request : "An Internal Error Has Occurred." if no Thread for an
+  event fixes #1900. [iglocska]
+
+  - also, some cleanup of the eventView api
+
+- Fix to a strict mySQL issue with the feed table. [iglocska]
+
+- Fixed several issues with the indexer in the upgrade algorithm.
+  [iglocska]
+
+  - also, rerun the recent indexing rules
+
+Other
+~~~~~
+
+- Version bump. [iglocska]
+
+- Merge branch 'auditor' into 2.4. [iglocska]
+
+- Merge branch '2.4' into 2.4. [truckydev]
+
+- Merge branch '2.4' into 2.4. [truckydev]
+
+- Check if auditor have good "org_id" [truckydev]
+
+- Merge branch '2.4' into 2.4. [truckydev]
+
+- Get email creator user for auditor users. [Tristan METAYER]
+
+- Add auditor user        auditor user can see event_creator_id.
+  [Tristan METAYER]
+
+v2.4.64 (2017-02-06)
+--------------------
+
+New
+~~~
+
+- Lookup organisations by uuid using organisations/view. [iglocska]
+
+- Advanced correlations. [iglocska]
+
+  - experimental feature, correlate on CIDR
+  - can be turned on/off in the server settings
+  - For the emperor
+
+- Added mass tagging to attributes on the event view. [iglocska]
+
+  - Oooh yes.
+
+- New setting to sanitise attributes on delete. [iglocska]
+
+  - if enabled server wide, any delete of an attribute will not just set the deleted flag, but also sanitise the content fields
+  - fields sanitised: category, type, value, comment, to_ids
+
+- Send out credentials directly during user creation. [iglocska]
+
+- Added API access to the statistics. [iglocska]
+
+  - first iteration, this is a bit more complex to get it right than this implementation
+  - data cleanup to make the results somewhat more useful
+  - raw data needs to be documented
+
+  - available APIs:
+    - /users/statistics/data.json
+    - /users/statistics/orgs.json
+    - /users/statistics/tags.json
+    - /users/statistics/attributehistogram.json
+
+Changes
+~~~~~~~
+
+- Version bump. [iglocska]
+
+- Added default log org entry. [iglocska]
+
+- Added ids to the server index. [iglocska]
+
+Fix
+~~~
+
+- Fixed a bug retrieving an org with no users. [iglocska]
+
+- MISP galaxy updated. [Alexandre Dulaunoy]
+
+- MISP taxonomy to the latest version. [Alexandre Dulaunoy]
+
+- Fixes an issue with tags missing on push. [iglocska]
+
+- Fixes to several issues with the setting change upgrade hooks.
+  [iglocska]
+
+  - also removed the not null restriction from a problematic field with no default entry, fixes #1853
+
+- Set IDS flag for all attributes added via Email Import module fixes
+  MISP/misp-modules#98. [iglocska]
+
+- Added default values for some problematic log columns. [iglocska]
+
+- Simplification of the proposal sync. [iglocska]
+
+- Warning-list for empty hashes doesn't work on malware-sample even if
+  the warning list is for ALL, fixes #1837. [iglocska]
+
+Other
+~~~~~
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1896 from RichieB2B/ncsc-nl/logrotate. [Andras
+  Iklody]
+
+  Add logrotation for MISP workers output
+
+- Add logrotation for MISP workers output. [Richard van den Berg]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1888 from RichieB2B/ncsc-nl/permissions-comment.
+  [Andras Iklody]
+
+  Clarify permissions, see #1886
+
+- Clarify permissions, see #1886. [Richard van den Berg]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1886 from cvandeplas/text_export. [Andras Iklody]
+
+  attributes/text - optionally export attributes from not published events
+
+- Attributes/text - optionally export attributes from not published
+  events. [Christophe Vandeplas]
+
+- Merge branch 'feature/passwordSending' into 2.4. [iglocska]
+
 v2.4.63 (2017-02-01)
 --------------------
 
