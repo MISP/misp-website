@@ -1,6 +1,260 @@
 Changelog
 =========
 
+v2.4.66 (2017-02-17)
+--------------------
+
+New
+~~~
+
+- Added links to all events that match sightings sources in the
+  sightings top list. [iglocska]
+
+- Added sighting top list to the statistics. [iglocska]
+
+- Various fixes to the sightings. [iglocska]
+
+  - sparkline got its own column
+  - delete sightings in the sighting details
+
+- First revision of the new sightings system. [iglocska]
+
+- First iteration of the improved sightings. [iglocska]
+
+Changes
+~~~~~~~
+
+- Work on the sightings. [iglocska]
+
+- Added default to shadow_attributes old_id. [iglocska]
+
+Fix
+~~~
+
+- Added eventids to the toplist API. [iglocska]
+
+- Left off view file added. [iglocska]
+
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+
+- Sightings are in fact not galaxies (heading changed) [iglocska]
+
+  - derp
+
+- Fixed a JS error causing a feed edit to not populate the filter
+  popover, fixes #1959. [iglocska]
+
+- Fixed some permission issues preventing non site admins from using
+  some functionalities correctly. [iglocska]
+
+- ACL updated. [iglocska]
+
+- Enforce longer value fields on the event view. [iglocska]
+
+- Added missing column in MYSQL.sql and some indexing. [iglocska]
+
+- Typo. [iglocska]
+
+- MYSQL.sql brought up to date. [iglocska]
+
+- Changed name of the activity sparkline graphs. [iglocska]
+
+- Fixed an annoying effect when adding a sighting. [iglocska]
+
+  - also, js file renamed to current version
+
+- Fixed an issue with the advanced correlation. [iglocska]
+
+- Fixed some view issues with the sightings. [iglocska]
+
+- Execute the cach cleaning before the indexing too. [iglocska]
+
+- Fixed a possible issue with the upgrade mechanism. [iglocska]
+
+  - indexer expecting new indeces
+
+- IP:port attribute types should not be line separated. [iglocska]
+
+- Execute upgrade script. [iglocska]
+
+- Several fixes to the new sightings. [iglocska]
+
+- Some bug fixes. [iglocska]
+
+- Added composer's license. [iglocska]
+
+- Update default field of organisation when creating new accounts.
+  [Adrien RAFFIN]
+
+- Changed installation behaviour of composer. [iglocska]
+
+  - no longer requires the live download and execution of the composer package
+    - compromising https://getcomposer.org/ could lead to RCE for new MISP installations during the installation
+
+  - As reported by Trey Darley (@treyka)
+
+- Urlencode the user's event list lookup to prevent oddities. [iglocska]
+
+- Fixed a bug with the freetext import that broke the detection of IP
+  addresses. [iglocska]
+
+- Added correct recognition of ip:port indicators to the freetext import
+  tool, fixes #1919. [iglocska]
+
+- Added (dot) to the refanging. [iglocska]
+
+- Incorect IF statment in app/Model/AppModel.php, fixes #1891.
+  [iglocska]
+
+Other
+~~~~~
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+
+- Merge branch 'feature/enhanced_sightings' into 2.4. [iglocska]
+
+- Merge branch '2.4' into feature/enhanced_sightings. [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  feature/enhanced_sightings. [iglocska]
+
+- Merge pull request #1958 from devnull-/ssl_client. [Andras Iklody]
+
+  Client SSL Certificate Authentication improvements
+
+- Clean & improve README.md of CertAuth. [devnull-]
+
+- Don't login or create an empty account if the user doesn't exist.
+  [devnull-]
+
+- Missing 'the' in comment. [devnull-]
+
+- Add details in client SSL authentication comments. [devnull-]
+
+- Merge pull request #1 from MISP/2.4. [devnull-]
+
+  Update fetch upstream
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1955 from treyka/patch-3. [Andras Iklody]
+
+  remove spurious php5-xml
+
+- Remove spurious php5-xml. [Trey Darley]
+
+  php5-xml is not a separate package; it's included with libapache2-mod-php5.
+
+- Merge pull request #1942 from Deventual/patch-5. [Andras Iklody]
+
+  fixed install instructions
+
+- Update INSTALL.debian7.txt. [Deventual]
+
+- Fixed install instructions. [Deventual]
+
+  Added php-xml, without it this issue can rise:
+  Class 'DOMDocument' not found in [/var/www/MISP/app/Lib/cakephp/lib/Cake/Utility/Xml.php
+
+- Merge pull request #1944 from Deventual/patch-7. [Andras Iklody]
+
+  fixed install instructions
+
+- Fixed install instructions. [Deventual]
+
+  Added php-xml, without it this issue can rise:
+  Class 'DOMDocument' not found in [/var/www/MISP/app/Lib/cakephp/lib/Cake/Utility/Xml.php
+
+- Merge pull request #1945 from Deventual/patch-8. [Andras Iklody]
+
+  Fixed install instructions
+
+- Fixed install instructions. [Deventual]
+
+  Added php-xml, without it this issue can rise:
+  Class 'DOMDocument' not found in [/var/www/MISP/app/Lib/cakephp/lib/Cake/Utility/Xml.php
+
+- Merge pull request #1943 from Deventual/patch-6. [Andras Iklody]
+
+  fixed install instructions
+
+- Fixed install instructions. [Deventual]
+
+  Added php-xml, without it this issue can rise:
+  Class 'DOMDocument' not found in [/var/www/MISP/app/Lib/cakephp/lib/Cake/Utility/Xml.php
+
+- Merge pull request #1937 from Deventual/patch-4. [Andras Iklody]
+
+  Fixed install instructions
+
+- Fixed install instructions. [Deventual]
+
+  Added php-xml, without it this issue can rise:
+  Class 'DOMDocument' not found in [/var/www/MISP/app/Lib/cakephp/lib/Cake/Utility/Xml.php
+
+- Merge pull request #1936 from Deventual/patch-3. [Andras Iklody]
+
+  fixed install instructions
+
+- Fixed install instructions. [Deventual]
+
+  Added php-xml, without it this issue can rise:
+  Class 'DOMDocument' not found in [/var/www/MISP/app/Lib/cakephp/lib/Cake/Utility/Xml.php
+
+- Merge pull request #1941 from SekoiaLab/fix/organisation. [Andras
+  Iklody]
+
+  fix: update default field of organisation when creating new accounts
+
+- Merge pull request #1912 from deloittem/2.4. [Andras Iklody]
+
+  NidsSuricataExport refactoring for attribute *URL*
+
+- Merge branch '2.4' into 2.4. [Alexandre Dulaunoy]
+
+- Merge branch '2.4' into 2.4. [Alexandre Dulaunoy]
+
+- Merge branch '2.4' into 2.4. [Alexandre Dulaunoy]
+
+- NidsSuricataExport refactoring for attribute *URL* [Mathieu Deloitte]
+
+- Merge pull request #1928 from cvandeplas/2.4. [Andras Iklody]
+
+  eventview - cluster id fields
+
+- Eventview - cluster class field. [Christophe Vandeplas]
+
+  use class instead of id
+
+- Eventview - cluster id fields. [Christophe Vandeplas]
+
+  Allows custom CSS to manage the cluster info fields. (example: #cluster_country { display: none; } )
+
+- Merge pull request #1924 from RichieB2B/nscs-nl/sudo. [Alexandre
+  Dulaunoy]
+
+  Add sudo for cp logrotate
+
+- Add sudo for cp logrotate. [Richard van den Berg]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Update PyMISP. [Raphaël Vinot]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Update PyMISP. [Raphaël Vinot]
+
 v2.4.65 (2017-02-09)
 --------------------
 
