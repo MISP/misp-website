@@ -19,3 +19,21 @@ To tackle this, we decided **to remodel and extend the sighting in this new rele
 - Sighting type 2, an **expiration sighting** which defines when the sighted attributes is expired.
 
 In addition to the flexible type format, we added a simple source field which combined with the organisation provides simple way to scope the sighting (e.g. honeypot networks versus backbone routers where the false-positive interpreation can be significantly different).
+
+# MISP 2.4.66 and Improved Sighting
+
+MISP 2.4.66 has been released including this improved sighting. As you can see below:
+
+<div class="myvideo">
+   <video  style="display:block; width:100%; height:auto;" autoplay controls loop="loop">
+        <source src="{{ site.baseurl }}/assets/images/misp/video/sighting.webm"  type="video/webm"  />
+   </video>
+</div>
+
+In previous version of MISP, sighting used the basic counter model as described above. In addition to the classical model, MISP 2.4.66 now allows to do negative sighting to track the numbers of false-positives generated.  All the sightings are also track per organisation with an additional source. The source allows an organisation to track which equipments or infrastructure generated the sighting.
+
+This new feature allows many new use-cases like feeding MISP from ticketing system (like it's a false-positive), attributes must expire in 4 days or adding sighting from honeypots or network sensors.
+
+The full change log is available [here](https://www.misp.software/Changelog.txt).
+
+Don't hesitate to [open an issue](https://github.com/MISP/MISP/issues) if you have any feedback, found a bug or want to propose new features.
