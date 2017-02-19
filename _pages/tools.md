@@ -46,3 +46,4 @@ For the additional software created by the MISP project, check our [MISP project
 * [FireMISP](https://github.com/deralexxx/FireMISP) FireEye Alert json files to MISP Malware information sharing platform (Alpha).
 * [cti-toolkit](https://github.com/certau/cti-toolkit)  CERT Australia Cyber Threat Intelligence (CTI) Toolkit includes a transform to MISP from STIX.
 * [MISP-IOC-Validator](https://github.com/tom8941/MISP-IOC-Validator/) validates the format of the different IOC from MISP and to remove false positive by comparing these IOC to existing known false positive.
+* [TheHive](https://thehive-project.org/) A 3-in-1 Security Incident Response Platform has an extensive MISP support.
