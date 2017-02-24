@@ -1,7 +1,173 @@
 Changelog
 =========
 
-v2.4.66 (2017-02-17)
+v2.4.67 (2017-02-24)
+--------------------
+
+New
+~~~
+
+- Add reverse proxy support for test of baseurl. [Adrien RAFFIN]
+
+- Added activity charts to tag and galaxy cluster indeces. [iglocska]
+
+  - bunch of small improvements additionally
+
+- Added advanced sightings and sparkline to the event itself. [iglocska]
+
+- User management convenience functions added. [iglocska]
+
+  - quick e-mail: send an e-mail to a user quickly
+  - orgadmin: see the org admins of a user and contact them
+  - pgp key issues shown on the user view
+  - pgp fingerprint shown on the user view
+  - copy paste auth keys and pgp keys quickly by clicking on them
+
+- Added PGP fingerprint and PGP key status to user view. [iglocska]
+
+- Sightings column added to sightings table. [iglocska]
+
+Changes
+~~~~~~~
+
+- Removed superfluous style. [iglocska]
+
+- On event create page add a notice #1973. [iglocska]
+
+- Added warnings about the user's encryption status in the quick mailer.
+  [iglocska]
+
+- Better error message for invalid types when posting sightings.
+  [iglocska]
+
+  - sent before doing the lookup against existing attributes
+
+- Made the role add/edit forms a bit more sane. [iglocska]
+
+  - allow for some permissions to be given out to read only users
+  - hide the permissions that can't be selected for the given access level
+
+- Sightings role added to ACL. [iglocska]
+
+Fix
+~~~
+
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+
+- More invalid MySQL fields fixed. [iglocska]
+
+- Fixed a mysql issue. [iglocska]
+
+- PyMISP updated. [Alexandre Dulaunoy]
+
+- PyMISP updated to the latest version. [Alexandre Dulaunoy]
+
+- Fixed an issue displaying events without sghting data. [iglocska]
+
+- Added a fix to growing arrays in the ApacheSecureAuth settings, fixes
+  #1981. [iglocska]
+
+- Relaxed the TLD validation for domains / hostnames, fixes #1977.
+  [iglocska]
+
+- Typo fixed in the advanced add sighting interface, fixes #1975.
+  [iglocska]
+
+- Fixed some visual issues with the attribution/targeting data warning
+  in add attributes. [iglocska]
+
+- Some fixes for the new user admin features. [iglocska]
+
+- Mergeing removal of deprecated JS in the new role creation. [iglocska]
+
+- Small fix for an invalid error message in the sightings. [iglocska]
+
+- Throw an error if the local feed file is not found. [iglocska]
+
+- Re-added the accidentally removed code in a merge, fixes #1965.
+  [iglocska]
+
+  - affects f0e1a27b7dca2e6d36f904ef52d4976649ccefa3
+
+- Added validation for sighting type and fixed responses for adding
+  sightings. [iglocska]
+
+Other
+~~~~~
+
+- Version bump. [iglocska]
+
+- Merge branch '2.4.67' into 2.4. [iglocska]
+
+- Merge branch '2.4' into 2.4.67. [iglocska]
+
+- Merge pull request #1988 from RichieB2B/ncsc-nl/misp-wipe. [Andras
+  Iklody]
+
+  Script to wipe (reset) a MISP installation
+
+- Clear tables that can be re-populated. [Richard van den Berg]
+
+- Additional table wipes. [Richard van den Berg]
+
+- Remove unneeded config.php variables, keep user 3. [Richard van den
+  Berg]
+
+- Added misp-wipe.sh. [Richard van den Berg]
+
+- Merge pull request #1982 from ppanero/patch-2. [Andras Iklody]
+
+  Update Server.php
+
+- Update Server.php. [Pablo Panero]
+
+  Duplicate entry of property
+
+- Merge pull request #1980 from SteveClement/2.4. [Andras Iklody]
+
+  Minor update to start.sh
+
+- - Added root check - Added comment about bash quirk. [Steve Clement]
+
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+
+- Merge pull request #1971 from SekoiaLab/feature/AddAuthkeyAtCreate.
+  [Andras Iklody]
+
+  feature: Add support for user creation with authkey
+
+- Feature: Add support for user creation with authkey. [Adrien RAFFIN]
+
+- Merge pull request #1972 from
+  SekoiaLab/feature/ImproveReverseProxyChecks. [Andras Iklody]
+
+  new: Add reverse proxy support for test of baseurl
+
+- Merge pull request #1974 from ppanero/patch-1. [Andras Iklody]
+
+  Update README.md
+
+- Update README.md. [Pablo Panero]
+
+  Updated readme with apache config for API/Syncs filtering from SSO
+
+- Merge branch '2.4' into 2.4.67. [iglocska]
+
+- PyMISP updated. [iglocska]
+
+- Merge branch '2.4' into 2.4.67. [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1967 from truckydev/2.4. [Andras Iklody]
+
+  Code for issue : https://github.com/MISP/MISP/issues/1965
+
+- Code for issue : https://github.com/MISP/MISP/issues/1965. [truckydev]
+
+v2.4.66 (2017-02-19)
 --------------------
 
 New
@@ -30,6 +196,11 @@ Changes
 
 Fix
 ~~~
+
+- Fixed an issue that prevented < 2.4.63 from being upgraded to the
+  latest version. [Iglocska]
+
+- Version bump 2.4.66. [Alexandre Dulaunoy]
 
 - Added eventids to the toplist API. [iglocska]
 
