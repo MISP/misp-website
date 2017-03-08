@@ -1,6 +1,131 @@
 Changelog
 =========
 
+v2.4.68 (2017-03-08)
+--------------------
+
+New
+~~~
+
+- Added float as a new attribute type. [iglocska]
+
+- Added a way to upload org logos directly from the org add/edit view.
+  [iglocska]
+
+- Enable sync permission for read only accounts. [iglocska]
+
+- Added a way to disable cached exports server wide for low disk space
+  instnaces. [iglocska]
+
+  - But please consider just adding some more space instead..
+
+Changes
+~~~~~~~
+
+- Added some language clarifying the filter rule relations, fixes #2011.
+  [iglocska]
+
+- Cakephp updated. [iglocska]
+
+- PyMISP updated. [iglocska]
+
+- Quick deletion of events. [iglocska]
+
+  - uses prepared statements instead of the framework's cascading delete
+  - utterly massive performance boost
+
+- Add the version number to the headers for sync requests. [iglocska]
+
+Fix
+~~~
+
+- Fixed sql fail. [iglocska]
+
+- AttachTagToObject and removeTagFromObject now accept posted JSON
+  objects. [iglocska]
+
+- Fixed some default value issues with taxonomy colours. [iglocska]
+
+- Several blacklist related fixes. [iglocska]
+
+  - turned the functionality to a default on feature
+  - added indexes
+  - fixed some default values
+
+- Added default value to proposal_to_delete. [iglocska]
+
+- Additional logging when an attribute can't be added. [iglocska]
+
+- Misp-taxonomies updated to the latest version. [Alexandre Dulaunoy]
+
+- Misp-galaxy updated to the latest version. [Alexandre Dulaunoy]
+
+- Typo fixed. [iglocska]
+
+- Missing file added. [iglocska]
+
+- Some ACL tightening. [iglocska]
+
+- PushProposals requires that the user has perm_add permissions.
+  [iglocska]
+
+- Potential fix for a weird issue blocking the editing of users, fixes
+  #1992. [iglocska]
+
+- Fixed an issue with the baseurl diagnostic. [iglocska]
+
+- Added missing network indicators to the network filter tab in the
+  event view. [iglocska]
+
+- Truncating the title of a log entry at 65KB for some pretty rare edge
+  cases. [iglocska]
+
+- Misp-galaxy updated to the latest version. [Alexandre Dulaunoy]
+
+- Relaxed TLD validation for hostname|port, domain|ip, jabber-id, fixes
+  #1977. [Iglocska]
+
+- Allow the disabling of the correlation of an event / attribute on
+  event add, fixes #1991. [iglocska]
+
+- Fixed several issues with the sightings. [Iglocska]
+
+  - Main issue was the expensive and potentially large query used to find all sightings for a list of tags (used on the tag and galaxy cluster index)
+
+  potentially fixes #1993
+
+Other
+~~~~~
+
+- Merge branch 'hotfix-2.4.68' into 2.4. [iglocska]
+
+- Version bump. [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch 'feature/readonlysync' into 2.4. [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1996 from kx499/2.4. [Andras Iklody]
+
+  Updated comment for enrichment modules to reference value used for enri…
+
+- Updated comment for enrichment modules to refence value used for
+  enrichment for added context. [kx499]
+
+- Merge pull request #2002 from ppanero/branch_cleanup. [Andras Iklody]
+
+  bro to_IDS and published flags fix on query. Now supporting block_eve…
+
+- Bro to_IDS and published flags fix on query. Now supporting
+  block_event_proposals. [ppanero]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [Iglocska]
+
 v2.4.67 (2017-02-24)
 --------------------
 
