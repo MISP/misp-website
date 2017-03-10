@@ -1,6 +1,99 @@
 Changelog
 =========
 
+v2.4.69 (2017-03-10)
+--------------------
+
+Changes
+~~~~~~~
+
+- Some changes to the users. [iglocska]
+
+  - added date created/modified in the backend
+  - added date created in the users index
+  - passowrd reset for a user now shows a warning if no pgp/smime key are set and the user might not be getting the email
+
+- PyMISP update. [iglocska]
+
+Fix
+~~~
+
+- Fixed a typo in an upgrade script. [Iglocska]
+
+- Readded the failing entry caused by a typo in the upgrade system.
+  [iglocska]
+
+- JS version bump. [iglocska]
+
+- Fixed the upload of proposal attachments via the data field, fixes
+  #2037. [iglocska]
+
+- Changed the main misp js file name and switched to using query strings
+  to invalidate cached versions on update. [iglocska]
+
+  - stops MISP from disclosing the version string on the login page
+
+  - as reported by Tien Phan and David Maciejak of Fortinet's FortiGuard Labs
+
+- Removed the loading of the main js file from the login page.
+  [iglocska]
+
+  - stops MISP from disclosing the version string on the login page
+
+  - as reported by Tien Phan and David Maciejak of Fortinet's FortiGuard Labs
+
+- Tightened sanitisation in some view elements - on the index filter
+  tool - organisation landing page. [iglocska]
+
+  as reported by Tien Phan and David Maciejak of Fortinet's FortiGuard Labs
+
+- Tightened sanitisation in some view elements - on the index filter
+  tool - organisation landing page. [iglocska]
+
+  as reported by Tien Phan and David Maciejak of Fortinet's FortiGuard Labs.
+
+- Fixed an issue that could under certain conditions lead to empty
+  events being pushed when synchronising. [iglocska]
+
+- Removed unnecessary implode() code. [David Maciejak]
+
+- Normalised the attirbutes/add and attributes/edit apis. [iglocska]
+
+- Fixed a potential issue causing the attribute validation to fail.
+  [iglocska]
+
+Other
+~~~~~
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #2033 from rmarsollier/2.4. [Andras Iklody]
+
+  minor bugfix on TagsController.php
+
+- Minor bugfix on TagsController.php. [rmarsollier]
+
+- Merge pull request #2019 from dmaciejak/patch-1. [Andras Iklody]
+
+  fix: remove unnecessary implode() call
+
+- Merge pull request #2031 from deloittem/2.4. [Andras Iklody]
+
+  Suricata export update
+
+- Only display the tag name if the array contains values (depending if
+  the tag is exportable or not) [Mathieu Deloitte]
+
+- Add the attribute tags to the msg field (Suricata rule) to sort easier
+  the raised alerts. [Mathieu Deloitte]
+
+- Initialize host to empty value when the URL is formed incorrectly.
+  [Mathieu Deloitte]
+
 v2.4.68 (2017-03-08)
 --------------------
 
