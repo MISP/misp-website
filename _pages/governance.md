@@ -23,9 +23,9 @@ of features and prioritizes the implementation based on the impact and usefulnes
 ## Contributing
 
 If you would like to contribute your feedback or ideas to the MISP project, the most common approach is to open a GitHub issue describing your feature request or
-feedback. Our model of contribution is open and [our code of conduct is available](https://www.github.com/MISP/MISP/code_of_conduct.md) in the MISP core project.
+feedback. Our model of contribution is open and [our code of conduct is available](https://www.github.com/MISP/MISP/blob/2.4/code_of_conduct.md) in the MISP core project.
 
 ## How can you support MISP?
 
 Every contribution is important. We think that supporting the project can be done in various ways including contributing code (via pull-request), improving documentation (misp-book),
-classifications scheme (misp-galaxy, misp-taxonomies), format (misp-objects, misp-rfc), tools (via PyMISP or tools supporting the MISP format) or expansion (misp-modules).
+classifications scheme ([misp-galaxy](https://github.com/MISP/misp-galaxy), [misp-taxonomies](https://github.com/MISP/misp-taxonomies)), format ([misp-objects](https://github.com/MISP/misp-objects), [misp-rfc](https://github.com/MISP/misp-rfc)), tools (via [PyMISP](https://github.com/MISP/PyMISP) or tools supporting the MISP format) or expansion ([misp-modules](https://github.com/MISP/misp-modules)).
