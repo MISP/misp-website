@@ -7,18 +7,18 @@ toc: true
 
 # MISP Model of Governance
 
-MISP project is a significantly large open source project with the goal to make practicable tools and format to improve information sharing at large.
-In order to reach our goal, MISP project gathers feature requests, feedback and bug reports from different sources. As described in the graph below,
-we have different sources including MISP user-groups, direct community feedback via GitHub, MISP trainings and the yearly MISP summit.
+MISP project is a large open source project with the goal to make viable tools and format to improve information sharing at large.
+In order to achieve our goals, the MISP project gathers feature requests, feedback and bug reports from different sources. As described in the graph below,
+we have various sources that we use, including MISP user-groups, direct community feedback via GitHub, MISP trainings and the yearly MISP summit.
 
 ![MISP governance overview](/assets/images/governance.png){:class="img-responsive"}
 
 ## Features and Roadmap
 
-The features in MISP project are built from practical use-cases in information security, intelligence communities, incident responses team or fraud analysis group.
-These groups provide their input via the different medium mentioned above. Some groups are actively developing in the MISP project but many others
-are providing bug reports, feature requests or proposals to enhance the project. As the various communities have common goals, the MISP core team maintains the list
-of features and prioritizes the implementation based on the impact and usefulness in the different groups and communities.
+The features in the MISP project are built from practical use-cases in information security, intelligence communities, incident response teams and fraud analysis groups.
+These groups provide their input via the different methods mentioned above. Some groups are actively taking part in developing the MISP project whilst many others contribute by
+providing bug reports, feature requests or proposals to enhance the project. As the various communities have common goals, the MISP core team maintains the list
+of features and prioritises the implementation based on the impact and usefulness in the different groups and communities.
 
 ## Contributing
 
@@ -27,5 +27,5 @@ feedback. Our model of contribution is open and [our code of conduct is availabl
 
 ## How can you support MISP?
 
-Every contribution is important. We think that supporting the project can be done in various ways including contributing code (via pull-request), improving documentation (misp-book),
-classifications scheme ([misp-galaxy](https://github.com/MISP/misp-galaxy), [misp-taxonomies](https://github.com/MISP/misp-taxonomies)), format ([misp-objects](https://github.com/MISP/misp-objects), [misp-rfc](https://github.com/MISP/misp-rfc)), tools (via [PyMISP](https://github.com/MISP/PyMISP) or tools supporting the MISP format) or expansion ([misp-modules](https://github.com/MISP/misp-modules)).
+Every contribution is important. We think that supporting the project can be done in various ways including code contributions (via pull-request), documentation improvements (misp-book),
+the creation or enhancement of existing classifications schemes ([misp-galaxy](https://github.com/MISP/misp-galaxy), [misp-taxonomies](https://github.com/MISP/misp-taxonomies)), formats ([misp-objects](https://github.com/MISP/misp-objects), [misp-rfc](https://github.com/MISP/misp-rfc)), tools (via [PyMISP](https://github.com/MISP/PyMISP) or tools supporting the MISP format) or expansions ([misp-modules](https://github.com/MISP/misp-modules)).
