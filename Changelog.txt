@@ -1,6 +1,175 @@
 Changelog
 =========
 
+v2.4.70 (2017-03-26)
+--------------------
+
+New
+~~~
+
+- Added 2 new types. [iglocska]
+
+  - hex and sigma
+
+- Sync logging to debug issues. [iglocska]
+
+- Added a POST server connection test. [iglocska]
+
+  - hopefully it should help debug some issues
+
+- Update MISP from the diagnostics page. [iglocska]
+
+  - right now it's pretty dumb, it simply pulls the same branch that the current user is on
+  - Any failure is shown but not acted upon, if the git pull fails the user will see it but it needs to be resolved via the command line
+
+- Allow for several attributes to be added in one go via
+  /attributes/add. [iglocska]
+
+  - Also a rework of the internals
+  - All entry vectors are now handled the same way
+  - syntax for adding several attributes is [{attribute1}, {attribute2}]
+  - Sane defaults used automatically, making {"value":"1.2.3.4", "type":"ip-dst"} a valid attribute
+
+Changes
+~~~~~~~
+
+- Changed js query string. [iglocska]
+
+- Version bump. [iglocska]
+
+- Edit and delete attributes now accept uuids as parameters instead of
+  IDs. [iglocska]
+
+- Finished round 1 of all accessibility changes. [iglocska]
+
+- Further work on the accessibility changes. [iglocska]
+
+- Further progress. [iglocska]
+
+- Further work on the accessibility changes. [iglocska]
+
+Fix
+~~~
+
+- Spring cleaning. [iglocska]
+
+  - removal of debug from the syncdebug
+  - cleanup of the fixes that resulted from it
+  - removal of the mangle sync from 2.4->2.3 (if you still have partners running 2 year old versions, time to notify them, stop syncing and unfriend on facebook)
+
+- Potential fix for the sync issue. [iglocska]
+
+- Some further fixes. [iglocska]
+
+  - includes a fix to a compatibility test failure causing all instances to test as a legacy MISP
+
+- Added missing ACL entry. [iglocska]
+
+- Added missing popup view file. [iglocska]
+
+  - Also added a new test string in a file for the POST connection test
+
+- Fixed an issue with a notice error when adding a new attribute.
+  [iglocska]
+
+- Better error handling for partially failed attribute collection POSTs
+  to /attributes/add. [iglocska]
+
+- Missing echo caused the aria-label of import choices not to be
+  populated properly, fixes #2038. [iglocska]
+
+- Missing comma added. [iglocska]
+
+- PyMISP to the latest version. [Alexandre Dulaunoy]
+
+- Second round of accessibility changes. [iglocska]
+
+- First round of Accessibility issues resolved with span links.
+  [iglocska]
+
+Other
+~~~~~
+
+- Merge branch 'syncdebug' into 2.4. [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #2073 from deloittem/2.4. [Andras Iklody]
+
+  Manage attributes IP-SRC|PORT and IP-DST|PORT when exporting nids rules
+
+- Manage the new attributes IP-SRC|PORT and IP-DST|PORT when exporting
+  NIDS rules. [Mathieu Deloitte]
+
+- Merge pull request #2069 from deloittem/2.4. [Andras Iklody]
+
+  All tag cannot be included in export functions such as suricata rules
+
+- New variable includeAllTags added to NIDS export: even not exportable
+  tags could be included in NIDS export. [Mathieu Deloitte]
+
+- Merge pull request #2068 from ppanero/regex_bugfix. [Andras Iklody]
+
+  testForPath regex fixed in Server.php
+
+- TestForPath regex fixed in Server.php. [Pablo Panero]
+
+- Merge pull request #2057 from RichieB2B/nscs-nl/wipe. [Alexandre
+  Dulaunoy]
+
+  misp-wipe.sh fixes
+
+- Merge branch '2.4' into nscs-nl/wipe. [Alexandre Dulaunoy]
+
+- Merge pull request #2055 from dspruell/riskiq_logo. [Andras Iklody]
+
+  Riskiq logo
+
+- Remove logo path (probably unneeded to have added to .gitignore)
+  [Darren Spruell]
+
+- Add org logo for RiskIQ. [Darren Spruell]
+
+- Merge pull request #2056 from RichieB2B/ncsc-nl/perm-sightings.
+  [Andras Iklody]
+
+  Add perm_sighting to initial database and roles
+
+- Add perm_sighting to initial database and roles. [Richard van den
+  Berg]
+
+- Merge branch '2.4' into nscs-nl/wipe. [Alexandre Dulaunoy]
+
+- * misp-wipe.sh does not backup, so no outputdir is needed * clear data
+  model cache upon wiping misp. [Richard van den Berg]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1984 from SekoiaLab/feature/serversApi. [Andras
+  Iklody]
+
+  Adds an api to add and edit servers in MISP
+
+- Feature: Adds the api support to ServersController to edit servers.
+  [Sebastien Quioc]
+
+- Refactor(controllers): adds checks for input parameters before editing
+  a server. [Sebastien Quioc]
+
+- Feature: Adds the api support to ServersController to add new servers.
+  [Sebastien Quioc]
+
+- Merge pull request #2049 from sebdraven/2.4. [Andras Iklody]
+
+  add impfuzzy
+
+- Add impfuzzy. [Sébastien Larinier]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
 v2.4.69 (2017-03-10)
 --------------------
 
@@ -17,6 +186,8 @@ Changes
 
 Fix
 ~~~
+
+- Version bump. [iglocska]
 
 - Fixed a typo in an upgrade script. [Iglocska]
 
