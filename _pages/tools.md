@@ -26,8 +26,9 @@ is also to explore new ideas, concepts or functionality which can be integrated 
 * [misp-workbench](https://github.com/MISP/misp-workbench) - Tools to export data out of the MISP MySQL database and use and abuse them outside of this platform.
 * [MISpego](https://github.com/MISP/MISPego) - Maltego Transform to put entities into MISP events.
 * [MISP-maltego](https://github.com/MISP/MISP-maltego) - Set of Maltego transforms to inferface with a MISP instance.
-* [PyMISP](https://github.com/CIRCL/PyMISP) - Python library using the MISP Rest API.
+* [PyMISP](https://github.com/CIRCL/PyMISP) - Python library using the MISP Rest API. This is the official library for MISP and can also generate offline MISP events.
 * [MISP-STIX-Converter](https://github.com/MISP/MISP-STIX-Converter) -  An utility repo to assist with converting between MISP and STIX formats.
+* [MISP-Taxii-Server](https://github.com/MISP/MISP-Taxii-Server) - An OpenTAXII Configuration for MISP with automatic TAXII to MISP sync.
 
 For the additional software created by the MISP project, check our [MISP project organization](https://github.com/MISP/).
 
@@ -47,5 +48,6 @@ For the additional software created by the MISP project, check our [MISP project
 * [cti-toolkit](https://github.com/certau/cti-toolkit)  CERT Australia Cyber Threat Intelligence (CTI) Toolkit includes a transform to MISP from STIX.
 * [MISP-IOC-Validator](https://github.com/tom8941/MISP-IOC-Validator/) validates the format of the different IOC from MISP and to remove false positive by comparing these IOC to existing known false positive.
 * [TheHive](https://thehive-project.org/) A 3-in-1 Security Incident Response Platform has an extensive MISP support.
-* [yara-exporter](https://github.com/BSI-CERT-Bund/yara-exporter) - Exporting MISP event attributes to yara rules usable with Thor apt scanner
+* [yara-exporter](https://github.com/BSI-CERT-Bund/yara-exporter) - Exporting MISP event attributes to yara rules usable with Thor apt scanner.
+* [tie2misp](https://github.com/DCSO/tie2misp) - Import DCSO TIE IOCs as MISP events.
 
