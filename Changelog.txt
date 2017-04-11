@@ -1,6 +1,242 @@
 Changelog
 =========
 
+v2.4.71 (2017-04-11)
+--------------------
+
+New
+~~~
+
+- Set distribution level in freetext results / module import results,
+  fixes #2023. [iglocska]
+
+- Password complexity defaults tightened, also passowrd requirements
+  shown to users, fixes #2117. [iglocska]
+
+- Check is user is sudo before wiping misp. [Hannah Ward]
+
+- Rework of the restsearch APIs. [iglocska]
+
+  - allows for alternate download types (supported for now: openioc)
+  - major refactor of the openioc export
+  - refactor of the CIDR tool
+
+Changes
+~~~~~~~
+
+- Org blacklisting enabled by default. [iglocska]
+
+- Bumped versions. [iglocska]
+
+  - pymisp
+  - query string version
+  - php recommended version
+
+- Version bump. [iglocska]
+
+- DB changes pre-loaded for 2.4.71. [iglocska]
+
+- Default password policy now includes a 16 char+ string option as an
+  alternative to the short 3/4, fixes #2117. [iglocska]
+
+- Added the proposal to delete flag to the API output, fixes #2105.
+  [iglocska]
+
+- Automation page updated to reflect the changes to the search APIs.
+  [iglocska]
+
+  - If your name is Raphael, move along nothing to see here *cough*
+
+Fix
+~~~
+
+- PyMISP version bump. [iglocska]
+
+- Fixed the missing brace. [iglocska]
+
+- Fixed the upgrade script to 2.4.71. [iglocska]
+
+- Removed obsolete file. [iglocska]
+
+- Removed obsolete js file. [iglocska]
+
+- Cleanup of the role add/edit checkboxes. [iglocska]
+
+- Better error handling for failing to attach tags. [iglocska]
+
+- Added password complexity popover to the password change dialogue.
+  [iglocska]
+
+- Misp-taxonomies updated to the latest version. [Alexandre Dulaunoy]
+
+- Misp-warninglists updated to the latest version. [Alexandre Dulaunoy]
+
+- Misp-galaxy updated to the latest version. [Alexandre Dulaunoy]
+
+- Set comment field to an empty string in the attribute pre-validation.
+  [iglocska]
+
+- DB changes preloaded for 2.4.71. [iglocska]
+
+- Invalid key lookup for roaming in checkIfServerInSG() [iglocska]
+
+- Invalid lookup for the queryversion. [iglocska]
+
+- Fixed a typo in the previous commit. [iglocska]
+
+- Remove sharing groups from json output if empty. [iglocska]
+
+- Slight change of the related events format in the JSON to be more
+  consistent. [iglocska]
+
+  - Org and Orgc moved within the relatedEvent->Event
+
+- Updated to the latest version of misp-galaxy. [Alexandre Dulaunoy]
+
+- Fixed a small issue that could lead to a failed event push using
+  sharing groups. [iglocska]
+
+- Enforce the uuid creation on the UI. [iglocska]
+
+- Enforce adding a UUID for external organisations too. [iglocska]
+
+  - No need to support 2.3 any longer
+
+- Default value for the tag exportable field added. [iglocska]
+
+- Fixed the attribute level restsearch returning a weirdly formatted
+  empty array. [iglocska]
+
+- Do not echo password on misp-wipe. [Hannah Ward]
+
+- History is now available via the API, fixes #2111. [iglocska]
+
+- Whitelist entries being removed breaks the indexing of attribute
+  arrays. [iglocska]
+
+  - caused issues with JSON serialisation as lists turned into dicts
+
+- Fixed an invalid JSON serialisation for restSearch. [iglocska]
+
+- Minor issue - duplicate style tag, fixes #2106. [iglocska]
+
+- CSRF issue when adding an attribute via the popover. [iglocska]
+
+- Min width added to resolved attribute value. [iglocska]
+
+  - looked terrible on low res screens
+
+- Misp-galaxy updated to the latest version. [Alexandre Dulaunoy]
+
+- Misp-taxonomies updated to the latest version. [Alexandre Dulaunoy]
+
+- Fixed issues with popups across the board for low res displays, fixes
+  #2101. [iglocska]
+
+  - Popups get scrollbars / realligned for potato resolutions
+  - General cleanup of popup related functions in the JS
+  - Added version querystring to the css files, no more ctrl+f5ing after some updates
+
+- Removed ajax containers from views since they are already provided by
+  the layout, fixes #1753. [iglocska]
+
+  - resolves some issues with popups not showing up after certain actions
+
+- Rearrange the data for adding proposals. [iglocska]
+
+  - if no ShadowAttribute container is found, encapsulate the posted data
+
+- NotFoundException when no events found by restSearch, fixes #2096.
+  [iglocska]
+
+  - changed to just return an empty set
+    - returns {"request":[]} for events/restSearch
+    - returns [] for events/restSearch
+
+- Removed unused field from user edit view. [iglocska]
+
+- Correction to previous commit. [iglocska]
+
+  - correlations can now be disabled by site admins, no matter who created the event
+
+- Allow disabling correlation for events not owned by the user if the
+  user is a site admin. [iglocska]
+
+- Freetext import shouldn't require the TLD containing warninglists to
+  be enabled. [iglocska]
+
+  - as long as it exists it will be used, no need to enable it any longer
+
+- Fixed an issue where discarding a delegation request tried to redirect
+  to the event view. [iglocska]
+
+  - however, users lose access to the event once they discard the delegation request
+  - redirects to the index instead now
+
+- Managing Delegation Request - wrong organisation in popup fixed, fixes
+  #2079. [iglocska]
+
+- Missing JS file for the template file upload re-added, fixes #2084.
+  [iglocska]
+
+Other
+~~~~~
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Add blob in the url. [Raphaël Vinot]
+
+- Major rewrite of the JSON schema. [Raphaël Vinot]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #2112 from FloatingGhost/2.4. [Andras Iklody]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #2091 from jhopp1e/patch-1. [Alexandre Dulaunoy]
+
+  Update xINSTALL.centos6.txt
+
+- Merge branch '2.4' into patch-1. [Alexandre Dulaunoy]
+
+- Update xINSTALL.centos6.txt. [Justin Hopple]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Misp-galaxy updated to the latest version. [Alexandre Dulaunoy]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #2000 from devnull-/bulk-email. [Andras Iklody]
+
+  Bulk email
+
+- Add 'Precedence: bulk' in email header. [devnull-]
+
+- Merge pull request #2 from MISP/2.4. [devnull-]
+
+  Pull Update
+
+- Merge branch '2.4' into 2.4. [devnull-]
+
 v2.4.70 (2017-03-26)
 --------------------
 
