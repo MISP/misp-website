@@ -25,6 +25,12 @@ Each communities might have specific rules to join them. Take a look and feel fr
 
 [Fidelis Barncat™ Intelligence Database ](https://www.fidelissecurity.com/resources/fidelis-barncat) includes more than 100,000 records with remote access tool (RAT) configuration settings. You can [apply for access](https://www.fidelissecurity.com/resources/fidelis-barncat) at the following location.
 
+### FIRST MISP Community
+
+Since 1990, when FIRST was founded, its members have resolved an almost continuous stream of security-related attacks and incidents including handling thousands of security vulnerabilities affecting nearly all of the millions of computer systems and networks throughout the world connected by the ever growing Internet.  FIRST brings together a wide variety of security and incident response teams including especially product security teams from the government, commercial, and academic sectors.
+
+[FIRST MISP instance](https://www.first.org/global/sigs/information-sharing/misp) allows FIRST members to efficiently share and store technical and non-technical information about malware samples, attackers and incidents. It also enables members who have not yet gained experience leveraging threat intelligence to connect with a wider community of organizations that have, increasing their own capabilities.
+
 ### NATO MISP Community
 
 The NATO Communications and Information (NCI) Agency operates a MISP community, [for more information](https://www.ncia.nato.int/Documents/Agency%20publications/Malware%20Information%20Sharing%20Platform%20(MISP).pdf).
