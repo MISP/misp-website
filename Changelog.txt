@@ -1,6 +1,134 @@
 Changelog
 =========
 
+v2.4.72 (2017-04-14)
+--------------------
+
+New
+~~~
+
+- Disable taxonomy tags. [iglocska]
+
+- Added attributes / event average to statistics. [iglocska]
+
+- Minimal flag added to the event index. [iglocska]
+
+  - used by the sync, greatly reduces the data fetched / transfered on the initial sync negotiation
+
+- Added JS dev doc. [Hannah Ward]
+
+- Added watchify for on-the-fly dev. [Hannah Ward]
+
+- Add build script for JS new: Add es6 version of misp.js chg: Removed
+  plain JS. [Hannah Ward]
+
+- Added package.json file. [Hannah Ward]
+
+- Added new flag to events/restSearch to disable sharing group loading.
+  [iglocska]
+
+  - sgReferenceOnly: Will only load the sharing_group_id not the actual sharing group data
+
+Changes
+~~~~~~~
+
+- Version bump. [iglocska]
+
+- Querystring bump. [iglocska]
+
+- Make the extension .js for people's syntax highlighters. [Hannah Ward]
+
+- Add npm instructions in install. [Hannah Ward]
+
+Fix
+~~~
+
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+
+- Enforce the hide tag directive. [iglocska]
+
+- Toggling an attribute's correlation won't reload the page anymore.
+  [iglocska]
+
+  - Part of the 2017 saving @adulau's sanity initiative(tm)
+
+- Removed sharing group option from the quick distribution edit, fixes
+  #2116. [iglocska]
+
+- Fixed an issue with the org blacklisting. [iglocska]
+
+- Fixed an issue where a proposal not having an assigned organisation
+  broke the synchronisation on a pull. [iglocska]
+
+- Fixed a format issue with the minimal index. [iglocska]
+
+- No notify field set in user creation throws error. [iglocska]
+
+- Reverted JS changes for now. [iglocska]
+
+- Further JS fixes. [iglocska]
+
+- Further fixes to the JS. [iglocska]
+
+- Several js fixes. [iglocska]
+
+- Left off changes to misp.js. [iglocska]
+
+- Fixed a missing variable initialisation. [iglocska]
+
+- Fixed uninitialised variable. [iglocska]
+
+- Un-minified JS. Don't bully me. [Hannah Ward]
+
+- Remove now unneeded JS deps. [Hannah Ward]
+
+- Added 'var' in front of new variables. [Hannah Ward]
+
+- Assign global functions to window. [Hannah Ward]
+
+- Added uglifyjs for minified JS. [Hannah Ward]
+
+- Don't try to use the react preset ;) [Hannah Ward]
+
+- Only require node for development purposes - compiles to JS. [Hannah
+  Ward]
+
+- Ignore the *right* node folder. [Hannah Ward]
+
+- Avoid undefined calls to .value. [Hannah Ward]
+
+- Updated JS to fix Infinite loading when adding an attribute fails,
+  fixes #2102. [iglocska]
+
+- Removed unnecesary part of the previous fix. [iglocska]
+
+- Fixed a mass attribute edit issue if no sharing groups are created on
+  the instnace. [iglocska]
+
+- Added fallback for getallheaders() missing for some systems.
+  [iglocska]
+
+- Missing ; added. [iglocska]
+
+- Query string version bump. [iglocska]
+
+- Added logging to the testconnection post-test. [iglocska]
+
+  - also, fixed the inverted error codes as noted by @ppanero
+
+- Fix to the correlation graph after the relatedevent format changes.
+  [iglocska]
+
+Other
+~~~~~
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch 'jsfix' into 2.4. [iglocska]
+
+- Ignore node packages in gitignore. [Hannah Ward]
+
 v2.4.71 (2017-04-11)
 --------------------
 
