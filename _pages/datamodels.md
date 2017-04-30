@@ -36,6 +36,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |email-dst| | | | X | | |
 |email-subject| | | | X | | |
 |email-attachment| | | | X | | |
+|float| | | | | | |
 |url| | | | X | | |
 |http-method| | | | | | |
 |user-agent| | | | X | | |
@@ -47,12 +48,14 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |pattern-in-traffic| | | | X | | X |
 |pattern-in-memory| | | | | X | X |
 |yara| | | | X | X | X |
+|sigma| | | | X | X | X |
 |vulnerability| | | | X | | X |
 |attachment| | | X | X | X | X |
 |malware-sample| | | | X | X | X |
 |link| X | | X | X | | |
 |comment| X | X | X | X | X | X |
 |text| X | | X | X | X | X |
+|hex| X | | X | X | X | X |
 |other| X | | X | X | X | X |
 |named pipe| | | | | X | |
 |mutex| | | | | X | |
@@ -79,6 +82,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |ssdeep| | | | X | X | X |
 |imphash| | | | X | X | X |
 |pehash| | | | X | | X |
+|impfuzzy| | | | X | X | X |
 |sha224| | | | X | X | X |
 |sha384| | | | X | X | X |
 |sha512| | | | X | X | X |
@@ -88,6 +92,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |filename&#124;authentihash| | | | X | X | X |
 |filename&#124;ssdeep| | | | X | X | X |
 |filename&#124;imphash| | | | X | X | X |
+|filename&#124;impfuzzy| | | | X | X | X |
 |filename&#124;pehash| | | | X | X | X |
 |filename&#124;sha224| | | | X | X | X |
 |filename&#124;sha384| | | | X | X | X |
@@ -103,11 +108,53 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |whois-registrant-name| | | | | | |
 |whois-registrar| | | | | | |
 |whois-creation-date| | | | | | |
-|targeted-threat-index| | | | | | |
-|mailslot| | | | | | |
-|pipe| | | | | | |
-|ssl-cert-attributes| | | | | | |
 |x509-fingerprint-sha1| | | | X | X | X |
+|dns-soa-email| | | | | | |
+|size-in-bytes| | | | | | |
+|counter| | | | | | |
+|datetime| | | | | | |
+|cpe| | | | | | |
+|port| | | | | | |
+|ip-dst&#124;port| | | | X | | |
+|ip-src&#124;port| | | | X | | |
+|hostname&#124;port| | | | X | | |
+|email-dst-display-name| | | | X | | |
+|email-src-display-name| | | | X | | |
+|email-header| | | | X | | |
+|email-reply-to| | | | X | | |
+|email-x-mailer| | | | X | | |
+|email-mime-boundary| | | | X | | |
+|email-thread-index| | | | X | | |
+|email-message-id| | | | X | | |
+|github-username| | | | | | |
+|github-repository| | | | | | |
+|github-organisation| | | | | | |
+|jabber-id| | | | | | |
+|twitter-id| | | | | | |
+|first-name| | | | | | |
+|middle-name| | | | | | |
+|last-name| | | | | | |
+|date-of-birth| | | | | | |
+|place-of-birth| | | | | | |
+|gender| | | | | | |
+|passport-number| | | | | | |
+|passport-country| | | | | | |
+|passport-expiration| | | | | | |
+|redress-number| | | | | | |
+|nationality| | | | | | |
+|visa-number| | | | | | |
+|issue-date-of-the-visa| | | | | | |
+|primary-residence| | | | | | |
+|country-of-residence| | | | | | |
+|special-service-request| | | | | | |
+|frequent-flyer-number| | | | | | |
+|travel-details| | | | | | |
+|payment-details| | | | | | |
+|place-port-of-original-embarkation| | | | | | |
+|place-port-of-clearance| | | | | | |
+|place-port-of-onward-foreign-destination| | | | | | |
+|passenger-name-record-locator-number| | | | | | |
+|mobile-application-id| | | | X | | X |
 
 |Category| Persistence mechanism | Network activity | Payload type | Attribution | External analysis | Financial fraud |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -128,6 +175,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |email-dst| | X | | | | |
 |email-subject| | | | | | |
 |email-attachment| | | | | | |
+|float| | | | | | |
 |url| | X | | | X | |
 |http-method| | X | | | | |
 |user-agent| | X | | | X | |
@@ -139,12 +187,14 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |pattern-in-traffic| | X | | | X | |
 |pattern-in-memory| | | | | X | |
 |yara| | | | | | |
+|sigma| | | | | | |
 |vulnerability| | | | | X | |
 |attachment| | X | | | X | |
 |malware-sample| | | | | X | |
 |link| | | | | X | |
 |comment| X | X | X | X | X | X |
 |text| X | X | X | X | X | X |
+|hex| X | X | | | | X |
 |other| X | X | X | X | X | X |
 |named pipe| | | | | | |
 |mutex| | | | | | |
@@ -171,6 +221,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |ssdeep| | | | | | |
 |imphash| | | | | | |
 |pehash| | | | | | |
+|impfuzzy| | | | | | |
 |sha224| | | | | | |
 |sha384| | | | | | |
 |sha512| | | | | | |
@@ -180,6 +231,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |filename&#124;authentihash| | | | | | |
 |filename&#124;ssdeep| | | | | | |
 |filename&#124;imphash| | | | | | |
+|filename&#124;impfuzzy| | | | | | |
 |filename&#124;pehash| | | | | | |
 |filename&#124;sha224| | | | | | |
 |filename&#124;sha384| | | | | | |
@@ -195,103 +247,192 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |whois-registrant-name| | | | X | | |
 |whois-registrar| | | | X | | |
 |whois-creation-date| | | | X | | |
-|targeted-threat-index| | | | | | |
-|mailslot| | | | | | |
-|pipe| | | | | | |
-|ssl-cert-attributes| | | | | | |
 |x509-fingerprint-sha1| | X | | X | X | |
+|dns-soa-email| | | | | | |
+|size-in-bytes| | | | | | |
+|counter| | | | | | |
+|datetime| | | | | | |
+|cpe| | | | | | |
+|port| | | | | | |
+|ip-dst&#124;port| | X | | | X | |
+|ip-src&#124;port| | X | | | X | |
+|hostname&#124;port| | | | | | |
+|email-dst-display-name| | | | | | |
+|email-src-display-name| | | | | | |
+|email-header| | | | | | |
+|email-reply-to| | | | | | |
+|email-x-mailer| | | | | | |
+|email-mime-boundary| | | | | | |
+|email-thread-index| | | | | | |
+|email-message-id| | | | | | |
+|github-username| | | | | | |
+|github-repository| | | | | X | |
+|github-organisation| | | | | | |
+|jabber-id| | | | | | |
+|twitter-id| | | | | | |
+|first-name| | | | | | |
+|middle-name| | | | | | |
+|last-name| | | | | | |
+|date-of-birth| | | | | | |
+|place-of-birth| | | | | | |
+|gender| | | | | | |
+|passport-number| | | | | | |
+|passport-country| | | | | | |
+|passport-expiration| | | | | | |
+|redress-number| | | | | | |
+|nationality| | | | | | |
+|visa-number| | | | | | |
+|issue-date-of-the-visa| | | | | | |
+|primary-residence| | | | | | |
+|country-of-residence| | | | | | |
+|special-service-request| | | | | | |
+|frequent-flyer-number| | | | | | |
+|travel-details| | | | | | |
+|payment-details| | | | | | |
+|place-port-of-original-embarkation| | | | | | |
+|place-port-of-clearance| | | | | | |
+|place-port-of-onward-foreign-destination| | | | | | |
+|passenger-name-record-locator-number| | | | | | |
+|mobile-application-id| | | | | | |
 
-|Category| Other |
-| --- |:---:|
-|md5| |
-|sha1| |
-|sha256| |
-|filename| |
-|pdb| |
-|filename&#124;md5| |
-|filename&#124;sha1| |
-|filename&#124;sha256| |
-|ip-src| |
-|ip-dst| |
-|hostname| |
-|domain| |
-|domain&#124;ip| |
-|email-src| |
-|email-dst| |
-|email-subject| |
-|email-attachment| |
-|url| |
-|http-method| |
-|user-agent| |
-|regkey| |
-|regkey&#124;value| |
-|AS| |
-|snort| |
-|pattern-in-file| |
-|pattern-in-traffic| |
-|pattern-in-memory| |
-|yara| |
-|vulnerability| |
-|attachment| |
-|malware-sample| |
-|link| |
-|comment| X |
-|text| X |
-|other| X |
-|named pipe| |
-|mutex| |
-|target-user| |
-|target-email| |
-|target-machine| |
-|target-org| |
-|target-location| |
-|target-external| |
-|btc| |
-|iban| |
-|bic| |
-|bank-account-nr| |
-|aba-rtn| |
-|bin| |
-|cc-number| |
-|prtn| |
-|threat-actor| |
-|campaign-name| |
-|campaign-id| |
-|malware-type| |
-|uri| |
-|authentihash| |
-|ssdeep| |
-|imphash| |
-|pehash| |
-|sha224| |
-|sha384| |
-|sha512| |
-|sha512/224| |
-|sha512/256| |
-|tlsh| |
-|filename&#124;authentihash| |
-|filename&#124;ssdeep| |
-|filename&#124;imphash| |
-|filename&#124;pehash| |
-|filename&#124;sha224| |
-|filename&#124;sha384| |
-|filename&#124;sha512| |
-|filename&#124;sha512/224| |
-|filename&#124;sha512/256| |
-|filename&#124;tlsh| |
-|windows-scheduled-task| |
-|windows-service-name| |
-|windows-service-displayname| |
-|whois-registrant-email| |
-|whois-registrant-phone| |
-|whois-registrant-name| |
-|whois-registrar| |
-|whois-creation-date| |
-|targeted-threat-index| |
-|mailslot| |
-|pipe| |
-|ssl-cert-attributes| |
-|x509-fingerprint-sha1| |
+|Category| Support Tool | Social network | Person | Other |
+| --- |:---:|:---:|:---:|:---:|
+|md5| | | | |
+|sha1| | | | |
+|sha256| | | | |
+|filename| | | | |
+|pdb| | | | |
+|filename&#124;md5| | | | |
+|filename&#124;sha1| | | | |
+|filename&#124;sha256| | | | |
+|ip-src| | | | |
+|ip-dst| | | | |
+|hostname| | | | |
+|domain| | | | |
+|domain&#124;ip| | | | |
+|email-src| | X | | |
+|email-dst| | X | | |
+|email-subject| | | | |
+|email-attachment| | | | |
+|float| | | | X |
+|url| | | | |
+|http-method| | | | |
+|user-agent| | | | |
+|regkey| | | | |
+|regkey&#124;value| | | | |
+|AS| | | | |
+|snort| | | | |
+|pattern-in-file| | | | |
+|pattern-in-traffic| | | | |
+|pattern-in-memory| | | | |
+|yara| | | | |
+|sigma| | | | |
+|vulnerability| | | | |
+|attachment| X | | | |
+|malware-sample| | | | |
+|link| X | | | |
+|comment| X | X | X | X |
+|text| X | X | X | X |
+|hex| X | | | X |
+|other| X | X | X | X |
+|named pipe| | | | |
+|mutex| | | | |
+|target-user| | | | |
+|target-email| | | | |
+|target-machine| | | | |
+|target-org| | | | |
+|target-location| | | | |
+|target-external| | | | |
+|btc| | | | |
+|iban| | | | |
+|bic| | | | |
+|bank-account-nr| | | | |
+|aba-rtn| | | | |
+|bin| | | | |
+|cc-number| | | | |
+|prtn| | | | |
+|threat-actor| | | | |
+|campaign-name| | | | |
+|campaign-id| | | | |
+|malware-type| | | | |
+|uri| | | | |
+|authentihash| | | | |
+|ssdeep| | | | |
+|imphash| | | | |
+|pehash| | | | |
+|impfuzzy| | | | |
+|sha224| | | | |
+|sha384| | | | |
+|sha512| | | | |
+|sha512/224| | | | |
+|sha512/256| | | | |
+|tlsh| | | | |
+|filename&#124;authentihash| | | | |
+|filename&#124;ssdeep| | | | |
+|filename&#124;imphash| | | | |
+|filename&#124;impfuzzy| | | | |
+|filename&#124;pehash| | | | |
+|filename&#124;sha224| | | | |
+|filename&#124;sha384| | | | |
+|filename&#124;sha512| | | | |
+|filename&#124;sha512/224| | | | |
+|filename&#124;sha512/256| | | | |
+|filename&#124;tlsh| | | | |
+|windows-scheduled-task| | | | |
+|windows-service-name| | | | |
+|windows-service-displayname| | | | |
+|whois-registrant-email| | | | |
+|whois-registrant-phone| | | | |
+|whois-registrant-name| | | | |
+|whois-registrar| | | | |
+|whois-creation-date| | | | |
+|x509-fingerprint-sha1| | | | |
+|dns-soa-email| | | | |
+|size-in-bytes| | | | X |
+|counter| | | | X |
+|datetime| | | | X |
+|cpe| | | | X |
+|port| | | | X |
+|ip-dst&#124;port| | | | |
+|ip-src&#124;port| | | | |
+|hostname&#124;port| | | | |
+|email-dst-display-name| | | | |
+|email-src-display-name| | | | |
+|email-header| | | | |
+|email-reply-to| | | | |
+|email-x-mailer| | | | |
+|email-mime-boundary| | | | |
+|email-thread-index| | | | |
+|email-message-id| | | | |
+|github-username| | X | | |
+|github-repository| | X | | |
+|github-organisation| | X | | |
+|jabber-id| | X | | |
+|twitter-id| | X | | |
+|first-name| | | X | |
+|middle-name| | | X | |
+|last-name| | | X | |
+|date-of-birth| | | X | |
+|place-of-birth| | | X | |
+|gender| | | X | |
+|passport-number| | | X | |
+|passport-country| | | X | |
+|passport-expiration| | | X | |
+|redress-number| | | X | |
+|nationality| | | X | |
+|visa-number| | | X | |
+|issue-date-of-the-visa| | | X | |
+|primary-residence| | | X | |
+|country-of-residence| | | X | |
+|special-service-request| | | X | |
+|frequent-flyer-number| | | X | |
+|travel-details| | | X | |
+|payment-details| | | X | |
+|place-port-of-original-embarkation| | | X | |
+|place-port-of-clearance| | | X | |
+|place-port-of-onward-foreign-destination| | | X | |
+|passenger-name-record-locator-number| | | X | |
+|mobile-application-id| | | | |
 
 ### Categories
 
@@ -307,7 +448,10 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **Attribution**: Identification of the group, organisation, or country behind the attack
 *   **External analysis**: Any other result from additional analysis of the malware like tools output Examples: pdf-parser output, automated sandbox analysis, reverse engineering report.
 *   **Financial fraud**: Financial Fraud indicators, for example: IBAN Numbers, BIC codes, Credit card numbers, etc.
-*   **Other**: Attributes that are not part of any other category
+*   **Support Tool**: Tools supporting analysis or detection of the event
+*   **Social network**: Social networks and platforms
+*   **Person**: A human being - natural person
+*   **Other**: Attributes that are not part of any other category or are meant to be used as a component in MISP objects in the future
 
 ### Types
 
@@ -316,35 +460,38 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **sha256**: You are encouraged to use filename|sha256 instead. A checksum in sha256 format, only use this if you don't know the correct filename
 *   **filename**: Filename
 *   **pdb**: Microsoft Program database (PDB) path information
-*   **filename!md5**: A filename and an md5 hash separated by a | (no spaces)
-*   **filename!sha1**: A filename and an sha1 hash separated by a | (no spaces)
-*   **filename!sha256**: A filename and an sha256 hash separated by a | (no spaces)
+*   **filename|md5**: A filename and an md5 hash separated by a | (no spaces)
+*   **filename|sha1**: A filename and an sha1 hash separated by a | (no spaces)
+*   **filename|sha256**: A filename and an sha256 hash separated by a | (no spaces)
 *   **ip-src**: A source IP address of the attacker
 *   **ip-dst**: A destination IP address of the attacker or C&C server. Also set the IDS flag on when this IP is hardcoded in malware
 *   **hostname**: A full host/dnsname of an attacker. Also set the IDS flag on when this hostname is hardcoded in malware
 *   **domain**: A domain name used in the malware. Use this instead of hostname when the upper domain is important or can be used to create links between events.
-*   **domain!ip**: A domain name and its IP address (as found in DNS lookup) separated by a | (no spaces)
-*   **email-src**: The email address (or domainname) used to send the malware.
+*   **domain|ip**: A domain name and its IP address (as found in DNS lookup) separated by a | (no spaces)
+*   **email-src**: The email address used to send the malware.
 *   **email-dst**: A recipient email address that is not related to your constituency.
 *   **email-subject**: The subject of the email
 *   **email-attachment**: File name of the email attachment.
+*   **float**: A floating point value.
 *   **url**: url
 *   **http-method**: HTTP method used by the malware (e.g. POST, GET, ...).
 *   **user-agent**: The user-agent used by the malware in the HTTP request.
 *   **regkey**: Registry key or value
-*   **regkey!value**: Registry value + data separated by |
+*   **regkey|value**: Registry value + data separated by |
 *   **AS**: Autonomous system
 *   **snort**: An IDS rule in Snort rule-format. This rule will be automatically rewritten in the NIDS exports.
 *   **pattern-in-file**: Pattern in file that identifies the malware
 *   **pattern-in-traffic**: Pattern in network traffic that identifies the malware
 *   **pattern-in-memory**: Pattern in memory dump that identifies the malware
 *   **yara**: Yara signature
+*   **sigma**: Sigma - Generic Signature Format for SIEM Systems
 *   **vulnerability**: A reference to the vulnerability used in the exploit
 *   **attachment**: Please upload files using the <em>Upload Attachment</em> button.
 *   **malware-sample**: Please upload files using the <em>Upload Attachment</em> button.
 *   **link**: Link to an external information
 *   **comment**: Comment or description in a human language. This will not be correlated with other attributes
 *   **text**: Name, ID or a reference
+*   **hex**: A value in hexadecimal format
 *   **other**: Other attribute
 *   **named pipe**: Named pipe, use the format \.\pipe\<PipeName>
 *   **mutex**: Mutex, use the format \BaseNamedObjects\<Mutex>
@@ -367,26 +514,28 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **campaign-id**: Associated campaign ID
 *   **malware-type**:
 *   **uri**: Uniform Resource Identifier
-*   **authentihash**: You are encouraged to use filename|authentihash instead, authenticode executable signature hash, only use this if you don't know the correct filename
+*   **authentihash**: You are encouraged to use filename|authentihash instead. Authenticode executable signature hash, only use this if you don't know the correct filename
 *   **ssdeep**: You are encouraged to use filename|ssdeep instead. A checksum in the SSDeep format, only use this if you don't know the correct filename
 *   **imphash**: You are encouraged to use filename|imphash instead. A hash created based on the imports in the sample, only use this if you don't know the correct filename
 *   **pehash**: PEhash - a hash calculated based of certain pieces of a PE executable file
+*   **impfuzzy**: You are encouraged to use filename|impfuzzy instead. A fuzzy hash created based on the imports in the sample, only use this if you don't know the correct filename
 *   **sha224**: You are encouraged to use filename|sha224 instead. A checksum in sha224 format, only use this if you don't know the correct filename
 *   **sha384**: You are encouraged to use filename|sha384 instead. A checksum in sha384 format, only use this if you don't know the correct filename
 *   **sha512**: You are encouraged to use filename|sha512 instead. A checksum in sha512 format, only use this if you don't know the correct filename
 *   **sha512/224**: You are encouraged to use filename|sha512/224 instead. A checksum in sha512/224 format, only use this if you don't know the correct filename
 *   **sha512/256**: You are encouraged to use filename|sha512/256 instead. A checksum in sha512/256 format, only use this if you don't know the correct filename
 *   **tlsh**: You are encouraged to use filename|tlsh instead. A checksum in the Trend Micro Locality Sensitive Hash format, only use this if you don't know the correct filename
-*   **filename!authentihash**: A checksum in md5 format
-*   **filename!ssdeep**: A checksum in ssdeep format
-*   **filename!imphash**: Import hash - a hash created based on the imports in the sample.
-*   **filename!pehash**: A filename and a PEhash separated by a pipe
-*   **filename!sha224**: A filename and a sha-224 hash separated by a pipe
-*   **filename!sha384**: A filename and a sha-384 hash separated by a pipe
-*   **filename!sha512**: A filename and a sha-512 hash separated by a pipe
-*   **filename!sha512/224**: A filename and a sha-512/224 hash separated by a pipe
-*   **filename!sha512/256**: A filename and a sha-512/256 hash separated by a pipe
-*   **filename!tlsh**: A filename and a Trend Micro Locality Sensitive Hash separated by a pipe
+*   **filename|authentihash**: A checksum in md5 format
+*   **filename|ssdeep**: A checksum in ssdeep format
+*   **filename|imphash**: Import hash - a hash created based on the imports in the sample.
+*   **filename|impfuzzy**: Import fuzzy hash - a fuzzy hash created based on the imports in the sample.
+*   **filename|pehash**: A filename and a PEhash separated by a |
+*   **filename|sha224**: A filename and a sha-224 hash separated by a |
+*   **filename|sha384**: A filename and a sha-384 hash separated by a |
+*   **filename|sha512**: A filename and a sha-512 hash separated by a |
+*   **filename|sha512/224**: A filename and a sha-512/224 hash separated by a |
+*   **filename|sha512/256**: A filename and a sha-512/256 hash separated by a |
+*   **filename|tlsh**: A filename and a Trend Micro Locality Sensitive Hash separated by a |
 *   **windows-scheduled-task**: A scheduled task in windows
 *   **windows-service-name**: A windows service name. This is the name used internally by windows. Not to be confused with the windows-service-displayname.
 *   **windows-service-displayname**: A windows service's displayname, not to be confused with the windows-service-name. This is the name that applications will generally display as the service's name in applications.
@@ -395,11 +544,54 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **whois-registrant-name**: The name of a domain's registrant, obtained from the WHOIS information.
 *   **whois-registrar**: The registrar of the domain, obtained from the WHOIS information.
 *   **whois-creation-date**: The date of domain's creation, obtained from the WHOIS information.
-*   **targeted-threat-index**:
-*   **mailslot**: MailSlot interprocess communication
-*   **pipe**: Pipeline (for named pipes use the attribute type "named pipe")
-*   **ssl-cert-attributes**: SSL certificate attributes
 *   **x509-fingerprint-sha1**: X509 fingerprint in SHA-1 format
+*   **dns-soa-email**: RFC1035 mandates that DNS zones should have a SOA (Statement Of Authority) record that contains an email address where a PoC for the domain could be contacted. This can sometimes be used for attribution/linkage between different domains even if protected by whois privacy
+*   **size-in-bytes**: Size expressed in bytes
+*   **counter**: An integer counter, generally to be used in objects
+*   **datetime**: Datetime in the ISO 8601 format
+*   **cpe**: Common platform enumeration
+*   **port**: Port number
+*   **ip-dst|port**: IP destination and port number seperated by a |
+*   **ip-src|port**: IP source and port number seperated by a |
+*   **hostname|port**: Hostname and port number seperated by a |
+*   **email-dst-display-name**: Email destination display name
+*   **email-src-display-name**: Email source display name
+*   **email-header**: Email header
+*   **email-reply-to**: Email reply to header
+*   **email-x-mailer**: Email x-mailer header
+*   **email-mime-boundary**: The email mime boundary separating parts in a multipart email
+*   **email-thread-index**: The email thread index header
+*   **email-message-id**:
+*   **github-username**: A github user name
+*   **github-repository**: A github repository
+*   **github-organisation**: A github organisation
+*   **jabber-id**: Jabber ID
+*   **twitter-id**: Twitter ID
+*   **first-name**: First name of a natural person
+*   **middle-name**: Middle name of a natural person
+*   **last-name**: Last name of a natural person
+*   **date-of-birth**: Date of birth of a natural person (in YYYY-MM-DD format)
+*   **place-of-birth**: Place of birth of a natural person
+*   **gender**: The gender of a natural person (Male, Female, Other, Prefer not to say)
+*   **passport-number**: The passport number of a natural person
+*   **passport-country**: The country in which the passport was issued
+*   **passport-expiration**: The expiration date of a passport
+*   **redress-number**: The Redress Control Number is the record identifier for people who apply for redress through the DHS Travel Redress Inquiry Program (DHS TRIP). DHS TRIP is for travelers who have been repeatedly identified for additional screening and who want to file an inquiry to have erroneous information corrected in DHS systems
+*   **nationality**: The nationality of a natural person
+*   **visa-number**: Visa number
+*   **issue-date-of-the-visa**: The date on which the visa was issued
+*   **primary-residence**: The primary residence of a natural person
+*   **country-of-residence**: The country of residence of a natural person
+*   **special-service-request**: A Special Service Request is a function to an airline to provide a particular facility for A Passenger or passengers.
+*   **frequent-flyer-number**: The frequent flyer number of a passenger
+*   **travel-details**: Travel details
+*   **payment-details**: Payment details
+*   **place-port-of-original-embarkation**: The orignal port of embarkation
+*   **place-port-of-clearance**: The port of clearance
+*   **place-port-of-onward-foreign-destination**: A Port where the passenger is transiting to
+*   **passenger-name-record-locator-number**: The Passenger Name Record Locator is a key under which the reservation for a trip is stored in the system. The PNR contains, among other data, the name, flight segments and address of the passenger. It is defined by a combination of five or six letters and numbers.
+*   **mobile-application-id**: The application id of a mobile application
+
 
 ## MISP Taxonomies
 
