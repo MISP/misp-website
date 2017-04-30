@@ -32,7 +32,7 @@ is also to explore new ideas, concepts or functionality which can be integrated 
 
 For the additional software created by the MISP project, check our [MISP project organization](https://github.com/MISP/).
 
-### Software or Services with MISP support
+### Software or Services with MISP support or Extending MISP functionalities
 
 * [Viper](http://www.viper.li/) - is a binary management and analysis framework dedicated to malware and exploit researchers including a MISP module.
 * [cve-search](https://github.com/cve-search) - a tool to perform local searches for known vulnerabilities include a [MISP plug-in](https://github.com/cve-search/Plugins/tree/master/plugins/plugins/MISP).
@@ -50,4 +50,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [TheHive](https://thehive-project.org/) A 3-in-1 Security Incident Response Platform has an extensive MISP support.
 * [yara-exporter](https://github.com/BSI-CERT-Bund/yara-exporter) - Exporting MISP event attributes to yara rules usable with Thor apt scanner.
 * [tie2misp](https://github.com/DCSO/tie2misp) - Import DCSO TIE IOCs as MISP events.
+* [mail_to_misp](https://github.com/rommelfs/mail_to_misp) - Connect your mail client to MISP in order to create events based on the information contained within mails.
+* [misp-takedown](https://github.com/rommelfs/misp-takedown) - A curses-style interface for automatic takedown notification based on MISP events.
+
 
