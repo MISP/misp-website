@@ -405,6 +405,8 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 
 Along with the core format, [MISP taxonomies](https://www.github.com/MISP/misp-taxonomies/) provide a set of already defined classifications modeling estimative language, CSIRTs/CERTs classifications, national classifications or threat model classification. The fixed taxonomies provide a practical method to tag efficiently events and attributes within a set of MISP instances where taxonomies can be easily cherry-picked or extended to meet the local requirements of an organization or a specific sharing community. When using MISP, the MISP taxonomies are available and can be freely used based on the community practises.
 
+The taxonomies can be [browsed via the web site](/taxonomies.html) or via MISP software.
+
 - [Admiralty Scale](https://github.com/MISP/misp-taxonomies/tree/master/admiralty-scale)
 - [adversary](https://github.com/MISP/misp-taxonomies/tree/master/adversary) - description of an adversary infrastructure
 - CIRCL [Taxonomy - Schemes of Classification in Incident Response and Detection](https://github.com/MISP/misp-taxonomies/tree/master/circl)
