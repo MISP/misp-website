@@ -597,7 +597,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 
 Along with the core format, [MISP taxonomies](https://www.github.com/MISP/misp-taxonomies/) provide a set of already defined classifications modeling estimative language, CSIRTs/CERTs classifications, national classifications or threat model classification. The fixed taxonomies provide a practical method to tag efficiently events and attributes within a set of MISP instances where taxonomies can be easily cherry-picked or extended to meet the local requirements of an organization or a specific sharing community. When using MISP, the MISP taxonomies are available and can be freely used based on the community practises.
 
-The taxonomies can be [browsed via the web site](/taxonomies.html) or via MISP software.
+The taxonomies can be [browsed via the web site](/taxonomies.html) or via the MISP software.
 
 - [Admiralty Scale](https://github.com/MISP/misp-taxonomies/tree/master/admiralty-scale)
 - [adversary](https://github.com/MISP/misp-taxonomies/tree/master/adversary) - description of an adversary infrastructure
@@ -627,3 +627,9 @@ tion (CARO) Naming Scheme and Malware Terminology.
 - Vocabulary for Event Recording and Incident Sharing [VERIS](https://github.com/MISP/misp-taxonomies/tree/master/veris)
 
 
+## MISP Galaxy
+
+MISP galaxy is a simple method to express a large object called cluster that can be attached to MISP events or attributes. A cluster can be composed of one or more elements. Elements are expressed as key-values. There are default vocabularies available in MISP galaxy but those can be overwritten, replaced or updated as you wish. Existing clusters and vocabularies can be used as-is or as a template. MISP distribution can be applied to each cluster to permit a limited or broader distribution scheme. Many MISP galaxy clusters are already available like Exploit-Kit, Microsoft Activity Group actor, Preventive Measure, 
+Ransomware, TDS, Threat actor or Tool used by adversaries.
+
+The galaxy can be [browsed via the web site](/galaxy.html) or directly via the MISP software.
