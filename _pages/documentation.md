@@ -11,6 +11,18 @@ The MISP documentation is maintained in the [misp-book project](https://github.c
 
 The MISP documentation is available in [HTML format](https://www.circl.lu/doc/misp/), [PDF](https://www.circl.lu/doc/misp/book.pdf), [Kindle Mobi format](https://www.circl.lu/doc/misp/book.mobi) and [EPUB](https://www.circl.lu/doc/misp/book.epub).
 
+### MISP galaxy and taxonomies documentation
+
+- [MISP galaxy](https://github.com/MISP/misp-galaxy) clusters are documented and available in [HTML format](/galaxy.html) or [PDF format](/galaxy.pdf).
+- [MISP taxonomies]((https://github.com/MISP/misp) are documented and available in [HTML format](/taxonomies.html) or [PDF format](/taxonomies.pdf).
+
+### MISP format documentation
+
+MISP format are described in [specification document](https://github.com/MISP/misp-rfc) based on the current implementation of MISP core and PyMISP. These specifications are available for
+other developers willing to develop their own tools or software supporting the MISP format.
+
+* [misp-core-format](https://github.com/MISP/misp-rfc/blob/master/misp-core-format/raw.md.txt)  which describes the core JSON format of MISP. Current Internet-Draft: [01](https://tools.ietf.org/html/draft-dulaunoy-misp-core-format)
+* [misp-taxonomy-format](https://github.com/MISP/misp-rfc/blob/master/misp-taxonomy-format/raw.md.txt) which describes the taxonomy JSON format of MISP. Current Internet-Draft: [02](https://tools.ietf.org/html/draft-dulaunoy-misp-taxonomy-format)
 
 ## Community Support
 
