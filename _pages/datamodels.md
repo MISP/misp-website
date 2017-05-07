@@ -632,4 +632,4 @@ tion (CARO) Naming Scheme and Malware Terminology.
 MISP galaxy is a simple method to express a large object called cluster that can be attached to MISP events or attributes. A cluster can be composed of one or more elements. Elements are expressed as key-values. There are default vocabularies available in MISP galaxy but those can be overwritten, replaced or updated as you wish. Existing clusters and vocabularies can be used as-is or as a template. MISP distribution can be applied to each cluster to permit a limited or broader distribution scheme. Many MISP galaxy clusters are already available like Exploit-Kit, Microsoft Activity Group actor, Preventive Measure, 
 Ransomware, TDS, Threat actor or Tool used by adversaries.
 
-The galaxy can be [browsed via the web site](/galaxy.html) or downloaded as [PDF][/galaxy.pdf] directly via the MISP software.
+The galaxy can be [browsed via the web site](/galaxy.html) or downloaded as [PDF](/galaxy.pdf) or directly via the MISP software.
