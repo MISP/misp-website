@@ -1,6 +1,266 @@
 Changelog
 =========
 
+v2.4.73 (2017-05-09)
+--------------------
+
+New
+~~~
+
+- Update all the json structures in MISP via the API, fixes #2168.
+  [iglocska]
+
+  - Just post to the following APIs as a site admin:
+    - /warninglists/update
+    - /galaxies/update
+    - /taxonomies/update
+
+- First implementation of the feed analysis system. [iglocska]
+
+- Cortex objects shown in popup. [iglocska]
+
+- New module type: Cortex. [iglocska]
+
+  - similar to Enrichment modules except for not having the options to run hover
+
+- New type - cortex. [iglocska]
+
+  - raw cortex output json
+
+- Use /events/freeTextImport/eventid via the API to directly parse and
+  create attributes from the input. [iglocska]
+
+  - expected format is {"value": "my_string_to_parse"} with "distribution" being an optional value (otherwise instnace defaults are assumed)
+
+Changes
+~~~~~~~
+
+- Version bump on the queryVersion. [iglocska]
+
+- In preparation of the various taxonomy types, only update event type
+  taxonomies or ones without a type. [iglocska]
+
+- Added scroll bar to large cortex object popups. [iglocska]
+
+- Change to the CIRCL pgp keyserver instead of the slowpoke MIT one.
+  [iglocska]
+
+- Added attribute count to the event view's meta fields too, fixes
+  #2151. [iglocska]
+
+- Show number of attributes on the all filter in the event view, fixes
+  #2151. [iglocska]
+
+- Added distribution as a possible module output field. [iglocska]
+
+Fix
+~~~
+
+- Don't show links to feeds on the event view to normal users.
+  [iglocska]
+
+- Several fixes to the feed overlay matrix. [iglocska]
+
+  - lookup was broken for csv/freetext feeds
+  - allow users to see the feeds if the admin allows it
+
+- PyMISP updated to the latest version. [Alexandre Dulaunoy]
+
+- Misp-taxonomies updated to the latest version. [Alexandre Dulaunoy]
+
+- Misp-galaxy updated to the latest version. [Alexandre Dulaunoy]
+
+- Make redis optional (for now) [iglocska]
+
+- Fixed two looping issues in the feed analysis matrix. [iglocska]
+
+  - fixed cache age counter going ape****
+  - fixed the overlap value counters in the graph popovers
+
+- Removed an invalid check causing travis to fail. [iglocska]
+
+- Version bump. [iglocska]
+
+- Several feed fixes. [iglocska]
+
+- Added overlap count to the feed analysis hover. [iglocska]
+
+- Added unpublish_event not being loaded. [iglocska]
+
+- Better centering of the cortex object popup. [iglocska]
+
+- Missing parameters for getenabledmodules. [iglocska]
+
+- Fixed a failure with cortex modules (hopefully) [iglocska]
+
+- Set a default colour for tags in the feed preview that don't have a
+  colour set. [iglocska]
+
+- Reduced the data pushed to the view for the tag index, potentially
+  resolves #2156. [iglocska]
+
+- Set the content header for module lookups. [iglocska]
+
+- Add event_blacklists and org_blacklists in POSTGRESQL install scripts.
+  [Adrien RAFFIN]
+
+  Also fix small bug in imported MYSQL syntax
+
+  WARNING: NOT tested in production
+
+  Tests were only done to create database structure, MISP wasn't run with
+  this database. It still could have incompatibilities with Model
+
+- Add event_blacklists and org_blacklists in MYSQL install scripts.
+  [Adrien RAFFIN]
+
+- Fixed an issue where certain filters removed some elements from the
+  object counter, fixes #2151. [iglocska]
+
+- Left off controller changes in the previous commit. [iglocska]
+
+- Removed the automatic sorting from fetchEvent to improve performance.
+  [iglocska]
+
+- Allow event edits even if the "Event" container isn't set. [iglocska]
+
+- Fixed the publishtimestamp filter issues with the event index.
+  [iglocska]
+
+  - allow for publishtimestmap and publish_timestamp due to some documentation issues
+  - fixed the lookup to be greater than by default instad of lower than
+  - added the option to pass a range by passing an array with a start and end publish timestamp
+
+- Re-added missing config settings to the export modules. [iglocska]
+
+- Added missing distribution defaults to the import modules. [iglocska]
+
+- Bug: Ip-dst attribute should not be able to include a "/", fixes
+  #2138. [iglocska]
+
+Other
+~~~~~
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+
+- Merge pull request #2128 from deloittem/2.4. [Andras Iklody]
+
+  Snort attribute generation rule now contains the initial msg field
+
+- Update rule generation for attribute snort: generated rule now
+  contains the initial snort rule msg. [deloittem]
+
+- Merge branch '2164' into 2.4. [iglocska]
+
+- Remove extraneous </div> [Ángel González]
+
+- Reorder </div> and </form> to be properly nested. [Ángel González]
+
+- Cosmetic changes. [Ángel González]
+
+  Change space indents to tabs
+  Remove ?> at end of file
+  Add or remove some indentation where appropriate
+
+- Minor tweaking of comments. [Ángel González]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #2163 from ppanero/bro_export. [Andras Iklody]
+
+  [WIP] - BroExport types updeted
+
+- BroExport types updeted. [Pablo Panero]
+
+- Merge pull request #2161 from Keisial/2158. [Andras Iklody]
+
+  Change feedback about email notification on sending proposals
+
+- Change feedback about email notification on sending proposals. [Ángel
+  González]
+
+  Move from a “Failed for at least one recipient” warning notification
+  to warn when it was not sent to anyone, which is more interesting for
+  the user sending the proposal.
+
+  Fixes #2158
+
+- Merge branch 'feature/feedanalysis' into 2.4. [iglocska]
+
+- Merge branch 'feature/cortex' into 2.4. [iglocska]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #2154 from truckydev/2.4. [Andras Iklody]
+
+  Add filename key for import modules
+
+- Add test for empty filename. [Tristan METAYER]
+
+- Add filename key for import modules. [Tristan METAYER]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1947 from SekoiaLab/fix/install_sql. [Andras
+  Iklody]
+
+  Fix/install sql
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Markdown typo fixed. [Alexandre Dulaunoy]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #1809 from devnull-/issues_1643. [Andras Iklody]
+
+  Issues 1643
+
+- Merge branch '2.4' into issues_1643. [devnull-]
+
+- Merge branch '2.4' into issues_1643. [devnull-]
+
+- Merge branch '2.4' into issues_1643. [devnull-]
+
+- Merge branch '2.4' into issues_1643. [devnull-]
+
+- Merge branch '2.4' into issues_1643. [devnull-]
+
+- Quick & Dirty 'without_email' & 'Unpublish_event' options for Sync
+  Server. [devnull-]
+
+- Update the database schema unpublish_event (servers) &
+  PublishWithoutEmail (servers) [devnull-]
+
+- Update the database schema unpublish_event (servers) [devnull-]
+
+- Update the database schema PublishWithoutEmail (servers) [devnull-]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #2137 from juju4/2.4. [Andras Iklody]
+
+  Remove default value for column comment
+
+- Remove default value for column comment ERROR 1101 (42000) at line 20:
+  BLOB, TEXT, GEOMETRY or JSON column 'comment' can't have a default
+  value https://travis-ci.org/juju4/ansible-MISP/jobs/222624828#L7561
+  (ubuntu xenial, mysql 5.7)
+  https://dev.mysql.com/doc/refman/5.7/en/blob.html. [juju4]
+
+  Strangely, this does not affect centos7 and mariadb 5.5 even if corresponding documentation states the same.
+  https://travis-ci.org/juju4/ansible-MISP/jobs/222624827#L4862
+
 v2.4.72 (2017-04-14)
 --------------------
 
