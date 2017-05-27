@@ -57,3 +57,4 @@ For the additional software created by the MISP project, check our [MISP project
 * [BTG](https://github.com/conix-security/BTG) - BTG's purpose is to make fast and efficient search on IOC  including a MISP crawler and collector.
 * [ThreatPinchLookup](https://github.com/cloudtracer/ThreatPinchLookup)  - ThreatPinch Lookup creates informational tooltips when hovering oven an item of interest on any website and contains a MISP connector.
 * [Automated Payload Test Controller](https://github.com/jymcheong/aptc) - A set of scripts using PyMISP to extend MISP for automated payload testing.
+* [MISP Golang](https://github.com/qjerome/golang-misp) - Golang Library to interact with your MISP instance.
