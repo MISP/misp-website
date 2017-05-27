@@ -52,5 +52,8 @@ For the additional software created by the MISP project, check our [MISP project
 * [tie2misp](https://github.com/DCSO/tie2misp) - Import DCSO TIE IOCs as MISP events.
 * [mail_to_misp](https://github.com/rommelfs/mail_to_misp) - Connect your mail client to MISP in order to create events based on the information contained within mails.
 * [misp-takedown](https://github.com/rommelfs/misp-takedown) - A curses-style interface for automatic takedown notification based on MISP events.
+* [OpenDXL-ATD-MISP](https://github.com/mohl1/OpenDXL-ATD-MISP) - Automated threat intelligence collection with McAfee ATD, OpenDXL and MISP.
+* [OpenDXL-MISP-IntelMQ-Output](https://github.com/mohl1/OpenDXL-MISP-IntelMQ-Output) - This use case is focusing on the automated real-time threat sharing with MISP (Malware Intelligence Sharing Platform), orchestration tool (IntelMQ) and OpenDXL. IntelMQ is used to collect data from the Malware Intelligence Sharing Platform (MISP), to parse and push intelligence via OpenDXL.
+
 
 
