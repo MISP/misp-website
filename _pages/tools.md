@@ -29,6 +29,7 @@ is also to explore new ideas, concepts or functionality which can be integrated 
 * [PyMISP](https://github.com/CIRCL/PyMISP) - Python library using the MISP Rest API. This is the official library for MISP and can also generate offline MISP events.
 * [MISP-STIX-Converter](https://github.com/MISP/MISP-STIX-Converter) -  An utility repo to assist with converting between MISP and STIX formats.
 * [MISP-Taxii-Server](https://github.com/MISP/MISP-Taxii-Server) - An OpenTAXII Configuration for MISP with automatic TAXII to MISP sync.
+* [mail_to_misp](https://github.com/MISP/mail_to_misp) - Connect your mail client/infrastructure to MISP in order to create events based on the information contained within mails.
 
 For the additional software created by the MISP project, check our [MISP project organization](https://github.com/MISP/).
 
@@ -50,7 +51,6 @@ For the additional software created by the MISP project, check our [MISP project
 * [TheHive](https://thehive-project.org/) A 3-in-1 Security Incident Response Platform has an extensive MISP support.
 * [yara-exporter](https://github.com/BSI-CERT-Bund/yara-exporter) - Exporting MISP event attributes to yara rules usable with Thor apt scanner.
 * [tie2misp](https://github.com/DCSO/tie2misp) - Import DCSO TIE IOCs as MISP events.
-* [mail_to_misp](https://github.com/rommelfs/mail_to_misp) - Connect your mail client to MISP in order to create events based on the information contained within mails.
 * [misp-takedown](https://github.com/rommelfs/misp-takedown) - A curses-style interface for automatic takedown notification based on MISP events.
 * [OpenDXL-ATD-MISP](https://github.com/mohl1/OpenDXL-ATD-MISP) - Automated threat intelligence collection with McAfee ATD, OpenDXL and MISP.
 * [OpenDXL-MISP-IntelMQ-Output](https://github.com/mohl1/OpenDXL-MISP-IntelMQ-Output) - This use case is focusing on the automated real-time threat sharing with MISP (Malware Intelligence Sharing Platform), orchestration tool (IntelMQ) and OpenDXL. IntelMQ is used to collect data from the Malware Intelligence Sharing Platform (MISP), to parse and push intelligence via OpenDXL.
