@@ -1,6 +1,232 @@
 Changelog
 =========
 
+v2.4.74 (2017-05-30)
+--------------------
+
+New
+~~~
+
+- Added default feed list. [iglocska]
+
+- Publish event to ZMQ on demand and beaconing of ZMQ tool. [iglocska]
+
+- Auto load the default feeds from file. [iglocska]
+
+- Added User and Organisation addition/change data to the ZMQ feed.
+  [iglocska]
+
+- Added filtering to the tag index. [iglocska]
+
+  - also globally fixed the filter issues when filtering from an index with a different pagination position than the first page
+
+- Added sightings to ZMQ pub sub system. [iglocska]
+
+- Added attribute JSONs to pubsub system. [iglocska]
+
+  - also made mispzmq a but more generic
+
+- Add instance uuid. [iglocska]
+
+Changes
+~~~~~~~
+
+- VERSION bump. [iglocska]
+
+- Querystring version bump. [iglocska]
+
+- Also store the lookup_visible field from the field import. [iglocska]
+
+- Allow for \t to be used as a CSV feed delimiter. [iglocska]
+
+Fix
+~~~
+
+- Misp-galaxy updated to the latest version. [Alexandre Dulaunoy]
+
+- Logrotate, database.php settings explanation. [Steffen Sauler]
+
+- Clarified ZMQ start button (it doesn't restart anything anyway)
+  [iglocska]
+
+- Made the mispzmq.py script less crap. [iglocska]
+
+- Gitignore updated. [iglocska]
+
+- Initial password reset functionality. [iglocska]
+
+  - invalid parameters sent for new users in the on-demand reset
+  - been bugged for 4 months, but became somewhat obsolete with the automatic notification so no one noticed
+
+- Added missing topics to the mispzmq.py script. [iglocska]
+
+- Fix a copy paste bug. [iglocska]
+
+- [misp-zmq] add a Poller for future multi-SUBscriber in ZMQ. [Alexandre
+  Dulaunoy]
+
+- Fixed an issue with false positive sightings throwing notice errors on
+  the event view. [iglocska]
+
+  - caused by the false positive sightings data being aggregated in the event level sparkline without the correct dates being set
+  - solution is to remove the false positive data from being entered in the sparkline, the goal of it is only to show sightings anyway.
+
+- Truncate the change field in log entries if it becomes humongous.
+  [iglocska]
+
+  - solves a rare situation with massive PGP keys breaking user additions / edits
+
+- Some cleanup in the mispzmq script. [iglocska]
+
+- Misp-taxonomies updated to the latest version. [Alexandre Dulaunoy]
+
+- Misp-galaxy latest version updated. [Alexandre Dulaunoy]
+
+- Skip the import of mixbox for users of older stix libraries.
+  [Alexandre Dulaunoy]
+
+  If you rely on old idgen from previous stix libraries, mixbox is not installed.
+  This completes the fix #2186 and should be fine for old and new stix libraries.
+
+  A partial lyric has been included in this commit to ease the pain to work ##comma##:
+
+  Money for nothin' and your stix for free
+  Money for nothin' and stix for free
+
+- Fixed a notice issue with the feed index if no cache has been
+  generated yet. [iglocska]
+
+- GUI bug/inconsistency (Explore remote server), fixes #2203. [iglocska]
+
+  - Removed the link from the published sign, it was indeed silly
+
+- Fixed a few silly issues with the hids export. [iglocska]
+
+  - allow POSTed parameters
+  - simpler response always responds with txt type, won't complain about view not being set for incorrect accept headers
+
+- Hids api threw error on empty result. [iglocska]
+
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+
+- Update to the MISP galaxy latest version. [Alexandre Dulaunoy]
+
+- Misp-galaxy updated to the latest version. [Alexandre Dulaunoy]
+
+- Deal with all the weird and "wonderful" stix versions Tries to fix
+  #2181. [Hannah Ward]
+
+- Move idgen call to mixbox. [Hannah Ward]
+
+- Fixed an issue with the freetext importer failing if no tags were set.
+  [iglocska]
+
+- Fixed a condition where no proposals downloaded generated a warning in
+  the debug log. [iglocska]
+
+- Added default comment to event blacklists, fixes #2080. [iglocska]
+
+- Updated cakephp solving TLS 1.2 issues. [iglocska]
+
+- Fixed an API vs documentation mismatch for the nids exports.
+  [iglocska]
+
+Other
+~~~~~
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #2232 from SHSauler/patch-1. [Andras Iklody]
+
+  fix: logrotate, database.php settings explanation
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #2230 from ppanero/sso_fix. [Andras Iklody]
+
+  newsread attribute fixed for user registration via sso
+
+- Newsread attribute fixed for user registration via sso. [Pablo Panero]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Remove crap introduced by rope project. [Alexandre Dulaunoy]
+
+- Add rope project in the gitignore. [Alexandre Dulaunoy]
+
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+
+- First version of a Python ZMQ client to get messages from a MISP
+  instance. [Alexandre Dulaunoy]
+
+  usage: sub.py [-h] [-s] [-p PORT] [-r HOST] [-o ONLY] [-t SLEEP]
+
+  Generic ZMQ client to gather events, attributes and sighting updates from a
+  MISP instance
+
+  optional arguments:
+    -h, --help            show this help message and exit
+    -s, --stats           print regular statistics on stderr
+    -p PORT, --port PORT  set TCP port of the MISP ZMQ (default: 50000)
+    -r HOST, --host HOST  set host of the MISP ZMQ (default: 127.0.0.1)
+    -o ONLY, --only ONLY  set filter (misp_json, misp_json_attribute or
+                          misp_json_sighting) to limit the output a specific
+                          type (default: no filter)
+    -t SLEEP, --sleep SLEEP
+                          sleep time (default: 2)
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #2211 from kajogo777/2205. [Andras Iklody]
+
+  FIX #2205 attachTagToObject permissions so that tagger role are able …
+
+- FIX #2205 attachTagToObject permissions so that tagger role are able
+  to tag objects where obj.orgc_id != user.org_id fixes. [George]
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #2200 from RichieB2B/ncsc-nl/openioc. [Andras
+  Iklody]
+
+  Several fixes for OpenIOC importer
+
+- Set OpenIOC attribute distribution to 'Inherit' by default. [Richard
+  van den Berg]
+
+- Accept RouteEntryItem strings. [Richard van den Berg]
+
+- Test for 'success' key, fixes #2198. [Richard van den Berg]
+
+- Merge pull request #2190 from FloatingGhost/2.4. [Alexandre Dulaunoy]
+
+  Deal with the stupid errors STIX thinks it's ok to just throw
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4. [Hannah
+  Ward]
+
+- Merge pull request #2186 from FloatingGhost/2.4. [Andras Iklody]
+
+  fix: Move idgen call to mixbox
+
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+- Merge pull request #2179 from truckydev/2.4. [Andras Iklody]
+
+  add possibility to define tags for import module.
+
+- Add possibility to define tags for import module. Add possibility to
+  desable validation for String field when empty. [Tristan METAYER]
+
 v2.4.73 (2017-05-10)
 --------------------
 
