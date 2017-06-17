@@ -26,3 +26,5 @@
 - [firehol_level1](https://raw.githubusercontent.com/ktsaou/blocklist-ipsets/master/firehol_level1.netset) - iplists.firehol.org - feed format: `freetext`
 - [ramnit C&Cs](http://osint.bambenekconsulting.com/feeds/ramnit-iplist.txt) - osint.bambenekconsulting.com - feed format: `csv`
 - [virut C&Cs](http://osint.bambenekconsulting.com/feeds/virut-iplist.txt) - osint.bambenekconsulting.com - feed format: `csv`
+- [ci-badguys.txt](http://cinsscore.com/list/ci-badguys.txt) - cinsscore.com - feed format: `freetext`
+- [alienvault reputation generic](http://reputation.alienvault.com/reputation.generic) - .alienvault.com - feed format: `csv`
