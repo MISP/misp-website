@@ -2,7 +2,146 @@ Changelog
 =========
 
 
-v2.4.75 (2017-06-12)
+v2.4.76 (2017-06-20)
+--------------------
+
+New
+~~~
+- Feed http://cinsscore.com/list/ci-badguys.txt added. [Alexandre
+  Dulaunoy]
+- Contributing guidelines added following the initial wiki document.
+  [Alexandre Dulaunoy]
+- Caching of the CIDR blocks to boost the advanced correlation
+  performance. [iglocska]
+
+  - massive boost to performance when using advanced correlations
+- Push new Discussion items to ZMQ Under the topic
+  misp_json_conversation. [Hannah Ward]
+- Performance improvements for the pub-sub modules. [iglocska]
+
+  - Only load and open connection to redis for the pub-sub connection once.
+  - Massive performance boost when the ZMQ functionality is enabled
+- Add adhereToWarninglists as a JSON parameter to the freetextImport
+  API. [iglocska]
+
+Changes
+~~~~~~~
+- VERSION bump. [iglocska]
+- Some small changes to the discussion ZMQ integration. [iglocska]
+
+  - tied into new way of invoking the ZMQ module
+  - added some context fields to the messages being pushed (orgname, user email, etc)
+
+Fix
+~~~
+- Warning-lists updated to the latest version. [Alexandre Dulaunoy]
+- Misp-galaxy updated to the latest version. [Alexandre Dulaunoy]
+- Prevent form from being submitted when changing a template element,
+  fixes #2274. [iglocska]
+- Error handling of proposal sync. [iglocska]
+
+  - don't log errors if no proposals are found
+  - don't throw an exception if no proposals are found
+- Allow triggering the fetch feed from the API. [iglocska]
+- Changed the colour of the git output to something more soothing.
+  [iglocska]
+- Fixed an issue in the XML export due to neglect. [iglocska]
+- Fixed a group by issue. [iglocska]
+- Removed silly duplicate queries from the event index. [iglocska]
+- Fixed indexing of the value field for certain instances. [iglocska]
+- Moved attachment access diagnostic tool to attributes controller.
+  [iglocska]
+- Yes is not Yee. [Alexandre Dulaunoy]
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+- Possible fix for a massive performance bug on older MYSQL versions
+  when entering attributes. [iglocska]
+- Fix to the CIDR caching. [iglocska]
+- Follow up to the previous patch, also for the individual events'
+  stixification. [iglocska]
+- Throw the STIX errors to file, fixes #2266. [iglocska]
+
+  - saved to /var/www/MISP/app/tmp/logs/exec-errors.log
+- Further fixes to the delete attribute length. [iglocska]
+- Fix the delete proposal's length based on the number of fields in the
+  table. [iglocska]
+- Explanation regarding meaning of variables. [Steffen Sauler]
+
+  Default OutputDirName (current dir) led to error for me on Ubuntu 16.04, tar 1.28. Provided works and is neater.
+- Further performance improvements to the zmq module. [iglocska]
+
+  - should make inserting data faster
+- Fixed the duplicate sighting save that kept popping up in the ZMQ
+  feed. [iglocska]
+- Fixed error messages for the CSV export API. [iglocska]
+- Don't return the mixbox version if no mixbox is installed. [iglocska]
+- New way of checking for API access. [iglocska]
+
+  - meant to resolve some issues such as being redirected to the news page if a new news item exists while running a CSV export via the API
+- Possible fix to the stix export for various STIX versions / python
+  versions. [iglocska]
+- Fixed the mixbox version lookup. [iglocska]
+- Added Mixbox to the STIX installation, fixes #2262 ##comma## fixes
+  2261. [iglocska]
+
+  - provided by @newdominic
+- Corrected range of valid port numbers for the attribute validation.
+  [iglocska]
+
+  - as pointed out by @MattCarothers
+- Validation for port attribute The logical check for a valid port was
+  backwards.  It looked for an integer outside the range of 1-65535
+  rather than inside. [Matt Carothers]
+- Added cache feeds to the gitignore. [iglocska]
+- Fixed a notice error in the taxonomy view. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2182 from ppanero/2.4. [Andras Iklody]
+
+  newsread attribute fixed for user registration via sso
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4. [Pablo
+  Panero]
+- Merge branch 'badattch' into 2.4. [iglocska]
+- Changing some texts. [root]
+- Adding small diagnostic on Server Setting > Diagnostics page to check
+  if some attachments referenced in database doesn't exist on
+  filesystem. [root]
+- Merge pull request #2032 from dmaciejak/dmaciejak-patch-2. [Andras
+  Iklody]
+
+  Remove duplicated h() calls
+- Merge branch '2.4' into dmaciejak-patch-2. [Andras Iklody]
+- Merge pull request #2267 from RichieB2B/nscs-nl/fixframe. [Andras
+  Iklody]
+
+  Keep misp2stix Python 2.6 compatible
+- Keep misp2stix Python 2.6 compatible. [Richard van den Berg]
+- Merge pull request #2209 from tk-hendrik/fix/apache_auth. [Andras
+  Iklody]
+
+  Fix invalid newsread
+- Merge branch '2.4' into fix/apache_auth. [Andras Iklody]
+- Add: reputation.alienvault.com feed added. [Alexandre Dulaunoy]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2243 from SHSauler/patch-2. [Andras Iklody]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2264 from FloatingGhost/2.4. [Andras Iklody]
+
+  Push Conversation items to a ZMQ topic
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4. [Hannah
+  Ward]
+- Merge pull request #2260 from
+  MattCarothers/fix_backwards_port_validation. [Andras Iklody]
+- Fix invalid newsread. [Hendrik]
+- Merge branch '2.4' into dmaciejak-patch-2. [David Maciejak]
+- Remove duplicated h() calls. [David Maciejak]
+
+
+v2.4.75 (2017-06-13)
 --------------------
 
 New
@@ -36,6 +175,7 @@ Changes
 
 Fix
 ~~~
+- Fixed an error causing combined feed cache issues. [iglocska]
 - Relaxed UUID4 requirement for UUID validation. [iglocska]
 
   - we shouldn't enforce anything beyond the basic format
