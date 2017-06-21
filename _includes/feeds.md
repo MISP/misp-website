@@ -28,3 +28,9 @@
 - [virut C&Cs](http://osint.bambenekconsulting.com/feeds/virut-iplist.txt) - osint.bambenekconsulting.com - feed format: `csv`
 - [ci-badguys.txt](http://cinsscore.com/list/ci-badguys.txt) - cinsscore.com - feed format: `freetext`
 - [alienvault reputation generic](http://reputation.alienvault.com/reputation.generic) - .alienvault.com - feed format: `csv`
+- [blocklist.de/lists/all.txt](https://lists.blocklist.de/lists/all.txt) - blocklist.de - feed format: `freetext`
+- [VNC RFB](https://dataplane.org/vncrfb.txt) - dataplane.org - feed format: `csv`
+- [sshpwauth.txt](https://dataplane.org/sshpwauth.txt) - dataplane.org - feed format: `csv`
+- [sipregistration](https://dataplane.org/sipregistration.txt) - dataplane.org - feed format: `csv`
+- [sipquery](https://dataplane.org/sipquery.txt) - dataplane.org - feed format: `csv`
+- [sipinvitation](https://dataplane.org/sipinvitation.txt) - dataplane.org - feed format: `csv`
