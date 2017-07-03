@@ -9,7 +9,7 @@ toc: true
 
 [MISP source code is available on GitHub](https://github.com/MISP/MISP) including documentation and scripts for installation.
 
-[ChangeLog][/Changelog.txt] contains a detailed list of updates for each software release in the core of the MISP software.
+[ChangeLog](/Changelog.txt) contains a detailed list of updates for each software release in the core of the MISP software.
 
 ### Requirements
 
