@@ -19,6 +19,10 @@ MISP can be easily installed on any standard GNU/Linux distribution. Installatio
 
 If you would like to test MISP and don't want to do an installation, CIRCL provides [VirtualBox images with MISP pre-installed for training](https://www.circl.lu/services/misp-training-materials/#misp-virtual-machine). The image can be used for production but we highly recommend to change the default credentials and salt pre-configured with such images.
 
+### Vagrant
+
+[misp-vagrant](https://github.com/MISP/misp-vagrant) deploys MISP project software with Vagrant.
+
 ### Docker containers
 
 - A [docker container for MISP](https://github.com/xme/misp-docker) is maintained by Xavier Mertens.
