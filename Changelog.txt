@@ -2,6 +2,220 @@ Changelog
 =========
 
 
+v2.4.77 (2017-07-12)
+--------------------
+
+New
+~~~
+- Added php ini path. [iglocska]
+
+Changes
+~~~~~~~
+- PyMISP version bump. [iglocska]
+- Redacted certain server settings that could be considered sensitive.
+  [iglocska]
+
+  - Encryption passwords as well as redis password are now redacted from the server settings
+  - Also includes the JSON dump of the server settings
+
+  - Thanks to cert.govt.nz for the security report.
+- Version bump. [iglocska]
+
+Fix
+~~~
+- Remove delegation request once event delegation is accepted.
+  [iglocska]
+
+  - TODO, cleanup of zombie delegation requests
+- Updated pyMisp and querystring versions. [iglocska]
+- Added user password length change to the MYSQL.sql file. [iglocska]
+- Tightened the sanitisation of the filenames in the template uploader.
+  [iglocska]
+
+  - Data from retained uploaded files when re-editing a template popuplation prior to submission was loaded into the JS directly without sanitisation
+  - Whilst there was no way found to exploit this, introduced tighter sanitisation for the file data
+
+  - Thanks to cert.govt.nz for the security report.
+- Fixed some missing css/scripts from the iframe for the template
+  uploader. [iglocska]
+- GFI uploaded archives don't throw exceptions on failed parsing,
+  instead simply show an error banner after redirect. [iglocska]
+
+  - in situations with misconfigured MISPs (debug enabled), a parsing error
+    exception thrown while parsing a maliciously malformed archive could include
+    arbitrary files in the stacktrace accessed from within the apache user's
+    scope if a symlinked file was uploaded in the archive
+
+  - Thanks to cert.govt.nz for the security report.
+- Upgraded hashing algorithm used and added requirement to confirm
+  password for user profile changes. [iglocska]
+
+  - Added method to upgrade all passwords to blowfish transparently
+  - All profile edit pages (/users/edit, /admin/users/edit, /users/change_pw) now require the user's password to be confirmed
+
+  - Thanks to cert.govt.nz for the security report.
+- Added screenshots to attribute index/attribute search, fixes #2338.
+  [iglocska]
+
+  - Flickr can start quivering in its boots!
+- MISP taxonomies updated to the latest version. [Alexandre Dulaunoy]
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+- Value1 and value2 removed from attributes/view/id. [iglocska]
+- The server settings page (servers/serverSettings) was crashing when
+  the redis connection wasn't properly working. [Cédric Bonhomme]
+- Further performance tweaks to the feed fetcher. [iglocska]
+- Made the feed pull for CSV/Freetext feeds much faster for large feeds.
+  [iglocska]
+
+  - value de-duplication is now a lot more efficient
+- Massive performance boost when adding attributes to an already large
+  event. [iglocska]
+- Return json dict instead of string when queuing a feed pull job.
+  [iglocska]
+- Fix the massive hover popover for modules that keeps breaking the
+  layout at trainings. [iglocska]
+
+  (ノ°Д°）ノ︵ ┻━┻
+- Fixed TC import. [iglocska]
+- Removed unused fulltext index in favour of 255 length index.
+  [iglocska]
+- Fixed a potential issue with galaxy clusters with no elements causing
+  notices. [iglocska]
+- Accessing a pivoted event view URL without having the pivot path
+  tracked in the session threw a notice. [iglocska]
+- Added missing ServersController.php change that populates $php_ini.
+  [iglocska]
+
+  - faildev forgot to commit the file
+- Don't run the regexp replaces on sigma rules. [iglocska]
+- JSON export via the UI should download a file, not render the JSON.
+  [iglocska]
+- Invalid redirect from adding attachments when hitting post size limit.
+  [iglocska]
+- Cleanup/sync of installation guides. [SHSauler]
+- Fixed the invalid CSV download filename. [iglocska]
+- MISP taxonomies updated to the latest version (DML added) [Alexandre
+  Dulaunoy]
+- Fixed sanitisation of feed correlation fields. [iglocska]
+- New dataplane.org feeds added. [Alexandre Dulaunoy]
+- Meta field in galaxy cluster should be a dict even if empty in the
+  JSON output, fixes #2280. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2327 from kallix/attachments_dir-settings. [Andras
+  Iklody]
+
+  Add an optional setting attachments_dir, and adapt existing code to use this setting
+- Attachments_dir: Default value queried through a function to
+  workaround PHP inability to have anything useful stored in a class
+  property. [Kevin Allix]
+- Add an optional setting attachments_dir, and adapt existing code to
+  use that setting. [Kevin Allix]
+- Merge pull request #2332 from Deventual/patch-12. [Alexandre Dulaunoy]
+
+  minor adjustments
+- Minor adjustments. [Deventual]
+- Merge pull request #2329 from Deventual/patch-10. [Alexandre Dulaunoy]
+
+  added mixbox update instructions
+- Merge branch '2.4' into patch-10. [Alexandre Dulaunoy]
+- Merge pull request #2330 from Deventual/patch-11. [Alexandre Dulaunoy]
+
+  fix minor instructions
+- Fix minor instructions. [Deventual]
+- Added mixbox update instructions. [Deventual]
+- Merge remote-tracking branch 'origin' into 2.4. [iglocska]
+- Merge pull request #2325 from cedricbonhomme/fix-bug-when-redis-
+  connection-fails. [Andras Iklody]
+
+  fix: The server settings page (servers/serverSettings) was crashing w…
+- Merge pull request #2314 from kallix/redis_password. [Andras Iklody]
+
+  Allow Redis to be password-protected
+- Merge branch 'redis_password' into 2.4. [iglocska]
+- Allow a setting to NOT define a 'test' function. [Kevin Allix]
+- Add MISP.redis_password option. [Kevin Allix]
+- Use a password to connect to Redis if MISP.redis_password is set in
+  config.php. [Kevin Allix]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2307 from edhoedt/patch-2. [Andras Iklody]
+
+  Attribute tags: fixing automatic refresh after deleting/adding a tag
+- Attribute tags: fixing automatic refresh after deleting/adding a tag.
+  [edhoedt]
+
+  Attribute_id_tr class should actually be ShadowAttribute_id_tr
+- Merge pull request #2306 from edhoedt/patch-1. [Andras Iklody]
+
+  Fixing crash on Event Tag delete+refresh on recent MySQL version
+- Fixing crash on Event Tag delete+refresh on recent MySQL version.
+  [edhoedt]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2294 from garanews/2.4. [Andras Iklody]
+
+  Show the welcome_text in tab title
+- Show the welcome_text in tab title. [garanews]
+
+  Show MISP.welcome_text_top value also in the tab title.
+  Useful when managing many MISP instances.
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2293 from FIRSTdotorg/2.4. [Andras Iklody]
+
+  Fixed empty user creation and user updates when org changes
+- Fixed issue #2036. [Guilherme Capilé]
+- Bugfixes in certificate authentication. [Guilherme Capilé]
+- Merge pull request #1 from MISP/2.4. [Guilherme Capilé]
+
+  updating FIRST MISP repository
+- Merge pull request #2292 from SHSauler/doc. [Andras Iklody]
+
+  fix: cleanup/sync of installation guides
+- Merge pull request #2284 from MISP/revert-2283-getpgid. [Andras
+  Iklody]
+
+  Revert "Use posix_getpgid to check whether a pid is running"
+- Revert "Use posix_getpgid to check whether a pid is running" [Andras
+  Iklody]
+- Merge pull request #2283 from kallix/getpgid. [Andras Iklody]
+
+  Use posix_getpgid to check whether a pid is running
+- Use posix_getpgid to check whether a pid is running. [Kevin Allix]
+- Merge pull request #2282 from kallix/ps_grep. [Andras Iklody]
+
+  Fix for a small bug: MISP can report mispzmq.py is running when it's not running
+- Grepping the output of ps: the grep pattern should be ^pid_value$
+  [Kevin Allix]
+- Merge pull request #2281 from kallix/portability. [Andras Iklody]
+
+  Change shebang to /usr/bin/env xxx for better portability
+- Change (where needed) shebang to /usr/bin/env xxx for better
+  portability. [Kevin Allix]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2279 from ninSmith/2.4. [Andras Iklody]
+
+  New apache directive with apache 2.4
+- Fixes #2278. [dc]
+- Fixes #2278. [dc]
+- Merge pull request #2276 from FafnerKeyZee/2.4. [Andras Iklody]
+
+  Install Debian 9 (Stretch)
+- Update INSTALL.debian9.txt. [Fafner [_KeyZee_]]
+- Update INSTALL.debian9.txt. [Fafner [_KeyZee_]]
+- Create INSTALL.debian9.txt. [Fafner [_KeyZee_]]
+- Merge remote-tracking branch 'upstream/2.4' into 2.4. [Fafner
+  [_KeyZee_]]
+- Merge pull request #2 from MISP/2.4. [Fafner [_KeyZee_]]
+
+  update
+
+
 v2.4.76 (2017-06-20)
 --------------------
 
