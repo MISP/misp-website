@@ -28,6 +28,10 @@ If you would like to test MISP and don't want to do an installation, CIRCL provi
 - A [docker container for MISP](https://github.com/xme/misp-docker) is maintained by Xavier Mertens.
 - Another [MISP docker container](https://github.com/harvard-itsecurity/docker-misp) is maintained by Ventz Petkov.
 
+### Puppet
+
+- [puppet-misp](https://github.com/voxpupuli/puppet-misp) This module installs and configures MISP (Malware Information Sharing Platform) on CentOS 7.
+
 ## License
 
 The MISP software is an open source and free software released under the [AGPL](https://github.com/MISP/MISP/blob/2.4/LICENSE) (Affero General Public License). We are committed to ensure that MISP will remain a free and open source project on the long-run.
