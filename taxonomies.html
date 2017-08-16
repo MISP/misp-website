@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.5">
+<meta name="generator" content="Asciidoctor 1.5.6">
 <title>MISP taxonomies and classification as machine tags</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -89,13 +89,12 @@ strong,b{font-weight:bold;line-height:inherit}
 small{font-size:60%;line-height:inherit}
 code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
 ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
-ul,ol,ul.no-bullet,ol.no-bullet{margin-left:1.5em}
+ul,ol{margin-left:1.5em}
 ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
 ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
 ul.square{list-style-type:square}
 ul.circle{list-style-type:circle}
 ul.disc{list-style-type:disc}
-ul.no-bullet{list-style:none}
 ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
 dl dt{margin-bottom:.3125em;font-weight:bold}
 dl dd{margin-bottom:1.25em}
@@ -131,7 +130,11 @@ strong strong{font-weight:400}
 kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
 .keyseq kbd:last-child{margin-right:0}
-.menuseq,.menu{color:rgba(0,0,0,.8)}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
 b.button:before,b.button:after{position:relative;top:-1px;font-weight:400}
 b.button:before{content:"[";padding:0 3px 0 2px}
 b.button:after{content:"]";padding:0 2px 0 3px}
@@ -198,7 +201,7 @@ table.tableblock>caption.title{white-space:nowrap;overflow:visible;max-width:0}
 table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inherit}
 .admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
 .admonitionblock>table td.icon{text-align:center;width:80px}
-.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon img{max-width:initial}
 .admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
 .admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #ddddd8;color:rgba(0,0,0,.6)}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
@@ -254,13 +257,13 @@ table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
 table.tableblock{max-width:100%;border-collapse:separate}
 table.tableblock td>.paragraph:last-child p>p:last-child,table.tableblock th>p:last-child,table.tableblock td>p:last-child{margin-bottom:0}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
-table.grid-all th.tableblock,table.grid-all td.tableblock{border-width:0 1px 1px 0}
-table.grid-all tfoot>tr>th.tableblock,table.grid-all tfoot>tr>td.tableblock{border-width:1px 1px 0 0}
-table.grid-cols th.tableblock,table.grid-cols td.tableblock{border-width:0 1px 0 0}
-table.grid-all *>tr>.tableblock:last-child,table.grid-cols *>tr>.tableblock:last-child{border-right-width:0}
-table.grid-rows th.tableblock,table.grid-rows td.tableblock{border-width:0 0 1px 0}
-table.grid-all tbody>tr:last-child>th.tableblock,table.grid-all tbody>tr:last-child>td.tableblock,table.grid-all thead:last-child>tr>th.tableblock,table.grid-rows tbody>tr:last-child>th.tableblock,table.grid-rows tbody>tr:last-child>td.tableblock,table.grid-rows thead:last-child>tr>th.tableblock{border-bottom-width:0}
-table.grid-rows tfoot>tr>th.tableblock,table.grid-rows tfoot>tr>td.tableblock{border-width:1px 0 0 0}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px 0}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
 table.frame-all{border-width:1px}
 table.frame-sides{border-width:0 1px}
 table.frame-topbot{border-width:1px 0}
@@ -281,10 +284,12 @@ ul li ol{margin-left:1.5em}
 dl dd{margin-left:1.125em}
 dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
 ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
-ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
-ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
-ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
-ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
 ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
 ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
 ul.inline>li>*{display:block}
@@ -301,7 +306,8 @@ ol.lowergreek{list-style-type:lower-greek}
 td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
 td.hdlist1{font-weight:bold;padding-bottom:1.25em}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
-.colist>table tr>td:first-of-type{padding:0 .75em;line-height:1}
+.colist>table tr>td:first-of-type{padding:.4em .75em 0 .75em;line-height:1;vertical-align:top}
+.colist>table tr>td:first-of-type img{max-width:initial}
 .colist>table tr>td:last-of-type{padding:.25em 0}
 .thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
 .imageblock.left,.imageblock[style*="float: left"]{margin:.25em .625em 1.25em 0}
@@ -364,6 +370,7 @@ div.unbreakable{page-break-inside:avoid}
 .yellow{color:#bfbf00}
 .yellow-background{background-color:#fafa00}
 span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
 .admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
 .admonitionblock td.icon .icon-note:before{content:"\f05a";color:#19407c}
 .admonitionblock td.icon .icon-tip:before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
@@ -435,6 +442,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_binary_class">binary-class</a></li>
 <li><a href="#_circl">circl</a></li>
 <li><a href="#_csirt_case_classification">csirt_case_classification</a></li>
+<li><a href="#_cssa">cssa</a></li>
 <li><a href="#_ddos">ddos</a></li>
 <li><a href="#_de_vs">de-vs</a></li>
 <li><a href="#_dhs_ciip_sectors">dhs-ciip-sectors</a></li>
@@ -1182,6 +1190,54 @@ adversary namespace available in JSON format at <a href="https://github.com/MISP
 </div>
 </div>
 <div class="sect2">
+<h3 id="_infrastructure_action">infrastructure-action</h3>
+<div class="sect3">
+<h4 id="_adversary_infrastructure_action_passive_only">adversary:infrastructure-action="passive-only"</h4>
+<div class="paragraph">
+<p>Only passive requests shall be performed to avoid detection by the adversary</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_adversary_infrastructure_action_take_down">adversary:infrastructure-action="take-down"</h4>
+<div class="paragraph">
+<p>Take down requests can be performed in order to deactivate the adversary infrastructure</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_adversary_infrastructure_action_monitoring_active">adversary:infrastructure-action="monitoring-active"</h4>
+<div class="paragraph">
+<p>Monitoring requests are ongoing on the adversary infrastructure</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_adversary_infrastructure_action_pending_law_enforcement_request">adversary:infrastructure-action="pending-law-enforcement-request"</h4>
+<div class="paragraph">
+<p>Law enforcement requests are ongoing on the adversary infrastructure</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_infrastructure_state">infrastructure-state</h3>
+<div class="sect3">
+<h4 id="_adversary_infrastructure_state_unknown">adversary:infrastructure-state="unknown"</h4>
+<div class="paragraph">
+<p>Infrastructure state is unknown or cannot be evaluated</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_adversary_infrastructure_state_active">adversary:infrastructure-state="active"</h4>
+<div class="paragraph">
+<p>Infrastructure state is active and actively used by the adversary</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_adversary_infrastructure_state_down">adversary:infrastructure-state="down"</h4>
+<div class="paragraph">
+<p>Infrastructure state is known to be down</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_infrastructure_type">infrastructure-type</h3>
 <div class="sect3">
 <h4 id="_adversary_infrastructure_type_unknown">adversary:infrastructure-type="unknown"</h4>
@@ -1223,54 +1279,6 @@ adversary namespace available in JSON format at <a href="https://github.com/MISP
 <h4 id="_adversary_infrastructure_type_tds">adversary:infrastructure-type="tds"</h4>
 <div class="paragraph">
 <p>Traffic Distribution Systems including exploit delivery or/and web monetization channels</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_infrastructure_state">infrastructure-state</h3>
-<div class="sect3">
-<h4 id="_adversary_infrastructure_state_unknown">adversary:infrastructure-state="unknown"</h4>
-<div class="paragraph">
-<p>Infrastructure state is unknown or cannot be evaluated</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_adversary_infrastructure_state_active">adversary:infrastructure-state="active"</h4>
-<div class="paragraph">
-<p>Infrastructure state is active and actively used by the adversary</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_adversary_infrastructure_state_down">adversary:infrastructure-state="down"</h4>
-<div class="paragraph">
-<p>Infrastructure state is known to be down</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_infrastructure_action">infrastructure-action</h3>
-<div class="sect3">
-<h4 id="_adversary_infrastructure_action_passive_only">adversary:infrastructure-action="passive-only"</h4>
-<div class="paragraph">
-<p>Only passive requests shall be performed to avoid detection by the adversary</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_adversary_infrastructure_action_take_down">adversary:infrastructure-action="take-down"</h4>
-<div class="paragraph">
-<p>Take down requests can be performed in order to deactivate the adversary infrastructure</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_adversary_infrastructure_action_monitoring_active">adversary:infrastructure-action="monitoring-active"</h4>
-<div class="paragraph">
-<p>Monitoring requests are ongoing on the adversary infrastructure</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_adversary_infrastructure_action_pending_law_enforcement_request">adversary:infrastructure-action="pending-law-enforcement-request"</h4>
-<div class="paragraph">
-<p>Law enforcement requests are ongoing on the adversary infrastructure</p>
 </div>
 </div>
 </div>
@@ -1834,6 +1842,92 @@ csirt_case_classification namespace available in JSON format at <a href="https:/
 </div>
 </div>
 <div class="sect1">
+<h2 id="_cssa">cssa</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+cssa namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/cssa/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The CSSA agreed sharing taxonomy.</p>
+</div>
+<div class="sect2">
+<h3 id="_sharing_class">sharing-class</h3>
+<div class="sect3">
+<h4 id="_cssa_sharing_class_high_profile">cssa:sharing-class="high_profile"</h4>
+<div class="paragraph">
+<p>Generated within the company during incident/case related investigations or forensic analysis or via malware reversing, validated by humans and highly contextualized.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cssa_sharing_class_vetted">cssa:sharing-class="vetted"</h4>
+<div class="paragraph">
+<p>Generated within the company, validated by a human prior to sharing, data points have been contextualized (to a degree) e.g. IPs are related to C2 or drop site.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cssa_sharing_class_unvetted">cssa:sharing-class="unvetted"</h4>
+<div class="paragraph">
+<p>Generated within the company by automated means without human interaction e.g., by malware sandbox, honeypots, IDS, etc.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_origin">origin</h3>
+<div class="sect3">
+<h4 id="_cssa_origin_manual_investigation">cssa:origin="manual_investigation"</h4>
+<div class="paragraph">
+<p>Information gathered by an analyst/incident responder/forensic expert/etc.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cssa_origin_honeypot">cssa:origin="honeypot"</h4>
+<div class="paragraph">
+<p>Information coming out of honeypots.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cssa_origin_sandbox">cssa:origin="sandbox"</h4>
+<div class="paragraph">
+<p>Information coming out of sandboxes.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cssa_origin_email">cssa:origin="email"</h4>
+<div class="paragraph">
+<p>Information coming out of email infrastructure.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cssa_origin_3rd_party">cssa:origin="3rd-party"</h4>
+<div class="paragraph">
+<p>Information from outside the company.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cssa_origin_other">cssa:origin="other"</h4>
+<div class="paragraph">
+<p>If none of the other origins applies.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cssa_origin_unknown">cssa:origin="unknown"</h4>
+<div class="paragraph">
+<p>Origin of the data unknown.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_ddos">ddos</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -2199,6 +2293,93 @@ dni-ism namespace available in JSON format at <a href="https://github.com/MISP/m
 </div>
 </div>
 <div class="sect2">
+<h3 id="_scicontrols">scicontrols</h3>
+<div class="sect3">
+<h4 id="_dni_ism_scicontrols_el">dni-ism:scicontrols="EL"</h4>
+<div class="paragraph">
+<p>ENDSEAL</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_scicontrols_el_eu">dni-ism:scicontrols="EL-EU"</h4>
+<div class="paragraph">
+<p>ECRU</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_scicontrols_el_nk">dni-ism:scicontrols="EL-NK"</h4>
+<div class="paragraph">
+<p>NONBOOK</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_scicontrols_hcs">dni-ism:scicontrols="HCS"</h4>
+<div class="paragraph">
+<p>HCS</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_scicontrols_hcs_o">dni-ism:scicontrols="HCS-O"</h4>
+<div class="paragraph">
+<p>HCS-O</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_scicontrols_hcs_p">dni-ism:scicontrols="HCS-P"</h4>
+<div class="paragraph">
+<p>HCS-P</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_scicontrols_kdk">dni-ism:scicontrols="KDK"</h4>
+<div class="paragraph">
+<p>KLONDIKE</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_scicontrols_kdk_blfh">dni-ism:scicontrols="KDK-BLFH"</h4>
+<div class="paragraph">
+<p>KDK BLUEFISH</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_scicontrols_kdk_idit">dni-ism:scicontrols="KDK-IDIT"</h4>
+<div class="paragraph">
+<p>KDK IDITAROD</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_scicontrols_kdk_kand">dni-ism:scicontrols="KDK-KAND"</h4>
+<div class="paragraph">
+<p>KDK KANDIK</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_scicontrols_rsv">dni-ism:scicontrols="RSV"</h4>
+<div class="paragraph">
+<p>RESERVE</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_scicontrols_si">dni-ism:scicontrols="SI"</h4>
+<div class="paragraph">
+<p>SPECIAL INTELLIGENCE</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_scicontrols_si_g">dni-ism:scicontrols="SI-G"</h4>
+<div class="paragraph">
+<p>SI-GAMMA</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_scicontrols_tk">dni-ism:scicontrols="TK"</h4>
+<div class="paragraph">
+<p>TALENT KEYHOLE</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_complies_with">complies:with</h3>
 <div class="sect3">
 <h4 id="_dni_ism_complies_with_usgov">dni-ism:complies:with="USGov"</h4>
@@ -2226,155 +2407,41 @@ dni-ism namespace available in JSON format at <a href="https://github.com/MISP/m
 </div>
 </div>
 <div class="sect2">
-<h3 id="_dissem">dissem</h3>
+<h3 id="_atomicenergymarkings">atomicenergymarkings</h3>
 <div class="sect3">
-<h4 id="_dni_ism_dissem_rs">dni-ism:dissem="RS"</h4>
+<h4 id="_dni_ism_atomicenergymarkings_rd">dni-ism:atomicenergymarkings="RD"</h4>
 <div class="paragraph">
-<p>RISK SENSITIVE</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_dissem_fouo">dni-ism:dissem="FOUO"</h4>
-<div class="paragraph">
-<p>FOR OFFICIAL USE ONLY</p>
+<p>RESTRICTED DATA</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_dissem_oc">dni-ism:dissem="OC"</h4>
+<h4 id="_dni_ism_atomicenergymarkings_rd_cnwdi">dni-ism:atomicenergymarkings="RD-CNWDI"</h4>
 <div class="paragraph">
-<p>ORIGINATOR CONTROLLED</p>
+<p>RD-CRITICAL NUCLEAR WEAPON DESIGN INFORMATION</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_dissem_oc_usgov">dni-ism:dissem="OC-USGOV"</h4>
+<h4 id="_dni_ism_atomicenergymarkings_frd">dni-ism:atomicenergymarkings="FRD"</h4>
 <div class="paragraph">
-<p>ORIGINATOR CONTROLLED US GOVERNMENT</p>
+<p>FORMERLY RESTRICTED DATA</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_dissem_imc">dni-ism:dissem="IMC"</h4>
+<h4 id="_dni_ism_atomicenergymarkings_dcni">dni-ism:atomicenergymarkings="DCNI"</h4>
 <div class="paragraph">
-<p>CONTROLLED IMAGERY</p>
+<p>DoD CONTROLLED NUCLEAR INFORMATION</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_dissem_nf">dni-ism:dissem="NF"</h4>
+<h4 id="_dni_ism_atomicenergymarkings_ucni">dni-ism:atomicenergymarkings="UCNI"</h4>
 <div class="paragraph">
-<p>NOT RELEASABLE TO FOREIGN NATIONALS</p>
+<p>DoE CONTROLLED NUCLEAR INFORMATION</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_dissem_pr">dni-ism:dissem="PR"</h4>
+<h4 id="_dni_ism_atomicenergymarkings_tfni">dni-ism:atomicenergymarkings="TFNI"</h4>
 <div class="paragraph">
-<p>CAUTION-PROPRIETARY INFORMATION INVOLVED</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_dissem_rel">dni-ism:dissem="REL"</h4>
-<div class="paragraph">
-<p>AUTHORIZED FOR RELEASE TO</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_dissem_relido">dni-ism:dissem="RELIDO"</h4>
-<div class="paragraph">
-<p>RELEASABLE BY INFORMATION DISCLOSURE OFFICIAL</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_dissem_dsen">dni-ism:dissem="DSEN"</h4>
-<div class="paragraph">
-<p>DEA SENSITIVE</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_dissem_fisa">dni-ism:dissem="FISA"</h4>
-<div class="paragraph">
-<p>FOREIGN INTELLIGENCE SURVEILLANCE ACT</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_dissem_displayonly">dni-ism:dissem="DISPLAYONLY"</h4>
-<div class="paragraph">
-<p>AUTHORIZED FOR DISPLAY BUT NOT RELEASE TO</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_nonic">nonic</h3>
-<div class="sect3">
-<h4 id="_dni_ism_nonic_nnpi">dni-ism:nonic="NNPI"</h4>
-<div class="paragraph">
-<p>NAVAL NUCLEAR PROPULSION INFORMATION</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_nonic_ds">dni-ism:nonic="DS"</h4>
-<div class="paragraph">
-<p>LIMITED DISTRIBUTION</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_nonic_xd">dni-ism:nonic="XD"</h4>
-<div class="paragraph">
-<p>EXCLUSIVE DISTRIBUTION</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_nonic_nd">dni-ism:nonic="ND"</h4>
-<div class="paragraph">
-<p>NO DISTRIBUTION</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_nonic_sbu">dni-ism:nonic="SBU"</h4>
-<div class="paragraph">
-<p>SENSITIVE BUT UNCLASSIFIED</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_nonic_sbu_nf">dni-ism:nonic="SBU-NF"</h4>
-<div class="paragraph">
-<p>SENSITIVE BUT UNCLASSIFIED NOFORN</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_nonic_les">dni-ism:nonic="LES"</h4>
-<div class="paragraph">
-<p>LAW ENFORCEMENT SENSITIVE</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_nonic_les_nf">dni-ism:nonic="LES-NF"</h4>
-<div class="paragraph">
-<p>LAW ENFORCEMENT SENSITIVE NOFORN</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_nonic_ssi">dni-ism:nonic="SSI"</h4>
-<div class="paragraph">
-<p>SENSITIVE SECURITY INFORMATION</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_nonuscontrols">nonuscontrols</h3>
-<div class="sect3">
-<h4 id="_dni_ism_nonuscontrols_atomal">dni-ism:nonuscontrols="ATOMAL"</h4>
-<div class="paragraph">
-<p>NATO Atomal mark</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_nonuscontrols_bohemia">dni-ism:nonuscontrols="BOHEMIA"</h4>
-<div class="paragraph">
-<p>NATO Bohemia mark</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_nonuscontrols_balk">dni-ism:nonuscontrols="BALK"</h4>
-<div class="paragraph">
-<p>NATO Balk mark</p>
+<p>TRANSCLASSIFIED FOREIGN NUCLEAR INFORMATION</p>
 </div>
 </div>
 </div>
@@ -2502,128 +2569,155 @@ dni-ism namespace available in JSON format at <a href="https://github.com/MISP/m
 </div>
 </div>
 <div class="sect2">
-<h3 id="_scicontrols">scicontrols</h3>
+<h3 id="_nonic">nonic</h3>
 <div class="sect3">
-<h4 id="_dni_ism_scicontrols_el">dni-ism:scicontrols="EL"</h4>
+<h4 id="_dni_ism_nonic_nnpi">dni-ism:nonic="NNPI"</h4>
 <div class="paragraph">
-<p>ENDSEAL</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_scicontrols_el_eu">dni-ism:scicontrols="EL-EU"</h4>
-<div class="paragraph">
-<p>ECRU</p>
+<p>NAVAL NUCLEAR PROPULSION INFORMATION</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_scicontrols_el_nk">dni-ism:scicontrols="EL-NK"</h4>
+<h4 id="_dni_ism_nonic_ds">dni-ism:nonic="DS"</h4>
 <div class="paragraph">
-<p>NONBOOK</p>
+<p>LIMITED DISTRIBUTION</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_scicontrols_hcs">dni-ism:scicontrols="HCS"</h4>
+<h4 id="_dni_ism_nonic_xd">dni-ism:nonic="XD"</h4>
 <div class="paragraph">
-<p>HCS</p>
+<p>EXCLUSIVE DISTRIBUTION</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_scicontrols_hcs_o">dni-ism:scicontrols="HCS-O"</h4>
+<h4 id="_dni_ism_nonic_nd">dni-ism:nonic="ND"</h4>
 <div class="paragraph">
-<p>HCS-O</p>
+<p>NO DISTRIBUTION</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_scicontrols_hcs_p">dni-ism:scicontrols="HCS-P"</h4>
+<h4 id="_dni_ism_nonic_sbu">dni-ism:nonic="SBU"</h4>
 <div class="paragraph">
-<p>HCS-P</p>
+<p>SENSITIVE BUT UNCLASSIFIED</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_scicontrols_kdk">dni-ism:scicontrols="KDK"</h4>
+<h4 id="_dni_ism_nonic_sbu_nf">dni-ism:nonic="SBU-NF"</h4>
 <div class="paragraph">
-<p>KLONDIKE</p>
+<p>SENSITIVE BUT UNCLASSIFIED NOFORN</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_scicontrols_kdk_blfh">dni-ism:scicontrols="KDK-BLFH"</h4>
+<h4 id="_dni_ism_nonic_les">dni-ism:nonic="LES"</h4>
 <div class="paragraph">
-<p>KDK BLUEFISH</p>
+<p>LAW ENFORCEMENT SENSITIVE</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_scicontrols_kdk_idit">dni-ism:scicontrols="KDK-IDIT"</h4>
+<h4 id="_dni_ism_nonic_les_nf">dni-ism:nonic="LES-NF"</h4>
 <div class="paragraph">
-<p>KDK IDITAROD</p>
+<p>LAW ENFORCEMENT SENSITIVE NOFORN</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_scicontrols_kdk_kand">dni-ism:scicontrols="KDK-KAND"</h4>
+<h4 id="_dni_ism_nonic_ssi">dni-ism:nonic="SSI"</h4>
 <div class="paragraph">
-<p>KDK KANDIK</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_scicontrols_rsv">dni-ism:scicontrols="RSV"</h4>
-<div class="paragraph">
-<p>RESERVE</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_scicontrols_si">dni-ism:scicontrols="SI"</h4>
-<div class="paragraph">
-<p>SPECIAL INTELLIGENCE</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_scicontrols_si_g">dni-ism:scicontrols="SI-G"</h4>
-<div class="paragraph">
-<p>SI-GAMMA</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_scicontrols_tk">dni-ism:scicontrols="TK"</h4>
-<div class="paragraph">
-<p>TALENT KEYHOLE</p>
+<p>SENSITIVE SECURITY INFORMATION</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_atomicenergymarkings">atomicenergymarkings</h3>
+<h3 id="_nonuscontrols">nonuscontrols</h3>
 <div class="sect3">
-<h4 id="_dni_ism_atomicenergymarkings_rd">dni-ism:atomicenergymarkings="RD"</h4>
+<h4 id="_dni_ism_nonuscontrols_atomal">dni-ism:nonuscontrols="ATOMAL"</h4>
 <div class="paragraph">
-<p>RESTRICTED DATA</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_dni_ism_atomicenergymarkings_rd_cnwdi">dni-ism:atomicenergymarkings="RD-CNWDI"</h4>
-<div class="paragraph">
-<p>RD-CRITICAL NUCLEAR WEAPON DESIGN INFORMATION</p>
+<p>NATO Atomal mark</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_atomicenergymarkings_frd">dni-ism:atomicenergymarkings="FRD"</h4>
+<h4 id="_dni_ism_nonuscontrols_bohemia">dni-ism:nonuscontrols="BOHEMIA"</h4>
 <div class="paragraph">
-<p>FORMERLY RESTRICTED DATA</p>
+<p>NATO Bohemia mark</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_atomicenergymarkings_dcni">dni-ism:atomicenergymarkings="DCNI"</h4>
+<h4 id="_dni_ism_nonuscontrols_balk">dni-ism:nonuscontrols="BALK"</h4>
 <div class="paragraph">
-<p>DoD CONTROLLED NUCLEAR INFORMATION</p>
+<p>NATO Balk mark</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dissem">dissem</h3>
+<div class="sect3">
+<h4 id="_dni_ism_dissem_rs">dni-ism:dissem="RS"</h4>
+<div class="paragraph">
+<p>RISK SENSITIVE</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_atomicenergymarkings_ucni">dni-ism:atomicenergymarkings="UCNI"</h4>
+<h4 id="_dni_ism_dissem_fouo">dni-ism:dissem="FOUO"</h4>
 <div class="paragraph">
-<p>DoE CONTROLLED NUCLEAR INFORMATION</p>
+<p>FOR OFFICIAL USE ONLY</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dni_ism_atomicenergymarkings_tfni">dni-ism:atomicenergymarkings="TFNI"</h4>
+<h4 id="_dni_ism_dissem_oc">dni-ism:dissem="OC"</h4>
 <div class="paragraph">
-<p>TRANSCLASSIFIED FOREIGN NUCLEAR INFORMATION</p>
+<p>ORIGINATOR CONTROLLED</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_dissem_oc_usgov">dni-ism:dissem="OC-USGOV"</h4>
+<div class="paragraph">
+<p>ORIGINATOR CONTROLLED US GOVERNMENT</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_dissem_imc">dni-ism:dissem="IMC"</h4>
+<div class="paragraph">
+<p>CONTROLLED IMAGERY</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_dissem_nf">dni-ism:dissem="NF"</h4>
+<div class="paragraph">
+<p>NOT RELEASABLE TO FOREIGN NATIONALS</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_dissem_pr">dni-ism:dissem="PR"</h4>
+<div class="paragraph">
+<p>CAUTION-PROPRIETARY INFORMATION INVOLVED</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_dissem_rel">dni-ism:dissem="REL"</h4>
+<div class="paragraph">
+<p>AUTHORIZED FOR RELEASE TO</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_dissem_relido">dni-ism:dissem="RELIDO"</h4>
+<div class="paragraph">
+<p>RELEASABLE BY INFORMATION DISCLOSURE OFFICIAL</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_dissem_dsen">dni-ism:dissem="DSEN"</h4>
+<div class="paragraph">
+<p>DEA SENSITIVE</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_dissem_fisa">dni-ism:dissem="FISA"</h4>
+<div class="paragraph">
+<p>FOREIGN INTELLIGENCE SURVEILLANCE ACT</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dni_ism_dissem_displayonly">dni-ism:dissem="DISPLAYONLY"</h4>
+<div class="paragraph">
+<p>AUTHORIZED FOR DISPLAY BUT NOT RELEASE TO</p>
 </div>
 </div>
 </div>
@@ -2646,33 +2740,6 @@ domain-abuse namespace available in JSON format at <a href="https://github.com/M
 </div>
 <div class="paragraph">
 <p>Domain Name Abuse - taxonomy to tag domain names used for cybercrime. Use europol-incident to tag abuse-activity</p>
-</div>
-<div class="sect2">
-<h3 id="_domain_access_method">domain-access-method</h3>
-<div class="sect3">
-<h4 id="_domain_abuse_domain_access_method_criminal_registration">domain-abuse:domain-access-method="criminal-registration"</h4>
-<div class="paragraph">
-<p>Criminal registration</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_domain_abuse_domain_access_method_compromised_webserver">domain-abuse:domain-access-method="compromised-webserver"</h4>
-<div class="paragraph">
-<p>Compromised webserver</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_domain_abuse_domain_access_method_compromised_dns">domain-abuse:domain-access-method="compromised-dns"</h4>
-<div class="paragraph">
-<p>Compromised DNS</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_domain_abuse_domain_access_method_sinkhole">domain-abuse:domain-access-method="sinkhole"</h4>
-<div class="paragraph">
-<p>Sinkhole</p>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_domain_status">domain-status</h3>
@@ -2713,6 +2780,33 @@ domain-abuse namespace available in JSON format at <a href="https://github.com/M
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_domain_access_method">domain-access-method</h3>
+<div class="sect3">
+<h4 id="_domain_abuse_domain_access_method_criminal_registration">domain-abuse:domain-access-method="criminal-registration"</h4>
+<div class="paragraph">
+<p>Criminal registration</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_domain_abuse_domain_access_method_compromised_webserver">domain-abuse:domain-access-method="compromised-webserver"</h4>
+<div class="paragraph">
+<p>Compromised webserver</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_domain_abuse_domain_access_method_compromised_dns">domain-abuse:domain-access-method="compromised-dns"</h4>
+<div class="paragraph">
+<p>Compromised DNS</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_domain_abuse_domain_access_method_sinkhole">domain-abuse:domain-access-method="sinkhole"</h4>
+<div class="paragraph">
+<p>Sinkhole</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2734,11 +2828,47 @@ ecsirt namespace available in JSON format at <a href="https://github.com/MISP/mi
 <p>Incident Classification by the ecsirt.net project WP4 clearinghouse policy and updated by IntelMQ.</p>
 </div>
 <div class="sect2">
+<h3 id="_fraud">fraud</h3>
+<div class="sect3">
+<h4 id="_ecsirt_fraud_phishing">ecsirt:fraud="phishing"</h4>
+<div class="paragraph">
+<p>phishing</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_availability">availability</h3>
+<div class="sect3">
+<h4 id="_ecsirt_availability_ddos">ecsirt:availability="ddos"</h4>
+<div class="paragraph">
+<p>ddos</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_abusive_content">abusive-content</h3>
 <div class="sect3">
 <h4 id="_ecsirt_abusive_content_spam">ecsirt:abusive-content="spam"</h4>
 <div class="paragraph">
 <p>spam</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_information_gathering">information-gathering</h3>
+<div class="sect3">
+<h4 id="_ecsirt_information_gathering_scanner">ecsirt:information-gathering="scanner"</h4>
+<div class="paragraph">
+<p>scanner</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_information_content_security">information-content-security</h3>
+<div class="sect3">
+<h4 id="_ecsirt_information_content_security_dropzone">ecsirt:information-content-security="dropzone"</h4>
+<div class="paragraph">
+<p>dropzone</p>
 </div>
 </div>
 </div>
@@ -2772,15 +2902,6 @@ ecsirt namespace available in JSON format at <a href="https://github.com/MISP/mi
 <h4 id="_ecsirt_malicious_code_c_c">ecsirt:malicious-code="c&amp;c"</h4>
 <div class="paragraph">
 <p>c&amp;c</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_information_gathering">information-gathering</h3>
-<div class="sect3">
-<h4 id="_ecsirt_information_gathering_scanner">ecsirt:information-gathering="scanner"</h4>
-<div class="paragraph">
-<p>scanner</p>
 </div>
 </div>
 </div>
@@ -2827,26 +2948,8 @@ ecsirt namespace available in JSON format at <a href="https://github.com/MISP/mi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_availability">availability</h3>
-<div class="sect3">
-<h4 id="_ecsirt_availability_ddos">ecsirt:availability="ddos"</h4>
-<div class="paragraph">
-<p>ddos</p>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="_information_security">information-security</h3>
 
-</div>
-<div class="sect2">
-<h3 id="_information_content_security">information-content-security</h3>
-<div class="sect3">
-<h4 id="_ecsirt_information_content_security_dropzone">ecsirt:information-content-security="dropzone"</h4>
-<div class="paragraph">
-<p>dropzone</p>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_vulnerable">vulnerable</h3>
@@ -2854,15 +2957,6 @@ ecsirt namespace available in JSON format at <a href="https://github.com/MISP/mi
 <h4 id="_ecsirt_vulnerable_vulnerable_service">ecsirt:vulnerable="vulnerable-service"</h4>
 <div class="paragraph">
 <p>Vulnerable service</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_fraud">fraud</h3>
-<div class="sect3">
-<h4 id="_ecsirt_fraud_phishing">ecsirt:fraud="phishing"</h4>
-<div class="paragraph">
-<p>phishing</p>
 </div>
 </div>
 </div>
@@ -3433,6 +3527,51 @@ enisa namespace available in JSON format at <a href="https://github.com/MISP/mis
 </div>
 </div>
 <div class="sect2">
+<h3 id="_legal">legal</h3>
+<div class="sect3">
+<h4 id="_enisa_legal_violation_of_rules_and_regulations_breach_of_legislation">enisa:legal="violation-of-rules-and-regulations-breach-of-legislation"</h4>
+<div class="paragraph">
+<p>Violation of rules and regulations / Breach of legislation</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_enisa_legal_failure_to_meet_contractual_requirements">enisa:legal="failure-to-meet-contractual-requirements"</h4>
+<div class="paragraph">
+<p>Failure to meet contractual requirements</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_enisa_legal_failure_to_meet_contractual_requirements_by_third_party">enisa:legal="failure-to-meet-contractual-requirements-by-third-party"</h4>
+<div class="paragraph">
+<p>Failure to meet contractual requirements by third party</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_enisa_legal_unauthorized_use_of_ipr_protected_resources">enisa:legal="unauthorized-use-of-IPR-protected-resources"</h4>
+<div class="paragraph">
+<p>Unauthorized use of IPR protected resources</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_enisa_legal_illegal_usage_of_file_sharing_services">enisa:legal="illegal-usage-of-file-sharing-services"</h4>
+<div class="paragraph">
+<p>Illegal usage of File Sharing services</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_enisa_legal_abuse_of_personal_data">enisa:legal="abuse-of-personal-data"</h4>
+<div class="paragraph">
+<p>Abuse of personal data</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_enisa_legal_judiciary_decisions_or_court_order">enisa:legal="judiciary-decisions-or-court-order"</h4>
+<div class="paragraph">
+<p>Judiciary decisions/court order</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_nefarious_activity_abuse">nefarious-activity-abuse</h3>
 <div class="sect3">
 <h4 id="_enisa_nefarious_activity_abuse_identity_theft_identity_fraud_account">enisa:nefarious-activity-abuse="identity-theft-identity-fraud-account)"</h4>
@@ -3861,15 +4000,15 @@ enisa namespace available in JSON format at <a href="https://github.com/MISP/mis
 </div>
 </div>
 <div class="sect3">
-<h4 id="_enisa_nefarious_activity_abuse_mobile_malware_2">enisa:nefarious-activity-abuse="mobile-malware"</h4>
+<h4 id="_enisa_nefarious_activity_abuse_mobile_malware_exfiltration">enisa:nefarious-activity-abuse="mobile-malware-exfiltration"</h4>
 <div class="paragraph">
-<p>Mobile malware</p>
+<p>Mobile malware (exfiltration)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_enisa_nefarious_activity_abuse_spear_phishing_attacks_2">enisa:nefarious-activity-abuse="spear-phishing-attacks"</h4>
+<h4 id="_enisa_nefarious_activity_abuse_spear_phishing_attacks_targeted">enisa:nefarious-activity-abuse="spear-phishing-attacks-targeted"</h4>
 <div class="paragraph">
-<p>Spear phishing attacks</p>
+<p>Spear phishing attacks (targeted)</p>
 </div>
 </div>
 <div class="sect3">
@@ -3900,51 +4039,6 @@ enisa namespace available in JSON format at <a href="https://github.com/MISP/mis
 <h4 id="_enisa_nefarious_activity_abuse_abuse_of_authorizations">enisa:nefarious-activity-abuse="abuse-of-authorizations"</h4>
 <div class="paragraph">
 <p>Abuse of authorizations</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_legal">legal</h3>
-<div class="sect3">
-<h4 id="_enisa_legal_violation_of_rules_and_regulations_breach_of_legislation">enisa:legal="violation-of-rules-and-regulations-breach-of-legislation"</h4>
-<div class="paragraph">
-<p>Violation of rules and regulations / Breach of legislation</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_enisa_legal_failure_to_meet_contractual_requirements">enisa:legal="failure-to-meet-contractual-requirements"</h4>
-<div class="paragraph">
-<p>Failure to meet contractual requirements</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_enisa_legal_failure_to_meet_contractual_requirements_by_third_party">enisa:legal="failure-to-meet-contractual-requirements-by-third-party"</h4>
-<div class="paragraph">
-<p>Failure to meet contractual requirements by third party</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_enisa_legal_unauthorized_use_of_ipr_protected_resources">enisa:legal="unauthorized-use-of-IPR-protected-resources"</h4>
-<div class="paragraph">
-<p>Unauthorized use of IPR protected resources</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_enisa_legal_illegal_usage_of_file_sharing_services">enisa:legal="illegal-usage-of-file-sharing-services"</h4>
-<div class="paragraph">
-<p>Illegal usage of File Sharing services</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_enisa_legal_abuse_of_personal_data">enisa:legal="abuse-of-personal-data"</h4>
-<div class="paragraph">
-<p>Abuse of personal data</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_enisa_legal_judiciary_decisions_or_court_order">enisa:legal="judiciary-decisions-or-court-order"</h4>
-<div class="paragraph">
-<p>Judiciary decisions/court order</p>
 </div>
 </div>
 </div>
@@ -5080,60 +5174,6 @@ iep namespace available in JSON format at <a href="https://github.com/MISP/misp-
 <p>Forum of Incident Response and Security Teams (FIRST) Information Exchange Policy (IEP) framework</p>
 </div>
 <div class="sect2">
-<h3 id="_id">id</h3>
-<div class="sect3">
-<h4 id="_iep_id_text">iep:id="$text"</h4>
-<div class="paragraph">
-<p>An id value is required</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_version">version</h3>
-<div class="sect3">
-<h4 id="_iep_version_text">iep:version="$text"</h4>
-<div class="paragraph">
-<p>A version value is required</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_name">name</h3>
-<div class="sect3">
-<h4 id="_iep_name_text">iep:name="$text"</h4>
-<div class="paragraph">
-<p>A name value is required</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_start_date">start-date</h3>
-<div class="sect3">
-<h4 id="_iep_start_date_text">iep:start-date="$text"</h4>
-<div class="paragraph">
-<p>A start-date value is required</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_end_date">end-date</h3>
-<div class="sect3">
-<h4 id="_iep_end_date_text">iep:end-date="$text"</h4>
-<div class="paragraph">
-<p>An end-date value is required</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_reference">reference</h3>
-<div class="sect3">
-<h4 id="_iep_reference_text">iep:reference="$text"</h4>
-<div class="paragraph">
-<p>A reference value is required</p>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="_commercial_use">commercial-use</h3>
 <div class="sect3">
 <h4 id="_iep_commercial_use_may">iep:commercial-use="MAY"</h4>
@@ -5316,6 +5356,60 @@ iep namespace available in JSON format at <a href="https://github.com/MISP/misp-
 <h4 id="_iep_unmodified_resale_must_not">iep:unmodified-resale="MUST NOT"</h4>
 <div class="paragraph">
 <p>Recipients MUST NOT resell the information received unmodified or in a semantically equivalent format.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_start_date">start-date</h3>
+<div class="sect3">
+<h4 id="_iep_start_date_text">iep:start-date="$text"</h4>
+<div class="paragraph">
+<p>A start-date value is required</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_end_date">end-date</h3>
+<div class="sect3">
+<h4 id="_iep_end_date_text">iep:end-date="$text"</h4>
+<div class="paragraph">
+<p>An end-date value is required</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reference">reference</h3>
+<div class="sect3">
+<h4 id="_iep_reference_text">iep:reference="$text"</h4>
+<div class="paragraph">
+<p>A reference value is required</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_name">name</h3>
+<div class="sect3">
+<h4 id="_iep_name_text">iep:name="$text"</h4>
+<div class="paragraph">
+<p>A name value is required</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version">version</h3>
+<div class="sect3">
+<h4 id="_iep_version_text">iep:version="$text"</h4>
+<div class="paragraph">
+<p>A version value is required</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_id">id</h3>
+<div class="sect3">
+<h4 id="_iep_id_text">iep:id="$text"</h4>
+<div class="paragraph">
+<p>An id value is required</p>
 </div>
 </div>
 </div>
@@ -6282,6 +6376,15 @@ misp namespace available in JSON format at <a href="https://github.com/MISP/misp
 </div>
 </div>
 <div class="sect2">
+<h3 id="_expansion">expansion</h3>
+<div class="sect3">
+<h4 id="_misp_expansion_block">misp:expansion="block"</h4>
+<div class="paragraph">
+<p>block</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_contributor">contributor</h3>
 <div class="sect3">
 <h4 id="_misp_contributor_pgpfingerprint">misp:contributor="pgpfingerprint"</h4>
@@ -6359,15 +6462,6 @@ misp namespace available in JSON format at <a href="https://github.com/MISP/misp
 <div class="sect2">
 <h3 id="_should_not_sync">should-not-sync</h3>
 
-</div>
-<div class="sect2">
-<h3 id="_expansion">expansion</h3>
-<div class="sect3">
-<h4 id="_misp_expansion_block">misp:expansion="block"</h4>
-<div class="paragraph">
-<p>block</p>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -8050,7 +8144,7 @@ ms-caro-malware-full namespace available in JSON format at <a href="https://gith
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ms_caro_malware_full_malware_family_seekmosearchassistant_2">ms-caro-malware-full:malware-family="SeekmoSearchAssistant"</h4>
+<h4 id="_ms_caro_malware_full_malware_family_seekmosearchassistant_repack">ms-caro-malware-full:malware-family="SeekmoSearchAssistant_Repack"</h4>
 <div class="paragraph">
 <p>2008 - A detection that is triggered by modified (that is, edited and re-packed) remote control programs based on DameWare Mini Remote Control, a commercial software product</p>
 </div>
@@ -9436,7 +9530,7 @@ ms-caro-malware-full namespace available in JSON format at <a href="https://gith
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ms_caro_malware_full_malware_family_mult_2">ms-caro-malware-full:malware-family="Mult"</h4>
+<h4 id="_ms_caro_malware_full_malware_family_mult_js">ms-caro-malware-full:malware-family="Mult_JS"</h4>
 <div class="paragraph">
 <p>2012 VOL13 - A generic detection for various exploits written in the JavaScript language.</p>
 </div>
@@ -10180,7 +10274,7 @@ ms-caro-malware-full namespace available in JSON format at <a href="https://gith
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ms_caro_malware_full_malware_family_couponruc_2">ms-caro-malware-full:malware-family="CouponRuc"</h4>
+<h4 id="_ms_caro_malware_full_malware_family_couponruc_new">ms-caro-malware-full:malware-family="CouponRuc_new"</h4>
 <div class="paragraph">
 <p>2015 VOL19 - A browser modifier that changes browser settings and may also modify some computer and Internet settings.</p>
 </div>
@@ -11254,6 +11348,21 @@ passivetotal namespace available in JSON format at <a href="https://github.com/M
 </div>
 </div>
 <div class="sect2">
+<h3 id="_dynamic_dns">dynamic-dns</h3>
+<div class="sect3">
+<h4 id="_passivetotal_dynamic_dns_yes">passivetotal:dynamic-dns="yes"</h4>
+<div class="paragraph">
+<p>Yes</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_passivetotal_dynamic_dns_no">passivetotal:dynamic-dns="no"</h4>
+<div class="paragraph">
+<p>No</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_class">class</h3>
 <div class="sect3">
 <h4 id="_passivetotal_class_malicious">passivetotal:class="malicious"</h4>
@@ -11277,21 +11386,6 @@ passivetotal namespace available in JSON format at <a href="https://github.com/M
 <h4 id="_passivetotal_class_unknown">passivetotal:class="unknown"</h4>
 <div class="paragraph">
 <p>Unknown</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_dynamic_dns">dynamic-dns</h3>
-<div class="sect3">
-<h4 id="_passivetotal_dynamic_dns_yes">passivetotal:dynamic-dns="yes"</h4>
-<div class="paragraph">
-<p>Yes</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_passivetotal_dynamic_dns_no">passivetotal:dynamic-dns="no"</h4>
-<div class="paragraph">
-<p>No</p>
 </div>
 </div>
 </div>
@@ -17810,7 +17904,7 @@ vocabulaire-des-probabilites-estimatives namespace available in JSON format at <
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-06 11:27:18 CEST
+Last updated 2017-08-16 12:09:58 CEST
 </div>
 </div>
 </body>
