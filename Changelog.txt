@@ -2,6 +2,185 @@ Changelog
 =========
 
 
+v2.4.79 (2017-08-25)
+--------------------
+
+New
+~~~
+- Feeds added to the scheduled jobs. [iglocska]
+- Opened up the taxonomies actions to the API: [iglocska]
+
+  valid APIs:
+
+  index, view, enable, disable
+- Exposed Feed previews to the API. [iglocska]
+
+  - The following can now be fetched via the API (requires site admin access):
+    CSV, Freetext, MISP feeds: /feeds/previewEvent/[feed_id]
+    MISP feeds: /feeds/previewIndex/[feed_id]/[event_uuid]
+- Added command line tool to enable/disable misp. [iglocska]
+
+  - /var/www/MISP/app/Console/cake Live [0|1]
+  - sets the MISP.live directive
+- Add a baseurl changer for shell scripts. [iglocska]
+
+  - cake /var/www/MISP/app/Console Baseurl [new baseurl]
+
+Changes
+~~~~~~~
+- Update for the version release. [iglocska]
+
+  - querystring bump
+  - version bump
+  - PyMISP version bump
+- PyMISP updated. [iglocska]
+- Made the current password confirmation requirement for any user
+  profile edits optional. [iglocska]
+
+  - default setting is having it off
+  - incredibly frustrating feature is now only enabled on demand
+- MISP-galaxies updated. [iglocska]
+- Restrict tag editor permission to only create tags. [iglocska]
+
+  - deleting/eding tags indirectly modifies events created by others
+  - reduced to site admin only functionality
+- Added exit 0 to start.sh to make vagrant happy. [iglocska]
+
+Fix
+~~~
+- MISP taxonomy updated. [Alexandre Dulaunoy]
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+- Fix to the max items displayed / page using the custom pagination
+  tool. [iglocska]
+- Slight improvement to event uuid lookup on the event view. [iglocska]
+- Follow redirect from feed pull if the response is a 302. [iglocska]
+- Cleanup for feeds fixed. [iglocska]
+- Possible fix to the newsread = null issue. [iglocska]
+- Fixed a potential persistent cross site scripting in the comments.
+  [iglocska]
+
+  - new tag parser for the comments implemented
+  - Parser now cleanly pre-constructs the replacement items after finding tag pairs
+
+  - This only impacts users of the same instance, as comments are not synchronised
+
+  - as reported by Jurgen Jans and Cedric Van Bockhaven from Deloitte
+- Further Event index UI fixes. [iglocska]
+- Fixed event index for non site admins. [iglocska]
+- Attribute view also accessible via UUID. [iglocska]
+- Fetch PGP key button goes into endless loading if no key was found.
+  [iglocska]
+- Fixed an obviously dumb validation rule, fixes #2394. [iglocska]
+
+  - derp
+- Fixed a group by issue with the event filter overlay. [iglocska]
+- Misaligned event index for read only users fixed, fixes #2397.
+  [iglocska]
+- Fixed mistyped field. [iglocska]
+- Fixes to the galaxy import tool. [iglocska]
+- MISP taxonomies updated to the latest version. [Alexandre Dulaunoy]
+- Fix double pagination of data in the taxonomies controller, fixes
+  #2399. [iglocska]
+- Added event_uuid to attribute view. [iglocska]
+- Remove the notice thrown if no valid user exists for the given e-mail.
+  [iglocska]
+- Fixed the XML output for the restresponse library. [iglocska]
+- Fixes to several issues with the template editor, fixes #2387, fixes
+  #2388. [iglocska]
+- Several fixes to the template editor. [iglocska]
+- Fixes to issues introduced by the ajax JSON rework, fixes #2384.
+  [iglocska]
+- Tightening the sanitisation of indicators for the e-mail alerts.
+  [iglocska]
+- Fixes to several cases of reflected XSS, fixes #2381. [iglocska]
+
+  - as reported by @import-au
+
+  - Additionally enforce content-type on all async APIs called by the UI using CakeResponse
+
+Other
+~~~~~
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2419 from RichieB2B/patch-1. [Andras Iklody]
+
+  Make newsread numeric instead of boolean
+- Make newsread numeric instead of boolean. [Richie B2B]
+
+  Fixes #2394
+- Merge pull request #2415 from CheYenBzh/2.4. [Andras Iklody]
+
+  Baseurl miss in events filter
+- Baseurl miss in events filter. [Antoine Callac]
+
+  Minor change, adding baseurl for events search
+- Merge pull request #2412 from cedricbonhomme/vagrant-dev-environment.
+  [Alexandre Dulaunoy]
+
+  Vagrant dev environment
+- Updated default values for OpenSSL and GPG. [Cédric Bonhomme]
+- Updated default values for OpenSSL and GPG. [Cédric Bonhomme]
+- Merge pull request #2410 from cedricbonhomme/vagrant-dev-environment.
+  [Andras Iklody]
+
+  Introduction of a development environment based on Vagrant
+- Fixed group owner of the MISP installation. [Cédric Bonhomme]
+- Updateg .gitignore: ignore Vagrant log files and VM related files.
+  [Cédric Bonhomme]
+- Updated README. [Cédric Bonhomme]
+- Updated README. [Cédric Bonhomme]
+- Updated README. [Cédric Bonhomme]
+- Added Vagrant configuration files for a development environment.
+  [Cédric Bonhomme]
+- Added Vagrant configuration files for a development environment.
+  [Cédric Bonhomme]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2405 from RichieB2B/patch-3. [Andras Iklody]
+
+  Add Change Password link to profile view
+- Add Change Password link to profile view. [Richie B2B]
+
+  Make it easier for users to change their password
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2404 from RichieB2B/patch-2. [Andras Iklody]
+
+  Initialize $abortPost in edit()
+- Initialize $abortPost in edit() [Richie B2B]
+
+  Avoid notices about "Undefined variable: abortPost" in debug.log
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2402 from RichieB2B/patch-1. [Andras Iklody]
+
+  Rebuild _authenticateObjects cache in mixed authentication setups
+- Rebuild _authenticateObjects cache in mixed authentication setups.
+  [Richie B2B]
+
+  When CertAuth is mixed with normal FormAuthentication the upgrade from Simple to Blowfish did not happen because of the internal _authenticateObjects cache. Calling constructAuthenticate() rebuilds this cache.
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2389 from truckydev/expose-galaxies-lit-to-api.
+  [Andras Iklody]
+
+  Expose galaxies lit to api
+- Update GalaxiesController.php. [truckydev]
+- Update GalaxiesController.php. [truckydev]
+- Update GalaxiesController.php. [truckydev]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2385 from cedricbonhomme/fix-command-line-tool-to-
+  enable-disable-MISP. [Andras Iklody]
+
+  Fixed error: 'Value is not a boolean, make sure that you convert 'tru…
+- Fixed error: 'Value is not a boolean, make sure that you convert
+  'true' to true for example.' when enabling/disabling MISP with the
+  command line tool. [Cédric Bonhomme]
+
+
 v2.4.78 (2017-08-06)
 --------------------
 
