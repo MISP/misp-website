@@ -593,6 +593,15 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **mobile-application-id**: The application id of a mobile application
 
 
+## MISP objects
+
+MISP objects are in addition to MISP attributes to allow advanced combinations of attributes. The creation of these objects
+and their associated attributes are based on real cyber security use-cases and existing practices in information sharing.
+MISP objects are standardised under a simple templating format and are automatically available in MISP. A series of relationships
+are also defined along with the objects which can be used to create relationships between objects.
+
+The objects available can be [browsed via the web site](/objects.html) or downloaded as [PDF](/objects.pdf) or directly via the MISP software.
+
 ## MISP Taxonomies
 
 Along with the core format, [MISP taxonomies](https://www.github.com/MISP/misp-taxonomies/) provide a set of already defined classifications modeling estimative language, CSIRTs/CERTs classifications, national classifications or threat model classification. The fixed taxonomies provide a practical method to tag efficiently events and attributes within a set of MISP instances where taxonomies can be easily cherry-picked or extended to meet the local requirements of an organization or a specific sharing community. When using MISP, the MISP taxonomies are available and can be freely used based on the community practises.
