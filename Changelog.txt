@@ -2,7 +2,262 @@ Changelog
 =========
 
 
-v2.4.79 (2017-08-25)
+v2.4.80 (2017-09-18)
+--------------------
+
+New
+~~~
+- Various object template improvements. [iglocska]
+
+  - allow multiple versions of a template to be stored at the same time
+  - select which version is the primary version of a template
+  - disable/enable templates
+  - edit objects with one of the older versions of a template if the object's version requires that
+
+  - various UI / bug fixes
+- Objects tied into e-mailing. [iglocska]
+- Add way to flatten attributes for certain exports (hids, nids)
+  [iglocska]
+- Added objects to object preview. [iglocska]
+- Added diagnostics for the new attachment tools. [iglocska]
+- Further progress on the synchronisation. [iglocska]
+- Added phone-number attribute type. [iglocska]
+
+  - Just the yugest attribute types for @rommelfs
+- Expose the caching jobs / getProgress to the API. [iglocska]
+- Massive performance improvements to the restSearch API. [iglocska]
+
+  - smarter choice of pre-filtering gives a huge boost for non attribute level parameters
+  - caching the results of certain parts of the algorithm
+  - cleaned up some inefficient looping merges
+- Sync with objects wip. [iglocska]
+
+  - add/edit of full events now capture all object related structures
+  - restructuring of the edit/add functionalities into clearly divided subsections
+- Further work on the objects. [iglocska]
+
+  - uuids of both sides saved in references
+  - attachment adding fixed
+- Several new features. [iglocska]
+
+  - added multiple flag among other things
+- Added first iteration of new add attachment functionality. [iglocska]
+
+  - still WIP
+- Added back referencing from a referenced object. [iglocska]
+
+  - also fixed some view file issues
+- Various new features for the objects. [iglocska]
+- Added object relations. [iglocska]
+- Added first iteration of object references and other changes.
+  [iglocska]
+
+  - various fixes
+  - rework of the pagination library
+- Progress on the Objects. [iglocska]
+
+  - Fixed UI elements in the event view
+  - Added object-aware filtering to the event view
+  - Objects can now be deleted and viewed once deleted
+    - object sanitisation if the setting is set is implemented
+  - Edit objects directly from the interface (if the template exists)
+  - Various other fixes
+- Collapsible object metadata. [iglocska]
+- Further work on the object UI. [iglocska]
+
+  - refactoring
+  - added objects fields to object rows
+  - nested rows within the object
+  - massive cleanup
+- WIP - change to model aliasing to solve the reserved class name.
+  [iglocska]
+
+  - Internal name is now MispObject for the model, but it is used Aliased, removing the need to do any data massaging
+  - Added WIP edit function
+- Added objects submodule. [iglocska]
+- Further progress with the objects. [iglocska]
+
+  - added option to populate event with an object to the side menu
+  - multiselect popup for objects added
+  - redirect after adding object fixed
+- More work on the objects. [iglocska]
+
+  - mostly on adding / validating / saving objects including the UI for it
+- Further progress on the objects. [iglocska]
+
+Changes
+~~~~~~~
+- Version bumps all around. [iglocska]
+- Updated taxonomies. [iglocska]
+- PyMISP updated. [iglocska]
+- Some tuning to the freetext import tool. [iglocska]
+- Cakephp updated. [iglocska]
+- Rename two fields in the object references. [iglocska]
+
+  - source_uuid => object_uuid
+  - destination_uuid => referenced_uuid
+- Removed default distribution for attributes in object - tkaen over by
+  the pre-validation script. [iglocska]
+- Sane defaults set by pre-validation script as a fallback (attributes)
+  [iglocska]
+- Added empty row after each object / attribute-proposal block.
+  [iglocska]
+- Updated object definitions. [iglocska]
+- Changed Object to MispObject internally. [iglocska]
+- Changed frequency to ui-priority. [iglocska]
+- Further work on the objects. [iglocska]
+
+  - view events with objects via the API
+  - Further improvements to adding objects
+- Added new tables to appmodel upgrade script. [iglocska]
+- Added new fields to mysql. [iglocska]
+
+Fix
+~~~
+- Fixed double attachment of hashes for malware-samples. [iglocska]
+- Updated PyMISP. [iglocska]
+- Added an upper limit for max correlations / event. [iglocska]
+
+  - super edge-case test instance got crushed by memory usage
+- Correlation improvements. [iglocska]
+- Some minor bug fixes. [iglocska]
+- Avoid compatibility issue with AGPL license and its warranty clause.
+  [Alexandre Dulaunoy]
+- Capitalisation of default tlp tag didn't match the ones coming from
+  taxonomies in the event alert e-mail subject. [iglocska]
+- Fix to certauth pains. [iglocska]
+- Added better debugging to the password shell. [iglocska]
+- Corrected a copy paste mistake. [iglocska]
+- Fix to an issue blocking the JSON download of single events.
+  [iglocska]
+- Fixes various issues with the certauth. [iglocska]
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+- Fixes to various issues with the cert auth. [iglocska]
+- Fixed the favourite tags not showing up in the tag index. [iglocska]
+- ACL updated. [iglocska]
+- When deleting an attirbute/objects, object references to it are not
+  deleted, fixes #2477. [iglocska]
+
+  - force a reference deletion on attribute/object deletion
+  - changed it to match deletion type
+    - soft-deleting an attribute/object soft-deletes all references to it
+    - hard-deleting an attribute/object hard-deletes all references to it
+- Fixed notices described in #2482. [iglocska]
+- No attributes set in the objects add form makes MISP barf up notices
+  instead of gracefully showing an error - fixes #2476. [iglocska]
+- Referenced by counter fixed, fixes #2479. [iglocska]
+- Fixed the missing refresh on attribute tags when a new tag is added.
+  [iglocska]
+- Unpublish event on object add. [iglocska]
+- Updated the xml export tool to support objects. [iglocska]
+
+  - though why do we still support XML?...
+- Various fixes for the objects. [iglocska]
+- Fixed the add attachments functionalities. [iglocska]
+- Fixed the timestamp of object references not being set. [iglocska]
+- Fixed the object reference's timestamp not being updated. [iglocska]
+- Fixed the empty event warning if an event only has objects but no
+  attributes. [iglocska]
+- Various fixes with object reference editing. [iglocska]
+- Fixing various issues with the pull. [iglocska]
+- Fixed an invalid user field lookup. [iglocska]
+- Removed an invalid line left in from a debug session. [iglocska]
+
+  - caused galaxy cluster not to show up on event view
+- Fixed an invalid user call in the paginator. [iglocska]
+- Added upload logo functionality to org add form. [iglocska]
+
+  - Forgetfullness correlates directly with age apparently
+- Reverted a change from yesterday that breaks the event index.
+  [iglocska]
+- Fixed some parameter issues. [iglocska]
+- Some realignment on the attribute add view. [iglocska]
+- Fixed array level mess-up. [iglocska]
+
+  derp
+- Fixed invalid variable name. [iglocska]
+- Fixed invalid lookup for adding object references. [iglocska]
+- Added missing object row change. [iglocska]
+- Fixed the saving of objects. [iglocska]
+- Updated the new ajax methods to follow the new JSON rules. [iglocska]
+- Various fixes. [iglocska]
+- Fixed an outdated index pointing to a now non-existant field.
+  [iglocska]
+- Ommit object template elements with invalid attribute types.
+  [iglocska]
+
+  - and warn users
+  - shout out to all C-level managers at SHA2017
+- Fixed event view issue for empty events. [iglocska]
+- Added description field to object template elements. [iglocska]
+- Fixed previous commit. [iglocska]
+- Missing field in object template elements added to match upgrade
+  script. [iglocska]
+- Updated fields. [iglocska]
+- Object renamed to MispObject in form. [iglocska]
+- Cakephp updated. [iglocska]
+- Removed obsolete table. [iglocska]
+- Fixed object references table. [iglocska]
+- Add object functions to ACL. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'objects_wip' into 2.4. [iglocska]
+- Merge branch '2.4' into objects_wip. [iglocska]
+- Merge pull request #2483 from obert01/accessibility-fix. [Andras
+  Iklody]
+
+  Accessibility improvement: ARIA properties for the "Add new cluster" button - events/view
+- Accessibility improvement: Given the "button" role and appropriate
+  aria-label to the "Add new cluster" button in the "galaxy quick
+  preview" on an events/view page. [Olivier BERT]
+- Merge pull request #2480 from RichieB2B/empty-stix. [Andras Iklody]
+
+  Return empty STIX when no data
+- Return empty STIX when no data, fixes #2478. [Richard van den Berg]
+- Merge pull request #2474 from obert01/task-accessibility. [Andras
+  Iklody]
+
+  Improved the accessibility of the "Scheduled tasks" page for screen readers
+- Improved the accessibility of the "Scheduled tasks" page for screen
+  reader. The "aria-label" of the buttons for each tasks (frequency,
+  time, date) should be set to their value rather than their meaning. In
+  fact, the meaning of the value is given by the header of the column,
+  which is already perfectly read by all screen reader I have tested.
+  [Olivier BERT]
+- Merge pull request #2469 from panzertime/2.4. [Andras Iklody]
+
+  fix for issue #2458
+- Fix for issue #2458. [RT Hatfield]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Security vulnerability reporting about "high number of published CVEs
+  vs a few swept under the rug" [Alexandre Dulaunoy]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2428 from cedricbonhomme/make-vagrant-a-submodule.
+  [Andras Iklody]
+
+  Make vagrant a submodule
+- Added misp-vagrant module. [Cédric Bonhomme]
+- Removed vagrant folder. [Cédric Bonhomme]
+- Merge pull request #2453 from panzertime/2.4. [Andras Iklody]
+
+  Fixing bug in feed-fetch sched. task
+- Fixing bug in feed-fetch sched. task. [RT Hatfield]
+- Merge branch '2.4' into objects_wip. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' into objects_wip. [iglocska]
+- Merge branch '2.4' into objects_wip. [iglocska]
+- Merge branch '2.4' into objects_wip. [iglocska]
+- Merge branch '2.4' into objects_wip. [iglocska]
+- Merge branch '2.4' into feature/objects. [iglocska]
+
+
+v2.4.79 (2017-08-28)
 --------------------
 
 New
@@ -48,6 +303,12 @@ Changes
 
 Fix
 ~~~
+- Removed url -> tls_cert_subject rule conversion for the suricata
+  export, fixes #2396. [Andras Iklody]
+- Fixed a bug where /events/uuid would return the incorrect event.
+  [iglocska]
+- Only try to look for feed correlations for a proposal if the proposal
+  list isn't empty. [iglocska]
 - MISP taxonomy updated. [Alexandre Dulaunoy]
 - MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
 - Fix to the max items displayed / page using the custom pagination
@@ -100,6 +361,8 @@ Fix
 
 Other
 ~~~~~
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
 - Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
   [iglocska]
 - Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
