@@ -2,7 +2,295 @@ Changelog
 =========
 
 
-v2.4.80 (2017-09-18)
+v2.4.81 (2017-10-09)
+--------------------
+
+New
+~~~
+- Added first experimental STIX 2 export implementation. [iglocska]
+
+  - kudos to @chrisr3d for digging into the deepest bowels of the scary beast that is STIX2
+
+  - PoC, definitely needs further improvements/mapping. Let us know about issues you find!
+- First round of updates to the correlation engine ready. [iglocska]
+
+  - node deletion temporarily disabled until a bug is resolved
+- Further progress on the graphing. [iglocska]
+
+  - also, added new icon field to galaxies
+- Further work on the graphing engine. [iglocska]
+- First iteration of the graphing engine rework. [iglocska]
+- Rework of the attachment uploader. [iglocska]
+
+  - add attachments and upload_sample now share code
+  - allow the same features via upload_sample (object creation / use of advanced add attachments)
+  - new flag: advanced
+
+  - example:
+
+    POST to mymisp/events/upload_sample
+    BODY:
+  {"request":{"files": [{"filename": "bla.exe", "data": "U3RhckNyYWZ0IElJIGZvcmV2ZXI="}], "distribution": 1, "advanced":1, "info":"bla"}}
+
+  - this commit was brought to you by CEF and
+
+  MMMH$= -  .,   ,,.          %H++  ,= %%$$$$X+ ;=== .=  :+HHHMMMHMMM####MMH@@@@@@HHH$=      HHH@HHHHH+XXX$$$$$$$$XXXXXXX+
+  MMH = -.  . ,-,,-,.         :H@H  =;;++$HH+XX$%+X%+$++=:=.XH@@@HMMMMMMMMH@@@@@@@HHX$   ,X@@@@@@@HHHHHHHHHHXXXXXXXXXXXXXX
+    . ---,  -    ,,,            +@ .. ;++$HH+HHH++$+++HH+++, .+%HHMHHHHHHHHH+%%%++++$+   +++HHHHHHH+++++++++HHHHHHHHHHHHHH
+  - -- ,,,  --,. -                 , ,; +$XHH@@@@HHH@@@HHHH+$+$X+HH+$$+ ;  ;=  .    %   +  ,+$X+++XXXXXXXXXXXXX++HH+++++++
+  ---==,,--,-,-., :     .          -,,:/ $XHH@HMMMMMMMMMM@HHX$H@MHHHHX+H%%$%+H/:.%. $. @,,,. $$XXXXXXXXXXXXXXXXXXXXXXXXXX+
+    =  - --,,   , --   ..             =/ +$+H@@HMMMMMMMMH+H+++HHHHHHHH@+++++H+X++X+$$  = ,,, - $$XXXXX$$$$X$$$$$$$$$$$$$$X
+  ====== --,,,, ,= =              ,==== ++$$+HHMMM####MH+$$+++HH@+HH@MHMMH@@H@@@HH+$+    ,,, ,. $$+$++$$$$$$$$$$++$$$$$$$X
+   :==-===-,. ,., ==   .           :;; +++%$+H@HMMMMMMM%$%$$$+H@@+HH@MMMMMM@@@@HHH++H. .,,-,,--=/+$$%%%%%%%%$+%%$$$$$XXXXX
+  ,  =  ==- -  .  ==             . =; ++++%++HHHHHHHHHH++%$$X+@@H+HHHMMMMMMHH@@@+X+    , ,,,,-  , ,$$$$$$$+++++$$$$XXXXX$$
+  ,,-       ,    --=    ..       . ;/ ++++%$X+HHHHHHH  ++$++X+HH+X+H@HMMHHHHHHHH+.       ,,  ,,  , .    +$$$$+%+$$$$$$$$$$
+  ,-----=-=--,   ,==             ..;/ +% +%$XX+HH++HH+/+$%++H@@HHXHHH@@@@@@@@HXX  .   .,,,.  ,,,,     ,-=$$$$$$$$$$$$$$$$$
+   - ,- --  -,   ,-=     .         =/++%++%+++++XXXXX$$+.  +HHH@+$XHHHHHHHHH++$        -,,,  ,,      ,,,.   ,+$$$$$$$$$$$$
+   ---,-----, .   ==               =/+%+++%++$$+++$X$$$$++,$$+++XXHHHHHHHH+X$+%       ,-,-,        ,,    .  .  ,+$$+++++++
+  == --, -- =--, ,,=          .    ./++$$++$+X$+/++$$XXXX$$$$XXXXXXH+HH+H+X$%%/     .,,,,,,    ..  ..    ,. ,,,-=+%+++ /++
+  +   -- -  -,,-  .,    .  . .      = +$$++++HH+.  ,+$$+++++++$XX$X$XHHH+X$$+      ..--,-    .. .        .    ,-, = ======
+  MH - ---- --,,,    .       .. ,      %++$$X++++ +%++++++++%++$$$$$+H++X$$+        --,    .         .   .        =  .====
+  MM=,-, ---,,,,,    . .     ...,,,   =/++%$$XXXX+/+++@@H@HX$+%$$+HHHHH$$$+:       ,--    .     ,. ..       .. ==::;=-:;;;
+  MM+ ,----,,,,              , .. ,.      +++X+HH+++++%++$++++$$+HHH+++$$          ,-          ,   .       .   : ;/ +%+.
+  MMH ,-,-,, ,,.        .    -,     =     = +$+H@HH++++$$X$$+++HHH+++$                       ,    ..       ,  +++++++%%+%+
+  MM@,--,-,,,,,. .     ,,     .    ,-,    .=+$XHHHXXHHHHHHHH@@@@HX$%+:          ,, .      ..,,  .....    ...%%%%++%%%%%%%%
+  M@@== ,,,  ,                               ++++XX++HHHHHH++HHH+,              ,         ,  .  ....     . +$+%%%%%%+%%%%%
+  H@H+=,,,  ..                                  ,,+%$+H@HHHXX++,               ,         ,,  .  ...   . ,$$$$$%%%%%+%+%%%%
+  @H+,-,,.....       .                          .,.;; ++$$X+%+:-              ,  .     .,,,  .  ...   . XXX$$$%%%%%%+%%%%%
+  +++ -, . ...                             .  .======== === ,                          ,, . .  ..   . -,XXX$X$+$+%%%%%%%%%
+  $+     .                                ===:; ++++ ++++-,.  ,                       ,-,          .  $X+XX+XXX$$+%++%%%%%
+  ++: ,. .                         ,-,,-==:; %%%%%+%$$%$$X$$$+%+:==        .        . ,,           ..+X$XXXXXX$$$+%%$$%%%%
+  =:                              ,,,  ==   ++++++$+$$%+++$$$++$+ . ==     .        .,,,             +$$$$$$$$$$$$$$+$%%%+
+   ,                          ,---, =:;/++$$XX$$$$$$X+H@H@HHH$%%%$X$++;===== .      .,            .. +%%+$++$%$$$$$$%%++%+
+                                 ===; +++$$$$+ +%+++%+HH@@@@HH+++ ++%+$+,  ===      ..             ,=;   +++++++++..   :;;
+                        .   =:;   /++%$$++,  ,++HHMMHH@@@@HHHH@HH++++++ ,+$$+ .     ..                :=;;:;;;;;==========
+                    .,,-==;;;+%  %%+$$$$ /+++@@@@@@@@@@HH@M@MH@@@HHHHH$$% /%$XXX$X  .                -=====::::=========::
+                  .    =;  ++++++$+++  , +%H@@@HHH@HH++HHH@MHHH@HHHHHH++++ , +%%+$                    ,, -       --- ==:=:
+                 ====;    ++++$$+%  ++H@HHHHHHH+X++X++@@@HHH@MMMMHHHHHH@HHHH+++++.                        ,,,,-,--- =:==;;
+       .,., ==;// / ++++%+%+%+++$$+@H@@@@H@HHH+XXX$%+HHHH@@HH@HMMMMMMMMMMMMMMH@+%;                       ...,,,,,--==;;;/;
+   .  ...=    .,+%$++%+$XXX$++%+++H@@@@HHH@HHH+++.   ++++H+HHHHHHHMMMMMMMMMMMM@++:                            ,,, ===;;;;;
+  ==: .  ++++++++HH%H+++X++HH+H@HHHH@HHHHHHH+++++%++%%+%%++ . ,   = ++$H@@HMHMMH%=                                .  ..,,=
+  +++%$XXHHHHHH@H@@@@@H@HH@MMM@@HH@HH+HXH@HH%%+HH+XX$$$+++/;:=== ,,,,,, = ::; % :,                                   ...,,
+  %+++HHH@HHH@@HMHHHH@HHHMHMHHHHHH+XH+HHH++++HHHH@HHHHH++%+ -,  = ,=== ,,  ,,, .
+  H@HHHH#M#M#MHHHM#MMMMMMMHHHH@H@H++@H$+++HHM#MMMMHMMH@@HHHHHH%+++++%%%+++    ,  .
+  %%%%%%%%%%%%%%++++%%++   ..   ...  ..  .                                   +++%+++++++%++++%+++++++++%+%++%+%%++%++++++%
+- Change server settings via the API. [iglocska]
+
+  Usage:
+
+  Viewing current setting value:
+
+  GET /servers/serverSettingsEdit/[mysetting]
+- Allow POSTing search parameters to the /tags/index API. [iglocska]
+
+  - to filter the tags index simply POST to /tags/index the following payload:
+
+  {"filter": "malware_classification:malware-category"}
+- Added object relations to the CSV export. [iglocska]
+
+Changes
+~~~~~~~
+- Submodules updated. [iglocska]
+- Replaced the correlation graph icon to something more appropriate.
+  [iglocska]
+- ACL updated. [iglocska]
+- If no object ID is set in the URL for adding an object reference,
+  check the payload for the object_uuid. [iglocska]
+- Added .onion to the TLD list for the complext type tool. [iglocska]
+
+Fix
+~~~
+- PyMISP and warninglists updated. [iglocska]
+- Fix a rare issue with zombie sighting data throwing a notice.
+  [iglocska]
+- Fix to a potential reflected XSS on the quickDelete. [iglocska]
+
+  - low impact, XSS required user confirmation of malicious payload
+
+  - as reported by Or Hanuka (PALANTIR)
+- Small fix to a missing ajax check. [iglocska]
+
+  - ajax forms opened full screen look bad
+- Various UI fixes. [iglocska]
+
+  - no more walk of shame after demoing MISP on a potato quality projector (beamer for our Belgian/Dutch/German friends)
+- Removed debug output from adding object references. [iglocska]
+
+  - caused the spinning loading of doom
+- Indicators added in addition to observed data + misp tag for IDS.
+  [chrisr3d]
+- Galaxies updated. [iglocska]
+- Fix notice if invalid taxonomy is viewed. [iglocska]
+- Some cleanup of the attribute filtering. [iglocska]
+- Potential fix to missing proposals during sync. [iglocska]
+
+  - rather stupid adherence to push rules removed for proposal sync
+- Fixed wonky object pre-save view. [iglocska]
+
+  - showed numeric distributiion level for attributes
+  - showed numeric sharing group ID for attributes
+  - showed currently selected sharing group ID even if the distribution was ultimately not set to sharing groups
+- Fix some restsearch filters fetching the same event more than once.
+  [iglocska]
+- Corrected filename for array of events. [iglocska]
+- Internal reference: type with a uuid of an event converts to a
+  clickable link. [iglocska]
+- Sanitise all the things for XML, fixes #2522. [iglocska]
+
+  - Sanitise all the things!
+
+  ─────────────────────────────▄██▄
+  ─────────────────────────────▀███
+  ────────────────────────────────█
+  ───────────────▄▄▄▄▄────────────█
+  ──────────────▀▄────▀▄──────────█
+  ──────────▄▀▀▀▄─█▄▄▄▄█▄▄─▄▀▀▀▄──█
+  ─────────█──▄──█────────█───▄─█─█
+  ─────────▀▄───▄▀────────▀▄───▄▀─█
+  ──────────█▀▀▀────────────▀▀▀─█─█
+  ──────────█───────────────────█─█
+  ▄▀▄▄▀▄────█──▄█▀█▀█▀█▀█▀█▄────█─█
+  █▒▒▒▒█────█──█████████████▄───█─█
+  █▒▒▒▒█────█──██████████████▄──█─█
+  █▒▒▒▒█────█───██████████████▄─█─█
+  █▒▒▒▒█────█────██████████████─█─█
+  █▒▒▒▒█────█───██████████████▀─█─█
+  █▒▒▒▒█───██───██████████████──█─█
+  ▀████▀──██▀█──█████████████▀──█▄█
+  ──██───██──▀█──█▄█▄█▄█▄█▄█▀──▄█▀
+  ──██──██────▀█─────────────▄▀▓█
+  ──██─██──────▀█▀▄▄▄▄▄▄▄▄▄▀▀▓▓▓█
+  ──████────────█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█
+  ──███─────────█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█
+  ──██──────────█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█
+  ──██──────────█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█
+  ──██─────────▐█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█
+  ──██────────▐█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█
+  ──██───────▐█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█▌
+  ──██──────▐█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█▌
+  ──██─────▐█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█▌
+  ──██────▐█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█▌
+- Fixed potential double hashing of samples with the encrypt flag.
+  [iglocska]
+- Invalid uuid used in the objectreferences add form. [iglocska]
+- Fixed an invalid uuid in the object reference. [iglocska]
+- Flatten events for the correlation graph. [iglocska]
+- Fixed some weird editing issues. [iglocska]
+- IP|Port in Gui, fixes #2505. [iglocska]
+- Flatten the events for the restSearch API's lookup functions.
+  [iglocska]
+
+  - otherwise valid events that only contain objects get blocked
+- Fixed an issue with pushing a sample via the API / add attachments
+  when no object templates are loaded. [iglocska]
+- Fixed a bug where normal users couldn't add object references.
+  [iglocska]
+
+  - as reported by @deralexxx
+- Added ObjectTemplateElements to the objectTemplate view via the API.
+  [iglocska]
+- Only lower case search terms work in tags/index's filter. [iglocska]
+- Port added to network activity. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4.81' into 2.4. [iglocska]
+- Merge branch '2.4.81' of github.com:MISP/MISP into 2.4.81. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Added Tags as labels and links as external_references (both properties
+  of Reports) [chrisr3d]
+
+  Will also add custom objects later, and handle the precision issues
+  for 'created' and 'modified' properties of all the STIX Objects
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Add: First WiP STIX 2.0 export from MISP JSON standard format.
+  [chrisr3d]
+
+  This is an early stage export from MISP JSON into the STIX 2.0
+  (still unpublished). Some attributes type are missing, galaxy and
+  objects needs to be exported into custom object due to the current
+  limited state of STIX 2.0. Tags will be added later as labels and link
+  as external_references (open points with OASIS CTI ongoing discussions).
+- Merge pull request #2539 from RichieB2B/ncsc-nl/certauth. [Andras
+  Iklody]
+
+  Allow creating users with CertAuth via userDefaults
+- Allow creating users with CertAuth via userDefaults, fixes #2538.
+  [Richard van den Berg]
+- Merge branch 'attributefiltering' into 2.4. [iglocska]
+- Add an imput for search on all attributes in an event. field to search
+  can be modify in administration page. [Tristan METAYER]
+- Merge pull request #2536 from RichieB2B/stix-mispobjects. [Andras
+  Iklody]
+
+  Add MISP objects to STIX export
+- Add MISP objects to STIX export. [Richard van den Berg]
+- Merge pull request #2537 from RichieB2B/ncsc-nl/stix-conditions.
+  [Andras Iklody]
+
+  Add Condition attribute to HTTP_Method STIX export
+- Add Condition attribute to HTTP_Method STIX export. [Richard van den
+  Berg]
+- Merge pull request #2533 from RichieB2B/stix-composites. [Andras
+  Iklody]
+
+  Add ip-src|port and ip-dst|port attributes to STIX export
+- Add ip-src|port and ip-dst|port attributes to STIX export. [Richard
+  van den Berg]
+- Merge pull request #2529 from SHSauler/patch-3. [Andras Iklody]
+- Removed duplicates from $categoryDefinitions. [Steffen Sauler]
+
+  Payload delivery/ip-dst|port
+  Payload delivery/ip-src|port
+  Support Tool/text
+- Merge pull request #2517 from truckydev/patch-2. [Andras Iklody]
+
+  user right update
+- User right update. [truckydev]
+
+  Make all user access to /attributes/describeTypes.json
+- Merge pull request #2515 from c-goes/emailregex. [Andras Iklody]
+
+  Allow $ in email addresses
+- Allow $ in email addresses. [c-goes]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- MISP galaxy added in the feature list. [Alexandre Dulaunoy]
+- MISP objects added. [Alexandre Dulaunoy]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2502 from aparriel/tag_on_attribute_restSearch.
+  [Andras Iklody]
+
+  Fix Tag json format
+- Fix Tag json format. [Alexandre Parriel]
+- Merge pull request #2495 from arnydo/2.4. [Andras Iklody]
+
+  new: added alternate nameserver option to rpzexport
+- Move ns_alt parameter to end of api list. [arnydo]
+- RPZExport - Alternate NS. [Kyle Parrish]
+
+  Added option to add an alternate nameserver to RPZ export.
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2500 from aparriel/tag_on_attribute_restSearch.
+  [Andras Iklody]
+
+  Add Tag field for restSearch on attributes, Fixes #2497
+- Add Tag field for restSearch on attributes, Fixes #2497. [Alexandre
+  Parriel]
+- Merge pull request #2498 from Rafiot/travis3. [Andras Iklody]
+
+  fix: travis file
+- Up: Bump PyMISP. [Raphaël Vinot]
+- Up: test file. [Raphaël Vinot]
+
+
+v2.4.80 (2017-09-19)
 --------------------
 
 New
@@ -114,6 +402,13 @@ Changes
 
 Fix
 ~~~
+- Reverted CakePHP version. [iglocska]
+- Fixed the XML view. [iglocska]
+
+  - please stop using XML, for your own sanity, I beg of you!
+- Fixed query string and pymisp version. [iglocska]
+- Fixed no specification of the tinyint length for the objects in
+  MYSQL.sql. [iglocska]
 - Fixed double attachment of hashes for malware-samples. [iglocska]
 - Updated PyMISP. [iglocska]
 - Added an upper limit for max correlations / event. [iglocska]
@@ -202,6 +497,54 @@ Fix
 
 Other
 ~~~~~
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2493 from RichieB2B/patch-2. [Andras Iklody]
+
+  Use sanitized orgname in STIX header
+- Use sanitized orgname in STIX header. [Richie B2B]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2490 from ealtintas/2.4. [Andras Iklody]
+
+  Update README.md
+- Update README.md. [Ergin ALTINTAS]
+
+  Fix the typo: "Network Detection Intrusion System" -> "Network Intrusion Detection System"
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2489 from truckydev/patch-1. [Andras Iklody]
+
+  bugfix for freetextimport and email
+- Bugfix for freetextimport and email. [truckydev]
+
+  Correction for a bug when you add an email in freeTextImport.
+
+  When you select 'whois-registrant-email' attribut never created and an error is displayed.
+
+  because :
+  'whois-registrant-email' not in 'Social network'  and 'Payload delivery' but only in 'Attribution'.
+
+  This PR add the type 'whois-registrant-email' in 'Social network'  and 'Payload delivery' category.
+
+  #### What does it do?
+
+  no issue has been created.
+
+  #### Questions
+
+  - [ ] Does it require a DB change?
+  - [ ] Are you using it in production?
+  - [ ] Does it require a change in the API (PyMISP for example)?
+
+  #### Release Type:
+  - [ ] Major
+  - [ ] Minor
+  - [X] Patch
+- Merge pull request #2457 from Delta-Sierra/2.4. [Andras Iklody]
+
+  remove old text from documentation
+- Remove old text from fdocumentation. [Deborah Servili]
 - Merge branch 'objects_wip' into 2.4. [iglocska]
 - Merge branch '2.4' into objects_wip. [iglocska]
 - Merge pull request #2483 from obert01/accessibility-fix. [Andras
