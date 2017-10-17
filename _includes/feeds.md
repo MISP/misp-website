@@ -1,36 +1,37 @@
-- [CIRCL OSINT Feed](https://www.circl.lu/doc/misp/feed-osint) - CIRCL - feed format: `misp`
-- [The Botvrij.eu Data](http://www.botvrij.eu/data/feed-osint) - Botvrij.eu - feed format: `misp`
-- [inThreat OSINT Feed](https://feeds.inthreat.com/osint/misp/) - inThreat - feed format: `misp`
-- [ZeuS IP blocklist (Standard)](https://zeustracker.abuse.ch/blocklist.php?download=ipblocklist) - zeustracker.abuse.ch - feed format: `csv`
-- [ZeuS compromised URL blocklist](https://zeustracker.abuse.ch/blocklist.php?download=compromised) - zeustracker.abuse.ch - feed format: `csv`
-- [blockrules of rules.emergingthreats.net](http://rules.emergingthreats.net/blockrules/compromised-ips.txt) - rules.emergingthreats.net - feed format: `csv`
-- [Binary Defense Systems Artillery Threat Intelligence Feed and Banlist Feed](https://www.trustedsec.com/banlist.txt) - Binary Defense Systems - feed format: `csv`
-- [malwaredomainlist](https://panwdbl.appspot.com/lists/mdl.txt) - malwaredomainlist - feed format: `csv`
-- [Tor exit nodes](https://www.dan.me.uk/torlist/?exit) - TOR Node List from dan.me.uk - feed format: `csv`
-- [Tor ALL nodes](https://www.dan.me.uk/torlist/) - TOR Node List from dan.me.uk - feed format: `csv`
-- [cybercrime-tracker.net - all](http://cybercrime-tracker.net/all.php) - cybercrime-tracker.net - feed format: `freetext`
-- [Phishtank online valid phishing](http://data.phishtank.com/data/online-valid.csv) - Phishtank - feed format: `csv`
-- [listdynamic dns providers](http://dns-bh.sagadc.org/dynamic_dns.txt) - http://dns-bh.sagadc.org - feed format: `csv`
-- [ip-filter.blf - labs.snort.org](http://labs.snort.org/feeds/ip-filter.blf) - http://labs.snort.org - feed format: `freetext`
-- [longtail.it.marist.edu](http://longtail.it.marist.edu/honey/current-ip-addresses.txt) - longtail.it.marist.edu - feed format: `freetext`
-- [longtail.it.marist.edu 7 days](http://longtail.it.marist.edu/honey/last-7-days-ip-addresses.txt) - longtail.it.marist.edu - feed format: `freetext`
-- [diamondfox_panels](https://raw.githubusercontent.com/pan-unit42/iocs/master/diamondfox/diamondfox_panels.txt) - pan-unit42 - feed format: `freetext`
-- [booterblacklist.com Latest](http://booterblacklist.com/data/booterlist_latest.txt) - booterblacklist.com - feed format: `freetext`
-- [openbl.org base](http://www.openbl.org/lists/base.txt) - openbl.org - feed format: `freetext`
-- [pop3gropers](https://home.nuug.no/~peter/pop3gropers.txt) - home.nuug.no - feed format: `csv`
-- [Ransomware Tracker CSV Feed](https://ransomwaretracker.abuse.ch/feeds/csv/) - Ransomware Tracker abuse.ch - feed format: `csv`
-- [Feodo IP Blocklist](https://feodotracker.abuse.ch/blocklist/?download=ipblocklist) - abuse.ch - feed format: `csv`
-- [hosts-file.net - hphost - malwarebytes](https://hosts-file.net/psh.txt) - hosts-file.net - feed format: `csv`
-- [hosts-file.net - hphost - malwarebytes - EMD classification ONLY](https://hosts-file.net/emd.txt) - hosts-file.net - feed format: `csv`
-- [OpenPhish url list](https://openphish.com/feed.txt) - openphish.com - feed format: `freetext`
-- [firehol_level1](https://raw.githubusercontent.com/ktsaou/blocklist-ipsets/master/firehol_level1.netset) - iplists.firehol.org - feed format: `freetext`
-- [ramnit C&Cs](http://osint.bambenekconsulting.com/feeds/ramnit-iplist.txt) - osint.bambenekconsulting.com - feed format: `csv`
-- [virut C&Cs](http://osint.bambenekconsulting.com/feeds/virut-iplist.txt) - osint.bambenekconsulting.com - feed format: `csv`
-- [ci-badguys.txt](http://cinsscore.com/list/ci-badguys.txt) - cinsscore.com - feed format: `freetext`
-- [alienvault reputation generic](http://reputation.alienvault.com/reputation.generic) - .alienvault.com - feed format: `csv`
-- [blocklist.de/lists/all.txt](https://lists.blocklist.de/lists/all.txt) - blocklist.de - feed format: `freetext`
-- [VNC RFB](https://dataplane.org/vncrfb.txt) - dataplane.org - feed format: `csv`
-- [sshpwauth.txt](https://dataplane.org/sshpwauth.txt) - dataplane.org - feed format: `csv`
-- [sipregistration](https://dataplane.org/sipregistration.txt) - dataplane.org - feed format: `csv`
-- [sipquery](https://dataplane.org/sipquery.txt) - dataplane.org - feed format: `csv`
-- [sipinvitation](https://dataplane.org/sipinvitation.txt) - dataplane.org - feed format: `csv`
+- [CIRCL OSINT Feed](https://www.circl.lu/doc/misp/feed-osint) - CIRCL - feed format: misp
+- [The Botvrij.eu Data](http://www.botvrij.eu/data/feed-osint) - Botvrij.eu - feed format: misp
+- [inThreat OSINT Feed](https://feeds.inthreat.com/osint/misp/) - inThreat - feed format: misp
+- [ZeuS IP blocklist (Standard)](https://zeustracker.abuse.ch/blocklist.php?download=ipblocklist) - zeustracker.abuse.ch - feed format: csv
+- [ZeuS compromised URL blocklist](https://zeustracker.abuse.ch/blocklist.php?download=compromised) - zeustracker.abuse.ch - feed format: csv
+- [blockrules of rules.emergingthreats.net](http://rules.emergingthreats.net/blockrules/compromised-ips.txt) - rules.emergingthreats.net - feed format: csv
+- [Binary Defense Systems Artillery Threat Intelligence Feed and Banlist Feed](https://www.trustedsec.com/banlist.txt) - Binary Defense Systems - feed format: csv
+- [malwaredomainlist](https://panwdbl.appspot.com/lists/mdl.txt) - malwaredomainlist - feed format: csv
+- [Tor exit nodes](https://www.dan.me.uk/torlist/?exit) - TOR Node List from dan.me.uk - feed format: csv
+- [Tor ALL nodes](https://www.dan.me.uk/torlist/) - TOR Node List from dan.me.uk - feed format: csv
+- [cybercrime-tracker.net - all](http://cybercrime-tracker.net/all.php) - cybercrime-tracker.net - feed format: freetext
+- [Phishtank online valid phishing](http://data.phishtank.com/data/online-valid.csv) - Phishtank - feed format: csv
+- [listdynamic dns providers](http://dns-bh.sagadc.org/dynamic_dns.txt) - http://dns-bh.sagadc.org - feed format: csv
+- [ip-filter.blf - labs.snort.org](http://labs.snort.org/feeds/ip-filter.blf) - http://labs.snort.org - feed format: freetext
+- [longtail.it.marist.edu](http://longtail.it.marist.edu/honey/current-ip-addresses.txt) - longtail.it.marist.edu - feed format: freetext
+- [longtail.it.marist.edu 7 days](http://longtail.it.marist.edu/honey/last-7-days-ip-addresses.txt) - longtail.it.marist.edu - feed format: freetext
+- [diamondfox_panels](https://raw.githubusercontent.com/pan-unit42/iocs/master/diamondfox/diamondfox_panels.txt) - pan-unit42 - feed format: freetext
+- [booterblacklist.com Latest](http://booterblacklist.com/data/booterlist_latest.txt) - booterblacklist.com - feed format: freetext
+- [openbl.org base](http://www.openbl.org/lists/base.txt) - openbl.org - feed format: freetext
+- [pop3gropers](https://home.nuug.no/~peter/pop3gropers.txt) - home.nuug.no - feed format: csv
+- [Ransomware Tracker CSV Feed](https://ransomwaretracker.abuse.ch/feeds/csv/) - Ransomware Tracker abuse.ch - feed format: csv
+- [Feodo IP Blocklist](https://feodotracker.abuse.ch/blocklist/?download=ipblocklist) - abuse.ch - feed format: csv
+- [hosts-file.net - hphost - malwarebytes](https://hosts-file.net/psh.txt) - hosts-file.net - feed format: csv
+- [hosts-file.net - hphost - malwarebytes - EMD classification ONLY](https://hosts-file.net/emd.txt) - hosts-file.net - feed format: csv
+- [OpenPhish url list](https://openphish.com/feed.txt) - openphish.com - feed format: freetext
+- [firehol_level1](https://raw.githubusercontent.com/ktsaou/blocklist-ipsets/master/firehol_level1.netset) - iplists.firehol.org - feed format: freetext
+- [IPs from High-Confidence DGA-Based C&Cs Actively Resolving](http://osint.bambenekconsulting.com/feeds/c2-ipmasterlist-high.txt) - osint.bambenekconsulting.com - feed format: csv
+- [Domains from High-Confidence DGA-based C&C Domains Actively Resolving](http://osint.bambenekconsulting.com/feeds/c2-dommasterlist-high.txt) - osint.bambenekconsulting.com - feed format: csv
+- [ci-badguys.txt](http://cinsscore.com/list/ci-badguys.txt) - cinsscore.com - feed format: freetext
+- [alienvault reputation generic](http://reputation.alienvault.com/reputation.generic) - .alienvault.com - feed format: csv
+- [blocklist.de/lists/all.txt](https://lists.blocklist.de/lists/all.txt) - blocklist.de - feed format: freetext
+- [VNC RFB](https://dataplane.org/vncrfb.txt) - dataplane.org - feed format: csv
+- [sshpwauth.txt](https://dataplane.org/sshpwauth.txt) - dataplane.org - feed format: csv
+- [sipregistration](https://dataplane.org/sipregistration.txt) - dataplane.org - feed format: csv
+- [sipquery](https://dataplane.org/sipquery.txt) - dataplane.org - feed format: csv
+- [sipinvitation](https://dataplane.org/sipinvitation.txt) - dataplane.org - feed format: csv
+- [All current domains belonging to known malicious DGAs](http://osint.bambenekconsulting.com/feeds/dga-feed-high.csv) - osint.bambenekconsulting.com - feed format: csv
