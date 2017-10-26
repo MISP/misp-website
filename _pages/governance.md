@@ -34,11 +34,11 @@ the creation or enhancement of existing classifications schemes ([misp-galaxy](h
 
 The MISP project is financially and resource supported by [CIRCL - Computer Incident Response Center Luxembourg](https://www.circl.lu/).
 
-![](/assets/images/logo.png)
+![](/assets/images/logo.png){:class="img-responsive"}
 
 A CEF (Connecting Europe Facility) funding under CEF-TC-2016-3 - Cyber Security has been granted from 1st September 2017 until 31th August 2019 as ***Improving MISP as building blocks for next-generation information sharing***.
 
-![](/assets/images/en_cef.png)
+![](/assets/images/en_cef.png){:class="img-responsive"}
 
 If you are interested to co-fund projects around MISP, feel free to get in touch with us.
 
