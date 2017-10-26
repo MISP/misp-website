@@ -29,3 +29,16 @@ feedback. Our model of contribution is open and [our code of conduct is availabl
 
 Every contribution is important. We think that supporting the project can be done in various ways including code contributions (via pull-request), documentation improvements (misp-book),
 the creation or enhancement of existing classifications schemes ([misp-galaxy](https://github.com/MISP/misp-galaxy), [misp-taxonomies](https://github.com/MISP/misp-taxonomies)), formats ([misp-objects](https://github.com/MISP/misp-objects), [misp-rfc](https://github.com/MISP/misp-rfc)), tools (via [PyMISP](https://github.com/MISP/PyMISP) or tools supporting the MISP format) or expansions ([misp-modules](https://github.com/MISP/misp-modules)).
+
+## Funding
+
+The MISP project is financially and resource supported by [CIRCL - Computer Incident Response Center Luxembourg](https://www.circl.lu/).
+
+![](/assets/images/logo.png)
+
+A CEF (Connecting Europe Facility) funding under CEF-TC-2016-3 - Cyber Security has been granted from 1st September 2017 until 31th August 2019 as ***Improving MISP as building blocks for next-generation information sharing***.
+
+![](/assets/images/en_cef.png)
+
+If you are interested to co-fund projects around MISP, feel free to get in touch with us.
+
