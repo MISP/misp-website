@@ -39,6 +39,10 @@ For the system -> misp:Password1234
 
 - [puppet-misp](https://github.com/voxpupuli/puppet-misp) This module installs and configures MISP (Malware Information Sharing Platform) on CentOS 7.
 
+### Ansible
+
+- [MISP ansible](https://github.com/juju4/ansible-MISP) An ansible role to setup a MISP instance.
+
 ## License
 
 The MISP software is an open source and free software released under the [AGPL](https://github.com/MISP/MISP/blob/2.4/LICENSE) (Affero General Public License). We are committed to ensure that MISP will remain a free and open source project on the long-run.
