@@ -21,6 +21,13 @@ If you would like to test MISP and don't want to do an installation, CIRCL provi
 
 We also generate automatically VMware images and VirtualBox at each MISP core commit. Available at the [following location](https://www.circl.lu/misp-images/latest/).
 
+The default credentials for the automatically generated virtual machines are the following:
+
+~~~~
+For the MISP web interface -> admin@admin.test:admin
+For the system -> misp:Password1234
+~~~~
+
 ### Vagrant
 
 [misp-vagrant](https://github.com/MISP/misp-vagrant) deploys MISP project software with Vagrant.
