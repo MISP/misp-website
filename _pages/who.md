@@ -19,7 +19,7 @@ practical open source tools, open format and practises. The current team is comp
 
 ### Contact
 
-If you have any enquiries or willing to contribute or support the project, don't hesitate to contact the team at [info@misp-project.org](info@misp-project.org).
+If you have any enquiries or willing to contribute or support the project, don't hesitate to contact the team at [info@misp-project.org](mailto:info@misp-project.org).
 
 ### History
 
