@@ -2,6 +2,278 @@ Changelog
 =========
 
 
+%%version%% (unreleased)
+------------------------
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- 2017 even if it's not 2049 ;-) [Alexandre Dulaunoy]
+
+
+v2.4.82 (2017-11-10)
+--------------------
+
+New
+~~~
+- Various features. [iglocska]
+
+  - Added quickhashing to the feed generator
+  - Objects added to feed preview for MISP feeds
+  - Attribute tags added to MISP feeds
+- Sightings ingested on import/sync. [iglocska]
+- Added object references to ZMQ. [iglocska]
+- First version of the zmq reimplementation. [iglocska]
+- Rework of the feed correlation lookups for the event view. [iglocska]
+
+  - massive performance boost by using redis pipelining
+  - for events with 10k+ attributes, show truncated feed correlation lookups, informing the user about the number of correlating attributes and a boolean flag on attributes saying that they correlate
+  - The overall feed correlation counter also allows users to pivot to a view that loads all correlations, though it should be used with some caution as it can be somewhat heavy
+
+Changes
+~~~~~~~
+- PyMISP version bump. [iglocska]
+- Pass event_id to import modules, fixes #2612. [Andras Iklody]
+
+  As described by @Vince147
+- Version bump. [iglocska]
+- Added some sane default headers to the apache .conf files. [iglocska]
+
+  - protection against clickjacking
+  - nosniff
+
+  - as reported by Or Hanuka (PALANTIR)
+
+Fix
+~~~
+- 3rd time is the charm (PyMISP updated) [iglocska]
+- PyMISP version. [iglocska]
+- Warning list updated to the latest version. [Alexandre Dulaunoy]
+- Taxonomy updated to the latest version. [Alexandre Dulaunoy]
+- MISP object updated to the latest version. [Alexandre Dulaunoy]
+- Latest version of the galaxy added. [Alexandre Dulaunoy]
+- Added sharing group data to the new ACL functions. [iglocska]
+- Rework of tags index / galaxy view. [iglocska]
+
+  - performance tweaks
+  - no more silly queries
+  - added sharing group aware ACL to the event/attribute counters
+- Added context  to the sightings zmq feed. [iglocska]
+- Fixed the tags/index performance snafu. [iglocska]
+- Ugly fix for the float issues. [iglocska]
+- Potential reflected XSS on older browsers in the histogram. [iglocska]
+
+  - As reported by Dawid Czarnecki
+- Histogram rework. [iglocska]
+
+  - removed junk debug
+  - fixed group by issue
+  - better performance
+- Enable auto select for new object rows when adding additional ones via
+  the multiple expand. [iglocska]
+- Minor tuning of suricata rules. [iglocska]
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+- MISP objects updated to the latest version. [Alexandre Dulaunoy]
+- MISP taxonomies updated to the latest version. [Alexandre Dulaunoy]
+- Changed relationship name of filesize in add attachments to size-in-
+  byte. [iglocska]
+- Fixed default distribution for upload_sample(), fixes #2608.
+  [iglocska]
+- Invalid redirect when viewing /roles/index as a normal user, fixes
+  #2606. [iglocska]
+- Potential fix to sync issues with sharing groups and pushes, fixes
+  #2601. [iglocska]
+- Convert - to _ in csv headers. [iglocska]
+
+  - to match the previous output
+- Add the object fields by default to the CSV export. [iglocska]
+- Fixed tag names in the CSV export. [iglocska]
+- Fixed escaping of CSV. [iglocska]
+- Fixed the CSV field name for date. [iglocska]
+- Fixed an issue with the CVE export if no field parameters were passed.
+  [iglocska]
+- Fixed an issue preventing attributes in objects from being edited.
+  [iglocska]
+- Further fixes to the new zmq system. [iglocska]
+- Fixed a bug where sightings couldn't be added to objects. [iglocska]
+- Updated sub.py. [iglocska]
+- Org field not being hot potatoed to resolvAttributes()  in the stix
+  export. [iglocska]
+- Added missing parameter org to resolvAttributes() call in the stix
+  exporter. [iglocska]
+- Misp-galaxy updated to the latest version. [Alexandre Dulaunoy]
+- Taxonomies updated to the latest version. [Alexandre Dulaunoy]
+- Fixed empty emails. [iglocska]
+- Added initialisation of Log model in the editAttribute() function if
+  the save fails. [iglocska]
+- Change 2/2 for fixing the feed scheduler fixes #2503. [Andras Iklody]
+
+  As described by @lucamemini
+- Change 1/2 for fixing the feed scheduler fixes #2503. [Andras Iklody]
+
+  As described by @lucamemini
+- Allow proposing changes to object attributes. [iglocska]
+- Attribute type list when editing should be the category's one if
+  already selected. [ppanero]
+- Added default category for gender. [iglocska]
+- Added missing IP field to logs. [iglocska]
+- Misp-objects updated to the latest version. [Alexandre Dulaunoy]
+- Added comment field to objects, fixes #2560. [iglocska]
+- Added email-message-id's default category. [iglocska]
+- Fixed an issue that caused an event edit to fail due to the invalid
+  refresh of the correlations. [iglocska]
+- Fixed a bug with the restSearch API. [iglocska]
+
+Other
+~~~~~
+- Supporting Observed Data SDOs from event Objects. [chrisr3d]
+
+  Objects currently supported:
+  - domain-ip
+  - file
+  - ip|port
+  Currently working on the other ones
+- Merge branch '2.4' of github.com:MISP/MISP into stix2experiments.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into stix2experiments.
+  [chrisr3d]
+- Fixed typo for custom objects' type. [chrisr3d]
+
+  In order to keep the initial type of the attribute
+- Previous version of the dictionary no longer used. [chrisr3d]
+
+  Double quotes seem to not be validated in stix2 patterns
+- Fixed an issue with patterns. [chrisr3d]
+
+  Caused by the previous dictionary format
+  (double and simple quotes management)
+- Merge branch '2.4' of github.com:MISP/MISP into stix2experiments.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into stix2experiments.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Patterning for Indicators from Objects. [chrisr3d]
+- First version with some objects parsed. [chrisr3d]
+
+  Will continue parsing some other ones
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2603 from wotschel/2.4. [Alexandre Dulaunoy]
+
+  Minor changes and additions to Deb 9 Inst. Guide
+- Merge pull request #1 from wotschel/wotschel-INSTALL.debian9.
+  [wotschel]
+
+  Some minor changes and additions Deb 9 Inst. Guide
+- Some minor changes and additions. [wotschel]
+- Merge branch 'customcve' into 2.4. [iglocska]
+- Merge branch '2.4' into customcve. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch 'feature/zmq_rework' into 2.4. [iglocska]
+- The last useless coma. [Cédric Bonhomme]
+- Harmonizes arrays initializations. [Cédric Bonhomme]
+- Enables the user to select the attributes to be included in the CSV
+  export (event and object attributes). [Cédric Bonhomme]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Added custom objects. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Parsing Identity SDOs for 'Person' category attributes. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #2589 from jurg/attrtypefix. [Andras Iklody]
+
+  bugfix for selecting type in adding / editing attribute
+- Bugfix for selecting type in adding / editing attribute. [Jorgen
+  Bohnsdalen]
+- Using PyMISP attributes. [chrisr3d]
+
+  wip: Waiting for some PyMISP issues to be fixed
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge pull request #2585 from ppanero/2.4. [Andras Iklody]
+
+  Beautify edit object validation
+- Merge branch '2.4' into 2.4. [Andras Iklody]
+- Merge pull request #2588 from ppanero/bugfix. [Andras Iklody]
+
+  bugfix for listing types when editing non object attrs
+- Bugfix for listing types when editing non object attrs. [ppanero]
+- Bug fix for listing types when editing non object attr. [ppanero]
+- Beautify object edit validattion. [ppanero]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2587 from RichieB2B/ncsc-nl/stixorgs. [Andras
+  Iklody]
+
+  Add Reporter and Producer fields to STIX
+- Add Reporter to STIX Indicent Add Producer to STIX Indicator. [Richard
+  van den Berg]
+- Revert "Fix: Attribute type list when editing should be the category's
+  one if already selected" [iglocska]
+
+  This reverts commit 27f30aae3bf6f30af1ecbf5dcf6d237aafa66b81.
+- Merge pull request #2584 from RichieB2B/ncsc-nl/searchtag. [Andras
+  Iklody]
+
+  Speed up tag searches
+- Speed up tag searches, fixes #2407. [Richard van den Berg]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2582 from ppanero/2.4. [Andras Iklody]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Using PyMISP MISPEvent class to parse events. [Raphaël Vinot]
+- Merge pull request #2576 from 98Giraffe/fix-type-o-in-diagnostics-
+  settings. [Andras Iklody]
+
+  Fixed type-o in  Server Settings -> Diagnostics -> Advanced attachmen…
+- Fixed type-o in  Server Settings -> Diagnostics -> Advanced attachment
+  handler, when referencing pymisp the message stated pydeep. [Joseph
+  Dane]
+- Added exploit-kit as a Tool SDO. [chrisr3d]
+- Removed a nonexistent 'non_indicator_attribute' [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #2568 from bambenek/2.4. [Alexandre Dulaunoy]
+
+  Take 2: Changing which bambenek consulting DGA feeds are pulled in defaults.json
+- Typofix. [John Bambenek]
+- Making changes to feed file to point to different bambenek consulting
+  DGA feeds. [John Bambenek]
+- Added Course of Action SDO. [chrisr3d]
+- Added some Galaxy objects that can be easily mapped. [chrisr3d]
+- Merge pull request #2565 from RichieB2B/ncsc-nl/fix-2561. [Andras
+  Iklody]
+
+  Add file objects to STIX 1 export
+- Handle filename only attributes. [Richard van den Berg]
+- Skip non-observable indicator, fixes #2561. [Richard van den Berg]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Added malware-sample case. [chrisr3d]
+
+  Also fixed some 'pattern' fields in the dictionary
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #2563 from RichieB2B/ncsc-nl/stix-tlp. [Andras
+  Iklody]
+
+  Use MISP TLP tags to set STIX tlpMarking
+- Use MISP TLP tags to set STIX tlpMarking. [Richard van den Berg]
+- Added a dictionary to manage patterns and observable objects.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+
+
 v2.4.81 (2017-10-10)
 --------------------
 
