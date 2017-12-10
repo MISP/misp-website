@@ -486,6 +486,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_tor">tor</a></li>
 <li><a href="#_veris">veris</a></li>
 <li><a href="#_vocabulaire_des_probabilites_estimatives">vocabulaire-des-probabilites-estimatives</a></li>
+<li><a href="#_workflow">workflow</a></li>
 </ul>
 </li>
 <li><a href="#_mapping_of_taxonomies">Mapping of taxonomies</a></li>
@@ -19899,6 +19900,116 @@ vocabulaire-des-probabilites-estimatives namespace available in JSON format at <
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_workflow">workflow</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+workflow namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/workflow/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Workflow support language is a common language to support intelligence analysts to perform their analysis on data and information.</p>
+</div>
+<div class="sect2">
+<h3 id="_todo">todo</h3>
+<div class="paragraph">
+<p>Todo are the actions to be performed by one or more analyst(s) to apply cognitive methods, evaluation(s), weightening information, to validate hypothesis or complete additional tasks to improve the overall information or data being tagged with a todo.</p>
+</div>
+<div class="sect3">
+<h4 id="_workflow_todo_expansion">workflow:todo="expansion"</h4>
+<div class="paragraph">
+<p>Expansion need to be applied to expand the information tagged</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflow_todo_review">workflow:todo="review"</h4>
+<div class="paragraph">
+<p>Additional review is required to reach a certain level of validation of the information tagged</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflow_todo_review_before_publication">workflow:todo="review-before-publication"</h4>
+<div class="paragraph">
+<p>Review is required before publishing the information tagged</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflow_todo_review_for_false_positive">workflow:todo="review-for-false-positive"</h4>
+<div class="paragraph">
+<p>Review the the information tagged to limit the number of false-positives and potentially remove any IDS/automation flag to avoid automation of the false-positives</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflow_todo_create_missing_misp_galaxy_cluster_values">workflow:todo="create-missing-misp-galaxy-cluster-values"</h4>
+<div class="paragraph">
+<p>Add potential MISP galaxy cluster values missing about the information tagged</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflow_todo_create_missing_misp_galaxy_cluster">workflow:todo="create-missing-misp-galaxy-cluster"</h4>
+<div class="paragraph">
+<p>Create missing MISP galaxy cluster about the information tagged</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflow_todo_add_context">workflow:todo="add-context"</h4>
+<div class="paragraph">
+<p>Add contextual information about the information tagged</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflow_todo_add_tagging">workflow:todo="add-tagging"</h4>
+<div class="paragraph">
+<p>Add adequate tagging and classification about the information tagged</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflow_todo_check_passive_dns_for_shared_hosting">workflow:todo="check-passive-dns-for-shared-hosting"</h4>
+<div class="paragraph">
+<p>Check Passive DNS (or similar techniques) to review if the information tagged is used within shared hosting</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflow_todo_review_classification">workflow:todo="review-classification"</h4>
+<div class="paragraph">
+<p>Review the classification of the information tagged to ensure adequate marking of the information before publication</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflow_todo_review_the_grammar">workflow:todo="review-the-grammar"</h4>
+<div class="paragraph">
+<p>Review the grammar of the information tagged to improve the overall quality</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_state">state</h3>
+<div class="paragraph">
+<p>State are the different states of the information or data being tagged.</p>
+</div>
+<div class="sect3">
+<h4 id="_workflow_state_incomplete">workflow:state="incomplete"</h4>
+<div class="paragraph">
+<p>Incomplete means that the information tagged is incomplete and has potential to be completed by other analysts, technical processes or the current analysts performing the analysis</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflow_state_complete">workflow:state="complete"</h4>
+<div class="paragraph">
+<p>Complete means that the information tagged reach a state of completeness with the current capabilities of the analyst</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <h1 id="_mapping_of_taxonomies" class="sect0">Mapping of taxonomies</h1>
 <div class="paragraph">
 <p>Analysts relying on taxonomies don&#8217;t always know the appropriate namespace to use but know which value to use for classification. The MISP mapping taxonomy allows to map a single classification into a series of machine-tag synonyms.</p>
@@ -20456,7 +20567,7 @@ vocabulaire-des-probabilites-estimatives namespace available in JSON format at <
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-01 11:06:46 CET
+Last updated 2017-12-10 16:35:38 CET
 </div>
 </div>
 </body>
