@@ -17,6 +17,10 @@ The MISP documentation is available in [HTML format](https://www.circl.lu/doc/mi
 - [MISP objects](https://github.com/MISP/misp-objects) are documented and available in [HTML format](/objects.html) or [PDF format](/objects.pdf).
 - [MISP taxonomies](https://github.com/MISP/misp) are documented and available in [HTML format](/taxonomies.html) or [PDF format](/taxonomies.pdf).
 
+### MISP training materials
+
+MISP [training materials are available on the CIRCL website](https://www.circl.lu/services/misp-training-materials/#training-materials-luxembourg-training-november-2017).
+
 ### MISP format documentation
 
 MISP formats are described in [specification document](https://github.com/MISP/misp-rfc) based on the current implementation of MISP core and PyMISP. These specifications are available for
