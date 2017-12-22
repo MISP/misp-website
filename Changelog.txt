@@ -2,6 +2,358 @@ Changelog
 =========
 
 
+%%version%% (unreleased)
+------------------------
+
+New
+~~~
+- Limit the max amount of time spent fetching the latest commit ID to 3
+  seconds max. [iglocska]
+
+  - should help avoid the unresponsive diagnostic page issue
+- Update config.php template with the option whether to chase LDAP
+  referrals. [Tomi Juntunen]
+- Add a way to filter out attributes from being added by enforcing the
+  warninglists via /attributes/add. [iglocska]
+
+  - either pass the url param /enforceWarninglist:1 or set the "enforceWarninglist":1 key on individual attributes to be checked
+- Allow configuring whether to chase LDAP referrals in
+  ApacheAuthenticate module. [Tomi Juntunen]
+- Add console command to reset user's authkey. [iglocska]
+
+  /var/www/MISP/app/Console/cake Authkey [email@of.user]
+
+  - sets a new random authkey and returns it in the output
+- Add tag restrictions for a single user. [iglocska]
+
+Changes
+~~~~~~~
+- PyMISP bump. [iglocska]
+- Version bumps for everyone! [iglocska]
+- Support the changes about registry-key for import as well. [chrisr3d]
+- Update following the last changes on registry-key objects. [chrisr3d]
+- Show connector tag on the cluster view. [iglocska]
+- Check if the stix2 file is from MISP export. [chrisr3d]
+- Display names are now fully exported as custom objects. [chrisr3d]
+- MISP objects updated to include registrant-org. [Alexandre Dulaunoy]
+- PyMISP updated to the latest version. [Alexandre Dulaunoy]
+- Changed output file name to .stix2. [Andras Iklody]
+- Added sane default org_id to users/add API. [iglocska]
+
+  - takes current user's org_id as the default
+- Some cleanup of the event index. [iglocska]
+
+  - removed threat level and analysis from the index as they're eclipsed by the taxonomies for most use-cases
+  - Changed the behaviour when users click on org logoes (redirect to filtered index)
+- Added category field information into labels. [chrisr3d]
+
+  So we have categories while importing stix2 into MISP
+- Bump PyMISP. [Raphaël Vinot]
+- Add MISP (obj, attr, or galaxy) type in label. [chrisr3d]
+
+  This change avoid losing information about some MISP types
+  during the export.
+  For instance:
+  - hostname and domain --> domain-name in Stix2
+  - url and uri --> url in Stix2
+- Now able to distinguish src addr and dst addr. [chrisr3d]
+
+  This change includes ip and email addresses
+  Also changed a bit Custom Objects
+
+Fix
+~~~
+- Fixed z-index of correlation popovers. [iglocska]
+- Fixed stupidly slow cluster selection list. [iglocska]
+
+  - thanks to sort being inside the loop. If you do something expensive, make sure you do it as often as possible!
+- Latest version of misp warning-lists. [Alexandre Dulaunoy]
+- Collapse attribute correlations. [iglocska]
+- Feed quick sync added. [iglocska]
+- Warning-lists updated to the latest version. [Alexandre Dulaunoy]
+- Some fixes to the hostname parsing for warninglists. [iglocska]
+- Warninglists updated. [iglocska]
+- Warning-lists updated to the latest version. [Alexandre Dulaunoy]
+- Fixed various warninglist performance issues for updating. [iglocska]
+- Warninglist bump. [iglocska]
+- PyMISP updated to the latest version. [Alexandre Dulaunoy]
+- I ate too much chocolate ;-) [Alexandre Dulaunoy]
+- Tie warninglist delete into the ACL. [iglocska]
+- Fixed various warninglist issues. [iglocska]
+
+  - no more mysql packet size issues on ingestion
+  - much hfaster ingestion of warninglists
+  - delete warninglists from the UI
+- MISP galaxy updated. [Alexandre Dulaunoy]
+- MISP objects updated to the latest version. [Alexandre Dulaunoy]
+- Fixed missing flatten for advanced sightings view. [iglocska]
+
+  - attributes within objects couldn't generate the advanced sightings view
+- Fixed an issue where adding an attribute to an existing object isn't
+  handled correctly via the API / sync, fixes #2760. [iglocska]
+- Cleanup of setting the local server url in sharing groups over and
+  over in the same request. [iglocska]
+- Removed copy pasta fail. [iglocska]
+- Correctly attach sharing groups to objects / attributes within
+  objects. [iglocska]
+- Fixed an abusive use of Identity SDO. [chrisr3d]
+
+  - When the attribute category is not 'Person', it
+  is not always justified to use Identity
+- Inverted check on filterwarninglistAttributes causing the warninglist
+  not to be adhered to correctly. [iglocska]
+- Match the rate of the pulisher in the subscriber as default.
+  [iglocska]
+- Remove trailing slash from MISP.baseurl. [Jan Skalny]
+- Fixed a tag lookup scope error in attributes/restSearch. [iglocska]
+
+  - searching for an attribute tag returned all attributes contained within the event holding the located attributes
+
+  - for example: Event with 3 attributes, one having the tag "test"
+    - query /attributes/restSearch with "tags":["test"] returned 3 attributes instead of 1
+- Capture tags on an object-attribute level as expected, fixes #2752.
+  [iglocska]
+
+  - The tag capturing ignored object attributes prior to this patch
+
+  - emergency patch before the wrath of @ilmoka reaches us
+- Add install of stix2 packages to support STIX 2.0 export. [Alexandre
+  Dulaunoy]
+- Add install of stix2 packages to support STIX 2.0 export. [Alexandre
+  Dulaunoy]
+- STIX2 export is no more experimental and can be safely used.
+  [Alexandre Dulaunoy]
+- For the events with no tag. [Christian Studer]
+- Misp-object updated to the latest version. [Alexandre Dulaunoy]
+- Fixed issue for events with no attributes. [chrisr3d]
+- Dictionary key in registry key object. [chrisr3d]
+- Issue about ip|port observable objects. [chrisr3d]
+- Avoid using the original dictionary for types. [chrisr3d]
+
+  - Deepcopy makes we use each time a fresh copy and
+  modify only this copy instead of the original dict
+- Object attributes calls. [chrisr3d]
+
+  Matching with the last PyMISP release
+- Error with SDO's IDs (from Galaxy) [chrisr3d]
+- Fixed an issue where url parameters for restsearch didn't block
+  attributes. [iglocska]
+
+  - url parameters are bad
+  - shame
+  - SHAME
+- For tag filters, ignore capitalisation. [iglocska]
+- X-mailer variable that was wrong. [chrisr3d]
+- Some keys of hashes. [chrisr3d]
+
+  For instance shaXXX type is automatically changed in
+  SHA-XXX by stix2 and needs to be identified with its
+  new format
+- Fixed an issue with opcache not being used yet opcache_reset() being
+  called, fixes #2727. [iglocska]
+- Fixed a condition where adding objects through /events/edit would
+  fail. [iglocska]
+- Fixed an issue with the log model being referenced incorrectly in
+  MispObject. [iglocska]
+- MISP taxonomies updated to the latest version. [Alexandre Dulaunoy]
+- 'port' key of 'ip-src|port' attribute. [chrisr3d]
+
+  Was set to 'dst_port' but is actually 'src_port'
+- Added user restrictions for tags to the tag index. [iglocska]
+- Fixed the invalid default TLDs if no warninglist is loaded. [iglocska]
+- Fixed the disable correlation flags for the objec templates.
+  [iglocska]
+
+  - also added a force update for individual templates
+- Follow up to the previous patch on disable_correlations in object
+  templates. [iglocska]
+- Fixed typo in field name for the object templates. [iglocska]
+
+  - disable_correlation(s) - s was a mistake and it caused the feature in the templates not to work
+- Fixed a critical issue introduced in 2.4.83 blocking the
+  synchronisation of edits in certain situations. [iglocska]
+
+  - events being edited didn't set the locked = 1 flag on push
+
+  - as reported by SIEMENS
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+
+Other
+~~~~~
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Wip: parsing external Stix2 documents. [chrisr3d]
+
+  - atm: read patterns and create a stix2-pattern
+  Object with the pattern as attribute
+  - will try to parser pattern & observable objects
+  for the next updates
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Warninglists updated. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Add: stix2-pattern type added to support the STIX 2 patterning format.
+  [Alexandre Dulaunoy]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2644 from jonas-koeritz/2.4. [Andras Iklody]
+
+  Added an option to customize the page title
+- Removed ?? operator to support PHP < 7.0. [Jonas Köritz]
+- Added an option to customize the page title. [Jonas Köritz]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2754 from cvandeplas/2.4. [Andras Iklody]
+
+  fixes bug where Server model might not yet be loaded
+- Fixes bug where Server model might not yet be loaded. [Christophe
+  Vandeplas]
+- Merge pull request #2753 from anerani/feature/ldap-referral-in-config-
+  template. [Andras Iklody]
+
+  new: Update config.php with the option of chasing LDAP referrals
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Fix; Fixed the rate of the zmq publishing. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2750 from anerani/allow-ldap-referrals. [Andras
+  Iklody]
+
+  new: Allow configuring whether to chase LDAP referrals
+- Merge pull request #2684 from JanSkalny/fix_baseurl_trailing_slash.
+  [Andras Iklody]
+
+  fix: remove trailing slash from MISP.baseurl
+- Merge pull request #2719 from cvandeplas/2.4. [Andras Iklody]
+
+  basic support for misp-modules via API
+- Basic support for misp-modules via API. [Christophe Vandeplas]
+
+  - mini cleanup of FileAccessTool that's not needed
+  - basic support for misp-modules via API (malware-samples not supported yet)
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #2751 from jezkerwin/rhel_install_documentation.
+  [Andras Iklody]
+
+  Creation of install documentation for Red Hat Enterprise Linux (RHEL) 7.x
+- Fixed centos7.txt file that was accidently modified. [Jeremy Kerwin]
+- Changed RHEL version in title from 7.4 > 7.x. [Jeremy Kerwin]
+- Note about issue surround lief compliation. [Jeremy Kerwin]
+- Added disclaimer about additional issues after completion of install.
+  [Jeremy Kerwin]
+- Added install instruction for lief and known issues section. [Jeremy
+  Kerwin]
+- Up to the log rotation section. [Jeremy Kerwin]
+- Completed the dependencies section. [Jeremy Kerwin]
+- Renamed the file to be more generic to RHEL 7. [Jeremy Kerwin]
+- More changes. [Jeremy Kerwin]
+- Changes around the format a little bit. [Jeremy Kerwin]
+- Spelling mistake. [Jeremy Kerwin]
+- More updates to the install. Added overview and assumptions. [Jeremy
+  Kerwin]
+- Changes the inital commit to more of a Table of Contents format.
+  [Jeremy Kerwin]
+- Initial Commit. [Jeremy Kerwin]
+- Add: parsing malware-sample from our stix2 files. [chrisr3d]
+
+  (Following the latest update on the export module)
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Add: label to recognize malware samples. [chrisr3d]
+
+  For SDOs generated from Objects
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Add: whois-registrant-org attribute type added. [Alexandre Dulaunoy]
+
+  As requested in https://github.com/MISP/misp-objects/issues/55
+- Add: the last object types that missed before. [chrisr3d]
+
+  - The documents generated by our Stix2 export should
+  be imported without any problem (otherwise I'll fix it)
+  - Random Stix2 documents may have problems to be imported
+  at the moment (depending on the possible observable objects
+  jungle in observed-data SDOs) - indicators should be ok
+- Removed 1 useless test on observable. [chrisr3d]
+- Removed a testing print. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Wip: Includes category import. [chrisr3d]
+
+  Still need to include the missing types of object
+  not supported yet.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #2739 from zachsis/patch-1. [Alexandre Dulaunoy]
+
+  Update xINSTALL.centos7.txt
+- Update xINSTALL.centos7.txt. [zachsis]
+
+  added  `rh-php56-php-opcache` as part of the `yum install` for CentOS7
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Add: new types added for X509 certificate fingerprint: [Alexandre
+  Dulaunoy]
+
+  - x509-fingerprint-md5
+  - x509-fingerprint-sha256
+
+  This is required to ensure consistent export while hashes are used.  The
+  associated x509 object template has been fixed to reflect the 3 fingerprint types
+  instead of the generic hash types. This would allow different export types.
+
+  https://github.com/MISP/misp-objects/commit/b85438fc45b212a21b72d6d2e0df619758fa1444
+- Simplified generation of SDOs from Galaxy. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Wip: fixed bugs that appeared with Objects support. [chrisr3d]
+- Add: new feed VXvault - URL List added. [Alexandre Dulaunoy]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Parsing SDOs from 'email' Object. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #2731 from SteveClement/2.4. [Andras Iklody]
+
+  - Initial FreeBSD install document
+- - Initial FreeBSD install document. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Wip: Parsing patterns for Objects. [chrisr3d]
+
+  Also little fixes & updates
+- Added label with the type for Identity object. [chrisr3d]
+
+  As well as it is done for all the other types
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Wip: Import module from STIX2. [chrisr3d]
+
+  Functional but improvements still needed.
+  Not all the fields of Stix2 events supported
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2716 from cvandeplas/2.4. [Andras Iklody]
+
+  fixes issue #2698 - malware-sample fails with import modules
+- Fixes issue #2698 - malware-sample fails with import modules.
+  [Christophe Vandeplas]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Added custom object for MISP Objects. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Added label to recognize malware-sample attributes. [chrisr3d]
+
+
 v2.4.83 (2017-12-06)
 --------------------
 
