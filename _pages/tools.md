@@ -61,3 +61,4 @@ For the additional software created by the MISP project, check our [MISP project
 * [misp-bulk-tag](https://github.com/morallo/misp-bulk-tag) - this script performs bulk tagging operations over MISP.
 * [polarity MISP integration](https://github.com/polarityio/misp) - The Polarity MISP integration allows Polarity to search your instance of MISP to return valid information about domains, IPS, and hashes.
 * [AIL framework - Framework for Analysis of Information Leaks](https://github.com/CIRCL/AIL-framework) - AIL framework - Framework for Analysis of Information Leaks use MISP to share  found leaks within a threat intelligence platform using MISP standard (objects).
+* [Splunk integration with MISP](https://github.com/stricaud/TA-misp) - This TA allows to check if objects/attributes in your MISP instance matches your data in Splunk.
