@@ -22,6 +22,7 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### Conferences featuring MISP core members talking about MISP and/or threat intelligence
 
+- 18 January 2018 - [Cyber Threat Intelligence 2018 - CTI](https://www.leadersinsecurity.org/events-old/icalrepeat.detail/2018/01/18/202/-/cyber-threat-intelligence-2018-cti.html) by Gerard Wagener (CIRCL)
 - 23-24 January 2018 - 10th International Cybersecurity Forum (Lille, France)- [The untold story about threat intelligence: How MISP became a significant open source threat intelligence platform and open standards for information sharing](https://www.forum-fic.com/site/GB/Forum/Day_2,C60031,I60031.htm) by [adulau](https://twitter.com/adulau)
 - 6-7 March 2018 - SCTX Security and Counter Terror Expo (London, UK) - [MISP Threat Intelligence Sharing Platform  A Practical Perspective from Implementation to Operational Information Sharing in Cyber Security](https://www.counterterrorexpo.com/cyber-threat-intelligence-kjgw/misp-threat-intelligence-sharing-platform--a-practical-perspective-from-implementation-to-operational-information-sharing-in-cyber-security) by [adulau](https://twitter.com/adulau)
 
