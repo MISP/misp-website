@@ -35,3 +35,11 @@
 - [sipquery](https://dataplane.org/sipquery.txt) - dataplane.org - feed format: csv
 - [sipinvitation](https://dataplane.org/sipinvitation.txt) - dataplane.org - feed format: csv
 - [All current domains belonging to known malicious DGAs](http://osint.bambenekconsulting.com/feeds/dga-feed-high.csv) - osint.bambenekconsulting.com - feed format: csv
+- [VXvault - URL List](http://vxvault.net/URL_List.php) - VXvault - feed format: freetext
+- [abuse.ch SSL IPBL](https://sslbl.abuse.ch/blacklist/sslipblacklist.csv) - abuse.ch - feed format: csv
+- [abuse.ch Dyre SSL IPBL](https://sslbl.abuse.ch/blacklist/dyre_sslipblacklist.csv) - abuse.ch - feed format: csv
+- [http://cybercrime-tracker.net](http://cybercrime-tracker.net/ccamlist.php) - http://cybercrime-tracker.net hashlist - feed format: freetext
+- [http://cybercrime-tracker.net](http://cybercrime-tracker.net/ccamgate.php) - http://cybercrime-tracker.net gatelist - feed format: freetext
+- [hpHosts - GRM only](https://hosts-file.net/grm.txt) - hpHosts - feed format: csv
+- [blocklist.greensnow.co](https://blocklist.greensnow.co/greensnow.txt) - greensnow.co - feed format: csv
+- [conficker all domains generated](http://www.cert.at/static/downloads/data/conficker/all_domains.txt) - cert.at - feed format: csv
