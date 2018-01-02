@@ -63,3 +63,5 @@ For the additional software created by the MISP project, check our [MISP project
 * [AIL framework - Framework for Analysis of Information Leaks](https://github.com/CIRCL/AIL-framework) - AIL framework - Framework for Analysis of Information Leaks use MISP to share  found leaks within a threat intelligence platform using MISP standard (objects).
 * [Splunk integration with MISP](https://github.com/stricaud/TA-misp) - This TA allows to check if objects/attributes in your MISP instance matches your data in Splunk.
 * [pymisp-suricata_search](https://github.com/raw-data/pymisp-suricata_search) - Multi-threaded Suricata search module for MISP.
+* [misp42splunk](https://github.com/remg427/misp42splunk) - A Splunk app to use MISP in background.
+
