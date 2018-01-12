@@ -18,7 +18,7 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 - (hosted by SWITCH.CH in Zurich) - [MISP Training - Introduction to the Threat Intelligence Platform (MISP) for analysts, security professionals and incident responders](https://www.eventbrite.com/e/misp-training-introduction-to-the-threat-intelligence-platform-misp-for-analysts-security-tickets-41313905002?aff=es2) - Given by [rafi0t](https://twitter.com/rafi0t/) and [iglocska](https://twitter.com/Iglocska)
 - (hosted by SWITCH.CH in Zurich) - [MISP Developer Training & Hackathon about the Threat Intelligence Platform](https://www.eventbrite.com/e/misp-developer-training-hackathon-about-the-threat-intelligence-platform-tickets-41314017338?aff=es2) - Given by [rafi0t](https://twitter.com/rafi0t/) and [iglocska](https://twitter.com/Iglocska)
 
-- (hosted by CERT.at in Vienna) - 13-14/02 MISP Training (Location TBA) -  Given by [adulau](https://twitter.com/adulau) and [iglocska](https://twitter.com/Iglocska) 
+- (hosted by CERT.at in Vienna) - Registration: [13 February 2018 - MISP Training - Threat Intelligence Analyst and Administrator Perspective](https://www.eventbrite.com/e/misp-training-threat-intelligence-analyst-and-administrator-perspective-tickets-42120891721) - [14 February 2018 - MISP Training - Threat Intelligence - Extension and API hands-on](https://www.eventbrite.com/e/misp-training-threat-intelligence-extension-and-api-hands-on-tickets-42120930838) (Location TBC by CERT.AT) -  Given by [adulau](https://twitter.com/adulau) and [iglocska](https://twitter.com/Iglocska) 
 
 ### Conferences featuring MISP core members talking about MISP and/or threat intelligence
 
