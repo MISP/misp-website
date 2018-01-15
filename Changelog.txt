@@ -2,6 +2,253 @@ Changelog
 =========
 
 
+v2.4.86 (2018-01-15)
+--------------------
+
+New
+~~~
+- Mass enable/disable feeds. [iglocska]
+
+  - protecting the sanity of MISP admins since 2012!
+- Disable the viewing of a full organisation list by normal users.
+  [iglocska]
+
+  - Only site admins and sharing group editors can see organisation lists
+    - this includes the org index and various statistics
+  - Keep in mind: Sharing group editors CAN see the full organisation list - otherwise they wouldn't be able to create sharing groups.
+  - Also, users CAN enumerate organisations that have created ANY data on the instance by looking at the given data
+    - this includes events, proposals, discussion entries, etc
+- Expose the Sharing Groups to the API, fixes #2767. [iglocska]
+
+  - Add/Edit/Index/View now exposed to the API
+  - rework of the sharing group capturing process
+  - fix to an issue that could potentially block sharing groups from being synced (the creator org of the sharing group wasn't directly exposed and an edit to the organisation's UUID after creating the SG could make the SG non-syncable)
+
+  - various fixes to edge cases
+  - descriptors to the add/edit APIs via restresponse
+
+  - Operation "Just relaxing and looking at stuff for the baby online" - the x-mas covert development patch(tm)
+- Limit modules to a single organisation. [iglocska]
+
+  - new settings in serverSettings
+- Add API description to sightings/add, fixes #2806. [iglocska]
+- Allow the collapsing of related events on the event view. [iglocska]
+
+Changes
+~~~~~~~
+- Version bumped. [iglocska]
+- Warninglists updated. [iglocska]
+- Performance tuning. [iglocska]
+
+  - improved performance of inserting batch attributes / passing a large number of attributes to attributes/add
+    - reworked algorithm to a two phase bulk insertion (validation -> mass insert) instead of looping through all attributes
+    - removed the build in counter cache for incrementing attribute counts on events in favour of a more lightweight solution
+    - performance gains on test data set: 50+ seconds -> 32 seconds
+
+  - Greatly improved attribute index / attribute search performance
+    - fixed an issue that caused the lookup to avoid using indeces
+    - performance gains on test data when paginating: 11 seconds -> 1 second
+- Add hybrid analysis to the freetext import tool, fixes #2797. [Andras
+  Iklody]
+- Bump PyMISP. [Raphaël Vinot]
+- Show x more attributes collapse toggle on the attribute correlations
+  now in brackets so people don't accidentally mix the count up with
+  event IDs. [iglocska]
+
+Fix
+~~~
+- Added missing view. [iglocska]
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+- Updated to the latest version of the taxonomies. [Alexandre Dulaunoy]
+- Latest version of the MISP galaxy updated. [Alexandre Dulaunoy]
+- Sharing group ID set to the correct value if set implicitly by setting
+  the ID instead of passing a full sharing group object along, fixes
+  #2814. [iglocska]
+
+  - also, fail if no valid sharing group was found.
+- Added missing local field to fetched sharing groups, fixes #2812.
+  [iglocska]
+- Parsing more stix doc structures. [chrisr3d]
+- Invalid algorithm used for warninglist. [iglocska]
+- Objects not purged correctly when deleting an event, fixes #2810.
+  [iglocska]
+
+  - correctly included objects now in the quick delete function
+  - new upgrade script that purges existing orphaned objects
+- Removed debug. [iglocska]
+- Clarify scope for filter options in quick search. [iglocska]
+- Better attribute add feedback on validation fail and fix to a failing
+  attribute index listing for normal users. [iglocska]
+- Fixed misaligned org view. [iglocska]
+- Fix to invalid role check preventing users from seeing the org index,
+  even if they should have access. [iglocska]
+- Fixed weird eating of event titles on certain unicode characters.
+  [iglocska]
+
+  - substr choked on them and produced empty strings
+- Fixed typo. [iglocska]
+- Removed a small slice of stupidity. [iglocska]
+- Changed checks from isSiteAdmin to isAclSharingGroup for the org index
+  anonymisation. [iglocska]
+- Better error handling when previewing csv/freetext feeds if no valid
+  data is returned. [iglocska]
+- Better handling of something going wrong whilst fetching a MISP feed's
+  manifest. [iglocska]
+- Removed loading of roboto font css - as it hasn't actually been used
+  for years. [iglocska]
+- Fixed proposal add not setting valid types for each category
+  automatically. [iglocska]
+- Rework of the restresponse URL generator. [iglocska]
+
+  - correctly handle multi-word controllers
+- Fixed some UI wonkyness. [iglocska]
+- Don't render logo images if they don't exist. [iglocska]
+- FetchAttributes() now correctly adheres to object distributions.
+  [iglocska]
+- Removed the https url rule for now. [iglocska]
+- Broken Suricata rules due to removed https branch. [iglocska]
+
+  - possible fix, mimicing contents of https://[ip]
+- Correctly show advanced sightings for object attributes. [iglocska]
+- Sanitise the list of fields fetched for the admin user index.
+  [iglocska]
+
+  - as reported by @deralexxx
+- We are in 2018. [Alexandre Dulaunoy]
+- Taxonomies updated to the latest version. [Alexandre Dulaunoy]
+- MISP objects updated to the latest version. [Alexandre Dulaunoy]
+- Misp-galaxy updated to the latest version. [Alexandre Dulaunoy]
+- Fixed xml stix files loading. [chrisr3d]
+
+  (our stix files at least)
+- Fixed object_relation for some specific types. [chrisr3d]
+- Supporting objects import. [chrisr3d]
+
+  More object types will be added progressively
+- Fixed event delete controller choice. [iglocska]
+
+  - was using the current action's controller instead of locking in the events controller
+- Stix 1.X import is now supporting more types. [chrisr3d]
+
+  Still need to:
+  - test some specific types
+  - include 'object_relation' field to properly support
+    objects import
+- Quickfilter should include attribute level tags too. [iglocska]
+- Fixed misaligned feed hits on the attribute list in the event view.
+  [iglocska]
+- Pagination on event attributes didn't load the feed correlations.
+  [iglocska]
+- Fixed image element sizes. [iglocska]
+- Updated to the latest version of MISP objects including annotation and
+  vulnerability objects: [Alexandre Dulaunoy]
+
+  https://www.misp-project.org/objects.html#_annotation
+  https://www.misp-project.org/objects.html#_vulnerability
+- Opcache_reset() doesn't always exist on our favourite distro - only
+  execute it if the function exists, fixes #2792. [iglocska]
+- Fix to the previous issue with emptying the object_relation in
+  attributes on fetch. [iglocska]
+- Cleaner handling of failed connections during
+  checkVersionCompatibility, fixes #2786. [iglocska]
+
+  - log the real reason why the connection test failed in case of an exception (such as invalid certificate)
+- Fixed null entry for object_relation, fixes #2773. [iglocska]
+- Fixed output of batch import errors not correctly showing the failed
+  attribute positions, fixes #2779. [iglocska]
+- Changes following the recent PyMisp updates. [chrisr3d]
+- Recursively follow redirects for feeds, fixes #2774. [iglocska]
+- Fixed default to_ids setting for proposal edits (should reuse old
+  setting) [iglocska]
+- Fixed additional : in type field. [iglocska]
+- Missing / in closing a tag. [iglocska]
+- Update to the latest version of the objects template. [Alexandre
+  Dulaunoy]
+- Add a clarification if you have multiple MISP instances to not forget
+  to change the default Redis port of CakeResque to avoid conflicts
+  between different CakeResque. [Alexandre Dulaunoy]
+- Misp-modules optional installation added. [Alexandre Dulaunoy]
+- Sighting anonymisiation should properly remove the org names from the
+  advanced sighting view. [iglocska]
+
+  - as reported by @hel10world
+- Updated to the latest version of the taxonomies. [Alexandre Dulaunoy]
+- Travis link fixed. [Alexandre Dulaunoy]
+- Warning-lists updated to the latest version. [Alexandre Dulaunoy]
+- Naive fix for an issue with tab separated feeds being broken by the
+  switch to str_getcsv. [iglocska]
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- 1st version of TTPs parsing function. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch 'feature/sg_api' into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Starting to parse external xml stix files. [chrisr3d]
+
+  Will test and adapt with data from different sources
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2789 from MISP/pymisp_test2. [Raphaël Vinot]
+
+  chg: Bump PyMISP
+- Wip: Some updates on pattern import. [chrisr3d]
+
+  Will work on pattern parser soon
+- Merge pull request #2785 from atluxity/patch-1. [Alexandre Dulaunoy]
+
+  Update INSTALL.rhel7.txt
+- Update INSTALL.rhel7.txt. [Hans-Petter Fjeld]
+- Merge pull request #2787 from dewiestr/2.4. [Andras Iklody]
+
+  Update NidsSuricataExport.php
+- Update NidsSuricataExport.php. [dewiestr]
+
+  Removed the ':' from the suricata msg as it removes the message after it in squert.
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [iglocska]
+- Merge pull request #2782 from SteveClement/i18n_prep. [Andras Iklody]
+
+  i18n prep - small commits…
+- - Attributes -> Search Template, __('')-ized. [Steve Clement]
+- - test entry. [Steve Clement]
+- Add: new default feeds added. [Alexandre Dulaunoy]
+
+  - abuse.ch SSL IPBL
+      - abuse.ch Dyre SSL IPBL
+      - cybercrime-tracker.net hashlist
+      - cybercrime-tracker.net gatelist
+      - hpHosts - GRM only
+      - blocklist.greensnow.co
+      - conficker all domains generated
+- Merge pull request #2771 from SteveClement/2.4. [Alexandre Dulaunoy]
+
+  Updated FreeBSD install documentation
+- - Updated FreeBSD install to: [Steve Clement]
+
+  -- Do the entire install with binaries (no /usr/ports required)
+  -- Fixed some Ubuntu remenants
+  -- Fixed config typos
+  -- Added all missing dependencies
+
+
 v2.4.85 (2017-12-22)
 --------------------
 
