@@ -1,3 +1,7 @@
+---
+layout: page_notoc
+title: Information sharing and cooperation enabled by GDPR
+---
 
 # Information sharing and cooperation enabled by GDPR
 
