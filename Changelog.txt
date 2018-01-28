@@ -2,12 +2,318 @@ Changelog
 =========
 
 
-%%version%% (unreleased)
-------------------------
+v2.4.87 (2018-01-28)
+--------------------
+
+New
+~~~
+- Mispzmq.py updated with new topic (tags) [iglocska]
+- Added boolean attribute type. [iglocska]
+- New upgrade system. [iglocska]
+
+  - decouple db changes from version number
+- Tie tags into PubSub channel. [iglocska]
+
+  - Reset the catastrophic @ilmoka enrage timer for another 5 days
+- Add restore script. [Jérôme Leonard]
+- Add regex type to warninglists. [iglocska]
+- New BasicAuth header generator for the feed add/edit views. [iglocska]
+- Use the new OrgImg helper for fetching org logos in a more consistent
+  fashion. [iglocska]
+- OrgImgHelper - lookup org logoes in a similified helper, accounting
+  for old and new style logo filenames. [iglocska]
+- Allow passing headers along with feeds. [iglocska]
+
+  - add any arbitrary header to a feed
+  - can be used for authentication via basic auth for example
+- Tell users about our lord and saviour, MISP-objects if they try to add
+  a composite attribute. [iglocska]
+- Filter the event index on sharing group IDs, fixes #2845. [iglocska]
+- First export of pot files. [iglocska]
+- Automatic cateory switching based on currently selected types for the
+  freetext import/module triage screen. [iglocska]
+
+Changes
+~~~~~~~
+- Version bump. [iglocska]
+- Rework of the event history view, no more crazy slow parsing of all
+  strings in the log table. [iglocska]
+- Allow the "uuid" key to work as an alternate for "id" when adding
+  sightings. [iglocska]
+- Various fixes to the way organisations are handled. [iglocska]
+
+  - fix a bunch of issues with the org displays
+  - hide organisation view from users if they haven't yet contributed data and Security.hide_organisation_index_from_users is enabled
+- Add MISP book phrase to Readme. [Andras Iklody]
+- Save org logos based on the org ID not the org Name. [iglocska]
+- Get rid of the weird http:// baseurls and set some helper variables
+  for the views. [iglocska]
+
+  - Also load the new OrgImg helper
+  - @SteveClement wubs global view variables
+- Tuned the freetext import tool, fixes #2822. [iglocska]
+
+  - refang e-mail addresses
+  - add [@] refanging
+- Clarified feed action buttons. [iglocska]
 
 Fix
 ~~~
+- Removed the crazy complex lookup for attribute tag counts from the tag
+  index. [iglocska]
+
+  - Users will see the total count without any context avoiding ACL - however, they are still limited to seeing the actual data tagged that they can see anyway.
+- Fixed double json decoding due to recent changes to galaxy clusters.
+  [iglocska]
+- View issue fixed caused by previous commit. [iglocska]
+- Fixed some galaxy cluster inconsistencies. [iglocska]
+- Latest version of MISP galaxy. [Alexandre Dulaunoy]
+- Resolved an issue where attaching tags to attributes via the generic
+  attachToObject() function was throwing an error. [iglocska]
+- Reduced memory usage of tags index when requesting it via the API.
+  [iglocska]
+- Load orgc data after attributes are loaded in search csv export.
+  [iglocska]
+
+  - functionality still needs further fixes, WIP
+- Graceful handling of removed users in discussion boards. [iglocska]
+- Suricata export URL encodes an IPv6 between [], fixes #2872.
+  [iglocska]
+- Fixed an issue where searching for a non-existing organisation in the
+  attribute search returned any visible attributes no matter the org.
+  [iglocska]
+- Fixed messed up org logos in attribute search. [iglocska]
+- Default sort order for id / date reversed on click for #2723.
+  [iglocska]
+- Improved feedback when importing a blacklisted event, fixes #2859.
+  [iglocska]
+- New mutex object, updated person object and improved registry-key
+  object. [Alexandre Dulaunoy]
+- Fixed a TLP marking issue. [chrisr3d]
+
+  (related to github issue #2623)
+  Marking is no longer influenced by distribution
+  level whenever Tags are set:
+  - in the current attribute
+  - in the event
+- Object deletion view was bugged and non-functional. [iglocska]
+- Retain the distribution level / sharing group ID when doing advanced
+  attachment extraction, fixes #2865. [iglocska]
+- Clarifies the scope of a BIC code in the financial sector. [Alexandre
+  Dulaunoy]
+
+  The Business Identifier Codes (also known as SWIFT-BIC, BIC, SWIFT ID
+  or SWIFT code)...
+- Added missing things for the new org image loader. [iglocska]
+- Make hover enrichments work again within objects, fixes #2793.
+  [iglocska]
+- Fixes the object issues pointed out in #2543. [iglocska]
+
+  - Shoutout to the debug hero finding them: @StefanKelm
+- Added missing switch to the new OrgImg helper for the proposal index.
+  [iglocska]
+- Fix editing of an organisation that has domain restrictions set.
+  [iglocska]
+- Fixed an issue with invalid termination for a php block in HTML.
+  [iglocska]
+- Fixed an issue where mass accepting proposals didn't unpublish the
+  event. [iglocska]
+
+  - @rommelfs sees all
+- Don't listen to David and Andras together ;-) [Alexandre Dulaunoy]
+- Fixed a set of issues with sharing groups that lead to synced events
+  not saving/updating. [iglocska]
+- Add timestamp to the CSV api. [iglocska]
+- Fixed invalid lookup when a non site admin searches for attributes,
+  fixes #2849. [iglocska]
+- Clarify timestmap parameter for attributes. [iglocska]
+- Add flatten to advanced sightings add within objects. [iglocska]
+
+  - without the flattening the advanced sighting add functionality couldn't be loaded
+- Don't block email headers from being added if they have a line break
+  in them. [iglocska]
+- Superfluous > [iglocska]
+- Fixed invalid syntax. [iglocska]
+- Add alternative x509 fingerprint hashes to the freetext import tool,
+  fixes #2821. [iglocska]
+- Aadmin settings version updated. [iglocska]
+- Fixed the inversed confirmation warning for enabling/disabling feeds.
+  [iglocska]
 - PyMISP updated to latest version. [Alexandre Dulaunoy]
+- Missing action added to ACL system. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: MISP galaxy updated. [Alexandre Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: update to the latest version of MISP objects templates.
+  [Alexandre Dulaunoy]
+- Some clarifications of unclear descriptions. [Andras Iklody]
+- Merge pull request #1969 from devnull-/GPG_sign_option. [Andras
+  Iklody]
+
+  Add a option to sign GPG emails
+- Merge branch '2.4' into GPG_sign_option. [devnull-]
+- Implement 'sign' option. [devnull-]
+- Description of the option 'sign' [devnull-]
+- Add option 'sign' in GPG section. [devnull-]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #2869 from jeromeleonard/backup_restore. [Andras
+  Iklody]
+
+  Backup and restore MISP configuration and database
+- Update: add information for misp-restore.sh script. [Jérôme Leonard]
+- Update: add Config php files to backup. [Jérôme Leonard]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #2850 from eurodude/patch-1. [Andras Iklody]
+
+  #2788 Corrected Dependencies in documentation
+- Corrected Dependencies. [Fabien Mathey]
+
+  Added additional information for installation (Python 3 for stix2, a2enmod headers)
+
+  Additionally, line 120 should not be needed as it should be covered by line 119 but I left it in for the time as it does no harm
+- Merge branch 'i18n' into 2.4. [iglocska]
+- Merge branch '2.4' into i18n. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #2847 from Deventual/patch-13. [Andras Iklody]
+
+  fix permissions commands
+- Fix permissions commands. [Deventual]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #2832 from treed593/patch-1. [Andras Iklody]
+
+  Update README.md
+- Update README.md. [Trevor Reed]
+- Merge pull request #2848 from SteveClement/i18n_prep. [Steve Clement]
+
+  I18n - re-Sync
+- Merge branch '2.4' into i18n_prep. [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into 2.4. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Update index.ctp. [Andras Iklody]
+- Merge pull request #2831 from MattCarothers/fix_null_job_input_field.
+  [Andras Iklody]
+
+  Set job_input explicitly to an empty string for cache feed jobs
+- Set job_input explicitly to an empty string for cache feed jobs Older
+  MISP deployments may interpret a missing field as a null value instead
+  of an empty string, which causes the NOT NULL restriction on the
+  jobs.job_input field to raise an error.  Fixes issue #2804. [Matt
+  Carothers]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #2791 from SteveClement/i18n_prep. [Steve Clement]
+
+  Merging i18n preparations from fork to branch.
+- Merge remote-tracking branch 'origin/2.4' into i18n_prep. [Steve
+  Clement]
+- Merge remote-tracking branch 'upstream/2.4' into 2.4. [Steve Clement]
+- - Feeds/compare_feeds.ctp. [Steve Clement]
+- - Fixed various typos/omissions etc. [Steve Clement]
+- - Fixed various typos/omissions etc. [Steve Clement]
+- - Fixed various typos/omissions etc. [Steve Clement]
+- - Fixed various typos/omissions etc. [Steve Clement]
+- - Closing parenthesis mistake. [Steve Clement]
+- View/SharingGroups -> __(' [Steve Clement]
+- View/Sightings -> __(' [Steve Clement]
+- View/Taxonomies -> __(' [Steve Clement]
+- View/Tasks -> __(' [Steve Clement]
+- View/Templates -> __(' [Steve Clement]
+- View/ShadowAttributes -> __(' [Steve Clement]
+- View/Tags -> __(' [Steve Clement]
+- View/Events -> __(' [Steve Clement]
+- - View/TemplateElements -> __(' to be completed. [Steve Clement]
+- - View/Taxonomies -> __(' to be completed. [Steve Clement]
+- - View/Threads -> __(' to be completed. [Steve Clement]
+- - View/Users -> __(' to be completed. [Steve Clement]
+- - __(' round 1, done. [Steve Clement]
+- - View/Warninglists -> __(' to be completed. [Steve Clement]
+- - View/Whitelists -> __(' to be completed. [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into i18n_prep. [Steve
+  Clement]
+- - View/Pages -> __(' (Except using_the_system.ctp) [Steve Clement]
+- - This is another textual beast… [Steve Clement]
+- - Fixed automation.ctp parser errors. [Steve Clement]
+- View/Organisations -> __(' [Steve Clement]
+- - View/Pages -> __(' to be completed. [Steve Clement]
+- - View/OrgBlacklists -> __(' done. [Steve Clement]
+- - View/Objects -> __(' done. [Steve Clement]
+- - View/Regexp -> __(' done. [Steve Clement]
+- - View/Servers -> __(' done. [Steve Clement]
+- - View/Roles -> __(' done. [Steve Clement]
+- - View/Posts -> __(' done. [Steve Clement]
+- Merge branch 'i18n_prep' of github.com:SteveClement/MISP into
+  i18n_prep. [Steve Clement]
+- - View/Objects -> __(' [Steve Clement]
+- - View/Layouts -> __(' [Steve Clement]
+- - Added remaining __(' - needs double checking. [Steve Clement]
+- - View/ObjectTemplateElements -> __(' done. [Steve Clement]
+- - View/Helper -> __(' done. [Steve Clement]
+- - View/News -> __(' done. [Steve Clement]
+- - View/Logs -> __(' done. [Steve Clement]
+- - View/Jobs -> __(' done. [Steve Clement]
+- - Some typo fixes and formatting amendments. [Steve Clement]
+- - View/Galaxies -> __(' done. [Steve Clement]
+- - View/ObjectReferences -> __(' done. [Steve Clement]
+- - View/ObjectTemplates -> __(' done. [Steve Clement]
+- - app/View/Elements/ --> __(' [Steve Clement]
+- - Refactor format string. [Steve Clement]
+- - app/View/Events/ --> __(' [Steve Clement]
+- - View/Events/automation.ctp -> Partially done, a lot needs to be
+  __('-ized. [Steve Clement]
+- - View/Feeds -> __(' done. [Steve Clement]
+- - View/EventDelegations/ajax -> __(' done. [Steve Clement]
+- - View/Errors -> __(' done. [Steve Clement]
+- - View/EventBlacklists -> __(' done. [Steve Clement]
+- Merge branch 'i18n_prep' of github.com:SteveClement/MISP into
+  i18n_prep. [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into i18n_prep. [Steve
+  Clement]
+- - Elements/templateElements/populateTemplateAttribute.ctp -> __('
+  [Steve Clement]
+- - Elements/Users/userIndexTable.ctp  -> __(' [Steve Clement]
+- - Elements/ajaxAttributeTags.ctp Elements/ajaxTags.ctp
+  Elements/ajaxTemplateTag.ctp -> __(' [Steve Clement]
+- - Events/view.ctp -> __(' [Steve Clement]
+- - Elements/side_menu.ctp -> __(' [Steve Clement]
+- - Elements/histogram.ctp -> __(' [Steve Clement]
+- - Elements/Servers -> __(' [Steve Clement]
+- - Fixed typo, added __(' where missing. [Steve Clement]
+- - Fixed typo and spacing. [Steve Clement]
+- - Elements/Events/eventIndexTable.ctp -> __(' [Steve Clement]
+- - Elements/healthElements -> __(' [Steve Clement]
+- - Elements/Events/View -> __(' [Steve Clement]
+- - Replaced random '.......' with '…' - __(' where neeeded. [Steve
+  Clement]
+- - View/Events/index.ctp -> __(' [Steve Clement]
+- - View/Servers -> __(' done. [Steve Clement]
+- - View/Elements/Feeds -> __(' checked and added where needed. [Steve
+  Clement]
+- Merge remote-tracking branch 'upstream/2.4' into i18n_prep. [Steve
+  Clement]
+- Merge remote-tracking branch 'origin' into i18n_prep. [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into 2.4. [Steve Clement]
+- Merge branch 'i18n_prep' of github.com:SteveClement/MISP into 2.4.
+  [Steve Clement]
+- Merge remote-tracking branch 'origin' into i18n_prep. [Steve Clement]
+- - __(' -> Added where needed. [Steve Clement]
+- - Typo. [Steve Clement]
+- - __(' where needed - fixed Typo 'C' [Steve Clement]
+- - View/Elements/dashboard -> __(' -> Done! #i18n_prep. [Steve Clement]
+- - Removed Sublime fail :( [Steve Clement]
+- - Final files in View/Attributes … for now. - Most views tested and
+  known working as expected. [Steve Clement]
+- - Removed some echo ('foo') / echo('bar') -> Coding rules want: echo
+  foo - Added numerous __(' for i18n. [Steve Clement]
+- - __(' added where needed. [Steve Clement]
+- - Attributes folder scavenged for Translatables… [Steve Clement]
+- - __('')-ized labels, buttons, styles. [Steve Clement]
 
 
 v2.4.86 (2018-01-16)
