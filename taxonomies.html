@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.6">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
 <title>MISP taxonomies and classification as machine tags</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -439,6 +439,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_misp_taxonomies">MISP taxonomies</a>
 <ul class="sectlevel1">
+<li><a href="#_cert_xlm">CERT-XLM</a></li>
 <li><a href="#_dml">DML</a></li>
 <li><a href="#_pap">PAP</a></li>
 <li><a href="#_accessnow">accessnow</a></li>
@@ -469,6 +470,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_fr_classif">fr-classif</a></li>
 <li><a href="#_honeypot_basic">honeypot-basic</a></li>
 <li><a href="#_iep">iep</a></li>
+<li><a href="#_incident_disposition">incident-disposition</a></li>
 <li><a href="#_information_security_indicators">information-security-indicators</a></li>
 <li><a href="#_kill_chain">kill-chain</a></li>
 <li><a href="#_malware_classification">malware_classification</a></li>
@@ -532,6 +534,341 @@ The following document is generated from the machine-readable JSON describing th
 </div>
 </div>
 <h1 id="_misp_taxonomies" class="sect0">MISP taxonomies</h1>
+<div class="sect1">
+<h2 id="_cert_xlm">CERT-XLM</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+CERT-XLM namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/CERT-XLM/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>CERT-XLM Security Incident Classification.</p>
+</div>
+<div class="sect2">
+<h3 id="_abusive_content">abusive-content</h3>
+<div class="paragraph">
+<p>Abusive Content.</p>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_abusive_content_spam">CERT-XLM:abusive-content="spam"</h4>
+<div class="paragraph">
+<p>spam</p>
+</div>
+<div class="paragraph">
+<p>Spam or ‘unsolicited bulk e-mail’, meaning that the recipient has not granted verifiable permission for the message to be sent and that the message is sent as part of a larger collection of messages, all having identical content.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_abusive_content_harmful_speech">CERT-XLM:abusive-content="harmful-speech"</h4>
+<div class="paragraph">
+<p>Harmful Speech</p>
+</div>
+<div class="paragraph">
+<p>Discretization or discrimination of somebody (e.g. cyber stalking, racism and threats against one or more individuals) May be found on a forum, email, tweet etc…</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_abusive_content_violence">CERT-XLM:abusive-content="violence"</h4>
+<div class="paragraph">
+<p>Child/Sexual/Violence/&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>Any Child pornography, glorification of violence, may be found on a website, forum, email, tweet etc…</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_malicious_code">malicious-code</h3>
+<div class="paragraph">
+<p>Software that is intentionally included or inserted in a system for a harmful purpose. A user interaction is normally necessary to activate the code.</p>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_malicious_code_virus">CERT-XLM:malicious-code="virus"</h4>
+<div class="paragraph">
+<p>Virus</p>
+</div>
+<div class="paragraph">
+<p>Malicious code that replicate itself and infects the computer and files;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_malicious_code_worm">CERT-XLM:malicious-code="worm"</h4>
+<div class="paragraph">
+<p>Worm</p>
+</div>
+<div class="paragraph">
+<p>Malware that self-replicates and spread itself to other computers in the network without any user interaction;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_malicious_code_ransomware">CERT-XLM:malicious-code="ransomware"</h4>
+<div class="paragraph">
+<p>Ransomware</p>
+</div>
+<div class="paragraph">
+<p>Ransomware is a type of malicious software from cryptovirology that blocks access to the victim&#8217;s data or threatens to publish it until a ransom is paid.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_malicious_code_trojan_malware">CERT-XLM:malicious-code="trojan-malware"</h4>
+<div class="paragraph">
+<p>Trojan/Malware</p>
+</div>
+<div class="paragraph">
+<p>This category regroups many common malware types (Banking, POS, Mining malware).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_malicious_code_spyware_rat">CERT-XLM:malicious-code="spyware-rat"</h4>
+<div class="paragraph">
+<p>Spyware/Rat</p>
+</div>
+<div class="paragraph">
+<p>This category regroups malware types and tools that may have a bigger impact on the breached infrastructure and usually need further investigations (Common Spyware/Rat, State sponsored malwares, StealersHacking tool).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_malicious_code_dialer">CERT-XLM:malicious-code="dialer"</h4>
+<div class="paragraph">
+<p>Dialer</p>
+</div>
+<div class="paragraph">
+<p>Computer program used to identify the phone numbers that can successfully make a connection with a computer modem. Use this category to classify overpriced SMS sent by malicious mobile application.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_malicious_code_rootkit">CERT-XLM:malicious-code="rootkit"</h4>
+<div class="paragraph">
+<p>Rootkit</p>
+</div>
+<div class="paragraph">
+<p>Malware, which alter the standard functionality of an operating system in order to do its malicious actions in a stealthy way. In practice, Rootkits hijacks systems functions in order to alter the returning values to hide themselves from simple analysis tools.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_information_gathering">information-gathering</h3>
+<div class="paragraph">
+<p>This group is for the reconnaissance; generally, it is the step before attacking.</p>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_information_gathering_scanner">CERT-XLM:information-gathering="scanner"</h4>
+<div class="paragraph">
+<p>Scanning</p>
+</div>
+<div class="paragraph">
+<p>Attacks that send requests to a system to discover weak points. This also includes some kinds of testing processes to gather information about hosts, services and accounts. Examples: fingerd, DNS querying, ICMP, SMTP (EXPN, RCPT,).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_information_gathering_sniffing">CERT-XLM:information-gathering="sniffing"</h4>
+<div class="paragraph">
+<p>Sniffing</p>
+</div>
+<div class="paragraph">
+<p>Observing and recording network traffic (wiretapping).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_information_gathering_social_engineering">CERT-XLM:information-gathering="social-engineering"</h4>
+<div class="paragraph">
+<p>Social Engineering</p>
+</div>
+<div class="paragraph">
+<p>Gathering information from a human being in a non-technical way (eg, lies, tricks, bribes, or threats).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_intrusion_attempts">intrusion-attempts</h3>
+<div class="paragraph">
+<p>This group is for attack detected/tried but without success.</p>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_intrusion_attempts_exploit_known_vuln">CERT-XLM:intrusion-attempts="exploit-known-vuln"</h4>
+<div class="paragraph">
+<p>Exploiting known vulnerabilities</p>
+</div>
+<div class="paragraph">
+<p>An attempt to compromise a system or to disrupt any service by exploiting vulnerabilities with a standardised identifier such as CVE name (eg, buffer overflow, backdoors, cross side scripting, etc).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_intrusion_attempts_login_attempts">CERT-XLM:intrusion-attempts="login-attempts"</h4>
+<div class="paragraph">
+<p>Login attempts</p>
+</div>
+<div class="paragraph">
+<p>Multiple login attempts (guessing / cracking of passwords, brute force).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_intrusion_attempts_new_attack_signature">CERT-XLM:intrusion-attempts="new-attack-signature"</h4>
+<div class="paragraph">
+<p>New attack signature</p>
+</div>
+<div class="paragraph">
+<p>An attempt using an unknown exploit.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_intrusion">intrusion</h3>
+<div class="paragraph">
+<p>This group is for successful unauthorized access to a system.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_availability">availability</h3>
+<div class="paragraph">
+<p>By this kind of an attack a system is bombarded with so many packets that the operations are delayed or the system crashes.</p>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_availability_dos">CERT-XLM:availability="dos"</h4>
+<div class="paragraph">
+<p>DoS</p>
+</div>
+<div class="paragraph">
+<p>An attacker attempts to prevent legitimate users from accessing information or services.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_availability_ddos">CERT-XLM:availability="ddos"</h4>
+<div class="paragraph">
+<p>DDoS</p>
+</div>
+<div class="paragraph">
+<p>Form of electronic attack involving multiple computers, which send repeated requests (HTTP requests, pings, TCP or UDP Flood) to a server to load it down and render the service inaccessible for a period of time.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_availability_sabotage">CERT-XLM:availability="sabotage"</h4>
+<div class="paragraph">
+<p>Sabotage</p>
+</div>
+<div class="paragraph">
+<p>Deliberate and malicious acts that result in the disruption of the normal processes and functions or the destruction or damage of equipment or information.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_availability_outage">CERT-XLM:availability="outage"</h4>
+<div class="paragraph">
+<p>Outage (no malice)</p>
+</div>
+<div class="paragraph">
+<p>Unavailability of the system but done with no malice.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_information_content_security">information-content-security</h3>
+<div class="paragraph">
+<p>This group is dealing with non-legitimate access or modification to data.</p>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_information_content_security_unauthorised_information_access">CERT-XLM:information-content-security="Unauthorised-information-access"</h4>
+<div class="paragraph">
+<p>Unauthorised access to information</p>
+</div>
+<div class="paragraph">
+<p>Any access to unauthorized data. It may be access of data on improperly restricted server share or database exfiltered by using a SQLi.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_information_content_security_unauthorised_information_modification">CERT-XLM:information-content-security="Unauthorised-information-modification"</h4>
+<div class="paragraph">
+<p>Unauthorised modification of information</p>
+</div>
+<div class="paragraph">
+<p>Unauthorized tampering of data on files, documents or database.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fraud">fraud</h3>
+<div class="paragraph">
+<p>This group is for unauthorized use of resources using resources for unauthorized purposes including profit-making ventures (eg, the use of e-mail to participate in illegal profit chain letters or pyramid schemes).</p>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_fraud_copyright">CERT-XLM:fraud="copyright"</h4>
+<div class="paragraph">
+<p>Copyright</p>
+</div>
+<div class="paragraph">
+<p>Selling or installing copies of unlicensed commercial software or other copyright protected materials (Warez).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_fraud_masquerade">CERT-XLM:fraud="masquerade"</h4>
+<div class="paragraph">
+<p>Masquerade</p>
+</div>
+<div class="paragraph">
+<p>Types of attacks in which one entity illegitimately assumes the identity of another in order to benefit from it. This attack may be used for president fraud requesting transactions.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_fraud_phishing">CERT-XLM:fraud="phishing"</h4>
+<div class="paragraph">
+<p>Phishing</p>
+</div>
+<div class="paragraph">
+<p>Masquerading as another entity in order to persuade the user to reveal a private credential.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_vulnerable">vulnerable</h3>
+<div class="paragraph">
+<p>Vulnerable</p>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_vulnerable_vulnerable_service">CERT-XLM:vulnerable="vulnerable-service"</h4>
+<div class="paragraph">
+<p>Open for abuse</p>
+</div>
+<div class="paragraph">
+<p>Open resolvers, world readable printers, vulnerability apparent from Nessus etc scans, virus, signatures not up to date, etc. This includes for example default SNMP community or default password on any application.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_comformity">comformity</h3>
+<div class="paragraph">
+<p>This group is for catching breach about controls given by the company or externals entities.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_other">other</h3>
+<div class="paragraph">
+<p>Other</p>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_other_other">CERT-XLM:other="other"</h4>
+<div class="paragraph">
+<p>other</p>
+</div>
+<div class="paragraph">
+<p>All incidents that do not fit in one of the given categories should be put into this class. If the number of incidents in this category increases, it is an indicator that the classification scheme must be revised.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_test">test</h3>
+<div class="paragraph">
+<p>Meant for testing.</p>
+</div>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="_dml">DML</h2>
 <div class="sectionbody">
@@ -3318,7 +3655,7 @@ ecsirt namespace available in JSON format at <a href="https://github.com/MISP/mi
 <p>Incident Classification by the ecsirt.net version mkVI of 31 March 2015 enriched with IntelMQ taxonomy-type mapping.</p>
 </div>
 <div class="sect2">
-<h3 id="_abusive_content">abusive-content</h3>
+<h3 id="_abusive_content_2">abusive-content</h3>
 <div class="paragraph">
 <p>Abusive Content.</p>
 </div>
@@ -3351,7 +3688,7 @@ ecsirt namespace available in JSON format at <a href="https://github.com/MISP/mi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_malicious_code">malicious-code</h3>
+<h3 id="_malicious_code_2">malicious-code</h3>
 <div class="paragraph">
 <p>Software that is intentionally included or inserted in a system for a harmful purpose. A user interaction is normally necessary to activate the code.</p>
 </div>
@@ -3423,7 +3760,7 @@ ecsirt namespace available in JSON format at <a href="https://github.com/MISP/mi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_information_gathering">information-gathering</h3>
+<h3 id="_information_gathering_2">information-gathering</h3>
 <div class="paragraph">
 <p>Information Gathering.</p>
 </div>
@@ -3456,7 +3793,7 @@ ecsirt namespace available in JSON format at <a href="https://github.com/MISP/mi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_intrusion_attempts">intrusion-attempts</h3>
+<h3 id="_intrusion_attempts_2">intrusion-attempts</h3>
 <div class="paragraph">
 <p>Intrusion Attempts.</p>
 </div>
@@ -3537,7 +3874,7 @@ ecsirt namespace available in JSON format at <a href="https://github.com/MISP/mi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_availability">availability</h3>
+<h3 id="_availability_2">availability</h3>
 <div class="paragraph">
 <p>By this kind of an attack a system is bombarded with so many packets that the operations are delayed or the system crashes. DoS examples are ICMP and SYN floods, Teardrop attacks and mail-bombing. DDoS often is based on DoS attacks originating from botnets, but also other scenarios exist like DNS Amplification attacks. However, the availability also can be affected by local actions (destruction, disruption of power supply, etc.) – or by Act of God, spontaneous failures or human error, without malice or gross neglect being involved.</p>
 </div>
@@ -3579,7 +3916,7 @@ ecsirt namespace available in JSON format at <a href="https://github.com/MISP/mi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_information_content_security">information-content-security</h3>
+<h3 id="_information_content_security_2">information-content-security</h3>
 <div class="paragraph">
 <p>Besides a local abuse of data and systems the information security can be endangered by a successful account or application compromise. Furthermore attacks are possible that intercept and access information during transmission (wiretapping, spoofing or hijacking). Human/configuration/software error can also be the cause.</p>
 </div>
@@ -3603,7 +3940,7 @@ ecsirt namespace available in JSON format at <a href="https://github.com/MISP/mi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_fraud">fraud</h3>
+<h3 id="_fraud_2">fraud</h3>
 <div class="paragraph">
 <p>Fraud.</p>
 </div>
@@ -3645,7 +3982,7 @@ ecsirt namespace available in JSON format at <a href="https://github.com/MISP/mi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_vulnerable">vulnerable</h3>
+<h3 id="_vulnerable_2">vulnerable</h3>
 <div class="paragraph">
 <p>Open resolvers, world readable printers, vulnerability apparent from Nessus etc scans, virus signatures not up-to-date, etc</p>
 </div>
@@ -3657,7 +3994,7 @@ ecsirt namespace available in JSON format at <a href="https://github.com/MISP/mi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_other">other</h3>
+<h3 id="_other_2">other</h3>
 <div class="paragraph">
 <p>All incidents which don&#8217;t fit in one of the given categories should be put into this class. If the number of incidents in this category increases, it is an indicator that the classification scheme must be revised</p>
 </div>
@@ -3681,7 +4018,7 @@ ecsirt namespace available in JSON format at <a href="https://github.com/MISP/mi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_test">test</h3>
+<h3 id="_test_2">test</h3>
 <div class="paragraph">
 <p>Meant for testing.</p>
 </div>
@@ -6316,7 +6653,7 @@ europol-incident namespace available in JSON format at <a href="https://github.c
 </div>
 </div>
 <div class="sect2">
-<h3 id="_availability_2">availability</h3>
+<h3 id="_availability_3">availability</h3>
 <div class="sect3">
 <h4 id="_europol_incident_availability_dos_ddos">europol-incident:availability="dos-ddos"</h4>
 <div class="paragraph">
@@ -6337,7 +6674,7 @@ europol-incident namespace available in JSON format at <a href="https://github.c
 </div>
 </div>
 <div class="sect2">
-<h3 id="_information_gathering_2">information-gathering</h3>
+<h3 id="_information_gathering_3">information-gathering</h3>
 <div class="sect3">
 <h4 id="_europol_incident_information_gathering_scanning">europol-incident:information-gathering="scanning"</h4>
 <div class="paragraph">
@@ -6388,7 +6725,7 @@ europol-incident namespace available in JSON format at <a href="https://github.c
 </div>
 </div>
 <div class="sect2">
-<h3 id="_intrusion">intrusion</h3>
+<h3 id="_intrusion_2">intrusion</h3>
 <div class="sect3">
 <h4 id="_europol_incident_intrusion_exploitation_vulnerability">europol-incident:intrusion="exploitation-vulnerability"</h4>
 <div class="paragraph">
@@ -6430,7 +6767,7 @@ europol-incident namespace available in JSON format at <a href="https://github.c
 </div>
 </div>
 <div class="sect2">
-<h3 id="_fraud_2">fraud</h3>
+<h3 id="_fraud_3">fraud</h3>
 <div class="sect3">
 <h4 id="_europol_incident_fraud_illegitimate_use_resources">europol-incident:fraud="illegitimate-use-resources"</h4>
 <div class="paragraph">
@@ -6451,7 +6788,7 @@ europol-incident namespace available in JSON format at <a href="https://github.c
 </div>
 </div>
 <div class="sect2">
-<h3 id="_abusive_content_2">abusive-content</h3>
+<h3 id="_abusive_content_3">abusive-content</h3>
 <div class="sect3">
 <h4 id="_europol_incident_abusive_content_spam">europol-incident:abusive-content="spam"</h4>
 <div class="paragraph">
@@ -6483,7 +6820,7 @@ europol-incident namespace available in JSON format at <a href="https://github.c
 </div>
 </div>
 <div class="sect2">
-<h3 id="_other_2">other</h3>
+<h3 id="_other_3">other</h3>
 <div class="sect3">
 <h4 id="_europol_incident_other_other">europol-incident:other="other"</h4>
 <div class="paragraph">
@@ -7188,6 +7525,149 @@ iep namespace available in JSON format at <a href="https://github.com/MISP/misp-
 <h4 id="_iep_id_text">iep:id="$text"</h4>
 <div class="paragraph">
 <p>An id value is required</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_incident_disposition">incident-disposition</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+incident-disposition namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/incident-disposition/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_incident">incident</h3>
+<div class="sect3">
+<h4 id="_incident_disposition_incident_confirmed">incident-disposition:incident="confirmed"</h4>
+<div class="paragraph">
+<p>Confirmed</p>
+</div>
+<div class="paragraph">
+<p>The incident is confirmed and response is underway following incident response procedure of the organisation.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_incident_disposition_incident_deferred">incident-disposition:incident="deferred"</h4>
+<div class="paragraph">
+<p>Deferred</p>
+</div>
+<div class="paragraph">
+<p>The incident is deferred due to resource constraints, information type or external reasons.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_incident_disposition_incident_unidentified">incident-disposition:incident="unidentified"</h4>
+<div class="paragraph">
+<p>Unidentified</p>
+</div>
+<div class="paragraph">
+<p>The incident is unidentified because some assets, ressources or context is missing to go a state which can be handled following the incident response response procedure.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_incident_disposition_incident_transferred">incident-disposition:incident="transferred"</h4>
+<div class="paragraph">
+<p>Transferred</p>
+</div>
+<div class="paragraph">
+<p>The incident is transferred to another organisations for further processing or incident handling.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_incident_disposition_incident_discarded">incident-disposition:incident="discarded"</h4>
+<div class="paragraph">
+<p>Discarded</p>
+</div>
+<div class="paragraph">
+<p>The incident is discarded due to resource constraints, information type or external reasons.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_incident_disposition_incident_silently_discarded">incident-disposition:incident="silently-discarded"</h4>
+<div class="paragraph">
+<p>Silently discarded</p>
+</div>
+<div class="paragraph">
+<p>The incident is silently discarded due to resource constraints, information type or external reasons.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_not_an_incident">not-an-incident</h3>
+<div class="sect3">
+<h4 id="_incident_disposition_not_an_incident_insufficient_data">incident-disposition:not-an-incident="insufficient-data"</h4>
+<div class="paragraph">
+<p>Insufficient data</p>
+</div>
+<div class="paragraph">
+<p>When insufficient data is available to explain an ambiguous (i.e., not definitively hostile or benign) indicator, the incident may be dispositioned as Insufficient Data.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_incident_disposition_not_an_incident_faulty_indicator">incident-disposition:not-an-incident="faulty-indicator"</h4>
+<div class="paragraph">
+<p>Faulty indicator</p>
+</div>
+<div class="paragraph">
+<p>A false positive where an investigation reveals that the source indicator used as the basis for incident detection was a Faulty Indicator.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_incident_disposition_not_an_incident_misconfiguration">incident-disposition:not-an-incident="misconfiguration"</h4>
+<div class="paragraph">
+<p>Misconfiguration</p>
+</div>
+<div class="paragraph">
+<p>A false positive where an event that appeared to be malicious activity was subsequently disproven and determined to be a Misconfiguration (malfunction) of a system.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_incident_disposition_not_an_incident_scan_probe">incident-disposition:not-an-incident="scan-probe"</h4>
+<div class="paragraph">
+<p>Scan or Probe</p>
+</div>
+<div class="paragraph">
+<p>Reconnaissance activity which Scanned or Probed for the presence of a vulnerability which may be later exploited to gain unauthorized access.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_incident_disposition_not_an_incident_failed">incident-disposition:not-an-incident="failed"</h4>
+<div class="paragraph">
+<p>Failed</p>
+</div>
+<div class="paragraph">
+<p>A Failed attempt to gain unauthorized access, conduct a denial of service, install malicious code, or misuse an IT resource, typically because a security control prevented it from succeeding.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_incident_disposition_not_an_incident_refuted">incident-disposition:not-an-incident="refuted"</h4>
+<div class="paragraph">
+<p>Refuted</p>
+</div>
+<div class="paragraph">
+<p>Any other circumstance where a suspected incident was determined to not be an incident and was Refuted.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_duplicate">duplicate</h3>
+<div class="sect3">
+<h4 id="_incident_disposition_duplicate_duplicate">incident-disposition:duplicate="duplicate"</h4>
+<div class="paragraph">
+<p>Duplicate</p>
+</div>
+<div class="paragraph">
+<p>An incident may be a Dup l icate of another record in the Incident Management System, and should be merged with the existing workflow.</p>
 </div>
 </div>
 </div>
@@ -8591,6 +9071,45 @@ misp namespace available in JSON format at <a href="https://github.com/MISP/misp
 </div>
 <div class="paragraph">
 <p>Associated numerical value="100"</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_automation_level">automation-level</h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Exclusive flag set which means the values or predicate below must be set exclusively.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_misp_automation_level_unsupervised">misp:automation-level="unsupervised"</h4>
+<div class="paragraph">
+<p>Generated automatically without human verification</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="100"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_misp_automation_level_reviewed">misp:automation-level="reviewed"</h4>
+<div class="paragraph">
+<p>Generated automatically but verified by a human</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="50"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_misp_automation_level_manual">misp:automation-level="manual"</h4>
+<div class="paragraph">
+<p>Output of human analysis</p>
 </div>
 </div>
 </div>
@@ -20973,7 +21492,7 @@ workflow namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-03 14:06:46 CET
+Last updated 2018-01-30 11:27:21 CET
 </div>
 </div>
 </body>
