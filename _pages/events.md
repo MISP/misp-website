@@ -22,6 +22,13 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 - (hosted by Vestas in Denmark) - [MISP Training (Aarhus/DK) - Threat Intelligence Analyst and Administrators](https://www.eventbrite.com/e/misp-training-aarhusdk-threat-intelligence-analyst-and-administrators-tickets-42311039458) - Mar 14, 2018 (Registration opens 2018-02-02)
 
+- Helsinki/Finland (MISP Training - Threat Intelligence Analyst and Administrator Perspective) Mon, April 23, 2018. [Registration open](https://www.eventbrite.com/e/misp-training-finland-threat-intelligence-anal
+yst-and-administrator-tickets-42744386611)
+
+- Helsinki/Finland (MISP Training - Threat Intelligence - Extension and API hands-on) Tue, April 24, 2018. [Registration open](https://www.eventbrite.com/e/misp-training-finland-threat-intelligence-extension-and
+-api-hands-on-tickets-42744531043)
+
+
 ### Conferences featuring MISP core members talking about MISP and/or threat intelligence
 
 - 6-7 March 2018 - SCTX Security and Counter Terror Expo (London, UK) - [MISP Threat Intelligence Sharing Platform  A Practical Perspective from Implementation to Operational Information Sharing in Cyber Security](https://www.counterterrorexpo.com/cyber-threat-intelligence-kjgw/misp-threat-intelligence-sharing-platform--a-practical-perspective-from-implementation-to-operational-information-sharing-in-cyber-security) by [adulau](https://twitter.com/adulau)
