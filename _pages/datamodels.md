@@ -15,7 +15,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 
 ### MISP default attributes and categories
 
-### Attribute Categories vs Types
+### Attribute Categories vs. Types
 
 |Category| Internal reference | Targeting data | Antivirus detection | Payload delivery | Artifacts dropped | Payload installation |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -36,6 +36,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |email-dst| | | | X | | |
 |email-subject| | | | X | | |
 |email-attachment| | | | X | | |
+|email-body| | | | X | | |
 |float| | | | | | |
 |url| | | | X | | |
 |http-method| | | | | | |
@@ -48,7 +49,9 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |pattern-in-traffic| | | | X | | X |
 |pattern-in-memory| | | | | X | X |
 |yara| | | | X | X | X |
+|stix2-pattern| | | | X | X | X |
 |sigma| | | | X | X | X |
+|cookie| | | | | X | |
 |vulnerability| | | | X | | X |
 |attachment| | | X | X | X | X |
 |malware-sample| | | | X | X | X |
@@ -73,6 +76,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |bin| | | | | | |
 |cc-number| | | | | | |
 |prtn| | | | | | |
+|phone-number| | | | | | |
 |threat-actor| | | | | | |
 |campaign-name| | | | | | |
 |campaign-id| | | | | | |
@@ -103,12 +107,15 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |windows-scheduled-task| | | | | X | |
 |windows-service-name| | | | | X | |
 |windows-service-displayname| | | | | X | |
-|whois-registrant-email| | | | | | |
+|whois-registrant-email| | | | X | | |
 |whois-registrant-phone| | | | | | |
 |whois-registrant-name| | | | | | |
+|whois-registrant-org| | | | | | |
 |whois-registrar| | | | | | |
 |whois-creation-date| | | | | | |
 |x509-fingerprint-sha1| | | | X | X | X |
+|x509-fingerprint-md5| | | | X | X | X |
+|x509-fingerprint-sha256| | | | X | X | X |
 |dns-soa-email| | | | | | |
 |size-in-bytes| | | | | | |
 |counter| | | | | | |
@@ -118,6 +125,8 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |ip-dst&#124;port| | | | X | | |
 |ip-src&#124;port| | | | X | | |
 |hostname&#124;port| | | | X | | |
+|mac-address| | | | X | | |
+|mac-eui-64| | | | X | | |
 |email-dst-display-name| | | | X | | |
 |email-src-display-name| | | | X | | |
 |email-header| | | | X | | |
@@ -155,6 +164,8 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |place-port-of-onward-foreign-destination| | | | | | |
 |passenger-name-record-locator-number| | | | | | |
 |mobile-application-id| | | | X | | X |
+|cortex| | | | | | |
+|boolean| | | | | | |
 
 |Category| Persistence mechanism | Network activity | Payload type | Attribution | External analysis | Financial fraud |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -175,6 +186,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |email-dst| | X | | | | |
 |email-subject| | | | | | |
 |email-attachment| | | | | | |
+|email-body| | | | | | |
 |float| | | | | | |
 |url| | X | | | X | |
 |http-method| | X | | | | |
@@ -187,7 +199,9 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |pattern-in-traffic| | X | | | X | |
 |pattern-in-memory| | | | | X | |
 |yara| | | | | | |
+|stix2-pattern| | X | | | | |
 |sigma| | | | | | |
+|cookie| | X | | | | |
 |vulnerability| | | | | X | |
 |attachment| | X | | | X | |
 |malware-sample| | | | | X | |
@@ -212,6 +226,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |bin| | | | | | X |
 |cc-number| | | | | | X |
 |prtn| | | | | | X |
+|phone-number| | | | | | X |
 |threat-actor| | | | X | | |
 |campaign-name| | | | X | | |
 |campaign-id| | | | X | | |
@@ -245,18 +260,23 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |whois-registrant-email| | | | X | | |
 |whois-registrant-phone| | | | X | | |
 |whois-registrant-name| | | | X | | |
+|whois-registrant-org| | | | X | | |
 |whois-registrar| | | | X | | |
 |whois-creation-date| | | | X | | |
 |x509-fingerprint-sha1| | X | | X | X | |
-|dns-soa-email| | | | | | |
+|x509-fingerprint-md5| | | | X | X | |
+|x509-fingerprint-sha256| | | | X | X | |
+|dns-soa-email| | | | X | | |
 |size-in-bytes| | | | | | |
 |counter| | | | | | |
 |datetime| | | | | | |
 |cpe| | | | | | |
-|port| | | | | | |
+|port| | X | | | | |
 |ip-dst&#124;port| | X | | | X | |
 |ip-src&#124;port| | X | | | X | |
 |hostname&#124;port| | | | | | |
+|mac-address| | X | | | X | |
+|mac-eui-64| | X | | | X | |
 |email-dst-display-name| | | | | | |
 |email-src-display-name| | | | | | |
 |email-header| | | | | | |
@@ -294,6 +314,8 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |place-port-of-onward-foreign-destination| | | | | | |
 |passenger-name-record-locator-number| | | | | | |
 |mobile-application-id| | | | | | |
+|cortex| | | | | X | |
+|boolean| | | | | | |
 
 |Category| Support Tool | Social network | Person | Other |
 | --- |:---:|:---:|:---:|:---:|
@@ -314,6 +336,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |email-dst| | X | | |
 |email-subject| | | | |
 |email-attachment| | | | |
+|email-body| | | | |
 |float| | | | X |
 |url| | | | |
 |http-method| | | | |
@@ -326,7 +349,9 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |pattern-in-traffic| | | | |
 |pattern-in-memory| | | | |
 |yara| | | | |
+|stix2-pattern| | | | |
 |sigma| | | | |
+|cookie| | | | |
 |vulnerability| | | | |
 |attachment| X | | | |
 |malware-sample| | | | |
@@ -351,6 +376,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |bin| | | | |
 |cc-number| | | | |
 |prtn| | | | |
+|phone-number| | | X | X |
 |threat-actor| | | | |
 |campaign-name| | | | |
 |campaign-id| | | | |
@@ -381,12 +407,15 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |windows-scheduled-task| | | | |
 |windows-service-name| | | | |
 |windows-service-displayname| | | | |
-|whois-registrant-email| | | | |
+|whois-registrant-email| | X | | |
 |whois-registrant-phone| | | | |
 |whois-registrant-name| | | | |
+|whois-registrant-org| | | | |
 |whois-registrar| | | | |
 |whois-creation-date| | | | |
 |x509-fingerprint-sha1| | | | |
+|x509-fingerprint-md5| | | | |
+|x509-fingerprint-sha256| | | | |
 |dns-soa-email| | | | |
 |size-in-bytes| | | | X |
 |counter| | | | X |
@@ -396,6 +425,8 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |ip-dst&#124;port| | | | |
 |ip-src&#124;port| | | | |
 |hostname&#124;port| | | | |
+|mac-address| | | | |
+|mac-eui-64| | | | |
 |email-dst-display-name| | | | |
 |email-src-display-name| | | | |
 |email-header| | | | |
@@ -433,6 +464,8 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |place-port-of-onward-foreign-destination| | | X | |
 |passenger-name-record-locator-number| | | X | |
 |mobile-application-id| | | | |
+|cortex| | | | |
+|boolean| | | | X |
 
 ### Categories
 
@@ -472,6 +505,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **email-dst**: A recipient email address that is not related to your constituency.
 *   **email-subject**: The subject of the email
 *   **email-attachment**: File name of the email attachment.
+*   **email-body**: Email body
 *   **float**: A floating point value.
 *   **url**: url
 *   **http-method**: HTTP method used by the malware (e.g. POST, GET, ...).
@@ -484,7 +518,9 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **pattern-in-traffic**: Pattern in network traffic that identifies the malware
 *   **pattern-in-memory**: Pattern in memory dump that identifies the malware
 *   **yara**: Yara signature
+*   **stix2-pattern**: STIX 2 pattern
 *   **sigma**: Sigma - Generic Signature Format for SIEM Systems
+*   **cookie**: HTTP cookie as often stored on the user web client. This can include authentication cookie or session cookie.
 *   **vulnerability**: A reference to the vulnerability used in the exploit
 *   **attachment**: Please upload files using the <em>Upload Attachment</em> button.
 *   **malware-sample**: Please upload files using the <em>Upload Attachment</em> button.
@@ -503,12 +539,13 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **target-external**: External Target Organizations Affected by this Attack
 *   **btc**: Bitcoin Address
 *   **iban**: International Bank Account Number
-*   **bic**: Bank Identifier Code Number
+*   **bic**: Bank Identifier Code Number also known as SWIFT-BIC, SWIFT code or ISO 9362 code
 *   **bank-account-nr**: Bank account number without any routing number
 *   **aba-rtn**: ABA routing transit number
 *   **bin**: Bank Identification Number
 *   **cc-number**: Credit-Card Number
 *   **prtn**: Premium-Rate Telephone Number
+*   **phone-number**: Telephone Number
 *   **threat-actor**: A string identifying the threat actor
 *   **campaign-name**: Associated campaign name
 *   **campaign-id**: Associated campaign ID
@@ -542,9 +579,12 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **whois-registrant-email**: The e-mail of a domain's registrant, obtained from the WHOIS information.
 *   **whois-registrant-phone**: The phone number of a domain's registrant, obtained from the WHOIS information.
 *   **whois-registrant-name**: The name of a domain's registrant, obtained from the WHOIS information.
+*   **whois-registrant-org**: The org of a domain's registrant, obtained from the WHOIS information.
 *   **whois-registrar**: The registrar of the domain, obtained from the WHOIS information.
 *   **whois-creation-date**: The date of domain's creation, obtained from the WHOIS information.
 *   **x509-fingerprint-sha1**: X509 fingerprint in SHA-1 format
+*   **x509-fingerprint-md5**: X509 fingerprint in MD5 format
+*   **x509-fingerprint-sha256**: X509 fingerprint in SHA-256 format
 *   **dns-soa-email**: RFC1035 mandates that DNS zones should have a SOA (Statement Of Authority) record that contains an email address where a PoC for the domain could be contacted. This can sometimes be used for attribution/linkage between different domains even if protected by whois privacy
 *   **size-in-bytes**: Size expressed in bytes
 *   **counter**: An integer counter, generally to be used in objects
@@ -554,6 +594,8 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **ip-dst|port**: IP destination and port number seperated by a |
 *   **ip-src|port**: IP source and port number seperated by a |
 *   **hostname|port**: Hostname and port number seperated by a |
+*   **mac-address**: Mac address
+*   **mac-eui-64**: Mac EUI-64 address
 *   **email-dst-display-name**: Email destination display name
 *   **email-src-display-name**: Email source display name
 *   **email-header**: Email header
@@ -561,7 +603,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **email-x-mailer**: Email x-mailer header
 *   **email-mime-boundary**: The email mime boundary separating parts in a multipart email
 *   **email-thread-index**: The email thread index header
-*   **email-message-id**:
+*   **email-message-id**: The email message ID
 *   **github-username**: A github user name
 *   **github-repository**: A github repository
 *   **github-organisation**: A github organisation
@@ -591,7 +633,8 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **place-port-of-onward-foreign-destination**: A Port where the passenger is transiting to
 *   **passenger-name-record-locator-number**: The Passenger Name Record Locator is a key under which the reservation for a trip is stored in the system. The PNR contains, among other data, the name, flight segments and address of the passenger. It is defined by a combination of five or six letters and numbers.
 *   **mobile-application-id**: The application id of a mobile application
-
+*   **cortex**: Cortex analysis result
+*   **boolean**: Boolean value - to be used in objects
 
 ## MISP objects
 
