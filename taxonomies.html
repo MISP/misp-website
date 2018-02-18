@@ -453,6 +453,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_collaborative_intelligence">collaborative-intelligence</a></li>
 <li><a href="#_csirt_case_classification">csirt_case_classification</a></li>
 <li><a href="#_cssa">cssa</a></li>
+<li><a href="#_cyber_threat_framework">cyber-threat-framework</a></li>
 <li><a href="#_ddos">ddos</a></li>
 <li><a href="#_de_vs">de-vs</a></li>
 <li><a href="#_dhs_ciip_sectors">dhs-ciip-sectors</a></li>
@@ -726,6 +727,51 @@ CERT-XLM namespace available in JSON format at <a href="https://github.com/MISP/
 <div class="paragraph">
 <p>This group is for successful unauthorized access to a system.</p>
 </div>
+<div class="sect3">
+<h4 id="_cert_xlm_intrusion_privileged_account_compromise">CERT-XLM:intrusion="privileged-account-compromise"</h4>
+<div class="paragraph">
+<p>Privileged Account Compromise</p>
+</div>
+<div class="paragraph">
+<p>A successful full compromise of a system or application (service). This can have been caused remotely by a known or new vulnerability, but also by an unauthorized local access.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_intrusion_unprivileged_account_compromise">CERT-XLM:intrusion="unprivileged-account-compromise"</h4>
+<div class="paragraph">
+<p>Unprivileged Account Compromise</p>
+</div>
+<div class="paragraph">
+<p>A successful compromise of a system or application (service). This can have been caused remotely by a known or new vulnerability, but also by an unauthorized local access. The intruded did not achieve to escale his privileges locally.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_intrusion_botnet_member">CERT-XLM:intrusion="botnet-member"</h4>
+<div class="paragraph">
+<p>Botnet member</p>
+</div>
+<div class="paragraph">
+<p>The compromised asset is also being part of a botnet. This is reserved mainly for public web servers. See malicious code in priority for workstations or internal server’s compromise. For example, phpmailer, etc…</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_intrusion_domain_compromise">CERT-XLM:intrusion="domain-compromise"</h4>
+<div class="paragraph">
+<p>Domain Compromise</p>
+</div>
+<div class="paragraph">
+<p>The whole domain is compromised; this is commonly used for active directory and detected by a “pass the ticket” attack or a discovery of “ad dumps” files.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_intrusion_application_compromise">CERT-XLM:intrusion="application-compromise"</h4>
+<div class="paragraph">
+<p>Application Compromise</p>
+</div>
+<div class="paragraph">
+<p>An application is compromised; the attacker possess an uncontrolled access to data, server, and assets used by this application (CMDB, DB, Backend services, etc.).</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_availability">availability</h3>
@@ -842,9 +888,45 @@ CERT-XLM namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 </div>
 <div class="sect2">
-<h3 id="_comformity">comformity</h3>
+<h3 id="_conformity">conformity</h3>
 <div class="paragraph">
 <p>This group is for catching breach about controls given by the company or externals entities.</p>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_conformity_regulator">CERT-XLM:conformity="regulator"</h4>
+<div class="paragraph">
+<p>Regulator</p>
+</div>
+<div class="paragraph">
+<p>All lack about regulator rules (CSSF, GDPR, etc.).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_conformity_standard">CERT-XLM:conformity="standard"</h4>
+<div class="paragraph">
+<p>Standard</p>
+</div>
+<div class="paragraph">
+<p>All lack about standards certification of the company (ISO27000, NIS, ISAE3402, etc.).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_conformity_security_policy">CERT-XLM:conformity="security-policy"</h4>
+<div class="paragraph">
+<p>Security policy</p>
+</div>
+<div class="paragraph">
+<p>All lack about the internal security policy of the company.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cert_xlm_conformity_other_conformity">CERT-XLM:conformity="other-conformity"</h4>
+<div class="paragraph">
+<p>Other</p>
+</div>
+<div class="paragraph">
+<p>All lack that do not fit in one of previous categories should be put on this class.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -2696,6 +2778,210 @@ cssa namespace available in JSON format at <a href="https://github.com/MISP/misp
 <h4 id="_cssa_origin_unknown">cssa:origin="unknown"</h4>
 <div class="paragraph">
 <p>Origin of the data unknown.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_analyse">analyse</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cyber_threat_framework">cyber-threat-framework</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+cyber-threat-framework namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/cyber-threat-framework/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_preparation">Preparation</h3>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_preparation_plan_activity">cyber-threat-framework:Preparation="plan-activity"</h4>
+<div class="paragraph">
+<p>Plan activity</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="10"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_preparation_conduct_research_and_analysis">cyber-threat-framework:Preparation="conduct-research-and-analysis"</h4>
+<div class="paragraph">
+<p>Conduct research &amp; analysis</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="11"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_preparation_develop_resource_and_capabilities">cyber-threat-framework:Preparation="develop-resource-and-capabilities"</h4>
+<div class="paragraph">
+<p>Develop resources &amp; capabilities</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="12"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_preparation_acquire_victim_and_specific_knowledge">cyber-threat-framework:Preparation="acquire-victim-and-specific-knowledge"</h4>
+<div class="paragraph">
+<p>Acquire victim &amp; specific knowledge</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="13"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_preparation_complete_preparations">cyber-threat-framework:Preparation="complete-preparations"</h4>
+<div class="paragraph">
+<p>Complete preparations</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="14"</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_engagement">Engagement</h3>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_engagement_deploy_capability">cyber-threat-framework:Engagement="deploy-capability"</h4>
+<div class="paragraph">
+<p>Deploy capability</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="20"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_engagement_interact_with_intended_victim">cyber-threat-framework:Engagement="interact-with-intended-victim"</h4>
+<div class="paragraph">
+<p>Interact with intended victim</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="21"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_engagement_exploit_vulnerabilities">cyber-threat-framework:Engagement="exploit-vulnerabilities"</h4>
+<div class="paragraph">
+<p>Exploit vulnerabilities</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="22"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_engagement_deliver_malicious_capabilities">cyber-threat-framework:Engagement="deliver-malicious-capabilities"</h4>
+<div class="paragraph">
+<p>Deliver malicious capabilities</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="23"</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_presence">Presence</h3>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_presence_establish_controlled_access">cyber-threat-framework:Presence="establish-controlled-access"</h4>
+<div class="paragraph">
+<p>Establish controlled access</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="30"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_presence_hide">cyber-threat-framework:Presence="hide"</h4>
+<div class="paragraph">
+<p>Hide</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="31"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_presence_expand_presence">cyber-threat-framework:Presence="expand-presence"</h4>
+<div class="paragraph">
+<p>Expand presence</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="32"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_presence_refine_focus_of_activity">cyber-threat-framework:Presence="refine-focus-of-activity"</h4>
+<div class="paragraph">
+<p>Refine focus of activity</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="33"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_presence_establish_persistence">cyber-threat-framework:Presence="establish-persistence"</h4>
+<div class="paragraph">
+<p>Establish persistence</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="34"</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_effect_consequence">Effect/Consequence</h3>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_effect_consequence_enable_other_operations">cyber-threat-framework:Effect/Consequence="enable-other-operations"</h4>
+<div class="paragraph">
+<p>Enable other operations</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="40"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_effect_consequence_deny_access">cyber-threat-framework:Effect/Consequence="deny-access"</h4>
+<div class="paragraph">
+<p>Deny access</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="41"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_effect_consequence_extract_data">cyber-threat-framework:Effect/Consequence="extract-data"</h4>
+<div class="paragraph">
+<p>Extract data</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="42"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_effect_consequence_alter_data_and_or_computer_network_or_system_behavior">cyber-threat-framework:Effect/Consequence="alter-data-and-or-computer-network-or-system-behavior"</h4>
+<div class="paragraph">
+<p>Alter data and/or computer, network or system behavior</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="43"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cyber_threat_framework_effect_consequence_destroy_hardware_software_or_data">cyber-threat-framework:Effect/Consequence="destroy-hardware-software-or-data"</h4>
+<div class="paragraph">
+<p>Destroy HW/SW/data</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="44"</p>
 </div>
 </div>
 </div>
@@ -14200,6 +14486,54 @@ pentest namespace available in JSON format at <a href="https://github.com/MISP/m
 <div class="paragraph">
 <p>Exploitation of a vulnerability</p>
 </div>
+<div class="sect3">
+<h4 id="_pentest_exploit_type_confusion">pentest:exploit="type confusion"</h4>
+<div class="paragraph">
+<p>When a piece of code doesn’t verify the type of object that is passed to it, and uses it blindly without type-checking, it leads to type confusion. (<a href="https://cloudblogs.microsoft.com/microsoftsecure/2015/06/17/understanding-type-confusion-vulnerabilities-cve-2015-0336/" class="bare">https://cloudblogs.microsoft.com/microsoftsecure/2015/06/17/understanding-type-confusion-vulnerabilities-cve-2015-0336/</a>)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pentest_exploit_format_strings">pentest:exploit="format_strings"</h4>
+<div class="paragraph">
+<p>The format string exploit occurs when the submitted data of an input string leads to arbitrary read or write in the memory. In this way, the attacker could execute code, read the stack, or cause a segmentation fault in the running application, causing new behaviors that could compromise the security or the stability of the system. (<a href="https://www.owasp.org/index.php/Format_string_attack" class="bare">https://www.owasp.org/index.php/Format_string_attack</a>)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pentest_exploit_stack_overflow">pentest:exploit="stack_overflow"</h4>
+<div class="paragraph">
+<p>In software, a stack overflow is type of buffer overflow that occurs if the call stack pointer exceeds the stack bound. (<a href="https://en.wikipedia.org/wiki/Stack_overflow" class="bare">https://en.wikipedia.org/wiki/Stack_overflow</a>)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pentest_exploit_heap_overflow">pentest:exploit="heap_overflow"</h4>
+<div class="paragraph">
+<p>A heap overflow is a type of buffer overflow that occurs in the heap data area. (<a href="https://en.wikipedia.org/wiki/Heap_overflow" class="bare">https://en.wikipedia.org/wiki/Heap_overflow</a>)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pentest_exploit_heap_spraying">pentest:exploit="heap_spraying"</h4>
+<div class="paragraph">
+<p>Heap spraying is a technique used in exploits to facilitate arbitrary code execution. In general, code that sprays the heap attempts to put a certain sequence of bytes at a predetermined location in the memory of a target process by having it allocate (large) blocks on the process&#8217;s heap and fill the bytes in these blocks with the right values. (<a href="https://en.wikipedia.org/wiki/Heap_spraying" class="bare">https://en.wikipedia.org/wiki/Heap_spraying</a>)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pentest_exploit_fuzzing">pentest:exploit="fuzzing"</h4>
+<div class="paragraph">
+<p>Fuzzing is an automated software testing technique that involves providing invalid, unexpected, or random data as inputs to a computer program. (<a href="https://en.wikipedia.org/wiki/Fuzzing" class="bare">https://en.wikipedia.org/wiki/Fuzzing</a>)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pentest_exploit_rop">pentest:exploit="ROP"</h4>
+<div class="paragraph">
+<p>The Return-Oriented Programming (ROP) is a computer security exploit technique in which the attacker uses control of the call stack to indirectly execute cherry-picked machine instructions or groups of machine instructions immediately prior to the return instruction in subroutines within the existing program code, in a way similar to the execution of a threaded code interpreter. (<a href="https://en.wikipedia.org/wiki/Return-oriented_programming" class="bare">https://en.wikipedia.org/wiki/Return-oriented_programming</a>)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pentest_exploit_null_pointer_dereference">pentest:exploit="null_pointer_dereference"</h4>
+<div class="paragraph">
+<p>A NULL pointer dereference occurs when the application dereferences a pointer that it expects to be valid, but is NULL, typically causing a crash or exit. (<a href="https://cwe.mitre.org/data/definitions/476.html" class="bare">https://cwe.mitre.org/data/definitions/476.html</a>)</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_post_exploitation">post_exploitation</h3>
@@ -21759,7 +22093,7 @@ workflow namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-31 15:18:20 CET
+Last updated 2018-02-18 12:18:11 CET
 </div>
 </div>
 </body>
