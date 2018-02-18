@@ -7,9 +7,9 @@ toc: true
 
 # MISP threat sharing - legal and policy compliance
 
-MISP project is a large open source project to support and improve information sharing and threat intelligence analysis at large.
+The MISP project is a large open source project, aiming to support and improve information sharing and threat intelligence analysis at large.
 
-As the MISP project is used in various geographical regions (Europe, North America, Asia-Pacific, South America and Africa) or sector of activities (from cyber security, intelligence community, law enforcement and NGO), a set of legal and policy compliance analysis are available to ensure compliance while using software, documents or libraries in the MISP project.
+As the MISP project is used in different geographical regions (Europe, North America, Asia-Pacific, South America and Africa) as well as different sectors of activities (spanning a wide selection such as cyber security, intelligence community, law enforcement and NGOs), a set of legal and policy compliance analyses are available to ensure compliance while using the software, documents or libraries contained within the MISP project.
 
 ## GDPR - General Data Protection Regulation
 
