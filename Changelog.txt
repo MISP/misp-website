@@ -2,6 +2,326 @@ Changelog
 =========
 
 
+v2.4.88 (2018-02-21)
+--------------------
+
+New
+~~~
+- Add API response for /sightings/listSightings. [Andras Iklody]
+- Reowkred organisation merge workflow, #fixes 2931. [iglocska]
+
+  - Organisation merge is now offered to the user by the edit page if a UUID was used to edit an organisation that is already in use
+  - Merging a local org with 1+ user(s) into an external organisation converts the target organisation into a local one
+  - Merging a local organisation with a logo into an organisation without one will move the current logo to over
+    - caveat: this will only happen for organisations already using the new logo naming ([id].png as opposed to [name].png)
+- ModulesQueryAPI. [Juan C. Montes]
+
+  ModulesQuery controller to can communicate from MISP API to misp_modules
+- ModulesQueryAPI. [Juan C. Montes]
+
+  ModulesQuery controller to can communicate from MISP API to misp_modules
+- ModulesQueryAPI. [Juan C. Montes]
+
+  ModulesQuery controller to can communicate from MISP API to misp_modules
+- ModulesQueryAPI. [Juan C. Montes]
+
+  ModulesQuery controller to can communicate from MISP API to misp_modules
+- ModulesQueryAPI. [Juan C. Montes]
+
+  ModulesQuery controller to can communicate from MISP API to misp_modules
+- ModulesQueryAPI. [Juan C. Montes]
+
+  ModulesQuery controller to can communicate from MISP API to misp_modules
+- ModulesQueryAPI. [Juan C. Montes]
+
+  ModulesQuery controller to can communicate from MISP API to misp_modules
+- ModulesQueryAPI. [Juan C. Montes]
+
+  ModulesQuery controller to can communicate from MISP API to misp_modules
+- Added ssdeep threshold setting. [iglocska]
+
+  - set the ssdeep value at which to consider two ssdeep hashes as correlating
+- First iteration of ssdeep correlation. [iglocska]
+- Added supporting structures for the new STIX API. [iglocska]
+- Added STIX import directly to the UI. [iglocska]
+- Add search shortcut for events and attributes + fix bug that triggered
+  shortcuts when dropdown menus were focused. [Émilio Gonzalez]
+- Add keyboard shortcuts application-wide, managed using JSON files.
+  [Émilio Gonzalez]
+- Add a "search all tags" input field on the taxonomy modal when adding
+  a tag to an event. [Émilio Gonzalez]
+- Added returnMetaAttributes flag to the /events/freeTextImport API.
+  [iglocska]
+
+  - directly returns the raw parsing data instead of creating the attributes if set
+  - 177 days, 23 hours 40 minutes faster implementation than expected by @ilmoka - #PMD
+- New APIs to add/remove orgs and servers from sharing groups, fixes
+  #2888. [iglocska]
+
+  - added functions to manage the additions/removals of objects from sharing groups
+  - the following APIs are included:
+    - /sharingGroups/addOrg/[sg_id]/[org_id]/[extend]
+    - /sharingGroups/removeOrg/[sg_id]/[org_id]
+    - /sharingGroups/addServer/[sg_id]/[server_id]/[all_orgs]
+    - /sharingGroups/removeServer/[sg_id]/[server_id]
+
+  - All parameters are optional and can instead be passed as JSON objects such as:
+
+    {
+      "org_uuid": "55f6ea5e-2c60-40e5-964f-47a8950d210f",
+      "sg_id": "49",
+      "extend": 1
+    }
+
+  - The API is extremely flexible with how to name objects, the following parameters are allowed:
+    - Organisations:
+      - org_id (The organisation's local instance ID)
+      - org_uuid (The organisation's global UUID)
+      - org_name (The organisation's identifier as known to the curent instance)
+    - Server:
+      - server_id (The server's local instance ID)
+      - server_url (The URL of the server)
+      - server_name (The local name of the server as assigned when adding the server)
+
+  The sharing groups can also be addressed by ID or UUID.
+- Allow overriding the action names in the stringified restresponse
+  messages. [iglocska]
+
+  - for example: 'addOrg' => 'add Organisation to'
+
+Changes
+~~~~~~~
+- Version bump. [Alexandre Dulaunoy]
+- Bump PyMISP. [Raphaël Vinot]
+- Updated documentation. [iglocska]
+- Bump PyMISP to 2.4.87. [Raphaël Vinot]
+- Bump PyMISP recommended version. [Raphaël Vinot]
+- Bump PyMISP, again. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+
+Fix
+~~~
+- Misp-galaxy updated to the latest version. [Alexandre Dulaunoy]
+- PyMISP fixed to the latest version. [Alexandre Dulaunoy]
+- Ssdeep is now updated on PECL - installation updated. [Alexandre
+  Dulaunoy]
+- Warning-lists updated to the latest version. [Alexandre Dulaunoy]
+- Typo in README. [Alexandre Dulaunoy]
+- Resolved a potentially breaking issue for feed fetches with malformed
+  objects. [iglocska]
+- Keep the original org name if merging an org into a newer copy with a
+  number appended (such as _1111) [iglocska]
+
+  - no need to edit the resulting merge anymore
+- Add org with known remote UUID fails silently, fixes #2930. [iglocska]
+- Various fixes to the module api. [iglocska]
+
+  - query function renamed to query enrichment
+  - added check for disabled modules and for modules that the current user is not allowed to use
+  - removed the module config from the index function to avoid exposing API keys / credentials to users
+  - some formating fixes
+- ModulesController. [Juan C. Montes]
+- ModulesController. [Juan C. Montes]
+- Searching for exact values not possible via the attribute search,
+  fixes #2946. [iglocska]
+
+  - Attribute search now returns only exact matches unless encapsulates between '%' characters
+- Now supporting stix objects with only description text. [chrisr3d]
+
+  - These objects are indicators or observables
+  - Description text in imported as misp attribute 'text'
+- Fixed an issue where events wouldn't get properly unpublished when
+  accepting a proposal, fixes #2943. [iglocska]
+
+  - only happened when a proposed new attribute was accepted, masking the issue
+- Fixed command execution for site admins. [iglocska]
+
+  - a server setting allowing the override of the path variable for esoteric RHEL systems allowed site admins to inject arbitrary commands
+  - impact was limited by the setting being only accessible to the site administrator
+
+  - as reported by Michael Grolimund from Swiss Post (@grolinet)
+
+  - CVE-2018-6926
+- Fixed invalid pgp url for fetching keys from the remote server.
+  [iglocska]
+- Removed debug code, added cleanup for edits/deletes. [iglocska]
+- Fixed the attribute selection on the event view. [iglocska]
+
+  - Correctly select sections even on sort or other effects changing the order of elements
+  - Part of the keep @rommelfs happy package ;)
+- Do not try to decrement attribute count below 0. [iglocska]
+- Fixed mass delete for soft-deleted attributes. [iglocska]
+- Make soft vs hard deletes more obvious. [iglocska]
+- Hop over commented out functions in the queryACL tests. [iglocska]
+- Parsing more types. [chrisr3d]
+
+  - ignoring whois atm
+
+  - creating object "file" in case of multiple hashes
+    in only one observable / indicator object
+- PyMISP latest version. [Alexandre Dulaunoy]
+- Changed the condition to recognize stix from misp. [chrisr3d]
+- Add a baseurl if none is set for the stix framing. [iglocska]
+
+  - otherwise we end up with a namespace leading to an empty URL which apparently is the STIX library's kwqryptonite
+- Removed the truncating of output file names for the stix2misp script.
+  [iglocska]
+- Fixes to several cases of handling blocked access incorrectly / non-
+  gracefully. [iglocska]
+
+  - As reported by Christophe Vandeplas
+
+  - stix export: Ungraceful handling of attempted access of unauthorised event (no unauthorised data returned)
+  - import module: Allows creation of proposals to unauthorised events (no unauthorised data returned, proposals are for new attributes only meaning no automatic override triggered)
+  - saveFreetext: same as import module
+- Don't uppercase the shortcuts as the shortcuts are lowercase.
+  [Alexandre Dulaunoy]
+- CVE en dash converted to '-' [iglocska]
+- Fixed extension name of imported files. [chrisr3d]
+- Fixed wrong dictionary key call causing empty import. [chrisr3d]
+- Updated to the latest version of PyMISP. [Alexandre Dulaunoy]
+- Removed object template element changes from logging system.
+  [iglocska]
+
+  - temporary fix for the model name being too long...
+- Escaping user controlled variable. [Andras Iklody]
+- Run the db update before trying to add users/orgs. [iglocska]
+- Added missing db field to users. [iglocska]
+
+  - fixes a nasty issue with saving users failing when ZMQ is enabled on instances installed after 2.4.69
+  - fixes a typo that caused invalid user changes being pushed to the ZMQ channel
+- PyMISP updated to the latest version. [Alexandre Dulaunoy]
+- Added new APIs to ACL component. [iglocska]
+
+  - wooooops
+- Set the default PGP keyserver to pgp.circl.lu (faster than
+  pgp.mit.edu) [Alexandre Dulaunoy]
+
+  TODO: A configuration for setting up the PGP keyserver at the MISP
+  instance setting.
+- MISP objects latest version imported (fix ip-port issue with domain)
+  [Alexandre Dulaunoy]
+- User_id in tag table was not included in MYSQL.sql. [iglocska]
+
+  - added it to the initial db bootstrap along with an upgrade script for existing MISPs missing the field
+- Galaxy updated to the latest version. [Alexandre Dulaunoy]
+- Fix adding tags via the API fails if not encapsulated in "Tag":{},
+  fixes #2897. [iglocska]
+
+  - also, add proper response instead of a redirect to make testing a bit more friendly
+- Taxonomies updated. [Alexandre Dulaunoy]
+- MISP objects updated. [Alexandre Dulaunoy]
+- Fix an invalid call to saving a log entry without initialising the
+  class first. [iglocska]
+- Graceful handling of gnupg not being set up on an instnace. [iglocska]
+
+Other
+~~~~~
+- Update list_sightings.ctp. [Andras Iklody]
+- Add: Updated to the latest version of taxonomies including new ones.
+  [Alexandre Dulaunoy]
+- Merge branch 'galaxySearch' into 2.4. [iglocska]
+- Add filter on GalaxyCluster description too ^^ [truckydev]
+- Apply filter to pagination :) [root]
+- Add field filter for galaxy cluster. [root]
+- Merge pull request #2934 from cvandeplas/fix/modules-api. [Andras
+  Iklody]
+
+  fix - allows upload of files using the misp-modules API
+- Fix - allows upload of files using the misp-modules API. [Christophe
+  Vandeplas]
+
+  See also #2719
+- Merge pull request #2950 from eCrimeLabs/2.4. [Andras Iklody]
+
+  Update start.sh
+- Update start.sh. [eCrimeLabs]
+
+  Fixed bug in scheduler line
+- Merge branch 'modulesQuery' into 2.4. [iglocska]
+- Merge branch 'ModulesQueryAPI' of https://github.com/juancmontes/MISP
+  into ModulesQueryAPI. [Juan C. Montes]
+- Update ModulesQueryController. [Juan C. Montes]
+
+  Fix the format of the code
+- Update ModulesQueryController. [Juan C. Montes]
+
+  Support options (credentials) from config.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #2944 from truckydev/patch-10. [Andras Iklody]
+
+  Add the value in the field when filled in.
+- Add the value in the field when filled in. [truckydev]
+
+  add the value in the field when filled in on event view.
+- Merge pull request #2945 from truckydev/patch-11. [Andras Iklody]
+
+  don't exlude attributes with non-exportable tag
+- Don't exlude attributes with non-exportable tag. [truckydev]
+
+  exclude filter on attributes when tag is non-exportable
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #2941 from
+  MattCarothers/fix_log_table_model_column_length. [Andras Iklody]
+
+  Update model column length to 80 characters in the MySQL install file
+- Updated model column length to 80 characters. [Matt Carothers]
+- Add: new feeds from CoinBlockerLists added. [Alexandre Dulaunoy]
+- Merge branch 'feature/ssdeep_correlations' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Add: mime-type attribute added. [Alexandre Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #2908 from Res260/fix_keyboard_shortcut_focus.
+  [Andras Iklody]
+
+  new: Add search shortcut for events and attributes + small bugfix
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #2906 from Res260/feature_keyboard_shortcuts.
+  [Alexandre Dulaunoy]
+
+  new: Add keyboard shortcuts application-wide, managed using JSON files
+- Add: identity-card-number attribute type to better support goAML.
+  [Alexandre Dulaunoy]
+- Merge pull request #2902 from
+  Res260/feature_search_tags_on_taxonomy_modal. [Andras Iklody]
+
+  Make search bar available in the "Select Tag Source" modal
+- Added vendor and CakeResque folders to gitignore. [Émilio Gonzalez]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: a default category for GENE attribute type. [Alexandre Dulaunoy]
+- Add: GENE: Go Evtx sigNature Engine attribute type added. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #2899 from RichieB2B/ncsc-nl/misp-wipe-update.
+  [Andras Iklody]
+
+  Wipe objects & update lists after wipe
+- - wipe objects - update taxonomies, warninglists, galaxies and
+  objectTemplates after wipe. [Richard van den Berg]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #2886 from MISP/Bump-PyMISP. [Raphaël Vinot]
+
+  chg: Bump PyMISP recommended version
+- Merge pull request #2883 from Rafiot/travis. [Raphaël Vinot]
+
+  chg: Bump PyMISP
+
+
 v2.4.87 (2018-01-28)
 --------------------
 
