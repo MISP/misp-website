@@ -106,5 +106,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [pymisp-suricata_search](https://github.com/raw-data/pymisp-suricata_search) - Multi-threaded Suricata search module for MISP.
 * [misp42splunk](https://github.com/remg427/misp42splunk) - A Splunk app to use MISP in background.
 * [Integration between MISP platform and McAfee Active Response](https://github.com/mohlcyber/MISP-MAR) - McAfee Active Response integration with MISP.
-
-
+* [Integration between MISP platform and Komand](https://market.komand.com/plugins/komand/misp/0.1.0) - Komand integration with MISP.
+* [DCSO TIE integration](https://github.com/DCSO/tie2misp) - DCSO integration with MISP.
+* [iSight MISP integration](https://github.com/deralexxx/PySight2MISP) - iSighht integration with MISP.
+* [FireMISP](https://github.com/deralexxx/FireMISP) - Basic version of Fireeye Alerts to MISP
