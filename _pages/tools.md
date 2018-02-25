@@ -16,13 +16,54 @@ is also to explore new ideas, concepts or functionality which can be integrated 
 
 
 * [misp-modules](https://github.com/MISP/misp-modules) - Modules for expansion services in MISP
-     * Passive Total - [doc](http://blog.passivetotal.org/misp-sharing-done-differently/).
-     * CIRCL Passive DNS - a hover and expansion module to expand hostname and IP addresses with passive DNS information.
-     * CIRCL Passive SSL - a hover and expansion module to expand IP addresses with the X.509 certificate seen.
-     * EUPI API Support (Phishing Initiative project).
-     * IPASN - a hover and expansion to get the BGP ASN of an IP address.
-     * ASN History - a hover and expansion module to expand an AS number with the ASN description and its history.
-     * CVE a hover module to give more information about a vulnerability (CVE).
+
+#### Expansion modules
+
+		* [ASN History](https://github.com/MISP/misp-modules/modules/expansion/asn_history.py) - a hover and expansion module to expand an AS number with the ASN description and its history.
+		* [CIRCL Passive DNS](https://github.com/MISP/misp-modules/modules/expansion/circl_passivedns.py) - a hover and expansion module to expand hostname and IP addresses with passive DNS information.
+		* [CIRCL Passive SSL](https://github.com/MISP/misp_modules/modules/expansion/circl_passivessl.py) - a hover and expansion module to expand IP addresses with the X.509 certificate seen.
+		* [countrycode](https://github.com/MISP/misp_modules/modules/expansion/countrycode.py) - a hover module to tell you what country a URL belongs to.
+		* [CrowdStrike Falcon](https://github.com/MISP/misp_modules/modules/expansion/crowdstrike_falcon.py) - an expansion module to expand using CrowdStrike Falcon Intel Indicator API.
+		* [CVE](https://github.com/MISP/misp_modules/modules/expansion/cve.py) - a hover module to give more information about a vulnerability (CVE).
+		* [DNS](https://github.com/MISP/misp_modules/modules/expansion/dns.py) - a simple module to resolve MISP attributes like hostname and domain to expand IP addresses attributes.
+		* [DomainTools](https://github.com/MISP/misp_modules/modules/expansion/domaintools.py) - a hover and expansion module to get information from [DomainTools](http://www.domaintools.com/) whois.
+		* [EUPI](https://github.com/MISP/misp_modules/modules/expansion/eupi.py) - a hover and expansion module to get information about an URL from the [Phishing Initiative project](https://phishing-initiative.eu/?lang=en).
+		* [Farsight DNSDB Passive DNS](https://github.com/MISP/misp_modules/modules/expansion/farsight_passivedns.py) - a hover and expansion module to expand hostname and IP addresses with passive DNS information.
+		* [GeoIP](https://github.com/MISP/misp_modules/modules/expansion/geoip_country.py) - a hover and expansion module to get GeoIP information from geolite/maxmind.
+		* [IPASN](https://github.com/MISP/misp_modules/modules/expansion/ipasn.py) - a hover and expansion to get the BGP ASN of an IP address.
+		* [iprep](https://github.com/MISP/misp-modules/modules/expansion/iprep.py) - an expansion module to get IP reputation from packetmail.net.
+		* [OTX](https://github.com/MISP/misp_modules/modules/expansion/otx.py) - an expansion module for [OTX](https://otx.alienvault.com/).
+		* [passivetotal](https://github.com/MISP/misp_modules/modules/expansion/passivetotal.py) - a [passivetotal](https://www.passivetotal.org/) module that queries a number of different PassiveTotal datasets.
+		* [rbl](https://github.com/MISP/misp_modules/modules/expansion/rbl.py) - a module to get RBL (Real-Time Blackhost List) values from an attribute.
+		* [shodan](https://github.com/MISP/misp_modules/modules/expansion/shodan.py) - a minimal [shodan](https://www.shodan.io/) expansion module.
+		* [sourcecache](https://github.com/MISP/misp_modules/modules/expansion/sourcecache.py) - a module to cache a specific link from a MISP instance.
+		* [ThreatCrowd](https://github.com/MISP/misp_modules/modules/expansion/threatcrowd.py) - an expansion module for [ThreatCrowd](https://www.threatcrowd.org/).
+		* [threatminer](https://github.com/MISP/misp_modules/modules/expansion/threatminer.py) - an expansion module to expand from [ThreatMiner](https://www.threatminer.org/).
+		* [virustotal](https://github.com/MISP/misp_modules/modules/expansion/virustotal.py) - an expansion module to pull known resolutions and malware samples related with an IP/Domain from virusTotal (this modules require a VirusTotal private API key)
+		* [wikidata](https://github.com/MISP/misp_modules/modules/expansion/wiki.py) - a [wikidata](https://www.wikidata.org) expansion module.
+		* [xforce](https://github.com/MISP/misp_modules/modules/expansion/xforceexchange.py) - an IBM X-Force Exchange expansion module.
+		* [YARA syntax validator](https://github.com/MISP/misp_modules/modules/expansion/yara_syntax_validator.py) - YARA syntax validator.
+
+#### Export modules
+
+		* [CEF](https://github.com/MISP/misp_modules/modules/export_mod/cef_export.py) module to export Common Event Format (CEF).
+		* [GoAML export](https://github.com/MISP/misp_modules/modules/export_mod/goamlexport.py) module to export in GoAML format.
+		* [Lite Export](https://github.com/MISP/misp_modules/modules/export_mod/liteexport.py) module to export a lite event.
+		* [Simple PDF export](https://github.com/MISP/misp_modules/modules/export_mod/pdfexport.py) module to export in PDF (required: asciidoctor-pdf).
+		* [ThreatConnect](https://github.com/MISP/misp_modules/modules/export_mod/threat_connect_export.py) module to export in ThreatConnect CSV format.
+		* [ThreatStream](https://github.com/MISP/misp_modules/modules/export_mod/threatStream_misp_export.py) module to export in ThreatStream format.
+
+#### Import modules
+
+		* [CSV import](https://github.com/MISP/misp_modules/modules/import_mod/csvimport.py) Customizable CSV import module.
+		* [Cuckoo JSON](https://github.com/MISP/misp_modules/modules/import_mod/cuckooimport.py) Cuckoo JSON import.
+		* [Email Import](https://github.com/MISP/misp_modules/modules/import_mod/email_import.py) Email import module for MISP to import basic metadata.
+		* [OCR](https://github.com/MISP/misp_modules/modules/import_mod/ocr.py) Optical Character Recognition (OCR) module for MISP to import attributes from images, scan or faxes.
+		* [OpenIOC](https://github.com/MISP/misp_modules/modules/import_mod/openiocimport.py) OpenIOC import based on PyMISP library.
+		* [stiximport](https://github.com/MISP/misp_modules/modules/import_mod/stiximport.py) - An import module to process STIX xml/json.
+		* [ThreatAnalyzer](https://github.com/MISP/misp_modules/modules/import_mod/threatanalyzer_import.py) - An import module to process ThreatAnalyzer archive.zip/analysis.json sandbox exports.
+		* [VMRay](https://github.com/MISP/misp_modules/modules/import_mod/vmray_import.py) - An import module to process VMRay export.
+
 * [misp-workbench](https://github.com/MISP/misp-workbench) - Tools to export data out of the MISP MySQL database and use and abuse them outside of this platform.
 * [MISpego](https://github.com/MISP/MISPego) - Maltego Transform to put entities into MISP events.
 * [MISP-maltego](https://github.com/MISP/MISP-maltego) - Set of Maltego transforms to inferface with a MISP instance.
@@ -64,4 +105,6 @@ For the additional software created by the MISP project, check our [MISP project
 * [Splunk integration with MISP](https://github.com/stricaud/TA-misp) - This TA allows to check if objects/attributes in your MISP instance matches your data in Splunk.
 * [pymisp-suricata_search](https://github.com/raw-data/pymisp-suricata_search) - Multi-threaded Suricata search module for MISP.
 * [misp42splunk](https://github.com/remg427/misp42splunk) - A Splunk app to use MISP in background.
+* [Integration between MISP platform and McAfee Active Response](https://github.com/mohlcyber/MISP-MAR) - McAfee Active Response integration with MISP.
+
 
