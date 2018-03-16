@@ -483,6 +483,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_osint">osint</a></li>
 <li><a href="#_passivetotal">passivetotal</a></li>
 <li><a href="#_pentest">pentest</a></li>
+<li><a href="#_priority_level">priority-level</a></li>
 <li><a href="#_rt_event_status">rt_event_status</a></li>
 <li><a href="#_runtime_packer">runtime-packer</a></li>
 <li><a href="#_stealth_malware">stealth_malware</a></li>
@@ -2410,6 +2411,12 @@ circl namespace available in JSON format at <a href="https://github.com/MISP/mis
 <h4 id="_circl_incident_classification_scam">circl:incident-classification="scam"</h4>
 <div class="paragraph">
 <p>Scam</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_circl_incident_classification_cryptojacking">circl:incident-classification="cryptojacking"</h4>
+<div class="paragraph">
+<p>Cryptojacking</p>
 </div>
 </div>
 </div>
@@ -14734,6 +14741,161 @@ pentest namespace available in JSON format at <a href="https://github.com/MISP/m
 </div>
 </div>
 <div class="sect1">
+<h2 id="_priority_level">priority-level</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+priority-level namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/priority-level/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>After an incident is scored, it is assigned a priority level. The six levels listed below are aligned with NCCIC, DHS, and the CISS to help provide a common lexicon when discussing incidents. This priority assignment drives NCCIC urgency, pre-approved incident response offerings, reporting requirements, and recommendations for leadership escalation. Generally, incident priority distribution should follow a similar pattern to the graph below. Based on <a href="https://www.us-cert.gov/NCCIC-Cyber-Incident-Scoring-System" class="bare">https://www.us-cert.gov/NCCIC-Cyber-Incident-Scoring-System</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Exclusive flag set which means the values or predicate below must be set exclusively.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_emergency">emergency</h3>
+<div class="paragraph">
+<p>An Emergency priority incident poses an imminent threat to the provision of wide-scale critical infrastructure services, national government stability, or the lives of U.S. persons.</p>
+</div>
+<div class="sect3">
+<h4 id="_priority_level_emergency">priority-level:emergency</h4>
+<div class="paragraph">
+<p>Emergency</p>
+</div>
+<div class="paragraph">
+<p>An Emergency priority incident poses an imminent threat to the provision of wide-scale critical infrastructure services, national government stability, or the lives of U.S. persons.</p>
+</div>
+<div class="paragraph">
+<p>100</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_severe">severe</h3>
+<div class="paragraph">
+<p>A Severe priority incident is likely to result in a significant impact to public health or safety, national security, economic security, foreign relations, or civil liberties.</p>
+</div>
+<div class="sect3">
+<h4 id="_priority_level_severe">priority-level:severe</h4>
+<div class="paragraph">
+<p>Severe</p>
+</div>
+<div class="paragraph">
+<p>A Severe priority incident is likely to result in a significant impact to public health or safety, national security, economic security, foreign relations, or civil liberties.</p>
+</div>
+<div class="paragraph">
+<p>90</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_high">high</h3>
+<div class="paragraph">
+<p>A High priority incident is likely to result in a demonstrable impact to public health or safety, national security, economic security, foreign relations, civil liberties, or public confidence.</p>
+</div>
+<div class="sect3">
+<h4 id="_priority_level_high">priority-level:high</h4>
+<div class="paragraph">
+<p>High</p>
+</div>
+<div class="paragraph">
+<p>A High priority incident is likely to result in a demonstrable impact to public health or safety, national security, economic security, foreign relations, civil liberties, or public confidence.</p>
+</div>
+<div class="paragraph">
+<p>85</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_medium">medium</h3>
+<div class="paragraph">
+<p>A Medium priority incident may affect public health or safety, national security, economic security, foreign relations, civil liberties, or public confidence.</p>
+</div>
+<div class="sect3">
+<h4 id="_priority_level_medium">priority-level:medium</h4>
+<div class="paragraph">
+<p>Medium</p>
+</div>
+<div class="paragraph">
+<p>A Medium priority incident may affect public health or safety, national security, economic security, foreign relations, civil liberties, or public confidence.</p>
+</div>
+<div class="paragraph">
+<p>75</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_low">low</h3>
+<div class="paragraph">
+<p>A Low priority incident is unlikely to affect public health or safety, national security, economic security, foreign relations, civil liberties, or public confidence.</p>
+</div>
+<div class="sect3">
+<h4 id="_priority_level_low">priority-level:low</h4>
+<div class="paragraph">
+<p>Low</p>
+</div>
+<div class="paragraph">
+<p>A Low priority incident is unlikely to affect public health or safety, national security, economic security, foreign relations, civil liberties, or public confidence.</p>
+</div>
+<div class="paragraph">
+<p>50</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_baseline_minor">baseline-minor</h3>
+<div class="paragraph">
+<p>A Baseline–Minor priority incident is an incident that is highly unlikely to affect public health or safety, national security, economic security, foreign relations, civil liberties, or public confidence. The potential for impact, however, exists and warrants additional scrutiny.</p>
+</div>
+<div class="sect3">
+<h4 id="_priority_level_baseline_minor">priority-level:baseline-minor</h4>
+<div class="paragraph">
+<p>Baseline - Minor</p>
+</div>
+<div class="paragraph">
+<p>A Baseline–Minor priority incident is an incident that is highly unlikely to affect public health or safety, national security, economic security, foreign relations, civil liberties, or public confidence. The potential for impact, however, exists and warrants additional scrutiny.</p>
+</div>
+<div class="paragraph">
+<p>25</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_baseline_negligible">baseline-negligible</h3>
+<div class="paragraph">
+<p>A Baseline–Negligible priority incident is an incident that is highly unlikely to affect public health or safety, national security, economic security, foreign relations, civil liberties, or public confidence.</p>
+</div>
+<div class="sect3">
+<h4 id="_priority_level_baseline_negligible">priority-level:baseline-negligible</h4>
+<div class="paragraph">
+<p>Baseline - Negligible</p>
+</div>
+<div class="paragraph">
+<p>A Baseline–Negligible priority incident is an incident that is highly unlikely to affect public health or safety, national security, economic security, foreign relations, civil liberties, or public confidence.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_rt_event_status">rt_event_status</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -21507,6 +21669,12 @@ workflow namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 </div>
 <div class="sect3">
+<h4 id="_workflow_todo_create_missing_misp_galaxy">workflow:todo="create-missing-misp-galaxy"</h4>
+<div class="paragraph">
+<p>Create missing MISP galaxy at large about the information tagged (e.g. a new category of malware or activity)</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_workflow_todo_add_context">workflow:todo="add-context"</h4>
 <div class="paragraph">
 <p>Add contextual information about the information tagged</p>
@@ -22114,7 +22282,7 @@ workflow namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-18 12:38:45 CET
+Last updated 2018-03-16 11:49:40 CET
 </div>
 </div>
 </body>
