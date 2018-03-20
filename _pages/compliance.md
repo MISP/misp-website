@@ -17,5 +17,5 @@ As the MISP project is used in different geographical regions (Europe, North Ame
 
 ## ISO/IEC 27010:2015 - Information security management for inter-sector and inter-organizational communications
 
-- [MISP as supporting platform for sharing information, following ISO/IEC 27010:2015](compliance/ISO-IEC-27010/) latest version 1.0 published on Tuesday, 20 March 2018.
+- [MISP as supporting platform for sharing information, following ISO/IEC 27010:2015](/compliance/ISO-IEC-27010/) latest version 1.0 published on Tuesday, 20 March 2018.
 
