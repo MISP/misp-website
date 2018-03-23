@@ -2,6 +2,456 @@ Changelog
 =========
 
 
+v2.4.89 (2018-03-23)
+--------------------
+
+New
+~~~
+- Purge all/completed jobs via the job index, fixes #3024. [iglocska]
+- Describe the new changes to the deleteAttributes API. [iglocska]
+- Added self-description of the deleteAttributes API to the api
+  component. [iglocska]
+- Open up the attributes/deleteSelected action to the API. [iglocska]
+- Allow the searching of organisations by uuid on the event index (via
+  the API) [iglocska]
+- Finished the first version of the recovery tool. [iglocska]
+- Object reconstruction after, resolving the ID bug, WIP. [iglocska]
+- Temp diagnostic tool for orphaned object attributes. [iglocska]
+- RestResponse::describe() now uses generic URLs with optional url
+  parameters instead of showing the currently accessed ID. [iglocska]
+- Include the attribute UUID in the attribute level restsearch.
+  [iglocska]
+
+  - simply pass the `includeAttributeUuid` flag and set it to 1 via the API
+- Allow requesting of misp standard format for the export modules.
+  [iglocska]
+
+  - just set the `require_standard_format` to true in the moduleinfo disctionary
+
+Changes
+~~~~~~~
+- Version bump. [iglocska]
+- Query string bumped. [iglocska]
+- Updates to the deleteAttributes API. [iglocska]
+
+  - Allow passing the "all" wildcard value to the attribute id filter
+  - Allow passing the "allow_hard_delete" flag to indicate that hard-deletion of soft-deleted attributes is allowed
+- Allow the passing of the event ID via the JSON object for the
+  deleteSelected API. [iglocska]
+- Use <> as delimiters for the freetext import too, fixes #2978.
+  [iglocska]
+- Allow GETing the /tags/edit API. [iglocska]
+
+  - will describe itself
+  - no ID needs to be passed for the description
+
+Fix
+~~~
+- Critical API integrity bug, potentially allowing users to delete
+  attributes of other events. [iglocska]
+
+  - a crafted edit for an event (without attribute UUIDs but attribute IDs set) could overwrite an existing attribute
+- Get rid of keyboard shortcut footer tool when debug mode is enabled.
+  [iglocska]
+- Handle edge case scenarios where orphaned correlations would throw
+  notices in the event view. [iglocska]
+- PyMISP version is 2.4.89. [Alexandre Dulaunoy]
+- PyMISP recommended version fixed. [Alexandre Dulaunoy]
+- PyMISP updated to the latest revision. [Alexandre Dulaunoy]
+- Various cleanups of the event preview via feeds. [iglocska]
+- Support is isSiteAdmin + undeclared var + z-index. [Sami Mokaddem]
+- Collapse on object_reference + create object_reference close to the
+  parent node when expanding. [Sami Mokaddem]
+- Fixed various potential XSS issues in the resolved attributes view.
+  [iglocska]
+
+  - potentially exposed XSS if a malicious MISP module was loaded on the instance
+
+  - as reported by Christophe Vandeplas (@cvandeplas)
+- PyMISP updated to the latest version. [Alexandre Dulaunoy]
+- MISP taxonomies updated. [Alexandre Dulaunoy]
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+- MISP objects updated to the latest version. [Alexandre Dulaunoy]
+- Warning lists updated to the latest version. [Alexandre Dulaunoy]
+- Fixed FileObjectType None values handling. [chrisr3d]
+- Added missing space between the password and the info icon. [iglocska]
+
+  - my OCD demands it.
+- Fixed password complexity popover in the change password view.
+  [iglocska]
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+- Fixed error message if an attribute fails validation via the freetext
+  import tool, fixes #3052. [iglocska]
+- Fixed PDFFileObjectType parsing. [chrisr3d]
+
+  (waiting for metadata attributes parsing)
+- Fixed misp object parsing for cases where there is only 1 attribute.
+  [chrisr3d]
+- Changed recognition of stix from MISP files. [chrisr3d]
+
+  - Fixed the problem of empty events (for stix from MISP)
+    in the API
+  - Also removed not used json event loader which would
+    not have worked in this refactored version
+- Quick fix on object_relation field for port attributes. [chrisr3d]
+- Parsing composite attribute types. [chrisr3d]
+- Added email-attachment to parsed email properties types. [chrisr3d]
+- Fixed various issues with the template views, fixes #3050 among
+  others. [iglocska]
+- Object values reset when set to a custom value from a sane default
+  list, fixes #3049. [iglocska]
+- MISP objects updated to the latest version. [Alexandre Dulaunoy]
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+- Fixed view bug causing object reference deletions to fail, fixes
+  #3041. [iglocska]
+- Parsing pe sections. [chrisr3d]
+- Fixed pe filename value parsing. [chrisr3d]
+- Updated whois parsing function following recent update on whois
+  Object. [chrisr3d]
+- Removed console debug output. [iglocska]
+- Fixed invalid removal of attributes based on blocked tags using the
+  /attributes/restSearch API. [iglocska]
+- Tied the clearjobs function into the ACL and fixed a small text error.
+  [iglocska]
+- Correctly fail validation for invalid composite attributes, instead of
+  throwing an exception, fixes #3025. [iglocska]
+- Fix notice error when attribute is added with no correlation flag set
+  either way. [iglocska]
+- MISP taxonomies updated. [Alexandre Dulaunoy]
+- MISP objects updated. [Alexandre Dulaunoy]
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+- Fixed invalid object deletion text, fixes #3015. [iglocska]
+- Added uuid to organisations in the event index. [iglocska]
+
+  - also unset empty sharing groups from the output
+- Fixes an issue where invalid offsets where inspected within the event
+  add function, fixes #3006. [iglocska]
+- Empty events are created when pulling empty feeds, fixes #3008.
+  [iglocska]
+
+  - as described by Emanuele Acri (@crossbowerbt)
+- MISP galaxy updated to the latest version. [Alexandre Dulaunoy]
+- Added sightings to object attributes in the JSON output, fixes #3007.
+  [iglocska]
+- Added menu option for object reconstruction in the diagnostics page.
+  [iglocska]
+- Added missing view file for the new object reconstruction tool.
+  [iglocska]
+- Add misp objects to log search filter. [iglocska]
+- Only check the server's publish email flag if the adding of an event
+  comes from a remote server. [iglocska]
+- Emergency fix for objects getting overwritten on a pull in certain
+  situations. [iglocska]
+
+  - object IDs not purged on pull can lead to a local object being overwritten
+  - the patch fixes the capture function to purge the object IDs
+
+  - as discovered and reported by TS-WAY (@TS_WAY_SRL)
+- Fixed issue blocking the creation of tags, fixes #2989. [iglocska]
+
+  - as described by @Res260
+- /attributes/text should allow more than one type to be downloaded.
+  [iglocska]
+
+  - simply pass something such as:
+
+  {
+    "type": ["ip-src", "ip-dst"]
+  }
+- Object templates updated. [Alexandre Dulaunoy]
+- Warning lists updated to the latest version. [Alexandre Dulaunoy]
+- Allow parameters for the /attributs/text endpoint to be passed as a
+  JSON object. [iglocska]
+- Reworked the way tags are attached to events on the index. [iglocska]
+
+  - solves issues with the preview when an instance has an extremely high number of events
+- Fixed issues with to_json() not supporting datetime objects.
+  [chrisr3d]
+- Fixed an issue with no disable_correlation key existing for an event
+  in after save correlation. [iglocska]
+- Throw an exception of no ID is passed to /threads/viewEvent, fixes
+  #2977. [iglocska]
+- Fixed missing index errors on attribute index. [iglocska]
+- Open up /attributes/index to the API, fixes #2975. [iglocska]
+- Handle the no modules enabled error more gracefully. [iglocska]
+- Made the name field required on tags - prevents the error to be thrown
+  by the DB instead of the validation. [iglocska]
+- Fix tags/add on a GET request via the API. [iglocska]
+- Added /tags/add to restresponse. [iglocska]
+- Nicer error message when trying to add a tag to an event that doesn't
+  exist. [iglocska]
+- Changed stupid parameter name to better reflec what it does.
+  [iglocska]
+
+  - affects /attributes/restSearch
+  - includeAttributeUuid => includeEventUuid
+- GUI: Listing Attributes creates many debug.log entries fixes #2969.
+  [iglocska]
+- Fixed an invalid translation in the attributeRestorationForm causing
+  the confirmation to throw an exception, fixes #2967. [iglocska]
+- Fixes an issue where editing an object with an attachment contained
+  within would soft-delete said attachment, fixes #2966. [iglocska]
+- Reverted PR with alternate way of starting scheduler worker.
+  [iglocska]
+- Don't try to refang filepaths, fixes #2926. [iglocska]
+- Misleading failure message when failing to create Attributes partially
+  fixes #2955. [iglocska]
+- Typo fixed for the previous commit. [iglocska]
+
+  - apparently can't spell distribution
+- No distribution set on the server should default to inherit for object
+  attributes. [iglocska]
+- MISP objects updated. [Alexandre Dulaunoy]
+- Attribute distribution defaults fixed for adding objects. [iglocska]
+- Disable_correlation now works correctly as expected. [iglocska]
+- Warning lists updated to the latest version. [Alexandre Dulaunoy]
+- Fixed annoying download list only having one side clickable.
+  [iglocska]
+
+  - it was annoying to brigadier general @adulau
+- Removed left in debug/thrown exception. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Update event-graph.js. [Sami Mokaddem]
+
+  Fixed typo in fa-mapping hex value
+- Merge pull request #3063 from mokaddem/ref_graph. [Alexandre Dulaunoy]
+
+  Event graph viewer editor
+- Registrered funciton in ACLComponent. [Sami Mokaddem]
+- Renamed script again. [Sami Mokaddem]
+- Renamed script from references-graph to event-graph. [Sami Mokaddem]
+- Directly call the callback function in edit_reference so that tha
+  manipulation UI get back to normal directly (vis.js iiner behavior)
+  [Sami Mokaddem]
+- Check if input-search has focus before executing global keyboard
+  shortcut. [Sami Mokaddem]
+- Restaured stabilization on first load. [Sami Mokaddem]
+- Added possibility to edit references on the fly + edit objects on
+  their dedicated webpage. [Sami Mokaddem]
+- Replaced on/off event function by the once function. [Sami Mokaddem]
+- Simplified condition checking on expanding and collapsing nodes. [Sami
+  Mokaddem]
+- Removed useless progressbar and simplified loading popup information.
+  [Sami Mokaddem]
+- Improved FIXME comment. [Sami Mokaddem]
+- First iteration of refactoring (reference_graph.js): moved functions
+  into classes. [Sami Mokaddem]
+- Check if the reference is valid before performing the request. [Sami
+  Mokaddem]
+- Added fullscreen + typeahead feature to network graph. [Sami Mokaddem]
+- Added characters limitation in nodes + edit shortcut. [Sami Mokaddem]
+- Iglocska's magic (Added kind of ajax support in attribute/edit) [Sami
+  Mokaddem]
+
+  C
+   (\.   \      ,/)
+    \(   |\     )/
+    //\  | \   /\\
+   (/ /\_#oo#_/\ \)
+    \/\  ####  /\/
+         `##'
+  Ojo
+- Improved UX (Generic popup callback + loading and progressbar) + Added
+  shortcuts. [Sami Mokaddem]
+- Added generic popup callback + Support of item deletion in network
+  graph. [Sami Mokaddem]
+- Added basic popover for item addition in relation_graph. [Sami
+  Mokaddem]
+- Reset_view() fits network instead of moving to center only. [Sami
+  Mokaddem]
+- Typos. [Sami Mokaddem]
+- Updated centralGravity so that all nodes are closer to the center.
+  [Sami Mokaddem]
+- Camera fits the view after initial load. [Sami Mokaddem]
+- Added call back parameter in GenericPopup. [Sami Mokaddem]
+- Initial references graphs commit. [root]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3057 from jezkerwin/2.4. [Alexandre Dulaunoy]
+
+  Fixed spelling errors for mysql command and php version.
+- Fixed spelling errors for mysql command and php version. [jezkerwin]
+
+  Also changed git clone command for lief installation.
+- Quick fix on filename / filepath parsing. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Quick fix with indicator's timestamp. [chrisr3d]
+- Quick variable fix. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Updated comments: removed commented unused code & added documentation.
+  [chrisr3d]
+- Stix2misp refactor & update !! [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into stiximport. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: Parsing attachments. [chrisr3d]
+- Wip: Starting parsing portable executables. [chrisr3d]
+- Wip: Added description parsing for stix objects without properties.
+  [chrisr3d]
+- Wip: Whois parsing function improved. [chrisr3d]
+
+  Still need some tests with proper examples to finish this part
+- Wip: Starting parsing Whois Objects. [chrisr3d]
+
+  But need some examples to parse properly !!!!
+- Wip: Rebuilt hashes & files parsing functions. [chrisr3d]
+
+  Also handling more properly when to import a stix
+  object as a MISP Object or as Attribute
+- Merge pull request #3029 from chrisr3d/stiximport. [Christian Studer]
+
+  Refactor stiximport
+- Merge branch 'stiximport' of github.com:MISP/MISP into stiximport.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3017 from AJohnDoe/fix/module-select. [Andras
+  Iklody]
+
+  Fixes display of <select> (dropdown) in import module, closes #3005
+- Fixes display of <select> (dropdown), closes #3005. [John Doe]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Display "event" instead of "organisation" - Org Blacklist, fixes
+  #2473. [Andras Iklody]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Fixed key value that was not correct. [chrisr3d]
+- Wip: More types supported & functions clarified. [chrisr3d]
+- Wip: Starting to import external stix. [chrisr3d]
+- Wip: Supporting more Object types. [chrisr3d]
+- Wip: handling malware-sample in file objects. [chrisr3d]
+- Wip: Supporting more attribute types. [chrisr3d]
+- Wip: Parsing more attribute types & objects. [chrisr3d]
+
+  - More attribute types and objects to come with events testing
+- First version parsing some attributes. [chrisr3d]
+
+  - More attribute types to be added
+  - Objects to be parsed as well
+- Wip: Refactor of  stix2misp - only a beginning atm. [chrisr3d]
+- Merge pull request #3012 from Res260/feature_keyboard_navigation.
+  [Andras Iklody]
+
+  Add keyboard navigation when choosing tags for an event
+- Added a delay before doing the request when searching for tags in the
+  taxonomy choice. This reduces the possibility of losing characters
+  when typing fast. [Émilio Gonzalez]
+- - Added keyboard navigation with arrows/pageUp/pageDown/enter for tag
+  selection ( Issue #3001 ) - The color when hovering over a modal
+  element is now grey, to differentiate from blue when choosing tags
+  using keyboard. [Émilio Gonzalez]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3004 from RichieB2B/ncsc-nl/empty-stix. [Andras
+  Iklody]
+
+  Allow empty STIX files to be returned, closes #2478
+- Avoid 'Invalid argument supplied for foreach()' warning. [Richard van
+  den Berg]
+- Allow empty STIX files to be returned, closes #2478. [Richard van den
+  Berg]
+- Merge pull request #3002 from P4rs3R/patch-2. [Alexandre Dulaunoy]
+
+  pecl and phpenmod need root privileges
+- Pecl and phpenmod need root privileges. [x41\x43]
+
+  [line 329] According to stat -c "%U %G" /usr/share/php/.channels/pecl.php.net, the owner is root, so you can't edit this file as normal user,
+  [line 333] As above, both directories (/etc/php/7.0/cli/conf.d/ and /var/lib/php/modules/7.0/cli/enabled_by_admin/) are "root root": "Permission denied" while creating symbolic link or touching file.
+  Tested on Ubuntu server x64 16.04 LTS
+- Merge branch 'feature/objectreconstruction' into 2.4. [iglocska]
+- Merge branch '2.4' into feature/objectreconstruction. [iglocska]
+- Merge pull request #2997 from 0xmilkmix/validate_suricata_rules.
+  [Andras Iklody]
+
+  Validate suricata rules
+- Removed tests from class. [milkmix]
+- Finished http validation function using sticky and modifiers.
+  [milkmix]
+- Wrote dns validation func, checking modifier after dns_query keyword.
+  [milkmix]
+- Added options extraction function. [milkmix]
+- Added validation function for global syntax. [milkmix]
+- Initial regexp to match rule pattern. [milkmix]
+- Merge pull request #2996 from Res260/fix_IE11. [Andras Iklody]
+
+  Fix IE11 final: remove arrow function (ecmascript6 stuff)
+- Fix IE11 final: remove arrow function (ecmascript6 stuff) [Émilio
+  Gonzalez]
+- Merge pull request #2995 from Res260/fix_IE11. [Alexandre Dulaunoy]
+
+  Part 3: Fix IE11 by surrounding a new Promise call with try/catch
+- Part 3: Fix IE11 by surrounding a new Promise call with try/catch.
+  [Émilio Gonzalez]
+- Merge pull request #2993 from Res260/fix_IE11. [Andras Iklody]
+
+  Actually remove keyboard shortcuts from MISP.js
+- Actually remove keyboard shortcuts from MISP.js. [Émilio Gonzalez]
+- Merge pull request #2992 from P4rs3R/patch-1. [Andras Iklody]
+
+  sudo issue while installing mixbox
+- Sudo issue while installing mixbox. [x41\x43]
+
+  sudo -u www-data [#83 and #85]
+  sudo [#86]
+  Tested on Ubuntu Server x64 16.04.4 LTS
+- Merge pull request #2991 from LDO-CERT/2.4. [Andras Iklody]
+
+  Fixed publish_without_email for server sync
+- Fixup if statemant for mail and log message  cleanup. [lucamemini]
+
+  fixup if statemant for mail and log message  cleanup
+- Delete Event.php. [lucamemini]
+- Fixup if statement for log message. [lucamemini]
+
+  Fixup if statement for log message
+- Fixed publish_without_email for remove server event. [lucamemini]
+
+  Fixed broken support for publish_without_email to block email notification when event is pulled from remote server and flag "Publish Without Email" is enabled.
+- Merge pull request #1 from MISP/2.4. [lucamemini]
+
+  Refresh from upstream
+- Merge pull request #2990 from Res260/fix_IE11. [Andras Iklody]
+
+  Move keyboard shortcuts from misp.js to its own file (to regain compatibility with IE11)
+- Move keyboard shortcuts from misp.js to its own file (to regain
+  compatibility with IE11) [Émilio Gonzalez]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #2985 from Res260/fix_filename_ssdeep_import.
+  [Andras Iklody]
+
+  Fixed a bug regarding filename|ssdeep attributes importing using FreeTextImport
+- Fixed a bug regarding filename|ssdeep attributes importing using
+  FreeTextImport. See Issue #2971. [Émilio Gonzalez]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #2979 from SteveClement/2.4. [Alexandre Dulaunoy]
+
+  Added install step to make sure submodule permissions are ignored
+- - Added install step to make sure all the submodules ignore
+  permissions. [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into 2.4. [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into 2.4. [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into 2.4. [Steve Clement]
+- Merge branch '2.4' of github.com:SteveClement/MISP into 2.4. [Steve
+  Clement]
+- Merge remote-tracking branch 'origin/i18n_prep' into 2.4. [Steve
+  Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #2962 from Res260/add_pointer_triangle. [Andras
+  Iklody]
+
+  Small keyboard shortcuts changes
+- Add attribute shortcut now triggers the popup instead of changing page
+  + bottom right triangle now with pointer cursor. [Émilio Gonzalez]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+
+
 v2.4.88 (2018-02-21)
 --------------------
 
