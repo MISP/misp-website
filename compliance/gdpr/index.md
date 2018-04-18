@@ -5,7 +5,7 @@ title: Information sharing and cooperation enabled by GDPR
 
 # Information sharing and cooperation enabled by GDPR
 
-Version: 1.1 - Tuesday, 30 January 2017
+Version: 1.1 - Tuesday, 30 January 2018
 
 ## Introduction
 
