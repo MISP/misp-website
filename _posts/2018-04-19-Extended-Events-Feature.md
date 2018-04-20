@@ -33,7 +33,7 @@ Clicking on the atomic view / extended view toggle button will allow you to jump
 
 Extending an event is easy and a nifty lookup interface helps you to select the appropriate event to extend:
 
-![A MISP event extended by another event](/assets/images/misp/blog/extendadd.png){:class="img-responsive"}
+![Extending a event when creating a new MISP event](/assets/images/misp/blog/extendadd.png){:class="img-responsive"}
 
 In the above case, OSINT information contained within an event is extended with additional threat hunting information which are limited to your organisation. The major advantage of such approach is allowing any organisation to expand information without touching the original event.
 
