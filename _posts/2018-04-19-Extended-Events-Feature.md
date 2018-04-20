@@ -8,7 +8,7 @@ featured: /assets/images/misp-small.png
 
 We have just released a new feature for MISP that allows users to build full blown events that extend an existing event, giving way to a combined event view that includes a sum total of the event along with all extending events.
 
-The success and usefulness of information sharing tools largely hinges on how well it can help you convey your message.
+**The success and usefulness of information sharing tools largely hinges on how well it can help you convey your message.**
 
 One of the aspects of this that has been permanently stuck at the top of our internal planning whiteboards has always been the goal to improve the collaborative aspects of information sharing.
 For those that have followed MISP's development over the years, we have experimented with various tools that were aiming to improve the way we can all work together as a community, be it by being able to propose changes to the data of 3rd parties, to request additional information or to simply be able to communicate through the platform.
@@ -26,6 +26,8 @@ Users can thus add objects, attributes, galaxy clusters or tags to existing even
 To create an extension event, simply enter the UUID or ID of the event in the "Extends event" field. If you skip this step, you can always do it at a later point by clicking on "edit event". Create the event as you normally would, replicating any of the data already contained in the event to be extended is not needed.
 
 Users viewing the original report, will now see a new field called "Extended by" as shown below:
+
+![A MISP event extended by another event](/assets/images/misp/blog/extended.png){:class="img-responsive"}
 
 Clicking on the atomic view / extended view toggle button will allow you to jump from the classical event view to the extended event view rapidly. The extended view will add all of the relations, tags, galaxy clusters, attributes and objects of the extender events. The attribute list in extended view also shows the event it originates from along with the creator organisation. Keep in mind that duplicates across several events are not culled.
 
