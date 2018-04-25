@@ -58,6 +58,7 @@ is also to explore new ideas, concepts or functionality which can be integrated 
 * [CSV import](https://github.com/MISP/misp_modules/modules/import_mod/csvimport.py) Customizable CSV import module.
 * [Cuckoo JSON](https://github.com/MISP/misp_modules/modules/import_mod/cuckooimport.py) Cuckoo JSON import.
 * [Email Import](https://github.com/MISP/misp_modules/modules/import_mod/email_import.py) Email import module for MISP to import basic metadata.
+* [GoAML Import](https://github.com/MISP/misp-modules/blob/master/misp_modules/modules/import_mod/goamlimport.py) GoAML format import.
 * [OCR](https://github.com/MISP/misp_modules/modules/import_mod/ocr.py) Optical Character Recognition (OCR) module for MISP to import attributes from images, scan or faxes.
 * [OpenIOC](https://github.com/MISP/misp_modules/modules/import_mod/openiocimport.py) OpenIOC import based on PyMISP library.
 * [stiximport](https://github.com/MISP/misp_modules/modules/import_mod/stiximport.py) - An import module to process STIX xml/json.
@@ -67,7 +68,7 @@ is also to explore new ideas, concepts or functionality which can be integrated 
 * [misp-workbench](https://github.com/MISP/misp-workbench) - Tools to export data out of the MISP MySQL database and use and abuse them outside of this platform.
 * [MISpego](https://github.com/MISP/MISPego) - Maltego Transform to put entities into MISP events.
 * [MISP-maltego](https://github.com/MISP/MISP-maltego) - Set of Maltego transforms to inferface with a MISP instance.
-* [PyMISP](https://github.com/CIRCL/PyMISP) - Python library using the MISP Rest API. This is the official library for MISP and can also generate offline MISP events.
+* [PyMISP](https://github.com/MISP/PyMISP) - Python library using the MISP Rest API. This is the official library for MISP and can also generate offline MISP events.
 * [MISP-STIX-Converter](https://github.com/MISP/MISP-STIX-Converter) -  An utility repo to assist with converting between MISP and STIX formats.
 * [MISP-Taxii-Server](https://github.com/MISP/MISP-Taxii-Server) - An OpenTAXII Configuration for MISP with automatic TAXII to MISP sync.
 * [mail_to_misp](https://github.com/MISP/mail_to_misp) - Connect your mail client/infrastructure to MISP in order to create events based on the information contained within mails.
