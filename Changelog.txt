@@ -2,6 +2,523 @@ Changelog
 =========
 
 
+v2.4.91 (2018-05-15)
+--------------------
+
+New
+~~~
+- Remove galaxy cluster information from the sync mechanism for now.
+  [iglocska]
+
+  - currently galaxy clusters aren't shared anyway, no point in blowing up the data size / processing time
+- Added attribute level galaxy clusters. [iglocska]
+- Added option to include base64 encoded attachments in the ZMQ output,
+  fixes #3169. [iglocska]
+- [stix1 import] Starting parsing related observables in documents from
+  misp. [chrisr3d]
+- [Export] Added a secondary CSV export that includes more context to
+  the UI download tool. [iglocska]
+- First implementation of the Noticelist system ready. [iglocska]
+- Added noticelist view. [iglocska]
+- Noticelist system added. [iglocska]
+- Refactor of the warning message for the add attribute view. [iglocska]
+- Added chartjs dependency. [Sami Mokaddem]
+- Possibility to show/hide distribution repartition of
+  event/attr/objAttr chg: layout adaptation. [Sami Mokaddem]
+- Show elements having a distribution lower than the event distribution
+  in the distribution graph. [Sami Mokaddem]
+- Possibility to view connected communities and concerned sharing groups
+  in distribution graph's tooltip. [Sami Mokaddem]
+- Added warning about missing warninglists used for TLD resolution in
+  the freetext import tool. [iglocska]
+
+  - following the twitter feedback
+- Added event enrichment functionality. [iglocska]
+
+  - select and run a set of enrichments on all applicable attributes of the event
+  - exposed to the API
+  - exposed to the command line tool
+  - adheres to attribute distributions
+- Added Feed management API. [iglocska]
+
+  - add/edit/delete feeds via the API
+  - new APIs are RestResponseComponent aware
+  - GET on add/edit to receive usage information
+
+Changes
+~~~~~~~
+- [PyMISP] updated to latest version. [Alexandre Dulaunoy]
+- [stix1 export] Added object name in observable composition id.
+  [chrisr3d]
+
+  For an easier import
+- [stix1 import] Better distinction in the  parsing between indicators &
+  observables. [chrisr3d]
+
+  Following the latest changes on stix1 export (avoiding systematic
+  observable compositions for MISP objects representation)
+- [stix1 import] Improved regkey object parsing. [chrisr3d]
+- [stix1 export] Exporting ip|port & hostname|port as socket address
+  object. [chrisr3d]
+
+  Instead of creating an observable composition
+- [misp-warninglists] updated to the latest version. [Alexandre
+  Dulaunoy]
+- [stix1 export] Better parsing MISP objects. [chrisr3d]
+- [stix1 export] Improvement of some functions. [chrisr3d]
+- [API] Attaching a tag to an object no longer throws an exception if
+  the tag already exists, fixes #3245. [iglocska]
+
+  - just emits positive vibes by saying that no changes had to be made
+- [misp-object] updated to the latest version. [Alexandre Dulaunoy]
+- [validation] Change the unique validation for attributes to be escaped
+  if an object ID is set, as opposed to an object relation. [iglocska]
+- [debug] Added debug of failed mass edits to returned JSON. [iglocska]
+- Only run the automatic worker restart on upgrade if background
+  processing is enabled. [iglocska]
+- Allow /objects/edit/id to accept a UUID instead of a local ID.
+  [iglocska]
+- Modified how network socket are parsed using the latest created misp
+  object. [chrisr3d]
+- [Controllers] sets the ajax variable globally. [Sami Mokaddem]
+
+  As well as removing useless set in controllers and accessing it instead
+  of passing through the request.
+- Added misp noticelists as a submodule. [iglocska]
+- [DistributionGraph] addition of tooltip. [Sami Mokaddem]
+
+  Replaced percentage text in the sharing group progressbar by a tooltip
+  giving more information
+- [EventController] replaced if/else by ternary condition. [Sami
+  Mokaddem]
+- Trying not to break the MVC pattern. [Sami Mokaddem]
+
+  Server model is not passed to the constructor anymore, as well as the
+  Organisation model.
+- [DistributionGraph] added ``distribution description`` text in the
+  info popup. [Sami Mokaddem]
+- [distributionGraph] support of the sharing group event distribution
+  chg: [distributionGraph] code cleanup. [Sami Mokaddem]
+- Update __query version. [Sami Mokaddem]
+- Show all by default. [Sami Mokaddem]
+- Doughnut part color. [Sami Mokaddem]
+- Updated description tooltip text. [Sami Mokaddem]
+- Sanitization of data for distribution graph. [Sami Mokaddem]
+- Add additional distribution info about to whom we are sharing even if
+  we don't have element on this distribution level. [Sami Mokaddem]
+- Replaced radar chart to doughnut chart. [Sami Mokaddem]
+- Moved sharing group outside of the distribution progressbar (as it is
+  a special case), distribution range is displayed when clicking on the
+  pb labels and lots of minor improvements. [Sami Mokaddem]
+- Changed distribution graph popover title. [Sami Mokaddem]
+- Removed useless prints. [Sami Mokaddem]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- Bump PyMISP. [Raphaël Vinot]
+- First round of refactoring of the side menu. [iglocska]
+- Changed the org admin role to not have sync privileges by default.
+  [iglocska]
+
+Fix
+~~~
+- Detaching galaxy clusters from attributes was using the old function
+  name. [iglocska]
+- Attachcluster to object attributes fails due to no flattening.
+  [iglocska]
+- Validation issue for objects fixed. [iglocska]
+- Fixed an invalid link when attaching a cluster via all galaxies.
+  [iglocska]
+- Version bump. [iglocska]
+- [stix1 import] Catching port type while importing ip-port MISP
+  objects. [chrisr3d]
+- [stix1 import] Testing if related_indicators/observables is in a
+  document before watching it. [chrisr3d]
+- [stix1 import] Fixed distinction between atttribute values. [chrisr3d]
+
+  - MISP attributes can be INT sometimes, so read the 2nd comment
+
+  - Previously an INT attribute value did not satisfy the condition,
+    which made it considered as objects attributes and tried to
+    create a MISP object instead of a single attribute
+- [stix1 export] Fixed objects and observables IDs generation.
+  [chrisr3d]
+- [stix1 import] Fixed missing self argument. [chrisr3d]
+- [stix1 import] Fixed some attribute parsing function calls. [chrisr3d]
+- Some cleanup. [iglocska]
+- Added documentation of server setting modifications via the console.
+  [iglocska]
+
+  - also added left-off server setting for enabling attachments via ZMQ
+- [stix1 export] Fixed my omission of ids flag parsing for x509 MISP
+  objects. [chrisr3d]
+- [stix1 export] Quick fix on attribute data field test. [chrisr3d]
+- Fixed the enabled field missing for non site admin users in
+  warninglsits / noticelists. [iglocska]
+- [validation] Fixed an issue with the unique attribute validation rule
+  blocking legitimate use-cases. [iglocska]
+
+  - adding an attribute with a matching pair or category/type/value in an existing object-contained attribute would be incorrectly flagged as violating the attribute uniqueness rule
+- Don't lowercase the controllername for the ACL Component. [iglocska]
+- [UI] Fixed the field name for input source in the feed edit view.
+  [iglocska]
+- [Feed caching] Readded the feed correlations for non correlating
+  attributes. [iglocska]
+
+  - it was breaking the indexing for the attached correlations
+- [ACL] Fixed the side menu url to the correct capitalisation for the
+  populate from button. [iglocska]
+- [ACL] Made the ACL system's behaviour more lax when it comes to
+  capitalisation mistakes in the URL, fixes #3240. [iglocska]
+- [API] Tightened the disabling of the security component to counter the
+  effects of cakephp 2.10.x. [iglocska]
+- Bumped noticelist version. [iglocska]
+- Restart the workers due to the new cakephp version causing issues.
+  [iglocska]
+- Remove form tampering for REST requests. [iglocska]
+
+  - makes MISP compatible with 2.10.x
+  - No point in running the security component's test since no form is submitted via REST anyway.
+- Changed filepath of noticelist not reflected in update script.
+  [iglocska]
+- Cakephp version bumped to latest 2.x. [iglocska]
+
+  - also gets rid of the stupid mcrypt requirement that breaks compatibility with newer ubuntu versions
+- Edge case with empty objects caused *barf* [iglocska]
+- Account for alternate format for /objects/edit. [iglocska]
+
+  - I need to take a shower after this fix
+- Fixed invalid indeces in the feed lookup via the event view.
+  [iglocska]
+- Fixed broken objects/edit. [iglocska]
+- Fixed object add. [iglocska]
+- Fixed name change of variable breaking /objects/add. [iglocska]
+- Added the missing schemaloc namespace for system objects. [chrisr3d]
+- Handle no template being passed to objects/add correctly. [iglocska]
+- Fixed object->attribute references not being captured correctly.
+  [iglocska]
+- [DistributionGraph] include metadata for all distribution level. [Sami
+  Mokaddem]
+
+  When fetching distribution graph data, returns information about all
+  distribution level (even not concerned).
+- Removed break point *cough* [iglocska]
+- Don't redirect users to terms page if no terms page is set. [iglocska]
+- [CorrelationGraph] set the undefined ajax variable when pivoting from
+  a taxonomy tag / galaxy cluster in fullscreen. [Sami Mokaddem]
+- Fixed an issue with the notice message container showing invalid
+  default data. [iglocska]
+- Fixed regkey value string. [chrisr3d]
+- Added missing space after the taxonomy name on the taxonomy view.
+  [iglocska]
+- Fixed email observable type parsing. [chrisr3d]
+- Using an existing relationship between a process and its network
+  connections. [chrisr3d]
+- Directly take the sharing group name from the event. [Sami Mokaddem]
+
+  Do not fetch the sharing group name as it is already included in the
+  event.
+  + fixed a css glitch
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [DistributionGraph] incorrect number in the sg progressbar tooltip.
+  [Sami Mokaddem]
+
+  Set the correct number of involved sharing instead of the sum of sharing
+  group in the sg progressbar tooltip
+- Fixed a bug that prevented servers from being added. [iglocska]
+- [DistributionGraph] sharing group search and uniqueness of results.
+  [Sami Mokaddem]
+
+  fix a bug where filtering per sharing group was not inlcuding inherit
+  attributes.
+  Enforce uniqueness of involved entities.
+- Fixed distribution level swapping when filtering from the distribution
+  chg: moved styling into css new: Loading gif when building the
+  distribution graph. [Sami Mokaddem]
+- Avoid redrawin distribution graph when closin its popover + reset pb
+  ticks offset at each draw. [Sami Mokaddem]
+- Replaced hardcoded eventID by the real event id. [Sami Mokaddem]
+- Support of filtering for distribution=0 (empty(0) is true ini php).
+  Also, only consider attr and obj_attr (ignoring object as they only
+  carry meta-data) [Sami Mokaddem]
+- Honour `MISP.completely_disable_correlation` on attribute/event
+  save/delete action. [Eugenio Paolantonio]
+- Typo. [chrisr3d]
+- Fixed typo of a string function. [chrisr3d]
+- Attribute values that are too long for mysql text fields don't
+  generate warnings and just truncate, fixes #3196. [iglocska]
+
+  added validation error
+- Removing galaxy filters in the galaxy view would redirect to an
+  invalid url, fixes #3201. [iglocska]
+- Allow "json" not to be set when adding a server via the API.
+  [iglocska]
+- Fixed /servers/add via REST API not working, fixes #3202. [iglocska]
+
+  - corrected list of parameters
+  - added sane defaults so that only the minimum list of fields is actually required
+  - fixed a bunch of stuff that was just plain broken with this API
+- Low timeout added for module introspection to fix performance
+  bottlenecks. [iglocska]
+- Testing if references before looping on it. [chrisr3d]
+- Inverted 2 type values of a DNS Record. [chrisr3d]
+- Fixed events from MISP recognition. [chrisr3d]
+- Fixed copy pasta fail. [Andras Iklody]
+
+  As reported by @truckydev
+- Fixed path / filename split case. [chrisr3d]
+- Fixed InformationSource references in STIX incident object. [chrisr3d]
+- Source Format -> Input Source (C/P mistake) [Raphaël Vinot]
+- Function object typo. [chrisr3d]
+- Fixed library import. [chrisr3d]
+- Don't correlate attribute to feeds if the correlations are disabled on
+  the attribute. [iglocska]
+- Fixed a typo in the side menu rework. [iglocska]
+- Allow filename as an alternative for parsed domains/hostnames.
+  [iglocska]
+- PyMISP version 2.4.90. [Alexandre Dulaunoy]
+- Added some sanitisation to the new view. [iglocska]
+- Fixed namespaces (causing bugs if not set) [chrisr3d]
+- Fixed external ids field type. [chrisr3d]
+- Object templates updated to the latest version. [Alexandre Dulaunoy]
+- Fixed weird error message if an ajax query goes wrong. [iglocska]
+- Hide buttons to create proposals for read only users, fixes #3187.
+  [iglocska]
+- Added event enrichment to the ACL. [iglocska]
+- Editing an attribute was not setting the distribution level to the
+  previous value. [Sami Mokaddem]
+- Changed "xhtml:body" into "xhtml:div", to avoid creating a body DOM
+  which cause listener on the original body to bug. Incremented js
+  number and check if request is ajax or not in ObjectController. [Sami
+  Mokaddem]
+- MISP warning-lists updated to latest version. [Alexandre Dulaunoy]
+- Removed print. [chrisr3d]
+- Fixed an issue where attribute searches via the UI would incorrectly
+  return all visible data. [iglocska]
+- Fail gracefully during single user PGP key checks on the user view.
+  [iglocska]
+- Fixed relationships in object references. [chrisr3d]
+- Fixed editing feeds via the UI. [iglocska]
+- Session.cookie_timeout could not be saved correctly, fixes #3182,
+  fixes #3171. [iglocska]
+- Downasides -> downsides. [Raphaël Vinot]
+- Fixed empty event tags on the event index api. [iglocska]
+- After adding a tag via the API MISP would always return the first tag,
+  fixes #3159. [Andras Iklody]
+- Cull empty event tags for event index. [iglocska]
+- Fixed previewing image attachments via the feeds. [iglocska]
+- Fixed some obscure translation errors between python 2 & 3. [chrisr3d]
+- Fixed monkey copy paste errors. [chrisr3d]
+- Fixed some mapping issues. [chrisr3d]
+
+  -> Threat level name & incident status name mapping
+- Fixed color mapping issue that avoided Marking creation. [chrisr3d]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Version bump. [iglocska]
+- Add: [stix1 import] Now importing MISP objects from related
+  observables. [chrisr3d]
+- Add: [stix1 import] Added CustomObjects parsing. [chrisr3d]
+- Add: [stix1 export] Added socket address object namespace. [chrisr3d]
+- [stix1 export] Removed no longer used observable composition for
+  ip|port. [chrisr3d]
+- [stix1 export] Reusing little functions. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: [stix1 import] Importing reply-to attributes. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3237 from StefanKelm/2.4. [Andras Iklody]
+
+  Update attributeConfirmationForm.ctp
+- Update attributeConfirmationForm.ctp. [StefanKelm]
+
+  Match message text with what is being displayed at event view
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Added description for the latest functions created. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'global_ajax' into 2.4. [Sami Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'smallfixes' into 2.4. [iglocska]
+- Add: Parsing hostname while importing network connection or socket
+  object. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3233 from mokaddem/global_ajax. [Andras Iklody]
+
+  chg: [Controllers] sets the ajax variable globally
+- Add: Importing System objects containing mac addresses. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: Added namespace for the latest STIX object supported in our
+  exporter. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: Parsing email-reply-to attributes. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3232 from SteveClement/2.4. [Steve Clement]
+
+  Amended Ubuntu ssdeep instructions - Added 18.04 install file
+- - Added Ubuntu 18.04 instructions. [Steve Clement]
+- - updated ssdeep instructions. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: Exporting mac-addresses. [chrisr3d]
+- [doc] features about new correlation engine added. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3223 from SteveClement/2.4. [Steve Clement]
+
+  - Added mascot drafts
+- - Added mascot drafts. [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into 2.4. [Sami Mokaddem]
+- Merge remote-tracking branch 'upstream/2.4' into
+  distributionGraphDonut. [Sami Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3214 from mokaddem/distributionGraphDonut. [Andras
+  Iklody]
+
+  Distribution graph
+- Merge remote-tracking branch 'upstream/2.4' into
+  distributionGraphDonut. [Sami Mokaddem]
+- Merge remote-tracking branch 'upstream/2.4' into distributionGraph.
+  [Sami Mokaddem]
+- Changed distribution label in distribution graph (removed distribution
+  number) [Sami Mokaddem]
+- Center distribution graph inside the popover. [Sami Mokaddem]
+- Changed behavior of distribution progressbar: Display event
+  distribution along with the maximum distribution level of the items
+  inside the event. [Sami Mokaddem]
+- Changed distribution graph popover title. [Sami Mokaddem]
+- Removed useless codes. [Sami Mokaddem]
+- Updated ACLComponent. [Sami Mokaddem]
+- Feature: progress bar showing the range of the maximum distribution of
+  all items. Moved radar graph and  progressbar in a popover. [Sami
+  Mokaddem]
+- Possibility to filter valueInFieldAttribute with multiple value.
+  distribution graph support inherit distribution level. [Sami Mokaddem]
+- Allow filtering attributes based on specific columns (previsouly not
+  accessible) like distribution. Partial support of onClick for
+  distribution graph. [Sami Mokaddem]
+- Merge remote-tracking branch 'upstream/2.4' into distributionGraph.
+  [Sami Mokaddem]
+- Initial version of the distribution graph. [Sami Mokaddem]
+- Add: Parsing network connections in process objects. [chrisr3d]
+- Add: Starting parsing process objects. [chrisr3d]
+- Merge pull request #3215 from ts-way/for-upstream/disable-
+  correlations-fix. [Andras Iklody]
+
+  Honour `MISP.completely_disable_correlation` on attribute/event save/delete action
+- Merge branch '2.4' of github.com:MISP/MISP into stix. [chrisr3d]
+- Merge pull request #3212 from StefanKelm/2.4. [Alexandre Dulaunoy]
+
+  Update event-graph.js
+- Update event-graph.js. [StefanKelm]
+- MISP taxonomies updated. [Alexandre Dulaunoy]
+- Add: Starting parsing network socket objects. [chrisr3d]
+- Add: Starting parsing network connection objects. [chrisr3d]
+- Merge branch 'stix' into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into stix. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3205 from stephengroat/patch-1. [Alexandre
+  Dulaunoy]
+
+  cleanup travis and move to requirements.txt
+- Cleanup travis and move to requirements.txt. [Stephen]
+- Add: MISP objects template updated to the latest version. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: Now resolving domain/uri with relationship 'Resolved_To' to ip
+  addresses. [chrisr3d]
+- Fixed an absent-mindedness due to my chocolate consumption. [chrisr3d]
+- Better DNS objects parsing. [chrisr3d]
+- Add: Starting parsing some DNS record objects. [chrisr3d]
+
+  - atm parsing attributes that exist in MISP (domain & ip)
+
+  - able to parse DNS related attributes but need to define
+    how to map it in MISP
+- Updated stix header title. [chrisr3d]
+
+  The header is actually skipped in MISP and the one
+  from misp2stix_framing is used, but usefull for
+  command line tests
+- Merge branch '2.4' of github.com:MISP/MISP into stix. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'stix' into 2.4. [chrisr3d]
+- Removed print... [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into stix. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Atm set the version to 1.1.1 to keep compatibility. [chrisr3d]
+
+  ... with the previous misp2stix script
+- Merge branch '2.4' of github.com:MISP/MISP into stix. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into stix. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3190 from MISP/quickfix-eventGraph-popover.
+  [Andras Iklody]
+
+  fix: Do not append popover content (from event graph) into body
+- Feature-contextualMenu: Possibility to specify the container in which
+  to append the menu. [Sami Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3188 from
+  mokaddem/edit_attribute_distribution_fix. [Andras Iklody]
+
+  quickfix: editing an attribute was resetting its distribution level
+- Merge branch 'correlation_integration' into 2.4. [iglocska]
+- Sanitize event_id + bit refacto. [Sami Mokaddem]
+- Slight ui adjustement. [Sami Mokaddem]
+- Feature: Support of fullscreen in correlation graph in the event view.
+  [Sami Mokaddem]
+- Correlation graph in event view. [Sami Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Precising error type to better catch where an error is. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Args & string formatting typo. [chrisr3d]
+- Merge pull request #3183 from StefanKelm/2.4. [Andras Iklody]
+
+  Update Log.php
+- Update Log.php. [StefanKelm]
+- Update Log.php. [StefanKelm]
+
+  Alphabetically sort list of Actions pull-down menu within "Search Logs"
+- Add: Making references between objects in the event created while
+  importing STIX. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: Added Windows Service objects parsing. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Added dedscription for each function. [chrisr3d]
+- Added return statement. [chrisr3d]
+- Turned ttps into class object in order to clean parameters. [chrisr3d]
+- Removed self repetition when not required. [chrisr3d]
+- Making the module work for both python 2 & 3. [chrisr3d]
+- Removed print & added confirmation message at the end. [chrisr3d]
+- Removed dependencies modules merged in this one. [chrisr3d]
+- MISP to stix, cybox & ciq in 1 module (class methods) [chrisr3d]
+- MISP to STIX export refactored & updated to work with python3.
+  [chrisr3d]
+
+
 v2.4.90 (2018-04-21)
 --------------------
 
