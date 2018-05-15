@@ -476,6 +476,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_honeypot_basic">honeypot-basic</a></li>
 <li><a href="#_iep">iep</a></li>
 <li><a href="#_incident_disposition">incident-disposition</a></li>
+<li><a href="#_infoleak">infoleak</a></li>
 <li><a href="#_information_security_indicators">information-security-indicators</a></li>
 <li><a href="#_kill_chain">kill-chain</a></li>
 <li><a href="#_lifetime">lifetime</a></li>
@@ -8531,6 +8532,284 @@ incident-disposition namespace available in JSON format at <a href="https://gith
 </div>
 </div>
 <div class="sect1">
+<h2 id="_infoleak">infoleak</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+infoleak namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/infoleak/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A taxonomy describing information leaks and especially information classified as being potentially leaked. The taxonomy is based on the work by CIRCL on the AIL framework. The taxonomy aim is to be used at large to improve classification of leaked information.</p>
+</div>
+<div class="sect2">
+<h3 id="_source">source</h3>
+<div class="sect3">
+<h4 id="_infoleak_source_public_website">infoleak:source="public-website"</h4>
+<div class="paragraph">
+<p>Public website</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_source_pastie_website">infoleak:source="pastie-website"</h4>
+<div class="paragraph">
+<p>Pastie-like website</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_source_electronic_forum">infoleak:source="electronic-forum"</h4>
+<div class="paragraph">
+<p>Electronic forum</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_source_mailing_list">infoleak:source="mailing-list"</h4>
+<div class="paragraph">
+<p>Mailing-list</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_source_source_code_repository">infoleak:source="source-code-repository"</h4>
+<div class="paragraph">
+<p>Source code repository</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_source_automatic_collection">infoleak:source="automatic-collection"</h4>
+<div class="paragraph">
+<p>Automatic collection including honeypots, spamtramps or equivalent technologies</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_source_manual_analysis">infoleak:source="manual-analysis"</h4>
+<div class="paragraph">
+<p>Manual analysis or investigation where detection took place</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_source_unknown">infoleak:source="unknown"</h4>
+<div class="paragraph">
+<p>Unknown</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_source_other">infoleak:source="other"</h4>
+<div class="paragraph">
+<p>Other source not specified in this list</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_analyst_detection">analyst-detection</h3>
+<div class="sect3">
+<h4 id="_infoleak_analyst_detection_credential">infoleak:analyst-detection="credential"</h4>
+<div class="paragraph">
+<p>Credential</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_analyst_detection_credit_card">infoleak:analyst-detection="credit-card"</h4>
+<div class="paragraph">
+<p>Credit card</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_analyst_detection_phone_number">infoleak:analyst-detection="phone-number"</h4>
+<div class="paragraph">
+<p>Phone number</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_analyst_detection_api_key">infoleak:analyst-detection="api-key"</h4>
+<div class="paragraph">
+<p>API key</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_analyst_detection_private_key">infoleak:analyst-detection="private-key"</h4>
+<div class="paragraph">
+<p>Private key at large</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_analyst_detection_private_ssh_key">infoleak:analyst-detection="private-ssh-key"</h4>
+<div class="paragraph">
+<p>Private ssh key</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_analyst_detection_private_static_key">infoleak:analyst-detection="private-static-key"</h4>
+<div class="paragraph">
+<p>Private state key</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_automatic_detection">automatic-detection</h3>
+<div class="sect3">
+<h4 id="_infoleak_automatic_detection_credential">infoleak:automatic-detection="credential"</h4>
+<div class="paragraph">
+<p>Credential</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_automatic_detection_credit_card">infoleak:automatic-detection="credit-card"</h4>
+<div class="paragraph">
+<p>Credit card</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_automatic_detection_phone_number">infoleak:automatic-detection="phone-number"</h4>
+<div class="paragraph">
+<p>Phone number</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_automatic_detection_api_key">infoleak:automatic-detection="api-key"</h4>
+<div class="paragraph">
+<p>API key</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_automatic_detection_private_key">infoleak:automatic-detection="private-key"</h4>
+<div class="paragraph">
+<p>Private key at large</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_automatic_detection_private_ssh_key">infoleak:automatic-detection="private-ssh-key"</h4>
+<div class="paragraph">
+<p>Private ssh key</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_automatic_detection_private_static_key">infoleak:automatic-detection="private-static-key"</h4>
+<div class="paragraph">
+<p>Private state key</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_certainty">certainty</h3>
+<div class="sect3">
+<h4 id="_infoleak_certainty_100">infoleak:certainty="100"</h4>
+<div class="paragraph">
+<p>Certainty (probability equals 1 - 100%)</p>
+</div>
+<div class="paragraph">
+<p>Certainty</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="100"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_certainty_93">infoleak:certainty="93"</h4>
+<div class="paragraph">
+<p>Almost certain (probability equals 0.93 - 93%)</p>
+</div>
+<div class="paragraph">
+<p>Almost certain</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="93"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_certainty_75">infoleak:certainty="75"</h4>
+<div class="paragraph">
+<p>Probable (probability equals 0.75 - 75%)</p>
+</div>
+<div class="paragraph">
+<p>Probable</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="75"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_certainty_50">infoleak:certainty="50"</h4>
+<div class="paragraph">
+<p>Chances about even (probability equals 0.50 - 50%)</p>
+</div>
+<div class="paragraph">
+<p>Chances about even</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="50"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_certainty_30">infoleak:certainty="30"</h4>
+<div class="paragraph">
+<p>Probably not (probability equals 0.30 - 30%)</p>
+</div>
+<div class="paragraph">
+<p>Probably not</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="30"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_certainty_7">infoleak:certainty="7"</h4>
+<div class="paragraph">
+<p>Almost certainly not (probability equals 0.07 - 7%)</p>
+</div>
+<div class="paragraph">
+<p>Almost certainly not</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="7"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_certainty_0">infoleak:certainty="0"</h4>
+<div class="paragraph">
+<p>Impossibility (probability equals 0 - 0%)</p>
+</div>
+<div class="paragraph">
+<p>Impossibility</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_confirmed">confirmed</h3>
+<div class="sect3">
+<h4 id="_infoleak_confirmed_false_positive">infoleak:confirmed="false-positive"</h4>
+<div class="paragraph">
+<p>False positive</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_confirmed_false_negative">infoleak:confirmed="false-negative"</h4>
+<div class="paragraph">
+<p>False negative</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_confirmed_true_positive">infoleak:confirmed="true-positive"</h4>
+<div class="paragraph">
+<p>True positive</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleak_confirmed_true_negative">infoleak:confirmed="true-negative"</h4>
+<div class="paragraph">
+<p>True negative</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_information_security_indicators">information-security-indicators</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -14894,7 +15173,7 @@ osint namespace available in JSON format at <a href="https://github.com/MISP/mis
 </div>
 </div>
 <div class="sect2">
-<h3 id="_certainty">certainty</h3>
+<h3 id="_certainty_2">certainty</h3>
 <div class="sect3">
 <h4 id="_osint_certainty_100">osint:certainty="100"</h4>
 <div class="paragraph">
@@ -29149,7 +29428,7 @@ workflow namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-05-13 11:26:10 CEST
+Last updated 2018-05-15 09:30:32 CEST
 </div>
 </div>
 </body>
