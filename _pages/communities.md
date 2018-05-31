@@ -21,7 +21,7 @@ CIRCL also operates the [![X-ISAC logo](/assets/images/x-isac-logo-small.png)](h
 
 ### CiviCERT MISP Community
 
-[CiviCERT](https://civicert.org/) is an umbrella organizations formed by the partnership between Internet Content and Service Providers, Non Governmental Organizations and individuals that contribute some of their time and resources to the community in order to globally improve the security awareness of civil society. The community is fairly new but uses MISP into inform its constituents of malicious activities in their infrastructure.
+[CiviCERT](https://civicert.org/) is an umbrella organizations formed by the partnership between Internet Content and Service Providers, Non Governmental Organizations and individuals that contribute some of their time and resources to the community in order to globally improve the security awareness of civil society. The community is fairly new but uses MISP to inform its constituents of malicious activities in their infrastructure.
 
 ### Fidelis malware/RAT Community
 
