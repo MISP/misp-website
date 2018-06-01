@@ -40,6 +40,8 @@ VBoxManage controlvm MISP_VM_NAME natpf1 dashboard,tcp,,8001,,8001
 - A [docker container for MISP](https://github.com/xme/misp-docker) is maintained by Xavier Mertens.
 - Another [MISP docker container](https://github.com/harvard-itsecurity/docker-misp) is maintained by Ventz Petkov.
 
+We invite you to read the GitHub README page of each version to understand what better fits your needs.
+
 ### Puppet
 
 - [puppet-misp](https://github.com/voxpupuli/puppet-misp) This module installs and configures MISP (Malware Information Sharing Platform) on CentOS 7.
