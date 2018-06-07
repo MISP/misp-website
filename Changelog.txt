@@ -2,6 +2,409 @@ Changelog
 =========
 
 
+v2.4.92 (2018-06-07)
+--------------------
+
+New
+~~~
+- [ACL] Added new role permission: publish_zmq. [iglocska]
+
+  - permission flag to use the "publish to ZMQ" button
+- [performance] Made the deadlock fix optional. [iglocska]
+
+  - old behaviour by default or if the setting is disabled
+  - new behaviour with non transactional attribute add / correlation add
+- Batch delete should hard delete if event hasn't been published yet,
+  fixes #3311. [iglocska]
+- [API] objects/add now supports uuids and the version number.
+  [iglocska]
+
+  - API: /objects/add/[template_id]/[version]
+    - template_id can be a UUID
+    - version is an optional parameter to select the specific version of a template if searching by uuid
+- Hard delete attributes when event was never published, fixes #3311.
+  [iglocska]
+- [performance] Massive performance gains for the warninglists.
+  [iglocska]
+- [tooling] Added benchmark tool to AppModel. [iglocska]
+
+  - create name benchmark runs
+  - start at different levels of the code's execution
+  - aggregated mode allows summed execution times over many iterations of a code path
+  - show peak memory usage or full memory usage timeline of the execution history
+- Added CyberCure Blocked IP,Blocked URL & Malware hash feeds
+  (http://docs.cybercure.ai/) [Mona]
+- Stricter validation of baseurl when coming via the API tool.
+  [iglocska]
+- Show galaxy namespaces and allow the loading of the new field.
+  [iglocska]
+- New flash message system, fixes #3252. [iglocska]
+
+  - 3 types of flash messages (success, error, warning)
+  - uses bootstrap's own classes/structure
+
+Changes
+~~~~~~~
+- [version] VERSION bump. [iglocska]
+- Bump PyMISP version. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-warninglists] updated to the latest version. [Alexandre
+  Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [API] Adding a tag will no longer throw exceptions if the tag already
+  exists. [iglocska]
+
+  - instead the existing tag is returned for further reuse along with a HTTP code of 200
+- [misp-object] updated to the latest version. [Alexandre Dulaunoy]
+- [cleanup] Benchmarking calls removed. [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [stix1 export] Improved journal entries function. [chrisr3d]
+- Added remaining parts of the pymisp / new stix diagnostic tool.
+  [iglocska]
+- Allow symlinks for public keys in footer. [Xavier Mehrenberger]
+
+  Allows replacing public GPG & SMIME keys (gpg.asc &
+  public_certificate.pem) with symbolic links, to store the actual files
+  in another format. This allows clean separation of MISP code (in
+  webroot) from configuration data.
+
+  Our use case: run MISP on top of kubernetes, storing configurations and
+  secrets in dedicated volumes, rather than in the Docker image.
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- New stixtest.py is a bit more granular and adds a check for pymisp.
+  [iglocska]
+- [stix1 export] Updated x509 objects export to use the appropriate STIX
+  object. [chrisr3d]
+- [stix1 export] Updated object attributes parsing functions. [chrisr3d]
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [UI Filtering] Do not set searchFor in the URL if no value. [Sami
+  Mokaddem]
+
+  After a discussion with iglocksa, it is better to fix it js side than
+  server side.
+- [documentation] Better description of command line APIs / automation.
+  [iglocska]
+- [misp-taxonomies] copine scale added. [Alexandre Dulaunoy]
+- [stix1 export] Now using python3 as default for stix1 export.
+  [chrisr3d]
+- [misp-galaxy] updated to the latest version with namespaces galaxy.
+  [Alexandre Dulaunoy]
+- Version bump for galaxies. [iglocska]
+- [Galaxy] Galaxies updated. [iglocska]
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [API] Fixed a black hole on API actions via the Objects controller,
+  fixes #3271. [iglocska]
+
+  - Blanket disabling the security component due to the changes in cakePHP for API requests had the side effect that explicit security component stance changes would lead to exceptions
+- Potential fix for the deadlock issue addressing #3264. [iglocska]
+
+  - This will mean a performance hit for correlations / adding attributes in general, but let's see how it goes
+- [stix1 import] Removed errors catching to let the logs have it.
+  [chrisr3d]
+- [object references] Object references can be added to deleted
+  objects/attributes, fixes #3312. [iglocska]
+- [performance] Fixed a serious performance issue with object heavy
+  events. [iglocska]
+- [javascript] Fixed JS broken in IE11 #3306. [Christophe Vandeplas]
+- [stix1 export] Quick fix on attribute data field. [chrisr3d]
+- [stix1 import] Fixed email object import. [chrisr3d]
+- [stix1 import] Fixed Artifact STIX objects import. [chrisr3d]
+
+  following the last update on export script
+- [stix1 export] Fixed and improved some attributes parsing. [chrisr3d]
+- [performance API] fix performance issues with warninglists via the
+  API. [iglocska]
+- [performance] slight tuning for the fetchEvent() function. [iglocska]
+- [validation] Fixed urlOrExistingFilepath validation script no longer
+  uses hard-coded error messages. [iglocska]
+- [cleanup] Removed non-sensical line. [iglocska]
+- [stix1 import] Fixed some Galaxy & GalaxyCluster fields. [chrisr3d]
+- [stix1 import] Fixed event loading function. [chrisr3d]
+
+  - Fixed errors if the event has no 'ttps' field
+- [stix1 import] Fixed whois object name mapping. [chrisr3d]
+- [stix1 export] Quick fix of set_tlp function. [chrisr3d]
+- [stix1 export] Fixed Tags journal entries. [chrisr3d]
+- [stix2 export] Cosmetic fix of stix2 report labels. [chrisr3d]
+- [stix2 import] Fixed 'from' attribute type mapping for email object.
+  [chrisr3d]
+- [stix1 import] Fixed Whois object attributes import. [chrisr3d]
+
+  - Following the latest changes on Whois object export
+- Typo fixed in the tag element, preventing the quick filter from
+  working. [iglocska]
+- Allow updateDatabase to accept numbers. [iglocska]
+- Added missing lookup for pymisp versions via the diagnostics.
+  [iglocska]
+- Reflected XSS via the event view. [iglocska]
+
+  - users arriving on an event view via a malicious URL with a javascript payload and then clicking on the show deleted attributes tab would trigger the payload
+
+  - as reported by Jarek Kozluk from zbp.pl
+- [stix2 import] Fixed Custom object import attribute type. [chrisr3d]
+- [stix2 import] Fixed custom object import type defining for composite
+  attributes. [chrisr3d]
+- [stix1 import] Fixed objects name common case definition. [chrisr3d]
+- [stix1 import] Fixed x509 object name mapping. [chrisr3d]
+- [stix2 export] Fixed class variable call. [chrisr3d]
+- [stix1 export] Fixed dictionary comma. [chrisr3d]
+- [stix2 import] Improved process object parsing. [chrisr3d]
+- [stix2 export] Improved regkey objects mapping. [chrisr3d]
+- [stix2 export] Fixed Custom object type typo. [chrisr3d]
+- [stix2 export] Added forgotten processes related function call.
+  [chrisr3d]
+- [stix2 import] Removed useless return functions. [chrisr3d]
+- [stix1 import] Fixed object relations for attributes of network
+  connection object. [chrisr3d]
+- [stix2 import] Fixed event loading. [chrisr3d]
+- [stix2 export] Fixed observable object creation for port & ip|port
+  attributes. [chrisr3d]
+- [stix1 export] To be sure we're always using utf-8. [chrisr3d]
+- [CLI] Allow for empty baseurl via the CLI. [iglocska]
+- [UI] Fixed the annoying galaxy collapse issues. [iglocska]
+- [UI] Fix to the galaxy cluster expand. [iglocska]
+- [UI] automation page cleanup. [iglocska]
+- [UI] fixed broken collapse/expand of galaxy clusters. [iglocska]
+- [API] Add object request has been black-holed. #3271. [iglocska]
+
+  - blanket disabling the security component for API requests clashes with explicit disabling of certain security component features in the objects controller causing exceptions
+- [UI filtering] be sure that '0' is not interpreted as empty. [Sami
+  Mokaddem]
+- [API] Add object request has been black-holed. #3271. [iglocska]
+
+  - blanket disabling the security component for API requests clashes with explicit disabling of certain security component features in the objects controller causing exceptions
+- Invalid flash message fixed when editing an attribute. [iglocska]
+
+  - was showing an error on success
+- [UI filtering] Attribute quick filter broke all the tabbed filters,
+  fixes #3247. [iglocska]
+- Fixed endlessly spinning loading animation when fetching a PGP key
+  that cannot be found. [iglocska]
+- [cleanup] removed debug, fixes #3257. [iglocska]
+- [stix1] Updated install & update instructions for stix, cybox & mixbox
+  libraries. [chrisr3d]
+- Fixed editing servers to add a server certificate not saving said
+  certificate. [iglocska]
+- Fixed a DOM based XSS with cortex type attributes. [iglocska]
+
+  - as reported by Dawid Czarnecki (dawid@pz.pl)
+- Various fixes to the add feed action/view. [iglocska]
+- Ignore camelised vs underscored controller name differences in the
+  ACL. [iglocska]
+- User add form loses checkbox settings on failed submission when
+  returning the user to the form. [iglocska]
+- Invalid pluralisation. [iglocska]
+- Fixed layout. [iglocska]
+- Fixed some menu misalignment with debug mode off. [iglocska]
+- Minor cleanup of the default layout. [iglocska]
+- Fixed some issues with the new notifications. [iglocska]
+- [stix1 import] Fixed uuid fetching when a STIX object has no id.
+  [chrisr3d]
+- [stix1 import] Fixed test to define if a STIX file is from MISP.
+  [chrisr3d]
+- [stix1 export] Atm skipping objects not mapped yet for export.
+  [chrisr3d]
+- [stix1 export] Fixed reference creation for process object when the
+  reference is an attribute. [chrisr3d]
+- [stix1 import] Commented atm not used attribute in object process.
+  [chrisr3d]
+- [stix1 import] Fixed name of MISP objects parsing for import.
+  [chrisr3d]
+- [stix1 export] Quick fix on variables. [chrisr3d]
+- [stix1 export] Cleaned indentation typo. [chrisr3d]
+- Fixed invalid org lookup on the attribute index resulting in some
+  notices thrown. [iglocska]
+
+Other
+~~~~~
+- Bump recommended version of PyMISP. [Raphaël Vinot]
+- Merge pull request #3316 from jezkerwin/2.4. [Andras Iklody]
+
+  Quoted scl commands to properly execute python3 + cwd for Cake Install
+- Quoted scl commands to properly execute python3 + cwd for Cake
+  Install. [jezkerwin]
+
+  Installing Cybox and STIX libraries, the SCL command to install won't properly run unless being quoted.
+  Added command to change working directory to /var/www/MISP before installing Cake
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'deadlockfix' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3310 from jezkerwin/2.4. [Andras Iklody]
+
+  Remove contact details, they don't really need to be in there
+- Remove contact details, they don't really need to be in there.
+  [jezkerwin]
+- Merge branch 'performance_benchmarking' into 2.4. [iglocska]
+- Test: [benchmark] Added benchmarks for warninglist runs. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3307 from cvandeplas/2.4. [Andras Iklody]
+
+  fix: [javascript] Fixed JS broken in IE11 #3306
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3301 from LDO-CERT/2.4. [Alexandre Dulaunoy]
+
+  fix Typo in MISP settings
+- Fix Typo in MISP settings. [garanews]
+
+  fix Typo in MISP settings
+- Fix Typo in MISP settings. [garanews]
+
+  fix Typo in MISP settings
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Add: [stix1 import] Importing Galaxies & Tags from journal entries.
+  [chrisr3d]
+- Add: [stix1 import] Importing Event threat level. [chrisr3d]
+- Add: [stix1 import] Importing vulnerability attributes. [chrisr3d]
+- Add: [stix1 import] Parsing link attributes in information_source
+  references. [chrisr3d]
+- Add: [stix1 import] Parsing attributes from journal entries.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Add: [stix1 export] Exporting Whois MISP objects. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3269 from Lastpixl/2.4. [Andras Iklody]
+
+  chg: allow symlinks for public keys in footer
+- Merge pull request #3287 from StefanKelm/2.4. [Andras Iklody]
+
+  Default sort order for timestamp / date reversed on click for Feed preview index
+- Update preview_index.ctp. [StefanKelm]
+- Merge pull request #3288 from RichieB2B/ncsc-nl/python3. [Andras
+  Iklody]
+
+  Update installation instructions for STIX export
+- Install pymisp for python3. [Richard van den Berg]
+- Use python3 to install stix/cybox/mixbox libraries. [Richard van den
+  Berg]
+- [stix1 export][stix2 import] Kept only usefull pymisp library import.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: [stix1 import] Importing x509 Certificate objects. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3283 from SteveClement/2.4. [Andras Iklody]
+
+  Very small change to give the user a hint that multiple attachments can be uploaded
+- - reAdded Debian Testing instructions… [Steve Clement]
+- - Make allusion to the fact that you can select multiple files in in
+  the browse window. [Steve Clement]
+- Add: [stix2 import] Importing network-socket objects. [chrisr3d]
+- Add: [stix2 export] Exporting network-socket objects. [chrisr3d]
+- Add: [stix2 import] Added AS in the list of parsed attributes.
+  [chrisr3d]
+- Add: [stix2 import] Importing process stix2 objects. [chrisr3d]
+- Add: [stix2 export] Exporting process MISP object. [chrisr3d]
+- Add: [stix2 export] Added AS in the mapped attributes. [chrisr3d]
+- Add: [stix1 export] Added x509 Certificate STIX object namespaces.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3280 from 0x150/remove-leading-tab. [Andras
+  Iklody]
+
+  Remove leading tab
+- Remove leading tab. [iso]
+- Merge pull request #3281 from cryptba1/cybercure-feeds. [Alexandre
+  Dulaunoy]
+
+  new: Added CyberCure Blocked IP,Blocked URL & Malware hash feeds (htt…
+- Merge pull request #3279 from RichieB2B/ncsc-nl/stixfixes. [Alexandre
+  Dulaunoy]
+
+  Add timestamp to outer STIX_Package
+- Add timestamp to outer STIX_Package. [Richard van den Berg]
+- Merge pull request #3277 from RichieB2B/ncsc-nl/stixfixes. [Alexandre
+  Dulaunoy]
+
+  Fix STIX export corner cases
+- Support multiple AttributedThreatActors correctly. [Richard van den
+  Berg]
+- Fix spaces. [Richard van den Berg]
+- Initialize incident.attributed_threat_actors when not set. [Richard
+  van den Berg]
+- Fix tabs. [Richard van den Berg]
+- Do not break when observable creation fails. [Richard van den Berg]
+- Fix STIX TestMechanisms. [Richard van den Berg]
+- Do not fail on unknown attribute types. [Richard van den Berg]
+- Write STIX json in text mode. [Richard van den Berg]
+- Do not catch exceptions that should go to exec-errors.log. [Richard
+  van den Berg]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3262 from RichieB2B/ncsc-nl/stix-python3.
+  [Christian Studer]
+
+  Use python3 interpreter for STIX exports
+- Write STIX file in utf8. [Richard van den Berg]
+- Fix STIX diagnostics: use python3. [Richard van den Berg]
+- Merge pull request #3268 from SteveClement/2.4. [Steve Clement]
+
+  Debian Testing install
+- - Fixed curl. [Steve Clement]
+- - Added curl to update
+  galaxies/taxonomies/warninglists/objectTemplates. [Steve Clement]
+- - Added yara. [Steve Clement]
+- - Checkout "default" it's 2.4 at what you really want. [Steve Clement]
+- - Added misp-dashboard. [Steve Clement]
+- - Remove > /dev/null foo. [Steve Clement]
+- - Added pymisp and modules as well as cake CLI commands. [Steve
+  Clement]
+- - Debian testing install. [Steve Clement]
+- Merge pull request #3267 from mokaddem/issue_3247. [Andras Iklody]
+
+  fix: [UI filtering] be sure that '0' is not interpreted as empty.
+- Git push origin 2.4 Merge branch '2.4' of github.com:MISP/MISP into
+  2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Add: [stix1 export] Supporting export of not mapped MISP objects as
+  STIX Custom object. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- [stix1 export] typo. [chrisr3d]
+- Add: [stix1 export] Added namespaces for WindowsService object.
+  [chrisr3d]
+
+  - goes with commit eaedccb3f64bfa3a704c68f0e4a42b6df99d29dd
+  - forgot to include it with the commit \o/
+- Add: [stix1 export] Supporting windows-service-name attribute export.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3250 from WaryWolf/gpg-agent-fix. [Alexandre
+  Dulaunoy]
+
+  Add config mapping for 'gpgconf' option in Crypt_GPG library.
+- Add config mapping for 'gpgconf' option in Crypt_GPG library. [Anthony
+  Vaccaro]
+
+  This option not only sets the location of the gpgconf binary, but
+  if set to false, disables behaviour that shuts down running agents
+  when a Crypt_GPG object is destroyed. This behaviour would also
+  kill any long-running or daemonised agents that are running and
+  configured in the gpg.homedir directory.
+- [stix1 export] Edited indicator id. [chrisr3d]
+- Add: [stix1 export] Added reference between process and other objects.
+  [chrisr3d]
+- Add: [stix1 import] Little update following the process object export
+  support. [chrisr3d]
+- Add: [stix1 export] Exporting Process MISP objects. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Add: [stix1 export] Exporting network-socket MISP objects. [chrisr3d]
+- Add: [stix1 export] Exporting network connection MISP objects.
+  [chrisr3d]
+
+
 v2.4.91 (2018-05-15)
 --------------------
 
