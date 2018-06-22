@@ -51,6 +51,9 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |yara| | | | X | X | X |
 |stix2-pattern| | | | X | X | X |
 |sigma| | | | X | X | X |
+|gene| | | | | X | |
+|mime-type| | | | X | X | X |
+|identity-card-number| | | | | | |
 |cookie| | | | | X | |
 |vulnerability| | | | X | | X |
 |attachment| | | X | X | X | X |
@@ -201,6 +204,9 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |yara| | | | | | |
 |stix2-pattern| | X | | | | |
 |sigma| | | | | | |
+|gene| | | | | | |
+|mime-type| | | | | | |
+|identity-card-number| | | | | | |
 |cookie| | X | | | | |
 |vulnerability| | | | | X | |
 |attachment| | X | | | X | |
@@ -351,6 +357,9 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |yara| | | | |
 |stix2-pattern| | | | |
 |sigma| | | | |
+|gene| | | | |
+|mime-type| | | | |
+|identity-card-number| | | X | |
 |cookie| | | | |
 |vulnerability| | | | |
 |attachment| X | | | |
@@ -520,6 +529,9 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **yara**: Yara signature
 *   **stix2-pattern**: STIX 2 pattern
 *   **sigma**: Sigma - Generic Signature Format for SIEM Systems
+*   **gene**: GENE - Go Evtx sigNature Engine
+*   **mime-type**: A media type (also MIME type and content type) is a two-part identifier for file formats and format contents transmitted on the Internet
+*   **identity-card-number**: Identity card number
 *   **cookie**: HTTP cookie as often stored on the user web client. This can include authentication cookie or session cookie.
 *   **vulnerability**: A reference to the vulnerability used in the exploit
 *   **attachment**: Please upload files using the <em>Upload Attachment</em> button.
@@ -635,6 +647,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **mobile-application-id**: The application id of a mobile application
 *   **cortex**: Cortex analysis result
 *   **boolean**: Boolean value - to be used in objects
+
 
 ## MISP objects
 

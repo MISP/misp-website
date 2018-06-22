@@ -37,8 +37,10 @@ VBoxManage controlvm MISP_VM_NAME natpf1 dashboard,tcp,,8001,,8001
 
 ### Docker containers
 
-- A [docker container for MISP](https://github.com/xme/misp-docker) is maintained by Xavier Mertens.
-- Another [MISP docker container](https://github.com/harvard-itsecurity/docker-misp) is maintained by Ventz Petkov.
+- A [docker container for MISP](https://github.com/misp-project/misp-docker) is maintained by Xavier Mertens.
+- Another [MISP docker container](https://github.com/misp-project/docker-misp) is maintained by Ventz Petkov.
+
+We invite you to read the GitHub README page of each version to understand what better fits your needs.
 
 ### Puppet
 
