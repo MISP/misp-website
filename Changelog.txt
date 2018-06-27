@@ -2,6 +2,409 @@ Changelog
 =========
 
 
+%%version%% (unreleased)
+------------------------
+
+New
+~~~
+- [API] Added unsafe URL parameter to authenticate users. [iglocska]
+
+  - for legacy tools that cannot pass headers in HTTP requests for some insane reason
+  - Needs to be enabled by a site admin - default is that it is disabled
+  - MISP's diagnostic tool WILL complain if this is ever enabled
+
+
+v2.4.93 (2018-06-27)
+--------------------
+
+New
+~~~
+- [attackMatrix] Skeleton of multiple galaxy picking. [Sami Mokaddem]
+- [stix2 export] Starting exporting PE binary files. [chrisr3d]
+
+  --> file, pe & pe-section objects linked with
+  references
+- [CLI] Added CLI tool to downgrade DB version. [iglocska]
+- [i18n] Added tools to switch between languages via the server
+  settings. [iglocska]
+- [attackMatrix] Also consider attack galaxy at event level in the
+  heatmap fix: [attackMatrix] Typo in ATT&CK + division by 0 in
+  gradiendTool. [Sami Mokaddem]
+- [attackMatrix] added instance UUID in rest response. [Sami Mokaddem]
+- [attackMatrix] statistic about attack tags used in the instance chg:
+  [attackMatrix] moved functions in to model and matrix view into
+  elements. [Sami Mokaddem]
+- [attackMatrix] Possibility to highlight cell matching the typeahead
+  field's value. [Sami Mokaddem]
+- [AttackMatrix] added Mobile/Pre-Attack Matrix support, UI improvements
+  and code refacto. [Sami Mokaddem]
+- [GalaxyPicking] Choose the galaxy namespace first before showing
+  related galaxies. [Sami Mokaddem]
+- [attackMatrix] Ability to attach Mitre att&ck galaxy from the matrix.
+  [Sami Mokaddem]
+- [attackMatrix] legend scale of the heatmap with dynamic updates. [Sami
+  Mokaddem]
+- [attackMatrix] force kill chaine header order. [Sami Mokaddem]
+- [attackMatrix] addition of heatmap on tiles depending on occurence of
+  the tag. [Sami Mokaddem]
+- Initial skeleton of Mitre attack matrix. [Sami Mokaddem]
+- [internal] Added convenience method to find the ID of an SG via it's
+  UUID. [iglocska]
+- [functionality] Kick user out if the session is expired instead of
+  only doing it on a page load. [iglocska]
+- [UI/UX] Event lock initial version. [iglocska]
+
+  - Show if another user is editing the event you're viewing (same org only)
+- Add email field autofocus on login page. [Dawid Czarnecki]
+- Added event lock functionality. [iglocska]
+- Added event lock table. [iglocska]
+
+  - also added missing permission for ZMQ publisher role
+- Add schema for feed-metadata. [Raphaël Vinot]
+
+Changes
+~~~~~~~
+- [version] Version bump. [iglocska]
+- [misp-galaxy] updated to the latest version (including CFR test)
+  [Alexandre Dulaunoy]
+- [stix1 import] Improved parameters. [chrisr3d]
+- [attackMatrix] removed forgotten debug cmd. [Sami Mokaddem]
+- [attackMatrix] Definitively removed typeahead + code cleanup. [Sami
+  Mokaddem]
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-warninglists] updatd to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [attackMatrix] ATT&CK Tactic is put at the top when picking galaxies
+  and is shown in All namespace mode. [Sami Mokaddem]
+- [diagnostics] Make the STIX diagnostics a bit less cryptic. [iglocska]
+- [API] Changed the default exportable setting for tags that don't
+  contain the field pushed via the API to true. [iglocska]
+- [clarity] Made the file path validationfailing more obvious when
+  adding local feeds. [iglocska]
+
+  - Warning to catch issues that arise due to Steve's fat fingers
+- [stix1 import] Updated message diplayed in case of import error.
+  [chrisr3d]
+- [stix1 import] Properly catching loading errors and returning the
+  corresponding output value. [chrisr3d]
+- [stix1 import] Changed relationship for the header of a pe. [chrisr3d]
+
+  - atm better mapping in export for event imported
+    with this change
+  - may change if we decide to create something new
+    to represent headers separately
+- [i18n] Updated pot files. [iglocska]
+- [i18n] Made the strings more i18n friendly across the application.
+  [iglocska]
+- [attackMatrix] added some comments. [Sami Mokaddem]
+- [attackMatrix] Support of JS for interaction in the statistics page.
+  [Sami Mokaddem]
+- [attackMatrix] removed console logging. [Sami Mokaddem]
+- [attackMatrix] Restrict view to be ajax only. [Sami Mokaddem]
+- [attackMatrix] search capabilities and table auto resize. [Sami
+  Mokaddem]
+- [attackMatrix] UI improvement. [Sami Mokaddem]
+- [misp-object] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [travis] setuptools need to be updated too. [Alexandre Dulaunoy]
+- [travis] sudo because Travis said so... [Alexandre Dulaunoy]
+- [travis] Sami influenced me by adding random numerical value at the
+  end of Python packages. [Alexandre Dulaunoy]
+- [travis] self update of pip3 to update pip3. [Alexandre Dulaunoy]
+- [tests] stix 1.2.0.6 python requirements updated. [Alexandre Dulaunoy]
+- [favicon] Changed the favicon. [Sami Mokaddem]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [version bump] querystring bumped. [iglocska]
+- [Diagnostic View] Updated Diagnostic View for STIX1 related python
+  libraries. [chrisr3d]
+- [misp-object] updated to the latest version. [Alexandre Dulaunoy]
+- Add enums in feed-metadata schema. [Raphaël Vinot]
+
+Fix
+~~~
+- [stix1 import] Fixed Monkey typo. [chrisr3d]
+- [stix1 import] Fixed missing self call. [chrisr3d]
+- [bug] Typo in the event before validate hook. [Andras Iklody]
+
+  As pointed out by @To-om
+- [sync] Fix to the attribute level filters not being applied correctly
+  on a full push. [iglocska]
+
+  - Found during the investigation of #3378
+- [stix1 export] Fixed MISP objects export. [chrisr3d]
+
+  - handle the case when there is no pe & pe-section
+    objects
+  - 'resolve_objects2parse' should then be optional
+    considering this case
+- Bump query_version and updated queryACL. [Sami Mokaddem]
+- [attackMatrix] only return the result for the last attached galaxy.
+  [Sami Mokaddem]
+
+  If a galaxy is already attached, just skip the message.
+  (The return value is a string, we don't want to compare the string value for
+  each galaxy to be attached)
+- [attackMatrix] Multiple galaxy attach operations are now support at
+  attribute level. [Sami Mokaddem]
+
+  Previsouly, only 1 INSERT INTO command was executed, the others were
+  UPDATE commands
+- [UI] fixed Event lock breaking the restoration of soft deleted
+  attributes. [iglocska]
+- Correlation popup format. [iglocska]
+- Left off view file. [iglocska]
+- [UI] Fixed a bug with galaxies not being addable. [iglocska]
+- Fixed an issue where tags couldn't be added anymore since the last
+  commit. [iglocska]
+- [API] tag capture fixed on newly created objects via the API, fixes
+  MISP/PyMISP#236. [iglocska]
+- [stix diagnostic] Returning the correct 'success' value in case of
+  error with maec. [chrisr3d]
+- [security] Brute force protection can be bypased with a PUT request.
+  [iglocska]
+
+  - fixes an issue where brute forcing the login would work by using PUT requests
+  - as reported by Silver Saks from CCDCOE
+- [stix1 export] Fixed pe & pe-section export when the header is not
+  distinct from the other sections. [chrisr3d]
+- Fixed a bug where users couldn't add galaxies after
+  paginating/filtering on event attributes. [iglocska]
+- Fixed broken correlation toggle on the event view. [iglocska]
+- [stix1 import] Fixed indent that imported some objects split.
+  [chrisr3d]
+- [sync] pull not working due to invalid lookup against galaxies.
+  [iglocska]
+- [error messages] made some of the error messages a bit more uniform.
+  [iglocska]
+- [upgrade] Made an older upgrade script more friendly towards MySQL.
+  [iglocska]
+- [galaxies] Fixed query causing MYSQL errors due to group by not
+  containing a silently loaded field. [iglocska]
+- Don't require API users to acept the terms / change password to get
+  going. [iglocska]
+
+  - to get the API key they need to log in anyway via the interface
+- Use common code-path for user init via the login page and the CLI.
+  [iglocska]
+
+  - also, be consistent with initial settings
+- [setup] Brought MYSQL.sql up to date, fixes #3357, fixes #3358.
+  [iglocska]
+- [stix1 import] Started fixing to_ids flags for imported
+  attributes/objects. [chrisr3d]
+- [Cortex] fixed Cortex auth issue. [Andras Iklody]
+- [attackMatrix] prevent trowing an error if mitre attack galaxy is not
+  there. [Sami Mokaddem]
+- [attackMatrix] added aggressive sanitization (just to be sure) [Sami
+  Mokaddem]
+- [attackMatrix] added missing entries in ACL component. [Sami Mokaddem]
+- [attackMatrix] Prevent hovering listener to overwrite each other.
+  [Sami Mokaddem]
+- [attackMatrix] prevent multiple listener on matrix widgets. [Sami
+  Mokaddem]
+- [attackMatrix] cluster ATT&CK Tactic is shown in Mitre namespace only.
+  [Sami Mokaddem]
+- [AttackMatrix] picking Att&ck tactic correctly redirect on the matrix.
+  [Sami Mokaddem]
+- [eventView] Hide galaxy tags after search. [Sami Mokaddem]
+- [travis] update to the latest version of requests. [Alexandre
+  Dulaunoy]
+- [Docs] some install guide clarifications. [Andras Iklody]
+- [bug] fixed version comparison for old vs new db versions. [iglocska]
+- [UI] Event lock message update eating flash messages fixed. [iglocska]
+- [SG/sync] fixed an issue where if a sync user was not allowed to
+  modify a sharing group, it also couldn't create events with said SG
+  attached. [iglocska]
+
+  - correctly capture the sharing group, without still being able to modify it, but to extract the ID and link it to the event to be created
+- [stix2 export] Fixed attribute value type issue with AS numbers.
+  [chrisr3d]
+- [stix1 export] Fixed AS attribute value export. [chrisr3d]
+
+  - 'number' field in STIX object side if the value is
+    only digits
+  - 'handle' if it starts with 'AS'
+  - + same parsing as the one recently pushed for STIX2
+    regarding 'value' and 'comment' fields on MISP side
+- [stix2 export] Checking AS attributes value. [chrisr3d]
+
+  - Because it went out that some people sometimes put
+    the AS value in comment and an ip address as value
+- Fixed the annoying getcorrelation errors in the logs if someone has
+  the jobs index open and times out, fixes #3339. [iglocska]
+- [UI] Preserve settings on events add form if anything goes wrong with
+  the validation. [iglocska]
+- [UI] Fixed default value of threat level id. [iglocska]
+- [sg bug] Fixed a bug where a user that should be allowed to extend a
+  sharing group is blocked if they are also a sync user. [iglocska]
+
+  - conditions requires that the sharing group has been synchronised from a remote by a different sync user
+- [bug] Fixed a copy pasta fail preventing the adding of galaxies.
+  [iglocska]
+- [stix2 export] Fixed regkey observable creation. [chrisr3d]
+- [stix2 export] Fixed network socket observable creation. [chrisr3d]
+- [stix2 export] Fixing issues due to the oddity of some enumeration
+  lists for observable objects. [chrisr3d]
+- [stix2 export] Fixed pattern of protocol value in network socket
+  object creation. [chrisr3d]
+- Don't throw users out if debug is enabled with the new check.
+  [iglocska]
+- [bug] Endless loop when terms are not accepted / password not reset
+  fixed, fixes #3336. [iglocska]
+- Fixed premission on a view level for add tags. [iglocska]
+- Fixed permission check for adding tags to an event. [iglocska]
+- [ACL] added new functions to the ACL. [iglocska]
+- [bug] invalid function call for the event lock via the objects
+  controller. [iglocska]
+- [extended events] Correctly handle event extensions via event ID
+  instead of UUID, fixes #3332. [iglocska]
+- [stix1 export] Fixed some credential object attributes export.
+  [chrisr3d]
+
+  Following the latest update on the import part
+  which include credential objects import, and in
+  order to avoid duplicate attribute export and
+  create authentication STIX Objects more properly:
+  - Parsing authentication type to avoid as much as
+    possible to associate passwords with not relevant
+    authentication types.
+  - If only one authentication type -> distributing
+    it to all the passwords (as well as it is the
+    case for the authentication format).
+- Added impfuzzy validation. [iglocska]
+- [Diagnostic] Fixed typo in python libraries testing. [chrisr3d]
+- Made sure that object edit buttons are only visible to those that can
+  edit them. [iglocska]
+
+  - also, some cleanup in the code to make it more readable
+- [EventView] Still allows object edition event if the event hasn't been
+  published. [Sami Mokaddem]
+
+Other
+~~~~~
+- Add: [stix1 import] Parsing x509 raw certificate in x509 object.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3384 from MISP/Rafiot-patch-2. [Alexandre
+  Dulaunoy]
+
+  Makes more sense.
+- Makes more sense. [Raphaël Vinot]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Add: [stix1 import] Added default distribution values in events
+  imported. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3372 from mokaddem/attackMatrix. [Andras Iklody]
+
+  Multiple pick in ATT&CK matrix
+- Merge branch '2.4' of https://github.com/MISP/MISP into attackMatrix.
+  [Sami Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- [stix2 export] Improved x509 attributes parsing. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3368 from mokaddem/attackMatrix. [Alexandre
+  Dulaunoy]
+
+  ATT&CK Tactic Matrix at the top!
+- Merge branch '2.4' of https://github.com/MISP/MISP into attackMatrix.
+  [Sami Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3367 from SteveClement/2.4. [Steve Clement]
+
+  Various updates to INSTALL instructions
+- - remove dupe python3-pip from apt install. [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into 2.4. [Steve Clement]
+- - Added more automation to install procedure. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: [stix1 export] Exporting pe with its section and the related
+  file. [chrisr3d]
+
+  - --> WinExecutableFileObject
+  - next to the generic loop parsing all objects
+    because of the relations between file, pe, and
+    pe-section that should be parsed
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'set_db_version' into 2.4. [iglocska]
+- Merge pull request #3355 from StefanKelm/2.4. [Andras Iklody]
+
+  Typos within Event graph view
+- Update event-graph.js. [StefanKelm]
+- Typos... [StefanKelm]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #3352 from axpatito/patch-1. [Andras Iklody]
+
+  Update INSTALL.rhel7.txt
+- Update INSTALL.rhel7.txt. [axpatito]
+- Merge pull request #3350 from mokaddem/attack. [Alexandre Dulaunoy]
+
+  Attack
+- Merge remote-tracking branch 'upstream/2.4' into attack. [Sami
+  Mokaddem]
+- Merge pull request #3347 from mokaddem/attack. [Alexandre Dulaunoy]
+
+  Mitre ATT&CK Tactic
+- Merge remote-tracking branch 'upstream/2.4' into attack. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'upstream/2.4' into attack. [Sami
+  Mokaddem]
+- Add: [stix] Added test files for stix (1 & 2) import & export.
+  [chrisr3d]
+
+  Including:
+  - MISP events that can be tested in export
+  - STIX 1 & 2 files resulting from the export of
+    the MISP events, that can be used as well in
+    order to test the import scripts
+- Add: [stix2 import] Importing asn objects. [chrisr3d]
+- Add: [stix1 import] Importing AS STIX objects. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3345 from mokaddem/favicon. [Andras Iklody]
+
+  Favicon
+- Merge branch '2.4' of https://github.com/MISP/MISP into favicon. [Sami
+  Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: [stix2 export] Exporting asn MISP objects. [chrisr3d]
+- Add: [stix1 export] Exporting asn object. [chrisr3d]
+- [stix2 export] Removed intermediary 1 line functions. [chrisr3d]
+- [stix2 export] Improved some dictionary use/call. [chrisr3d]
+- Add: [stix2 export] Exporting stix2-pattern MISP objects. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: [stix1 import] Importing Account Objects as credential MISP
+  Objects. [chrisr3d]
+- Add: [stix1 export] Exporting credential MISP objects. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3330 from dawid-czarnecki/2.4. [Andras Iklody]
+
+  new: Add email field autofocus on login page
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: [Diagnostic] Added maec python library requirements. [chrisr3d]
+- Merge branch 'samimagic' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge pull request #3323 from RichieB2B/ncsc-nl/rhel-python3.
+  [Alexandre Dulaunoy]
+
+  Enable python3 for php-fpm for RHEL/CentOS
+- Enable python3 for php-fpm for RHEL/CentOS. [Richard van den Berg]
+
+
 v2.4.92 (2018-06-07)
 --------------------
 
@@ -97,6 +500,7 @@ Changes
 
 Fix
 ~~~
+- Removed debug breaking update. [iglocska]
 - [API] Fixed a black hole on API actions via the Objects controller,
   fixes #3271. [iglocska]
 
