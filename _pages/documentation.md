@@ -36,3 +36,5 @@ other developers willing to develop their own tools or software supporting the M
 If you have any issues with MISP core software, [the issue tracking of MISP](https://github.com/MISP/MISP/issues) is handled in GitHub.
 
 If the issue is related to [one of the MISP software or data models](https://github.com/MISP/), please open an issue in the respective issue tracker of the GitHub repository.
+
+You are also welcome on the [MISP gitter chat](https://gitter.im/MISP/MISP) where development is discussed and community support provided.
