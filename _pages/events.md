@@ -9,8 +9,11 @@ toc: true
 
 Want to join us at an event, discuss opportunities or projects around the MISP project, share your experience about threat intelligence or discuss how MISP could be improved to support security professionals?
 
-### MISP Training(s)
+### MISP hackathon
 
+- 7-9 August 2018 - Luxembourg [Summer hackathon - Open Source Security Hackathon - Improving and integrating CERT/CSIRT tools ](https://www.circl.lu/pub/summer-hackathon/)
+
+### MISP Training(s)
 
 - Luxembourg - MISP Training - Threat Intelligence - Analyst and Administrators Thu, September 6, 2018 [Registration](https://www.eventbrite.com/e/misp-training-threat-intelligence-analyst-and-administrators-tickets-46353014113)
 
