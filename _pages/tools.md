@@ -94,6 +94,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [McAfee Active Response](https://github.com/mohlcyber/MISP-MAR) - McAfee Active Response integration with MISP.
 * [MISP-Extractor](https://github.com/PidgeyL/MISP-Extractor) extracts information from MISP via the API and automate some tasks.
 * [misp-to-autofocus](https://github.com/PaloAltoNetworks/misp-to-autofocus) - script for pulling events from a MISP database and converting them to Autofocus queries.
+* [misp2cs.py](https://github.com/xg5-simon/MISP-Integrations/misp2cs.py) - script to put MISP events/indicators in Crowdstrike.
 * [MISP Golang](https://github.com/0xrawsec/golang-misp) - Golang Library to interact with your MISP instance.
 * [misp-bulk-tag](https://github.com/morallo/misp-bulk-tag) - this script performs bulk tagging operations over MISP.
 * [misp42splunk](https://github.com/remg427/misp42splunk) - A Splunk app to use MISP in background.
