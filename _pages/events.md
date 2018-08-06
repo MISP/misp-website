@@ -15,6 +15,8 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### MISP Training(s)
 
+- [GoSec](https://www.gosec.net/wp-content/uploads/2018/07/GoSec_agenda-FINAL-3.pdf) - MISP workshop, 13:30-16:15 29th August 2018, [GoSec](https://www.gosec.net/) Montreal
+
 - Luxembourg - MISP Training - Threat Intelligence - Analyst and Administrators Thu, September 6, 2018 [Registration](https://www.eventbrite.com/e/misp-training-threat-intelligence-analyst-and-administrators-tickets-46353014113)
 
 - Luxembourg - MISP Training - Threat Intelligence - Extension and API hands-on, Fri, September 7, 2018 [Registration](https://www.eventbrite.com/e/misp-training-threat-intelligence-extension-and-api-hands-on-tickets-46353031164)
