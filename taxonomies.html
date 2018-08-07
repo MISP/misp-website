@@ -482,6 +482,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_gdpr">gdpr</a></li>
 <li><a href="#_honeypot_basic">honeypot-basic</a></li>
 <li><a href="#_iep">iep</a></li>
+<li><a href="#_ifx_vetting">ifx-vetting</a></li>
 <li><a href="#_incident_disposition">incident-disposition</a></li>
 <li><a href="#_infoleak">infoleak</a></li>
 <li><a href="#_information_security_indicators">information-security-indicators</a></li>
@@ -8602,6 +8603,490 @@ iep namespace available in JSON format at <a href="https://github.com/MISP/misp-
 </div>
 </div>
 <div class="sect1">
+<h2 id="_ifx_vetting">ifx-vetting</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+ifx-vetting namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/ifx-vetting/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The IFX taxonomy is used to categorise information (MISP events and attributes) to aid in the intelligence vetting process</p>
+</div>
+<div class="sect2">
+<h3 id="_vetted">vetted</h3>
+<div class="sect3">
+<h4 id="_ifx_vettingvettedlegit_but_compromised">ifx-vetting:vetted="legit-but-compromised"</h4>
+<div class="paragraph">
+<p>The attribute/event describes something that is legitly used, but seems to be compromised by 3rd parties to be used for malicious activities. Consider this if blocking is your course of action.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingvettedlegit">ifx-vetting:vetted="legit"</h4>
+<div class="paragraph">
+<p>The attribute/event describes something legitly used, that does not show signes of compromise or misuse.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingvettedlegit_uncertain">ifx-vetting:vetted="legit-uncertain"</h4>
+<div class="paragraph">
+<p>The attribute/event describes something where it is not 100% clear if it is used only legitly.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingvettedmalicious">ifx-vetting:vetted="malicious"</h4>
+<div class="paragraph">
+<p>The attribute/event describes something that is definitly used maliciously.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingvettedmalicious_uncertain">ifx-vetting:vetted="malicious-uncertain"</h4>
+<div class="paragraph">
+<p>The attribute/event describes something that seems to be used maliciously, but there is no 100% proof.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingvettedinvalid">ifx-vetting:vetted="invalid"</h4>
+<div class="paragraph">
+<p>The attribute/event is invalid or wrong in respect to the situation described by the event.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingvettedirrelevant">ifx-vetting:vetted="irrelevant"</h4>
+<div class="paragraph">
+<p>The attribute/event is irrelevant to your organization or CTI process.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingvettedundetermined">ifx-vetting:vetted="undetermined"</h4>
+<div class="paragraph">
+<p>The nature of the attribute/event cannot be further determined. Use this only as a last resort.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingvettedfast_track">ifx-vetting:vetted="fast-track"</h4>
+<div class="paragraph">
+<p>The attribute/event was not vetted but passed through for operational reasons. A result might be higher false-positive rates.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_score">score</h3>
+<div class="sect3">
+<h4 id="_ifx_vettingscore0">ifx-vetting:score="0"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore1">ifx-vetting:score="1"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore2">ifx-vetting:score="2"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore3">ifx-vetting:score="3"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore4">ifx-vetting:score="4"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore5">ifx-vetting:score="5"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore6">ifx-vetting:score="6"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore7">ifx-vetting:score="7"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore8">ifx-vetting:score="8"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore9">ifx-vetting:score="9"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore10">ifx-vetting:score="10"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore11">ifx-vetting:score="11"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore12">ifx-vetting:score="12"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore13">ifx-vetting:score="13"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore14">ifx-vetting:score="14"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore15">ifx-vetting:score="15"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore16">ifx-vetting:score="16"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore17">ifx-vetting:score="17"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore18">ifx-vetting:score="18"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore19">ifx-vetting:score="19"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore20">ifx-vetting:score="20"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore21">ifx-vetting:score="21"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore22">ifx-vetting:score="22"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore23">ifx-vetting:score="23"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore24">ifx-vetting:score="24"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore25">ifx-vetting:score="25"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore26">ifx-vetting:score="26"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore27">ifx-vetting:score="27"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore28">ifx-vetting:score="28"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore29">ifx-vetting:score="29"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore30">ifx-vetting:score="30"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore31">ifx-vetting:score="31"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore32">ifx-vetting:score="32"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore33">ifx-vetting:score="33"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore34">ifx-vetting:score="34"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore35">ifx-vetting:score="35"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore36">ifx-vetting:score="36"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore37">ifx-vetting:score="37"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore38">ifx-vetting:score="38"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore39">ifx-vetting:score="39"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore40">ifx-vetting:score="40"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore41">ifx-vetting:score="41"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore42">ifx-vetting:score="42"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore43">ifx-vetting:score="43"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore44">ifx-vetting:score="44"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore45">ifx-vetting:score="45"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore46">ifx-vetting:score="46"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore47">ifx-vetting:score="47"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore48">ifx-vetting:score="48"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore49">ifx-vetting:score="49"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore50">ifx-vetting:score="50"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore51">ifx-vetting:score="51"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore52">ifx-vetting:score="52"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore53">ifx-vetting:score="53"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore54">ifx-vetting:score="54"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore55">ifx-vetting:score="55"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore56">ifx-vetting:score="56"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore57">ifx-vetting:score="57"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore58">ifx-vetting:score="58"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore59">ifx-vetting:score="59"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore60">ifx-vetting:score="60"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore61">ifx-vetting:score="61"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore62">ifx-vetting:score="62"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore63">ifx-vetting:score="63"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore64">ifx-vetting:score="64"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore65">ifx-vetting:score="65"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore66">ifx-vetting:score="66"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore67">ifx-vetting:score="67"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore68">ifx-vetting:score="68"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore69">ifx-vetting:score="69"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore70">ifx-vetting:score="70"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore71">ifx-vetting:score="71"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore72">ifx-vetting:score="72"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore73">ifx-vetting:score="73"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore74">ifx-vetting:score="74"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore75">ifx-vetting:score="75"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore76">ifx-vetting:score="76"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore77">ifx-vetting:score="77"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore78">ifx-vetting:score="78"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore79">ifx-vetting:score="79"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore80">ifx-vetting:score="80"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore81">ifx-vetting:score="81"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore82">ifx-vetting:score="82"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore83">ifx-vetting:score="83"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore84">ifx-vetting:score="84"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore85">ifx-vetting:score="85"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore86">ifx-vetting:score="86"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore87">ifx-vetting:score="87"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore88">ifx-vetting:score="88"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore89">ifx-vetting:score="89"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore90">ifx-vetting:score="90"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore91">ifx-vetting:score="91"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore92">ifx-vetting:score="92"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore93">ifx-vetting:score="93"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore94">ifx-vetting:score="94"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore95">ifx-vetting:score="95"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore96">ifx-vetting:score="96"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore97">ifx-vetting:score="97"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore98">ifx-vetting:score="98"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore99">ifx-vetting:score="99"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_ifx_vettingscore100">ifx-vetting:score="100"</h4>
+
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_incident_disposition">incident-disposition</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -8780,6 +9265,12 @@ infoleak namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 </div>
 <div class="sect3">
+<h4 id="_infoleakautomatic_detectioniban">infoleak:automatic-detection="iban"</h4>
+<div class="paragraph">
+<p>IBAN</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_infoleakautomatic_detectionmail">infoleak:automatic-detection="mail"</h4>
 <div class="paragraph">
 <p>Mail</p>
@@ -8882,6 +9373,18 @@ infoleak namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 </div>
 <div class="sect3">
+<h4 id="_infoleakautomatic_detectionbinary">infoleak:automatic-detection="binary"</h4>
+<div class="paragraph">
+<p>Binary</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleakautomatic_detectionhexadecimal">infoleak:automatic-detection="hexadecimal"</h4>
+<div class="paragraph">
+<p>Hexadecimal</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_infoleakautomatic_detectionbitcoin_address">infoleak:automatic-detection="bitcoin-address"</h4>
 <div class="paragraph">
 <p>Bitcoin address</p>
@@ -8924,6 +9427,12 @@ infoleak namespace available in JSON format at <a href="https://github.com/MISP/
 <h4 id="_infoleakanalyst_detectioncredit_card">infoleak:analyst-detection="credit-card"</h4>
 <div class="paragraph">
 <p>Credit card</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleakanalyst_detectioniban">infoleak:analyst-detection="iban"</h4>
+<div class="paragraph">
+<p>IBAN</p>
 </div>
 </div>
 <div class="sect3">
@@ -9026,6 +9535,18 @@ infoleak namespace available in JSON format at <a href="https://github.com/MISP/
 <h4 id="_infoleakanalyst_detectionbase64">infoleak:analyst-detection="base64"</h4>
 <div class="paragraph">
 <p>Base64</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleakanalyst_detectionbinary">infoleak:analyst-detection="binary"</h4>
+<div class="paragraph">
+<p>Binary</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infoleakanalyst_detectionhexadecimal">infoleak:analyst-detection="hexadecimal"</h4>
+<div class="paragraph">
+<p>Hexadecimal</p>
 </div>
 </div>
 <div class="sect3">
@@ -32626,7 +33147,7 @@ workflow namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-07-18 22:03:30 CEST
+Last updated 2018-08-07 17:05:28 CEST
 </div>
 </div>
 </body>
