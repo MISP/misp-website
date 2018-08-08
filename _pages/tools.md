@@ -111,4 +111,5 @@ For the additional software created by the MISP project, check our [MISP project
 * [ThreatPinchLookup](https://github.com/cloudtracer/ThreatPinchLookup)  - ThreatPinch Lookup creates informational tooltips when hovering oven an item of interest on any website and contains a MISP connector.
 * [tie2misp](https://github.com/DCSO/tie2misp) - Import DCSO TIE IOCs as MISP events.
 * [Viper](http://www.viper.li/) - is a binary management and analysis framework dedicated to malware and exploit researchers including a MISP module.
+* [vt2misp](https://github.com/eCrimeLabs/vt2misp) -  Script to fetch data from virustotal and add it to a specific event as an object.
 * [yara-exporter](https://github.com/BSI-CERT-Bund/yara-exporter) - Exporting MISP event attributes to yara rules usable with Thor apt scanner.
