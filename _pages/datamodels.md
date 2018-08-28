@@ -27,6 +27,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |bic| | | | | X | |
 |bin| | | | | X | |
 |boolean| | | | | | |
+|bro| | | | X | | |
 |btc| | | | | X | |
 |campaign-id| | | X | | | |
 |campaign-name| | | X | | | |
@@ -181,6 +182,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |bic| | | | | | |
 |bin| | | | | | |
 |boolean| | X | | | | |
+|bro| X | | | | | |
 |btc| | | | | | |
 |campaign-id| | | | | | |
 |campaign-name| | | | | | |
@@ -335,6 +337,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |bic| | | | |
 |bin| | | | |
 |boolean| | | | |
+|bro| | | | |
 |btc| | | | |
 |campaign-id| | | | |
 |campaign-name| | | | |
@@ -509,6 +512,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **bic**: Bank Identifier Code Number also known as SWIFT-BIC, SWIFT code or ISO 9362 code
 *   **bin**: Bank Identification Number
 *   **boolean**: Boolean value - to be used in objects
+*   **bro**: An NIDS rule in the Bro rule-format
 *   **btc**: Bitcoin Address
 *   **campaign-id**: Associated campaign ID
 *   **campaign-name**: Associated campaign name
