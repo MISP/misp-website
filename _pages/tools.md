@@ -84,6 +84,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [Cuckoo modified](https://github.com/spender-sandbox/cuckoo-modified) - heavily modified version of Cuckoo Sandbox including a [MISP reporting module](https://github.com/spender-sandbox/cuckoo-modified/blob/master/modules/reporting/misp.py) to put the information into a MISP instance.
 * [cve-search](https://github.com/cve-search) - a tool to perform local searches for known vulnerabilities include a [MISP plug-in](https://github.com/cve-search/Plugins/tree/master/plugins/plugins/MISP).
 * [DCSO TIE integration](https://github.com/DCSO/tie2misp) - DCSO integration with MISP.
+* [Dovehawk Bro Module](https://github.com/tylabs/dovehawk) - Bro+MISP for threat hunting.
 * [FireMISP](https://github.com/deralexxx/FireMISP) FireEye Alert json files to MISP Malware information sharing platform (Alpha).
 * [Hybrid analysis](https://www.hybrid-analysis.com/) exports in MISP format.
 * [IntelMQ](https://github.com/certtools/intelmq) support MISP to retrieve events and update tags.
