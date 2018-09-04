@@ -4,7 +4,6 @@
 - [ZeuS IP blocklist (Standard)](https://zeustracker.abuse.ch/blocklist.php?download=ipblocklist) - zeustracker.abuse.ch - feed format: csv
 - [ZeuS compromised URL blocklist](https://zeustracker.abuse.ch/blocklist.php?download=compromised) - zeustracker.abuse.ch - feed format: csv
 - [blockrules of rules.emergingthreats.net](http://rules.emergingthreats.net/blockrules/compromised-ips.txt) - rules.emergingthreats.net - feed format: csv
-- [Binary Defense Systems Artillery Threat Intelligence Feed and Banlist Feed](https://www.trustedsec.com/banlist.txt) - Binary Defense Systems - feed format: csv
 - [malwaredomainlist](https://panwdbl.appspot.com/lists/mdl.txt) - malwaredomainlist - feed format: csv
 - [Tor exit nodes](https://www.dan.me.uk/torlist/?exit) - TOR Node List from dan.me.uk - feed format: csv
 - [Tor ALL nodes](https://www.dan.me.uk/torlist/) - TOR Node List from dan.me.uk - feed format: csv
@@ -16,7 +15,6 @@
 - [longtail.it.marist.edu 7 days](http://longtail.it.marist.edu/honey/last-7-days-ip-addresses.txt) - longtail.it.marist.edu - feed format: freetext
 - [diamondfox_panels](https://raw.githubusercontent.com/pan-unit42/iocs/master/diamondfox/diamondfox_panels.txt) - pan-unit42 - feed format: freetext
 - [booterblacklist.com Latest](http://booterblacklist.com/data/booterlist_latest.txt) - booterblacklist.com - feed format: freetext
-- [openbl.org base](http://www.openbl.org/lists/base.txt) - openbl.org - feed format: freetext
 - [pop3gropers](https://home.nuug.no/~peter/pop3gropers.txt) - home.nuug.no - feed format: csv
 - [Ransomware Tracker CSV Feed](https://ransomwaretracker.abuse.ch/feeds/csv/) - Ransomware Tracker abuse.ch - feed format: csv
 - [Feodo IP Blocklist](https://feodotracker.abuse.ch/blocklist/?download=ipblocklist) - abuse.ch - feed format: csv
@@ -47,3 +45,8 @@
 - [This list contains all optional domains - An additional list for administrators](https://raw.githubusercontent.com/ZeroDot1/CoinBlockerLists/master/list_optional.txt) - CoinBlockerLists - feed format: freetext
 - [This list contains all browser mining domains - A list to prevent browser mining only](https://raw.githubusercontent.com/ZeroDot1/CoinBlockerLists/master/list_browser.txt) - CoinBlockerLists - feed format: freetext
 - [This list contains all IPs - A additional list for administrators to prevent mining in networks](https://raw.githubusercontent.com/ZeroDot1/CoinBlockerLists/master/MiningServerIPList.txt) - CoinBlockerLists - feed format: freetext
+- [URLHaus Malware URLs](https://urlhaus.abuse.ch/downloads/csv/) - Abuse.ch - feed format: csv
+- [CyberCure - IP Feed](http://api.cybercure.ai/feed/get_ips?type=csv) - www.cybercure.ai - feed format: csv
+- [CyberCure - Blocked URL Feed](http://api.cybercure.ai/feed/get_url?type=csv) - www.cybercure.ai - feed format: csv
+- [CyberCure - Hash Feed](http://api.cybercure.ai/feed/get_hash?type=csv) - www.cybercure.ai - feed format: csv
+- [ipspamlist](http://www.ipspamlist.com/public_feeds.csv) - ipspamlist - feed format: csv
