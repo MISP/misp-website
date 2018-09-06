@@ -2,7 +2,582 @@ Changelog
 =========
 
 
-v2.4.94 (2018-08-06)
+v2.4.95 (2018-09-05)
+--------------------
+
+New
+~~~
+- [API] set default behaviour to require to_ids and published set to 1
+  to be included in exports. [iglocska]
+
+  - doesn't affect MISP json and xml formats
+- [automation description] Added legacy mode toggle. [iglocska]
+- [UI] Added an enrichment on-demand pop-up for hover modules.
+  [iglocska]
+- [REST client] Templating system added to the rest client. [iglocska]
+- [REST client] added the api enumeration to the rest client view.
+  [iglocska]
+- [API] Restresponse component function added to enumerate available
+  APIs for the REST client. [iglocska]
+
+  - also, added API descriptions for the restsearch functionalities
+- [ACL] Added soft validation for available API enumeration. [iglocska]
+- [API] evnet level restsearch switched to new modular conversion
+  system. [iglocska]
+- [API] fixed two cases where the new filter parameter builder was being
+  naughty. [iglocska]
+
+  - copy-pasta fail induced skipping of parameters with only NOT parameters fixed
+  - OR/AND/NOT formatted parameters with singular values (such as '{"OR": "foo"}' now handled correctly
+- [API] XML export now exports both event and attribute level data.
+  [iglocska]
+
+  - relying on the old XMLConverterTool for event level conversions
+- [API] OpenIOC export library correctly handles both events and
+  attributes as their payload. [iglocska]
+
+  - fixed annoying line breaks in the output
+- [API] NIDS exports now correctly support event and attribute level
+  exports. [iglocska]
+
+  - also, suricata/snort rules now include both the event and the attribute tags in the metadata
+- [API] JSON export library updated to support both attribute and event
+  level conversions. [iglocska]
+
+  - relies on the old JSON library for event level conversions
+- [REST client] Allow skipping SSL validation. [iglocska]
+- [REST client] Resolve urls and show API description if applicable.
+  [iglocska]
+- [API] Added the libraries for the JSON, XML and Text exports.
+  [iglocska]
+- [internal] SQL debug API tool added. [iglocska]
+
+  - just pass /sql:1 to any query via the API to see a dump of all queries
+  - Response isn't very clean, JSON pushed infront of whatever the output is
+  - requires debug mode = 2
+- [API] rework of the attribute level restsearch. [iglocska]
+
+  - optmisation, use of external converters
+  - one api to rule them all concept / controller
+- [API] Made the NIDS export compatible with the new API. [iglocska]
+- [API] Added the new XML converter. [iglocska]
+- [api] Added new open IOC export system. [iglocska]
+- [api] first revision of the attribute export. [iglocska]
+- [API] reworked the attribute level restsearch. [iglocska]
+
+  - use the new filter parameters
+  - use the new condition building mechanism
+
+  - no more pre-filtering
+- [rest client] parsers for JSON/HTML return added. [iglocska]
+- [rest client] parser helper css/js added. [iglocska]
+- [API] CSV export tool added. [iglocska]
+- [API] WIP work in progress - moving CSV export to standardised
+  converter format. [iglocska]
+- [API] Added publish filter to restsearch. [iglocska]
+- [API] further rework of the restsearch api. [iglocska]
+
+  - move to the new popping filter system
+- [API] rework of the event level restSearch (WIP) [iglocska]
+- [internal] Further work on the filtering. [iglocska]
+- [internal] Rework of the filter handling internally. [iglocska]
+- [internal] Added internal functions to interpret parameters in various
+  formats / coming from various sources. [iglocska]
+- [internal] Added new internal functions to be used by all export APIs
+  in the future. [iglocska]
+
+  - authenticate user via URL params if not already authenticated (to support legacy APIs)
+  - harvest parameters in a standardised way for filtering all export APIs
+- [API] new centralised parameter system for APIs. [iglocska]
+- [refactor] CSV api refactor. [iglocska]
+
+  - performance gains
+  - first step in unifying all APIs
+  - moved the CSV data lookup into fetchattributes
+  - internal pagination is now more clever with a watchdog flag that can prevent unneeded executions by whatever calls fetchattributes
+- [API] exposed the server related functionalities to the API.
+  [iglocska]
+
+  - server index
+  - server push
+  - server pull
+
+  - improved logging / error reporting of the sync functionalities
+- [i18n] Added German Translation (12%) upd: [i18n] Czech 4%, French
+  19%, Danish 48%, Italian 42%, Korean 3%, Portuguese 6% [Steve Clement]
+- [performance] disable the checking of expired sessions for automatic
+  logouts. [Andras Iklody]
+- Add install instructions. [Hannah Ward]
+- Add download functionality. [Hannah Ward]
+- Add upload/download for attachments. [Hannah Ward]
+- Add S3 client class. [Hannah Ward]
+- [tool] Generator for types/categories in all the places of MISP.
+  [Christophe Vandeplas]
+- [feature] Built in REST client added to test / interact with the API
+  directly from MISP. [iglocska]
+
+  - no more shitty chrome extensions that crash during trainings, rejoice!
+
+Changes
+~~~~~~~
+- [version] Bump. [iglocska]
+- [bug] Fixed wrong event lookup in case the uuid is passed as an
+  eventId. Previously the code had two mutually exclusive conditions
+  `Event.id = uuid and Event.uuid = uuid` so we were getting `Invalid
+  event.` error. [chkp-aliaksandrt]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [automation description] Updated the automation page to reflect the
+  changes made to the restSearch APIs. [iglocska]
+- [UI] made the enrichment sticky popup's trigger button behave like a
+  button. [iglocska]
+- [misp feed] schema fixed to include caching_enabled field. [Alexandre
+  Dulaunoy]
+- [misp default feeds] ipspamlist added as a feed provider. [Alexandre
+  Dulaunoy]
+- [doc] Fixed permissions for logrotate. [Steve Clement]
+- [internal] JSONConverterTool's support for the deprecated showorg flag
+  removed. [iglocska]
+- [API] legacy passing of the api key via URL parameters caused an
+  invalid response type. [iglocska]
+
+  - automatically selects json now
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [cleanup] removed leftover converter. [iglocska]
+- [internal] not needed conditional cleaned up. [iglocska]
+- [whitelisting] Cache the whitelist values in memory for each instance
+  of the whitelist model. [iglocska]
+
+  - instead of loading it over and over
+- Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [rest client] render the response by default. [iglocska]
+- [querystring] version bumped. [iglocska]
+- [API] Fixed fetchAttributes lookup on value to be only optionally a
+  substring search. [iglocska]
+- Bump PyMISP. [Raphaël Vinot]
+- Try xenial on travis. [Raphaël Vinot]
+- [API] further work on the new CSV export. [iglocska]
+- Add more tests. [Raphaël Vinot]
+- [style] function opening brackets fixed. [iglocska]
+- [api] reworked the CSV api to use the new standardised function calls.
+  [iglocska]
+- [cleanup] removed moved and reworked harvestParameters function.
+  [iglocska]
+- [restResponse] Updated restResponse library to produce nicer
+  exceptions. [iglocska]
+
+  - more in-line with the standard exceptions
+- [refactor] Broke contact email function up into parts. [iglocska]
+- [cleanup] Removed todos from userscontroller that have become
+  irrelevant. [iglocska]
+- [internal] Cleanup of the pull function. [iglocska]
+
+  - split into functions based on the concerns it handles
+  - separated event download and proposal download into separate functions
+- [cleanup] Removed unused view variable. [iglocska]
+- [doc] MISP logo b&w only added. [Alexandre Dulaunoy]
+- Bump PyMISP. [Raphaël Vinot]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [data-model] new bro attribute type to store rule in Bro rule-format.
+  [Alexandre Dulaunoy]
+
+  Fixed #3584
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-warninglists] updated to the latest version. [Alexandre
+  Dulaunoy]
+- [install] Some minor fixes to the install guide. [Andras Iklody]
+- [performance] Only check if user is logged in if disable_auto_logout
+  is not set. [Andras Iklody]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version including related changes.
+  [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-warninglist] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [visual] Changed the name of the rest client. [iglocska]
+
+Fix
+~~~
+- [description] Typo in serverSetting fixed, fixes #3612. [iglocska]
+- [API] using "download" as a returnformat via the URL breaks the
+  restSearch API. [iglocska]
+
+  - we have to keep it as a legacy option and map it to json
+- [API] Fixed the broken CSV export. [iglocska]
+- [stix2 export] Fixed timestamp to datetime conversion for
+  'date_sighting', using utc format. [chrisr3d]
+- [stix2 import] Fixed Sighting import format. [chrisr3d]
+- Create temp folder if it doesn't exist in EventsController::export()
+  [Xavier Mehrenberger]
+- [stix2 import] Fixed some time-based attribute fields previously
+  wrongly imported from STIX object fields. [chrisr3d]
+- [stix2 import] Keeping uuids from STIX objects imported as attributes.
+  [chrisr3d]
+- [REST client] Fixed the order of execution for the various JS
+  functions when changing template. [iglocska]
+- [REST client] Correctly detect camelised parameters as single values
+  instead of lists. [iglocska]
+- [REST client] resolved issues with the URL builder for the REST
+  queries causing double "/"s after the baseurl. [iglocska]
+- [internal] Invalid export format detection now throws an exception
+  instead of dying ungracefully. [iglocska]
+- [internal] AppController minor fix. [iglocska]
+
+  - fix bug of invalid forcing of JSON export type in certain conditions
+- [API] invalid pass by reference parameter not passed as a variable.
+  [iglocska]
+
+  - fixes "Cannot pass parameter 1 by reference" bug
+- [ACL] getApiInfo added to acl. [iglocska]
+- [internal] Org to org_id conversion correctly handled by restSearch
+  filters. [iglocska]
+- [ACL] exclude afterfilter from the api checks. [iglocska]
+- [internal] Whitelist model initialisation copy paste fail. [iglocska]
+- [api] Added missing files. [iglocska]
+- [REST client] Fixed the url parser for the client not handling named
+  params. [iglocska]
+- [api] added attributes controller wip changes. [iglocska]
+- [internal] removed old restsearch on the attribute level. [iglocska]
+- [REST client] Fixed issues with multiple values in the same header.
+  [iglocska]
+- [merge conflict] added merge conflict resolution. [iglocska]
+- [internal] Handle tags passed via parameters not encapsulated in an
+  array. [iglocska]
+- [API consistency] restsearch on an attribute level should return the
+  same format when hits were found and not. [iglocska]
+- ['UI bug fixed'] adding an attribute could result in an exception
+  after a successful addition. [iglocska]
+- [REST client] fix to the JSON prettyfication. [iglocska]
+- [internal] Block attributes by tag using the event level restsearch
+  API. [iglocska]
+- [internal] Changed the type filter function hook. [iglocska]
+- [CS] Updated recent changes. [iglocska]
+- CSV test. [Raphaël Vinot]
+- [internal] Properly detect buggy parameters passed in the "last"
+  format. [Raphaël Vinot]
+- Improve testing. [Raphaël Vinot]
+- Dirty install of python 3.6 on travis. [Raphaël Vinot]
+- [internal] Fix to the parameter parsing of the CSV path. [iglocska]
+- [API] Class name fixed. [iglocska]
+- [internal] uuid filter fixed. [iglocska]
+
+  - copypastafail
+- [internal] resolveTimeDelta fixes. [iglocska]
+
+  - handle seconds
+  - return the current time as a filter if nothing is matched
+- [internal] Fixed incorrect file added in previous commit. [iglocska]
+- [internal] publish_timestamp was ignored by the new restsearch.
+  [iglocska]
+- [internal] resolveTimeDelta() check relaxed to allow for stringified
+  timestmaps and floats. [iglocska]
+- [internal] removed attribute.timestmap from the event level timestamp
+  filters. [iglocska]
+- [API] allow other returnFormats besides download to work for
+  restsearch. [iglocska]
+- [internal] looplimit lowered to 50k for fetchAttributes. [iglocska]
+
+  - maybe we should base this number off the available memory somehow...
+- [internal] Fixed an incorrect parameter lookup for the from/to
+  timefilter parser. [iglocska]
+- [API] copy pasta error in parameter harvester. [iglocska]
+- [cleanup] Fixed an assignment in a comparison. [iglocska]
+- [stix2 export] Reverted a previous change on timestamps. [chrisr3d]
+
+  - Following the STIX 2.0 requirements
+  - Including the latest changes on PyMISP
+  - Solution adopted before any other one is found
+    (for instance when 2.1 version is released)
+- [stix] Timestamps patched. [chrisr3d]
+
+  - Including the latest patches on PyMISP object
+    timestamps
+  - Some other quick timestamps import cleaned up
+- [cleanup] Cleaned up STIX incident creation. [chrisr3d]
+- [stix2 export] Fixed some timeline related fields. [chrisr3d]
+
+  - for instance 'valid_from' should not be related
+    to timestamp
+  - Added the 'created' field in report as well,
+    using the event date
+- [Taxonomies] Taxonomy update broken if no expanded values are provided
+  on the predicate or entry level. [iglocska]
+- Old python crap. [Raphaël Vinot]
+- [stix2 import] Importing regkey & regkey|value as attribute and not
+  regkey object. [chrisr3d]
+- [stix1 export] Stripping registry keys and values to avoid spaces.
+  [chrisr3d]
+- [feeds] Custom headers / authorization broken on csv/freetext feeds,
+  fixes #3581. [iglocska]
+- [cleanup] Reduced credential objects parsing complexity. [chrisr3d]
+- [cleanup] Made Exceptions happy specifying types. [chrisr3d]
+- [cleanup] Cleaned up Course of Action parsing. [chrisr3d]
+- [cleanup] Made exceptions happy + cleaned up if statement. [chrisr3d]
+- [cleanup] Reduced complexity of the email objects parsing. [chrisr3d]
+- [cleanup] Cleaned up Exception handling. [chrisr3d]
+- [cleanup] Minor cleanup on custom objects parsing functions.
+  [chrisr3d]
+- [cleanup] Reduced the main function complexity. [chrisr3d]
+- [cleanup] Cleaned up libraries import. [chrisr3d]
+- [cleanup] Reduced complexity in PE objects parsing. [chrisr3d]
+- [cleanup] Cleaned up libraries import. [chrisr3d]
+- [i18n] Variables are in no need to be translated, it will break stuff,
+  horribly. upd: [i18n] Update default.pot again. [Steve Clement]
+- [statistics] Solve the issue with the unfiltered total counters in the
+  user and org statistics. [iglocska]
+- ['UI bug fixed'] adding an attribute could result in an exception
+  after a successful addition. [Andras Iklody]
+- [statistics] fixed an issue where the org statistics didn't correctly
+  apply the local filters. [iglocska]
+
+  - both local and external just showed the sum totals instead of the individual pools
+- [instructions] remove suggestion to check out last tagged version on
+  install. [Andras Iklody]
+- Use configured attachments_dir instead of app/files/ in
+  ShadowAttributesController.php. [Xavier Mehrenberger]
+- [typo] in S3 impementation. [Andras Iklody]
+
+  - Thanks @FloatingGhost for noticing
+  - I hope your love for PHP will never cease to grow!
+- Add PHP SDK install instructions. [Hannah Ward]
+- [API] Allow rapid changes to attributes (>1 per second) [iglocska]
+- [encryption] broken S/MIME encryption. [iglocska]
+
+  - as reported and pinpointed by @3c7
+  - blind fix, awaits confirmation
+- [usersStat] allow fetching json of statistics/users. [Sami Mokaddem]
+- [cleanup] Improvement of some for loops. [chrisr3d]
+- [stix2 import] Fixed uuid of single ip attributes. [chrisr3d]
+- [cleanup] Cleaned up duplication of code from the previous commit.
+  [chrisr3d]
+- [cleanup] Cleaning up objects parsing. [chrisr3d]
+- [UI] fixed missing sighting sparklines. [iglocska]
+- [bug] fixed a typo preventing the attack matrix from working.
+  [iglocska]
+- [rest client] corrected the calculation of the rest client duration.
+  [iglocska]
+
+  - I can't maff gud
+- [API] Some API rearrange issues fixed in events/add. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3530 from chkp-aliaksandrt/fix-object-add-if-uuid-
+  is-passed-as-eventid. [Andras Iklody]
+
+  chg: [bug] Fixed wrong event lookup in case the uuid is passed as an eventId.
+- Merge pull request #3518 from zeroq/sync_sightings_on_publish. [Andras
+  Iklody]
+
+  Sync sightings on publish
+- Provide uuid of new sighting to save function. [jgo]
+- Check if sighting with given uuid already exists before saving new
+  sighting. [jgo]
+- Todo added: do not add sightings that are already there. [jgo]
+- Attach found sightings to event item. [jgo]
+- Add attribute UUID to sighting item (easier for synchronization) [jgo]
+- Merge pull request #3546 from WaryWolf/gpg-clearsign-fix. [Andras
+  Iklody]
+
+  Split GPG signing and encrypting of outgoing emails into separate operations
+- Split signing/encryption decisions into a separate method. [Anthony
+  Vaccaro]
+- Split GPG signing and encrypting of outgoing emails into separate
+  operations. Allows for plaintext signing of outgoing emails. [Anthony
+  Vaccaro]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3610 from RichieB2B/patch-3. [Andras Iklody]
+
+  Prevent STIX export crash
+- Prevent STIX export crash. [Richie B2B]
+
+  attribute can be None which causes the STIX conversion to crash
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3609 from SteveClement/2.4. [Steve Clement]
+
+  chg: [doc] Fixed permissions for logrotate
+- [chg] fix: Set correct perms for log rotate, faup fixed upstream.
+  [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3608 from Lastpixl/fix-export. [Andras Iklody]
+
+  fix: create temp folder if it doesn't exist in EventsController::expo…
+- Add: [stix2 import] Parsing 'valid_until' in indicators as expiration
+  date in Sightings. [chrisr3d]
+- Add: [stix2 export] Parsing expiration date from sightings as
+  'valid_until' in indicators. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'feature/api_rework2' into 2.4. [iglocska]
+- Merge branch 'feature/api_rework2' into 2.4. [iglocska]
+- Merge branch 'feature/api_rework' into feature/api_rework2. [iglocska]
+- Merge branch 'feature/api_rework' into 2.4. [iglocska]
+- Merge branch '2.4' into feature/api_rework. [iglocska]
+- Merge branch 'feature/api_rework' of github.com:MISP/MISP into
+  feature/api_rework. [iglocska]
+- Merge branch 'feature/api_rework' of github.com:MISP/MISP into
+  feature/api_rework. [Raphaël Vinot]
+- Merge branch '2.4' into feature/api_rework. [iglocska]
+- Merge branch '2.4' into feature/api_rework. [iglocska]
+- Merge branch 'feature/api_rework' of github.com:MISP/MISP into
+  feature/api_rework. [iglocska]
+- Merge branch 'feature/api_rework' of github.com:MISP/MISP into
+  feature/api_rework. [iglocska]
+- Merge branch 'feature/api_rework' of github.com:MISP/MISP into
+  feature/api_rework. [Raphaël Vinot]
+- Merge branch 'feature/api_rework' of github.com:MISP/MISP into
+  feature/api_rework. [iglocska]
+- Merge branch '2.4' into feature/api_rework. [iglocska]
+- Merge branch '2.4' into feature/api_rework. [iglocska]
+- Merge branch 'feature/api_rework' of github.com:MISP/MISP into
+  feature/api_rework. [iglocska]
+- Merge pull request #3557 from Rafiot/feature/api_rework. [Raphaël
+  Vinot]
+
+  Feature/api rework
+- Merge pull request #3551 from Rafiot/feature/api_rework. [Raphaël
+  Vinot]
+
+  chg: try xenial on travis
+- Merge branch '2.4' into feature/api_rework. [iglocska]
+- Merge branch '2.4' into feature/refactortime. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into feature/refactortime.
+  [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3597 from lcpdn/patch-12. [Alexandre Dulaunoy]
+
+  Add french translation on default.po (18% > 60%)
+- Update default.po. [lcpdn]
+
+  Going from 18% to 60% on crowdin with my parts.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3587 from droe/2.4. [Andras Iklody]
+
+  Fix broken timestamps by using 24 hour clock and ISO 8601 date format
+- Fix broken timestamps by using 24 hour clock and ISO 8601 date format.
+  [Daniel Roethlisberger]
+
+  The event view shows a wrong "Last change", e.g. "2018/08/23 06:01:45"
+  for "2018/08/23 18:01:45".  The same problem affects the timestamp in
+  the XML generated by IOCExportTool.php.  Fix by correcting the PHP
+  date() code "h" to "H".
+
+  While here, also switch to a clearer ISO 8601 date representation for
+  "Last change", using dashes instead of slashes for separation of year,
+  month and day.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3579 from SteveClement/2.4. [Steve Clement]
+
+  fix: [i18n] Variables are in no need to be translated, it will break stuff.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3578 from SteveClement/2.4. [Steve Clement]
+
+  upd: [i18n] Fixed easy missing __()
+- Upd: [i18n] Fixed easy missing __() [Steve Clement]
+- Merge pull request #3577 from SteveClement/2.4. [Steve Clement]
+
+  upd: [i18n] Update of default English PO template
+- Merge remote-tracking branch 'upstream/2.4' into 2.4. [Steve Clement]
+- Merge pull request #3576 from SteveClement/2.4. [Steve Clement]
+
+  new: [i18n] Added German Translation (12%)
+- Merge pull request #3575 from SteveClement/2.4. [Steve Clement]
+
+  upd: [i18n] 100% Japanese translation.
+- Upd: [i18n] Update of default English PO template. [Steve Clement]
+- Upd: [i18n] 100% Japanese translation. [Steve Clement]
+- Merge pull request #3570 from Lastpixl/fix_attachments_dir. [Andras
+  Iklody]
+
+  fix: use configured attachments_dir instead of app/files/ in ShadowAt…
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3560 from FloatingGhost/malware-to-s3. [Andras
+  Iklody]
+
+  Use AWS S3 as an attachment storage
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #3556 from mokaddem/fixUserStats. [Alexandre
+  Dulaunoy]
+
+  fix: [usersStat] allow fetching json of statistics/users
+- Merge pull request #3555 from WaryWolf/change-password-permissions-
+  fix. [Alexandre Dulaunoy]
+
+  Add a permission check to the change password page.
+- Add a permission check to the change password page. [Anthony Vaccaro]
+
+  The 'MISP.disableUserSelfManagement' config variable is checked
+  when rendering the link to the change password page, but is not checked
+  when rendering the page itself. This could lead to unauthorised
+  password changes by users with existing accounts on the MISP
+  instance.
+- Merge pull request #3553 from PaoloVecchi/patch-9. [Alexandre
+  Dulaunoy]
+
+  Update EventsController.php
+- Update EventsController.php. [Paolo Vecchi]
+
+  Just a ) missing.
+- Merge pull request #3552 from PaoloVecchi/patch-7. [Alexandre
+  Dulaunoy]
+
+  Update AttributesController.php
+- Update AttributesController.php. [Paolo Vecchi]
+
+  Just a couple of ')' missing in lines 2105 and 2263
+- Merge pull request #3549 from PaoloVecchi/patch-7. [Alexandre
+  Dulaunoy]
+
+  Update report_validation_issues_events.ctp
+- Update report_validation_issues_events.ctp. [Paolo Vecchi]
+
+  Speling mistake? 'V' of validation outside php tag.
+- Merge pull request #3550 from PaoloVecchi/patch-8. [Alexandre
+  Dulaunoy]
+
+  Update index.ctp
+- Update index.ctp. [Paolo Vecchi]
+
+  Added space between 'events' and 'on'
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #3547 from PaoloVecchi/patch-6. [Andras Iklody]
+
+  Update INSTALL.ubuntu1804.with.webmin.txt
+- Update INSTALL.ubuntu1804.with.webmin.txt. [Paolo Vecchi]
+
+  systemd sucks!
+  ;-)
+- Merge pull request #3542 from PaoloVecchi/patch-5. [Andras Iklody]
+
+  Update INSTALL.ubuntu1804.with.webmin.txt
+- Update INSTALL.ubuntu1804.with.webmin.txt. [Paolo Vecchi]
+
+  Fixed a few small things
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge remote-tracking branch 'origin/2.4' into 2.4. [Christophe
+  Vandeplas]
+
+
+v2.4.94 (2018-08-09)
 --------------------
 
 New
@@ -350,6 +925,12 @@ Changes
 
 Fix
 ~~~
+- [stix1 import] Fixed journal entries parsing fails. [chrisr3d]
+- [stix1 import] Copy/paste error fixed. [chrisr3d]
+- [cleanup] Some more minor clean up. [chrisr3d]
+- [stix1 export] MISP objects parsing improvement. [chrisr3d]
+- [sync] Fixed an issue blocking the syncing of edits, fixes #3537.
+  [iglocska]
 - [pgp] left of changes for the pgp printout. [iglocska]
 - [cleanup] Fixed libraries import copy/paste issues. [chrisr3d]
 - [stix2 import] Fixed quote error in a dictionary key. [chrisr3d]
@@ -640,6 +1221,21 @@ Fix
 
 Other
 ~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3535 from PaoloVecchi/patch-4. [Andras Iklody]
+
+  INSTALL.ubuntu18.04.01.with.webmin.txt
+- INSTALL.ubuntu18.04.01.with.webmin.txt. [Paolo Vecchi]
+
+  Added Virtualmin install and repository update for mariadb
+- Merge pull request #3536 from StefanKelm/2.4. [Andras Iklody]
+
+  Default sort order for Id and Date
+- Update proposal_event_index.ctp. [StefanKelm]
+- Default sort order for ID and Date: desc. [StefanKelm]
+- Default sort order for timesamps: desc. [StefanKelm]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
 - Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
 - Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
 - Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
