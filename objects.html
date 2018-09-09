@@ -484,6 +484,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_netflow">netflow</a></li>
 <li><a href="#_network_connection">network-connection</a></li>
 <li><a href="#_network_socket">network-socket</a></li>
+<li><a href="#_original_imported_file">original-imported-file</a></li>
 <li><a href="#_passive_dns">passive-dns</a></li>
 <li><a href="#_paste">paste</a></li>
 <li><a href="#_pe">pe</a></li>
@@ -510,6 +511,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_timesketch_timeline">timesketch-timeline</a></li>
 <li><a href="#_timestamp">timestamp</a></li>
 <li><a href="#_tor_node">tor-node</a></li>
+<li><a href="#_tracking_id">tracking-id</a></li>
 <li><a href="#_transaction">transaction</a></li>
 <li><a href="#_url">url</a></li>
 <li><a href="#_vehicle">vehicle</a></li>
@@ -4745,6 +4747,19 @@ file is a MISP object available in JSON format at <a href="https://github.com/MI
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fullpath</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Complete path of the filename including the filename</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tlsh</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tlsh</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -7253,6 +7268,85 @@ network-socket is a MISP object available in JSON format at <a href="https://git
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_original_imported_file"><a class="anchor" href="#_original_imported_file"></a><a class="link" href="#_original_imported_file">original-imported-file</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Object describing the original file used to import data in MISP..</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+original-imported-file is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/master/objects/original-imported-file/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">imported-sample</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">attachment</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The original imported file itself (binary).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Format of data imported. ['STIX 1.0', 'STIX 1.1', 'STIX 1.2', 'STIX 2.0', 'OpenIOC']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>URI related to the imported file.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -11251,6 +11345,137 @@ tor-node is a MISP object available in JSON format at <a href="https://github.co
 </div>
 </div>
 <div class="sect1">
+<h2 id="_tracking_id"><a class="anchor" href="#_tracking_id"></a><a class="link" href="#_tracking_id">tracking-id</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Analytics and tracking ID such as used in Google Analytics or other analytic platform..</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+tracking-id is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/master/objects/tracking-id/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Tracking code</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tracker</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of the tracker - organisation doing the tracking and/or analytics ['Google Analytics', 'Piwik', 'Kissmetrics', 'Woopra', 'Chartbeat']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Description of the tracking id</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>URL where the tracking id was found</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hostname</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hostname</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>hostname where the tracking id was found</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">first-seen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>First time the tracking code was seen</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">last-seen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Last time the tracking code was seen</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_transaction"><a class="anchor" href="#_transaction"></a><a class="link" href="#_transaction">transaction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -13470,7 +13695,7 @@ yara is a MISP object available in JSON format at <a href="https://github.com/MI
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-04 20:56:25 CEST
+Last updated 2018-09-09 13:01:00 CEST
 </div>
 </div>
 </body>
