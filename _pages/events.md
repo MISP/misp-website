@@ -21,10 +21,6 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 - Luxembourg - MISP Training - Threat Intelligence - Extension and API hands-on, Fri, September 7, 2018 [Registration](https://www.eventbrite.com/e/misp-training-threat-intelligence-extension-and-api-hands-on-tickets-46353031164)
 
-- Seattle (US) - MISP Training - Threat Intelligence Analyst and Administrators (Seattle edition), Wednesday, 19 September 2018 [Registration](https://en.xing-events.com/RQUNLXN)
-
-- Seattle (US) - MISP Training - Developers session with focus on DomainTools integration (Seattle edition), Thursday, 20 September 2018 [Registration](https://en.xing-events.com/IVOEUFW)
-
 ### Conferences featuring MISP core members talking about MISP and/or threat intelligence
 
 - Call-for-Papers and MISP threat intelligence summit 0x4 Mon, October 15, 2018 [Registration](https://www.eventbrite.com/e/misp-threat-intelligence-summit-0x4-tickets-46481482365) / [More info and Call-for-Papers](https://www.hack.lu/misp-summit/)
