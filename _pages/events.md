@@ -11,15 +11,11 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### MISP hackathon
 
-- 7-9 August 2018 - Luxembourg [Summer hackathon - Open Source Security Hackathon - Improving and integrating CERT/CSIRT tools ](https://www.circl.lu/pub/summer-hackathon/)
-
 ### MISP Training(s)
 
-- [GoSec](https://www.gosec.net/wp-content/uploads/2018/07/GoSec_agenda-FINAL-3.pdf) - MISP workshop, 13:30-16:15 29th August 2018, [GoSec](https://www.gosec.net/) Montreal
-
-- Luxembourg - MISP Training - Threat Intelligence - Analyst and Administrators Thu, September 6, 2018 [Registration](https://www.eventbrite.com/e/misp-training-threat-intelligence-analyst-and-administrators-tickets-46353014113)
-
-- Luxembourg - MISP Training - Threat Intelligence - Extension and API hands-on, Fri, September 7, 2018 [Registration](https://www.eventbrite.com/e/misp-training-threat-intelligence-extension-and-api-hands-on-tickets-46353031164)
+- [The Hive and MISP joint workshop at Botconf 2018](https://www.botconf.eu/) - 4th December 2018
+- [The Hive and MISP joint workshop at hack.lu 2018](https://2018.hack.lu/agenda/) - Wednesday 17th October 2018
+- [Ask me Anything (AMA) about MISP](https://2018.hack.lu/agenda/) - Thursday 18th October 2018
 
 ### Conferences featuring MISP core members talking about MISP and/or threat intelligence
 
