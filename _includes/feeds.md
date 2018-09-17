@@ -41,10 +41,10 @@
 - [hpHosts - GRM only](https://hosts-file.net/grm.txt) - hpHosts - feed format: csv
 - [blocklist.greensnow.co](https://blocklist.greensnow.co/greensnow.txt) - greensnow.co - feed format: csv
 - [conficker all domains generated](http://www.cert.at/static/downloads/data/conficker/all_domains.txt) - cert.at - feed format: csv
-- [This list contains all domains - A list for administrators to prevent mining in networks](https://raw.githubusercontent.com/ZeroDot1/CoinBlockerLists/master/list.txt) - CoinBlockerLists - feed format: freetext
-- [This list contains all optional domains - An additional list for administrators](https://raw.githubusercontent.com/ZeroDot1/CoinBlockerLists/master/list_optional.txt) - CoinBlockerLists - feed format: freetext
-- [This list contains all browser mining domains - A list to prevent browser mining only](https://raw.githubusercontent.com/ZeroDot1/CoinBlockerLists/master/list_browser.txt) - CoinBlockerLists - feed format: freetext
-- [This list contains all IPs - A additional list for administrators to prevent mining in networks](https://raw.githubusercontent.com/ZeroDot1/CoinBlockerLists/master/MiningServerIPList.txt) - CoinBlockerLists - feed format: freetext
+- [This list contains all domains - A list for administrators to prevent mining in networks](https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list.txt?inline=false) - CoinBlockerLists - feed format: freetext
+- [This list contains all optional domains - An additional list for administrators](https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_optional.txt?inline=false) - CoinBlockerLists - feed format: freetext
+- [This list contains all browser mining domains - A list to prevent browser mining only](https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_browser.txt?inline=false) - CoinBlockerLists - feed format: freetext
+- [This list contains all IPs - A additional list for administrators to prevent mining in networks](https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/MiningServerIPList.txt?inline=false) - CoinBlockerLists - feed format: freetext
 - [URLHaus Malware URLs](https://urlhaus.abuse.ch/downloads/csv/) - Abuse.ch - feed format: csv
 - [CyberCure - IP Feed](http://api.cybercure.ai/feed/get_ips?type=csv) - www.cybercure.ai - feed format: csv
 - [CyberCure - Blocked URL Feed](http://api.cybercure.ai/feed/get_url?type=csv) - www.cybercure.ai - feed format: csv
