@@ -13,6 +13,9 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### MISP Training(s)
 
+- [Cyber Threat Intel & Incident Response with TheHive, Cortex & MISP](https://en.xing-events.com/SVDOZWV) - at CIRCL Luxembourg - 10th December 2018
+- [MISP Training - Threat Intelligence Analyst and Administrators](https://en.xing-events.com/MURFIIQ) - at CIRCL Luxembourg - 17th December 2018
+- [MISP Training - Developers session - API and Extensions](https://en.xing-events.com/QDBMTBT) - at CIRCL Luxembourg - 18th December 2018
 - [The Hive and MISP joint workshop at Botconf 2018](https://www.botconf.eu/) - 4th December 2018
 - [The Hive and MISP joint workshop at hack.lu 2018](https://2018.hack.lu/agenda/) - Wednesday 17th October 2018
 - [Ask me Anything (AMA) about MISP](https://2018.hack.lu/agenda/) - Thursday 18th October 2018
