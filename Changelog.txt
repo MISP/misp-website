@@ -2,6 +2,670 @@ Changelog
 =========
 
 
+v2.4.96 (2018-10-09)
+--------------------
+
+New
+~~~
+- [API] rework of the searchall/quickFilter parameters. [iglocska]
+
+  Now it correctly works as intended on both attribute and event contexts
+- [API] documentation added for the new APIs. [iglocska]
+- [export] Further changes required for the reworked export added.
+  [iglocska]
+- [exports] New export system using restsearch. [iglocska]
+- [search] download functionalities added to the search. [iglocska]
+- [search] view changes added for the search. [iglocska]
+- [search] Search refactored completely to use restsearch. Still needs
+  some minor changes. [iglocska]
+- [internal] restsearch's bulk code moved to the model for attributes.
+  [iglocska]
+- [api] CSV export using thin overlay over restsearch. [iglocska]
+- [API] attributes/restSearch has received CSV as a new export format.
+  [iglocska]
+
+  - added hook to modify parameters based on the export's internal settings
+- [API] restsearch's internals moved to event model and reworked.
+  [iglocska]
+
+  - better chunking and parameter handling
+- [API] events/restSearch reworked, added CSV export. [iglocska]
+- [API] CSV export tool completely reworked. [iglocska]
+- [API] Improvements to the fetcher. [iglocska]
+
+  - cache several objects that were loaded over and over before on bulk exports
+  - includeGranularCorrelations internal flag added to include/exclude correlations from the export for certain types
+  - some cleanup
+- [internal] Added caching to the sharing group organisations.
+  [iglocska]
+- [internal] Organisation internal caching added. [iglocska]
+- [internal] GalaxyCluster internal caching added. [iglocska]
+- [API] added sendFile function to rest response component. [iglocska]
+- [API] events/restsearch rework - chunked export for performance gains.
+  [iglocska]
+- [API] enable/disable warninglists by name substrings instead of IDs,
+  fixes #3706. [iglocska]
+
+  - {"name": ["alexa", "iana"], "enabled": 1}
+- [freetext] Freetext ingestion is now delegated to the background
+  processing. [iglocska]
+
+  - no setup needed
+  - data to be ingested dropped to file, background worker ingests and processes the file
+- [freetext import] Added detection for AS. [iglocska]
+- [Complex type tool] Detection of [1] style refanging. [iglocska]
+- [API] Rework of the restSearch APIs. [iglocska]
+
+  - peformance tuning
+    - removed some redundant looping
+    - internal memory profiling for attributes/restSearch
+    - saving the intermediary results to file instead of keeping it all in memory to reduce the memory footprint
+  - added the searchall parameter
+  - fixed the ignore parameter
+  - added the event_timestamp parameter
+  - added manual pagination to the attribute level restsearch (limit, page)
+- [API] Added API description for the warninglist toggleEnable API.
+  [iglocska]
+- [API] Toggle the warninglists on/off in a convenient API. [iglocska]
+
+  - via /warninglists/toggleEnable
+- [blacklisting] pass parameters via named parameters to filter the
+  index. [iglocska]
+
+  - /eventBlacklists/index/event_uuid:[my_event_uuid]
+- [API] Correctly handle objects in flat exports and exposed text export
+  to event level search. [iglocska]
+- [Galaxy] Delete individual clusters. [iglocska]
+
+  - added an API and UI option to delete individual clusters
+- [variable tags] Added the ability to load and display variable tags.
+  [iglocska]
+
+  - as requested by Siemens
+- [API] Added the includeEventTags parameter to the
+  /attributes/restSearch API. [iglocska]
+
+  - appends all event level tags to each attribute
+- [stix import] Adding object describing the original STIX 1.X / 2.X
+  used for import. [chrisr3d]
+
+  - Depending if the variable passed to those scripts
+    are not None, then it is the name of the original
+    file used to import data
+- [API] Added possibility to include the original file while importing
+  STIX data. [chrisr3d]
+- [API] Tied the RPZ export into the restsearch APIs. [iglocska]
+
+  - also, made the export modules aware of the exhaustive parameter list
+- [API] Updated the RPZ export to follow the new API patterns.
+  [iglocska]
+
+Changes
+~~~~~~~
+- [CSV] Added timestamp in CSV output with include context on the event
+  level. [iglocska]
+- [version] version bump. [iglocska]
+- [automation page] cleanup. [iglocska]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [notice-list] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- Bumped js version. [Sami Mokaddem]
+- Bump PyMISP. [Raphaël Vinot]
+- [export] Export view correctly fetches the state on whether an export
+  includes attachments. [iglocska]
+- [API] made the CSV export type less restrictive by default (to_ids /
+  published ignored by default) [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- Bump PyMISP. [Raphaël Vinot]
+- [API] new restresponse library addition fixed (send file) [iglocska]
+- Bump PyMISP. [Raphaël Vinot]
+- [sharing-group] fix typo "Added Organisations" -> "Added Instance"
+  [Alexandre Dulaunoy]
+- [misp-objects] add the relationship annotates. [Alexandre Dulaunoy]
+- Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-taxonomy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-object] updated to the latest version. [Alexandre Dulaunoy]
+- Bump PyMISP. [Raphaël Vinot]
+- [stix1 framing] Removed previous stix framing script. [chrisr3d]
+- [stix 1&2 export] Using header, footer and separator from the newest
+  framing script. [chrisr3d]
+- [stix2 export] Using the RestResponse view call instead of having view
+  files. [chrisr3d]
+- [stix2 export] Avoid Orgc Identity object duplication. [chrisr3d]
+
+  - Orgc uuid returned each time a new one is seen
+    in an event
+  - All the uuids as parameter of the python script
+  - Identity object added only if the current uuid
+    is not in the parameters
+  - References to the corresponding identity are
+    (obviously) maintained for the final stix 2.0
+    file
+- [stix2 export] Multiple events export prepared in Controller & Model
+  side. [chrisr3d]
+
+  - Changes on automation side coming soon
+- [debugkit] Added the commented out loading of debugkit for
+  convenience. [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [default-feeds] CoinBlockerLists updated - fix #3682. [Alexandre
+  Dulaunoy]
+- [misp-object] updates to the latest version. [Alexandre Dulaunoy]
+- [doc] Moved INSTALL files around to reflect a more acurate support
+  landscape. chg: [doc] Update README.md to explain some of the
+  folders/files. [Steve Clement]
+- [doc] Added zmq, redis, maec python module installations. [Steve
+  Clement]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-taxonomy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [stix2 import] 2 main parsing cases split in 2 classes. [chrisr3d]
+
+  --> 2 cases:
+          - STIX generated via MISP
+          - external STIX
+- [Cortex] Don't set the content type header for cortex. [iglocska]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [doc] Added README to install directory. [Steve Clement]
+- [doc] Centos 7 Install doc updates, more automation and some auto
+  defaults. [Steve Clement]
+- [doc] Updated and tested basic MISP functionality under CentOS 7.5.
+  [Steve Clement]
+- [i18n] Update to languages: Danish (54%) German (17%) Japanese (100%)
+  French (67%) Spanish (3%) [Steve Clement]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-warninglists] updated to the latest version. [Alexandre
+  Dulaunoy]
+- Bump recommended pyMispVersion. [Raphaël Vinot]
+
+Fix
+~~~
+- [stix2 export] Fixed function call typo. [chrisr3d]
+- [Auth] Correctly handle users accounts getting deleted whilst the
+  users are logged in. [iglocska]
+
+  - deauthed users would end up in a forced loop having to read the news creating a new blank user with each page refresh
+- [stix import] Updated external files import to include related
+  indicators. [chrisr3d]
+- [stix import] Fixed custom objects import from external files.
+  [chrisr3d]
+- [Objects] Adding an object would not unpublish the event. [iglocska]
+- [stix2 export] Avoiding export of the object related to the original
+  file used for import. [chrisr3d]
+- [stix export] Avoiding export of the object related to the original
+  file used for import. [chrisr3d]
+- [stix import] Fixed original imported file Object name. [chrisr3d]
+- Sort CSV file before comparing: we do not care what the order of the
+  attributes is. [Raphaël Vinot]
+- [CSV] boolean fields should be set to 1/0 instead of true/false.
+  [iglocska]
+- [freetext] tag field not working fixed. [iglocska]
+- [stix2 export] Handled case where we have only link attributes to be
+  imported. [chrisr3d]
+- [restSearch] Avoiding useless stix python script calls on empty files.
+  [chrisr3d]
+- [stix2] invalid path to script dir. [iglocska]
+- [restSearch] Ignoring square brackets around STIX2 objects returned by
+  the python script. [chrisr3d]
+
+  Because they are already provided by the framing script
+- [stix export] Shortcut passing directly the 'Event' key of an event to
+  the parsing functions. [chrisr3d]
+- [stix2 export] Avoiding identity object duplication. [chrisr3d]
+
+  - Fixed orgs list, adding each org seen as it was
+    intended but forgotten until now
+- [restSearch] Fixed return format for STIX formats. [chrisr3d]
+- [restSearch] Added STIX 1 & 2 in valid formats. [chrisr3d]
+
+  - Also fixed indentation of the validFormats array
+- [restSearch] Fixed failed merge. [chrisr3d]
+- [stix2 export] Stopped passing ORGs already parsed as argument of the
+  python script. [chrisr3d]
+- [restSearch] Changed how data is handled eeeeeeeeeee. [chrisr3d]
+
+  - Criteria was number of events and is now number
+    of attributes
+  - Writing data in a file until the limit number of
+    attributes is reached, then writing in the next
+    file and looping again until all data is written
+  - Then for each file, calling the python script to
+    parse MISP events and translate them into STIX
+  - Writing parsed STIX data into 1 file used to
+    return the result
+- [stix2 export] Fixed event dictionary reading. [chrisr3d]
+- [stix2 export] Refactored MISP event format used to improve
+  performances. [chrisr3d]
+
+  - For big events, loading json file and parsing it
+    as json format is much faster than loading it as
+    PyMISP objects
+- [stix2 export] Clearer string concatenation in scripts & directories
+  names definitions. [chrisr3d]
+
+  - Reuse of variable name instead of string concatening
+- [restSearch] Refactored MISP event format used to improve
+  performances. [chrisr3d]
+
+  - For big events, loading json file and parsing it
+    as json format is much faster than loading it as
+    PyMISP objects
+- [stix1 export] Fixed baseurl & orgname fetching from scripts
+  arguments. [chrisr3d]
+
+  - Replacing empty arguments by default values
+- [stix1 export] Including the latest changes on the python script.
+  [chrisr3d]
+- [stix2 export] Using class variables to define baseurl & orgname.
+  [chrisr3d]
+- [restSearch] Prettifying stix packages with indents. [chrisr3d]
+
+  - As it is in stix export function from Model/Event.php
+- [cleanup] Fixed indentation in restSearch. [chrisr3d]
+- Added variable to have attribute with no ids flag from fetchEvent.
+  [chrisr3d]
+- [restSearch] Fixed variables & indent. [chrisr3d]
+- [ACL] Added exportSearch to the ACL. [iglocska]
+- [api] Sharing group organisations not iterated if they don't exist.
+  [iglocska]
+- Headers are case-sentitive, do not strtoupper. [Hannah Ward]
+- [distributionGraph] changed condition to support one missing edge
+  case. [Sami Mokaddem]
+- [distributionGraph] Fixed for loop to be less browser dependent. [Sami
+  Mokaddem]
+- [internal] Moved validFormats array into a global for the event model.
+  [iglocska]
+- [ReST] increased ReST client execution time to 300s. [iglocska]
+- [Feed] If no data is returned from a freetext feed a notice was
+  generated. [iglocska]
+
+  - added more graceful handling
+- [log] user zmq logging was always getting the first user instead of
+  the actual one. [iglocska]
+- Travis tests failing, take 2. [Raphaël Vinot]
+- Travis tests failing. [Raphaël Vinot]
+- [graph] Made the correlation graph aware of the new correlation
+  loading. [iglocska]
+- [internal] Organisation caching fixed for the event load. [iglocska]
+- [api] close the file after reading it. [iglocska]
+- [API documentation] Added missing filters to the restSearch API.
+  [iglocska]
+- [API] sgReferenceOnly should work via the API too. [iglocska]
+- [API] handle empty value fields when running a quick search.
+  [iglocska]
+- [API] Fixed the quickfilter parameter. [iglocska]
+- [cleanup] Some cleanup and fixes to invalid exception invocations.
+  [iglocska]
+- [eventGraph] Adapted fa icon to match the current installed fa
+  package. [Sami Mokaddem]
+- [eventGraph] prevents bug if object has no attributes. [Sami Mokaddem]
+- [stix2 export] Fixed Indicator & ObservedData arguments to avoid
+  syntax error with version < 3.5 of python. [chrisr3d]
+- [stix2 export] Fixed string truncation. [chrisr3d]
+- [API] handle to_ids better in the restSearch APIs. [iglocska]
+
+  - invalid default settings for text/suricata exports on the event scope fixed
+  - 'exclude' re-introduced as a valid value
+- [API] handle invalid export module calls gracefully. [iglocska]
+- [stix2 export] Fixed unintended syntax error. [chrisr3d]
+- [Event] Prevents bug if object has no attributes. [Sami Mokaddem]
+
+  While using the event quick filter, prevents accessing a non existing index
+  if the object has no attributes.
+- [stix framing] Fixed orgname in stix framing. [chrisr3d]
+- [stix framing] Removed monkey printing. [chrisr3d]
+- [stix framing] Redefined stix separator. [chrisr3d]
+
+  - Avoid writing 'related package' xml key after
+    each python script call
+  - Those keys are now defined as separator and
+    coming from the framing script
+- [stix export] Switched xml 'related packages' writing into the framing
+  script. [chrisr3d]
+
+  - Instead of doing it in the php side after the
+    framing script is called
+- [stix framing] Fixed xml separator. [chrisr3d]
+- [API] toggle warninglists now correctly handles name lists as
+  parameters instead of just single values, fixes #3706. [iglocska]
+- [enrichment] Made the payload of the API enriching an event with a
+  list of modules a bit more lax. [iglocska]
+- [galaxy UI] clicking on metadata collapsed the galaxy quick view.
+  [iglocska]
+- [Rest client] fixed invalid serialisation of some fields. [iglocska]
+- [cleanup] Fixed missing merge save. [chrisr3d]
+- [import modules] Avoiding issues with userConfig when module is
+  csvimport. [chrisr3d]
+
+  - If users tick the checkbox to specify there is a
+    header in the csv file to import, there should
+    not be an error with empty userConfig header
+- [stix1 framing] Including RichieB2B's patch. [chrisr3d]
+- [stix1 export] Fixed missing change on the framing script call.
+  [chrisr3d]
+- [stix2 export] Fixed syntax in stix2 function. [chrisr3d]
+- [stix2 export] Fixed monkey issue in org uuid to return (in order to
+  avoid duplication) [chrisr3d]
+- [stix2 export] Added missing view for stix2 json download. [chrisr3d]
+- [stix2 export] Fixed event fetching. [chrisr3d]
+- [API] Fixed an invalid lookup in the openioc export. [iglocska]
+- [API] added catcher for include_event_uuid via /attributes/restSearch.
+  [iglocska]
+
+  - affects #3695
+- [stix2 export] Variable typo. [chrisr3d]
+- [API] malware samples not encoded with withAttachments=1 on the event
+  level restSearch. [iglocska]
+- [stix2 export] Cleaned up MISP objects parsing. [chrisr3d]
+
+  - Replaced multiple if statements in a for loop by
+    a dictionary mapping
+- [stix2 export] Removed list of MISP types no longer used. [chrisr3d]
+- [stix2 export] Cleaned up MISP attributes parsing. [chrisr3d]
+
+  - Replaced multiple if statements in a for loop by
+    a dictionary mapping
+- [API] CSV export snafu fixed. [iglocska]
+
+  - perhaps not ignoring the filter parameters and getting the full dataset visible to the current user is a helpful idea
+- [API] Added rpz to restsearch API description. [iglocska]
+
+  - also added text to events/restSearch
+- [internal] Fixed an issue that prevented all to ids attributes from
+  being fetched on the event view. [iglocska]
+- [UI] Glaaxy quick view collapse toggle didn't correctly replace the +
+  with a - when expanded, fixes #3678. [iglocska]
+- [API] Fixed the handling of the to_ids flag. [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [ACL] Appease Travis (admin only function explicitly named) [iglocska]
+- [db] Fixed an invalid DB field. [iglocska]
+- [stix2 import] Using stix2 library attributes to load and parse STIX
+  data. [chrisr3d]
+- [stix2 import] Fixed issue with self attribute used before
+  declaration. [chrisr3d]
+- [stix2 import] Changed 1 function name to a more relevant one.
+  [chrisr3d]
+- [sync] Invalid model call in the server pull using the update
+  technique. [iglocska]
+- [diagnostic] Updated cybox reauired default version. [chrisr3d]
+
+  - Since the very latest version is now installed
+    on every new machine generated, we can consider
+    it as default version
+- [stix2 import] Cleaned up duplicate function & Fixed external STIX
+  files parsing. [chrisr3d]
+
+  - External STIX files parsing improvement to come
+- [stix2 import] Fixed mapping between STIX objects and galaxies fields.
+  [chrisr3d]
+- [stix2 export] Fixed fields exported from galaxies. [chrisr3d]
+
+  Better mapping regarding the relevance of each field
+- [stix2 import] Removed no longer used function. [chrisr3d]
+- [cleanup] Loading mapping dictionary only when needed. [chrisr3d]
+- [API] various fixes to the timestamp handling. [iglocska]
+- [Cortex] Unset cortex content-type header when doing a GET request.
+  [iglocska]
+- [merge issue] resolved merge issue. [iglocska]
+- [API] fixed an invalid dissection of the tag parameter if the
+  parameter is not set. [iglocska]
+- [cleanup] Cleanup of removed upgrade scripts. [iglocska]
+- [upgrade] replay potentially missed updates. [iglocska]
+- [sync] Fixed some issues throwing notices when pulling. [iglocska]
+- [sync] Fix pull not working caused by the refactor. [0xiso]
+- [sync] Fix pull not working. [0xiso]
+- [doc] Add an option to checkout submodules recursively. [0xiso]
+- Making python 3.5 happy with exception type ImportError. [chrisr3d]
+- [stix import] Fixed object_relation field key for the format of the
+  original imported file. [chrisr3d]
+
+  - Following the latest changes on the object
+- [Sighting] Fixed sighting creation. [chrisr3d]
+- [stix1 import] Updated file parsing. [chrisr3d]
+
+  - Including import of single attribute for the
+    latest supported STIX file object
+  - Including parsing of the STIX file object field
+    'full_path' which can be found in any of the
+    different STIX object describing files
+- [stix import] Avoiding encoding errors on reading file. [chrisr3d]
+- [stix import] Quick fix on the new MISP object (for original files
+  imported) attributes. [chrisr3d]
+
+  - Following the changes on the object itself
+- [API] Quick fix on a dict key to fetch the name of the stix file
+  imported. [chrisr3d]
+- [stix import] Importing the original file binary using the data field
+  in attribute instead of value field. [chrisr3d]
+- [stix import] using the decoded binary of the original file imported
+  as attachment. [chrisr3d]
+- [RPZ] flatten attributes for the RPZ export. [iglocska]
+- [API] downloading events in XML format via the UI returns JSON.
+  [iglocska]
+- [Feeds] Don't try to find caches for feeds that don't have caching
+  enabled. [iglocska]
+- [REST client] baseurl can now be set optionally in the url. [iglocska]
+- [Feeds] I CAN'T MATH. [iglocska]
+- [feeds] Feed caching generates a lot of notices. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3743 from WaryWolf/unmanaged-workers. [Andras
+  Iklody]
+
+  Add "manage workers" option.
+- Add "manage workers" option. [Anthony Vaccaro]
+
+  This is enabled by default, which replicates the current behaviour of having controls to start, stop and restart workers in the server settings page.
+  When set to disabled, these controls are hidden, which allows server administrators to manage the worker processes externally, e.g. via systemd.
+
+  A sample systemd unit file has also been included into the INSTALL directory.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into
+  chrisr3d_restSearch_tests. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into
+  chrisr3d_restSearch_tests. [chrisr3d]
+- Add: [restSearch] STIX 1 & 2 export for restSearch. [chrisr3d]
+
+  Features to be merged:
+  - Export of multiple MISP events
+  - Fetching events and writing them into files, each
+    file containing at most a number of attributes
+    defined by a limit
+  - Each file is then parsed instead of parsing each
+    event individualy, which reduces the number of
+    times the python scripts are called, reducing
+    the execution time of the overall process
+  - The result is then returned as on single file
+    read and displayed
+- Merge branch '2.4' of github.com:MISP/MISP into
+  chrisr3d_restSearch_tests. [chrisr3d]
+- Wip: [stix2 export] Supporting export of multiple MISP events.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into
+  chrisr3d_restSearch_tests. [chrisr3d]
+- Wip: [restSearch] Passing multiple events to the STIX parsing script.
+  [chrisr3d]
+
+  - atm calling the python script every 10 events
+    fetched with fetchEvent
+- Merge branch '2.4' of github.com:MISP/MISP into
+  chrisr3d_restSearch_tests. [chrisr3d]
+- Wip: [stix1 export] Supporting export of multiple MISP events.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into
+  chrisr3d_restSearch_tests. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into
+  chrisr3d_restSearch_tests. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into
+  chrisr3d_restSearch_tests. [chrisr3d]
+- Wip: [restSearch] Added stix2 export in restSearch. [chrisr3d]
+- Wip: [restSearch] Stix1 export for restSearch. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #3730 from FloatingGhost/2.4. [Andras Iklody]
+
+  fix: Customauth Headers are case-sentitive, do not strtoupper
+- Merge pull request #3731 from RichieB2B/ncsc-nl/show-more. [Andras
+  Iklody]
+
+  Only display "Show 2 more" and up
+- Only display "Show 2 more" and up. [Richard van den Berg]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4. [Sami
+  Mokaddem]
+- Merge pull request #3729 from RichieB2B/ncsc-nl/trim-merge. [Andras
+  Iklody]
+
+  Trim spaces from source_id in merge form
+- Trim spaces from source_id in merge form. [Richard van den Berg]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4. [Sami
+  Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3725 from lhirlimann/2.4. [Alexandre Dulaunoy]
+
+  Unify url for modules, make them usable behind proxies
+- Unify url for modules, make them usable behind proxies. [Ludovic]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3723 from pettai/shibb. [Alexandre Dulaunoy]
+
+  fix typo
+- Fix docs. [Fredrik Pettai]
+
+  fix docs
+  (DefaultRoleId is not implemented in the code)
+- Fix typo. [Fredrik Pettai]
+
+  fix typo in error message
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3711 from pettai/install. [Andras Iklody]
+
+  add missing meac dep
+- Add missing meac dep. [Fredrik Pettai]
+
+  add missing meac dep
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3707 from Rafiot/2.4. [Raphaël Vinot]
+
+  chg: Bump PyMISP
+- Merge branch 'stix2' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into stix2. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into stix2. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into stix2. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into stix2. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into stix2. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into stix2. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into stix2. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into stix2. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into stix2. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into stix2. [chrisr3d]
+- Add: [export] Introduction of a framing script. [chrisr3d]
+
+  - atm returning header, separator and footer for
+    both stix 1 & 2 export
+  - will do the same for other export formats, as a
+    centralized script taking the parameters needed
+    for the format in subject and returning the
+    corresponding header, footer and separator
+- Merge branch '2.4' of github.com:MISP/MISP into stix2. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into stix2. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into stix2. [chrisr3d]
+- Add: [stix2 export] Added stix2 export view. [chrisr3d]
+- Add: [stix2 export] Added instruction about automation part.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into stix2. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3664 from SteveClement/guides. [Andras Iklody]
+
+  chg: [doc] Moved INSTALL files around to reflect a more accurate support landscape.
+- Merge branch '2.4' into guides. [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into guides. [Steve
+  Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Proposed fix for admin add org with logo. [Sascha Rommelfangen]
+
+  proxied via @iglocska
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Merge branch 'feature/variable_tag_value' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3626 from 0xiso/fix-pull-progress. [Andras Iklody]
+
+  fix: [sync] Fix pull not working
+- Merge pull request #3654 from 0xiso/fix-install-doc. [Andras Iklody]
+
+  fix: [doc] Add an option to checkout submodules recursively
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3631 from SteveClement/i18n. [Steve Clement]
+
+  chg: [i18n] Update to languages: Danish (54%) German (17%) Japanese (100%) French (67%) Spanish (3%)
+- Merge remote-tracking branch 'upstream/2.4' into i18n. [Steve Clement]
+- Merge pull request #3630 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] CentOS 7 amendments, basic functionality established
+- Merge branch '2.4' into guides. [Steve Clement]
+- Merge branch '2.4' into i18n. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- [stix1 import] Changed one of the generic STIX objects parser into a
+  return function. [chrisr3d]
+
+  - So we extend the list of results instead of
+    having it as a parameter
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Fixed bug where popoverChoice was returning undefined values for some
+  browser. [Sami Mokaddem]
+
+
 v2.4.95 (2018-09-06)
 --------------------
 
