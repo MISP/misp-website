@@ -17,7 +17,7 @@ MISP can be easily installed on any standard GNU/Linux distribution. Installatio
 
 ### Virtual images
 
-If you would like to test MISP and don't want to do an installation, CIRCL generates automatically VMware images and VirtualBox at each MISP core commit. Available at the [following location](https://www.circl.lu/misp-images/latest/). The image is to be used for testing purposes only, production-use is considered to be harmful as it contains much more than MISP. (MISP-dashboard, viper, ...)
+If you would like to test MISP and don't want to do an installation, CIRCL generates automatically VMware images and VirtualBox at each MISP core commit. Available at the [following location](https://www.circl.lu/misp-images/latest/). The image is to be used for testing purposes only, production-use is considered to be dangerous as is, it contains much more than MISP alone but also misp-dashboard and viper which requires additional security review before being in production.
 
 The default credentials for the automatically generated virtual machines are the following:
 
