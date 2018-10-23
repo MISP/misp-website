@@ -475,6 +475,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_geolocation">geolocation</a></li>
 <li><a href="#_gtp_attack">gtp-attack</a></li>
 <li><a href="#_http_request">http-request</a></li>
+<li><a href="#_ip_api_address">ip-api-address</a></li>
 <li><a href="#_ip_port">ip-port</a></li>
 <li><a href="#_ja3">ja3</a></li>
 <li><a href="#_legal_entity">legal-entity</a></li>
@@ -490,9 +491,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_original_imported_file">original-imported-file</a></li>
 <li><a href="#_passive_dns">passive-dns</a></li>
 <li><a href="#_paste">paste</a></li>
+<li><a href="#_pcap_metadata">pcap-metadata</a></li>
 <li><a href="#_pe">pe</a></li>
 <li><a href="#_pe_section">pe-section</a></li>
 <li><a href="#_person">person</a></li>
+<li><a href="#_phishing">phishing</a></li>
 <li><a href="#_phone">phone</a></li>
 <li><a href="#_process">process</a></li>
 <li><a href="#_r2graphity">r2graphity</a></li>
@@ -5852,6 +5855,241 @@ http-request is a MISP object available in JSON format at <a href="https://githu
 </div>
 </div>
 <div class="sect1">
+<h2 id="_ip_api_address"><a class="anchor" href="#_ip_api_address"></a><a class="link" href="#_ip_api_address">ip-api-address</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>IP Address information. Useful if you are pulling your ip information from ip-api.com.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+ip-api-address is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/master/objects/ip-api-address/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ip-src</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ip-src</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Source IP address of the network connection.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">asn</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AS</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Autonomous System Number</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">organization</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>organization</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ISP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ISP.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">zipcode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Zip Code.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">city</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>City.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">state</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>State.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">country</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Country name</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">country code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Country code</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">region</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Region. example: California.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">region code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Region code. example: CA</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">latitude</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The latitude is the decimal value of the latitude in the World Geodetic System 84 (WGS84) reference.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">longitude</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The longitude is the decimal value of the longitude in the World Geodetic System 84 (WGS84) reference</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">first-seen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>First time the ASN was seen</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">last-seen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Last time the ASN was seen</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_ip_port"><a class="anchor" href="#_ip_port"></a><a class="link" href="#_ip_port">ip-port</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -7412,7 +7650,7 @@ network-connection is a MISP object available in JSON format at <a href="https:/
 <p>Layer 3 protocol of the network connection. ['IP', 'ICMP', 'ARP']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -7425,7 +7663,7 @@ network-connection is a MISP object available in JSON format at <a href="https:/
 <p>Layer 4 protocol of the network connection. ['TCP', 'UDP']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -7438,7 +7676,7 @@ network-connection is a MISP object available in JSON format at <a href="https:/
 <p>Layer 7 protocol of the network connection. ['HTTP', 'HTTPS', 'FTP']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -7700,7 +7938,7 @@ original-imported-file is a MISP object available in JSON format at <a href="htt
 <p>Format of data imported. ['STIX 1.0', 'STIX 1.1', 'STIX 1.2', 'STIX 2.0', 'OpenIOC']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -8051,6 +8289,124 @@ paste is a MISP object available in JSON format at <a href="https://github.com/M
 <td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>When the paste has been accessible or seen for the first time.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pcap_metadata"><a class="anchor" href="#_pcap_metadata"></a><a class="link" href="#_pcap_metadata">pcap-metadata</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Network packet capture metadata.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+pcap-metadata is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/master/objects/pcap-metadata/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">capture-length</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Capture length set on the captured interface.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">capture-interface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Interface name where the packet capture was running.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">protocol</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Capture protocol (linktype name). ['LINKTYPE_NULL', 'LINKTYPE_ETHERNET']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A description of the packet capture.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">first-packet-seen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>When the first packet has been seen.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">last-packet-seen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>When the last packet has been seen.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -8794,7 +9150,7 @@ person is a MISP object available in JSON format at <a href="https://github.com/
 <td class="tableblock halign-left valign-top"><p class="tableblock">social-security-number</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Social security number</p>
+<p>Social security number.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -8814,6 +9170,228 @@ person is a MISP object available in JSON format at <a href="https://github.com/
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nic-hdl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>NIC Handle (Network Information Centre handle) of the person.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">phone-number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">phone-number</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Phone number of the person.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fax-number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">phone-number</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Fax number of the person.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Postal address of the person.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e-mail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">email-src</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Email address of the person.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_phishing"><a class="anchor" href="#_phishing"></a><a class="link" href="#_phishing">phishing</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Phishing template to describe a phishing website and its analysis..</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+phishing is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/master/objects/phishing/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Original url of the phishing website</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">phishtank-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Phishtank ID of the reported phishing</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">phishtank-detail-url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Phishtank detail URL to the reported phishing</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">submission-time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>When the phishing was submitted and/or reported</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">verified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The phishing has been verified by the team handling the phishing ['No', 'Yes']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">verification-time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>When the phishing was verified</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">online</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If the phishing is online and operational, by default is yes ['Yes', 'No']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">takedown-time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>When the phishing was taken down</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">target</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Targeted organisation by the phishing</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -9072,7 +9650,7 @@ process is a MISP object available in JSON format at <a href="https://github.com
 <p>Process ID of the process.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -9085,7 +9663,7 @@ process is a MISP object available in JSON format at <a href="https://github.com
 <p>Process ID of the parent process.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -9098,7 +9676,7 @@ process is a MISP object available in JSON format at <a href="https://github.com
 <p>Process ID of the child(ren) process.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -9111,7 +9689,7 @@ process is a MISP object available in JSON format at <a href="https://github.com
 <p>Port(s) owned by the process.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -13636,7 +14214,7 @@ yara is a MISP object available in JSON format at <a href="https://github.com/MI
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">derived-from</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The information in the target object is based on information from the source object.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">['misp', 'stix-2.0']</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp', 'stix-2.0', 'alfred']</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">duplicate-of</p></td>
@@ -13646,7 +14224,7 @@ yara is a MISP object available in JSON format at <a href="https://github.com/MI
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">related-to</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The referenced source is related to the target object.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">['misp', 'stix-2.0']</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp', 'stix-2.0', 'alfred']</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">connected-to</p></td>
@@ -13661,7 +14239,7 @@ yara is a MISP object available in JSON format at <a href="https://github.com/MI
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">contains</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The referenced source is containing the target object.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">['misp', 'stix-1.1']</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp', 'stix-1.1', 'alfred']</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">contained-by</p></td>
@@ -13746,7 +14324,7 @@ yara is a MISP object available in JSON format at <a href="https://github.com/MI
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uses</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes the use by the source object of the target object.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">['misp', 'stix-2.0']</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp', 'stix-2.0', 'alfred']</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">indicates</p></td>
@@ -13761,7 +14339,7 @@ yara is a MISP object available in JSON format at <a href="https://github.com/MI
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">variant-of</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes a source object which is a variant of the target object</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">['misp', 'stix-2.0']</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp', 'stix-2.0', 'alfred']</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">impersonates</p></td>
@@ -13816,12 +14394,12 @@ yara is a MISP object available in JSON format at <a href="https://github.com/MI
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">affects</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object affected by another object.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp', 'alfred']</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">beacons-to</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object beaconing to another object.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp', 'alfred']</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">abuses</p></td>
@@ -13831,17 +14409,17 @@ yara is a MISP object available in JSON format at <a href="https://github.com/MI
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">exfiltrates-to</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object exfiltrating to another object.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp', 'alfred']</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">identifies</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object which identifies another object.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp', 'alfred']</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">intercepts</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object which intercepts another object.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp', 'alfred']</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">calls</p></td>
@@ -14026,7 +14604,7 @@ yara is a MISP object available in JSON format at <a href="https://github.com/MI
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">owner-of</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object which owns another object.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">['cert-eu']</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['cert-eu', 'alfred']</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">publishes-method-for</p></td>
@@ -14073,6 +14651,201 @@ yara is a MISP object available in JSON format at <a href="https://github.com/MI
 <td class="tableblock halign-left valign-top"><p class="tableblock">This relationships describes an object which annotates another object.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">references</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationships describes an object which references another object or attribute.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">child-of</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A child semantic link to a parent.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">compromised</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of having compromised something.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">connects</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The initiator of a connection.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">connects-to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The destination or target of a connection.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cover-term-for</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of one thing being the cover term for another.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disclosed-to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Semantic link indicating where information is disclosed to.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">downloads</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of one thing downloading another.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">downloads-from</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of malware being downloaded from a location.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of an alert generated from a signature.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">implements</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One data object implements another.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">initiates</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of a communication initiating an event.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">instance-of</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link between a FILE and FILE_BINARY.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">issuer-of</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of being the issuer of something.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">linked-to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of being associated with something.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">not-relevant-to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of a comm that is not relevant to an EVENT.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">part-of</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link that defines one thing to be part of another in a hierachial structure from the child to the parent.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">processed-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of something has been processed by another program.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">produced</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of something having produced something else.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">queried-for</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The IP Address or domain being queried for.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">query-returned</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The IP Address or domain returned as the result of a query.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">registered</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of someone registered some thing.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">registered-to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of something being registered to.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">relates</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link between HBS Comms and communication addresses.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">relevant-to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of a comm that is relevant to an EVENT.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resolves-to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of resolving to something.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">responsible-for</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of some entity being responsible for something.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">seeded</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of a seeded domain redirecting to another site.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sends</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A sends semantic link meaning 'who sends what'.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sends-as-bcc-to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A sends to as BCC semantic link meaning 'what sends to who as BCC'.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sends-as-cc-to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A sends to as CC semantic link meaning 'what sends to who as CC'.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sends-to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A sends to semantic link meaning 'what sends to who'.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">spoofer-of</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The represents the semantic link of having spoofed something.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subdomain-of</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents a domain being a subdomain of another.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">supersedes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One data object supersedes another.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">triggered-on</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of an alert triggered on an event.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uploads</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of one thing uploading another.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user-of</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The represents the semantic link of being the user of something.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">works-for</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the semantic link of working for something.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['alfred']</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -14080,7 +14853,7 @@ yara is a MISP object available in JSON format at <a href="https://github.com/MI
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-27 13:34:42 CEST
+Last updated 2018-10-23 19:46:21 CEST
 </div>
 </div>
 </body>
