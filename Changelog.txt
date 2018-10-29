@@ -2,6 +2,646 @@ Changelog
 =========
 
 
+v2.4.97 (2018-10-29)
+--------------------
+
+New
+~~~
+- [sighting/api] xml output format + improved error feedback. [Sami
+  Mokaddem]
+- [sighting/api] trying to follow the new API architecture. JSON export
+  is broken but CSV is working. WIP... [Sami Mokaddem]
+- [Sightings/API] Added possiblity to get sightings based on a
+  timerange/source/... [Sami Mokaddem]
+- [docs] Added new sub-sections in seperate files that are shared
+  between install guides. new: [docs] ethX.md to bring back eth0 new:
+  [docs] mail to misp install debian flavored guide new: [docs] ssdeep
+  install debian flavored guide new: [docs] viper install debian
+  flavored guide new: [docs] sudo/etckeeper install debian flavored
+  guide new: [docs] misp dashboard install debian flavored guide. [Steve
+  Clement]
+- [docs] Added 3 generic documentation files, one where the MISP install
+  is completed, A specific centos/etc... one because, well, CentOS.. and
+  the generic recommended actions section that kept repeating in all
+  guides. chg: [docs] Implemented the above 3 files in all the guides.
+  Plus some format changes. [Steve Clement]
+- [docs] Added generic notice about community contributed doc
+  maintenance. [Steve Clement]
+- [galaxy] Several changes. [iglocska]
+
+  - moved the current uuid field on cluster level to a new "collection_uuid" field to better represent the actual purpose
+  - added new uuid field that actually captures the cluster's uuid
+  - upgrade script is multi-execution safe
+  - added /galaxy_clusters/view to the API
+  - /galaxy_clusters/view can now be queried via the uuid instead of just the ID
+- [docs] Added globalVariables files to be included by all Install
+  Guides chg: [tools] Updated dependencies on docs creator chg: [docs]
+  Some minor changes to Ubuntu Install guide and added
+  VariableglobalVariables chg: [docs] Updated mkdocs.yml with new
+  dependencies. [Steve Clement]
+- [docs] Added eXperimental RHEL7.6 (BETA) Install Doc. [Steve Clement]
+- [tools] Added tool to create MISP INSTALL Docs and push to gh-page,
+  plus it fetche latest Changelog.txt. [Steve Clement]
+- [docs] Added intial mkdocs directory. [Steve Clement]
+- [API] Added CSV as return format for event index. [iglocska]
+- [API description] Describe how to run diagnostics on MISP via the API.
+  [iglocska]
+- [upgrade] Preparing the data for recovery after the object reference
+  sync fix. [iglocska]
+
+  - update the timestamps of all events / objcts that are affected and are locked = 0
+- [API] Added a way to use the API to throw values at the warninglist
+  for quick evaluations of the values. [iglocska]
+- [logging] Log why an event could not be pulled. [iglocska]
+- [API documentation] Added some missing API templates. [iglocska]
+- [API] Added the log index/search to the API. [iglocska]
+
+  - described in the templates / rest client page
+- [related tags] View the related tags of attributes on the event view
+  (via a toggle) [iglocska]
+
+  ,,.,,+zznzzzzzzzzzzzzzzzzzzzzzzzzzzxMMMMMMMMMMMMMMMMMMMMMxMxMMWMMMWMMz*ii****iiiiiiiii**iiii,....
+  ,,.,,#zzzzzzzzzzzzzzzzzzzzzzzznxMMMMMWMMMMMMMMMMMMMMMMMMxMxMMMWWWWWWWWx+*iii*iiiiiiiii*iiiii,,,..
+  ,,,,,#zzzzzzzzzzzzzzzzzzzzzzznMWWMMMMMMMMMMMMMMMMMMMMMMMWWMxnnzxxMWWWWMn*iiiiiiiiiiiiiiiiiii..,..
+  ,,,,,#znzzzzzzzzzzzzzzzzzzzznMMMMMMWWWWMMMMMMMMMMMMMMMMWWWMMMxnxxxxMMMMW#*iiiiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzzzzzzznMMMMMMMMMWMMMMMMMMMMMMMMMMMMMMWxMMMMMMxxxxnxxz*iiiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzzzzzzzxMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWWMWWWWMWMMMxxxni*iiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzzzzzznMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWWWMMWWMWMMWWWMMMni*iiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzzzzzzxWMMMMMMMMMMMMMMMMMMMMMMMMMMMWMMMWMMMMMMWMWWMMMMMz*iiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzznzzznMMMMMMMMMMMWMMMMMMMMMMMMMMMMMMMMMMMMWWWWMMMMMMMMMWn*iiiiiiiiiiii*i,.,.,
+  ,,.,,#zzzzzzzzzzzzzzznzzzxMMMMMMMMMMMWMMMMMMMMMMMMMMMMMMMMMWWWWWWWWWWWMMMMMWWM+*iiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzznzzznzznMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWMWWWWWWWWWWWWWMMWWn*iiiiiiiiii*i,.,.,
+  ,,.,,#zzzzzzzzzzznzzzznzxMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWMMMMWWWWMMWWWWWMMMM**iiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzzznMMMMMMMMMMMMMWMMMMMWMMMMMMMMMMMMMMWWWWWMMMMMMMMWWWWWMWM#iiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzzzxMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWWWWWWWWWMMMMMMMWWWWMzi*iiiiiiii*i,.,.,
+  ,,.,,#zzzzzzzzzzzzzzzzzMMMMMMMMMMMMMMMWMnzxMMMMMMMMMMMMMWWWWWWWWWWWWMMMMMMMWWWWni*iiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzzzWMMMMMMMMMMMMMMMnnzznxMWMMMMMMMMMMWWWWWWWWWWWWWWWWWMMWWMn**iiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzzzMMMMMMMMMMMWMMMMzz#+#znxMWMMMMMMMMMMMMMWWWWWWWWWWWWWMWWMn**iiiiiiii*i,.,,,
+  ,,.,,#zzzzzzzzzzzzzzzzzxMMMMMMMMMMMMMMxz#*i**+zznMMMMMMMMMMMMMMMWWWWWWWMWWWWWWWx**iiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzzzxMMMMMMMMMMWWMMn#*iii*i*+znxMWMMMMMMMMMMMMWWWWWMMMMMMMMMM+*iiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzznMWMMMMMMMMMMMMn#*iiii*i*i+#znMMWWMMMMMWMWMMWWWMMMMMMMMWWx+iiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzzzMMMMMMMMMMMMMx#i*iii**iiii*#znxMWMMMMMMMMMMMWWMMMMWWWWWWniiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzznzMMMMMMMMMMMMxn+ii**i**iiii*i*zznMMMMMMMMMMMMMMMMMxMWWWMMx*iiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzznnMMMMMMMMMMMMxz*ii*iiiiiiiii:;*+znMWMMMMMMMMMMMMMMMMMWWWMx**iiiiiiii*i,.,,.
+  ,,.,,#zzzzzzzzzzzzzzzznMMMMMMMMMMMMMn+ii*iiiii**;;:.:i*zznxMMMMMMMMMMMMMMWWWWWWni*ii**iiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzzxMMMMMMMMMMMMMn*ii*iii*i;:,.,..,.,;+znxxMMMMMMMMMMMMMMWWWziiii**iiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzznxMMMMMMMMMMMMxzi*ii*ii*;,,,,,,,,,,,,:i*i#znnnxMWWMMMMMMMWn*iii*iiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzznxMMMMMMMMMMMMz*i*i*i*;:,.,,,,,,,,,,,,.,,,;i*#zznxMMMMMMWWM+iiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzznMMMWMMMMMMMMx#iii*i*i:.,.,,,.,.,,,,,,,,,,,,,,;i#znxMMMMMWM+iiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzznMMMWMMMMMMMMx#iiiiii:.,,.,,.......,,,,..,,,,,,,,iznxMMMMWM*iiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzznMMMMMMMMMMMMx#ii*ii:.,,,,,,..........,.....,,,,,,:*#MMMMWxi*iiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzzMMMMMMMMMMMMn+i*i;:,.,,,......,.............,....,,;xMMMWniiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzznzzMMMMMMMMMWMn+iiii;,,,,,,.,..........,....,.,...,,,,.zMMMMxiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzznznMMMMMMMMMMnz*iiii:,,,,,,,,,,,,................,,,...zMMMMzi*iiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzznznMMMMMMMMMxzz**ii;..,,,.,,,,,,.................,,,...nMMMM#**iiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzznzzMMMMMMMWxzzz+iii:.,,,,.,,,,,....,............,,,,..,nMMWx*iiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzznznMMMMMMMWnzzzn+i*,...,,..,,,.,..,.,...,........,,,.,;MWMM+iiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzznMMMMMMMWnzzzzzzii*++++z+;,,,.,,,,,,,,,...,.....,...;MWMxii**iiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzznMMMMMMMWnzzznzzzzznnnzzzn#i,,,.,...................,MWM#iii*iiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzxMMMMMMMMzz+#znzznznMWWMMWMx#i:,,,,,,,,,,,,,,.,,..,,:MMx*iiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzxMMMMMMMxzz**#znMMnnxxxxxMWWWMnz;,,,,,.,.,,,,,,,,,,,,MMziiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzMMMMxMMMnzz*ii#nWWWWMWWnMMMWWWWWn*,,;i;i;**+#zzz+i,,,Mx*iiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzMMMMMMMxzzzi*;,+xWWMnxMnx+xMWWMWWn,.,znMMMxxMMMMxni:*Mziiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzznxnxMMMMxznziii.,:+nxiinn*.iMMMWMM+,,.*WWWWWWM#:,:#z##M*iiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzznzznxzMWMMMxznziii,..,+#n:,:,,,izzMM#;,,,+WWWWWzxn+i,:zzzMi**iiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzznzznnzxMMMMxzz#ii;,,,,:**++i::,:::zx;,,,,#MM#zxxMznWx#+izxiiiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzxnzMWMMMnzzz*i:.,,,,,,,i;i;,,.,*n,,,,,+#+::#n*,#xni,,zniiiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzxnzMMMMWnzzz**;..,,,.,..,;,,,,,;n,.,,:*;,:::,,,:*,.,,n#i*iiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzznxzMWMMMnzzz**i,..,,.,,,,,,,,,,+#,...,i,.,;**++*:.,,:x***iiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzznzznnxWWMxnzzzz+*i,,,,,.,,,,,,,,,:z;,,..,:..,,,,::.,..,;xi*iiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzznxxxzzzzzz+ii,...,.,,,,,,.,,+zi.,,.,,.,,.,,..,,,,,++iiiiiiiiiiiiiiii*i,.,,.
+  ,,.,,#zzzzzzzzzzzzzzzzzznMzzzznz#ii:.,.,..,,,,,,,izn:,..,.,,..,...,,.,,,#*iiiiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzzzznxzzzzzz#ii;.,.,..,,,,.,:zzz,,..,,,,.,...,,,,,,:+*iiiiiiiiiiiiiiii*i,.,,.
+  ,,.,,#zzzzzzzzzzzzzzzznzxxzzzznzz*i;..,,,.,,,,..;zz*..,.,,,,........,.,**iiiiiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzznzxMnzzznzz*ii,.,,,,,,,,,,ii:,,,,,,,,,,,,,,.,,.,;+*iiiiiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzzzzxMzzzzzzz**i,,.,..,,,,,;*:*,,,.,,...,,,,,,.,,,**iiiiiiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzzzzzMMnnzzzzz*ii:.,,,,,,..,#nnn#+,,,,,..,,....,.,i+i*iiiiiiiiiiiiiiiii*i,.,,.
+  ,,.,,#zzzzzzzzzzzznzznnzMMnxzzzzz**i;.,,,,.,,.,zxWWWxi,,,:*,,,..,.,,,#**iiiiiiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzzznM+WMxxzzzzz***;..,,,,,,..;xWWWWn+**#;,,,,.,,,.i#*iiiiiiiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzznW#zWMxnnzzzz*iii,.,,,,,,,,,+nWMWWWMx+,,,,,.,,,,++i*iiiiiiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzznMM,zWMMnnzzz#*ii*;.,,,,,,::iznxMMWWWWn#;,,.,,,,*#**iiiiiiiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzzzzMWz,zMMMxxznn#*ii*i::;i++#zznxWxxxWWWxxxzi,.,,,,#+iiiiiiiiiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzznMWW#,#MMMMMnznz*ii**izzzzzzxMMWWnxM@WMMMMzzi,.,,+*+iiiiiiiiiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzznMWWW#,*xMMMMnznz*iiii+MnnnnnxMWWWxxMxMxMxxxnz*,,,*+*iiii**iiiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzzzMWWWW#;;zMMMMMnnz#*i*#MWxxxxxMWMxMMxMxMWWWWxMzn;.i:#*iiii**iiiiiiiiiiiiiii*i,.,..
+  ,,,,,#zzzzzznnzxWWWWW#:;+MMMMMxzzz#*zzxWMWMWxMWWMMWWMMWWWWMxxMn:,*:#iiiiiiiiiiiiiiiiiiiiii*i,.,..
+  ,,.,,#zzzzzzzzxWWWWWWz::inMMMMMxznzzzzznxMMMxxxMMxxxzxMWWWMMWWx:ii+*iiiiiiiiiiiiiiiiiiiiii*i,.,..
+  ....,#zzzzzzznWWWWWWWz;,;+MMMMMMxzzzzzzzzznz#**i;::,,:;#nxxWMM+;*;+*iiiiiiiiiiiiiiiiiiiiii*i,.,..
+  ...,,#zzzzzznMWWWWWWWni,,*nWMMMMMxnzzzzzzzz#i*i,,,,:,,,,:+#z##i#+#*iiiiiiiiiiiiiiiiiiiiiii*i,.,..
+  ...,,#zzznnnxWWWWWWWWx*,.i+MMMMMMMMxxnzz#+****i,i**#z+;,:*iiii*zz+*iiiiiiiiiiiiiiiiiiiiiii*i,.,..
+  ,,,,,#nzzzxMMWWWWWWWWW*;.:*#WMMMMMMMMxz+**iiiii;*++####:;i****zz#*iiiiiiiiiiiiiiiiiiiiiiii*i,.,,.
+  ,,,,,#zznMWxWWWWWWWWWWz;,.;*nWMMMMMMMMnz#ii:.....,,,,,,,,ii*+zzz*ii**iiiiiiiiiiiiiiiiiiiii*i,.,..
+  ,,,,,#nxWWMxWWWWWWWWWWW;:,,*+xMMMMMMMMMxnz*:.,,,,,..,,,,,,i#nnx+i*i*iiiiiiiiiiiiiiiiiiiiii*i,.,..
+  ,,,,,zWWWWMxWWWWWWWWWWW*;,.,*+MMMMMMWMMWMx#*:,,,,....,,,,:#nMM#+*ii*iiiiiiiiiiiiiiiiiiiiii*i,.,..
+  ,,,,,xWWWWxWWWWWWWWWWWWx::,,:;+MMMMMMWMWMMnz+:....,,.,,,,+MWMM*#z+*iiiiiiii**iiiiiiiiiiiii*i,.,..
+  ,,,,,xWWWMxWWWWWWWWWWWWW+:,,,;:+MMMMMMMMMMMxnz*;,,:,,,i+#xM++W#+nz#iii*iiiiiiiiiiiiiiiiiii*i,.,..
+  ,,,,,xWWWMMWWWWWWWWWWWWWx,,..,;,*xWMMMMMMMWMWxnn####+##nxx#,+Wx*nznz:i**iiiiiiiiiiiiiiiiii*i,.,..
+  ,,.,,xWWWxMWWWWWWWWWWWWWWi.,,,,:,*#MMMMMMMMMMWMMxxxxxxxMnn,.zWM#;zzMn;*i*iiiiiiiiiiiiiiiii*i,.,..
+  ,..,,xWWWxWWWWWWWWWWWWWWWx,,,,,,:,;+MMWMMMMWWWWWWWMMMMMxn:..nWWni+nzMn#niii**iiiiiiiiiiiii*i,.,..
+  ,..,,xWWMxWWWWWWWWWWWWWWWWi,,,,.,:,,;xWMMMMMMMMMMMMMMxnni...xMWxz;znnMxxM#;i*i**iiiiiiiiii*i,.,..
+  ,..,,xWWMMWWWWWWWWWWWWWWWWz.,,...::,,;zWMMMMMMMMMMMMnzzi,,,,MMMMx*innxMxxWx+iiii**iiiiiiii*i,.,..
+  ,..,,xWWMMWWWWWWWWWWWWWWWWM:,,...,:,,,,+xWMMMMMMMMxnnzi,.,,,MMMMMzinxMxMxxMMM#;i**iiiiiiii*i,.,..
+  ,..,,xWWxWWWWWWWWWWWWWWWWWW*.,.,.,,:,,.,i+xWWMMMMxnnni,,,,,.WMMMMMz#nMMxMMMMMWxi;i*iiii*ii*i,,,..
+  ,..,,xWWxWWWWWWWWWWWWWWWWWWz.,,,,.,,:,,,,::#@WMMxnnn;..,,.,:WMWMMMMznxWxxWMMMMMM#;iiiiiiii*i,,,..
+  ,..,.nWMMWWWWWWWWWWWWWWWWWWM,.,,,...,,..,.,.iMWMxnz:.,.,,.,;WMWMMMMnzxMMxMMMMMMWMxi;i*iii*ii..,..
+  ,..,,nWWMMWWWWWWWWWWWWWWWWWWi,,,....,.,,.,,,,:nxxz:,.,,,...iWMWMMMWMznMMMxMMMMMMMMMzi;i**iii..,.,
+  ,..,,xWWWMMWWWWWWWWWWWWWWWWW#:.....,....,.,,..:#+,..,,,....:WWMMMMMMxnnMMMxWMMMMMMMWM#;;*i*i,.,..
+  ,..,,xWWWWWMMWWWWWWWWWWWWWWWxi:..,.......,,,,..;;,...,,...,,@WMMMMMMMxzxMMxxMMWMMMMMMWx+;iii,,,..
+  ,..,,xWWWWWWMMMWWWWWWWWWWWWWM*i,,,,......,,,,,;MWx+,..,,,..,@WMMMMMMMMnzxxnMMMMMMMMMMMWWx+ii,,,,.
+  ,..,,xWWWWWWWMxWWWWWWWWWWWWWW+*;,,,,.....,,.,,xWWW@n:.,,,,.,WWMMMMMMMMMnnnMMMMMMMMMMMMWMWMxz,,,..
+  ,..,,xWWWWWWWWMxWWWWWWWWWWWWWzi*;,,,,.....,,,nWMMMWWM:.,,,..MWMMMWMMMMMMnMMMMMMMMMMMMMMMMMMx,.,.,
+  ,..,,xWWWWWWWWMxWWWWWWWWWWWWWMiii;,,.,,...,.zWWWWWWWWn,.....zWMMMMMMMMMMMxMMMMMMMMMMMMMMMMMx,,,..
+  ,..,,xWWWWWWWWMWWWWWWWWWWWWWWWiii*;,,,,,,.,z@WWWWWWWWW*,..,,zWMMMMMMMMMMMMnMMMMMMMMMMMMMMMMx,,,..
+  ,..,,xWWWWWWWMWWWWWWWWWWWWWWW@+,;ii:,,.,,,zWWWWWWWWWWWM:.,,,#WMMMMMMMMMMMMxnMMWMMMMMMMMMMMMx,,,..
+  ,..,,xWWWWWWWWWWWWWWWWWWWWWWWWz,.;i*:...,ixWWWWWWWWWMMW+,,,.+WMMMMMMMMMMMMMxxMWWMMMMMMMMMMMx,,,..
+  ,..,.xWWWWWWWWWWWWWWWWWWWWWWWWM,,,iii,,,;i+WWWWWWWWW#+xx;,,.+WWMMMMMMMMMMMWMxxMMMMMMMMMMMMMx,,,,,
+  ,..,.xWWWMWWWWWWWWWWWWWWWWWWWWW;.,:iii,:ii*xWWWWWWWW+i*Mz,.,*WWMMMMMMMMMMMMWMxnMMMMMMMMMMMMx,,,..
+  ,..,.xWWWMWWWWWWWWWWWWWWWWWWWWWz.,.;i*iiiiinWWWWWWWW*i*+z*.,iWWMMMMMMMMMMMMMMMxxMMMMMMMMMMMx,,,..
+  ,..,.xWWWMMWWWWWWWWWWWWWWWWWWWWx,,,.i***;:i#WWWWWWWMi*ii*zi,;WWMMMMMMMMMMMMMMMMxMMMMMMMMMMMx,,,,.
+  ,..,,xWWWWMMWWWWWWWWWWWWWWWWWWWW;,,.:*ii,,i+WWWWWWWM::iiiizi:WWMMMMMMMMMMMMMMMMMMMMMMMMMMMMx,,,..
+  ,..,,xWWWWWWWWWWWWWWWWWWWWWWWWWW+,,,.,i,,,;*WWWWWWWx:.:iii*z*MWMMMMMMMMMMMMMMMMMWMMMMMMMMMMx,,,..
+  ,..,,xWWWWWWWWWWWWWWWWWWWWWWWWWWn,,,,...,,:*MWWWWWWn:..;ii**xWWMMMMMMMMMMMMMMMMWWMMMMMMMMMMx,,,..
+  ,..,,xWWWWWWWWWWWWWWWWWWWWWWWWWWW:.,.,,,.,,iMWWWWWWz,.,,i*i*nWWMMMMMMMMMMMMMMMWWMMMMMMMMMMMx,,,..
+  ,..,,xWWWWWWWWWWWWWWWWWWWWWWWWWW@*..,,,..,,ixWWWWWWz..,.,i*inWWMMMMMMMMMMMMMMMWWMMMMMMMMMMMx,,,,.
+  ,..,,xWWWWWWWWWWWWWWWWWWWWWWWWWWWn,.,,,,,,,;n@WWWWWn..,,,:*izWWMMMMMMMMMMMMMMWWWWMMMMMMMMMMx,,,..
+  ,..,,xWWWWWWWWWWWWWWWWWWWWWWWWWWWM:.,,,....:xWWWWWWM,,,,,.:izMWMMMMMMMMMMMMMMMWWMMMMMMMMMMMx,,,..
+  ,..,,nMWWWWWWWWWWWWWWWWWWWWWMWWWWM#*********MWWWWWWW+*******nMWMMMMMMMMMMMMMMMMMMMMMMMMMMMMx,,,..
+  ,..,,nMWWMMMMMMMMMMMMMMMMWWMMMMMWMMMWWMMMWWMMMMMMMMMMMMWWMWWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMx,,,..
+
+Changes
+~~~~~~~
+- [sighting/api] improved comments. [Sami Mokaddem]
+- [RestResponse] bump. [Sami Mokaddem]
+- Typo. [Sami Mokaddem]
+- [version] bump. [iglocska]
+- [config] Added permission check for .git directory. [Steve Clement]
+- [docs] Added note on RHEL unmaintainability at this point of time, by
+  the core team. [Steve Clement]
+- [tools] Updated gitchangelog.rc for latest version of toll, added to
+  doc generator. [Steve Clement]
+- Bump misp-galaxy & taxonomies. [Raphaël Vinot]
+- [docs] Added generic sections to debian guides. [Steve Clement]
+- [docs] Added a generic directory where all the platform independent
+  files should reside. chg: [docs] Added MISP Defaults via the cake
+  command to seperate file. [Steve Clement]
+- [misp-objects] forensic objects added. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version (including many new
+  objects) [Alexandre Dulaunoy]
+- [docs] More formatting updates and evened both versions out. [Steve
+  Clement]
+- [docs] Compared with bootstrap.sh and added missing dependencies and
+  tools. [Steve Clement]
+- [docs] Added note on when Kali was last tested working. Added RHEL 7.6
+  BETA to index. [Steve Clement]
+- [docs] Leveled both install docs, updated debian testing and verified
+  working. [Steve Clement]
+- [docs] Minor regression, fixed. [Steve Clement]
+- [docs] Leveled both guides, 9.5 moved a little closer to testing.
+  [Steve Clement]
+- [docs] Symlink to rhel7 guide chg: [docs] Made the index a little less
+  messy chg: [docs] A minor (but not automated) change to Changelog.
+  [Steve Clement]
+- [tools] Changed testForBinExec as the x-sharedlib type is not only on
+  OpenBSD, Debian has the same type when check if executable. chg:
+  [tools] Added typeinfo to the return so you see in the UI what type it
+  thinks it is. (In case you forced the parameter on the CLI) [Steve
+  Clement]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [docs] More general info about xINSTALL in index. Minor formatting
+  touch-up in license. Added missing sections to mkdocs.yml and adapted
+  it to reflect official MISP repo. [Steve Clement]
+- [docs] Adapted rhel7/Ubuntu18.04/Centos7/UPDATE_Notes to be mkdocs
+  compliant. [Steve Clement]
+- [tools] Added sed to gen_misp_install_docs.sh to replace some
+  formatting tildes which mkdocs does not really understand chg: [docs]
+  Minor touch-up to Changelog.md to correct for formatting issues. chg:
+  [config] Added correct paths to .gitignore for mkdocs. [Steve Clement]
+- [docs] Adapted Debian 9/testing install to mkdocs new: [docs] Added
+  old version of Debian + postgresql guide, needs updating. [Steve
+  Clement]
+- [docs] Added symlinks to new .md to preserve old style for a while.
+  chg: [docs] More details in README.md. [Steve Clement]
+- [docs] Added some symlinks to migrated files. [Steve Clement]
+- [docs] Remove some migrated INSTALL guides, move FreeBSD to old, will
+  not be supported in the future. [Steve Clement]
+- [docs] Typo in UPGRADE.md. [Steve Clement]
+- [docs] Added an old upgrade doc, 2.3 -> 2.4, more as an example then
+  anytyhing else. chg: [docs] Added UPGRADE.md notice for future upgrade
+  steps. [Steve Clement]
+- [docs] Minor formating chage. [Steve Clement]
+- [docs] Removed old Debian stable install guide. [Steve Clement]
+- [docs] Updated Debian install guide. [Steve Clement]
+- [docs] Version bump of OpenBSD to 6.4. [Steve Clement]
+- [docs] Added misp-dashboard instruction, but not really working yet.
+  [Steve Clement]
+- [docs] Another small unattentive typo. [Steve Clement]
+- [docs] Small misp-modules virtualenv typo. [Steve Clement]
+- [docs] Removed old OpenBSD Docs. [Steve Clement]
+- [docs] More or less finalized the Apache2 install. 95% working. [Steve
+  Clement]
+- [docs] Disable native httpd for now added Apache2 conf. [Steve
+  Clement]
+- [docs] Better formatting, more information on the current state of
+  MISP on OpenBSD. [Steve Clement]
+- [docs] Reformated some of the .txt based doc. [Steve Clement]
+- [config] Added mkdocs site directory to be ignored. [Steve Clement]
+- [tools] Added x-sharedlib clause in testForBinExec if on OpenBSD.
+  [Steve Clement]
+- [warninglist] warninglists updated, fixes #3775. [iglocska]
+- [Galaxy] Updated MISP galaxies. [iglocska]
+- Chg: [tools] removed: #@IgnoreInspection BashAddShebang -- Added a
+  better globbing opt: ./* [Steve Clement]
+- [tools] Updated misp-backup and misp-wipe to be a bit more late 2018
+  compliant. [Steve Clement]
+- [tools] Added misp-wipe/misp-backup config file to .gitignore. [Steve
+  Clement]
+- [python] Added and amended varios places where python is called.
+  [Steve Clement]
+- [fix] Some fixed to the python virtualenv tweaks. [Steve Clement]
+- [python] Added initial python virtualenv support, STIX Tests only.
+  [www-data]
+- [i18n] extracted latest strings to default.pot and cake_dev.pot.
+  [Steve Clement]
+- [i18n] New strings in Spanish translation. [Steve Clement]
+- [i18n] Updated to latest jpn translation, minor changes. [Steve
+  Clement]
+- [i18n] Added 100% French translation. Thanks to all involved so far.
+  wq. [Steve Clement]
+- Bump PyMISP & recommended version. [Raphaël Vinot]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [API] minor fixes to the sightings api. [iglocska]
+
+  - fixed duplicate sighting tags in XML output
+  - added attribute value to the sighting
+- [sighting/api] added missing sighting source parameter. [Sami
+  Mokaddem]
+- [ACL] bumped queryACL. [Sami Mokaddem]
+- [sightings/api] now support json output format. [Sami Mokaddem]
+- [bug] Fixed bug with stacking login screens ontop of an event view.
+  [iglocska]
+- Aws would error if asked to del non-existing. [Hannah Ward]
+- [stix import] Avoided import of empty header description. [chrisr3d]
+- [galaxy] added collection uuid capture. [iglocska]
+- [view] Added uuids to galaxy cluster view. [iglocska]
+- [stix export] Avoided putting Incident object as attribute everywhere.
+  [chrisr3d]
+
+  - Incident is now a class attribute
+  - It also let us make the function parsing some
+    not really common attribute types lighter by
+    putting a conditionnal statement in another
+    function
+- [stix export] Made 'header_comment' a list so we don't overwrite the
+  value. [chrisr3d]
+
+  - There should only be one attribute matching the
+    condition per event, but it is juste to be sure
+- [thumbnail] Thumbnail visualisation broken on proposals, fixes #3793.
+  [iglocska]
+- [server] Allow certificates to be uploaded with other extensions
+  besides .pem, fixes #3797. [iglocska]
+- [stix import] Importing uuids for objects from external sources.
+  [chrisr3d]
+- [stix import] Importing uuids for STIX files generated via MISP.
+  [chrisr3d]
+- [stix import] Improved uuid fetching. [chrisr3d]
+- [stix import] Better event & attribute distribution parsing.
+  [chrisr3d]
+- [stix import] Supporting DHS stix files with ais marking. [chrisr3d]
+- [stix import] Fixed import of File Objects as single attribute.
+  [chrisr3d]
+- [stix framing] Fixed Related Package(s) xml field typo. [chrisr3d]
+- [stix export] Fixed xml package string replacement. [chrisr3d]
+- [stix2 import] Avoiding errors when the imported file name is not
+  specified. [chrisr3d]
+- [routes] Added route for .csv parsing. [iglocska]
+- #3769 Att&ck matrix now render multiple kill_chain by column. [Sami
+  Mokaddem]
+- Check if the format is xml or application/xml on __sendResponse. [Tom
+  King]
+- [cleanup] Removed debug from the bug fixing session. [iglocska]
+- [internal] Sharing group capturing fixed, fixes #3573. [iglocska]
+
+  - As reported by @eCrimeLabs
+- [internal] Unneeded model initialisation for
+  getDefaultAttachments_dir() [iglocska]
+- [stix2 import] Fixed GalaxyCluster description. [chrisr3d]
+
+  - Since description is optionnal in some STIX 2.0
+    objects, we test if the field is there before
+    trying to use its value
+- [stix2 import] Fixed MISP event info field when importing STIX2
+  without report object. [chrisr3d]
+- [stix2 import] Fixed json dict monkey syntax error. [chrisr3d]
+- [internal] getPythonVersion woes. [iglocska]
+- [internal] Fix of wonky model function calls across the application
+  for getting default attachment directories. [iglocska]
+- [Galaxy] Various fixes to blocking issues with the galaxy update
+  system, fixes #3773. [iglocska]
+- [API] Handle multiple event IDs being queries or not using the event
+  ID filter when generating the CSV output file names. [iglocska]
+- [internal] Fixes to invalid model function calls. [iglocska]
+- [tools] small typo in she-bang line. [Steve Clement]
+- [stix2 import] Made NetworkTraffic objects import include all the
+  possible cases. [chrisr3d]
+
+  - We were potentially missing some DomainName
+    or IP Address objects data, when it is not
+    a reference of the NetworkTraffic object.
+  - Now we look if we still have some of these
+    objects that did not have been parsed, and
+    in that case, parse them.
+- [stix2 import] Quick change on event loading. [chrisr3d]
+
+  - Specifying the encoding within the file opening
+  - Allows to get rid of 1 'encode()' call
+- [stix2 import] Better parsing for objects that can be imported as
+  either ip-port or network-socket. [chrisr3d]
+- [stix2 import] Supporting STIX 2 files with no report object.
+  [chrisr3d]
+- [stix2 import] Moved the remaining parsing functions from the mapping
+  script to the main script. [chrisr3d]
+
+  - Fixing at the same time some AttributeName errors
+- [stix2 export] Fixed enumeration errors handling. [chrisr3d]
+
+  - More specific exception types
+  - Removed useless try/catch statement
+- [stix2 export] Fixed attributes data parsing. [chrisr3d]
+
+  - With json format, base64 & encode/decode
+    operations are no longer needed since the base64
+    string is already displayed in data
+- [stix2 import] Fixed process import. [chrisr3d]
+
+  Fixing import for cases like:
+  - single process without parent or child
+  - where processes are not referenced as expected
+- [stix2 import] Fixed monkey coder issue. [chrisr3d]
+- [stix2 import] Added missing uuid fields to attributes and objects
+  imported. [chrisr3d]
+- [stix2 import] Quick clean-up. [chrisr3d]
+
+  - Using MISPObject class & attributes instead of
+    adding a MISP object dealing with a dictionary
+  - Using STIX objects attributes instead of
+    ditionary keys
+  - Removed useless 'continue' statement
+- [stix2 import] Parsing file objects in a more generic way between
+  classes. [chrisr3d]
+- [stix2 import] Moved file object parsing function into the subclass.
+  [chrisr3d]
+
+  - Because it is only called by functions of this subclass
+- [stix2 import] Removed useless function. [chrisr3d]
+- [search] Multiple lines didn't correctly get parsed as separate values
+  in the attribute search. [iglocska]
+- [workers] manage workers by default defaulted to false (should be
+  true) [iglocska]
+- [API] Further fixes to the query builder. [iglocska]
+- Travis import/export. [Raphaël Vinot]
+- [API] Further fixes to the tag handling. [iglocska]
+- [API] Handle filters with no valid tags set as filter patterns
+  correctly. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'sighting_api' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'weekend_fixes' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into HEAD. [iglocska]
+- Merge pull request #3808 from FloatingGhost/2.4. [Alexandre Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3804 from 8ear/patch-1. [Alexandre Dulaunoy]
+
+  Update CONFIG.SMIME.md
+- Update CONFIG.SMIME.md. [Max H]
+
+  Include code blocks.
+- Merge pull request #3802 from SteveClement/guides. [Steve Clement]
+
+  chg: [tools] RHEL7 update status and added gitchangelog to document creation toolchain.
+- Merge branch '2.4' into guides. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #3803 from garanews/2.4. [Andras Iklody]
+
+  fix accommodate misspelling
+- Fix accommodate misspelling. [garanews]
+
+  accommodate vs accomodate
+- Merge pull request #3799 from garanews/patch-1. [Alexandre Dulaunoy]
+
+  fix separate misspelling
+- Fix separate misspelling. [garanews]
+
+  separate vs seperate
+- Merge pull request #3800 from garanews/patch-2. [Alexandre Dulaunoy]
+
+  fix referred misspelling
+- Fix referred misspelling. [garanews]
+
+  referred vs refered
+- Merge pull request #3798 from SteveClement/guides. [Steve Clement]
+
+  chg: [docs] Major INSTALL Guide update
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: [stix export] Exporting STIX header description from the
+  corresponding comment attribute. [chrisr3d]
+- Add: [stix import] Importing STIX header description as comment
+  attribute. [chrisr3d]
+- Merge pull request #3726 from pettai/shibb. [Steve Clement]
+
+  add date_created for provisioned users
+- Add date_created for provisioned users. [Fredrik Pettai]
+
+  add date_created then new users are provisioned via shibbauth
+- Merge pull request #3794 from SteveClement/guides. [Steve Clement]
+
+  chg: [docs] The debian install docs are now fully functional and quite a few format changes to some of the install guides.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3784 from SteveClement/guides. [Steve Clement]
+
+  new: [docs] Move INSTALL guides formatting to mkdocs
+- Merge branch '2.4' into guides. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3771 from P4rs3R/patch-3. [Alexandre Dulaunoy]
+
+  Update INSTALL.rhel7.txt
+- Update INSTALL.rhel7.txt. [A. Cristallo]
+
+  Added instruction (at line 109) and updated line 8, minor change.
+  Tested on RHEL 7.5 and CentOS 7.5
+- Merge pull request #3779 from MISP/att&ckMatrixFix. [Alexandre
+  Dulaunoy]
+
+  fix: #3769 Att&ck matrix now render multiple kill_chain by column.
+- Merge pull request #3778 from tomking2/2.4. [Andras Iklody]
+
+  Fixes Issue #3633 - Returned XML has application/json Content-Type header
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3768 from devnull-/#3748_download_files. [Andras
+  Iklody]
+
+  Fix CSV filename #3740
+- Define filename (instead of download.csv) [Amaury Leroy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Add: [stix2 import] Added an entry to the simple pattern mapping
+  dictionary. [chrisr3d]
+- Merge pull request #3765 from IFX-CDC/2.4. [Andras Iklody]
+
+  add: workers diagnostics to the server settings
+- Fixed workers tab. [netjinho]
+- Added workers diagnostics to the server settings. [netjinho]
+- Merge pull request #3766 from SteveClement/misp-wipe. [Andras Iklody]
+
+  Misp wipe and backup
+- Merge pull request #3762 from SteveClement/py-virtualenv. [Andras
+  Iklody]
+
+  chg: [tools] Added the option to have Python Virtualenv support
+- Merge branch '2.4' into py-virtualenv. [www-data]
+- Merge branch '2.4' into py-virtualenv. [Steve Clement]
+- Merge branch '2.4' into py-virtualenv. [Steve Clement]
+- Merge branch '2.4' into py-virtualenv. [Steve Clement]
+- Merge branch '2.4' into py-virtualenv. [Steve Clement]
+- Merge branch '2.4' into py-virtualenv. [Steve Clement]
+- Merge branch '2.4' into py-virtualenv. [www-data]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3760 from cudeso/2.4. [Alexandre Dulaunoy]
+
+  Ubuntu 18 documentation (sudo logrotate, universe repo)
+- Ubuntu 18 documentation (sudo logrotate, universe repo) [Koen Van
+  Impe]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #3757 from rmarsollier/patch-1. [Andras Iklody]
+
+  adding python-maec to the debian9 install
+- Adding python-maec to the debian9 install. [RbN]
+
+  adding python-maec to the debian9 install
+- Merge pull request #3758 from MISP/chrisr3d_patch. [Christian Studer]
+
+  Chrisr3d patch
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Wip: [stix2 import] Parsing external Network Socket objects when
+  references are hostnames. [chrisr3d]
+
+  - /!\ WiP, it is preferable to wait for the branch to be merged,
+        this script may be broken in some cases atm /!\
+  - Also reusing functions working for both subclasses
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Add: [stix2 import] Added 1 easily parsable pattern type for external
+  STIX parsing. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Wip: [stix2 import] Parsing external observable IPAddr -
+  NetworkTraffic - Domain composition objects. [chrisr3d]
+
+  - /!\ WiP, it is preferable to wait for the branch to be merged,
+        this script may be broken in some cases atm /!\
+  - Also reusing functions working for both subclasses
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Wip: [stix2 import] Parsing external process objects. [chrisr3d]
+
+  - /!\ WiP, it is preferable to wait for the branch to be merged,
+        this script may be broken in some cases atm /!\
+  - Also reusing functions working for both subclasses
+- Wip: [stix2 import] Parsing external AS objects. [chrisr3d]
+
+  - /!\ WiP, it is preferable to wait for the branch to be merged,
+        this script may be broken in some cases atm /!\
+  - Also reusing functions working for both subclasses
+- Wip: [stix2 import] Parsing external x509 objects. [chrisr3d]
+
+  - /!\ WiP, it is preferable to wait for the branch to be merged,
+        this script may be broken in some cases atm /!\
+  - Also reusing functions working for both subclasses
+- Wip: [stix2 import] Parsing external mutex objects. [chrisr3d]
+
+  - /!\ WiP, it is preferable to wait for the branch to be merged,
+        this script may be broken in some cases atm /!\
+- Wip: [stix2 import] Parsing external mac-address objects. [chrisr3d]
+
+  - /!\ WiP, it is preferable to wait for the branch to be merged,
+        this script may be broken in some cases atm /!\
+- Wip: [stix2 import] Parsing external url objects. [chrisr3d]
+
+  - /!\ WiP, it is preferable to wait for the branch to be merged,
+        this script may be broken in some cases atm /!\
+  - Also reusing functions working for both subclasses
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Wip: [stix2 import] Parsing external regkey objects. [chrisr3d]
+
+  - /!\ WiP, it is preferable to wait for the branch to be merged,
+        this script may be broken in some cases atm /!\
+  - Also reusing functions working for both subclasses
+- Wip: [stix2 import] Parsing external email objects. [chrisr3d]
+
+  - /!\ WiP, it is preferable to wait for the branch to be merged,
+        this script may be broken in some cases atm /!\
+  - Also reusing functions working for both subclasses
+- Wip: [stix2 import] Parsing domain & domain-ip attributes/objects.
+  [chrisr3d]
+
+  - /!\ WiP, it is preferable to wait for the branch to be merged,
+        this script may be broken in some cases atm /!\
+  - Also reusing code that works for both subclasses
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Wip: [stix2 import] Included pe & pe-section parsing for file objects.
+  [chrisr3d]
+
+  - /!\ WiP, it is preferable to wait for the branch to be merged,
+        this script may be broken in some cases atm /!\
+  - Including uuid fields
+  - Including refactor on some class attributes to
+    avoid errors and duplications
+- Merge branch '2.4' of github.com:MISP/MISP into chrisr3d_patch.
+  [chrisr3d]
+- Wip: [stix2 import] Starting parsing network-traffic objects from
+  external files. [chrisr3d]
+
+  - /!\ WiP, it is preferable to wait for the branch to be merged,
+        this script may be broken in some cases atm /!\
+- Wip: [stix2 import] Starting parsing observables from external STIX2
+  files + moving functions to the main script. [chrisr3d]
+
+  - /!\ WiP, it is preferable to wait for the branch to be merged, script broken atm /!\
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3751 from ancailliau/fixes-error-message-
+  control_workers. [Andras Iklody]
+
+  Fixes a typo in an error message (control_workers -> manage_workers)
+- Fixes a typo in an error message (control_workers -> manage_workers)
+  [Antoine Cailliau]
+- Merge pull request #3750 from Rafiot/csv_travis. [Raphaël Vinot]
+
+  fix: travis import/export
+
+
 v2.4.96 (2018-10-09)
 --------------------
 
@@ -7786,7 +8426,7 @@ Fix
   names, fixes #2248. [iglocska]
 - Truncate log descriptions that are over 65532 character long.
   [iglocska]
--  [iglocska]
+- No commit message. [iglocska]
 
   - cleanup refactoring of pub sub tool
   - better handling of no access to redis
