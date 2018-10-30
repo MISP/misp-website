@@ -107,6 +107,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [otx_misp](https://github.com/gcrahay/otx_misp/) imports Alienvault OTX pulses to a MISP instance.
 * [pymisp-suricata_search](https://github.com/raw-data/pymisp-suricata_search) - Multi-threaded Suricata search module for MISP.
 * [polarity MISP integration](https://github.com/polarityio/misp) - The Polarity MISP integration allows Polarity to search your instance of MISP to return valid information about domains, IPS, and hashes.
+* [Sigma2MISP](https://github.com/Neo23x0/sigma/blob/master/README.md#sigma2misp) - Import Sigma rules to MISP events.
 * [Splunk integration with MISP](https://github.com/stricaud/TA-misp) - This TA allows to check if objects/attributes in your MISP instance matches your data in Splunk.
 * [TheHive](https://thehive-project.org/) A 3-in-1 Security Incident Response Platform has an extensive MISP support.
 * [ThreatPinchLookup](https://github.com/cloudtracer/ThreatPinchLookup)  - ThreatPinch Lookup creates informational tooltips when hovering oven an item of interest on any website and contains a MISP connector.
