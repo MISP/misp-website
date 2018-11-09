@@ -88,7 +88,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [FireMISP](https://github.com/deralexxx/FireMISP) FireEye Alert json files to MISP Malware information sharing platform (Alpha).
 * [Hybrid analysis](https://www.hybrid-analysis.com/) exports in MISP format.
 * [IntelMQ](https://github.com/certtools/intelmq) support MISP to retrieve events and update tags.
-* [iSight MISP integration](https://github.com/deralexxx/PySight2MISP) - iSighht integration with MISP.
+* [iSight MISP integration](https://github.com/deralexxx/PySight2MISP) - iSight integration with MISP.
 * [Joe Sanbox](https://www.joesecurity.org/) outputs analysis in MISP format.
 * [kasp2misp](https://github.com/dameyerdave/kasp2misp) Convert Kaspersky Feed to MISP format.
 * [Komand](https://market.komand.com/plugins/komand/misp/0.1.0) - Komand integration with MISP.
