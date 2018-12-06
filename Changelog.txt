@@ -2,11 +2,141 @@ Changelog
 =========
 
 
-v2.4.98 (2018-11-23)
+v2.4.99 (2018-12-06)
 --------------------
 
 New
 ~~~
+- [usability] Object templates view also accepts uuid as input vector.
+  [iglocska]
+- [UI] Added warning for users not to edit events as site admins.
+  [iglocska]
+- [CLI] Documentation updated. [iglocska]
+- [Rest] Added system for GET requests in the templating system.
+  [iglocska]
+- [ReST] Added statistics. [iglocska]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP recommended version. [Raphaël Vinot]
+- [doc] Updated CentOS 7 Install instructions to use SSL. [Steve
+  Clement]
+- [doc] Some format updates to config files new: [doc] CentOS SSL apache
+  config fix: [doc] Fixed symlink to Ubuntu webmin instructions. [Steve
+  Clement]
+- Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+
+Fix
+~~~
+- [stix import] Fixed missing event fields import. [chrisr3d]
+
+  - Such as event info, event date and so on
+- [STIX2] fixed stix2 to use the internal original file capture.
+  [iglocska]
+- [internal] Fixed the original file capture tool. [iglocska]
+- [UI] Fixed event edit warning. [iglocska]
+- [stix import] Fixed indicators parsing. [chrisr3d]
+
+  - For stix1 generated with MISP
+- [stix import] Made sure the header description value fetching test is
+  working is all cases. [chrisr3d]
+- [internal] Handle the upload of original versions of ingested files
+  via a helper function instead of leaving it to external tools.
+  [iglocska]
+- [model] Network activity category: add x509-fingerprint-md5 and x509
+  -fingerprint-sha256. [co59]
+- [stix import] Fixed header description value fetching. [chrisr3d]
+
+  - Again yes, but with the correct test now
+- [UI] Fixed crappy old style flash mesage on events/add that has been
+  an eye sore for ages. [iglocska]
+- [stix2 import] Fixed pattern parsing for a specific case. [chrisr3d]
+- [CLI] Added bruteforce protection cleaning. [iglocska]
+- [API] previous commit fixed. [iglocska]
+- [internal] When editing an object to add new attributes, correctly set
+  the default distribution if nothing is set. [iglocska]
+- [API] object edit fixed to return the object in the correct format.
+  [iglocska]
+- [API] when adding an object, the response should have the correct
+  format. [iglocska]
+- [internal] if no attribute distribution is found in the event edits,
+  set the default instead of defaulting to 0. [iglocska]
+- [i18n] Added __() where needed. fix: [doc] Typo in field. [Steve
+  Clement]
+- [freetext] fix notice on freetext import. [Sascha Rommelfangen]
+- [stix2 import] Function name typo. [chrisr3d]
+- [stix2 import] Handling cases where we have no galaxy. [chrisr3d]
+- Fixed elements returned by the url object parsing function. [chrisr3d]
+
+  - Was raising an unexpected exception in a special
+    case, which was skipping the entire object,
+    because of a missing element to return
+- [merge conflict] resolved, [iglocska]
+
+  - as notified by @a1ext
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3912 from Sh3idan/fix-incoherence-types-and-
+  categories. [Andras Iklody]
+
+  fix: [model-data] Network activity category: add x509-...-md5 and x509-...-sha256
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3914 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] Some format updates to config files
+- Merge pull request #3770 from devnull-/issues_1643_rebase_2.4. [Andras
+  Iklody]
+
+  Issues 1643 -- Fix publish_without_email when an event is modified -- rebase
+- Merge pull request #8 from MISP/2.4. [devnull-]
+
+  Update issue 1643 rebase 2.4
+- Rebase issue 1643. [Amaury Leroy]
+- Merge pull request #5 from MISP/2.4. [devnull-]
+
+  Update
+- Merge pull request #4 from MISP/2.4. [devnull-]
+
+  Update
+- Merge pull request #3 from MISP/2.4. [devnull-]
+
+  Update
+- Merge pull request #3910 from SteveClement/2.4. [Steve Clement]
+
+  fix: [i18n] Added __() where needed.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #3905 from WaryWolf/fix-xml-export. [Andras Iklody]
+
+  fix typo in event export to XML code
+- Fix typo in called method name. [Anthony Vaccaro]
+- Add: [stix2 import] Parsing external standalone ip address
+  observables. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Add: [stix2 import] Importing external standalone ip address patterns.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+
+
+v2.4.98 (2018-11-26)
+--------------------
+
+New
+~~~
+- [server settings] Added automatic backup system for the server
+  settings. [iglocska]
+- [UI] Explain what caching vs fetching feeds means. [iglocska]
+
+  via hover column header
 - [API] Various enhancements and fixes to the APIs. [iglocska]
 
   - Added result count to restsearch API via the x-result-count header
@@ -54,6 +184,9 @@ New
 
 Changes
 ~~~~~~~
+- [bro] Preparation for the move to restsearch. [iglocska]
+
+  - also fixed some edge-case issues
 - [version] bump. [iglocska]
 - [warninglists] updated to the latest version. [Alexandre Dulaunoy]
 - [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
