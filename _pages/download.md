@@ -11,6 +11,8 @@ toc: true
 
 [ChangeLog](/Changelog.txt) contains a detailed list of updates for each software release in the core of the MISP software.
 
+MISP Install guides (stock install instructions for getting a base MISP system running) are available at [https://misp.github.io/MISP/](https://misp.github.io/MISP/).
+
 ### Requirements
 
 MISP can be easily installed on any standard GNU/Linux distribution. Installation guides for various distributions are included in the [INSTALL directory](https://github.com/MISP/MISP/tree/2.4/INSTALL). If you did a git clone of MISP for the installation, an [UPDATE procedure is available](https://github.com/MISP/MISP/blob/2.4/INSTALL/UPDATE.txt) to keep your MISP up-to-date.
@@ -54,4 +56,4 @@ We invite you to read the GitHub README page of each version to understand what 
 
 The MISP software is an open source and free software released under the [AGPL](https://github.com/MISP/MISP/blob/2.4/LICENSE) (Affero General Public License). We are committed to ensure that MISP will remain a free and open source project on the long-run.
 
-The MISP taxonomies are licensed under [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) (CC0 1.0) - Public Domain Dedication. This allows interoperability with any product. (open source or proprietary) 
+The MISP [taxonomies](/taxonomies.html) and [galaxy](/galaxy.html) are licensed under [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) (CC0 1.0) - Public Domain Dedication or 2-clause BSD open source license. This allows interoperability with any product. (open source or proprietary)
