@@ -21,6 +21,8 @@ MISP Install guides (stock install instructions for getting a base MISP system r
 
 ### MISP training materials
 
+All MISP training materials (including source code) are available at [https://github.com/MISP/misp-training](https://github.com/MISP/misp-training).
+
 MISP [training materials are available on the CIRCL website](https://www.circl.lu/services/misp-training-materials/#training-materials-luxembourg-training-november-2017).
 
 ### MISP format documentation
