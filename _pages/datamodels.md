@@ -680,32 +680,258 @@ Along with the core format, [MISP taxonomies](https://www.github.com/MISP/misp-t
 
 The taxonomies can be [browsed via the web site](/taxonomies.html) or downloaded as [PDF](/taxonomies.pdf) or via the MISP software.
 
-- [Admiralty Scale](https://github.com/MISP/misp-taxonomies/tree/master/admiralty-scale)
-- [adversary](https://github.com/MISP/misp-taxonomies/tree/master/adversary) - description of an adversary infrastructure
-- CIRCL [Taxonomy - Schemes of Classification in Incident Response and Detection](https://github.com/MISP/misp-taxonomies/tree/master/circl)
-- [Cyber Kill Chain](https://github.com/MISP/misp-taxonomies/tree/master/kill-chain) from Lockheed Martin
-- DE German (DE) [Government classification markings (VS)](https://github.com/MISP/misp-taxonomies/tree/master/de-vs)
-- [DHS CIIP Sectors](https://github.com/MISP/misp-taxonomies/tree/master/dhs-ciip-sectors)
-- [eCSIRT](https://github.com/MISP/misp-taxonomies/tree/master/ecsirt) and IntelMQ incident classification
-- [ENISA](https://github.com/MISP/misp-taxonomies/tree/master/enisa) ENISA Threat Taxonomy
-- [Estimative Language](https://github.com/MISP/misp-taxonomies/tree/master/estimative-language) Estimative Language (ICD 203)
-- [EU critical sectors](https://github.com/MISP/misp-taxonomies/tree/master/eu-critical-sectors) - EU critical sectors
-- [EUCI](https://github.com/MISP/misp-taxonomies/tree/master/euci) - EU classified information marking
-- [Europol Incident](https://github.com/MISP/misp-taxonomies/tree/master/europol-incident) - Europol class of incident taxonomy
-- [Europol Events](https://github.com/MISP/misp-taxonomies/tree/master/europol-events) - Europol type of events taxonomy
-- [FIRST CSIRT Case](https://github.com/MISP/misp-taxonomies/tree/master/csirt_case_classification) classification
-- [FIRST Information Exchange Policy (IEP)](https://github.com/MISP/misp-taxonomies/tree/master/iep) framework
-- [Information Security Indicators](https://github.com/MISP/misp-taxonomies/tree/master/information-security-indicators) -  ETSI GS ISI 001-1 (V1.1.2): ISI Indicators
-- [Information Security Marking Metadata](https://github.com/MISP/misp-taxonomies/tree/master/dni-ism) from DNI (Director of National Intelligence - US)
-- [Malware](https://github.com/MISP/misp-taxonomies/tree/master/malware) classification based on a SANS document
-- [ms-caro-malware](https://github.com/MISP/misp-taxonomies/tree/master/ms-caro-malware) Malware Type and Platform classification based on Microsoft's implementation of the Computer Antivirus Research Organiza
-tion (CARO) Naming Scheme and Malware Terminology.
-- [NATO Classification Marking](https://github.com/MISP/misp-taxonomies/tree/master/nato)
-- [Open Threat Taxonomy v1.1 (SANS)](https://github.com/MISP/misp-taxonomies/tree/master/open-threat)
-- [OSINT Open Source Intelligence - Classification](https://github.com/MISP/misp-taxonomies/tree/master/osint)
-- [The Permissible Actions Protocol - or short: PAP - was designed to indicate how the received information can be used.](https://github.com/MISP/misp-taxonomies/tree/master/pap)
-- [TLP - Traffic Light Protocol](https://github.com/MISP/misp-taxonomies/tree/master/tlp)
-- Vocabulary for Event Recording and Incident Sharing [VERIS](https://github.com/MISP/misp-taxonomies/tree/master/veris)
+
+[CERT-XLM](https://github.com/MISP/misp-taxonomies/tree/master/CERT-XLM):
+:   CERT-XLM Security Incident Classification.
+
+[DML](https://github.com/MISP/misp-taxonomies/tree/master/DML):
+:   The Detection Maturity Level (DML) model is a capability maturity model for referencing ones maturity in detecting cyber attacks.  It's designed for organizations who perform intel-driven detection and response and who put an emphasis on having a mature detection program.
+
+[PAP](https://github.com/MISP/misp-taxonomies/tree/master/PAP):
+:   The Permissible Actions Protocol - or short: PAP - was designed to indicate how the received information can be used.
+
+[access-method](https://github.com/MISP/misp-taxonomies/tree/master/access-method):
+:   The access method used to remotely access a system.
+
+[accessnow](https://github.com/MISP/misp-taxonomies/tree/master/accessnow):
+:   Access Now classification to classify an issue (such as security, human rights, youth rights).
+
+[action-taken](https://github.com/MISP/misp-taxonomies/tree/master/action-taken):
+:   Action taken in the case of a security incident (CSIRT perspective).
+
+[admiralty-scale](https://github.com/MISP/misp-taxonomies/tree/master/admiralty-scale):
+:   The Admiralty Scale (also called the NATO System) is used to rank the reliability of a source and the credibility of an information.
+
+[adversary](https://github.com/MISP/misp-taxonomies/tree/master/adversary):
+:   An overview and description of the adversary infrastructure.
+
+[ais-marking](https://github.com/MISP/misp-taxonomies/tree/master/ais-marking):
+:   AIS Marking Schema implementation is maintained by the National Cybersecurity and Communication Integration Center (NCCIC) of the U.S. Department of Homeland Security (DHS)
+
+[analyst-assessment](https://github.com/MISP/misp-taxonomies/tree/master/analyst-assessment):
+:   A series of assessment predicates describing the analyst capabilities to perform analysis. These assessment can be assigned by the analyst him/herself or by another party evaluating the analyst.
+
+[approved-category-of-action](https://github.com/MISP/misp-taxonomies/tree/master/approved-category-of-action):
+:   A pre-approved category of action for indicators being shared with partners (MIMIC).
+
+[binary-class](https://github.com/MISP/misp-taxonomies/tree/master/binary-class):
+:   Custom taxonomy for types of binary file.
+
+[cccs](https://github.com/MISP/misp-taxonomies/tree/master/cccs):
+:   Internal taxonomy for CCCS.
+
+[circl](https://github.com/MISP/misp-taxonomies/tree/master/circl):
+:   CIRCL Taxonomy is a simple scheme for incident classification and area topic where the incident took place.
+
+[collaborative-intelligence](https://github.com/MISP/misp-taxonomies/tree/master/collaborative-intelligence):
+:   Collaborative intelligence support language is a common language to support analysts to perform their analysis to get crowdsourced support when using threat intelligence sharing platform like MISP.
+
+[copine-scale](https://github.com/MISP/misp-taxonomies/tree/master/copine-scale):
+:   The COPINE Scale is a rating system created in Ireland and used in the United Kingdom to categorise the severity of images of child sex abuse.
+
+[csirt_case_classification](https://github.com/MISP/misp-taxonomies/tree/master/csirt_case_classification):
+:   FIRST CSIRT Case Classification.
+
+[cssa](https://github.com/MISP/misp-taxonomies/tree/master/cssa):
+:   The CSSA agreed sharing taxonomy.
+
+[cyber-threat-framework](https://github.com/MISP/misp-taxonomies/tree/master/cyber-threat-framework):
+:   Cyber Threat Framework was developed by the US Government to enable consistent characterization and categorization of cyber threat events, and to identify trends or changes in the activities of cyber adversaries. https://www.dni.gov/index.php/cyber-threat-framework
+
+[data-classification](https://github.com/MISP/misp-taxonomies/tree/master/data-classification):
+:   Data classification for data potentially at risk of exfiltration based on table 2.1 of Solving Cyber Risk book.
+
+[ddos](https://github.com/MISP/misp-taxonomies/tree/master/ddos):
+:   Distributed Denial of Service - or short: DDoS - taxonomy supports the description of Denial of Service attacks and especially the types they belong too.
+
+[de-vs](https://github.com/MISP/misp-taxonomies/tree/master/de-vs):
+:   Taxonomy for the handling of protectively marked information in MISP with German (DE) Government classification markings (VS)
+
+[dhs-ciip-sectors](https://github.com/MISP/misp-taxonomies/tree/master/dhs-ciip-sectors):
+:   DHS critical sectors as described in https://www.dhs.gov/critical-infrastructure-sectors.
+
+[diamond-model](https://github.com/MISP/misp-taxonomies/tree/master/diamond-model):
+:   The Diamond Model for Intrusion Analysis, a phase-based model developed by Lockheed Martin, aims to help categorise and identify the stage of an attack.
+
+[dni-ism](https://github.com/MISP/misp-taxonomies/tree/master/dni-ism):
+:   ISM (Information Security Marking Metadata) V13 as described by DNI.gov (Director of National Intelligence - US).
+
+[domain-abuse](https://github.com/MISP/misp-taxonomies/tree/master/domain-abuse):
+:   Taxonomy to tag domain names used for cybercrime.
+
+[economical-impact](https://github.com/MISP/misp-taxonomies/tree/master/economical-impact):
+:   Economical impact is a taxonomy to describe the financial impact as positive or negative gain to the tagged information.
+
+[ecsirt](https://github.com/MISP/misp-taxonomies/tree/master/ecsirt):
+:   eCSIRT incident classification Appendix C of the eCSIRT EU project including IntelMQ updates.
+
+[enisa](https://github.com/MISP/misp-taxonomies/tree/master/enisa):
+:   ENISA Threat Taxonomy - A tool for structuring threat information as published in https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends/enisa-threat-landscape/etl2015/enisa-threat-taxonomy-a-tool-for-structuring-threat-information
+
+[estimative-language](https://github.com/MISP/misp-taxonomies/tree/master/estimative-language):
+:   Estimative language - including likelihood or probability of event based on the Intelligence Community Directive 203 (ICD 203) (6.2.(a)) and JP 2-0, Joint Intelligence.
+
+[eu-marketop-and-publicadmin](https://github.com/MISP/misp-taxonomies/tree/master/eu-marketop-and-publicadmin):
+:   Market operators and public administrations that must comply to some notifications requirements under EU NIS directive.
+
+[eu-nis-sector-and-subsectors](https://github.com/MISP/misp-taxonomies/tree/master/eu-nis-sector-and-subsectors):
+:   Sectors and sub sectors as identified by the NIS Directive.
+
+[euci](https://github.com/MISP/misp-taxonomies/tree/master/euci):
+:   EU classified information (EUCI) means any information or material designated by a EU security classification, the unauthorised disclosure of which could cause varying degrees of prejudice to the interests of the European Union or of one or more of the Member States as described in http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32013D0488&from=EN
+
+[europol-event](https://github.com/MISP/misp-taxonomies/tree/master/europol-event):
+:   EUROPOL type of events taxonomy.
+
+[europol-incident](https://github.com/MISP/misp-taxonomies/tree/master/europol-incident):
+:   EUROPOL class of incident taxonomy.
+
+[event-assessment](https://github.com/MISP/misp-taxonomies/tree/master/event-assessment):
+:   A series of assessment predicates describing the event assessment performed to make judgement(s) under a certain level of uncertainty.
+
+[event-classification](https://github.com/MISP/misp-taxonomies/tree/master/event-classification):
+:   Event Classification.
+
+[exercise](https://github.com/MISP/misp-taxonomies/tree/master/exercise):
+:   Exercise is a taxonomy to describe if the information is part of one or more cyber or crisis exercise.
+
+[false-positive](https://github.com/MISP/misp-taxonomies/tree/master/false-positive):
+:   This taxonomy aims to ballpark the expected amount of false positives.
+
+[file-type](https://github.com/MISP/misp-taxonomies/tree/master/file-type):
+:   List of known file types.
+
+[fpf](https://github.com/MISP/misp-taxonomies/tree/master/fpf):
+:   The Future of Privacy Forum (FPF) [visual guide to practical de-identification](https://fpf.org/2016/04/25/a-visual-guide-to-practical-data-de-identification/) taxonomy is used to evaluate the degree of identifiability of personal data and the types of pseudonymous data, de-identified data and anonymous data. The work of FPF is licensed under a creative commons attribution 4.0 international license.
+
+[fr-classif](https://github.com/MISP/misp-taxonomies/tree/master/fr-classif):
+:   French gov information classification system.
+
+[gdpr](https://github.com/MISP/misp-taxonomies/tree/master/gdpr):
+:   Taxonomy related to the REGULATION (EU) 2016/679 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation)
+
+[gsma-attack-category](https://github.com/MISP/misp-taxonomies/tree/master/gsma-attack-category):
+:   Taxonomy used by GSMA for their information sharing program with telco describing the attack categories
+
+[gsma-fraud](https://github.com/MISP/misp-taxonomies/tree/master/gsma-fraud):
+:   Taxonomy used by GSMA for their information sharing program with telco describing the various aspects of fraud
+
+[gsma-network-technology](https://github.com/MISP/misp-taxonomies/tree/master/gsma-network-technology):
+:   Taxonomy used by GSMA for their information sharing program with telco describing the types of infrastructure. WiP
+
+[honeypot-basic](https://github.com/MISP/misp-taxonomies/tree/master/honeypot-basic):
+:   Christian Seifert, Ian Welch, Peter Komisarczuk, ‘Taxonomy of Honeypots’, Technical Report CS-TR-06/12, VICTORIA UNIVERSITY OF WELLINGTON, School of Mathematical and Computing Sciences, June 2006, http://www.mcs.vuw.ac.nz/comp/Publications/archive/CS-TR-06/CS-TR-06-12.pdf
+
+[iep](https://github.com/MISP/misp-taxonomies/tree/master/iep):
+:   Forum of Incident Response and Security Teams (FIRST) Information Exchange Policy (IEP) framework.
+
+[ifx-vetting](https://github.com/MISP/misp-taxonomies/tree/master/ifx-vetting):
+:   The IFX taxonomy is used to categorise information (MISP events and attributes) to aid in the intelligence vetting process
+
+[incident-disposition](https://github.com/MISP/misp-taxonomies/tree/master/incident-disposition):
+:   How an incident is classified in its process to be resolved. The taxonomy is inspired from NASA Incident Response and Management Handbook.
+
+[infoleak](https://github.com/MISP/misp-taxonomies/tree/master/infoleak):
+:   A taxonomy describing information leaks and especially information classified as being potentially leaked.
+
+[information-security-indicators](https://github.com/MISP/misp-taxonomies/tree/master/information-security-indicators):
+:   Information security indicators have been standardized by the ETSI Industrial Specification Group (ISG) ISI. These indicators provide the basis to switch from a qualitative to a quantitative culture in IT Security Scope of measurements: External and internal threats (attempt and success), user's deviant behaviours, nonconformities and/or vulnerabilities (software, configuration, behavioural, general security framework). ETSI GS ISI 001-1 (V1.1.2): ISI Indicators
+
+[interception-method](https://github.com/MISP/misp-taxonomies/tree/master/interception-method):
+:   The interception method used to intercept traffic.
+
+[kill-chain](https://github.com/MISP/misp-taxonomies/tree/master/kill-chain):
+:   Cyber Kill Chain from Lockheed Martin as described in Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains.
+
+[maec-delivery-vectors](https://github.com/MISP/misp-taxonomies/tree/master/maec-delivery-vectors):
+:   Vectors used to deliver malware based on MAEC 5.0
+
+[maec-malware-behavior](https://github.com/MISP/misp-taxonomies/tree/master/maec-malware-behavior):
+:   Malware behaviours based on MAEC 5.0
+
+[maec-malware-capabilities](https://github.com/MISP/misp-taxonomies/tree/master/maec-malware-capabilities):
+:   Malware Capabilities based on MAEC 5.0
+
+[maec-malware-obfuscation-methods](https://github.com/MISP/misp-taxonomies/tree/master/maec-malware-obfuscation-methods):
+:   Obfuscation methods used by malware based on MAEC 5.0
+
+[malware_classification](https://github.com/MISP/misp-taxonomies/tree/master/malware_classification):
+:   Malware classification based on a SANS whitepaper about malware.
+
+[misp](https://github.com/MISP/misp-taxonomies/tree/master/misp):
+:   Internal MISP taxonomy.
+
+[monarc-threat](https://github.com/MISP/misp-taxonomies/tree/master/monarc-threat):
+:   MONARC threat taxonomy.
+
+[ms-caro-malware](https://github.com/MISP/misp-taxonomies/tree/master/ms-caro-malware):
+:   Malware Type and Platform classification based on Microsoft's implementation of the Computer Antivirus Research Organization (CARO) Naming Scheme and Malware Terminology.
+
+[ms-caro-malware-full](https://github.com/MISP/misp-taxonomies/tree/master/ms-caro-malware-full):
+:   Malware Type and Platform classification based on Microsoft's implementation of the Computer Antivirus Research Organization (CARO) Naming Scheme and Malware Terminology.
+
+[nato](https://github.com/MISP/misp-taxonomies/tree/master/nato):
+:   Marking of Classified and Unclassified materials as described by the North Atlantic Treaty Organization, NATO.
+
+[nis](https://github.com/MISP/misp-taxonomies/tree/master/nis):
+:   NIS Cybersecurity Incident Taxonomy.
+
+[open_threat](https://github.com/MISP/misp-taxonomies/tree/master/open_threat):
+:   Open Threat Taxonomy v1.1 base on James Tarala of SANS ref. - http://www.auditscripts.com/resources/open_threat_taxonomy_v1.1a.pdf
+
+[osint](https://github.com/MISP/misp-taxonomies/tree/master/osint):
+:   Open Source Intelligence - Classification (MISP taxonomies).
+
+[passivetotal](https://github.com/MISP/misp-taxonomies/tree/master/passivetotal):
+:   Tags for RiskIQ's passivetotal service
+
+[pentest](https://github.com/MISP/misp-taxonomies/tree/master/pentest):
+:   Penetration test (pentest) classification.
+
+[priority-level](https://github.com/MISP/misp-taxonomies/tree/master/priority-level):
+:   After an incident is scored, it is assigned a priority level. The six levels listed below are aligned with NCCIC, DHS, and the CISS to help provide a common lexicon when discussing incidents. This priority assignment drives NCCIC urgency, pre-approved incident response offerings, reporting requirements, and recommendations for leadership escalation. Generally, incident priority distribution should follow a similar pattern to the graph below. Based on https://www.us-cert.gov/NCCIC-Cyber-Incident-Scoring-System.
+
+[rsit](https://github.com/MISP/misp-taxonomies/tree/master/rsit):
+:   Reference Security Incident Classification Taxonomy.
+
+[rt_event_status](https://github.com/MISP/misp-taxonomies/tree/master/rt_event_status):
+:   Status of events used in Request Tracker.
+
+[runtime-packer](https://github.com/MISP/misp-taxonomies/tree/master/runtime-packer):
+:   Runtime or software packer used to combine compressed data with the decompression code. The decompression code can add additional obfuscations mechanisms including polymorphic-packer or other obfuscation techniques. This taxonomy lists all the known or official packer used for legitimate use or for packing malicious binaries.
+
+[smart-airports-threats](https://github.com/MISP/misp-taxonomies/tree/master/smart-airports-threats):
+:   Threat taxonomy in the scope of securing smart airports by ENISA.
+
+[stealth_malware](https://github.com/MISP/misp-taxonomies/tree/master/stealth_malware):
+:   Classification based on malware stealth techniques.
+
+[stix-ttp](https://github.com/MISP/misp-taxonomies/tree/master/stix-ttp):
+:   Representation of the behavior or modus operandi of cyber adversaries (a.k.a TTP) as normalized in STIX
+
+[targeted-threat-index](https://github.com/MISP/misp-taxonomies/tree/master/targeted-threat-index):
+:   The Targeted Threat Index is a metric for assigning an overall threat ranking score to email messages that deliver malware to a victim’s computer. The TTI metric was first introduced at SecTor 2013 by Seth Hardy as part of the talk “RATastrophe: Monitoring a Malware Menagerie” along with Katie Kleemola and Greg Wiseman.
+
+[tlp](https://github.com/MISP/misp-taxonomies/tree/master/tlp):
+:   The Traffic Light Protocol - or short: TLP - was designed with the objective to create a favorable classification scheme for sharing sensitive information while keeping the control over its distribution at the same time. Extended with TLP:EX:CHR.
+
+[tor](https://github.com/MISP/misp-taxonomies/tree/master/tor):
+:   Taxonomy to describe Tor network infrastructure
+
+[type](https://github.com/MISP/misp-taxonomies/tree/master/type):
+:   Taxonomy to describe different types of intelligence gathering discipline which can be described the origin of intelligence.
+
+[use-case-applicability](https://github.com/MISP/misp-taxonomies/tree/master/use-case-applicability):
+:   The Use Case Applicability categories reflect standard resolution categories, to clearly display alerting rule configuration problems.
+
+[veris](https://github.com/MISP/misp-taxonomies/tree/master/veris):
+:   Vocabulary for Event Recording and Incident Sharing (VERIS).
+
+[vocabulaire-des-probabilites-estimatives](https://github.com/MISP/misp-taxonomies/tree/master/vocabulaire-des-probabilites-estimatives):
+:   Vocabulaire des probabilités estimatives
+
+[workflow](https://github.com/MISP/misp-taxonomies/tree/master/workflow):
+:   Workflow support language is a common language to support intelligence analysts to perform their analysis on data and information.
 
 
 ## MISP Galaxy
