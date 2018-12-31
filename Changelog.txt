@@ -2,6 +2,268 @@ Changelog
 =========
 
 
+v2.4.100 (2018-12-31)
+---------------------
+
+New
+~~~
+- [restClient] Added support of URL param in the querybuilder widget.
+  [mokaddem]
+- [restClient] Transform query to json, more descriptions and layout
+  changes. [mokaddem]
+
+  - Added a lightweight query parser to construct the JSON body from the query builder
+  - Added more help text on API fields
+  - Added help hoover on API fields (when applicable)
+  - Added `optgroup` in template select
+  - Slight CSS modification on the overall page
+  - Changed behavior of template fetching (template existance is checked locally, do not wait before pulling the API info HTML)
+- [rest client] added first draft of querybuilder widget. [mokaddem]
+- [attributes] Add cdhash attribute, 40+ digit hash, default Payload
+  delivery, ids=1 (#3965) [Daniel Roethlisberger]
+- [eventview] value quickedit are triggered by clicking a button And no
+  longer using double-click. [Sami Mokaddem]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [objects] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [restClient] small css change. [Sami Mokaddem]
+- [restClient] Still show help for nested parameters instead of
+  crashing. [Sami Mokaddem]
+- [restResponse] removed space in parameters. [Sami Mokaddem]
+- Deleted comments. [Sami Mokaddem]
+- [restClient] Do not show empty rule if builder shown after template
+  picking. Reset the query builder rules if templates is not picked
+  before showing the builder. [Sami Mokaddem]
+- Re-indented view file. [Sami Mokaddem]
+- [restClient] prevent usage of query builder if template not picked.
+  [Sami Mokaddem]
+- [restClient] added `show query builder` button. [Sami Mokaddem]
+- [restClient] re-indented the whole file. [Sami Mokaddem]
+- [restclient] moved all javascript into its own file. [Sami Mokaddem]
+- [querybuilder] added new js dependencies (chosen, query-builder, doT,
+  extendext and moment) [root]
+- [querybuilder] injected tags are now injected by name instead of ID
+  (allowing sql LIKE) [Sami Mokaddem]
+- [Model] swapped openioc and json so that json is selected by default.
+  [mokaddem]
+- [rest client] re-ordered fields by alphabetical order. [mokaddem]
+- [rest client] added some overwrite functions. [mokaddem]
+- Bump PyMISP, again. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [Objects] Sorts object references types in add reference form (#3969)
+  [Christophe Vandeplas]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [eventView] added quickEdit button for Category, Type and IDS fields +
+  Changed IDS representation (from YES/NO to checkbox) [Sami Mokaddem]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [UI] Clarify the definition of "hide_tag" to an unselectable tag.
+  [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version (major update in Malpedia)
+  [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [eventView] applied quick-edit button for comment field. [Sami
+  Mokaddem]
+- [quickEditHover] change variable scope to local. [Sami Mokaddem]
+- [eventGraph] added fail save if requiredOneOff is not set. [Sami
+  Mokaddem]
+- [WIP] added function meant to resolve id vs uuid issues for the UI
+  attribute search. [iglocska]
+
+  - still needs some love
+- Bumped lastest cti-python-stix2 changes from our fork. [chrisr3d]
+- [stix] Changed cti-python-stix2 submodule to our fork. [chrisr3d]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- Bump PyMISP recommended version. [Raphaël Vinot]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- Bump PyMISP. [Raphaël Vinot]
+
+Fix
+~~~
+- [cleanup] Fixed a few issues. [iglocska]
+
+  - unnecesary access to controller from component fixed (load component instead)
+  - confusion between private and public variables resolved
+  - some minor fixes for rules
+- [restClient] form submission is working again. was blackholed due to
+  form tampering. [Sami Mokaddem]
+- [ui] prevent glitchy popover by increasing item size. [Sami Mokaddem]
+- [object references] Editing an event failed to save new object
+  references. [iglocska]
+- [expansion] Hover broken after pagination fixed. [iglocska]
+- [stix2 export] Fixed number_of_sections field in STIX PE extenstion.
+  [chrisr3d]
+
+  - Avoiding issues when the section referenced in the
+    MISP pe object is actually not in the event
+- [stix2 export] Added required field pe_type in STIX PE extension.
+  [chrisr3d]
+- [stix2 export] Fixed GalaxyCluster UUID fetching. [chrisr3d]
+
+  - Supporting the latest changes on UUID field name
+    for Galaxy clusters
+  - Still supporting the previous UUID field name in
+    the case of a terminal execution, with a former
+    version of Galaxy clusters
+- [stix2 export] Some fixes on 'Attribute' ObjectReference key + missing
+  self argument. [chrisr3d]
+- [stix2 export] Removed not used function. [chrisr3d]
+- [stix2 export] Added interoperability parameter to all created STIX
+  objects. [chrisr3d]
+
+  - In order to avoid crashes on MISP data generated via the STIX import
+- [stix2 export] Fixed GalaxyCluster uuids key fetching. [chrisr3d]
+- [tools] Fixes missing sort in the PyMISP describeTypes generation
+  (#3966) [Christophe Vandeplas]
+- [publishing] Fixed several bugs in the background job responsible for
+  publishing events. [iglocska]
+- [stix2 export] Fixed field name Attribute for ObjectReference
+  checking. [chrisr3d]
+- [stix 1&2 export] Checking if a referenced pe-section is indeed in the
+  event before trying to parse it. [chrisr3d]
+- [correlations] Invalid orgc loaded in the attribute level
+  correlations, fixes #3948. [iglocska]
+- Make IE11 compliant by adding startsWith polyfill. [Tom King]
+- Make IE11 compliant by removing default param value from ES2015. [Tom
+  King]
+- Make IE11 compliant by removing default param value from ES2015. [Tom
+  King]
+- [CLI] usage output fixed for the server shell tasks. [iglocska]
+- [sync] Fixed an incorrectly formatted event index output when
+  minimal:1 is passed, breaking the sync pull. [iglocska]
+
+  - ffs
+- [server preview] fixed sharing groups linking to the equivalent ID
+  sharing group on the local instance. [iglocska]
+- [api] Fixed event index to include sharing group metadata. [iglocska]
+- [Restresponse] fixed XML converter. [iglocska]
+- [compatibility] reverted IE11 breaking change in misp.js, fixes #3939.
+  [iglocska]
+- [feeds] Fixed an issue that caused a misp format feed fetch to fail
+  intermittently. [iglocska]
+- [upload_analysis_file] Prevent object creation on non-existing events.
+  [Sami Mokaddem]
+- [eventGraph] Object's label gets set correctly Add both requiredOneOf
+  and required (forgotten one) fields in the Object's label. [Sami
+  Mokaddem]
+- [sync] Issue with events not updating on a pull. [iglocska]
+
+  - overzealous protection removed
+  - Conditions blocking an event edit via a pull now rely on the locking mechanism, relaxed via an internal sync link
+- [UI] hover size fixed and scroll bar added. [iglocska]
+
+  - part of the keep @rommelfs happy project
+- [stix import] Fixed parsing of Custom objects. [chrisr3d]
+- [stix 1&2 import] Fixed version attribute of the original filename.
+  [chrisr3d]
+- [doc] Updated install guide to include the latest changes on STIX2
+  python library. [chrisr3d]
+- [stix2 import] Allowing import of STIX 2.0 documents that have non v4
+  UUIDs. [chrisr3d]
+
+  - Some further operations may be done on those UUIDs later
+  - Atm, we (at least) avoid loading errors from the stix2 python library
+- [API] Attribute tags could be added by 3rd parties via the API.
+  [iglocska]
+
+  - fixed
+- [objecttemplates] fixes issue #3921. [Christophe Vandeplas]
+- [API] tags/attachTagToObject wasn't unpublishing events correctly.
+  [iglocska]
+- [attachement] prevent creation of empty event. [Sami Mokaddem]
+- [restSearch] Using the correct python version to call STIX scripts.
+  [chrisr3d]
+
+  - Using the correct python defined in virtual env,
+    if available, and the default global python3
+    otherwise
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3974 from eCrimeLabs/2.4. [Alexandre Dulaunoy]
+
+  Update Attribute.php
+- Update Attribute.php. [eCrimeLabs]
+
+  Added ja3-fingerprint-md5 as a deticated data type. Also updating the object for ja3
+- Merge branch 'qb' into 2.4. [iglocska]
+- Fix+new [restClient] fixed merge glitch and added support of
+  `includeProposals` [Sami Mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into querybuilder. [Sami
+  Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #3909 from ruiwen/fix_postgres. [Andras Iklody]
+
+  fix: dev: Update POSTGRES-*.sql files
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3956 from dawid-czarnecki/fix/disable_correlation.
+  [Andras Iklody]
+
+  Fix disabling correlations for single attributes
+- Fix disabling correlations for single attributes. [Dawid Czarnecki]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3954 from kfinny/fix-enrich-event-job-not-marked-
+  as-completed. [Andras Iklody]
+
+  Fixes #3907, enrich event job not marked as completed.
+- Fixes #3907, enrich event job not marked as completed. [Kevin]
+
+  The enrichment background process did not do anything to update the job
+  after completing its task.  I used the same logic as the adjcacent
+  'publish' function to record progress, update the message and create a
+  log entry.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3942 from tomking2/2.4. [Andras Iklody]
+
+  fix: Make IE11 compliant by adding startsWith polyfill
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3941 from tomking2/2.4. [Andras Iklody]
+
+  fix: Make IE11 compliant by removing default param value from ES2015
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3940 from mokaddem/issue#3937-quickEdit. [Andras
+  Iklody]
+
+  new: [eventview] quick edits are triggered by clicking a button
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #3932 from davidonzo/2.4. [Alexandre Dulaunoy]
+
+  Mod headers to be enabled
+- Mod headers to be enabled. [Davide Baglieri]
+
+  Apache configuration needs to load the headers module.
+  Added the line #103
+- Merge pull request #3927 from cvandeplas/2.4. [Andras Iklody]
+
+  fix: [objecttemplates] fixes issue #3921
+- Merge pull request #3924 from keram79/patch-1. [Andras Iklody]
+
+  Fix error handling in Server.php
+- Fix error handling in Server.php. [keram79]
+
+  according to http://php.net/manual/de/exception.getmessage.php , the parenthesis are required
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+
+
 v2.4.99 (2018-12-06)
 --------------------
 
