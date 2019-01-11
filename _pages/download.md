@@ -52,6 +52,15 @@ We invite you to read the GitHub README page of each version to understand what 
 
 - [MISP ansible](https://github.com/juju4/ansible-MISP) An ansible role to setup a MISP instance.
 
+
+### AutoMISP
+
+- [AutoMISP is shell script](https://github.com/da667/AutoMISP) to automatically install MISP and misp-modules together on Ubuntu 16.04 or 18.04.
+
+### misp-cloud - Cloud-ready images of MISP
+
+- [misp-cloud](https://github.com/MISP/misp-cloud) - The objective of this project is to deliver cloud-ready images of MISP for testing purposes. AWS is currently supported.
+
 ## License
 
 The MISP software is an open source and free software released under the [AGPL](https://github.com/MISP/MISP/blob/2.4/LICENSE) (Affero General Public License). We are committed to ensure that MISP will remain a free and open source project on the long-run.
