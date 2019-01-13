@@ -80,6 +80,8 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |github-organisation| | | | | | |
 |github-repository| | | | X | | |
 |github-username| | | | | | |
+|hassh-md5| | | | X | | |
+|hasshserver-md5| | | | X | | |
 |hex| X | X | | | X | X |
 |hostname| | | | X | | |
 |hostname&#124;port| | | | | | |
@@ -237,6 +239,8 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |github-organisation| | | | | | |
 |github-repository| | | | | | |
 |github-username| | | | | | |
+|hassh-md5| X | | X | | | |
+|hasshserver-md5| X | | X | | | |
 |hex| X | X | X | X | | X |
 |hostname| X | | X | | | |
 |hostname&#124;port| X | | X | | | |
@@ -394,6 +398,8 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |github-organisation| | X | | |
 |github-repository| | X | | |
 |github-username| | X | | |
+|hassh-md5| | | | |
+|hasshserver-md5| | | | |
 |hex| | | X | |
 |hostname| | | | |
 |hostname&#124;port| | | | |
@@ -571,6 +577,8 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **github-organisation**: A github organisation
 *   **github-repository**: A github repository
 *   **github-username**: A github user name
+*   **hassh-md5**: hassh is a network fingerprinting standard which can be used to identify specific Client SSH implementations. The fingerprints can be easily stored, searched and shared in the form of an MD5 fingerprint.
+*   **hasshserver-md5**: hasshServer is a network fingerprinting standard which can be used to identify specific Server SSH implementations. The fingerprints can be easily stored, searched and shared in the form of an MD5 fingerprint.
 *   **hex**: A value in hexadecimal format
 *   **hostname**: A full host/dnsname of an attacker
 *   **hostname&#124;port**: Hostname and port number seperated by a &#124;
