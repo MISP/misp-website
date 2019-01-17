@@ -13,8 +13,9 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### MISP Training(s)
 
-- [MISP Training - Threat Intelligence Analyst and Administrators](https://en.xing-events.com/YXNNPWD) - at CIRCL Luxembourg - 26th March 2019
-- [MISP Training - Developers session - API and Extensions](https://en.xing-events.com/IHSBNTB) - at CIRCL Luxembourg - 27th December 2019
+- [MISP Training - Threat Intelligence for Analyst and Administrators](https://en.xing-events.com/YXNNPWD) - at CIRCL Luxembourg - 26th March 2019
+- [MISP Training - Developers session - API and Extensions](https://en.xing-events.com/IHSBNTB) - at CIRCL Luxembourg - 27th March 2019
+- [MISP Training - Threat Intelligence for Analyst and Administrators (with a focus on NIDS such as Bro/Zeek](https://indico.cern.ch/event/787173/) - at CERN - 11-12 April 2019
 
 ### Conferences featuring MISP core members talking about MISP and/or threat intelligence
 
