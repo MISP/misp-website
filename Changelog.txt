@@ -2,6 +2,333 @@ Changelog
 =========
 
 
+v2.4.101 (2019-01-20)
+---------------------
+
+New
+~~~
+- [feeds] Opened up feed inspection to host org users and added servers
+  to overlap matrix. [iglocska]
+- [remote caching] First release version of the remote caching.
+  [iglocska]
+- [server caching] Initial version WIP. [iglocska]
+- [UI] PopoverConfirm now support shortcut (<ENTER>/<CTRL>+<ENTER> to
+  submit and <ESC> to Cancel) [mokaddem]
+- [attackMatrix] Added support of chosen in the ATT&CK Matrix.
+  [mokaddem]
+- [addObject] adding objects is done via the generic_picker. [mokaddem]
+- [galaxy] Added bulk galaxy tagging. [mokaddem]
+- [UI] generic_picker - WIP. [mokaddem]
+- [cache export] Added the includeEventUuid flag to the output.
+  [iglocska]
+- [publishing] Unpublish function added. [iglocska]
+
+  - users were jumping through hoops to unpublish an event
+- [UI] disable attribute correlation during creation / modification.
+  [iglocska]
+- [config backup] Added logging and a second protective measure.
+  [iglocska]
+
+  - if the current config.php is hosed, don't start the backup process and overwrite the backup
+- [galaxies] adding galaxies no longer needs a full refresh of the page.
+  [iglocska]
+
+  - use the new ajax function to get the galaxy information returned
+- [galaxies] added new function to show galaxies in ajax queries.
+  [iglocska]
+- [tag collections] Add default tag collection per instance. [iglocska]
+- [tag collections] First feature complete minimal version of the tag
+  collection system. [iglocska]
+- [tag collections] Added missing views. [iglocska]
+- [tag collections] Renamed tagCollectionElement to tagCollectionTag.
+  [iglocska]
+- [tag collections] WIP. [iglocska]
+- [WIP] tag collections WIP. [iglocska]
+- [tag_collections] Added db upgrade. [iglocska]
+- [Tag collections] Added boilerplate models. [iglocska]
+
+Changes
+~~~~~~~
+- [remote cache] Further progress on caching remote instances.
+  [iglocska]
+- [tagging] Added more ordering while displaying results. [mokaddem]
+- [Object] Added pre-choice of object meta-category. [mokaddem]
+- [refactor] Slight refactor for getAttributesTags() [iglocska]
+- [cleanup] Removal of duplicate code. [iglocska]
+- [generic_popover] Pressing <ESC> destroy the popover. [mokaddem]
+- Fixed LGTM JavaScript analysis alerts. [mokaddem]
+- [refacto] removed useless code and views. [mokaddem]
+- [css] indent. [mokaddem]
+- [eventView] Replaced link by span. [mokaddem]
+
+  So that the focus is not done when clicking on it
+- [attackMatrix] removed useless view. [mokaddem]
+- [UI] WIP - generic_picker improved title management of popover.
+  [mokaddem]
+- [UI] WIP - generic_picker remove popover on tag deletion. [mokaddem]
+- [UI] WIP - generic_picker popover is attached to body. [mokaddem]
+
+  Needed to add reference to the original node that toggle the popover
+- [UI] WIP - generic_picker slightly improved tag template. [mokaddem]
+- [UI] WIP - generic_picker replaced galaxy deletion alert by confirm
+  popover. [mokaddem]
+- [UI] WIP - generic_picker deleting tags uses popover. [mokaddem]
+- [UI] WIP - generic_picker add warning message if number of option is
+  to large. [mokaddem]
+- [UI] WIP - generic_picker filter galaxies by synonyms. [mokaddem]
+- [UI] WIP - generic_picker display expanded taxonomy info. [mokaddem]
+- [UI] WIP - generic_picker added tag styling and additional data in
+  option. [mokaddem]
+- [UI] WIP - generic_picker automatically switch to submit pills if
+  applicable. [mokaddem]
+- [UI] WIP - generic_picker added custom chosen event to support
+  redrawing after searches. [mokaddem]
+- [UI] WIP - generic_picker prevnet drawing empty option. [mokaddem]
+- [UI] WIP - generic_picker improved template (show more fields)
+  [mokaddem]
+- [UI] WIP - generic_picker added templating system for select options.
+  [mokaddem]
+- [tagging] WIP - bulk galaxy tagging on attribute and event. [mokaddem]
+- [tagging] WIP - bulk tagging via generic picker on event and complete
+  support for TagCollection. [mokaddem]
+- [tagging] WIP - bulk tagging via generic picker on tag level.
+  [mokaddem]
+- [taxonomy choice] replace old popup view by the generic pre-picker.
+  [mokaddem]
+- [doc] Updated date of testing. [Steve Clement]
+- [doc] Updated Ubuntu 18.04 install and all generic generic
+  dependencies. [Steve Clement]
+- [Taxonomy] disable (hide) tags when disabling parent taxonomy.
+  [mokaddem]
+- [galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [internal] timestamp resolution for time ranges should reorder the
+  conditions. [iglocska]
+
+  - always take from (smaller timestamp) to (larger timestamp), no matter the order which they were entered in
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [UI] Added publish timestamp to the event view. [iglocska]
+- [stix] Bumped latest version of cti-python-stix2. [chrisr3d]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [datamodels] fix hassh and hasshserver typo. [Alexandre Dulaunoy]
+- [PyMISP] updated to the latest version (hassh-md5 and hasshserver-md5)
+  added. [Alexandre Dulaunoy]
+- [datamodels] new types hassh-md5 and hasshserver-md5 added. [Alexandre
+  Dulaunoy]
+
+  "HASSH" is a network fingerprinting standard which can be used
+  to identify specific Client and Server SSH implementations.
+  The fingerprints can be easily stored, searched and shared
+  in the form of an MD5 fingerprint.
+
+  Fix #4007
+- [feeds] mirai.security.gives feed added. Fix #4009. [Alexandre
+  Dulaunoy]
+- [MISP objects] Bumped latest version. [chrisr3d]
+- [stix2 import] Importing Marking Definition objects from STIX files
+  generated with MISP. [chrisr3d]
+
+  - Import of Marking Definition objects as tags
+  - Import at attribute and event level
+  - Import of Marking Definition objects from external STIX files at event
+    level only
+- [doc] Updated documentation about stix2 python library installation.
+  [chrisr3d]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [stix2] Bumped latest cti-python-stix2 version. [chrisr3d]
+- [stix2 export] Exporting tags as Marking Definition. [chrisr3d]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [cleanup] removed some more leftover junk. [iglocska]
+- [cleanup] Removed obsolete CLI tasks. [iglocska]
+- [automation] described feed previews via the API template system.
+  [iglocska]
+- [session] Added warning about setting the timeout to 0. [iglocska]
+- [documentation] Added JSON structure update commands to CLI
+  documentation. [iglocska]
+- [refactor] Refactoed attachCluster to be more model agnostic.
+  [iglocska]
+- [tag collection tag] Renamed Model references in the codebase.
+  [iglocska]
+- [generic index] Fixed scoping issue with rows. [iglocska]
+
+Fix
+~~~
+- [caching] Some minor fixes. [iglocska]
+- [ACL] ACL updated. [iglocska]
+- [AttackMatrix] Stopped comparing string with integer. [mokaddem]
+- [generic_picker] avoid having option's name as an array key.
+  [mokaddem]
+- [generic_picker] hide div if `empty` is selected. [mokaddem]
+- [tags] picking all tags removed galaxies in the picker. [mokaddem]
+- [tag collections] Adding tags to tag collections fixed. [iglocska]
+- [ACL] small ACL fix. [iglocska]
+- [Tag collections] Fix case of several tag IDs being passed. [iglocska]
+- [ACL] Restrict tag collection modification to tag editors. [iglocska]
+- Added some more escaping. [mokaddem]
+- [UI] prevent failing if generic_picker is not in a popover. [mokaddem]
+- [JS] switch to local variable. [mokaddem]
+- [App] Bump queryVersion. [mokaddem]
+- [attackMatrix] do not throw an error for an edge case where the user
+  did not have full permission. [mokaddem]
+- [tagCollection] typo in variable name preventing addition of tag for
+  non-admin users. [mokaddem]
+- [massageTag] variable name collision causing tags to disappear.
+  [mokaddem]
+- [tagCollection] galaxies can be removed from tag collections.
+  [mokaddem]
+- [MassEdit] Prevent undefined clusters/tags if unset + enforce
+  attribute perms. [mokaddem]
+- [UI] generic_picker prevented nested redrawing. [mokaddem]
+- [Unpublish] variable not set when not in event context (i.e.
+  revise_object) [mokaddem]
+- [internal] EventID filter now accepts uuid and ID correctly.
+  [iglocska]
+- [UI] notice error fixed for tag filters in attributes/search.
+  [iglocska]
+- [internal] Fixed uuid/id lookups not working on the attribute level.
+  [iglocska]
+- [UI] mismatched button class usage for discussions. [iglocska]
+
+  - this was driving me nuts.
+- [doc] Updated Kali scripts. [Steve Clement]
+- [stix2 import] Fixed copy paste monkey 'self' missing error.
+  [chrisr3d]
+- Avoid ignoring stix2 scripts. [chrisr3d]
+- [stix2 import] Fixed default event & attribute distribution values.
+  [chrisr3d]
+- [stix import] Fixed default event & attribute distribution values.
+  [chrisr3d]
+- [attribute search] Restore pivoting from attribute tag to the
+  attribute search results. [iglocska]
+
+  - contrary to the pre-API-refactor versions, inherited event tags are also taken into account
+- [attribute search] Trigger the result screen instead of the search
+  form if the tags parameter is provided via the URL in a GET request.
+  [iglocska]
+- [API] correctly handle custom delimiters in the filter builder.
+  [iglocska]
+- [stix2 import] Fixed imported galaxyCluster uuids. [chrisr3d]
+
+  - Which are actually collection_uuids
+- [stix2 export] Fixed GalaxyCluster uuid fetching. [chrisr3d]
+
+  - Which is actually collection_uuid
+- [stix2 import] Using a STIX2 object attribute instead of its
+  dictionary format. [chrisr3d]
+- [stix2 export] Fixed MISP tags parsing. [chrisr3d]
+
+  - To support composite predicates
+  - Also changed variable names to match with
+    the actual tag part names
+- [stix2 export] Fixed wrong variable name. [chrisr3d]
+- [stix2 export] Parsing relationships at the end of the event.
+  [chrisr3d]
+
+  - Minor change only impacting the order of the STIX Objects
+  - But cleaner code (relationship parsing code in a function)
+- [event] attributes quick tagging. [mokaddem]
+
+  scope used to be singular (attribute instead of attributes), it is know set accordingly
+- Fixes javascript issue #3952. [Christophe Vandeplas]
+- [eventView] restored bulk tagging feature. [mokaddem]
+
+  Since the introduction of the tag collection, bulk tagging of items in
+  the event view stopped working (Behavior of tag's view changed to use scoping instead
+  of calculated variables in the tag's Controller)
+- [stix2 export] Cleaned up the link attributes parsing. [chrisr3d]
+
+  - Removed useless class attribute
+  - Cleaned up the parsing code itself
+- [stix2 import] Avoid error on fetching relationship by uuid.
+  [chrisr3d]
+
+  - Fixes an issue that did not put (for instance)
+    Galaxies on attribute level within the attribute
+    because of the uuid fetching error
+- [stix2 import] Better parsing of external single attributes.
+  [chrisr3d]
+
+  - To parse relationships concerned by the attribute,
+    at the same time, if needed
+- [timeout setting] Fixed invalid cooke timeout name. [iglocska]
+- [tag collections] Fixed hook to reload galaxies. [iglocska]
+- [ACL] Added ajax function to ACL. [iglocska]
+- Bumped cti-python-stix2 latest version. [chrisr3d]
+- [api] editing organisation attributes, other than name. [Jan Skalny]
+- [galaxies] Some minor fixes with the ajaxification. [iglocska]
+- [galaxies] added new view that wasn't finished for the previous commit
+  (stil WIP) [iglocska]
+- [over-sanitisation] cleared up over-sanitised message in the events
+  controller. [iglocska]
+- [ACL] Added missing function. [iglocska]
+- [tag collections] Fixed several bugs linking to the wrong tag
+  collection when attaching them to an event/attribute. [iglocska]
+- [tag collections] Fixed an issue where if a collection was added that
+  already had all tags attached from before, the process would get stuck
+  with no feedback to the user. [iglocska]
+- [taxonomies] Tag list empty fixed. [iglocska]
+- [data model] added the fix to the org_id field in the tag table to the
+  mysql.sql file. [iglocska]
+- [data model] fixed a bug that caused org_id fields to be tinyint(1)
+  for org_ids on tags. [iglocska]
+- [tag collections] fixed galaxies not showing up. [iglocska]
+- [added missing controller] tag collections controller. [iglocska]
+- [model linking] Made tag collection tag dependent of tag. [iglocska]
+- [db update] Fixed update script for tag collection tags. [iglocska]
+- [cleanup] removed tagCollectionElement. [iglocska]
+- [js] Various fixes with adding/removing tags. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'features/server_caching' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch 'UISelector' into 2.4. [mokaddem]
+- Merge branch '2.4' into UISelector. [mokaddem]
+- Fix/new: [attackMatrix] Attack Matrix works again + added support in
+  tag collection. [mokaddem]
+- New/fix: [MassEdit] Allow addition/deletion of tags and clusters on
+  selected attributes + Lots of usage bug fixes. [mokaddem]
+- [UI] generic_picker merged the pre_picker into the picker - WIP.
+  [mokaddem]
+- Merge pull request #4028 from SteveClement/guides. [Steve Clement]
+
+  Guides
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #4020 from chkp-aliaksandrt/fix-issue-3977-tagged-
+  attributes-search. [Andras Iklody]
+
+  Fix of tagged attributes search
+- Fix of tagged attributes search, displaying tag name instead of
+  numeric Tag ID Closes #3977. [chkp-aliaksandrt]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #4018 from SteveClement/guides. [Steve Clement]
+
+  fix: [doc] Updated Kali scripts.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: [stix2 import] Importing Marking Definition objects from external
+  STIX files at attribute level. [chrisr3d]
+- Add: Added stix2 scripts subdirectory to gitignore. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #3989 from cvandeplas/2.4. [Andras Iklody]
+
+  fix: Fixes javascript issue #3952
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch 'tag_collections' into 2.4. [iglocska]
+- Merge branch '2.4' into tag_collections. [iglocska]
+- Add: [stix2 import] Added a  pattern type in the mapping. [chrisr3d]
+- Merge pull request #3980 from JanSkalny/2.4. [Andras Iklody]
+
+  fix: [api] editing organisation attributes, other than name
+- Merge branch '2.4' into tag_collections. [iglocska]
+
+
 v2.4.100 (2018-12-31)
 ---------------------
 
