@@ -13,7 +13,7 @@ As the MISP project is used in different geographical regions (Europe, North Ame
 
 ## GDPR - General Data Protection Regulation
 
-- [Information sharing and cooperation enabled by GDPR](/compliance/gdpr/information_sharing_and_cooperation_gdpr.html) latest version 1.1 published on Tuesday, 30 January 2018.
+- [Information sharing and cooperation enabled by GDPR](/compliance/gdpr/information_sharing_and_cooperation_gdpr.html) latest version 1.1 published on Tuesday, 30 January 2018. [PDF](/compliance/gdpr/information_sharing_and_cooperation_gdpr.pdf)
 
 ## ISO/IEC 27010:2015 - Information security management for inter-sector and inter-organizational communications
 
