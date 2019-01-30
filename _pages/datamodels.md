@@ -175,6 +175,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |x509-fingerprint-sha256| | X | X | X | | |
 |xmr| | | | | X | |
 |yara| | X | | | | |
+|zeek| | | | X | | |
 
 |Category| Network activity | Other | Payload delivery | Payload installation | Payload type | Persistence mechanism |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -334,6 +335,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |x509-fingerprint-sha256| X | | X | X | | |
 |xmr| | | | | | |
 |yara| | | X | X | | |
+|zeek| X | | | | | |
 
 |Category| Person | Social network | Support Tool | Targeting data |
 | --- |:---:|:---:|:---:|:---:|
@@ -493,6 +495,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |x509-fingerprint-sha256| | | | |
 |xmr| | | | |
 |yara| | | | |
+|zeek| | | | |
 
 
 ### Categories
@@ -672,6 +675,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **x509-fingerprint-sha256**: X509 fingerprint in SHA-256 format
 *   **xmr**: Monero Address
 *   **yara**: Yara signature
+*   **zeek**: An NIDS rule in the Zeek rule-format
 
 ## MISP objects
 
