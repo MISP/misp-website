@@ -21,6 +21,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
 |AS| | | | X | | |
 |aba-rtn| | | | | X | |
+|anonymised| X | X | X | X | X | X |
 |attachment| X | X | | X | | |
 |authentihash| | X | | | | |
 |bank-account-nr| | | | | X | |
@@ -181,6 +182,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
 |AS| X | | X | | | |
 |aba-rtn| | | | | | |
+|anonymised| X | X | X | X | X | X |
 |attachment| X | | X | X | | |
 |authentihash| | | X | X | | |
 |bank-account-nr| | | | | | |
@@ -341,6 +343,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 | --- |:---:|:---:|:---:|:---:|
 |AS| | | | |
 |aba-rtn| | | | |
+|anonymised| X | X | X | X |
 |attachment| | | X | |
 |authentihash| | | | |
 |bank-account-nr| | | | |
@@ -521,6 +524,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 
 *   **AS**: Autonomous system
 *   **aba-rtn**: ABA routing transit number
+*   **anonymised**: Anonymised value - described with the anonymisation object via a relationship
 *   **attachment**: Attachment with external information
 *   **authentihash**: Authenticode executable signature hash
 *   **bank-account-nr**: Bank account number without any routing number
