@@ -2,6 +2,389 @@ Changelog
 =========
 
 
+%%version%% (unreleased)
+------------------------
+
+Changes
+~~~~~~~
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [stix2 export] Fixed attribute counting on restSearch. [chrisr3d]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+
+
+v2.4.102 (2019-02-01)
+---------------------
+
+New
+~~~
+- [kali] Added debug function and breakpoints. [Steve Clement]
+- [doc] Initial MISP with Letsencrypt doc. [Steve Clement]
+- [installer] Initial bash installer functions. [Steve Clement]
+- [doc] moved kali script to generic debian installer script. [Steve
+  Clement]
+- [CLI] Server settings refactored, fixes #4074. [iglocska]
+
+  - moved most of the codebase to the model
+  - streamlining of the setting change
+  - hooked the callback system into the CLI version of the setter
+- [sighting] Searching for attributes allows to add sightings on the
+  attribute id or value. [mokaddem]
+- [objectReference] Usage of the generic_picker for improved UX.
+  [mokaddem]
+- [dependencies] Added CryptGPG and a dependency thereof to the INSTALL
+  dir. [iglocska]
+
+  - workaround for the pear.php.net pwnage
+- [Tag collections] Export/import tag collections added. [iglocska]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [installer] Added more comments and implemented base parameter logic.
+  [Steve Clement]
+- [datamodel] me being stupid. [Alexandre Dulaunoy]
+- [datamodel] anonymised updated. [Alexandre Dulaunoy]
+- [datamodel] second step validation for anonymised attribute type.
+  [Alexandre Dulaunoy]
+- [datamodel] anonymised is any category. [Alexandre Dulaunoy]
+- [doc] Copyright dates updated. [Alexandre Dulaunoy]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [kali] Major rewrite of install script. [Steve Clement]
+- [doc] Added CentOS vs. RHEL note. [Steve Clement]
+- [doc] script name change. [Steve Clement]
+- [doc] pear needs root permissions as it is installed to /usr/lib.
+  [Steve Clement]
+- [doc] Partially fixed Centos 7 install procedure. Now uses https by
+  default. [Steve Clement]
+- [doc] Remove update-alternatives, dumb idea to change default Python,
+  for now. [Steve Clement]
+- [doc] Added initial misp-modules cake sugar. [Steve Clement]
+- [doc] Added symlink to generic debian installer for bward compat.
+  [Steve Clement]
+- [restsearch] Improvements to the restSearch APIs to function better
+  with URL parameters. [iglocska]
+
+  - fixed returnFormat for events/restSearch
+  - added page and limit to the list of parameters
+- [sightings] Hover sighting UI improvement. [iglocska]
+- [feed correlations] Don't attach feed correlations to attributes that
+  have correlations disabled. [iglocska]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [type] zeek attribute added (Zeek is the new name of Bro) [Alexandre
+  Dulaunoy]
+
+  Both attribute types, zeek and bro will coexist as exchange of NIDS
+  rules under the old names is common in various MISP sharing communities.
+- [sighting] Added generic hovering support for `openPopover` + added
+  support of this feature for sightings. [mokaddem]
+- [org view] show creation/modification times. [iglocska]
+- [rest] Bumped `sighting/add{values}`` documentation. [mokaddem]
+- Bump PyMISP. [Raphaël Vinot]
+- [generic_picker] Improved the way option templates/data are passed to
+  the view (now done by JS only) [mokaddem]
+- [generic_picker] Improved memory usage + use of sprintf. [mokaddem]
+- [galaxy clusters] selectCluster function opened up to the API for
+  reasons. [iglocska]
+- [doc] add standard MISP logo in SVG format. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [documentation] Added the description of URL parameters to the
+  automation page. [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- Pump PyMISP, use pipenv in travis. [Raphaël Vinot]
+- [eventIndex] replaced tag HTML node from <span> to <a> [mokaddem]
+
+  So that it indicates that cliking on the tag triggers an action (search
+  in this case), but also to be consistent UI-wise
+
+  Part of the project: ~ Making Deborah happy! ~
+- [generic_picker] Prevent decoding if additionalData is not set.
+  [mokaddem]
+- Deleted useless commented line. [mokaddem]
+- [generic_picker] fixed icon path and added more resilience in case of
+  resizing. [mokaddem]
+- [layouts] Removed doT.js dependency (not needed anymore) [mokaddem]
+- [generic_picker] Improved UI. [mokaddem]
+- [ObjectReference] this was bugging me.. [mokaddem]
+- [generic_picker] Improved UI. [mokaddem]
+- [generic_picker] improved layout. [mokaddem]
+- [generic_picker] added support of infoExtra for pills. [mokaddem]
+- [generic_picker] moved sanitization to views. [mokaddem]
+- [generic_picker] all view using the generic_picker now use the
+  generic_picker view elements - WIP. [mokaddem]
+- [generic_picker] use php generic_picker elements for constructing the
+  template server side. - WIP. [mokaddem]
+
+  Previously, it was done client side
+- [doc] Fix kali script, php7.2 was used by apache. Add reference to
+  mkdocs depency. [Steve Clement]
+- [doc] Added gengeric update section update Debian testing for new
+  stix2. [Steve Clement]
+- [i18n] Updated: Czech 4%, Danish 53%, German 21%, French 95%, Italian
+  39%, Japanese 95%, Korean 3%, Brazilian Portuguese 6%, Spanish 3% new:
+  [i18n] Hungarian, Russian, Ukrainian, Simplified Chinese. [Steve
+  Clement]
+- [composer] composer.json updated. [iglocska]
+- [query] Query string bump. [iglocska]
+
+Fix
+~~~
+- [restsearch] CSV special parameters added to the URL parameters.
+  [iglocska]
+- [stix 1&2 export] Switched attachment parameter to make it work.
+  [chrisr3d]
+
+  - When using the url to query restSearch, withAttachements
+    is the correct parameter to use instead of includeAttachements
+    which works btw well with the rest Client anyway
+- [eventGraph] Adding relation via the graph correctly pick the correct
+  element in the confirm modal. [mokaddem]
+- [proposal] Repaired deletion proposal (db save) [mokaddem]
+- [proposal] Repaired deletion proposal. [mokaddem]
+- [stix 1&2 export] Using the restSearch API instead of the old download
+  one. [chrisr3d]
+- [kali] updated composer chksum. [Steve Clement]
+- [installer] Fixed a bug when run on kali. [Steve Clement]
+- [stix export] Monkey typo. [chrisr3d]
+- [stix export] Fixed malware samples (within file objects) parsing.
+  [chrisr3d]
+
+  - Depending if there is the attachment or not
+- [deprecated stix export] fixed, parameters weren't correctly taken
+  into account. [iglocska]
+
+  - affects /events/stix
+- [API] Use restresponse to view an added event via /events/add.
+  [iglocska]
+- [Tagging] MITRE galaxies fixing function. [Christophe Vandeplas]
+
+  This function still needs to be called from an upgrade script.
+- [redirect on login] Fixed an issue where ajax queries would store
+  their URL in the redirect URL field. [iglocska]
+- Check also event.org_id when validating event ownership in order to
+  fetch attributes. [Patrizio Tufarolo]
+
+  Fixes #1918
+- [Tagging] Tagging an element with multiple tag collection works as
+  expected. [mokaddem]
+
+  Previously, it would only add the latest tag collection
+- [sighting] Bug adding sightings on every attributes. [mokaddem]
+
+  When trying to add a sighting to a value via the REST API,
+  if a value was given to the key `values` instead of an array,
+  the Model function `addSighting` would *crash* and skip the condition on
+  the value, consequently adding a sighting on every attributes.
+- [UI] Popover gets closed correctly if button clicked twice. reuse
+  generated popover id instead of one-side generation. [mokaddem]
+- [tagging] attachTagToObject wasn't updating the timestamp of the
+  target object. [iglocska]
+- [description] setSetting CLI command description fixed. [iglocska]
+- [api] attirbutes/restSearch forced json format by mistake, fixes
+  #4064. [iglocska]
+- [redirect] Correctly redirect to the requested URL after a login,
+  fixes #4005, fixes #1301. [iglocska]
+- [events ui] fix to the event view pagination reseting sorting, fixes
+  #4058. [iglocska]
+- [sightings] Re-added advanced sightings to the search results.
+  [iglocska]
+- [Model] Fixed includeAttachments parameters for stix 1&2 export.
+  [chrisr3d]
+- [internal] Fetching galaxies broken into atomic queries to avoid
+  massive parameter lists. [iglocska]
+- [automation] Clarification of the different timestamp parameters.
+  [iglocska]
+
+  - we missed describing the input formats
+- [API] removed invalid parameter lookup. [iglocska]
+- [API] Fixed the handling of AND-ed and OR-ed URL parameters.
+  [iglocska]
+- [Model] Added disable_correlation flag to the attributes of the
+  original imported file object. [chrisr3d]
+- [stix import] Updated one condition test to avoid failing with Custom
+  Objects. [chrisr3d]
+- [stix import] Removed unexpected print. [chrisr3d]
+- [stix import] Quick variable cleanup. [chrisr3d]
+- [stix import] Importing data frfom malware-sample single attributes.
+  [chrisr3d]
+- [stix import] Importing malware-sample attributes and their data
+  fields within File objects. [chrisr3d]
+- [stix import] Fixed syntax typo issue. [chrisr3d]
+- [stix export] Exporting malware-sample value within the corresponding
+  observable. [chrisr3d]
+
+  - In case the malware-sample values are not the
+    same as the filename & md5 ones in the object
+- [attribute] Prevent undefined index on tag filtering. [mokaddem]
+
+  As tags are popped from the attribute scope first, they will not be
+  available in the event scope.
+- [restsearch] Added returnformat to URL parameters. [iglocska]
+
+  - attributes/restSearch was additionally missing the published filter
+- [interna] deprecated text() function's tag filter fixed. [iglocska]
+- [filters] Negative tag filters ignored event tags on the attriute
+  search. [iglocska]
+
+  - as reported by @hel10wor1d
+- [copy-pasta] Oops. [iglocska]
+- [stix] Missing data fields added to object malware samples. [iglocska]
+- [stix export] Syntax quick fix. [chrisr3d]
+- [ObjectReference] Making everyone happier. [mokaddem]
+- Mass edit and AttackMatrix work again on objectAttributes. [mokaddem]
+- [stix export] Avoid loss of filename and md5 values in File object.
+  [chrisr3d]
+
+  - We take them from malware-sample value if they do not exist
+- [stix export] Faster & Shorter attributes dictionary creation
+  function. [chrisr3d]
+- [stix export] Removed not used additional param of the artifact object
+  creation function. [chrisr3d]
+- [stix export] Exporting data from malware-sample attributes in file
+  objects. [chrisr3d]
+
+  - Observable composition for the file object
+  - Data in malware-sample attribute is exported as Artifact Object
+  - The rest of the file rermains unchanged and exported as File
+- [performance] query tweak to fool old crappy versions of mysql.
+  [iglocska]
+- [sighting] prevent ID collision in the UI. Sighting canvas is now
+  correctly positioned regardless of the id. [mokaddem]
+- [doc] The kali script should work again now. [Steve Clement]
+- [stix import] Passing observable title to avoid None value on
+  attachment attributes imported. [chrisr3d]
+- [stix import] Fixed id fetching. [chrisr3d]
+- [server correlation] Fixed broken correlation link on the event level.
+  [iglocska]
+- [UI] annoying empty event warning removed when filtering event
+  attributes. [iglocska]
+- [attribute warnings] financial warnings not showing up in the warnings
+  tab. [iglocska]
+- [gitmodules] updated. [iglocska]
+- [stix2] added attachment inclusion to the download from stix2 UI
+  element. [iglocska]
+- [freetext import] Handle cases where a value can be both a hash and a
+  btc address better. [iglocska]
+- [performance] Potential performance fix for older MySQL versions using
+  the wrong index as key during fetchAttributes() [iglocska]
+
+  - observer a server prioritising the deleted flag index when filtering attributes, leading to a massive performance loss
+  - hacky solution to make deleted and object_id (during flattening) indeces unusable
+- [stix2 export] Fixed event labels fecthing. [chrisr3d]
+- [stix2 import] Importing TLP Marking definition objects only.
+  [chrisr3d]
+
+  - Following the changes on export script
+- [stix2 export] Faster tags handling function. [chrisr3d]
+
+  - Compressed the function, removing some useless
+    lines / variables
+- [stix2 export] Exporting only TLP tags as MarkingDefinition.
+  [chrisr3d]
+
+  - The other tags are (as before a recent change)
+    exported as labels
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4075 from obert01/cluster-detach-accessibility.
+  [Andras Iklody]
+- Accessibility: Added ARIA properties on the "detach" button for
+  clusters. [Olivier BERT]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #4073 from SteveClement/guides. [Steve Clement]
+
+  chg: [installer] Added more comments and implemented base parameter logic
+- Add: [datamodel] anonymise type added. [Alexandre Dulaunoy]
+
+  Anonymised value - described with the anonymisation object via a relationship
+
+  Anonymisation object definition: https://www.misp-project.org/objects.html#_anonymisation
+- Merge pull request #4071 from SteveClement/guides. [Steve Clement]
+
+  chg: [kali] Major update to Kali Install script
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Revert "fix: [API] Use restresponse to view an added event via
+  /events/add" [iglocska]
+
+  This reverts commit 66037a36c55c66d4d2fe41f71619bc79e27dfdc5.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #3995 from patriziotufarolo/2.4. [Andras Iklody]
+
+  fix: check also event.org_id when validating event ownership in order to fetch attributes. Fixes #1918
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #4053 from Rafiot/pipenv. [Raphaël Vinot]
+
+  chg: Pump PyMISP, use pipenv in travis
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4049 from obert01/logs-accessibility-fix. [Andras
+  Iklody]
+
+  Accessibility fix in the Logs view
+- Accessibility: Fixed the aria-label properties of the filter buttons
+  in the Logs view. [Olivier BERT]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #4041 from mokaddem/UIObjectReferences. [Sami
+  Mokaddem]
+
+  Improved generic_picker and object references
+- Merge branch '2.4' into UIObjectReferences. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4046 from SteveClement/guides. [Steve Clement]
+
+  fix: [doc] Kali installer now working again
+- Merge branch '2.4' into guides. [Steve Clement]
+- Merge pull request #4037 from SteveClement/i18n. [Steve Clement]
+
+  chg: [i18n] Updated and added Localizations
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: [stix framing] Added Artifact Object in  the list. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Update INSTALL.ubuntu1804.md. [Andras Iklody]
+- Update INSTALL.debian9.md. [Andras Iklody]
+- Update INSTALL.rhel7.md. [Andras Iklody]
+- Added crypt_gpg alternate installer. [Andras Iklody]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4033 from andreybolonin/patch-1. [Alexandre
+  Dulaunoy]
+
+  add php 7.3 to travis
+- Add php 7.3 to travis. [Andrey Bolonin]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+
+
 v2.4.101 (2019-01-20)
 ---------------------
 
