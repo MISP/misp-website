@@ -101,7 +101,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [misp_btc](https://github.com/rommelfs/misp_btc) - Fetch a list of BTC addresses (from MISP) in a given time range. Get the balance and all transactions recorded in Blockchain for the address. Shows the conversion rate in EUR and USD for the transaction at the date of transaction.
 * [MISP Golang](https://github.com/0xrawsec/golang-misp) - Golang Library to interact with your MISP instance.
 * [misp-bulk-tag](https://github.com/morallo/misp-bulk-tag) - this script performs bulk tagging operations over MISP.
-* [misp42splunk](https://github.com/remg427/misp42splunk) - A Splunk app to use MISP in background.
+* [misp42splunk](https://github.com/remg427/misp42splunk) - A Splunk app to use one or more MISP in background. misp42splunk is also [available in splunkbase](https://splunkbase.splunk.com/app/4335/#/details).
 * [MISP-IOC-Validator](https://github.com/tom8941/MISP-IOC-Validator/) validates the format of the different IOC from MISP and to remove false positive by comparing these IOC to existing known false positive.
 * [misp-takedown](https://github.com/rommelfs/misp-takedown) - A curses-style interface for automatic takedown notification based on MISP events.
 * [OpenDXL-ATD-MISP](https://github.com/mohl1/OpenDXL-ATD-MISP) - Automated threat intelligence collection with McAfee ATD, OpenDXL and MISP.
