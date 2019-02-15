@@ -495,6 +495,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_ifx_vetting">ifx-vetting</a></li>
 <li><a href="#_incident_disposition">incident-disposition</a></li>
 <li><a href="#_infoleak">infoleak</a></li>
+<li><a href="#_information_security_data_source">information-security-data-source</a></li>
 <li><a href="#_information_security_indicators">information-security-indicators</a></li>
 <li><a href="#_interception_method">interception-method</a></li>
 <li><a href="#_kill_chain">kill-chain</a></li>
@@ -13246,6 +13247,350 @@ infoleak namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 </div>
 <div class="sect1">
+<h2 id="_information_security_data_source">information-security-data-source</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+information-security-data-source namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/information-security-data-source/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Taxonomy to classify the information security data sources.</p>
+</div>
+<div class="sect2">
+<h3 id="_originality">originality</h3>
+<div class="paragraph">
+<p>Originality and novelty of the provided information</p>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourceoriginalityoriginal_source">information-security-data-source:originality="original-source"</h4>
+<div class="paragraph">
+<p>Original source</p>
+</div>
+<div class="paragraph">
+<p>Information originates from the data sources which publish their own information</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourceoriginalitysecondary_source">information-security-data-source:originality="secondary-source"</h4>
+<div class="paragraph">
+<p>Secondary source</p>
+</div>
+<div class="paragraph">
+<p>Information is integrated or copied from another information security data source</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_timeliness_sharing_behavior">timeliness-sharing-behavior</h3>
+<div class="paragraph">
+<p>Timeliness of the provided information</p>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetimeliness_sharing_behaviorroutine_sharing">information-security-data-source:timeliness-sharing-behavior="routine-sharing"</h4>
+<div class="paragraph">
+<p>Routine sharing</p>
+</div>
+<div class="paragraph">
+<p>Information is published at a specific point in time on a regular basis, such as daily, weakly or monthly reports</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetimeliness_sharing_behaviorincident_specific">information-security-data-source:timeliness-sharing-behavior="incident-specific"</h4>
+<div class="paragraph">
+<p>Incident specific</p>
+</div>
+<div class="paragraph">
+<p>Information is published whenever news are available or a new incident occurs</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_type_of_information">type-of-information</h3>
+<div class="paragraph">
+<p>Type of provided information</p>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetype_of_informationvulnerability">information-security-data-source:type-of-information="vulnerability"</h4>
+<div class="paragraph">
+<p>Vulnerability</p>
+</div>
+<div class="paragraph">
+<p>Information regarding a weakness of an asset which might be exploited by a threat</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetype_of_informationthreat">information-security-data-source:type-of-information="threat"</h4>
+<div class="paragraph">
+<p>Threat</p>
+</div>
+<div class="paragraph">
+<p>Information regarding the potential cause on an unwanted incident</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetype_of_informationcountermeasure">information-security-data-source:type-of-information="countermeasure"</h4>
+<div class="paragraph">
+<p>Countermeasure</p>
+</div>
+<div class="paragraph">
+<p>Information regarding any administrative, managerial, technical or legal control that is used to counteract an information security risk</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetype_of_informationattack">information-security-data-source:type-of-information="attack"</h4>
+<div class="paragraph">
+<p>Attack</p>
+</div>
+<div class="paragraph">
+<p>Information regarding any unauthorized attempt to access, alter or destroy an asset</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetype_of_informationrisk">information-security-data-source:type-of-information="risk"</h4>
+<div class="paragraph">
+<p>Risk</p>
+</div>
+<div class="paragraph">
+<p>Information describing the consequences of a potential event, such as an attack</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetype_of_informationasset">information-security-data-source:type-of-information="asset"</h4>
+<div class="paragraph">
+<p>Asset</p>
+</div>
+<div class="paragraph">
+<p>Information regarding any object or characteristic that has value to an organization</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_integrability_format">integrability-format</h3>
+<div class="paragraph">
+<p>Level of integrability format for the provided information</p>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourceintegrability_formatstructured">information-security-data-source:integrability-format="structured"</h4>
+<div class="paragraph">
+<p>Structured</p>
+</div>
+<div class="paragraph">
+<p>The provided security information is available in an standardized and structured data format such as MISP core format</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourceintegrability_formatunstructured">information-security-data-source:integrability-format="unstructured"</h4>
+<div class="paragraph">
+<p>Unstructured</p>
+</div>
+<div class="paragraph">
+<p>The provided security information is available in unstructured form without following a common data representation format</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_integrability_interface">integrability-interface</h3>
+<div class="paragraph">
+<p>Level of integrability interface for the provided information</p>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourceintegrability_interfaceno_interface">information-security-data-source:integrability-interface="no-interface"</h4>
+<div class="paragraph">
+<p>No interface</p>
+</div>
+<div class="paragraph">
+<p>The information security data source doesn’t provide any interface to access the information</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourceintegrability_interfaceapi">information-security-data-source:integrability-interface="api"</h4>
+<div class="paragraph">
+<p>API</p>
+</div>
+<div class="paragraph">
+<p>The information security data source provides an application programming interface (APIs) to obtain the provided information</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourceintegrability_interfacerss_feeds">information-security-data-source:integrability-interface="rss-feeds"</h4>
+<div class="paragraph">
+<p>RSS Feeds</p>
+</div>
+<div class="paragraph">
+<p>The information security data source provides an RSS Feed to keep track of the provided information</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourceintegrability_interfaceexport">information-security-data-source:integrability-interface="export"</h4>
+<div class="paragraph">
+<p>Export</p>
+</div>
+<div class="paragraph">
+<p>The information security data source provides an interface to export contents as XML, JSON or plain text</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_type_of_source">type-of-source</h3>
+<div class="paragraph">
+<p>Types of information security data source</p>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetype_of_sourcenews_website">information-security-data-source:type-of-source="news-website"</h4>
+<div class="paragraph">
+<p>News website</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetype_of_sourceexpert_blog">information-security-data-source:type-of-source="expert-blog"</h4>
+<div class="paragraph">
+<p>Expert blog</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetype_of_sourcesecurity_product_vendor_website">information-security-data-source:type-of-source="security-product-vendor-website"</h4>
+<div class="paragraph">
+<p>(Security product) vendor website</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetype_of_sourcevulnerability_database">information-security-data-source:type-of-source="vulnerability-database"</h4>
+<div class="paragraph">
+<p>Vulnerability database</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetype_of_sourcemailing_list_archive">information-security-data-source:type-of-source="mailing-list-archive"</h4>
+<div class="paragraph">
+<p>Mailing list archive</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetype_of_sourcesocial_network">information-security-data-source:type-of-source="social-network"</h4>
+<div class="paragraph">
+<p>Social network</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetype_of_sourcestreaming_portal">information-security-data-source:type-of-source="streaming-portal"</h4>
+<div class="paragraph">
+<p>Streaming portal</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetype_of_sourceforum">information-security-data-source:type-of-source="forum"</h4>
+<div class="paragraph">
+<p>Forum</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetype_of_sourceother">information-security-data-source:type-of-source="other"</h4>
+<div class="paragraph">
+<p>Other</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_trustworthiness_creditabilily">trustworthiness-creditabilily</h3>
+<div class="paragraph">
+<p>Source of the creditability</p>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetrustworthiness_creditabililyvendor">information-security-data-source:trustworthiness-creditabilily="vendor"</h4>
+<div class="paragraph">
+<p>Vendor</p>
+</div>
+<div class="paragraph">
+<p>The publisher of the information is a vendor</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetrustworthiness_creditabililygovernment">information-security-data-source:trustworthiness-creditabilily="government"</h4>
+<div class="paragraph">
+<p>Government</p>
+</div>
+<div class="paragraph">
+<p>The publisher of the information is a government</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetrustworthiness_creditabililysecurity_expert">information-security-data-source:trustworthiness-creditabilily="security-expert"</h4>
+<div class="paragraph">
+<p>Security expert</p>
+</div>
+<div class="paragraph">
+<p>The publisher of the information is a security expert</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetrustworthiness_creditabililynormal_user">information-security-data-source:trustworthiness-creditabilily="normal-user"</h4>
+<div class="paragraph">
+<p>Normal user</p>
+</div>
+<div class="paragraph">
+<p>The publisher of the information is a normal user</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_trustworthiness_traceability">trustworthiness-traceability</h3>
+<div class="paragraph">
+<p>Traceability of the provided information</p>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetrustworthiness_traceabilityyes">information-security-data-source:trustworthiness-traceability="yes"</h4>
+<div class="paragraph">
+<p>Yes</p>
+</div>
+<div class="paragraph">
+<p>The provided information is classified as traceable if it can be traced back, based on meta-data, to a specific publisher and a publishing date</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetrustworthiness_traceabilityno">information-security-data-source:trustworthiness-traceability="no"</h4>
+<div class="paragraph">
+<p>No</p>
+</div>
+<div class="paragraph">
+<p>The provided information cannot be traced back (meta-data are not provided)</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_trustworthiness_feedback_mechanism">trustworthiness-feedback-mechanism</h3>
+<div class="paragraph">
+<p>Feedback such as user ratings or comments regarding the usefulness of the provided information</p>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetrustworthiness_feedback_mechanismyes">information-security-data-source:trustworthiness-feedback-mechanism="yes"</h4>
+<div class="paragraph">
+<p>Yes</p>
+</div>
+<div class="paragraph">
+<p>The provided information is validated by including user rating, comments or additional analysis</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_information_security_data_sourcetrustworthiness_feedback_mechanismno">information-security-data-source:trustworthiness-feedback-mechanism="no"</h4>
+<div class="paragraph">
+<p>No</p>
+</div>
+<div class="paragraph">
+<p>The provided information is not validated (a user rating, comments is not available)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_information_security_indicators">information-security-indicators</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -22088,15 +22433,15 @@ passivetotal namespace available in JSON format at <a href="https://github.com/M
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ever_comprimised">ever-comprimised</h3>
+<h3 id="_ever_compromised">ever-compromised</h3>
 <div class="sect3">
-<h4 id="_passivetotalever_comprimisedyes">passivetotal:ever-comprimised="yes"</h4>
+<h4 id="_passivetotalever_compromisedyes">passivetotal:ever-compromised="yes"</h4>
 <div class="paragraph">
 <p>Yes</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_passivetotalever_comprimisedno">passivetotal:ever-comprimised="no"</h4>
+<h4 id="_passivetotalever_compromisedno">passivetotal:ever-compromised="no"</h4>
 <div class="paragraph">
 <p>No</p>
 </div>
@@ -37402,7 +37747,7 @@ workflow namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-25 16:01:08 CET
+Last updated 2019-01-16 15:58:02 CET
 </div>
 </div>
 </body>
