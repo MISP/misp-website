@@ -111,6 +111,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [polarity MISP integration](https://github.com/polarityio/misp) - The Polarity MISP integration allows Polarity to search your instance of MISP to return valid information about domains, IPS, and hashes.
 * [Sigma2MISP](https://github.com/Neo23x0/sigma/blob/master/README.md#sigma2misp) - Import Sigma rules to MISP events.
 * [Splunk integration with MISP](https://github.com/stricaud/TA-misp) - This TA allows to check if objects/attributes in your MISP instance matches your data in Splunk.
+* [Symantec DeepSight Intelligence integration](http://www.symantec.com/deepsight-products)) is integrated with MISP and used in production intelligence environments.  DeepSight enables delivery of both technical indicators (e.g. malicious IPs, URLs, hashes) and adversary intelligence (e.g. actor, campaign, TTP profiles).
 * [TheHive](https://thehive-project.org/) A 3-in-1 Security Incident Response Platform has an extensive MISP support.
 * [ThreatPinchLookup](https://github.com/cloudtracer/ThreatPinchLookup)  - ThreatPinch Lookup creates informational tooltips when hovering oven an item of interest on any website and contains a MISP connector.
 * [tie2misp](https://github.com/DCSO/tie2misp) - Import DCSO TIE IOCs as MISP events.
