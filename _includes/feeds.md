@@ -50,3 +50,7 @@
 - [CyberCure - Blocked URL Feed](http://api.cybercure.ai/feed/get_url?type=csv) - www.cybercure.ai - feed format: csv
 - [CyberCure - Hash Feed](http://api.cybercure.ai/feed/get_hash?type=csv) - www.cybercure.ai - feed format: csv
 - [ipspamlist](http://www.ipspamlist.com/public_feeds.csv) - ipspamlist - feed format: csv
+- [mirai.security.gives](https://mirai.security.gives/data/ip_list.txt) - security.gives - feed format: freetext
+- [malsilo.url](https://malsilo.gitlab.io/feeds/dumps/url_list.txt) - MalSilo - feed format: csv
+- [malsilo.ipv4](https://malsilo.gitlab.io/feeds/dumps/ip_list.txt) - MalSilo - feed format: csv
+
