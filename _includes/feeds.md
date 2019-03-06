@@ -1,6 +1,5 @@
 - [CIRCL OSINT Feed](https://www.circl.lu/doc/misp/feed-osint) - CIRCL - feed format: misp
 - [The Botvrij.eu Data](http://www.botvrij.eu/data/feed-osint) - Botvrij.eu - feed format: misp
-- [inThreat OSINT Feed](https://feeds.inthreat.com/osint/misp/) - inThreat - feed format: misp
 - [ZeuS IP blocklist (Standard)](https://zeustracker.abuse.ch/blocklist.php?download=ipblocklist) - zeustracker.abuse.ch - feed format: csv
 - [ZeuS compromised URL blocklist](https://zeustracker.abuse.ch/blocklist.php?download=compromised) - zeustracker.abuse.ch - feed format: csv
 - [blockrules of rules.emergingthreats.net](http://rules.emergingthreats.net/blockrules/compromised-ips.txt) - rules.emergingthreats.net - feed format: csv
@@ -53,4 +52,3 @@
 - [mirai.security.gives](https://mirai.security.gives/data/ip_list.txt) - security.gives - feed format: freetext
 - [malsilo.url](https://malsilo.gitlab.io/feeds/dumps/url_list.txt) - MalSilo - feed format: csv
 - [malsilo.ipv4](https://malsilo.gitlab.io/feeds/dumps/ip_list.txt) - MalSilo - feed format: csv
-
