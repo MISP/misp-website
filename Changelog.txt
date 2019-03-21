@@ -2,6 +2,358 @@ Changelog
 =========
 
 
+v2.4.104 (2019-03-21)
+---------------------
+
+New
+~~~
+- [cluster] Display heatmap on the Att&ck Matrix for all tagged data.
+  fix #4344. [mokaddem]
+- [tagging] Stop pre-populating forms for tagging / attaching of
+  galaxies. [iglocska]
+
+  - avoids any potential CSRF issues, the form is fetched just in time for the submission
+- [galaxyMatrix] Added possibility to pick a galaxy to view it's
+  statistic. [mokaddem]
+- [Required taxonomies] [iglocska]
+
+  - Flip taxonomies into required mode to ensure that events cannot be published without at least one tag from each required taxonomy to be set
+- [REST client] Added history/bookmarks. [iglocska]
+- [DistributionGraph] Added pie chart on sharing group. fix #4101.
+  [mokaddem]
+- [galaxies] Allow deleting full galaxies. [iglocska]
+- [exercises] Added a new setup script for configuring exercise
+  infrastructures rapidly. [iglocska]
+
+  - assumes a hub MISP and a set of training MISPs for different participating teams
+  - This script is to be executed on the hub MISP and assuming a consecutively incrementing numeric component in the training MISPs' URL it will pre-configure them
+  - each instance has to have the same API key for the site admin (the idea is to clone training VMs)
+
+  - configuration creates users, organisations, sync users, sync connections across both the hub and the individual trainee instances
+  - Just copy /var/www/MISP/app/Console/Command/training.default.json to /var/www/MISP/app/Console/Command/training.json and configure it to get started
+- [Feeds] New overlap tool finished. [iglocska]
+
+  - compare a feed against a combination of feeds/servers to find if you can cover the contents with a combination of other cached feeds
+- [Feeds] Implementation of the feed coverage tool (WIP) [iglocska]
+- [API] Add pagination related parameters to event index, fixes #4270.
+  [iglocska]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- Bump PyMISP. [Raphaël Vinot]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [statisticsMatrix] Improved redirection URL. [mokaddem]
+- [db script] version bump. [iglocska]
+- Updated comments. [mokaddem]
+- [distributionNetwork] Prevent interactive picking in event index.
+  [mokaddem]
+- [distributionNetwork] Improved consistency in event index and improved
+  UX - WiP. [mokaddem]
+- [distributionNetwork] Added missing JS. [mokaddem]
+- [distributionNetwork] Integration with event index - WiP. [mokaddem]
+- [distributionGraph] Added bar chart and deferred distribution data
+  fetching process. [mokaddem]
+- [distributionGraphNetwork] Improved sharing accuracy. [mokaddem]
+- [distributionGraphNetwork] Adjusted gravitationalConstant and mass.
+  [mokaddem]
+- [distributionGraph] Improved UI and added close button. [mokaddem]
+- [distributionGraph] Added description on blocked distribution edge.
+  [mokaddem]
+- [distributionGraph] Added possibility to focus on an organisation.
+  [mokaddem]
+- [distributionGraph] Show `event is empty` if the event is empty.
+  [mokaddem]
+- [distributionGraph] Added interactive plotting feature. [mokaddem]
+- [distributionGraph] Pin node after drag. [mokaddem]
+- [distributionGraph] Added support of sharing group - WiP. [mokaddem]
+- [distributionGraph] Continuation of integration, basic distribution is
+  supported - WiP. [mokaddem]
+- [distributionGraph] Started advanced distribution view. [mokaddem]
+- [distributionGraph] Replaced all tabs by spaces. [mokaddem]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [Training] Further cleanup and interactive mode. [iglocska]
+
+  - splitting of some nastier unreadable functions
+  - added interactive mode
+- [REST] Disable all SSL validation if requested by the user. [iglocska]
+- [REST] Disable all SSL validation if requested by the user. [iglocska]
+- [Training script] Improvements. [iglocska]
+
+  - Create reverse sync accounts/link on demand
+  - Create admin users for the player teams on demand
+  - Some minor fixes
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [cakephp version] bump. [iglocska]
+- [training] Some additional changes. [iglocska]
+- [training script] Added server indication. [iglocska]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [i18n] Various updates to translations, most notably French is at 100%
+  again. new: [i18n] Added initial Swedish and Polish translations chg:
+  [i18n] Updated default.pot. [Steve Clement]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [feeds] removed broken MISP feed. [Alexandre Dulaunoy]
+- [feeds] inThreat feed removed as it's no longer available. [iglocska]
+- [tasks] anchor typo fixed. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version (LS19 exercise) [Alexandre
+  Dulaunoy]
+- [tools] misp-restore updates. Still WIP. Not working ATM. [Steve
+  Clement]
+- [tools] Various changes to the misp-backup script to make it more
+  stable. Still WIP. [Steve Clement]
+- [workers] Worker start script has initial support to only restart the
+  workers that are not running. [Steve Clement]
+
+Fix
+~~~
+- [tools] Fixed empty variable check function. [Steve Clement]
+- [stix2 export] Fixed comma typo. [chrisr3d]
+- [stix2 export] Support of previous versions of python that are more
+  restrictive with arguments syntax. [chrisr3d]
+- [exports] Fixed copy pasta fail breaking the cached exports.
+  [iglocska]
+- [enrichment] Set distributions & sgs for all the possible views.
+  [chrisr3d]
+- [enrichment] Fixed variable name typo. [chrisr3d]
+- [freetext] Stop parsing dates as phone numbers. [iglocska]
+- [bro] typo fixed that caused an exception, fixes #4343. [iglocska]
+- Added missing view. [mokaddem]
+- [taxonomies] Counts fixed. [iglocska]
+- [ACL] fixed. [iglocska]
+- [Galaxy:update] Cast GalaxyElement into a String Ensuring the correct
+  type before the insertion. [mokaddem]
+- [ACL] Fixed ACL. [iglocska]
+- [rest client] Made the links more obvious. [iglocska]
+- [enrichment] Fixed $event variable handling + monkey typo. [chrisr3d]
+- [diagnostics] search field removed from worker tab. [iglocska]
+- [Training] Some clarifications. [iglocska]
+- [Training] Function extraction fail. [iglocska]
+
+  - Shame. Shame. Shame.
+- [Training] Invalid user input capture fixed. [iglocska]
+- [distributionNetwork] Added a threshold on the number of organisation
+  that can be displayed a time. Will need some more love later on.
+  [mokaddem]
+- [ACL] Whitelisted `genDistributionGraph` [mokaddem]
+- [disitributionNetwork] Empty cached org on redraw. [mokaddem]
+- [distributionGraph] Transform associative array into regular array.
+  [mokaddem]
+- [distributionGraph-network] fixed sharing group singleton. [mokaddem]
+- [distributionGraph:network] Only use sharing group part of the event.
+  [mokaddem]
+- [distributionGraph] Org's name with spaces can be focused. [mokaddem]
+- [training] Added created sync users to the reporting. [iglocska]
+- [enrichment] Added missing data field in attribute in case of
+  attachement type attribute. [chrisr3d]
+- [eventFiltering] quickfilter on value does not filter on wrong
+  category anymore. [mokaddem]
+- [Training] Interesting link. [iglocska]
+
+  - Someone just told us about fmylife.com - if this day continues like this I might have to post there about the development
+- [training] Inverse conditional fixed. [iglocska]
+- [Training] Duplicate user add handling. [iglocska]
+- [Training] Handle sync connections failing to be saved better.
+  [iglocska]
+- [training] Small fix. [iglocska]
+- [training] fixes to the org creation. [iglocska]
+- News View add, index and Controller (flash messages i18n bug. [4ekin]
+- Admin User index, view, edit i18n bug fix: User view i18n bug. [4ekin]
+- Attributes index wrong ditribution field fix: Logs search bug i18n
+  fix: Organisations index bug i18n. [4ekin]
+- Merge issue chg: Russian translation. [4ekin]
+- [Training] Cause I'm a lumberjack and I'm ok. [iglocska]
+- [Training] AAARGH. [iglocska]
+- [training] Further work on the script. [iglocska]
+- [training] Allow for self signed certs. [iglocska]
+- [training] Siplified key management. [iglocska]
+- [Training] Further fixes. [iglocska]
+- [training script] Added some resilience to prior partial executions.
+  [iglocska]
+- [training] Fixes based on failed executions. [iglocska]
+- [training script] Case sensitivty fixed. [iglocska]
+- [training script] verbose mode added. [iglocska]
+- [training script] Minor fixes. [iglocska]
+- [training] training setup script now correctly handles settings.
+  [iglocska]
+- [UI] Removed input field from form where it's not applicable.
+  [iglocska]
+- [API] resetting the authkey didn't respond with the new key before,
+  making automation difficult. [iglocska]
+- [object references] Fixed an issue with the reference type not being
+  loaded correctly. [iglocska]
+- ['rest client'] Python script generator fixed. [iglocska]
+- [export] cached exports for bro were broken. [iglocska]
+
+  - bro still hasn't been migrated to restsearch
+  - the exception for this in the caching algorithm called the wrong function
+- [tools] misp-restore works a little better... still WiP. [Steve
+  Clement]
+- [i18n] Stray file removed. [Steve Clement]
+- [UI] Missing org logos added to statistics -> organisations page,
+  fixes #4271. [iglocska]
+- More filter element i18n bug. [4ekin]
+- Events index filter button i18n bug. [4ekin]
+
+Other
+~~~~~
+- Merge pull request #4349 from SteveClement/tools. [Steve Clement]
+
+  fix: [tools] Fixed empty variable check function
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #4346 from mokaddem/matrixOnGalaxyLevel. [Andras
+  Iklody]
+
+  new: [cluster] Display heatmap on the Att&ck Matrix for all tagged data.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Wip: [enrichment view] First version of the view for objects &
+  attributes returned from misp modules. [chrisr3d]
+
+  - Visualization atm
+  - Submit button + related actions to come soon
+  - Possible changes on visual aspects to come too
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4308 from mokaddem/galaxyMatrixStat. [Andras
+  Iklody]
+
+  Galaxy matrix statistics available for eligible galaxy
+- Merge branch '2.4' of github.com:MISP/MISP into galaxyMatrixStat.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4342 from liviuvalsan/bug_fix_bro_export. [Andras
+  Iklody]
+
+  Fixing bug when exporting to Bro MISP attributes from events that contain a percentage sign inside the event info
+- Fixing bug when exporting to Bro MISP attributes from events that
+  contain a percentage sign inside the event info. [Liviu Valsan]
+- Merge branch 'kafka' into 2.4. [iglocska]
+- Publish events to Kafka. [Nikos Filippakis]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4341 from
+  liviuvalsan/attribute_performance_improvements. [Andras Iklody]
+
+  Addressing performance issues for fetching attributes when blocking attributes via proposals
+- Addressing performance issues for fetching attributes when blocking
+  attributes via proposals. [Liviu Valsan]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: [enrichment view] Added side menu indications. [chrisr3d]
+
+  - Same as for Freetext results.
+  - Replacing freetext results when no simplified
+    format is returned as module result
+  - Actual results view coming soon
+- Wip: [enrichment] Handling module results and passing it to the view.
+  [chrisr3d]
+
+  - Work in progress on the view right now
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4313 from pettai/RPZexport. [Andras Iklody]
+
+  Add $time for Plugin.RPZ_serial
+- Add $time for serial. [frpet]
+
+  Add $time for generating unixtime as serial
+- Merge branch 'extendedDistributionGraph' into 2.4. [mokaddem]
+- Merge pull request #4309 from mokaddem/extendedDistributionGraph.
+  [Alexandre Dulaunoy]
+
+  Improvement on distribution visualization
+- Merge branch '2.4' of github.com:MISP/MISP into
+  extendedDistributionGraph. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into
+  extendedDistributionGraph. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into
+  extendedDistributionGraph. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into
+  extendedDistributionGraph. [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into
+  extendedDistributionGraph. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Wip: [enrichment] Capturing attributes & objects returned by modules.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4293 from 4ekin/russian_translation. [Steve
+  Clement]
+
+  fix: Merge issue
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4299 from nikofil/zmq_flag_fix. [Andras Iklody]
+
+  Fix checking of incorrect flags when publishing to ZMQ
+- Fix checking of incorrect flags when publishing to ZMQ. [Nikos
+  Filippakis]
+
+  * Check Plugin.ZeroMQ_event_notifications_enable instead of Plugin.ZeroMQ_attribute_notifications_enable in Event.php
+  * Check Plugin.ZeroMQ_audit_notifications_enable instead of Plugin.ZeroMQ_user_notifications_enable in Log.php
+  * Check Plugin.ZeroMQ_object_notifications_enable instead of Plugin.ZeroMQ_attribute_notifications_enable in MispObject.php
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Wip: [hover enrichment] Started changing hover enrichment as well.
+  [chrisr3d]
+
+  - As for enrichment modules, it does not change
+    the support of the current modules, and should
+    not interfere with them either
+- Wip: [enrichment] Started changing enrichment modules. [chrisr3d]
+
+  - Passing full attributes to the new modules
+  - No changes for the currently used modules
+  - Using a parameter to specify which format to use
+  - Current format used if no parameter is set
+  /!\ WIP, more to be updated soon /!\
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #4285 from SteveClement/tools. [Steve Clement]
+
+  chg: [tools] More work on misp-restore, still WiP but a little more functional
+- Merge branch '2.4' into tools. [Steve Clement]
+- Merge pull request #4276 from SteveClement/i18n. [Steve Clement]
+
+  chg: [i18n] Various updates to translations, most notably French is at 100% again.
+- Merge branch '2.4' into i18n. [Steve Clement]
+- Merge branch '2.4' into i18n. [Steve Clement]
+- Merge branch '2.4' into i18n. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4275 from RichieB2B/ncsc-nl/workers-stop. [Andras
+  Iklody]
+
+  Add workers stop script
+- Add workers stop script. [Richard van den Berg]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4266 from RichieB2B/ncsc-nl/fix-sys-path. [Andras
+  Iklody]
+
+  Add correct PyMISP_dir to sys.path
+- Add correct PyMISP_dir to sys.path. [Richard van den Berg]
+- Merge pull request #4265 from obert01/fix-index-accessibility. [Andras
+  Iklody]
+
+  Event index: Aria label properties on view/edit/publish/delete links …
+- Event index: Aria label properties on view/edit/publish/delete links
+  for better consistancy accross screen readers and accessibility
+  standards compliance. [Olivier BERT]
+- Merge pull request #4262 from 4ekin/fix-wrong-i18n. [Andras Iklody]
+
+  fix: Events index filter button i18n bug
+- Merge pull request #4263 from SteveClement/tools. [Steve Clement]
+
+  chg: [Tools] misp-backup/-restore improvements, quality of life improvements of worker start.sh
+
+
 v2.4.103 (2019-03-04)
 ---------------------
 
