@@ -2,6 +2,184 @@ Changelog
 =========
 
 
+%%version%% (unreleased)
+------------------------
+
+New
+~~~
+- [eventindex] clicking on sightings count redirect to the event with
+  `sighting only` filter activated. [mokaddem]
+- [eventFiltering] Added support of sighting filtering. [mokaddem]
+
+Changes
+~~~~~~~
+- Removed duplicate. [mokaddem]
+
+Fix
+~~~
+- [enrichment view] Fixed typo. [chrisr3d]
+
+Other
+~~~~~
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #4252 from mokaddem/sightingFiltering. [Steve
+  Clement]
+
+  Sighting filtering
+- Merge branch '2.4' of github.com:MISP/MISP into sightingFiltering.
+  [mokaddem]
+
+
+v2.4.105 (2019-03-28)
+---------------------
+
+New
+~~~
+- [diagnostic] Fetch submodules git status. [mokaddem]
+- [export] Replaced the old non-cached export page. [iglocska]
+
+  - uses restsearch
+  - similar UI to the cached exports
+- [UI] FA5 update finalised. [iglocska]
+
+  - includes helpers to untangle the branded icon mess
+- [UI] disable threat level from the UI based on a server setting, fixes
+  #4359. [iglocska]
+
+  - bye shitty deprecated field
+- [UI] Move to FA 5. [iglocska]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [diagnostic] Added reload button for submodules git status. [mokaddem]
+- [diagnostic] Changed submodule header table text. [mokaddem]
+- [submodules] added skeleton for submodules git status - WiP.
+  [mokaddem]
+- Additional Russian translation. [4ekin]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [UI] explain the authkey's source in the new server view, fixes #4368.
+  [iglocska]
+- Bump PyMISP (test case bug) [Raphaël Vinot]
+- Add details when the ACLs are broken. [Raphaël Vinot]
+- Bump warninglists. [Raphaël Vinot]
+- Bump pymisp (improve test cases) [Raphaël Vinot]
+- Bump pymisp (more details in test cases) [Raphaël Vinot]
+- Bump PyMISP - tests for #4355. [Raphaël Vinot]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [security] Fix to a reflected XSS in the default layout template.
+  [iglocska]
+
+  - as reported by Tuscany Internet eXchange | Misp Team | TIX CyberSecurity
+- [stix import] Fixed issues with additional namespaces. [chrisr3d]
+
+  - Using a list where any additional namespace can
+    be added
+  - Catching any missing additional namespace with
+    the return code '4' raised in case of namespace
+    not found error
+- I18n fixed in Views and updated default.pot. [4ekin]
+
+  Updated default.pot file according Views and Controllers changes
+  Updated Views with i18n issues
+- [enrichment view] Avoid displaying empty fields. [chrisr3d]
+- Fixed i18n string representation and android logo. [4ekin]
+
+  Fixed i18n string representation in views:
+  * Diagnostics
+  * Files
+  * Tabs
+  Fixed android icon dissapear in workers tab.
+- Fixed i18n string representation in Server Controller and Model.
+  [4ekin]
+- [stix export] Fixed tlp markings that were obscurly set to a wrong
+  value in some cases. [chrisr3d]
+
+  - Setting incident handling object correctly
+  - Avoid using distribution levels to set tlp color
+- [sync] Adding a new server caused the pull/push rules to be
+  incorrectly set to an empty string over '[]' causing sync issues,
+  fixes #4369. [iglocska]
+
+  - this fix resolves the issue - new servers added should be fine
+  - it also retroactively fixes broken server connections
+- [enrichment view] Fixed typo. [chrisr3d]
+- [enrichment] Fixed results handling function name typo. [chrisr3d]
+- [ACL Component] Added new function (for new modules format) in the
+  list. [chrisr3d]
+- [bug] Fixed a bug that caused attributes not to save via the UI.
+  [iglocska]
+- [UI] Inconsistend pluralisation fixed, fixes #4360. [iglocska]
+- [UI] Remvoed broken edit org button for admins, fixes #4358.
+  [iglocska]
+- Fixed i18n string representation in Views. [4ekin]
+
+  Fix for a plenty of Views with incorrect localizations (only English
+  text shown)
+- Fixed i18n string representation in Controllers. [4ekin]
+
+  Fixed i18n string representation (flash and exception messages) in
+  controllers:
+  * OrganisationController
+  * RolesController
+  * TaxonomiesController
+- [API] fixed adding malware-samples unencrypted with the encrypt key
+  set, fixes #4355. [iglocska]
+
+Other
+~~~~~
+- Merge pull request #4337 from mokaddem/submoduleDiagnostic. [Steve
+  Clement]
+
+  Submodule diagnostic
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #4381 from 4ekin/fix-i18n. [Steve Clement]
+
+  Fix i18n in Views and updated default.pot
+- Merge pull request #4350 from 4ekin/russian_translation. [Steve
+  Clement]
+
+  chg: additional Russian translation
+- Merge pull request #4373 from 4ekin/fix-i18n. [Andras Iklody]
+
+  Fix i18n and Android icon in workers
+- Merge pull request #4370 from obert01/fix-matrix-submit-btn-
+  accessibility. [Andras Iklody]
+
+  Make the submit button focusable (tabindex) in the matrix view.
+- Make the submit button focusable (tabindex) in the matrix view. This
+  is necessary  for use with screen readers. [Olivier BERT]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Wip: [enrichment view] Displaying sharing group distribution if
+  needed. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Wip: [enrichment view] Test returning data from the new form.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Wip: [enrichment view] Made IDS, comment and distribution changeable.
+  [chrisr3d]
+
+  - Applied on each attribute and object attribute
+    returned as part of the module results
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #4351 from 4ekin/fix-i18n. [Andras Iklody]
+
+  Fix i18n in Controllers and Views
+
+
 v2.4.104 (2019-03-21)
 ---------------------
 
