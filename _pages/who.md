@@ -33,7 +33,7 @@ At some point NATO heard about this project. On January 2012 a first presentatio
 One thing led to another and some months later NATO hired a full-time developer to improve the code and add more features. A collaborative development started from that date.
 As with many personal projects the license was not explicitly written yet, it was collaboratively decided that the project would be released publicly under the Affero GPL license. This to share the code with as many people as possible and to protect it from any harm.
 
-The project was then renamed to MISP: Malware Information Sharing Project, a name invented by Alex Vandurme from NATO.
+The project was then renamed to MISP: Malware Information Sharing Project, a name invented by Alex Vandurme from NATO. Nowadays, MISP is just called MISP as it's a generic platform for storing, sharing and working on intelligence at large.
 
 In January 2013 Andras Iklody became the main full-time developer of MISP, during the day initially hired by NATO and during the evening and week-end contributor to an open source project.
 
