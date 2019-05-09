@@ -61,6 +61,10 @@ We invite you to read the GitHub README page of each version to understand what 
 
 - [misp-cloud](https://github.com/MISP/misp-cloud) - The objective of this project is to deliver cloud-ready images of MISP for testing purposes. AWS is currently supported.
 
+### RPM
+
+- [MISP-RPM](https://github.com/amuehlem/MISP-RPM) - RPM Packages for MISP.
+
 ## License
 
 The MISP software is an open source and free software released under the [AGPL](https://github.com/MISP/MISP/blob/2.4/LICENSE) (Affero General Public License). We are committed to ensure that MISP will remain a free and open source project on the long-run.
