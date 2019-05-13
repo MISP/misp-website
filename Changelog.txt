@@ -2,17 +2,476 @@ Changelog
 =========
 
 
-%%version%% (unreleased)
-------------------------
+v2.4.107 (2019-05-13)
+---------------------
+
+New
+~~~
+- [installer] Added rhash and an sfv file for the installer chg:
+  [installer] Updated installer to latest. [Steve Clement]
+- [ATT&CK] Added new export system for restsearch for ATT&CK. [iglocska]
+
+  - Return the ATT&CK matrix data as HTML via the API
+  - Directly viewable via the REST client
+
+  - Greetings from the ATT&CK workshop @ Eurocontrol
+- [API] Added includeWarninglistHits to the attribute search API.
+  [iglocska]
+- [API] Added includeWarninglistHits as a possible filter for the event
+  level restsearch. [iglocska]
+- [installer] First scaffolding of an OS detector. [Steve Clement]
+- [update] Injected update-related files/changes from zoidberg.
+  [mokaddem]
+- [yara] Added diagnostics. [iglocska]
+- [object:add] UI to propose to merge into similar objects - WiP.
+  [mokaddem]
 
 Changes
 ~~~~~~~
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+
+  fix: MITRE ATT&CK kill-chain missing
+- [version] bump. [iglocska]
+- [installer] Updated installer to latest (#4624) [Steve Clement]
+
+  chg: [installer] Updated installer to latest
+- [installer] Updated installer to latest. [Steve Clement]
+- [conf] Added http to https redirection. [Steve Clement]
+- [installer] Added systemd unit file for workers (#4623) [Steve
+  Clement]
+
+  chg: [installer] Added systemd unit file for workers
+- [installer] Added systemd unit file for workers. [Steve Clement]
+- [doc] Added kafka ass a function. [Steve Clement]
+- [installer] Update installer to latest. [Steve Clement]
+- [doc] Various documentation updates (#4621) [Steve Clement]
+
+  chg: [doc] Various documentation updates
+- [doc] Better handling of sudoers. [Steve Clement]
+- [doc] Added 2 more hardening sources. [Steve Clement]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [installer] Updated to latest installer (#4617) [Steve Clement]
+
+  chg: [installer] Updated to latest installer
+- [installer] Updated to latest installer. [Steve Clement]
+- [doc] Updated RHEL8 to not be BETA chg: [vars] WWW_USER is now
+  autodedected. [Steve Clement]
+- [installer] Updated Installer (#4611) [Steve Clement]
+
+  chg: [installer] Updated Installer
+- [installer] Updated Installer. [Steve Clement]
+- [doc] Finally got rid of the RHELL/CentOS specific Cake commands
+  (_yay_) [Steve Clement]
+- [tools] Enabled more modules by default and tweaked some settings.
+  [Steve Clement]
+- [doc] Kafka export is now included in the list of features. [Alexandre
+  Dulaunoy]
+- [galaxy/taxonomy/warninglists] updated to the latest version.
+  [Alexandre Dulaunoy]
+- [installer] If we detect packer, we behave accordingly. (#4602) [Steve
+  Clement]
+
+  chg: [installer] If we detect packer, we behave accordingly.
+- [installer] updated installer. [Steve Clement]
+- [installer] If we detect packer, we behave accordingly. chg:
+  [installer] Updated installer. [Steve Clement]
+- [installer] Updated installer to latest changes. (#4593) [Steve
+  Clement]
+
+  chg: [installer] Updated installer to latest changes.
+- [installer] Updated installer to latest changes. [Steve Clement]
+- [doc] Update RHEL/CentOS install guides. [Steve Clement]
+- [doc] Moved tsurugi away from /INSTALL. [Steve Clement]
+- [doc] Moved tsurugi install out of the way, to be implemented way
+  later into installer. [Steve Clement]
+- [adminShell] Added recovery function to replay updates. [mokaddem]
+
+  It fetches the last successful DB update number in the log, then
+  re-apply all of them up to the latest available.
+- [AdminShell] Some comments on current state of bugs. [Steve Clement]
+- [AdminShell] Let's at least tell what ID was not found. [Steve
+  Clement]
+- Bump PyMISP. [Raphaël Vinot]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy/misp-objects] updated to the latest version. [Alexandre
+  Dulaunoy]
+- [AdminShell] Let the user know as which user he exectued the script.
+  [Steve Clement]
+- [doc] MISP works on OpenBSD 6.5, partially (#4577) [Steve Clement]
+
+  chg: [doc] MISP works on OpenBSD 6.5, partially
+- [doc] MISP works on OpenBSD 6.5, partially chg: [doc] Removed link to
+  Debian PostgreSQL. [Steve Clement]
+- [event:view] Added button to quickly extend an event. Fix #4481.
+  [mokaddem]
+- [eventgraph] Force constant color for the eventgraph's nodes. Fix
+  #4536. [mokaddem]
+- [installer] Updated installer. [Steve Clement]
+- [doc] Updated to Debian 9.9 via python source install (#4571) [Steve
+  Clement]
+
+  chg: [doc] Updated to Debian 9.9 via python source install
+- [doc] Some changes to misp-modules install. [Steve Clement]
+- [doc] Updated to Debian 9.9 via python source install. [Steve Clement]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [default-feeds] abuse.ch SSL IP fixed. [Alexandre Dulaunoy]
+- [distributionNetwork] Filter out organisations not being marked as
+  local. Fix #4568. [mokaddem]
+- [event:view] Collapse related event in preview[Feed/Event]. Fix #4561.
+  [mokaddem]
+- [cluster:matrix] Slightly imporved memory performance. [mokaddem]
+- [diagnostic] Improved worker's message when updating the submodules.
+  [mokaddem]
+- [diagnostic] Changed update button with more relevant icons.
+  [mokaddem]
+- [diagnostic] Added message if `.git` can't be read by MISP. [mokaddem]
+- [object:add] Changed back button text into `Back` [mokaddem]
+- [update] Avoid executing pre-update test multiple times. [mokaddem]
+- [updates] Implented changes requested by the PR's review #4534.
+  [mokaddem]
+- [updateProgress] bit of cleanup. [mokaddem]
+- [updateProgress] Moved CSS in its own file and usage of the
+  assetLoader. [mokaddem]
+- [onDemandAction] Redirect on updateProgress page is no longueur de
+  default behavior. [mokaddem]
+- [update] repaired badly merged file. [mokaddem]
+- [AdminShell] Adde PHP_EOLs where it made sense. (QoL enhancement)
+  [Steve Clement]
+- [AdminShell] return the name of the setting change and what we changed
+  it to. [Steve Clement]
+- [doc] Added plyara (#4554) [Steve Clement]
+
+  chg: [doc] Added plyara
+- [doc] Added plyara. [Steve Clement]
+- [INSTALL] Updated installer. (#4553) [Steve Clement]
+
+  chg: [INSTALL] Updated installer.
+- [INSTALL] Updated installer. [Steve Clement]
+- [doc] rhel8/fedora30/debian Install guide updates (#4552) [Steve
+  Clement]
+
+  chg: [doc] rhel8/fedora30/debian Install guide updates
+- [doc] Added updates to rhel8, which partially works with Fedora Server
+  30. [Steve Clement]
+- [doc] Debian stable install doc still not working, until Python3.6
+  will be default. Debian 10 will fix that. [Steve Clement]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version of ATT&CK. [Alexandre
+  Dulaunoy]
+- [event:row_attribute] Added `title` to the checkboxes. [mokaddem]
+
+  This reveal to be useful if the table header is not visible.
+- [object:revise] Improved text and added a back button. [mokaddem]
+- [addTag] Force no caching on the submitTag request. [mokaddem]
+- [object:revise] Changed text of back button. [mokaddem]
+- [object:revise] Improved help text. [mokaddem]
+- [object:add] Improved help text. [mokaddem]
+- [object:similiar] Added back button, improved highlight and text.
+  [mokaddem]
+- [object_revise] Deleted useless comment. Also, fix #3897. [mokaddem]
+- [object:reivse] Improved layout. [mokaddem]
+- [object:revise] Increase threshold of
+  similar_objects_display_threshold and fixed count. [mokaddem]
+- [object:edit] Moved listener binding into doc.ready. [mokaddem]
+- [object:element] Transformed `object_similarities` view into a
+  parametrized view. [mokaddem]
+
+  Greatly improved flexibility of the of the view by only displaying
+  available component
+- [object:revise] Moved object difference view into `Elements`
+  [mokaddem]
+- [object] Refacto renamed variables and added comments. [mokaddem]
+- [object:edit] Added possibility to inject invalid type + UI
+  improvements - WiP. [mokaddem]
+- [object:revise] Little perf improvement. [mokaddem]
+- [object:edit] Clean up. [mokaddem]
+- [object:edit] Avoid duplicating same multiple entries and usage of
+  threshold instead of harcdoded value. [mokaddem]
+- [object:edit] Added similarity amount between objects. [mokaddem]
+- [object:edit] Improved UI and diff recognition - WiP. [mokaddem]
+- [object:edit] Continuation integration with template update and object
+  merge - WiP. [mokaddem]
+- [object:edit] Started integration to allow updating object templates -
+  WiP. [mokaddem]
+- [object:add] Improved UI for similar objects - WiP. [mokaddem]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [doc/misp-modules generic] update the dependency list. [Alexandre
+  Dulaunoy]
+- [modules] module choice screen updated. [iglocska]
+
+  - nicer looks
+  - sorting
 - [doc] Updates to Debian install document (#4531) [Steve Clement]
 
   chg: [doc] Updates to Debian install document
 - [doc] Updated misp-modules install howto chg: [doc] /usr/local/src
   permission fix. [Steve Clement]
 - [doc] Updates to Debian install document. [Steve Clement]
+
+Fix
+~~~
+- [genericPicker] allow tagging when the ATT&CK Matrix has been opened.
+  [mokaddem]
+- [object:revise] Removed useless ACL conditions; was failing for users
+  not being admin. [mokaddem]
+- [installer] Identify VMware machinery. [Steve Clement]
+- [doc] CentOS specific cake commands do not exist anymore. [Steve
+  Clement]
+- [sql] SQL Syntax error fix. [Steve Clement]
+- [age based publish blocking] Fixed and using the timestamp. [iglocska]
+- [docs] Added attackGalaxy as a valid option for the restsearch APIs.
+  [iglocska]
+- [bug] getPythonVersion undefined, pull in where it is defined. (#4615)
+  [Steve Clement]
+
+  fix: [bug] getPythonVersion undefined, pull in where it is defined.
+- [bug] getPythonVersion undefined, pull in where it is defined. [Steve
+  Clement]
+- [API] Some fixes for the restsearch -> attack export. [iglocska]
+- [installer] Installer Checksums out-of-sync. [Steve Clement]
+- [doc] Let the user know he wants to be the "webserver" user (#4603)
+  [Steve Clement]
+
+  fix: [doc] Let the user know he wants to be the "webserver" user
+- [doc] Let the user know he wants to be the "webserver" user. [Steve
+  Clement]
+- [dashboard] netstat is needed for dashboard (#4598) [Steve Clement]
+
+  fix: [dashboard] netstat is needed for dashboard
+- [dashboard] netstat is needed for dashboard. [Steve Clement]
+- PyMISP install was failing on Travis. [Raphaël Vinot]
+- [AdminShell] Yet another tyope :( (#4590) [Steve Clement]
+
+  fix: [AdminShell] Yet another tyope :(
+- [AdminShell] Yet another tyope :( [Steve Clement]
+- [AdminShell] Fixed typo (#4589) [Steve Clement]
+
+  fix: [AdminShell] Fixed typo
+- [AdminShell] Fixed typo. [Steve Clement]
+- [AdminShell] Added apache user. [Steve Clement]
+- [AdminShell] Misplaced the debug message. [Steve Clement]
+- [stix export] Fixed email attachment export. [chrisr3d]
+
+  - Fixed condition trying to reach the case where
+    we have an attachment attribute in the object,
+    which was never true because of a wrong key
+    testing
+  - Fixed the email attachment related file object
+    creation initiation
+- [galaxy clusters] Choosing them via the UI was dog slow. [iglocska]
+
+  - now it's just plain slow
+- [update] Disabled background processing until it's fixed. [iglocska]
+- [AdminShell] very dirt fix to get updateObjectTemplates working
+  (#4585) [Steve Clement]
+
+  fix: [AdminShell] very dirt fix to get updateObjectTemplates working
+- [AdminShell] very dirt fix to get updateObjectTemplates working from
+  the CLI. [Steve Clement]
+- [UI] Notice errors fixed in the discussion threads. [iglocska]
+- [bug] Fixed a bug in the update process that caused updates to fail
+  due to an invalid value assigned as default for org_id. [iglocska]
+- [security] Fix persistent xss due to invalid sanitisation of image
+  names in titles. [iglocska]
+
+  - triggered by expanding a screenshot
+
+  - as reported by João Lucas Melo Brasio from Elytron Security S.A. (https://elytronsecurity.com)
+- [security] Fix persistent xss via link type attributes containing
+  javascript:// links. [iglocska]
+
+  - low impact as it requires user interaction to trigger
+
+  - as reported by João Lucas Melo Brasio from Elytron Security S.A. (https://elytronsecurity.com)
+- [security] Fix persistent xss via discussion links via javascript://
+  links. [iglocska]
+
+  - low impact as it requires user interaction to trigger
+
+  - as reported by João Lucas Melo Brasio from Elytron Security S.A. (https://elytronsecurity.com)
+- [AdminShell] CentOS/RHEL use 'apache' by default (#4580) [Steve
+  Clement]
+
+  fix: [AdminShell] CentOS/RHEL use 'apache' by default
+- [AdminShell] CentOS/RHEL use 'apache' by default. [Steve Clement]
+- [doc] Remove CentOS 7 from xINSTALL list. (#4579) [Steve Clement]
+
+  fix: [doc] Remove CentOS 7 from xINSTALL list.
+- [doc] Remove CentOS 7 from xINSTALL list. [Steve Clement]
+- [export] Yara Export variable typo fix. Use getPythonVersion. (#4578)
+  [Steve Clement]
+
+  fix: [export] Yara Export variable typo fix. Use getPythonVersion.
+- [export] Yara Export variable typo fix. Use getPythonVersion. [Steve
+  Clement]
+- [object:revise] Force field to be `value1`, preventing bug in some
+  cases. [mokaddem]
+- [cluster:galaxyMatrix] Increased coverage of attack matrix. [mokaddem]
+
+  Now consider the following new links for the pivot tag:
+  Attributes -> Events
+  Events -> Attributes
+- [installer] Fixed installer misp-modules permissions. (#4558) [Steve
+  Clement]
+
+  fix: [installer] Fixed installer misp-modules permissions.
+- [doc] misp-modules failed to install because of a Permission issue.
+  (#4557) [Steve Clement]
+
+  fix: [doc] misp-modules failed to install because of a Permission issue.
+- [install] Fixed the endless loop in viper db update (#4555) [Steve
+  Clement]
+
+  fix: [install] Fixed the endless loop in viper db update
+- [i18n] Added yara/yara-export. [Steve Clement]
+- Fixed i18n strings in Event controller, model and view. [4ekin]
+- Typos in controllers. [4ekin]
+- [installer] Fixed installer misp-modules permissions. [Steve Clement]
+- [doc] misp-modules failed to install because of a Permission issue.
+  [Steve Clement]
+- [install] Fixed the endless loop in viper db update. [Steve Clement]
+- [required taxonomies] not firing via regular publishing only via
+  publish (no email), fixes #4546. [iglocska]
+- [UI] Sightings could not be added by read only users, even if they had
+  sighting rights. [iglocska]
+- [updateSubmodule] Simplified calculation of time difference.
+  [mokaddem]
+- [object:edit] Removed faulty line. [mokaddem]
+- [object:revise] Reverted correct `endif` position - WiP. [mokaddem]
+- [diagnostic:submodules] [Sami Mokaddem]
+
+  Time difference is correctly calculated. Should solve #4538
+- [enrichment] typo causing enrichments to redirect to the event view
+  fixed. [iglocska]
+- [UI] removed <small> tags embedded in translated text. [iglocska]
+- [freetext] Also trim out no-break spaces. [iglocska]
+
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+  ░░░░░░░░███████████████░░░░░░░░░░
+  ░░░░░░███████████████████░░░░░░░░
+  ░░░░░███░░░░░░░░░░░░░░████░░░░░░░
+  ░░░░██░░░░░░░░░░░░░░░░░░░███░░░░░
+  ░░░██░░░░░░░░░░░░░░░░░░░░░███░░░░
+  ░░██░░███████░░░░░░██████░░██░░░░
+  ░██░░██─────██░░░░██────██░░██░░░
+  ░██░░█▄▄▄▄▄▄▄██░░░█▄▄▄▄▄▄██░░██░░
+  ░██░░████─────█░░░████────█░░░██░
+  ░██░░█────────█░░░█───────█░░░██░
+  ██░░░██──────██░░░██─────██░░░░██
+  ██░░░░████████░░░░░███████░░░░░██
+  █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█
+  █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█
+  █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█
+  █░░░░░███████████████░░░░░░░░░░░█
+  █░░░████░░░░░░░░░░░░░░░░░░░░░░░░█
+  █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█
+  █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█
+  ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██
+  ░██░░░░░░░░░░░░░░░░░░░░░░░░░░░░█░
+  ░░███░░░░░░░░░░░░░░░░░░░░░░░░░██░
+  ░░░░██░░░░░░░░░░░░░░░░░░░░░░░██░░
+
+Other
+~~~~~
+- Merge pull request #4622 from SteveClement/guides. [Steve Clement]
+
+  fix: [sql] SQL Syntax error fix
+- Merge remote-tracking branch 'upstream/2.4' into guides. [Steve
+  Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4616 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] Updated RHEL8 to not be BETA
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' into tools. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #4607 from pettai/new-rpz-action-fix. [Andras
+  Iklody]
+
+  rpz: fix missing rpz policy actions
+- Rpz: add missing rpz policy actions. [frpet]
+- Merge pull request #4600 from pettai/local-data. [Andras Iklody]
+
+  rpz: Local-Data
+- Fix description. [frpet]
+
+  make the description clearer
+- Rpz: action policy rename (to Local-Data) [frpet]
+
+  Rename action policy "walled-garden" to "Local-Data" as per the IETF draft (and other documentation for RPZ)
+- Merge branch '2.4' into tools. [Steve Clement]
+- Merge pull request #4595 from pettai/action-policy-update. [Andras
+  Iklody]
+
+  rpz: make NXDOMAIN default
+- Rpz: make NXDOMAIN default. [frpet]
+
+  Update default action policy from DROP --> NXDOMAIN
+- Merge pull request #4592 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] Update RHEL/CentOS install guides
+- Merge branch '2.4' into guides. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #4588 from SteveClement/tools. [Steve Clement]
+
+  fix: [AdminShell] Added apache user
+- Merge branch '2.4' into tools. [Steve Clement]
+- Merge pull request #4587 from pettai/lint-RPZexport. [Andras Iklody]
+
+  Lint RPZexport
+- Update Serial description. [frpet]
+
+  Hint about $time, which also is a valid setting
+- Fix the testForRPZ... functions. [frpet]
+
+  Make the testForRPZ... functions happy too.
+- Merge pull request #4581 from pettai/RPZ-policy-action. [Andras
+  Iklody]
+
+  RPZ - Add additional policy actions
+- Add additional policy actions. [frpet]
+
+  Add the last policy actions from the RPZ draft.
+  * rpz-passthru allows for testing without applying changes on the returned answer.
+  * TCP-only forces the client over to use TCP.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' into tools. [Steve Clement]
+- Merge pull request #4556 from SteveClement/tools. [Steve Clement]
+
+  chg: [AdminShell] return the name of the setting change and what we changed it to
+- Zoidberg's son: Update system (#4534) [Steve Clement]
+
+  Zoidberg's son: Update system
+- Fix typos and i18n in Event controller, model and views (#4541) [Steve
+  Clement]
+
+  Fix typos and i18n in Event controller, model and views
+- Merge branch '2.4' into fix-i18n. [Steve Clement]
+- Merge branch 'guides' into tools. [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into 2.4. [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into 2.4. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch 'yara2' into 2.4. [iglocska]
+- Cleaning up imports. [edhoedt]
+- Yara export. [edhoedt]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4545 from MISP/mergeSimilarObject. [Alexandre
+  Dulaunoy]
+
+  Several improvement on objects manipulation
+- Merge branch '2.4' of github.com:MISP/MISP into mergeSimilarObject.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
 
 
 v2.4.106 (2019-04-25)
