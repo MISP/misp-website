@@ -121,4 +121,4 @@ For the additional software created by the MISP project, check our [MISP project
 
 ### Tutorials on interconnecting MISP with other tools
 
-* [ElasticSearch](https://www.securitydistractions.com/2019/05/17/enriching-elasticsearch-with-threat-data-part-1-misp/) - Excellent guide by David Clayton, explaining how he integrated MISP with ElasticSearch/Logstash via Memcached.
+* [ELK](https://www.securitydistractions.com/2019/05/17/enriching-elasticsearch-with-threat-data-part-1-misp/) - Excellent guide by David Clayton, explaining how he integrated MISP with ElasticSearch/Logstash/Kibana via Memcached.
