@@ -118,3 +118,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [Viper](http://www.viper.li/) - is a binary management and analysis framework dedicated to malware and exploit researchers including a MISP module.
 * [vt2misp](https://github.com/eCrimeLabs/vt2misp) -  Script to fetch data from virustotal and add it to a specific event as an object.
 * [yara-exporter](https://github.com/BSI-CERT-Bund/yara-exporter) - Exporting MISP event attributes to yara rules usable with Thor apt scanner.
+
+### Tutorials on interconnecting MISP with other tools
+
+* [ELK](https://www.securitydistractions.com/2019/05/17/enriching-elasticsearch-with-threat-data-part-1-misp/) - Excellent guide by David Clayton, explaining how he integrated MISP with ElasticSearch/Logstash/Kibana via Memcached.
