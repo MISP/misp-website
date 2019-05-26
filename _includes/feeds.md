@@ -16,7 +16,7 @@
 - [booterblacklist.com Latest](http://booterblacklist.com/data/booterlist_latest.txt) - booterblacklist.com - feed format: freetext
 - [pop3gropers](https://home.nuug.no/~peter/pop3gropers.txt) - home.nuug.no - feed format: csv
 - [Ransomware Tracker CSV Feed](https://ransomwaretracker.abuse.ch/feeds/csv/) - Ransomware Tracker abuse.ch - feed format: csv
-- [Feodo IP Blocklist](https://feodotracker.abuse.ch/blocklist/?download=ipblocklist) - abuse.ch - feed format: csv
+- [Feodo IP Blocklist](https://feodotracker.abuse.ch/downloads/ipblocklist.csv) - abuse.ch - feed format: csv
 - [hosts-file.net - hphost - malwarebytes](https://hosts-file.net/psh.txt) - hosts-file.net - feed format: csv
 - [hosts-file.net - hphost - malwarebytes - EMD classification ONLY](https://hosts-file.net/emd.txt) - hosts-file.net - feed format: csv
 - [OpenPhish url list](https://openphish.com/feed.txt) - openphish.com - feed format: freetext
@@ -53,3 +53,4 @@
 - [malsilo.url](https://malsilo.gitlab.io/feeds/dumps/url_list.txt) - MalSilo - feed format: csv
 - [malsilo.ipv4](https://malsilo.gitlab.io/feeds/dumps/ip_list.txt) - MalSilo - feed format: csv
 - [malshare.com - current all](https://malshare.com/daily/malshare.current.all.txt) - malshare.com - feed format: freetext
+- [Benkow.cc RAT](http://benkow.cc/export_rat.php) - benkow.cc - feed format: csv
