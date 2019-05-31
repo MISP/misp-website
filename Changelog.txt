@@ -2,6 +2,236 @@ Changelog
 =========
 
 
+v2.4.108 (2019-05-31)
+---------------------
+
+New
+~~~
+- [Sync] Add a tool to create MISP sync configuration JSONs and to
+  ingest them, fixes #4696. [iglocska]
+
+  - sync user can log into remote instance, extract config JSON
+  - paste it into own instance as site admin to add MISP sync connection
+- [API] AND for tag filters in restSeach added. [iglocska]
+- [API] Added object_relation as a filter for both the event/attribute
+  restSearch functions. [iglocska]
+- [paranoid logging] Added POST/PUT body logging on demand. [iglocska]
+- [logging] Added paranoid logging mode. [iglocska]
+
+  - will log ANY query's (UI/API):
+    - http method
+    - requested URL
+
+  - optionally disable DB logging for paranoid log entries
+- [logging] Added verbose logging to the server sync test throwing an
+  unexpected error. [iglocska]
+
+Changes
+~~~~~~~
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [version] bump. [iglocska]
+- [installer] Updated the installer to the latest version. [Steve
+  Clement]
+- [doc] RHEL8 updates. [Steve Clement]
+- [tools] unused import module removed. [Alexandre Dulaunoy]
+- [feeds] Benkow.cc RAT feed added. [Alexandre Dulaunoy]
+- [default feeds] additional properties is allowed. [Alexandre Dulaunoy]
+- [doc] Updated SQL (#4670) [Steve Clement]
+
+  chg: [doc] Updated SQL
+- [doc] Updated SQL chg: [installer] Updated installer. [Steve Clement]
+- [restResponse] Added documentation for adding tags on Objects.
+  [mokaddem]
+- [diagnostic:view] Improved visibility of the `updateAllJson` update
+  button. [mokaddem]
+- [event:view] Correctly display title to large by truncating
+  (+ellipsis) [mokaddem]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [feeds] malshare.com - current all added. [Alexandre Dulaunoy]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- Bumped queryversion. [mokaddem]
+- Bumped queryversion. [mokaddem]
+- [font-awesome] Bumped version to 5.8.2 and updated glyphs. [mokaddem]
+- [doc] adde --no-cache to wget to make sure we always have the la…
+  (#4648) [Steve Clement]
+
+  chg: [doc] adde --no-cache to wget to make sure we always have the la…
+- [doc] adde --no-cache to wget to make sure we always have the latest
+  checksums. [Steve Clement]
+
+  chg: [installer] Updated installer
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [installer] Checksum update. [Steve Clement]
+- Bumped queryVersion. [mokaddem]
+- [doc] Updated Changelog (#4642) [Steve Clement]
+
+  chg: [doc] Updated Changelog
+- [doc] Updated Changelog. [Steve Clement]
+- [object:add] Disable the first select's option when adding a new row.
+  [mokaddem]
+- [object:add] Added empty option support in select inputs when creating
+  an object. [mokaddem]
+- [installer] If shasum is not found, install it (#4634) [Steve Clement]
+
+  chg: [installer] If shasum is not found, install it
+- [installer] Update installer to latest. [Steve Clement]
+- [installer] Added todo. [Steve Clement]
+- [installer] If shasum is not found, install it. [Steve Clement]
+- [installer] Update to latest version (#4633) [Steve Clement]
+
+  chg: [installer] Update to latest version
+- [installer] Update to latest version chg: [installer] Set a dynamic
+  GnuPG passphrase. [Steve Clement]
+- [installer] Update installer (#4631) [Steve Clement]
+
+  chg: [installer] Update installer
+- [installer] Update installer. [Steve Clement]
+- [installer] Installer now checks his own checksum (#4630) [Steve
+  Clement]
+
+  chg: [installer] Installer now checks his own checksum
+- [installer] Installer now checks his own checksum. [Steve Clement]
+- [yara export] fix the correct Python version is used. [Alexandre
+  Dulaunoy]
+
+Fix
+~~~
+- [sync] Further fixes to the deleted flag changes breakig things.
+  [iglocska]
+- [authkey] Fixed The authkey variable (Viper should work again) (#4694)
+  [Steve Clement]
+
+  fix: [authkey] Fixed The authkey variable (Viper should work again)
+- [authkey] Fixed The authkey variable (Viper should work again next
+  run) fix: [doc] Upated RHEL formatting and added $RUN_MYSQL (scl
+  enable foo) variable. [Steve Clement]
+- [sync] Critical bug fixed that blocked attributes from being included
+  in a push. [iglocska]
+
+  - due to the change to the deleted flag that was not reflected in the way we prepare events for the synchronisation
+- [sync] Fixed an issue that dropped the remote org. [iglocska]
+- [UI] Add the create server sync description menu to the server list.
+  [iglocska]
+- [sync] whitelist fields that can be added via the JSON config.
+  [iglocska]
+- [UI] Invalid redirect fixed. [iglocska]
+- [organisation:view] Fixed spinner when viewing events from an org.
+  [mokaddem]
+- [API] Weird responses from JSON objects fixed when data returned is
+  empty. [iglocska]
+- [API]  Wrong JSON output when /events/index returns empty result,
+  fixes #4690. [iglocska]
+- [UI] Org index filter fixed. [iglocska]
+- [stix2 import] Fixed external domain & x509 patterns import.
+  [chrisr3d]
+- [freetext import] Fixed shadow attribute import. [chrisr3d]
+- [feed] Feodo  tracker blocklist URL replaced. [Sascha Rommelfangen]
+- [submodule version check] fixed. [iglocska]
+- [event:view] Correctly support the new `deleted` parameter behavior.
+  [mokaddem]
+- Fix: [restSearche] Correctly interpret the `deleted` parameter on
+  `event` and `attribute` scope. -- Pair programming with @iglocksa.
+  [mokaddem]
+- [UI] Fixed checklocks polluting the top bar. [iglocska]
+- [upgrade process] For the recovery script, also take "failed" upgrades
+  into account. [iglocska]
+
+  - not all update script errors are actual failures, some insertions of table rows that already exist to resolve potential previous update issues would otherwise not be flagged
+- On-Demand Action missed side menu fixed. [4ekin]
+- [API] Allow more flexibility on the return content types. [iglocska]
+
+  - also set RPZ as txt
+- [enrichment:popover] Correctly fadeout when clicking on the close
+  button. [mokaddem]
+- [eventGraph] Patch to support new font-awesome 5.8. [mokaddem]
+- [STIX] STIX upload fixed for API use. [iglocska]
+- [installer] Piping large shell scripts to bash needs more testin…
+  (#4644) [Steve Clement]
+
+  fix: [installer] Piping large shell scripts to bash needs more testin…
+- [galaxy:add] Consider both model names when doing a mass cluster
+  addition. [mokaddem]
+- [installer] Piping large shell scripts to bash needs more testing and
+  should not be used, for a very long time. [Steve Clement]
+- [installer] Checksum checker had a bug (#4632) [Steve Clement]
+
+  fix: [installer] Checksum checker had a bug
+- [installer] Checksum checker had a bug. [Steve Clement]
+- [stix import] Fixed email attachments parsing. [chrisr3d]
+
+  - Being less restrictive and supporting email
+    attachments that are referencing objects not
+    under the related object fields of the email,
+    but referencing another object at the same level
+    as the email, within the STIX incident
+  - Also parsing potential references even when the
+    STIX file is coming from MISP export
+- [stix import] Supporting multi attachment attributes for the email
+  object. [chrisr3d]
+
+  - As specified in the object template
+- [Logs] Event history missing proposal entries and deletions.
+  [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4683 from MISP/chrisr3d_patch. [Christian Studer]
+
+  fix: [freetext import] Fixed shadow attribute import
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4639 from wasserman/patch-1. [Andras Iklody]
+
+  GRANTs updated to DBUSER_MISP instead of DBNAME.
+- GRANTs updated to DBUSER_MISP instead of DBNAME. [wasserman]
+
+  Two spots were GRANTing to the DBNAME instead of the DBUSER_MISP.  It still works if the user and DBNAME are the same.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4638 from 4ekin/fix-ui-ondemand-action. [Sami
+  Mokaddem]
+
+  fix: On-Demand Action missed side menu fixed
+- Merge pull request #4647 from RichieB2B/ncsc-nl/snort. [Alexandre
+  Dulaunoy]
+
+  Match EDNS packets with snort rules
+- Match EDNS packets with snort rules. [Richard van den Berg]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4661 from RichieB2B/ncsc-nl/retention. [Alexandre
+  Dulaunoy]
+
+  Add script for expiring IP based IOC's
+- Add script for expiring IP based IOC's. [Jop van der Lelie]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #4649 from cudeso/2.4. [Steve Clement]
+
+  misp-wipe ; delete all non-default orgs & users
+- Misp-wipe ; delete all non-default orgs & users. [Koen Van Impe]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' into guides. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #4629 from RichieB2B/ncsc-nl/wipe-exports. [Andras
+  Iklody]
+
+  Clean cached-exports
+- Wipe all tmp files, not just the logs. [Richard van den Berg]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+
+
 v2.4.107 (2019-05-13)
 ---------------------
 
