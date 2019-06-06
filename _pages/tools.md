@@ -97,6 +97,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [McAfee Active Response](https://github.com/mohlcyber/MISP-MAR) - McAfee Active Response integration with MISP.
 * [MISP-Extractor](https://github.com/PidgeyL/MISP-Extractor) extracts information from MISP via the API and automate some tasks.
 * [misp-to-autofocus](https://github.com/PaloAltoNetworks/misp-to-autofocus) - script for pulling events from a MISP database and converting them to Autofocus queries.
+* [MISP2CbR](https://github.com/eCrimeLabs/MISP2CbR/) - MISP Threat Feed into CarbonBlack Response.
 * [misp2cs.py](https://github.com/xg5-simon/MISP-Integrations/misp2cs.py) - script to put MISP events/indicators in Crowdstrike.
 * [misp_btc](https://github.com/rommelfs/misp_btc) - Fetch a list of BTC addresses (from MISP) in a given time range. Get the balance and all transactions recorded in Blockchain for the address. Shows the conversion rate in EUR and USD for the transaction at the date of transaction.
 * [MISP Golang](https://github.com/0xrawsec/golang-misp) - Golang Library to interact with your MISP instance.
