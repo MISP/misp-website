@@ -2,6 +2,200 @@ Changelog
 =========
 
 
+v2.4.109 (2019-06-13)
+---------------------
+
+New
+~~~
+- [eventblacklist] Added search filters. [iglocska]
+
+  - We really need a DISP - development information sharing platform
+- [eventBlacklist] Added support of bulk deletion of entries. Fix.
+  [mokaddem]
+- [statistics:galaxyMatrix] Added filtering capabilities. [mokaddem]
+- [object:fromAttribute] Started dev on merging selected attributes into
+  an object - WiP. [mokaddem]
+- [API] added new restSearch filter - date. [iglocska]
+
+  - deprecated to and from
+  - date works similarly to timestamp, accepted syntax options:
+    - time ranges in the shorthand format (7d or 24h, etc)
+    - timestamps
+    - fallback parsing for other formats (2019-01-01, "fortnight ago", etc)
+    - date ranges using lists [14d, 7d]
+- [cleanup] Added admin tool to remove all published empty events.
+  [iglocska]
+
+  - part of the solution to the empty event sync issue introduced in 2.4.107
+  - skips the event blacklisting
+- [sync] Block pulled events from being saved if they contain no
+  attributes/objects. [iglocska]
+- [emailing] Server admins can get a threshold for per org e-mail
+  alerts, fixes #4714. [iglocska]
+
+Changes
+~~~~~~~
+- [VERSION] bump. [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [installer] Updated Installer and chksums to latest (#4740) [Steve
+  Clement]
+
+  chg: [installer] Updated Installer and chksums to latest
+- [installer] Updated Installer and chksums to latest. [Steve Clement]
+- [doc] Added ZMQ to the procedure. [Steve Clement]
+- Bumped queryversion. [mokaddem]
+- [querystring] bump. [iglocska]
+- Bumped queryversion. [mokaddem]
+- [galaxyMatrix] Added check if event not found. [mokaddem]
+- [galaxyMatrix] Improved `getTagScores` to allow with and without ACL
+  tag score fetching. [mokaddem]
+- [textColourHelper] Little tweaking to prefer black text. [mokaddem]
+- [attributeTag:getTagScore] Largely improved code. [mokaddem]
+- [restSearch:attack] Only expose attack return format to the `event`
+  scope. [mokaddem]
+- [galaxyMatrix:stats] Only take into account occurences of galaxy once
+  per event. [mokaddem]
+- [galaxyMatrix] Fix typos. [mokaddem]
+- [galaxyMatrix] Transformed query into cakephp model query. [mokaddem]
+- Bumped queryversion. [mokaddem]
+- [export:attack] Performance improvements. [mokaddem]
+- [galaxyMatrix] Slight UI improvement on number of items. [mokaddem]
+- [galaxyMatrix:popup] Layout improvement. Make it scrollable!
+  [mokaddem]
+- [galaxyMatrix] Added sorting by score. Fix #4608. [mokaddem]
+- [galaxyMatrix] number of entry per column. Fix #4601. [mokaddem]
+- [object:fromAttributes] Deleted comments and hardcoded table name.
+  [mokaddem]
+- [attribute:delete] Simplified search options. [mokaddem]
+- [object:fromAttributes] Enforce minimum popover size. [mokaddem]
+- [object:fromAttributes] Method only accesible via AJAX and regular
+  users can use the feature. [mokaddem]
+- [object:fromAttributes] Added support of hard delete if event not
+  published yet. [mokaddem]
+- [object:fromAttributes] Changed warning message during the merge
+  review. [mokaddem]
+- [object:fromAttributes] Improved styling of reference table.
+  [mokaddem]
+- [object:fromAttributes] Added a bit more styling on the reference
+  table. [mokaddem]
+- [object:fromAttributes] Show object references that will be dropped.
+  [mokaddem]
+- [object:fromAttributes] Slightly improved layout. [mokaddem]
+- [ACL] Updated routing. [mokaddem]
+- [object:fromAttributes] Added object_relation description. [mokaddem]
+- [object:fromAttributes] Returns correct value if attribute list is
+  empty. [mokaddem]
+- [object:fromAttributes] Created Object from Attribute now works.
+  [mokaddem]
+- [object:fromAttributes] Shows selected types and started implementaion
+  of the actual object creation - WiP. [mokaddem]
+- [object:fromAttributes] Added support of form submission - WiP.
+  [mokaddem]
+- [object:fromAttributes] Better Attribute filtering - WiP. [mokaddem]
+- [object:fromAttributes] Greatly improved UI - WiP. [mokaddem]
+- [object:fromAttribute] Continue of web and controller implementation -
+  WiP. [mokaddem]
+- Bumped queryversion. [mokaddem]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [installer] added missing python zmq lib. [Christophe Vandeplas]
+- [installer] Commit: https://github.com/MISP/MISP/commit/1716ca7da9d671
+  a5e103069d4b74c867a17b1020 regressed the installer to an earlier
+  version. [Steve Clement]
+- [UI] weird blue button fixed. [iglocska]
+- [galaxyMatrix] Handle case if deprecated galaxy does not exists.
+  [mokaddem]
+- [galaxyMatrix] Catch error if no element in column. [mokaddem]
+- [event:galaxyMatrix] Apply ACL on the galaxy matrix scores (event
+  view) [mokaddem]
+- [galaxyMatrix:export] Removed multiple bugs providing inconsistent
+  result. [mokaddem]
+- [Attribute:restSearch] Prevent failing if file empty. [mokaddem]
+- [galaxyMatrix] fixed layout for other views. [mokaddem]
+- [attributes] Correctly pass the user object and renamed delete
+  function. [mokaddem]
+- Few typos. [mokaddem]
+- [object:fromAttributes] SYNC support for older instances (duplicate
+  attributes and their contexts) [mokaddem]
+- [sync] Correctly capture the attributes from a groupment into an
+  object during the sync. [mokaddem]
+- [attribute:editAttribute] synchronisation support when attributes got
+  merged into an object. [mokaddem]
+- [object:fromAttributes] Catch if `requiredType` is empty. [mokaddem]
+- [object:fromAttributes] Correctly skip non valid attributes.
+  [mokaddem]
+- [galaxy:add] Fix #4733 (adding galaxies on attribute) [mokaddem]
+- [security] Org admins could reset credentials for site admins.
+  [iglocska]
+
+  - org admins have the inherent ability to reset passwords for all of their org's users
+  - this however could be abused if for some reason the host org of an instance would create org admins
+    - the org admin could set a password manually for the site admin or simply use the API key of the site admin to impersonate them
+  - the potential for abuse is very circumstancial as it requires the host org to create lower privilege org admins instead of the usual site admins
+  - only org admins of the same organisation as the site admin could abuse this
+
+  - as reported by Raymond Schippers
+- [sync] Push all bug with empty events fixed. [iglocska]
+- [permissions] Fixed the default sync/user/publisher permissions to
+  include perm_tagger and perm_tag_editor(sync only) [iglocska]
+- [CSRF] END THIS NIGHTMARE. [iglocska]
+- [CSRF] Potential fix for the CSRF issues via tag/galaxy additions.
+  [iglocska]
+- [session] Fix to automatic session destruction in previous attempt to
+  fix the overflow of API sessions. [iglocska]
+- [API] Destroy the session at the end of the execution. [iglocska]
+- [sync] Temporary fix for empty events showing up in syncs when pulling
+  from a new instance via an outdated one. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4' into guides. [Steve Clement]
+- Merge pull request #4734 from cvandeplas/2.4. [Steve Clement]
+
+  fix: [installer] added missing python zmq lib
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch 'eventblacklist' into 2.4. [iglocska]
+- Merge pull request #4635 from mokaddem/galaxyMatrixImprovements.
+  [Andras Iklody]
+
+  Galaxy matrix improvements
+- Merge branch '2.4' of github.com:MISP/MISP into
+  galaxyMatrixImprovements. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into
+  galaxyMatrixImprovements. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into
+  galaxyMatrixImprovements. [mokaddem]
+- Merge pull request #4672 from mokaddem/mergeAttributeIntoObjects.
+  [Andras Iklody]
+
+  Merge attributes into objects
+- Merge branch '2.4' of github.com:MISP/MISP into
+  mergeAttributeIntoObjects. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into
+  mergeAttributeIntoObjects. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into
+  mergeAttributeIntoObjects. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into
+  mergeAttributeIntoObjects. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into
+  mergeAttributeIntoObjects. [mokaddem]
+- Merge pull request #4722 from certbe-trey/2.4. [Andras Iklody]
+
+  enable misp-wipe where MySQL datastore isn't on localhost
+- Enable misp-wipewhere MySQL datastore isn't on localhost. [Trey
+  Darley]
+
+  The misp-wipe script grabs the MYSQL host parameter from database.conf but it wasn't included in the call to mysqldump.
+- Merge pull request #1 from MISP/2.4. [Trey Darley]
+
+  merge with upstream
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: [stix import] Supporting additional marking & namespace.
+  [chrisr3d]
+
+
 v2.4.108 (2019-06-04)
 ---------------------
 
