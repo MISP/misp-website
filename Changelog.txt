@@ -2,6 +2,824 @@ Changelog
 =========
 
 
+v2.4.110 (2019-07-08)
+---------------------
+
+New
+~~~
+- [tags]  Local tags feature added. [iglocska]
+
+  - Create tags locally if you are a host org user that allows in-place tagging for sync / export filtering
+  - Events are NOT modified using these tags
+  - Local tags always get stripped before syncing
+  - Local tags allow host org users to violate the ownership model of MISP
+  - galaxies, attack matries also included
+
+  - some sync fixes
+- [correlation graph] Toggle physics on/off. [iglocska]
+
+  .,/#&&@@@@@@@@&%(*.
+                                                           #@@@@%*..,..,.,,.,,.,.,.,,,,..,*#@@@@(
+                                                    .&@@%,,.,,.,,,*#%&&&%#(/**,,**/(%&&&%(/,.......(@@@,
+                                                %@@(,,,,,,(&&%*..........  ...*,*..,.........../&,....,%@@,
+                                            &@&,,,,,*&&(....  .*....*..//.../../(...*.*(...%..........#&(....*@@/
+                                        ,@@,,,.,#......#..#*..(#..(*./,..,...*(...*.,.*..........#/#.....%&,..,/@@.
+                                     /@%,,,,(&(.....#/,...#../.(#...,/.,,../,..*(...*...%,.........,*...#./....#&,.,,@@.
+                                  .@&,.,,%&....,,....(*,.../.(,..(...,..,..*#..,,..,..,...*,....../#...,..(//.....,&/..,&@.
+                                %@,,,,#&...,,/./**....(,,..(,.//..,*..............................,.....././(.,..*...,&/,,,@&
+                              @%,,.(&,../(*..(#../#....(*. /....................................../,..*.*..//,,..,/.....,&...%@
+                           .@(..,&&,......%,,/..../(..(................................................/(..(.,.*.....**....%#,,*@,
+                          @(,,*&%*.........*((....*#.......................................................(*.,,.......*,#...*&..,@*
+                        @#,,/&%,.(*..........#,/.............................................................../...*..*(.......*&.,*@,
+                      #@,.,&&*.#&/(.,...............................................................................,...(...,.,,.*%..*@
+                     @*,,%@/......#*(................................................................................./. (./.#.....#%..%@
+                   &@,,/..........#,../................................................................................,.#.........&*,,@*
+                  @/,,&@,............/(..................................................................................#............*&../@
+                 @*,/&&.................................................................................................................&,..@
+               (@,,(&(...................................................................................................................%%..@(
+              (&,,#&*.....................................................................................................................,%../%
+             #@,,%&........................................................*/,...../(*......................................................&..*@
+            /&,,%&....................................................,                  **..................................................&..,@
+           *@,,%&..................................................,     . . ..       .  .  *,................................................&..*@
+           @*,#%,................................................*   ..                       (................................................&.,*%
+          @/,*#*...............................................*%/,,,***,...,,.  ..............,&..............................................,&..&(
+         %&,,%@...............................................%**,..,,,,,,,......,. ........   ,,%#............................................./(,.@
+         @*,(%................................................*,..*(*.*,,...*,/..*,.. ... .,.*... ...............................................&*..@
+        &(,,#,...............................(/**,,,.,,(.*/,%&&%#*/#(....,* .,...... */. ..,/**/(##% *,,.,,.( .   .(..............................&..##
+        @*,%#................................*.... .(/..... %,,.,,*.,**.,,,,,,*((*,..... .(. . . .. ,.,,,..,. .....,..............................#(..@
+       ,,/,................................*.  ...........#,*.,/*.,,,,,,,,,,,...,*.......  .(. .  *              %...............................&..*#
+       @/,##.................#*..,*,,,,..(/,,,*.,***/,,,,/*/*.,,,,,,,,,,,//***,,,**...... ..   ./.%.,*.(*,,,..,.,/,..,***/*#...*%(...............%(..@
+      .@*.#*..........,,,,,*,%....,/,**/...,//(/...*/((,.,/&%((/***/*//**///////********,,,,......./%(..........      . .,,,,.....#*.. ...,.........%..%/
+      #(*//..........%,.,,,,.%........... . ...............*/****,*,,,,**,,,,,,,,,,,,,..,,.........(,,,,,*,,,*,,,.........     ....( ...../.........&.,.@
+      @/,(/........%%,.,,*,(%/*/*...,.,,*,..............,,.,/%%%###%%##%####(#%####%%(/((###(//(%((..................,   .  ....,%%((((//(&.......#/..@
+      @/,((..........%......#*...........,..............,.../,//****/***/**,,*/,,/(*,*,,........**.(.,.................*...........&     .*.........,%..@
+      @/,#/..........(,,.,,,(*.........../..............,.../,/*/((((//*//*,*#***,./,/,,,........*./...................*...........%....../..........%..%.
+      @/,#*..........#......*/...........*..................*.**/,.,*(//**/,..,..,...*,,,..,*,...*.(...................*...........%   .../..........&..(,
+     .@(*#,..........%......//...........,.,......,,*,**....*./**(,##,(//*/,/%&&&%%&//,,,..,//,.,*.(...../,,,,.........*.,.,.,.....& .. ../..........&../,
+      @(*#,..........#...(,,&/.....,%##(,*.......,,/*,(.,..,*./*/(*/**(/*,/,///***,.*/,,,..,../.,*./.....*/..(........./,*,*#......&,../..*..........&..(,
+      @(*#/..........#..*...%/...,.*,..#,,.......,,,..#,,.,,*./*/(*//*(//,(**//,,,,.*/,.,.,*../../,/...../(..(.........(.,..(.,....#. ..*.,,.........%..%
+      @/*/*..........#..,...%*...,.*,..#.,.......,*,..(.,,..*,**(#*((/(//,/********,*/*,,,.*..*.,/,(.,...*(..(.........(.,..(......#... *.*,.........%..@
+      &//*,..........%..*...&,...../...(,,......,,*...(.,,,,,.///(*/////(*(,/*/***,,*/*.,.,*..*.,*./.,...*(../.........#,,..(......#.   /./..........#..@
+      *%/,#..........%..,...%,...........,.......,*...#.,,,./.**((*//*(//*(,/*/**,*,//*,,..,..*.,/,(...,.*#../,........#. .,......./.   /.*.........**..@
+       @/,(,.........%..    %....,..,....,,......,*...(,,,,/.,/,./*/(,(((/%#*,(///*//((,...*..*.,*,,#.,,,//  ,.........#...........#.   . ,.........&..%/
+       @(/,/....,.........,*..,.........,,.....,.,.,,*,,,*//***,,,,,,**,***,****//(((##%%#######(#(#(..,.***,,,........#............./...    ..,*...%..@
+       ,@/,#,...,..,.,**,,,..,,,.,,.....,.,.,...,,/***/,,//(/////////**///(////**,,,,,,**,,,,......./.*,,**,,,,........#.............*,,,*,,,..**..#*.,%
+        @/**/...............................,,,,,,,,,,,*&&%%%###%%%%%%%%%&&&&&&%%##((/////***,*,,,,*/#%(&%###%%%%%&&&&&&%########((//**,...........%..@
+         @/,/...........,%...............................**,,,,,,,*******//((###%%%&&&&@@@@@@@@@@@@@@%...............................,,,,,,,*/*.**.*&
+         /,#.....,*.,%&&%...........,.,..,*.....*,&/......*.*,/....&(#%......,.....*. ,.....,,,............../*........ .............../,..#*,..%..@
+          @/*,/..,*@*...../(...........%*(,*%....,/#../#....*%( /.....(*.....,*,....(,......../.,......(,......#(.....#...#...........,.....//...&..%,
+           @/,**.*(....(,%./%.........*%,#.,&.....,(..&.....*%.##.....((.....,/.....*/........(........(,......#(....../../........../.......((.**.*&
+           (@/,(*..%#....,.,&........................................................................................................#*....../.,%..@
+            #%/,(,..**/,..*%..*....................................................................................................,..#,.**(#..#..@
+             @%/*#*.,....%*.#*%,,...................................................................................................%.........%.,@
+              /,(/...,%.%./.*@*,................../&//...................................................,#*................../#*....&*./..%.,@
+               &&/,(%..,./.(&....,/,..............,#(/,/. ,..............................................(*,,.,,...............,*..&..*../.,#.,@
+                /&/,*%..,%,....*.(&*%............##.,...*&., ,....................................../.#...,,.../................%,..../&,.*,.,@
+                 ,@/**%*......,&(...&.#................*&..,(,./(,*.............................*..%./*.....#*,............*......,%.*,..&.,/%
+                   @(/*#&..*/@.......%#(%............,/&...,(*#..(#./#.................,*.,.%,, .( ....,*.................,#...,.....(..#,.@*
+                    #&/**&%......,,(&/..*.,................,%..../%(,..........///,#(.,*.....(.#,.,....#(...............%.*..%.....(..%,,,@
+                      @(/*(&*...*&.((...../%/..................,/(.............*......./##,...(,..#*.....................,#.,..%.*..,/,,@*
+                       #@//*#@..##%..../.%...%....................,............(/.../..(*..,../...................#/.....#..%...,..%..*@
+                         @&(**%@,.,/.,.(*...//...................................%&(................................& &,..*..%,..%,,.@
+                           @&(*/#&(..((..,.#/....../.*.*.......................................................%.,...%*..%/....%...@.
+                             @&(//(&@...%#/.......#/%..*.( /,..........................................*,,...../*%*,...#..../(.,.@.
+                               &@(///%&/...........,/#.....*/##(.....................................,*,........(.%%#,/...%,.,*@
+                                 /@#((/(%&*.....*/..((%...*/#...,*((#&.  ,,*///*..............(*.../*.,.*,......&......%#.,,@%
+                                    &@((//#%&*...#(**#.../,/...*#*/../,,.*.*...(*,,..((....../,.....,,./........(...%/,,,#@
+                                       @@(((((%%&,....../,/...,.**/..*,*..,,,(/..,,.,.,......(,.....(,..(, ...../%*.,,(@*
+                                          #@%////#%%&*....#.,(.,#*,..*,...*,./*.....#(........(,....(.......(%/,,,,&@.
+                                             .&@#////(#%%&(.....*&&*/*(...*,,..*./,...(...............,/%/,,,,,%@#
+                                                  #@@/*////(#%%&&/.........,*(#*..(,/*.........,*#%//,,*,,*@@(
+                                                       /@@@(/(////((((###%&&&&%%%%%%%%&%%##(/*******/&@@(
+                                                              ,%@@@@%#((//////******/////(/#%@@@@%,
+                                                                            .,***/***,.
+- [UI] Filter the object template index using the quick search.
+  [iglocska]
+- [API] On-demand inclusion of attribute relations via the event view
+  endpoint. [iglocska]
+
+  - new URL param, includeGranularCorrelations:1 added
+
+                                   |\    /|
+                                ___| \,,/_/
+                             ---__/ \/    \
+                            __--/     (D)  \
+                            _ -/    (_      \
+                           // /       \_ / ==\
+     __-------_____--___--/           / \_ O o)
+    /                                 /   \==/
+   /                                 /
+  ||          )                   \_/\
+  ||         /              _      /  |
+  | |      /--______      ___\    /\  :
+  | /   __-  - _/   ------    |  |   \ \
+   |   -  -   /                | |     \ )
+   |  |   -  |                 | )     | |
+    | |    | |                 | |    | |
+    | |    < |                 | |   |_/
+    < |    /__\                <  \
+    /__\                       /___\
+- [stix import] Parsing observable compositions from external STIX
+  files. [chrisr3d]
+- [security] Made certain settings modifiable via the CLI only.
+  [iglocska]
+
+  - some settings are too risky to be exposed, even to site admins, so made them CLI accessible only
+- [server settings] Added option to disable the write collision safe
+  rotating config.php handler. [iglocska]
+
+Changes
+~~~~~~~
+- [docs] Added excludeLocalTags to events/restSearch. [iglocska]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [version] bumped. [iglocska]
+- [travis] Print permissions on error with travis. [Raphaël Vinot]
+- [doc] Minor update, added known-issues section. [Steve Clement]
+- [doc] Updated Debian testing install docs (#4840) [Steve Clement]
+
+  chg: [doc] Updated Debian testing install docs
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [doc] Update to Debian 10 install guide, everything works as expected.
+  chg: [doc] OpenBSD is broken for misp-modules (OpenCV etc) [Steve
+  Clement]
+- [doc] Updated Debian testing install docs. [Steve Clement]
+- [travis] Fix perms (?) [Raphaël Vinot]
+- [travis] Try to fix upload_sample. [Raphaël Vinot]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [travis] more gpg experiments. [Alexandre Dulaunoy]
+- [travis] It's not my week with GnuPG and OpenPGP. [Alexandre Dulaunoy]
+- [i18n] Uploaded version from crowdin. Updated default.pot (#4835)
+  [Steve Clement]
+
+  chg: [i18n] Uploaded version from crowdin. Updated default.pot
+- [i18n] Uploaded version from crowdin. Updated default.pot. [Steve
+  Clement]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [enrichment] Reusing the new function fetchInitialObject. [chrisr3d]
+
+  - New function that is exactly the copy paste of
+    what is removed in this commit and replaced by
+    the function call
+- [enrichment] New modules available from event enrichment. [chrisr3d]
+- [installer] Added fork checker. [Steve Clement]
+- [installer] One step closer to "sane" aka. generic os-detection.
+  [Steve Clement]
+- [doc] Leveled RHEL7/RHEL8 Install procedure (WiP) (#4824) [Steve
+  Clement]
+
+  chg: [doc] Leveled RHEL7/RHEL8 Install procedure (WiP)
+- [installer] Updated Installer. [Steve Clement]
+- [doc] Updated Debian Install. [Steve Clement]
+- [doc] More CentOS/RHEL updates towards some sort of installer. [Steve
+  Clement]
+- [doc] Leveled RHEL7/RHEL8 Install procedure (WiP) [Steve Clement]
+- [i18n] Updated Russian Translation to >30% (#4821) [Steve Clement]
+
+  chg: [i18n] Updated Russian Translation to >30%
+- [i18n] Updated Russian Translation to >30% [Steve Clement]
+- Bumped query version. [chrisr3d]
+- [enrichment] Import modules now support new modules format. [chrisr3d]
+
+  - Import module results are sent to the new view
+    (same as for expansion modules) whenever they
+    support objects import
+  - Function handling the results right after they
+    are returned from the module has also been moved
+    to Model/Event and is used for both expansion &
+    import modules
+- [enrichment] Making attributes category & type changeable. [chrisr3d]
+
+  - To keep possibility to select the attribute type
+    or category, as it is in freetext import
+  - Category and Type values that can be selected by
+    users should be specified in the results, using
+    an array. Otherwise, they are set and cannot be
+    changed in the view (as it is the case for the
+    other fields like value and uuid)
+  - This feature is only applicable on attributes
+    level, and not on object attributes level
+- [enrichment] Passing the initial object to the form. [chrisr3d]
+
+  - If the attribute we query the module on is an
+    object attribute, we want to have this object
+    information se we do not add or overwrite
+    attributes already here
+- [ObjectReference] Referenced id, uuid & type set now from a function
+  that could be reused. [chrisr3d]
+- [enrichment] Defined function to appy inflector on strings. [chrisr3d]
+
+  So we can use it each time we want to display the
+  freetext import / module results status message
+- [stix2] Bumped latest version. [chrisr3d]
+
+  - Fixing issues with 'parse' called on bundles
+    containing custom objects
+- [installer] If unattended do not switch user. (#4812) [Steve Clement]
+
+  chg: [installer] If unattended do not switch user.
+- [installer] If unattended do not switch user. [Steve Clement]
+- Remove php 7.0 from travis. [Raphaël Vinot]
+- Try to solve the entropy problem on travis. [Raphaël Vinot]
+- [doc] More tweaks to the CentOS howto. [Steve Clement]
+- [installer] Updated installer. [Steve Clement]
+- [doc] Fixed some issues with dashboard. [Steve Clement]
+- [doc] Added more steps to make it work on RHEL/CentOS. [Steve Clement]
+- [event:view] More UI tweaking on related-* [mokaddem]
+- [event:view] UI tweaking on related-* [mokaddem]
+- [event:view] Make `Related *` scrollable. [mokaddem]
+- [relatedEvent:view] Display the number of unique correlation.
+  [mokaddem]
+- [view:relatedEvents] Improved UI. [mokaddem]
+- [relatedEvent:view] Started integration into event:view - WiP.
+  [mokaddem]
+- [previewEvent] Improved UI of related events - WiP. [mokaddem]
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [stix2] Bumped latest version. [chrisr3d]
+- [installer] Update installer to Fix Auto-VMs. [Steve Clement]
+- [installer] Updated installer. [Steve Clement]
+- [doc] Added plyara to kali installer, amended RHEL misp-modules
+  (#4787) [Steve Clement]
+
+  chg: [doc] Added plyara to kali installer, amended RHEL misp-modules
+- [doc] Added plyara to kali installer, amended RHEL misp-modules.
+  [Steve Clement]
+- [tools] ask_o () wants -e (for colorz) (#4764) [Steve Clement]
+
+  chg: [tools] ask_o () wants -e (for colorz)
+- [tools] ask_o () wants -e (for colorz) [Steve Clement]
+- [installer] This tweak allows us to reset ssh-keys/ssl-
+  certs/other_things_that_want_to_be_uniqe on firstBoot. (#4751) [Steve
+  Clement]
+
+  chg: [installer] This tweak allows us to reset ssh-keys/ssl-certs/other_things_that_want_to_be_uniqe on firstBoot.
+- [installer] Regen Installer. [Steve Clement]
+- [installer] This tweak allows us to reset ssh-keys/ssl-
+  certs/other_things_that_want_to_be_uniqe on firstBoot. [Steve Clement]
+- [doc] Added more bits to GPG key. (#4749) [Steve Clement]
+
+  chg: [doc] Added more bits to GPG key.
+- [doc] Added more bits to GPG key. [Steve Clement]
+- [tools] Added MISPvars from the installer. Added PATH_TO_MISP as a
+  standard. (#4748) [Steve Clement]
+
+  chg: [tools] Added MISPvars from the installer. Added PATH_TO_MISP as a standard.
+- [tools] Added MISPvars from the installer. Added PATH_TO_MISP as a
+  standard. [Steve Clement]
+- [installer] Added ask_o () for input validation, fixed tr to be more
+  uniform. Updated installer checksums. (#4747) [Steve Clement]
+
+  chg: [installer] Added ask_o () for input validation, fixed tr to be more uniform. Updated installer checksums.
+- [installer] Added ask_o () for input validation, fixed tr to be more
+  uniform. Updated installer checksums. [Steve Clement]
+- [reusability] Further modifications - have an on-demand static mode
+  for ajaxTags. [iglocska]
+- [reusability] modified ajaxTags to massage the data a bit for code-
+  reuse. [iglocska]
+
+Fix
+~~~
+- [stix2 export] Fixed user account pattern creation. [chrisr3d]
+- [stix2 export] Fixed user account observable extension. [chrisr3d]
+- [galaxies] several minor issues fixed in the UI. [iglocska]
+- [CLI] admin->setDatabaseVersion fixed. [iglocska]
+- [discussions] Fix to a potential black-hole inducing issue. [iglocska]
+
+  - this totally won't do anything
+- [tmpdir] fixed invalid file path. [iglocska]
+- [UI] Fixed erroneous tag add buttons from the index. [iglocska]
+- [internal] upload sample had a hard coded tmp path that would fail to
+  the php fallback if MISP is not installed in /var/www/MISP. [iglocska]
+- [stix2 import] Quick variable simplification. [chrisr3d]
+- [stix2 import] Reusing functions to simplify the code & avoid
+  duplicates. [chrisr3d]
+- [stix2 import] Fixed network socket values from pattern. [chrisr3d]
+- [stix import] Fixed backward compatibility of an exception. [chrisr3d]
+- [eventGraph] Correctly pick the first-matching requiredOneOff to
+  generate the object's label. [mokaddem]
+- [enrichment] Avoiding issues with failing references. [chrisr3d]
+
+  - In our case of handling module results, we don't
+    especially want the results parsing to stop
+    because of a missing/failing reference, we just
+    want to skip it
+- [events] Create massive dummy events. [mokaddem]
+- [enrichment] Fixed meta-category fetching. [chrisr3d]
+
+  - Due to the javascript part, we need to set a
+    'meta_category' field, which we then translate
+    to the expected 'meta-category' field, but which
+    is not required when enrichment is called from
+    the event level
+- [installer] Variable regression (#4829) [Steve Clement]
+
+  fix: [installer] Variable regression
+- [installer] Variable regression. [Steve Clement]
+- [doc] Fixed systemd unit (#4827) [Steve Clement]
+
+  fix: [doc] Fixed systemd unit
+- [doc] Fixed systemd unit. [Steve Clement]
+- [installer] Update to correct checksums. [Steve Clement]
+- [installer] Installer had some bugs for os-detection. [Steve Clement]
+- [doc] Added missing misp-modules centos (#4825) [Steve Clement]
+
+  fix: [doc] Added missing misp-modules centos
+- [doc] Added missing misp-modules centos. [Steve Clement]
+- [modules] Added full attribute to full event enrichment's module
+  query. [iglocska]
+- [stix2 import] Fixed socket extension parsing + reusing code.
+  [chrisr3d]
+
+  - Reusing the function defined to avoid duplicates
+    for network socket objects generated via the
+    MISP to STIX2 export
+- [stix2 import] Replacing unnecessary defaultdict by dict. [chrisr3d]
+- [stix2 import] Reusing function & avoiding duplicates. [chrisr3d]
+- [stix2 export] Making stix2-validator happy with email additional
+  header fields. [chrisr3d]
+- [stix2 export] Making stix2-validator happpy with registry key
+  patterns. [chrisr3d]
+- [internal] processing freetext data without background workers fixed.
+  [iglocska]
+- [enrichment view] Testing if event metadata elements exist before
+  displaying them. [chrisr3d]
+- [enrichment] Applying regular expressions to values before displaying
+  them. [chrisr3d]
+
+  - So when the DB is queried to find if object
+    attributes with those values already exist,
+    we do not miss some stored values
+- [enrichment] Strengthened query conditions to find existing object
+  attributes. [chrisr3d]
+- [enrichment view] Displaying Tags only if not empty (error otherwise)
+  [chrisr3d]
+- [enrichment] Added missing variable. [chrisr3d]
+- Returning tags & galaxies from module results. [chrisr3d]
+- [enrichment view] Fixed attributes display wwwwwwwwwww. [chrisr3d]
+
+  - Making attribute value display accept to be on
+    multilines to let more space for uuids to be on
+    1 line
+  - This makes the global display lighter with long
+    attribute values, because they were displayed on
+    only 1 line, making uuids displayed on 3 or 4
+    lines, making the complete view height way bigger
+    than expected
+- [enrichment view] Displaying forgotten header when there is no object
+  in module results. [chrisr3d]
+- [enrichment] Setting importComment value before going to the view.
+  [chrisr3d]
+
+  - Saving a variable & will avoid issues when reusing
+    the view for import modules
+- [enrichment] Json format of validation errors. [chrisr3d]
+- [enrichment view] Fixed mispositioned closing tags. [chrisr3d]
+- [enrichment] Fixed tags classes names following the latest changes on
+  the module results view. [chrisr3d]
+- [enrichment view] Using some MISP event view parts. [chrisr3d]
+
+  - Using the same design as objects and attributes as in
+    the MISP event view
+- [enrichment] Fixed change on types & categories. [chrisr3d]
+
+  ... that should be applied on attributes level and
+  not on object attributes level
+- [enrichment] Removing traces of some variables related to the freetext
+  import. [chrisr3d]
+- [enrichment] Removed possibility to display freetext result in the new
+  module results view. [chrisr3d]
+- [hover enrichment] Displaying information of empty results when
+  needed. [chrisr3d]
+- [enrichment] Displaying reference saving errors in the job status.
+  [chrisr3d]
+
+  - Finaly using the dedicated list to display
+    validation errors for references
+- [enrichment] Better references handling. [chrisr3d]
+
+  - References are all handled at the end, after the
+    attributes and objects are all saved (or skipped
+    when needed).
+  - Since we no longer have any data in '$failed',
+    we simply skip every reference related to uuids
+    present in this list.
+  - '$recovered_uuids' is the list used to handle
+    uuids of resolved attributes/objects already
+    in the event.
+  - We also skip references already present in the
+    event (i.e same source, same target and same
+    relationship type).
+- [enrichment] Better resolved objects handling. [chrisr3d]
+
+  - We handle the initial object independently from
+    all the other objects.
+  - We make sure Object attributes are not already
+    in the event (i.e the object is not already in
+    the event) before saving it
+  - Some other cases handled a better way to make
+    sure we skip saving object attributes or
+    references when they should not be, or to skip
+    what should be skipped.
+- [enrichment] Redefinition of the '$failed' array. [chrisr3d]
+
+  - Used as list and not as dict
+  - Used to keep a list of failing attribute & objects
+  - Attributes already present in the event are no
+    longer saved in this list, and their uuid is saved
+    in the '$recovered_uuids' list which is used to
+    redirect the resolved attribute / object uuid to
+    the same already present attribute / object
+- [enrichment] Fixed inflector typo. [chrisr3d]
+- [enrichment] Simplified tests if not empty. [chrisr3d]
+
+  - In those specific cases, we can simply skip
+    testing if something is set or equals 0, '' or
+    false, since it is all implied in 'empty'
+- [enrichment view] Quick change, using variable. [chrisr3d]
+
+  ... Instead of going twice through the dictionary
+  keys to fetch the same value
+- [enrichment] Displaying error value in the job status instead of the
+  json format. [chrisr3d]
+- Removed test variables. [chrisr3d]
+
+  - Also pardon my French
+- [enrichment] Typo on Object references field relationship_type.
+  [chrisr3d]
+- [enrichment] Fixed missing object_relation field. [chrisr3d]
+
+  ... for object attributes fetched from module
+  results form
+- [enrichment view] Quick display fix. [chrisr3d]
+
+  - Making sure the submit button is always at the
+    bottom of the page
+  - Fixed missing closing tags
+- [freetext import] Deleted not used variable. [chrisr3d]
+- [cleanup] Fixed indentations. [chrisr3d]
+- [enrichment] Fixed handleModuleResults input variable name. [chrisr3d]
+- [enrichment] Fixed missing merge conflict. [chrisr3d]
+- [enrichment] Set sharing group id to 0 when distribution is not
+  'Sharing Group' [chrisr3d]
+
+  - Also setting some return data & fields
+- [enrichment view] Added missing form fields + button typo. [chrisr3d]
+
+  - Those form inputs are the ones that are used in
+    the javascript part to submit results
+- [enrichment view] Fixed Object sharing group field location.
+  [chrisr3d]
+- [enrichment view] Trying to avoid submit button to be somewhere not
+  intended. [chrisr3d]
+- [enrichment] Avoiding errors on distribution and sharing group data.
+  [chrisr3d]
+
+  - Making sure we do have a value for distribution
+    and sharing group
+  - Avoid translating distribution levels into their
+    human meaning because the output process capturing
+    data from the form will anyway use the numeric
+    values. Readable values are btw displayed in the
+    form for users confort
+  - Also sanitized data displayed
+- [enrichment] Testing if an object has attributes before looping over
+  them. [chrisr3d]
+- [stix2 export] Making stix2-validator happy about mac addresses.
+  [chrisr3d]
+- [stix2 export] Fixed TLP marking definition objects creation.
+  [chrisr3d]
+- [stix2 export] Fixed registry-key keys and values parsing for
+  patterns. [chrisr3d]
+
+  - There was an issue with back slashes that made
+    sometime indicators creation fail
+  - Also switched from concatenation to join
+- Libonig2 -> libonig4 (ubuntu bionic) [Raphaël Vinot]
+- [stix2 export] Making reusable subfunctions. [chrisr3d]
+
+  - Useful for the next functions to come using the
+    same pieces of code
+- [stix2 export] Defining pattern with join intead of concatenation.
+  [chrisr3d]
+
+  - Started splitting functions with sub-functions
+    for a reuse
+- [stix2 export] Improved network socket object creation. [chrisr3d]
+- [stix2 export] Fixed credential objects mapping to avoid missing
+  required stix fields. [chrisr3d]
+- [stix import] Fixed stix_edh library import error catching. [chrisr3d]
+- [row_attribute] feed correlation popover not being displayed for feed
+  type other than MISP format. [mokaddem]
+- [relatedEvent:view] catch if number of correlation cannot be found.
+  [mokaddem]
+- [event:addTag] User can add multiple tag collection at once.
+  [mokaddem]
+- [stix2 import] Fixed wrong function used. [chrisr3d]
+- [installer] Currently misp-packer fails on waiting for user inpu…
+  (#4788) [Steve Clement]
+
+  fix: [installer] Currently misp-packer fails on waiting for user inpu…
+- [installer] Currently misp-packer fails on waiting for user input
+  during upgrade. [Steve Clement]
+- [data-massaging] Removed massaging for float type attributes.
+  [iglocska]
+
+  - it not only stripped anything but floats as expected, but additionally also rounded the value
+- [js] fixes #4678 and javascript errors. [Christophe Vandeplas]
+- [API] Simple worker management added. [iglocska]
+
+  - /servers/startWorker/[queue]
+  - /servers/stopWorker/[pid]
+  - /servers/getWorkers
+- [object:proposeValidTemplate] Support only_full_group_by sql mode. Fix
+  #4746. [mokaddem]
+- [UI] Enrichment hover should also work after sorting / changing the
+  event attribute context, etc. [iglocska]
+- [stix import] Fixed address objects parsing. [chrisr3d]
+- [shell] ask_o () needed some quotes, regenerated installer. (#4750)
+  [Steve Clement]
+
+  fix: [shell] ask_o () needed some quotes, regenerated installer.
+- [shell] ask_o () needed some quotes, regenerated installer. [Steve
+  Clement]
+- [stix import] Better handling of missing python libraries. [chrisr3d]
+- [security] Fixed an RCE vulnerability with user controled entries
+  being fed to file_exists. [iglocska]
+
+  - phar protocol paths for php file instructions can lead to RCE via meta-data deserialization
+  - mitigated by the functionalities enabling this being only accessible to site admins
+
+  - Reported by Dawid Czarnecki
+- [ajaxTypes] copy pasta fixed. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4841 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] Minor update, added known-issues section
+- Merge branch '2.4' into guides. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' into guides. [Steve Clement]
+- Add: [stix2 export] Exporting user-account objects. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Add: [stix2 import] Importing credential objects. [chrisr3d]
+- Add: [stix2 import] Parsing network traffic in the case of network
+  connection object. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Added norwegian translation (#4832) [Steve Clement]
+
+  Added norwegian translation
+- Added norwegian. [Kortho]
+
+  Added norwegian translation
+- Merge pull request #4807 from RichieB2B/ncsc-nl/IOCImport. [Andras
+  Iklody]
+
+  Support empty attribute type in IOC import
+- Support empty attribute type in IOC import. [Richard van den Berg]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4826 from SteveClement/tools. [Steve Clement]
+
+  chg: [installer] One step closer to "sane" aka. generic os-detection
+- Merge branch '2.4' into tools. [Steve Clement]
+- Merge branch '2.4' into tools. [Steve Clement]
+- Merge branch '2.4' into guides. [Steve Clement]
+- Merge pull request #4822 from Kortho/patch-1. [Andras Iklody]
+
+  fixed mixed dbuser - dbname
+- Fixed mixed dbuser - dbname. [Kortho]
+
+  changed so the script uses the correct var
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch 'module_rework2' into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Add: [enrichment] Fetching data fields from the view. [chrisr3d]
+- Add: [enrichment view] Added data fields + cancel button to the form.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Add: [enrichment] Displaying + returning tags at attributes level from
+  the module results. [chrisr3d]
+
+  - If one of our UI master could review this and find
+    a better way of displaying the tags at attribute
+    level in the module results view, it would be
+    very cool :D
+- Add: [enrichment] Attaching event level tags returned by the module
+  results. [chrisr3d]
+- Add: [enrichment view] Displaying event level tags. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Add: [enrichment view] Displaying events metadata & number of returned
+  attributes. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Wip: [enrichment] Handling the potential uuids differences. [chrisr3d]
+
+  - We want to be sure the references we add to an
+    event are pointing to the right target, so
+    when an attribute/object is already in the event
+    and is a reference target, we want to point to
+    this already existing attribute/object, and not
+    to the one we get from the module results, which
+    will afterall be skipped.
+  - Also to to that, attributes already in the event
+    are simply not saved, but we need to find in the
+    event if an event already exists or not, using
+    its attributes
+  - More care to the references themselves to come
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Wip: [enrichment] Avoiding duplicate object attributes. [chrisr3d]
+
+  - It concerns obviously the case where we query a
+    module using an attribute within an object as input
+  - More to come about the ObjectReference field that
+    should not be overwritten/duplicated either
+- Wip: [enrichment] Passing initial object references as well.
+  [chrisr3d]
+
+  - Also testing if the initial object found is not empty
+- Wip: [enrichment] Passing the initial object within the request data.
+  [chrisr3d]
+
+  - Makes its parsing easier afterwards
+- Add: [hover enrichment] Displaying resolved objects & attributes from
+  new modules results. [chrisr3d]
+
+  - Also quick indentation fix
+- Wip: [hover enrichment] Passing new modules results to the hover
+  enrichment view. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Wip: [enrichment] Support of object references. [chrisr3d]
+
+  - Handling the references between objects and
+    attributes or objects that are displayed in the
+    form and saving them.
+  - Avoiding issue when an attribute or object can
+    not be saved and is referenced: trying to find
+    in the event if it is an attribute, returning
+    a warning message if it is an object or if
+    nothing corresponding to the failing referenced
+    object or attribute is found.
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Wip: [enrichment] Returning a status message after the module results
+  handling is done. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Wip: [enrichment] Saving attributes & objects from module results.
+  [chrisr3d]
+
+  - Need to handle specific cases, relationships,
+    and to update the progress status information
+- Add: [enrichment] Added possibility to get object template version &
+  uuid. [chrisr3d]
+- Wip: [enrichment] Capturing objects & attributes. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  rework_modules. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Add: [stix2 export] Added network connection to the mapped objects.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #4802 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] More tweaks to the CentOS howto
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #4798 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] Various updates to RHEL/Ubuntu
+- Add: [stix2 export] Mapping credential MISP objects. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #4570 from mokaddem/relatedEventUI. [Andras Iklody]
+
+  Related event ui
+- Merge branch '2.4' of github.com:MISP/MISP into relatedEventUI.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into relatedEventUI.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into relatedEventUI.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4769 from cvandeplas/2.4. [Andras Iklody]
+
+  fix: [js] fixes #4678 and javascript errors
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4674 from juju4/devel-globalstrict. [Andras
+  Iklody]
+
+  strict typing - snuffleupagus tests
+- Strict typing - snuffleupagus tests. [juju4]
+- Merge pull request #4741 from StefanKelm/2.4. [Andras Iklody]
+
+  Update EventBlacklistsController.php
+- Update edit.ctp. [StefanKelm]
+
+  Clarification that "Fetch GnuPG key" actually connects to the MIT key server
+- Update EventBlacklistsController.php. [StefanKelm]
+
+  (minor) aligns the text with app/Controller/Component/BlackListComponent.php
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' into tools. [Steve Clement]
+- Merge branch '2.4' into tools. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' into guides. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+
+
 v2.4.109 (2019-06-13)
 ---------------------
 
