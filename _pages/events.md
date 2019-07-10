@@ -11,8 +11,17 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### MISP hackathon
 
+### MISP Threat Intelligence summit
+
+- [MISP threat intelligence summit 0x5](https://en.xing-events.com/DZXFMJG) - in Luxembourg - 21th October 2019
+
 ### MISP Training(s)
 
+- [MISP Training (Prague) - Threat Intelligence Analyst and Administrators](https://en.xing-events.com/XDMSLUO) - in Prague - 17th September 2019
+- [MISP Training (Prague) - Developers session - API and Extensions](https://en.xing-events.com/ULBAHVN) - in Prague - 18th September 2019
+- [MISP Training - Threat Intelligence Analyst and Administrators](https://en.xing-events.com/EJKDRZP) - at CIRCL Luxembourg - 24th September 2019
+- [MISP Training - MISP Training - Hands-on workshop](https://en.xing-events.com/UEXXGRO) - at CIRCL Luxembourg - 25th September 2019
+- [MISP Training - MISP Training - Advanced developers session, including MISP core](https://en.xing-events.com/CQYGYJQ) - at CIRCL Luxembourg - 26th September 2019
 - [MISP Training (Luxembourg) - Threat Intelligence for Analyst and Administrators](https://en.xing-events.com/QPILZTS.html) - at CIRCL Luxembourg - 25th March 2019
 - [MISP Training (Luxembourg) - Threat Intelligence for Analyst and Administrators](https://en.xing-events.com/YXNNPWD) - at CIRCL Luxembourg - 26th March 2019
 - [MISP Training (Luxembourg) - Developers session - API and Extensions](https://en.xing-events.com/IHSBNTB) - at CIRCL Luxembourg - 27th March 2019
