@@ -744,8 +744,17 @@ The taxonomies can be [browsed via the web site](/taxonomies.html) or downloaded
 [collaborative-intelligence](https://github.com/MISP/misp-taxonomies/tree/master/collaborative-intelligence):
 : Collaborative intelligence support language is a common language to support analysts to perform their analysis to get crowdsourced support when using threat intelligence sharing platform like MISP.[HTML](https://www.misp-project.org/taxonomies.html#_collaborative_intelligence)
 
+[common-taxonomy](https://github.com/MISP/misp-taxonomies/tree/master/common-taxonomy):
+: The Common Taxonomy for Law Enforcement and The National Network of CSIRTs bridges the gap between the CSIRTs and international Law Enforcement communities by adding a legislative framework to facilitate the harmonisation of incident reporting to competent authorities, the development of useful statistics and sharing information within the entire cybercrime ecosystem.[HTML](https://www.misp-project.org/taxonomies.html#_common_taxonomy)
+
 [copine-scale](https://github.com/MISP/misp-taxonomies/tree/master/copine-scale):
 : The COPINE Scale is a rating system created in Ireland and used in the United Kingdom to categorise the severity of images of child sex abuse.[HTML](https://www.misp-project.org/taxonomies.html#_copine_scale)
+
+[cryptocurrency-threat](https://github.com/MISP/misp-taxonomies/tree/master/cryptocurrency-threat):
+: Threats targetting cryptocurrency, based on CipherTrace report.[HTML](https://www.misp-project.org/taxonomies.html#_cryptocurrency_threat)
+
+[csirt-americas](https://github.com/MISP/misp-taxonomies/tree/master/csirt-americas):
+: Taxonomy from CSIRTAmericas.org.[HTML](https://www.misp-project.org/taxonomies.html#_csirt_americas)
 
 [csirt_case_classification](https://github.com/MISP/misp-taxonomies/tree/master/csirt_case_classification):
 : FIRST CSIRT Case Classification.[HTML](https://www.misp-project.org/taxonomies.html#_csirt_case_classification)
@@ -756,8 +765,14 @@ The taxonomies can be [browsed via the web site](/taxonomies.html) or downloaded
 [cyber-threat-framework](https://github.com/MISP/misp-taxonomies/tree/master/cyber-threat-framework):
 : Cyber Threat Framework was developed by the US Government to enable consistent characterization and categorization of cyber threat events, and to identify trends or changes in the activities of cyber adversaries. https://www.dni.gov/index.php/cyber-threat-framework[HTML](https://www.misp-project.org/taxonomies.html#_cyber_threat_framework)
 
+[dark-web](https://github.com/MISP/misp-taxonomies/tree/master/dark-web):
+: Criminal motivation on the dark web: A categorisation model for law enforcement. ref: Janis Dalins, Campbell Wilson, Mark Carman. Taxonomy updated by MISP Project.[HTML](https://www.misp-project.org/taxonomies.html#_dark_web)
+
 [data-classification](https://github.com/MISP/misp-taxonomies/tree/master/data-classification):
 : Data classification for data potentially at risk of exfiltration based on table 2.1 of Solving Cyber Risk book.[HTML](https://www.misp-project.org/taxonomies.html#_data_classification)
+
+[dcso-sharing](https://github.com/MISP/misp-taxonomies/tree/master/dcso-sharing):
+: DCSO Sharing Taxonomy to classify certain types of MISP events using the DCSO Event Guide[HTML](https://www.misp-project.org/taxonomies.html#_dcso_sharing)
 
 [ddos](https://github.com/MISP/misp-taxonomies/tree/master/ddos):
 : Distributed Denial of Service - or short: DDoS - taxonomy supports the description of Denial of Service attacks and especially the types they belong too.[HTML](https://www.misp-project.org/taxonomies.html#_ddos)
@@ -776,6 +791,9 @@ The taxonomies can be [browsed via the web site](/taxonomies.html) or downloaded
 
 [domain-abuse](https://github.com/MISP/misp-taxonomies/tree/master/domain-abuse):
 : Taxonomy to tag domain names used for cybercrime.[HTML](https://www.misp-project.org/taxonomies.html#_domain_abuse)
+
+[drugs](https://github.com/MISP/misp-taxonomies/tree/master/drugs):
+: A taxonomy based on the superclass and class of drugs, based on https://www.drugbank.ca/releases/latest[HTML](https://www.misp-project.org/taxonomies.html#_drugs)
 
 [economical-impact](https://github.com/MISP/misp-taxonomies/tree/master/economical-impact):
 : Economical impact is a taxonomy to describe the financial impact as positive or negative gain to the tagged information.[HTML](https://www.misp-project.org/taxonomies.html#_economical_impact)
@@ -796,7 +814,7 @@ The taxonomies can be [browsed via the web site](/taxonomies.html) or downloaded
 : Sectors and sub sectors as identified by the NIS Directive.[HTML](https://www.misp-project.org/taxonomies.html#_eu_nis_sector_and_subsectors)
 
 [euci](https://github.com/MISP/misp-taxonomies/tree/master/euci):
-: EU classified information (EUCI) means any information or material designated by a EU security classification, the unauthorised disclosure of which could cause varying degrees of prejudice to the interests of the European Union or of one or more of the Member States as described in http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32013D0488&from=EN[HTML](https://www.misp-project.org/taxonomies.html#_euci)
+: EU classified information (EUCI) means any information or material designated by a EU security classification, the unauthorised disclosure of which could cause varying degrees of prejudice to the interests of the European Union or of one or more of the Member States as described in COUNCIL DECISION of 23 September 2013 on the security rules for protecting EU classified information[HTML](https://www.misp-project.org/taxonomies.html#_euci)
 
 [europol-event](https://github.com/MISP/misp-taxonomies/tree/master/europol-event):
 : EUROPOL type of events taxonomy.[HTML](https://www.misp-project.org/taxonomies.html#_europol_event)
@@ -818,6 +836,9 @@ The taxonomies can be [browsed via the web site](/taxonomies.html) or downloaded
 
 [file-type](https://github.com/MISP/misp-taxonomies/tree/master/file-type):
 : List of known file types.[HTML](https://www.misp-project.org/taxonomies.html#_file_type)
+
+[flesch-reading-ease](https://github.com/MISP/misp-taxonomies/tree/master/flesch-reading-ease):
+: Flesch Reading Ease is a revised system for determining the comprehension difficulty of written material. The scoring of the flesh score can have a maximum of 121.22 and there is no limit on how low a score can be (negative score are valid).[HTML](https://www.misp-project.org/taxonomies.html#_flesch_reading_ease)
 
 [fpf](https://github.com/MISP/misp-taxonomies/tree/master/fpf):
 : The Future of Privacy Forum (FPF) [visual guide to practical de-identification](https://fpf.org/2016/04/25/a-visual-guide-to-practical-data-de-identification/) taxonomy is used to evaluate the degree of identifiability of personal data and the types of pseudonymous data, de-identified data and anonymous data. The work of FPF is licensed under a creative commons attribution 4.0 international license.[HTML](https://www.misp-project.org/taxonomies.html#_fpf)
@@ -912,6 +933,12 @@ The taxonomies can be [browsed via the web site](/taxonomies.html) or downloaded
 [priority-level](https://github.com/MISP/misp-taxonomies/tree/master/priority-level):
 : After an incident is scored, it is assigned a priority level. The six levels listed below are aligned with NCCIC, DHS, and the CISS to help provide a common lexicon when discussing incidents. This priority assignment drives NCCIC urgency, pre-approved incident response offerings, reporting requirements, and recommendations for leadership escalation. Generally, incident priority distribution should follow a similar pattern to the graph below. Based on https://www.us-cert.gov/NCCIC-Cyber-Incident-Scoring-System.[HTML](https://www.misp-project.org/taxonomies.html#_priority_level)
 
+[ransomware](https://github.com/MISP/misp-taxonomies/tree/master/ransomware):
+: Ransomware is used to define ransomware types and the elements that compose them.[HTML](https://www.misp-project.org/taxonomies.html#_ransomware)
+
+[retention](https://github.com/MISP/misp-taxonomies/tree/master/retention):
+: Retention taxonomy to describe the retention period of the tagged information.[HTML](https://www.misp-project.org/taxonomies.html#_retention)
+
 [rsit](https://github.com/MISP/misp-taxonomies/tree/master/rsit):
 : Reference Security Incident Classification Taxonomy.[HTML](https://www.misp-project.org/taxonomies.html#_rsit)
 
@@ -933,6 +960,9 @@ The taxonomies can be [browsed via the web site](/taxonomies.html) or downloaded
 [targeted-threat-index](https://github.com/MISP/misp-taxonomies/tree/master/targeted-threat-index):
 : The Targeted Threat Index is a metric for assigning an overall threat ranking score to email messages that deliver malware to a victim’s computer. The TTI metric was first introduced at SecTor 2013 by Seth Hardy as part of the talk “RATastrophe: Monitoring a Malware Menagerie” along with Katie Kleemola and Greg Wiseman.[HTML](https://www.misp-project.org/taxonomies.html#_targeted_threat_index)
 
+[threats-to-dns](https://github.com/MISP/misp-taxonomies/tree/master/threats-to-dns):
+: An overview of some of the known attacks related to DNS as described by Torabi, S., Boukhtouta, A., Assi, C., & Debbabi, M. (2018) in Detecting Internet Abuse by Analyzing Passive DNS Traffic: A Survey of Implemented Systems. IEEE Communications Surveys & Tutorials, 1–1. doi:10.1109/comst.2018.2849614[HTML](https://www.misp-project.org/taxonomies.html#_threats_to_dns)
+
 [tlp](https://github.com/MISP/misp-taxonomies/tree/master/tlp):
 : The Traffic Light Protocol - or short: TLP - was designed with the objective to create a favorable classification scheme for sharing sensitive information while keeping the control over its distribution at the same time. Extended with TLP:EX:CHR.[HTML](https://www.misp-project.org/taxonomies.html#_tlp)
 
@@ -953,6 +983,7 @@ The taxonomies can be [browsed via the web site](/taxonomies.html) or downloaded
 
 [workflow](https://github.com/MISP/misp-taxonomies/tree/master/workflow):
 : Workflow support language is a common language to support intelligence analysts to perform their analysis on data and information.[HTML](https://www.misp-project.org/taxonomies.html#_workflow)
+
 
 
 ## MISP Galaxy
