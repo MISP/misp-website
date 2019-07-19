@@ -2,6 +2,97 @@ Changelog
 =========
 
 
+v2.4.111 (2019-07-14)
+---------------------
+
+New
+~~~
+- [attribute-type] community-id added. [Alexandre Dulaunoy]
+
+  Community-id is a new attribute type to describe a flow hashing algorithm allowing
+  the consumers of output from multiple traffic monitors to link each system's
+  flow records more easily.
+- [API] Proposal sync rework done. [iglocska]
+- [proposal sync rework] WIP. [iglocska]
+- [doc] "Hidden" NetBSD install (core works) (#4847) [Steve Clement]
+
+  new: [doc] "Hidden" NetBSD install (core works)
+- [doc] Hidden NetBSD install (core works) [Steve Clement]
+
+Changes
+~~~~~~~
+- [version] bump version 2.4.111. [Alexandre Dulaunoy]
+- [version] align PyMISP version with core. [Alexandre Dulaunoy]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [error code] Attribute delete now responds with 403 if user is not
+  allowed to delete, instead of 405. [iglocska]
+- [installer] Updated installer. [Steve Clement]
+- [style] This is better. [Steve Clement]
+- [installer] Updated to latest. [Steve Clement]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [doc] Minor updates. Only core works for now. [Steve Clement]
+- [doc] Various NetBSD updates, global vars makes sure PATH_TO_MISP is
+  correct. [Steve Clement]
+- [genericPicker] Prevent submission if no item has been picked.
+  [mokaddem]
+
+Fix
+~~~
+- [internal] Explicit conditions to avoid ambiguous lookups. [iglocska]
+- [UI] Fixed galaxy add buttons on event index. [iglocska]
+- [bug] RestClient notice error fixed. [iglocska]
+- [objects] delete now accepts delete HTTP method. [iglocska]
+- [install] Do not modify testlive_comprehensive.py (#4864) [Steve
+  Clement]
+
+  fix: [install] Do not modify testlive_comprehensive.py
+- [install] Do not modify testlive_comprehensive.py. [Raphaël Vinot]
+- [hover enrichement] Fixed index in attribute. [chrisr3d]
+
+  - Depending on the format of attribute passed to
+    the function
+- [utils] Added missing util "sponge" via moreutils (#4861) [Steve
+  Clement]
+
+  fix: [utils] Added missing util "sponge" via moreutils
+- [utils] Added missing util "sponge" via moreutils. [Steve Clement]
+- [proposal] sync fix stage 1. [iglocska]
+
+  - added new capture function
+  - reworked the proposal index
+- [sync] Proposal pull restricted to 14 days. [iglocska]
+
+  - no need to pull ancient proposals each time
+- [api fix] Deletes broken due to invalid boolean. [iglocska]
+
+  - /facepalm
+- [API] delete http requests properly accepted by some /delete
+  endpoints. [iglocska]
+- [galaxy:add] Prevent bug when submitting empty galaxy. [mokaddem]
+- [sync] Fixed a bug breaking the sync. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'hotfix/sync_rework' into 2.4. [iglocska]
+- Merge branch '2.4' into hotfix/sync_rework. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Add: [stix2 import] Importing external User Account objects.
+  [chrisr3d]
+
+  - Reusing parsing functions
+- Add: [stix2 import] Importing User Account objects. [chrisr3d]
+
+  - From STIX documents generated with MISP
+  - External STIX documents support of User Account
+    object to come very soon
+
+
 v2.4.110 (2019-07-08)
 ---------------------
 
