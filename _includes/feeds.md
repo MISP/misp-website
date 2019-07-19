@@ -54,3 +54,5 @@
 - [malsilo.ipv4](https://malsilo.gitlab.io/feeds/dumps/ip_list.txt) - MalSilo - feed format: csv
 - [malshare.com - current all](https://malshare.com/daily/malshare.current.all.txt) - malshare.com - feed format: freetext
 - [Benkow.cc RAT](http://benkow.cc/export_rat.php) - benkow.cc - feed format: csv
+- [Panels Tracker](http://benkow.cc/export.php) - Benkow.cc - feed format: csv
+
