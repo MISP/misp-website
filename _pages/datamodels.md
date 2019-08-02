@@ -5,7 +5,7 @@ permalink: /datamodels/
 toc: true
 ---
 
-MISP is not only a software but also a series of data models created by the MISP community. MISP includes a simple and practical information sharing format expressed in JSON that can be used with MISP software or by any other software.
+MISP is not only a software but also a series of data models created by the MISP community. MISP includes a simple and practical information sharing format expressed in JSON that can be used with MISP software or by any other software. The MISP formats are now standards handled by the [MISP standard body](https://www.misp-standard.org).
 
 ## MISP Core Format
 
