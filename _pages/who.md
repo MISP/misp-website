@@ -11,15 +11,44 @@ The core team behind the MISP project is composed of motivated people who think 
 practical open source tools, open format and practises. The current team is composed of:
 
 * David Andre
+* Steve Clement [@SteveClement](https://twitter.com/SteveClement)
 * Andrzej Dereszowski [@deresz666](https://twitter.com/deresz666)
-* Alexandre Dulaunoy [@adulau](https://www.twitter.com/adulau)
+* Alexandre Dulaunoy [@adulau](https://twitter.com/adulau)
 * Andras Iklody [@Iglocska](https://twitter.com/Iglocska)
+* Sami Mokaddem [@mokaddem_sami](https://twitter.com/mokaddem_sami)
+* Sascha Rommelfangen [@rommelfs](https://twitter.com/rommelfs)
+* Deborah Servili [@deltalimasierra](https://twitter.com/deltalimasierra)
+* Christian Studer [@chrisred_68](https://twitter.com/chrisred_68)
 * Christophe Vandeplas [@cvandeplas](https://twitter.com/cvandeplas)
 * Raphaël Vinot [@rafi0t](https://twitter.com/rafi0t)
+* Gerard Wagener
+
+and many [contributors](/contributors)! Join us!
 
 ### Contact
 
 If you have any enquiries or willing to contribute or support the project, don't hesitate to contact the team at [info@misp-project.org](mailto:info@misp-project.org).
+
+## Integrated Services and Products with MISP
+
+Many third-parties and organizations provide services or software to integrate with MISP via [misp-modules](https://github.com/MISP/misp-modules), [MISP API](https://www.circl.lu/doc/misp/automation/index.html) or [MISP data models]({{ "/datamodels" | prepend: site.baseurl | prepend: site.url }}).
+
+Check out the [tools page]({{  "/tools" | prepend: site.baseurl | prepend: site.url }}).
+
+## Research using MISP and Attribution
+
+If you are writing an academic paper relying or using MISP, you can cite MISP with the following BibTeX entry:
+
+~~~~
+@inproceedings{wagner2016misp,
+  title={MISP: The Design and Implementation of a Collaborative Threat Intelligence Sharing Platform},
+  author={Wagner, Cynthia and Dulaunoy, Alexandre and Wagener, G{\'e}rard and Iklody, Andras},
+  booktitle={Proceedings of the 2016 ACM on Workshop on Information Sharing and Collaborative Security},
+  pages={49--56},
+  year={2016},
+  organization={ACM}
+}
+~~~~
 
 ### History
 
@@ -43,25 +72,6 @@ Nowadays, Andras Iklody is the lead developer of the MISP project and works for 
 
 As the MISP project expanded, MISP is not only covering the malware indicators but also fraud or vulnerability information. The name is now MISP, threat sharing which includes the core MISP software and a myriad of tools (PyMISP) and format (core format, MISP taxonomies, warning-lists) to support MISP.  **MISP is now a community project lead by a team of volunteers**.
 
-The [full list of contributors](https://github.com/MISP/MISP/blob/2.4/AUTHORS) is available on GitHub.
+The [full list of contributors](/contributors) is available on the MISP project page.
 
-## Integrated Services and Products with MISP
 
-Many third-parties and organizations provide services or software to integrate with MISP via [misp-modules](https://github.com/MISP/misp-modules), [MISP API](https://www.circl.lu/doc/misp/automation/index.html) or [MISP data models]({{ "/datamodels" | prepend: site.baseurl | prepend: site.url }}).
-
-Check out the [tools page]({{  "/tools" | prepend: site.baseurl | prepend: site.url }}).
-
-## Research using MISP and Attribution
-
-If you are writing an academic paper relying or using MISP, you can cite MISP with the following BibTeX entry:
-
-~~~~
-@inproceedings{wagner2016misp,
-  title={MISP: The Design and Implementation of a Collaborative Threat Intelligence Sharing Platform},
-  author={Wagner, Cynthia and Dulaunoy, Alexandre and Wagener, G{\'e}rard and Iklody, Andras},
-  booktitle={Proceedings of the 2016 ACM on Workshop on Information Sharing and Collaborative Security},
-  pages={49--56},
-  year={2016},
-  organization={ACM}
-}
-~~~~
