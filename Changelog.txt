@@ -2,6 +2,395 @@ Changelog
 =========
 
 
+%%version%% (unreleased)
+------------------------
+
+Changes
+~~~~~~~
+- Bump Pymisp again. [Raphaël Vinot]
+
+
+v2.4.112 (2019-08-02)
+---------------------
+
+New
+~~~
+- [sync] Event index cleaned up, total count of listd events added as X
+  -Result-Count header. [iglocska]
+- [sync] Previewing a remote instance now passes pagination rules in the
+  request instead of fetching the full data-set and paginating in
+  memory. [iglocska]
+
+  - fixes issues with empty preview pages
+  - massive performance boost
+  - requires the remote side to be the same version or newer
+- [API] new parameters added to attributes/restSearch to include
+  additional context, fixes #4935, fixes #4940, affects MISP/PyMISP#415.
+  [iglocska]
+
+  - includeSightings: include sightings for all attributes returned
+  - includeCorrelations: include the correlations to other attributes (includes a light-weight event object with each attribute)
+- [CLI] Added cleanCaches command. [iglocska]
+- [API] Disable background processing on-demand via URL parameters.
+  [iglocska]
+- [setting] Disable DB logging completely, fixes #4921. [iglocska]
+
+  - Not recommended, but for certain use-cases it might be desirable
+- [API] Some more context for includeContext, fixes #4935. [iglocska]
+- [API] includeContext now includes the additional event fields in the
+  attributes/restSearch results (in JSON format) [iglocska]
+- [API] Allow adding tags via /attributes/add directly. [iglocska]
+- [alerting] Block the alerting of events based on the date field as an
+  alternative to the timestamp, fixes #4937. [iglocska]
+
+Changes
+~~~~~~~
+- [pymisp] bumped. [iglocska]
+- [version] bump. [iglocska]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- Use faster algorithm for Warninglist::__ipv6InCidr. [Jakub Onderka]
+- [pymisp] Bump. [Raphaël Vinot]
+- More efficient Warninglist::__evalCIDR. [Jakub Onderka]
+- [View] Setting default link value for vulnerability & weakness.
+  [chrisr3d]
+- [misp-object] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version + ATT&CK July edition.
+  [Alexandre Dulaunoy]
+- [UI] Added the new user name helper. [iglocska]
+- [UI] Add a quick button for the event attribute toolbar for the
+  showing of related tags. [iglocska]
+
+  - therapeutic patch for @neok0
+- [pymisp] Bump. [Raphaël Vinot]
+- [stix test] Updated the STIX2 test files. [chrisr3d]
+
+  - Including the newest supported objects added in
+    the mapping, and the latest fixes for some
+    objects previously mapped as custom object and
+    now properly supported
+- [stix test] Updated the test MISP events. [chrisr3d]
+
+  - Added some of the new objects added recently and
+    supported in the mapping
+- Server pull/push endpoints allow the passing of the parameters as a
+  POSTed JSON in addition to URL parameters, partially fixes #4889.
+  [iglocska]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [restClient] Do not override query body if url hasn't changed.
+  [mokaddem]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [Submodules] Bump Taxonomies and objects. [Raphaël Vinot]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [travis] Cleanup pymisp install. [Raphaël Vinot]
+- [pymisp] Bump it. [Raphaël Vinot]
+- [travis] Start workers. [Raphaël Vinot]
+- [travis] Delete the event created by curl test. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [feed-metadata] Panels Tracker feed added. [Alexandre Dulaunoy]
+- [PyMISP] Bump to full deprecation warnings. [Raphaël Vinot]
+- [genericPicker] Adapt fontAwesome namespace based on the icon.
+  [mokaddem]
+- [galaxy:view] Added missing titles and translation. [mokaddem]
+- Bumped queryversion. [mokaddem]
+- [eventGraph:search] Usage of chosen instead of bootstrap with non-
+  stripped label. [mokaddem]
+
+Fix
+~~~
+- [pymisp / querystring] versions bumped. [iglocska]
+- [enrichment] Getting objects description from the view. [chrisr3d]
+- [enrichment view] Passing description & template information about
+  objects. [chrisr3d]
+- [UI] enable buttons to add local galaxy clusters for host org users,
+  fixes #4925. [iglocska]
+- [local tags] Host org non admin users should be able to tag data owned
+  by others, partially fixes #4925. [iglocska]
+- [API] csv export incorrect handling of include context parameter if it
+  was pushed and set to 0. [iglocska]
+- [GalaxyCluster] relaxed the matching of cluster names to tags, fixes
+  #4154. [iglocska]
+- [enrichment] Encrypting attribute data if encrypt field is set.
+  [chrisr3d]
+- [webroot] Catching encrypt fields from the enrichment view. [chrisr3d]
+- [enrichment view] Keeping encrypt field in attributes. [chrisr3d]
+- [CSV] headerless flag fixed, fixes #2761. [iglocska]
+- [UI] Fix to the related tags not being shown in the UI due to a local
+  tag related exception. [iglocska]
+- [API] Exception on /sharingGroups/removeOrg fixed, fixes #4884.
+  [iglocska]
+- [stix import] Fixed observable id fetching. [chrisr3d]
+
+  - Avoid issues with observable composition ids
+- [API] /attriutes/index fixed for non admin users. [iglocska]
+- [sync] Fixed local tag sync filter events not being synced on a push
+  as expected. [iglocska]
+- [stix export] Fixed some code + using mapping dictionaries. [chrisr3d]
+
+  - Using another file for mapping dictionaries, as
+    we already do for all the other stix scripts
+- [stix export] Reordered import list for more clarity. [chrisr3d]
+
+  - Helps finding all the imports since their are in
+    alphabetical order, avoiding any miss of STIX or
+    Cybox object while adding/updating some
+- [API] Freetext import now correctly handles the response of non-
+  background processed tasks. [iglocska]
+- [rest client] Potential fix to the skip ssl validation flag not
+  working on wrong CN name. [iglocska]
+- [rest client] Potential fix to the SSL validation skip not working.
+  [iglocska]
+- [UI] tag style on the index now correctly adheres to the default if
+  not set. [iglocska]
+- [UI] tags in minimal view can throw notice errors on the event index.
+  [iglocska]
+- [UI] Notice errors when the local tag on a viewed tag is not set,
+  partially fixes #4938. [iglocska]
+- Error during creating and deleting Attributes on PostgreSQL. [Bechkalo
+  Evgeny]
+- MariaDB error for quoting tablename. [Bechkalo Evgeny]
+- Some PostgreSQL issues. [Bechkalo Evgeny]
+
+  Closes: #3066, #3067
+  Fixes issues:
+  - wrong boolean and smallint conversion;
+  - postgresql table and field naming (field 1_event_id is wrong name for
+  field for example);
+  - postgresql grouping (you cannot select columns without grouping them);
+  - wrong checkbox rendering without keyword.
+- [UI] notice errors thrown by tags in the event view. [iglocska]
+- [proposals] POST on shadow_attributes/edit/{attribute_id}
+  inconsistent, fixes #4857. [iglocska]
+- [API] taxonomy/addTag now correctly responds if queried via the API
+  instead of redirecting, fixes #4865. [iglocska]
+- [API] sightings/listSightings should also support JSON parameters,
+  fixes #4875. [iglocska]
+- [API] Organisation edit now also accepts UUID instead of ID via the
+  URL param, fixes #4896. [iglocska]
+- [API] Fixed an edge case when the attribute historgram throws a notice
+  error. [iglocska]
+
+  - no idea how to reproduce it, the organisation referenced in an event orgc_id not existing is a pre-condition
+
+  - fixes #4880
+- [API] Adding attributes via the freetext importer using the API
+  resulted in several issues. [iglocska]
+
+  - adhereToWarninglists was not correctly adhered to
+  - the response didn't reflect what was saved, only what was pushed to be saved (excluding removals by warnintlists, several attributes added by adding more than one valid type, etc)
+
+  fixes #4881
+- [sharing groups] Add sharing group returns a list instead of a sharing
+  group object, fixes #4882. [iglocska]
+- [API] Exception on POST sharingGroups/addOrg, fixes #4884. [iglocska]
+- [settings] Fixed the text for the block_old_event_alert_age setting,
+  fixes #4909. [iglocska]
+- [proposals] shadow_attributes/index default behavior modified to show
+  all proposals by default, fixes #4936. [iglocska]
+- [proposals] Fixed automatic setting of the category when adding
+  proposals, fixes #4868. [iglocska]
+- [API] Empty 'restricted to domains' returns string instead of array,
+  fixes #4928. [iglocska]
+- [UI] Rest client form validation disabled. [iglocska]
+
+  - it was trying to validate using the Server model validation rules, which is obviously incorrect
+- [UI] Tags were not shortened correctly on the event index since the
+  refactor, fixes #4932. [iglocska]
+- [servers] Adding a server now requires the name to be set, partially
+  fixes #4889. [iglocska]
+- [API] Server deletion now responds correctly via the API. [iglocska]
+- [security] Fix to stored XSS. [mokaddem]
+
+  - as reported by David Heise
+- Removed unnecessary uuid rewriting in objects. [chrisr3d]
+
+  - uuid is defined when the object is created
+- Fixed direction of the relationship between files, PEs and their
+  sections. [chrisr3d]
+
+  - The file object includes a PE, and the PE
+    includes sections, not the other way round
+  - Backward compatibility with the events created
+    with 'included-in' at the relationship_type
+    between those objects
+- Views invalid marker content fixed (#4820) [Steve Clement]
+
+  fix: Views invalid marker content fixed
+- Views invalid marker content fixed. [4ekin]
+
+  Views fixed to avoid errors during POT file generating:
+
+  Invalid marker content in
+  /var/www/MISP/app/View/Elements/Events/View/related_event.ctp:23
+  * __(
+  sprintf('This related event contains %s unique
+  correlation(s)',h($relatedEventCorrelationCount[$related['id']])))
+
+  Invalid marker content in
+  /var/www/MISP/app/View/Elements/Objects/object_similarities.ctp:102
+  * __(
+  Inflector::humanize($field))
+
+  Invalid marker content in
+  /var/www/MISP/app/View/Elements/Objects/object_similarities.ctp:108
+  * __(
+  Inflector::humanize($field))
+
+  Invalid marker content in
+  /var/www/MISP/app/View/Elements/Objects/object_similarities.ctp:126
+  * __(
+  Inflector::humanize($field))
+
+  Invalid marker content in
+  /var/www/MISP/app/View/Elements/Objects/object_similarities.ctp:132
+  * __(
+  Inflector::humanize($field))
+- Load Galaxy mappings for misp2stix2 seperately from Objects. [Tom
+  King]
+- [travis] STIX modules. [Raphaël Vinot]
+- [travis] resque stuff. [Raphaël Vinot]
+- [travis] Fix composer things. [Raphaël Vinot]
+- [Travis] Update the installation. [Raphaël Vinot]
+- [travis] Installation (redis & co) [Raphaël Vinot]
+- [event:view] Ensure sync users do not get local tags through ajax.
+  [mokaddem]
+- [tag_collection:index] Download configuration button is back.
+  [mokaddem]
+- [massageTag] Fallback on global tag if local parameter not set.
+  [mokaddem]
+
+  (Tag collections tags do not contain a local parameter)
+- [tag_collection:index] Admin no longer have access to local tag if
+  they are disabled. [mokaddem]
+- [tag_collection:index] Correctly assign `isAclTagger` [mokaddem]
+- [tagCollection:view] Do not show `add LOCAL galaxy` button anymore.
+  [mokaddem]
+- [tag:local] Allow users (with correct authorization) to detach tags.
+  [mokaddem]
+- Typo when the validation fails on an object. [Raphaël Vinot]
+
+  Fix #4903
+- [Taxnomy:updateTag] Do not throw an error if taxonomy does not contain
+  a numerical value. [mokaddem]
+- [taxonomy:update] numerical_value gets updated correctly. [mokaddem]
+- [travis] Remove legacy tests. [Raphaël Vinot]
+- [kali] Kali was not in the support map (#4887) [Steve Clement]
+
+  fix: [kali] Kali was not in the support map
+- [kali] Kali was not in the support map. [Steve Clement]
+- [galaxy:view] Adapt fontAwesome namespace based on the icon.
+  [mokaddem]
+- [CLI] Response after a CLI pull threw notice error. [Andras Iklody]
+
+  Proposal pull now returns int instead of a list of proposals, meaning that count($data) was trying to count an int.
+- [debug] Remove debug call. [Raphaël Vinot]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4951 from JakubOnderka/patch-2. [Andras Iklody]
+
+  chg: Use faster algorithm for Warninglist::__ipv6InCidr
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #4949 from JakubOnderka/patch-1. [Andras Iklody]
+
+  chg: More efficient Warninglist::__evalCIDR
+- Merge pull request #4947 from chrisr3d/2.4. [Andras Iklody]
+
+  New attribute type 'weakness'
+- Add: [View] Added link to the defined CWE url for weakness attributes.
+  [chrisr3d]
+- Add: [Config] Added CWE url for the new attribute type. [chrisr3d]
+- Add: [Model] New attribute type weakness. [chrisr3d]
+
+  - Describing links linking to the provided CWE lookup
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Add: [stix import] Importing user account object. [chrisr3d]
+
+  - Suppoting UnixUserAccount, UserAccount and
+    WindowsUserAccount objects
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: [stix framing] Added the latest supported objects to the STIX
+  header namespaces. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Add: [stix export] Exporting user-account objects. [chrisr3d]
+- Revert "fix: [rest client] Potential fix to the SSL validation skip
+  not working" [iglocska]
+
+  This reverts commit 293871cee85522a9bb83fa91ea1ca1017924230b.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4939 from 8ear/patch-3. [Andras Iklody]
+
+  Update MYSQL.sql
+- Update MYSQL.sql. [Max H]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4927 from 4ekin/fix-postgresql-issues. [Andras
+  Iklody]
+
+  fix: some PostgreSQL issues
+- Slightly modified logroate config which rotates all logs in MIS…
+  (#4924) [Steve Clement]
+
+  slightly modified logroate config which rotates all logs in MISP/app/…
+- Update misp.logrotate. [Steve Clement]
+- Update misp.logrotate. [Steve Clement]
+- Slightly modified logroate config which rotates all logs in
+  MISP/app/tmp/logs when they reach a 50MB limit, with maximum log size
+  set to 500M. rotation is checked every hour. [michael]
+- Merge branch 'tomking2-bug/misp2stix2_galaxies' into 2.4. [chrisr3d]
+- Merge branch 'bug/misp2stix2_galaxies' of
+  git://github.com/tomking2/MISP into tomking2-bug/misp2stix2_galaxies.
+  [chrisr3d]
+- Merge pull request #4919 from MISP/travis_foo. [Raphaël Vinot]
+
+  Fix travis.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #4915 from MISP/localtag-fixes. [Sami Mokaddem]
+
+  Various fixes
+- Merge pull request #4904 from MISP/fix_4903. [Andras Iklody]
+
+  fix: Typo when the validation fails on an object
+- Merge pull request #4893 from RichieB2B/ncsc-nl/fix-nidsexport.
+  [Andras Iklody]
+
+  Fix errors on NIDS export when whitelist is empty
+- Fix errors on NIDS export when whitelist is empty. [Richard van den
+  Berg]
+- Merge pull request #4894 from RichieB2B/ncsc-nl/fix-canpush-error.
+  [Andras Iklody]
+
+  Make error clearer when canPush bit is missing
+- Make error clearer when canpush bit is missing. [Richard van den Berg]
+- Merge pull request #4878 from RichieB2B/ncsc-nl/fix-destroy. [Andras
+  Iklody]
+
+  Fix session_destroy errors
+- Destroy the CakeSession, not the php one. Fixes #4808. [Richard van
+  den Berg]
+- Merge pull request #4877 from tom564/patch-2. [Alexandre Dulaunoy]
+
+  Allow SSL verification to be disabled with config
+- Allow SSL verification to be disabled with config. [tom564]
+
+  Allow SSL verification to be disabled with config. If I understand this right this will need to be scheduled with a cronjob if the expiration framework is wanted?
+
+
 v2.4.111 (2019-07-14)
 ---------------------
 
