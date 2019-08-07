@@ -42,5 +42,6 @@ If you have any issues with MISP core software, [the issue tracking of MISP](htt
 If the issue is related to [one of the MISP software or data models](https://github.com/MISP/), please open an issue in the respective issue tracker of the GitHub repository.
 
 You are also welcome on the MISP gitter chats:
-* [MISP/Support](https://gitter.im/MISP/Support) where community support is provided.
 * [MISP/MISP](https://gitter.im/MISP/MISP) where development is discussed.
+* [MISP/Support](https://gitter.im/MISP/Support) where community support is provided.
+* [MISP/Sharing](https://gitter.im/MISP/Sharing) for general information sharing topics
