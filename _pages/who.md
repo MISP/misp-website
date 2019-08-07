@@ -10,7 +10,7 @@ toc: true
 The core team behind the MISP project is composed of motivated people who think that information sharing can be improved and supported by creating
 practical open source tools, open format and practises. The current team is composed of:
 
-* David Andre
+* David Andre [@elhoim](https://twitter.com/elhoim)
 * Steve Clement [@SteveClement](https://twitter.com/SteveClement)
 * Andrzej Dereszowski [@deresz666](https://twitter.com/deresz666)
 * Alexandre Dulaunoy [@adulau](https://twitter.com/adulau)
