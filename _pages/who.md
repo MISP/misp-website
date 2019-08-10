@@ -10,18 +10,18 @@ toc: true
 The core team behind the MISP project is composed of motivated people who think that information sharing can be improved and supported by creating
 practical open source tools, open format and practises. The current team is composed of:
 
-* David Andre
-* Steve Clement [@SteveClement](https://twitter.com/SteveClement)
-* Andrzej Dereszowski [@deresz666](https://twitter.com/deresz666)
 * Alexandre Dulaunoy [@adulau](https://twitter.com/adulau)
 * Andras Iklody [@Iglocska](https://twitter.com/Iglocska)
-* Sami Mokaddem [@mokaddem_sami](https://twitter.com/mokaddem_sami)
-* Sascha Rommelfangen [@rommelfs](https://twitter.com/rommelfs)
-* Deborah Servili [@deltalimasierra](https://twitter.com/deltalimasierra)
+* Andrzej Dereszowski [@deresz666](https://twitter.com/deresz666)
 * Christian Studer [@chrisred_68](https://twitter.com/chrisred_68)
 * Christophe Vandeplas [@cvandeplas](https://twitter.com/cvandeplas)
-* Raphaël Vinot [@rafi0t](https://twitter.com/rafi0t)
+* David Andre [@elhoim](https://twitter.com/elhoim)
+* Deborah Servili [@deltalimasierra](https://twitter.com/deltalimasierra)
 * Gerard Wagener
+* Raphaël Vinot [@rafi0t](https://twitter.com/rafi0t)
+* Sami Mokaddem [@mokaddem_sami](https://twitter.com/mokaddem_sami)
+* Sascha Rommelfangen [@rommelfs](https://twitter.com/rommelfs)
+* Steve Clement [@SteveClement](https://twitter.com/SteveClement)
 
 and many [contributors](/contributors)! Join us!
 
