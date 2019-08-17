@@ -2,12 +2,322 @@ Changelog
 =========
 
 
-%%version%% (unreleased)
-------------------------
+v2.4.113 (2019-08-16)
+---------------------
+
+New
+~~~
+- [API] get a single server setting via
+  /servers/getSetting/[setting_name], fixes #4964. [iglocska]
+- [API] Allow posting freetext data for ingestion via the event uuid
+  instead of ID, fixes #4995. [iglocska]
+- [internal / API] new component added to handle repeatable code across
+  all controllers (toolbox controller) [iglocska]
+
+  - added UUID -> ID lookup function and integrated it across several functions
+  - fixes #4990
+  - fixes #4999
+  - fixes #4993
+  - fixes #4991
+  - fixes #4989
+  - fixes #4987
+- [session handling] Session handling fixes. [iglocska]
+
+  - changed the cookie name to MISP-[MISP.uuid] to rely on a unique data-point instead of the URL. This solves issues with multiple MISPs running on the same host via port based virtualhosts sharing sessions
+  - timeout issues potentially fixed when using the recommended PHP session handler. If the garbage collection is configured in php.ini it could previously purge sessions that based on the session timeout should still be valid
+- [sync] Added a protection from receiving empty published events from
+  other instances. [iglocska]
+
+  - a temporary solution to some older, bugged instances emitting them
+- [debug] Added an on-demand sync debug to assist some debug sessions.
+  [iglocska]
+
+  - very primitives, simply concatenates events to be pushed into a file
+- Reminder to run gen_misp_types_categories when model changes.
+  [Christophe Vandeplas]
+- [API] Attribute add rework - WIP. [iglocska]
+
+  - handle attribute creation in a unified manner via captureAttributes
+- [internal] Default field list added for attributes. [iglocska]
+
+  - let's try to standardised on things we output instead of doing it manually. It's a first step
 
 Changes
 ~~~~~~~
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [Travis] Use default python3 version on the image (3.6+), fix perms
+  on. [Raphaël Vinot]
+- [Travis] Set strict mode on MariaDB. [Raphaël Vinot]
+- [Travis] Initial fix. [Raphaël Vinot]
+- Show sharing groups' uuids. [Pierre-Jean Grenier]
+- Delete an object by its uuid, similar syntax to attribute's deletion.
+  [Pierre-Jean Grenier]
+- [stix test] Updated STIX1 test files with the updated MISP event files
+  export results. [chrisr3d]
+- [stix test] Updated MISP event test files with the latest objects
+  supported. [chrisr3d]
+- [logging] Truncate description lengths that would be longer than what
+  the DB can store with the default setup. [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [stix export] Change on leveraged ttp at incident level. [chrisr3d]
+
+  - No longer referencing ttps created out of MISP
+    objects as leveraged ttps at incident level
+  - Making sure all ttps, course of actions, threat
+    actors and so on created from MISP galaxies are
+    referenced at incident level
+- [stix export] Handling vulnerability attributes the same way as
+  objects. [chrisr3d]
+
+  - Fixing at the same time some references (with
+    vulnerability objects related to vulnerability
+    attributes) that were lost
+- Modules can now pre-check a checkbox from userConfig. [Pierre-Jean
+  Grenier]
+- [warning-list] Filter CIDR warning list before eval. [Jakub Onderka]
+- [stix export] Keeping references between ttps. [chrisr3d]
+
+  - Keeping references between ttps coming from MISP
+    objects that have references between each others
+- [indentation] small fix. [iglocska]
+- [PyMISP] Bump repo. [Raphaël Vinot]
+- [CLI] server shell -> push now allows passing the event ID to push.
+  [iglocska]
+
+  - also, changed tabs to spaces
+- Bump pymisp. [Raphaël Vinot]
+- [pymisp] enable more tests. [Raphaël Vinot]
+- [internal] Potential fix for a race condition generating orphaned
+  attributes, fixes #4886. [iglocska]
+
+  - This fix will avoid issues where the delay is introduced by the deferred start of the execution via the background workers
+  - deleting an event whilst data is being actively added will still not be interrupted
+- [stix2 export] Exporting labels with the Attack Pattern object.
+  [chrisr3d]
+- Bump PyMISP. [Raphaël Vinot]
+- [types] email-subject added as a valid type for network activity.
+  [iglocska]
+
+  - used to describe outgoing e-mail subjects for exfiltration. Perhaps consider adding a new category for exfiltration altogether.
 - Bump Pymisp again. [Raphaël Vinot]
+- [API] servers/serverSettingsEdit now accepts the force parameter in a
+  posted JSON object. [iglocska]
+
+Fix
+~~~
+- [PyMISP] Bump, missing change. [Raphaël Vinot]
+- [internal] Feed lookup by UUID removed as feeds don't actually have
+  UUIDs, fixes #4998. [iglocska]
+- [ToolboxComponent] fixed model name lookup by moving to Model->alias
+  over Model->name, fixes #5003. [iglocska]
+- [internal] Breaking bug with the feed edit fixed. [iglocska]
+- [API] invalid object reference fixed in objects/view, fixes #5003.
+  [iglocska]
+
+  - the Copy Pasta God(tm) strikes again
+- [API] get organisation by uuid for sightings/listSightings, fixes
+  #4992. [iglocska]
+- [API] Misp object delete's uuid lookup fixed. [iglocska]
+- [API] removed testing exception. [iglocska]
+- [API] Swapped error messages' content from "don't" to "do not" to
+  avoid weird sanitisation artifacts coming from the exception handler.
+  [iglocska]
+- [API] error message. [iglocska]
+- [API] Attribute edit fixed. [iglocska]
+- Fix error messages. [Pierre-Jean Grenier]
+- [API] /galaxies/view by uuid added, fixes #4993. [iglocska]
+- [API] sightings restSearch now accepts uuids as org_id, fixes #4992.
+  [iglocska]
+- [API] Delete sightings by UUID, fixes #4987. [iglocska]
+- [API] /objects/view should accept UUID as a parameter instead of just
+  ID, fixes #4991. [iglocska]
+- [API] Delete organisations by UUID, fixes #4989. [iglocska]
+- [API] Access event proposals by uuid via
+  shadow_attributes/index/[uuid], fixes #4988. [iglocska]
+- [API] Adding an event without the info field set should never work,
+  fixes #4984. [iglocska]
+- [sharing groups] Fix the behaviour of roaming mode sharing groups,
+  fixes #4983. [iglocska]
+
+  - creating sharing groups without roaming mode and without any sharing group servers should automatically add the own server
+  - adapt the new roaming mode behaviour from a few months ago on push: No explicit roaming mode set means no push, even if no servers are added
+- [Sharing groups] Various fixes to align the reported local instance
+  URL as the external_baseurl if set, as opposed to always using the
+  baseurl, fixes #4982. [iglocska]
+- [stix export] Dealing with course of action and threat actor objects
+  the same way as for ttps. [chrisr3d]
+- [sync] Sync object builder tool fixed. [iglocska]
+
+  - was picking the wrong org as the owner of the remote side
+- [warning-list] Split value just if type is malware-sample or contains
+  `|` char. [Jakub Onderka]
+- [stix export] No longer referencing all ttps from galaxies for each
+  indicator. [chrisr3d]
+
+  - Will save it later for galaxies at attribute level
+- [stix export] Dealing with threat actors from attributes. [chrisr3d]
+
+  - Using the recently added functions
+- [API] /events/delete now accepts UUID as parameter. [iglocska]
+- [stix export] Reusing uuid variable already defined. [chrisr3d]
+- [sessions] Several minor fixes to the session handling. [iglocska]
+
+  - cookieTimeout setting fixed
+  - moved the session massaging into a separate function
+  - added some translation calls for some of the setting errors involved
+- [sync] Fixed an invalid massaging of object attributes before a sync.
+  [iglocska]
+
+  - on a push, object attributes were not correctly filtered out based on distribution settings
+- [enrichment] Handling correctly comments at objects level. [chrisr3d]
+
+  - Objects level comments were displayed but not
+    handled at the end, they are now displayed,
+    users can modify them as comments at attributes
+    level, and they are handled then with the saved
+    results
+- [stix export] STIX objects id standardization. [chrisr3d]
+- [internal] Double lookup during the pull resolved. [iglocska]
+- [tools] Fixes gen types categories script. [Christophe Vandeplas]
+- [stix export] Replaced try statements with if conditions for more
+  readability. [chrisr3d]
+
+  - It is better we are aware something fails
+    unexpectedly instead of being caught by a try
+    catch statement
+- [stix export] Dictionary name typo. [chrisr3d]
+- [stix export] Better tags handling. [chrisr3d]
+
+  - Avoid passing event level tags everywhere
+  - Using class variable for the tlp markings
+- [stix export] Avoiding creation of some objects before we are sure
+  they will be used. [chrisr3d]
+- [API] /servers/restartWorkers response fixed for API users, fixes
+  #4966. [iglocska]
+- [API] Further fixes to /attributes/add. [iglocska]
+- [API] Fixes to the new attribute add. [iglocska]
+- [API] fixed an incorrect fix to the object references add function
+  from earlier today, fixes #4866. [iglocska]
+- [API] Posting on taxonomies/update returns an exception if taxonomies
+  have no numerical_value set, fixes #4899. [iglocska]
+- [API] the returned data when adding object references doesn't include
+  the object_uuid, fixes #4866. [iglocska]
+- [UI] Empty objects threw a notice on the event view. [iglocska]
+- [API] Consistency in returned attribute fields when modifying it.
+  [iglocska]
+- [UI] tag index invalid tag name copy fixed. [iglocska]
+- [API] Object edit clusterfudge fixed. [iglocska]
+- [objects] Fix various issues with objects/edit. [iglocska]
+
+  - value1 and value2 should not be included in the repsonse, fixes #4944
+  - fixed input being misunderstood in certain situations
+- [UI] Handle settings being removed from config.php more gracefully in
+  the UI. [iglocska]
+- [UI] Row description in View Warninglists. [Jakub Onderka]
+- [PyMISP] Test cases are working again. [Raphaël Vinot]
+- [UI] Event index tag display default setting fixed. [iglocska]
+
+  - Resolving the fix that really wasn't...
+- [internal] testBoolFalse logic error fixed. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Revert "chg: [warning-list] Filter CIDR warning list before eval"
+  [iglocska]
+
+  This reverts commit 20632d5e1027d2a6dfc66639ac384e5761988e18.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5001 from zaphodef/feature/uuid_sharing_group.
+  [Andras Iklody]
+
+  chg: Show sharing groups' uuids
+- Revert "Revert "fix: Fix error messages"" [iglocska]
+
+  This reverts commit a12ea04a4caab6be2593d13ead56187b775e336d.
+- Revert "fix: Fix error messages" [iglocska]
+
+  This reverts commit d501c56e5fec7f69aa0a17a3bb0c8a0cf97b4e69.
+- Merge pull request #5000 from zaphodef/bad_permissions. [Andras
+  Iklody]
+
+  fix: Fix error messages
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4986 from zaphodef/delete_object_by_uuid. [Andras
+  Iklody]
+
+  chg: delete an object by its uuid, similar syntax to attribute's dele…
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4980 from JakubOnderka/patch-6. [Alexandre
+  Dulaunoy]
+
+  [fix] Remove double `:`
+- [fix] Remove double `:` [Jakub Onderka]
+- Merge pull request #4981 from StefanKelm/2.4. [Alexandre Dulaunoy]
+
+  Replace http with https
+- Replace http with https. [StefanKelm]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Add: [stix export] Updated STIX header with the course of action
+  header. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Add: [stix export] Exporting course-of-action objects. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4971 from JakubOnderka/patch-5. [Andras Iklody]
+
+  fix: [warning-list] Split value just if type is malware-sample or contains `|` char
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Add: [stix export] Mapping some galaxies to STIX objects. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4972 from zaphodef/import_module. [Andras Iklody]
+
+  chg: modules can now pre-check a checkbox from userConfig
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #4965 from JakubOnderka/patch-4. [Andras Iklody]
+
+  chg: [warning-list] Filter CIDR warning list before eval
+- Merge pull request #4969 from obert01/fix-matrix-accessibility.
+  [Andras Iklody]
+
+  Improved the accessibility of the galaxy matrix view.
+- Improved the accessibility of the galaxy matrix view for screen
+  readers. The table elements are now focusable, and only a short text
+  is brailled/spoken by default. [Olivier BERT]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Add: [stix export] Exporting attack-pattern, vulnerability & weakness
+  objects. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge branch 'feature/attribute_add_rework' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Add: [stix2 export] Exporting Attack Pattern objects. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #4955 from JakubOnderka/patch-3. [Andras Iklody]
+
+  fix: [UI] Row description in View Warninglists
 
 
 v2.4.112 (2019-08-02)
