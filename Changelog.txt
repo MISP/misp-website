@@ -2,6 +2,380 @@ Changelog
 =========
 
 
+v2.4.114 (2019-08-30)
+---------------------
+
+New
+~~~
+- [API] Added event delegations to the list of API enabled functions.
+  [iglocska]
+
+  - last minute feature creep
+- [requestAccess] Made the requestAccess endpoint more API friendly and
+  some UI improvements. [iglocska]
+
+  - better handling of empty parameters
+  - added the mock functionality to both API and UI, this will generate the e-mail to be sent and return it with no actual sending happening
+  - defaulting to mock if emailing is disabled
+  - fixed some minor bugs
+- [communities] Added version and did some cleanup on the e-mail sent in
+  a request. [iglocska]
+- [communities] Descriptions added to the request form along with the
+  anonymise checkbox. [iglocska]
+- [communities] Include information about the server used to issue the
+  request. [iglocska]
+- [community] Added the first revision of the community metadata.
+  [iglocska]
+- [communities] Added support for requesting access for known
+  communities. [iglocska]
+
+  - site admins can list the misp-project maintained community list
+  - request access to any of the communities
+- [Internal] Index generator refactor. [iglocska]
+
+  - loads of new features added
+  - bunch of helpers updated
+  - mainly a back/forward port from the frozen feed-rework branch with some custom changes
+- [delegations] Added delegation index, fixes #5023. [iglocska]
+
+  /event_delegations/index
+
+  accepts context as a parameter with the following possible values:
+  - pending: all delegations awaiting my organisation's review (default)
+  - issued: all delegations issued by my organisation
+
+  parameters can be passed via key:value parameters or via json objects
+- [diagnostics] Added SQL table size tool. [iglocska]
+
+  - along with various other small fixes
+  - increased recommended memory size additionally
+
+Changes
+~~~~~~~
+- [VERSION] bump. [iglocska]
+- [PyMISP] Bump for release, take 2. [Raphaël Vinot]
+- [PyMISP] Bump for release. [Raphaël Vinot]
+- Enable debug. [Raphaël Vinot]
+- [PyMISP] Bump for Communities. [Raphaël Vinot]
+- [misp-objects] relationships updated. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [feed] Name variables after explore in Feed::attachFeedCorrelations.
+  [Jakub Onderka]
+- [feed] Compute Redis cache key prefix just once. [Jakub Onderka]
+- [feed] Fetch sources just when there is correlation. [Jakub Onderka]
+- [feed] Compute composite types just once. [Jakub Onderka]
+- [communities] Change keys (name, uuid, type) [Raphaël Vinot]
+- [field rename] Renamed all community fields with redundancy to
+  something more simple (community_uuid -> uuid, etc) [iglocska]
+- [PyMISP] Bump for communities. [Raphaël Vinot]
+- [restresponse] Added tooltips to the translatable strings, added
+  communities/requestAccess. [iglocska]
+- [API] communities/requestAccess made more API friendly. [iglocska]
+
+  - defaults set automatically if not set
+  - tied into self-describe API on GET
+  - fixed the attached PGP key to be the one supplied if it deviates from the user's key
+- [cleanup] empty lines removed. [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- No need to encapsulate data in API request. [Pierre-Jean Grenier]
+- [PyMISP] Bump tests for Travis. [Raphaël Vinot]
+- [ACL] Added new community functions to the ACL component. [iglocska]
+- [travis] PyMISP bump. [Raphaël Vinot]
+- [PyMISP] Bump tests for Travis. [Raphaël Vinot]
+- [Tests] Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- Delegate to org by UUID. [Pierre-Jean Grenier]
+- [doc] MISP works on the latest 18.04.3 ISO, just sayin' (#5051) [Steve
+  Clement]
+
+  chg: [doc] MISP works on the latest 18.04.3 ISO, just sayin'
+- [doc] MISP works on the latest 18.04.3 ISO, just sayin' [Steve
+  Clement]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [tools] Updated installer to consider the memory_limit change. [Steve
+  Clement]
+- [doc] Updated: memory_limit=512M -> memory_limit=2048M (#5038) [Steve
+  Clement]
+
+  chg: [doc] Updated: memory_limit=512M -> memory_limit=2048M
+- [doc] Updated: memory_limit=512M -> memory_limit=2048M. [Steve
+  Clement]
+- [doc] Updated composer hash (#5037) [Steve Clement]
+
+  chg: [doc] Updated composer hash
+- [doc] Updated composer hash. [Steve Clement]
+- [updateProgress] Added sidebar (and sidebar link) [mokaddem]
+- Show descriptions in import modules. [Pierre-Jean Grenier]
+- /events/contact/{event_id} can now be properly called from API.
+  [Pierre-Jean Grenier]
+- [warning-list] Use different algorithm for IPv4 CIDR comparsion.
+  [Jakub Onderka]
+- [warning-list] Filter CIDR warning list before eval. [Jakub Onderka]
+- Setting the 'Tag' key when editing a tag through API is not mandatory
+  (consistency) [Pierre-Jean Grenier]
+- [PyMISP] Bump, changes with sightings. [Raphaël Vinot]
+- [warninglist] Do not check twice if key in cache exists. [Jakub
+  Onderka]
+- [cache] Do not check if class exists when cache is already connected.
+  [Jakub Onderka]
+- Return the sighting when adding one through REST API. [Pierre-Jean
+  Grenier]
+- [UI] Some more username helper changes. [iglocska]
+- [UI] Small change to the user name helper. [iglocska]
+- [PyMISP] Bump tests for Travis. [Raphaël Vinot]
+- Do not log ForbiddenException by default. [Jakub Onderka]
+
+  This exception is thrown when not logged access `users/checkIfLoggedIn.json`
+
+Fix
+~~~
+- [API] Messages fixed for event delegations. [iglocska]
+- [API] event delegation inverted invalid IF branch. [iglocska]
+- [internal] return true from the external email sender if no mocking is
+  happening instead of the full email. [iglocska]
+- [API] Set gpgkey to '' instead of array() if user has no pgp key set.
+  [iglocska]
+- [feed] Remove unused variables. [Jakub Onderka]
+- [ui] Missing space and dot at export page. [Jakub Onderka]
+- [invalid link] fixed. [iglocska]
+- [API] Added gpgkey as a valid parameter for requestAccess in the API
+  description. [iglocska]
+- [UI] Fixed the annoying link underlines under action buttons.
+  [iglocska]
+- More issues with PostgreSQL. [Bechkalo Evgeny]
+
+  - fixed error during update Job date_modified field (SQLSTATE[22008]:
+  Datetime field overflow: 7 ERROR:  date/time field value out of range)
+  - fixed error during fetching events while updating from feeds (
+  SQLSTATE[42P01]: Undefined table: 7 ERROR: missing FROM-clause entry for
+  table events)
+  - fixed Feed edit view with wrong boolean forms (combobox instead
+  checkbox)
+- [invalid url] fixed. [iglocska]
+- [communtiies] Added correct responses to the community request
+  interface. [iglocska]
+- [menu] Added community index to the top menu. [iglocska]
+- SQL-error during obtaining dbSpaceUsage. [Bechkalo Evgeny]
+
+  Fixed SQL-error in PostgreSQL for viewing Diagnostics Page
+  Added check for datasource, added PostgreSQL handling (without
+  reclaimable memory).
+- Contact reporter via API. [Pierre-Jean Grenier]
+- [ui] Show proper error message for ForbiddenException again. [Jakub
+  Onderka]
+- [appController] Fixed updateProgress redirection link. Fix #5068.
+  [mokaddem]
+- [cleanup] removed unused functions. [iglocska]
+- [API] Fixed output of the attribute histogram. [iglocska]
+
+  - no more STIX-ish barf inducing numeric string keys for dictionaries
+- Fix 'contain' param in app/Model/Attribute.php:fetchAttributes()
+  [Pierre-Jean Grenier]
+
+  When we specified eg. 'contain': array('Event'), the merge done by the function was incorrect, and only kept more restrictive stuff,
+  while we wanted to get all the keys related to the Event.
+- Default to 0 when no distribution is specified. [Pierre-Jean Grenier]
+
+  The current behavior conducted to set distribution to -1 in the returned json, and raise an 'Undefined index' notice
+- [ACL] allow users to see delegations. [iglocska]
+- [contact reporter] Rules somewhat relaxed. [iglocska]
+- [UI] Correct class name in View/Elements/Feeds/View/row_attribute.ctp.
+  [Jakub Onderka]
+- [feed] Preview feed event don't have id. [Jakub Onderka]
+- [feed] Prevent MITM for feeds that support HTTPS. [Jakub Onderka]
+- [ui] Link to REST client at Automation page. [Jakub Onderka]
+- [UI] Info message should not be error. [Jakub Onderka]
+- [contact reporter] Various fixes, fixes #5040. [iglocska]
+
+  - don't offer contacting a reporter of an event that doesn't have users on the platform
+  - fixes to various bugs that broke this feature in the first place
+  - Massive potential performance blocker removed from contacting individual reporters
+- [UI] Multi select on the event index fixed, fixes #5047. [iglocska]
+- [UI] Multi select and deletion of events fixed, #5046. [iglocska]
+- [Tags] Correctly records `numerical_value` when enabling a taxonomy
+  for the first time. [mokaddem]
+- [ui] Show proper error message for ForbiddenException. [Jakub Onderka]
+- [object:merge] Fix #5041, Duplicated value gets unique UUID and
+  relaxed javascript equality check. [mokaddem]
+- [updateProgress] Usage of correct FontAwesome class. [mokaddem]
+- [sightings] Remove unused method. [Jakub Onderka]
+- [organisations] Trim the domain restrictions both on load and on save,
+  fixes #5034. [iglocska]
+- [admin] Invalid domain restriction check for site admins, fixes #5035.
+  [iglocska]
+- Fix messages when we try to delete an attribute. [Pierre-Jean Grenier]
+- [API] Made delegateEvent API friendly, fixes #5026. [iglocska]
+- [API] delegate events by UUID, fixes #5024. [iglocska]
+- Replace not exists MethodNotFoundException with NotFoundException.
+  [Jakub Onderka]
+- [tests] Some changes were not commited. [Raphaël Vinot]
+- [UI] Fixed tag buttons not being in-line on the event view's attribute
+  list. [iglocska]
+- [warninglist] Entries cache is properly deleted. [Jakub Onderka]
+- Import modules using 'misp_standard' format can be called via REST
+  API. [Pierre-Jean Grenier]
+- [ACL] Fixed read only users not being able to list the sightings,
+  fixes #5022. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5017 from JakubOnderka/feed-optimisations. [Andras
+  Iklody]
+
+  Feed correlations optimisations
+- Merge pull request #5044 from JakubOnderka/patch-9. [Andras Iklody]
+
+  fix: [ui] Missing space and dot at export page
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5083 from 4ekin/fix-postgresql-issues. [Andras
+  Iklody]
+
+  fix: more issues with PostgreSQL
+- Merge pull request #5081 from StefanKelm/2.4. [Andras Iklody]
+
+  Update index.ctp
+- Update index.ctp. [StefanKelm]
+
+  Tiny typos
+- Merge branch 'feature/communities' into 2.4. [iglocska]
+- Merge branch '2.4' into feature/communities. [iglocska]
+- Merge pull request #5072 from 4ekin/fix-postgresql-issues. [Andras
+  Iklody]
+
+  fix: SQL-error during obtaining dbSpaceUsage
+- Merge pull request #5079 from zaphodef/fix/contact_event_api. [Andras
+  Iklody]
+
+  fix: contact reporter via API
+- Merge pull request #5073 from JakubOnderka/patch-16. [Andras Iklody]
+
+  fix: [ui] Show proper error message for ForbiddenException again
+- Merge pull request #5066 from zaphodef/feature/encapsulation_api.
+  [Andras Iklody]
+
+  chg: No need to encapsulate data in API request
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge pull request #5063 from zaphodef/fix/contain_fetchAttributes.
+  [Andras Iklody]
+
+  fix: Fix 'contain' param in app/Model/Attribute.php:fetchAttributes()
+- Merge pull request #5062 from zaphodef/fix/undefined_distribution.
+  [Andras Iklody]
+
+  fix: Default to 0 when no distribution is specified
+- Chd: [travis] Check date. [Raphaël Vinot]
+- Merge pull request #5061 from
+  zaphodef/feature/delegate_to_org_by_uuid. [Andras Iklody]
+
+  chg: Delegate to org by UUID
+- Merge pull request #5059 from tk-hendrik/2.4_small_cssfix. [Andras
+  Iklody]
+
+  attributeTagContainer wrapping
+- AttributeTagContainer wrapping. [Hendrik]
+
+  This change ensures that the attribute table won't explode in width if
+  one uses more tags on an attribute.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5054 from JakubOnderka/patch-15. [Andras Iklody]
+
+  fix: [UI] Correct class name in View/Elements/Feeds/View/row_attribute.ctp
+- Merge pull request #5053 from JakubOnderka/patch-14. [Andras Iklody]
+
+  fix: [feed] Preview feed event don't have id
+- Merge pull request #5050 from JakubOnderka/patch-13. [Alexandre
+  Dulaunoy]
+
+  fix: [feed] Prevent MITM for feeds that support HTTPS
+- Merge pull request #5048 from JakubOnderka/patch-11. [Alexandre
+  Dulaunoy]
+
+  fix: [ui] Link to REST client at Automation page
+- Merge pull request #5049 from JakubOnderka/patch-12. [Alexandre
+  Dulaunoy]
+
+  fix: [UI] Info message should not be error
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5043 from JakubOnderka/patch-8. [Andras Iklody]
+
+  fix: [ui] Show proper error message for ForbiddenException
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #5042 from StefanKelm/2.4. [Andras Iklody]
+
+  Tiny typos
+- Update default.pot. [StefanKelm]
+
+  tiny typo
+- Update add.ctp. [StefanKelm]
+
+  tiny typo
+- Merge pull request #5039 from SteveClement/tools. [Steve Clement]
+
+  chg: [tools] Updated installer to consider the memory_limit change
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5005 from JakubOnderka/remove-toplist. [Andras
+  Iklody]
+
+  fix: [sightings] Remove unused method
+- Merge pull request #5033 from
+  zaphodef/feature/import_module_description. [Andras Iklody]
+
+  chg: Show descriptions in import modules
+- Wrap description in a h() [Pierre-Jean Grenier]
+- Merge pull request #5036 from zaphodef/feature/events_contact_api.
+  [Andras Iklody]
+
+  chg: /events/contact/{event_id} can now be properly called from API
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5014 from JakubOnderka/filter-cidr. [Andras
+  Iklody]
+
+  Much faster IPv4 warninglists
+- Merge pull request #5031 from zaphodef/feature/tag_edit_json. [Andras
+  Iklody]
+
+  chg: Setting the 'Tag' key when editing a tag through API is not mand…
+- Merge pull request #5030 from
+  zaphodef/feature/delete_attribute_messages. [Andras Iklody]
+
+  duh, fix a typo
+- Duh, fix a typo. [Pierre-Jean Grenier]
+- Merge pull request #5029 from
+  zaphodef/feature/delete_attribute_messages. [Andras Iklody]
+
+  fix: Fix messages when we try to delete an attribute
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5006 from JakubOnderka/not-found-exception.
+  [Andras Iklody]
+
+  fix: Replace not exists MethodNotFoundException with NotFoundException
+- Merge pull request #5015 from JakubOnderka/redis-optimisations.
+  [Andras Iklody]
+
+  Redis optimisations
+- Merge pull request #5021 from
+  zaphodef/feature/return_sighting_add_rest. [Andras Iklody]
+
+  chg: Return the sighting when adding one through REST API
+- Merge pull request #5020 from zaphodef/rest_import_module. [Andras
+  Iklody]
+
+  fix: Import modules using 'misp_standard' format can be called via RE…
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5010 from JakubOnderka/patch-7. [Andras Iklody]
+
+  chg: Do not log ForbiddenException by default
+
+
 v2.4.113 (2019-08-16)
 ---------------------
 
@@ -44,6 +418,7 @@ New
 
 Changes
 ~~~~~~~
+- [version] bump. [iglocska]
 - [PyMISP] Bump version. [Raphaël Vinot]
 - [Travis] Use default python3 version on the image (3.6+), fix perms
   on. [Raphaël Vinot]
