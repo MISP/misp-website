@@ -466,6 +466,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_collaborative_intelligence">collaborative-intelligence</a></li>
 <li><a href="#_common_taxonomy">common-taxonomy</a></li>
 <li><a href="#_copine_scale">copine-scale</a></li>
+<li><a href="#_course_of_action">course-of-action</a></li>
 <li><a href="#_cryptocurrency_threat">cryptocurrency-threat</a></li>
 <li><a href="#_csirt_americas">csirt-americas</a></li>
 <li><a href="#_csirt_case_classification">csirt_case_classification</a></li>
@@ -4146,6 +4147,15 @@ collaborative-intelligence namespace available in JSON format at <a href="https:
 </div>
 </div>
 <div class="sect3">
+<h4 id="_collaborative_intelligencerequestextracted_malware_config">collaborative-intelligence:request="extracted-malware-config"</h4>
+<div class="paragraph">
+<p>Extracted malware config</p>
+</div>
+<div class="paragraph">
+<p>Request of the malware configuration extracted from the malware sample tagged.</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_collaborative_intelligencerequestdeobfuscated_sample">collaborative-intelligence:request="deobfuscated-sample"</h4>
 <div class="paragraph">
 <p>Request a deobfuscated sample of the shared sample</p>
@@ -4639,6 +4649,74 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 <div class="paragraph">
 <p>10</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_course_of_action">course-of-action</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+course-of-action namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/course-of-action/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A Course Of Action analysis considers six potential courses of action for the development of a cyber security capability.</p>
+</div>
+<div class="sect2">
+<h3 id="_passive">passive</h3>
+<div class="sect3">
+<h4 id="_course_of_actionpassivediscover">course-of-action:passive="discover"</h4>
+<div class="paragraph">
+<p>The discover action is a 'historical look at the data'. This action heavily relies on your capability to store logs for a reasonable amount of time and have them accessible for searching. Typically, this type of action is applied against security information and event management (SIEM) or stored network data. The goal is to determine whether you have seen a specific indicator in the past.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_course_of_actionpassivedetect">course-of-action:passive="detect"</h4>
+<div class="paragraph">
+<p>The passive action is setting up detection rules of an indicator for future traffic. These actions are most often executed via an intrusion detection system (IDS) or a specific logging rule on your firewall or application. It can also be configured as an alert in a SIEM when a specific condition is triggered.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_active">active</h3>
+<div class="sect3">
+<h4 id="_course_of_actionactivedeny">course-of-action:active="deny"</h4>
+<div class="paragraph">
+<p>The deny action prevents the event from taking place. Common examples include a firewall block or a proxy filter.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_course_of_actionactivedisrupt">course-of-action:active="disrupt"</h4>
+<div class="paragraph">
+<p>Disruption makes the event fail as it is occurring. Examples include quarantining or memory protection measures.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_course_of_actionactivedegrade">course-of-action:active="degrade"</h4>
+<div class="paragraph">
+<p>Degrading will not immediately fail an event, but it will slow down the further actions of the attacker. This tactic allows you to catch up during an incident response process, but you have to consider that the attackers may eventually succeed in achieving their objectives. Throttling bandwidth is one way to degrade an intrusion.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_course_of_actionactivedecieve">course-of-action:active="decieve"</h4>
+<div class="paragraph">
+<p>Deception allows you to learn more about the intentions of the attacker by making them think the action was successful. One way to do this is to put a honeypot in place and redirect the traffic, based on an indicator, towards the honeypot.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_course_of_actionactivedestroy">course-of-action:active="destroy"</h4>
+<div class="paragraph">
+<p>The destroy action is rarely for 'usual' defenders, as this is an offensive action against the attacker. These actions, including physical destructive actions and arresting the attackers, are usually left to law enforcement agencies.</p>
 </div>
 </div>
 </div>
@@ -12848,6 +12926,12 @@ false-positive namespace available in JSON format at <a href="https://github.com
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_confirmed">confirmed</h3>
+<div class="paragraph">
+<p>Confirmed false positives in the tagged value.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -17137,7 +17221,7 @@ infoleak namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 </div>
 <div class="sect2">
-<h3 id="_confirmed">confirmed</h3>
+<h3 id="_confirmed_2">confirmed</h3>
 <div class="sect3">
 <h4 id="_infoleakconfirmedfalse_positive">infoleak:confirmed="false-positive"</h4>
 <div class="paragraph">
@@ -18704,7 +18788,7 @@ interception-method namespace available in JSON format at <a href="https://githu
 </div>
 </div>
 <div class="sect2">
-<h3 id="_passive">passive</h3>
+<h3 id="_passive_2">passive</h3>
 <div class="paragraph">
 <p>Interception where an attacker could read messages between two parties.</p>
 </div>
@@ -43417,7 +43501,7 @@ workflow namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-08-27 15:08:04 +0200
+Last updated 2019-09-09 15:11:44 +0200
 </div>
 </div>
 </body>
