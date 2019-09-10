@@ -1,10 +1,12 @@
 ---
 title: Decaying of Indicators - MISP improved model to expire indicators based on custom models
 layout: post
-featured: /assets/images/misp/blog/community-view.png
+featured: /assets/images/misp/blog/decay.png
 ---
 
 # An improved and flexible model to expire indicators
+
+This blog post introduces the new functionality of MISP 2.4.116 which allows users and organisations to easily expire information depending on their objectives and targets.
 
 MISP being a distributed system, various users and organisations are sharing data, sometimes without even knowing each others. While having access to a lot of information is extremely beneficial for all parties, it, however, also induces challenges to deal with.
 
@@ -32,11 +34,11 @@ Where ``P`` is composed of ``parameters``:
 
 We still have to see how the ``base_score`` is actually computed. In the built-in version of the *Decaying Model* in MISP, the ``base_score`` is computed from the *Taxonomies* and some weight. Weights are a mean to prioritize extracted ``numerical_values`` from *Taxonomies* over others.
 
-To give the intuition of how the ``base_score`` computation works, let's look at two examples. In these examples, the two *Taxonomies* used are 
+To give the intuition of how the ``base_score`` computation works, let's look at two examples. In these examples, the two *Taxonomies* used are
 [*phishing*](https://github.com/MISP/misp-taxonomies/blob/master/phishing/machinetag.json) and [*admiralty-scale*](https://github.com/MISP/misp-taxonomies/blob/master/admiralty-scale/machinetag.json). Both of them contain *Tags* that have a ``numerical_value`` associated to them:
-- <img src="../assets/images/misp/blog/decaying//tag-as-A.png" alt="admiraly-scale:source-reliability = Completely reliable" width="300"/>, ``numerical_value = 100``
-- <img src="../assets/images/misp/blog/decaying//tag-as-D.png" alt="admiraly-scale:source-reliability = Not usually reliable" width="300"/>, ``numerical_value = 25``
-- <img src="../assets/images/misp/blog/decaying//tag-p-H.png" alt="phishing:psychological-acceptability = high" width="250"/>, ``numerical_value = 75``
+- <img src="/assets/images/misp/blog/decaying//tag-as-A.png" alt="admiraly-scale:source-reliability = Completely reliable" width="300"/>, ``numerical_value = 100``
+- <img src="/assets/images/misp/blog/decaying//tag-as-D.png" alt="admiraly-scale:source-reliability = Not usually reliable" width="300"/>, ``numerical_value = 25``
+- <img src="/assets/images/misp/blog/decaying//tag-p-H.png" alt="phishing:psychological-acceptability = high" width="250"/>, ``numerical_value = 75``
 
 So, if an *Attribute* only have one *Tag* attached, let's say ``admiralty-scale:source-reliability="Completely reliable"``, the ``base_score`` would be:
 ```
@@ -51,9 +53,9 @@ phishing        = 50
 ---------------------
 sum              100
 ```
-If an *Attribute* has the *Tags* <img src="../assets/images/misp/blog/decaying/tag-as-A.png" alt="admiraly-scale:source-reliability = Completely reliable" width="300"/> and <img src="../assets/images/misp/blog/decaying//tag-p-H.png" alt="phishing:psychological-acceptability = high" width="250"/> attached, the computation steps would look like this:
+If an *Attribute* has the *Tags* <img src="/assets/images/misp/blog/decaying/tag-as-A.png" alt="admiraly-scale:source-reliability = Completely reliable" width="300"/> and <img src="/assets/images/misp/blog/decaying/tag-p-H.png" alt="phishing:psychological-acceptability = high" width="250"/> attached, the computation steps would look like this:
 
-<img src="../assets/images/misp/blog/decaying//bs-computation-steps.png" alt="base_score comnputation steps" width="600"/>
+![base_score computation steps](/assets/images/misp/blog/decaying/bs-computation-steps.png)
 
 Thus, the ``base_score`` of this *Attribute* will be ``87.50``.
 
@@ -68,7 +70,7 @@ Now that we've seen the basic concepts, let's have a look at how MISP implements
 
 At the *Event* level, a new filtering button has been added to attach the real-time computed ``score`` of any *Attributes* that has been mapped to a *Model*.
 
-<img src="../assets/images/misp/blog/decaying/dm-event.png" alt="Decaying Model index" width="700"/>
+<img src="/assets/images/misp/blog/decaying/dm-event.png" alt="Decaying Model index" width="700"/>
 
 ### Endpoint: ``attribute/restSearch``
 
@@ -107,19 +109,19 @@ When creating a new *Decaying Model*, setting a parameters and viewing its impac
 
 ### Customizing lifetime and decay speed parameters
 
-<video src="../assets/images/misp/blog/decaying/dm-tool.mp4" title="Decaying Model Fine Tuning Tool - Parameters" width="800" height="450" controls autoplay loop>
+<video src="/assets/images/misp/blog/decaying/dm-tool.mp4" title="Decaying Model Fine Tuning Tool - Parameters" width="800" height="450" controls autoplay loop>
   Your browser does not support the video tag.
 </video>
 
 ### Setting the ``base_score``: Customizing Taxonomies' weight
 
-<video src="../assets/images/misp/blog/decaying/dm-bs.mp4" type="video/mp4" title="Decaying Model Fine Tuning Tool - Base score" width="800" height="450" controls autoplay loop>
+<video src="/assets/images/misp/blog/decaying/dm-bs.mp4" type="video/mp4" title="Decaying Model Fine Tuning Tool - Base score" width="800" height="450" controls autoplay loop>
   Your browser does not support the video tag.
 </video>
 
 ### Viewing scores and simulating the model
 
-<video src="../assets/images/misp/blog/decaying/dm-simulation.mp4" type="video/mp4" title="Decaying Model Simulation Tool" width="800" height="450" controls autoplay loop>
+<video src="/assets/images/misp/blog/decaying/dm-simulation.mp4" type="video/mp4" title="Decaying Model Simulation Tool" width="800" height="450" controls autoplay loop>
   Your browser does not support the video tag.
 </video>
 
@@ -148,7 +150,8 @@ class Polynomial extends DecayingModelBase
 
     public function isDecayed($model, $attribute, $score)
     {
-        // algorithm returning a boolean stating if the attribute is expired or not
+        // algorithm returning a boolean stating
+        // if the attribute is expired or not
     }
 }
 ?>
@@ -158,10 +161,10 @@ class Polynomial extends DecayingModelBase
 
 Evaluating **quality** and **freshness** of IOCs is a problem commonly found in Threat Intelligence Platforms. We tried to solve it using a simple yet customizable system.
 
-Upon release, MISP will be shipped with few models that could fit most use-cases. Still, we are eagerly waiting for contributions, fine-tunings or feedbacks from users. This would opens up plenty of opportunities includings improved *Models*' precision, parameters tweaking or even integration of machine learning as a new *Model* algorithm.
+Upon release, MISP will be shipped with few models that could fit most use-cases. Still, we are eagerly waiting for contributions, fine-tunings or feedbacks from users. This would opens up plenty of opportunities including improved *Models*' precision, parameters tweaking or even integration of machine learning as a new *Model* algorithm.
 
 Furthermore, we are not done yet! There are already improvements cooking in the MISP-Project oven,
 - Integration of ``False Positive`` and ``Expiration`` *Sightings*
-- Formula tweakings to provide better control on how to reset the ``base_score`` once a *Sighting* is created
+- Formula tweaking to provide better control on how to reset the ``base_score`` once a *Sighting* is created
 - Per-user Taxonomies' ``numerical_value`` overrides
 - Weights on *Tag*'s predicate level
