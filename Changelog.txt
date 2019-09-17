@@ -2,6 +2,720 @@ Changelog
 =========
 
 
+v2.4.116 (2019-09-16)
+---------------------
+
+New
+~~~
+- [sync] Added sync priority system to prioritise the order of instances
+  to push to. [iglocska]
+- [CLI] Added cleanup tool to purge all events related to a feed.
+  [iglocska]
+
+  - Simply run /var/www/MISP/app/Console/cake Admin purgeFeedEvents [user_id] [feed_id]
+  - works for CSV/Freetext feeds
+- [stix2 export] Parsing relationships between objects. [chrisr3d]
+
+  - Which includes of course relationships between
+    objects and objects, and the ones between
+    objects and attributes
+- [API] verbose output for /servers/update. [iglocska]
+- [event:view] Added support of decay score. [mokaddem]
+- [decaying:rest] Filtering out of decayed attributes. [mokaddem]
+- [decaying] Partial API support - WiP. [mokaddem]
+- [restResponse] Added entries in Attribute/RestSearch for decaying
+  model support. [mokaddem]
+- [decaying] Added models import and export feature. [mokaddem]
+- [restSearch] restSearch module for ATT&CK Sightings. [chrisr3d]
+
+  - Returning ATTA&CK Sightings in json format for
+    events and attributes with mitre-attack-pattern
+    galaxies attached
+  - For further details on the ATT&CK Sightings,
+    please visit https://attack.mitre.org/resources/sightings/
+  - Also thanks to @johnwunder for the clarification
+    on the output format
+- [auth key fail logging throttle] Throttle the auth key failed log
+  entries to 1 / hour / key. [iglocska]
+
+Changes
+~~~~~~~
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest one. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- Bump PyMISP. [Raphaël Vinot]
+- [version] bump. [iglocska]
+- [feed] Break loop when match is found. [Jakub Onderka]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [API] /events/view now accepts the deleted parameter via posted
+  parameters too. [iglocska]
+- [decaying:simulation] Disabled sorting on score (will be implemented
+  in the next `decaying` version) [mokaddem]
+- [decaying] Changed `name` column type from `text` to `varchar(255)`
+  [mokaddem]
+- [decaying] Added log entry if formula cannot be loaded. [mokaddem]
+- [internal] Simplify installation with composer. [Jakub Onderka]
+- [decaying:(en|dis)able] Converted empty form with built-in cakephp
+  `postLink` [mokaddem]
+- [decaying] Improve UI when multiple eventTags get overriden by
+  attributeTag. [mokaddem]
+- [decaying:simulation] Swapped round to floor when rounding sightings
+  timestamp. [mokaddem]
+- [decaying:model] Seventh batch of fix from the PR review - WiP (not
+  tested) [mokaddem]
+- [decaying:model] Sixth batch of fix from the PR review - WiP (not
+  tested) [mokaddem]
+- [decaying:model] Fith batch of fix from the PR review - WiP (not
+  tested) [mokaddem]
+- [decaying:model] Fourth batch of fix from the PR review - WiP (not
+  tested) [mokaddem]
+- [decaying:model] Third batch of fix from the PR review - WiP (not
+  tested) [mokaddem]
+- [decaying:model] Second batch of fix from the PR review - WiP (not
+  tested) [mokaddem]
+- [decaying:model] First batch of fix from the PR review - WiP (not
+  tested) [mokaddem]
+- [database] Added indexes to decaying models and related tables.
+  [mokaddem]
+- [event] applying few PSR2 rules. [mokaddem]
+- [decaying:simulation] restSearch comments added to be fixed in next
+  decaying version. [mokaddem]
+- [decaying] First batch of fix from the PR review - WiP (not tested)
+  [mokaddem]
+- Added CR/LF. [mokaddem]
+- [sql] align initial perm with sightings. [mokaddem]
+- [app] bumped queryversion. [mokaddem]
+- [decaying:update] Added a warning in case the folder is empty.
+  [mokaddem]
+- [server:submodule_version] Whitelisted `misp-decaying-models` for the
+  UI. [mokaddem]
+- [gitmodule] Added git-submodule `misp-decaying-models` [mokaddem]
+- [decaying:import] When importing a model, mapping is imported as
+  custom mapping. [mokaddem]
+- [decaying] Round all sightings at once. [mokaddem]
+- [decaying:simulation] Support of `score` on-the-fly threshold
+  override. [mokaddem]
+- [decaying] Added alias `score` to override on-the-fly the treshold of
+  a model. [mokaddem]
+- [decaying] `includeFullModel` parameter support in the UI. [mokaddem]
+- [attribute:restSearch] New paramter `includeFullModel` to attach full
+  model information. [mokaddem]
+- [decaying] Added `default` column in decayingModels table, code path
+  for `rest` and improved ACL. [mokaddem]
+- [decaying:add] Added help for parameters. [mokaddem]
+- Bumped query version. [mokaddem]
+- [decaying] Added default models to selection when fetching associated
+  models. [mokaddem]
+- [decaying:simulation] UI Tweakings for screen resize. [mokaddem]
+- [decaying] Improved embedded JSONs saving. [mokaddem]
+- [decaying] Pre-process element to be added just to be sure. [mokaddem]
+- [decaying:base_score_config] Simulation at predicate level in the user
+  interface. [mokaddem]
+- [decaying:base_score_config] Improved UI responsiveness. [mokaddem]
+- [decaying:base_score_config] Consider predicate weight UI only - WiP.
+  [mokaddem]
+- [decaying:base_score_config] Added reason of taxonomy exclusion.
+  [mokaddem]
+- [roles] Initially sets perm_decaying permission to mirror sighting
+  permission. [mokaddem]
+- [decaying] Improved response when adding a model. [mokaddem]
+- [decaying] Deleted unused lines creating mapping for default models.
+  [mokaddem]
+- [decaying:simulation] Basescore computation steps UI improvements.
+  [mokaddem]
+- [decaying:effectiveRatio] Tags not having numerical_value doesn't
+  impact effective taxonomy ration anymore. [mokaddem]
+- [decaying:JS] refacto - declare local variable. [mokaddem]
+- [decaying:tool] Stringify objects in table. [mokaddem]
+- [decaying] Few views tweakings. [mokaddem]
+- [decaying] More sanitization and indentation is important.. [mokaddem]
+- [decaying] Better Inheritance and comments. [mokaddem]
+- [decaying] Added formula description in multiple location. [mokaddem]
+- [decayingMapping] Refacto - Comments and code optimization. [mokaddem]
+- [decaying] Refacto - Few renames and comments. [mokaddem]
+- [decaying] refact -  Accept PUT and added comment for attribute
+  removal in restSearch. [mokaddem]
+- [decaying] Code refactoring, commenting and slight optimization.
+  [mokaddem]
+- [decaying:basescore_config] Tooltip does not modify talbe layout
+  anymore. [mokaddem]
+- [decaying:tool] Handle is placed closer to t=0. [mokaddem]
+- [decaying] Renamed `tau` and `delta` into `lifetime` and `decay_speed`
+  [mokaddem]
+- [roles] Added `perm_decaying` role. [mokaddem]
+- [decaying] Improved sidemenu for decaying. [mokaddem]
+- [decaying:simulation] Added sidemenu. [mokaddem]
+- [decaying:tool] Highlight models edition compared to creation.
+  [mokaddem]
+- [decaying] Improved ACL integration for the UI. [mokaddem]
+- [decaying] Added `DESCRIPTION` variable for each `.php` formula files.
+  [mokaddem]
+- [decaying:tool] Added table filtering buttons. [mokaddem]
+- [decaying:index] Added quick filter buttons. [mokaddem]
+- [decaying] Improved coverage of model overrides to the API. [mokaddem]
+- [decaying] Slightly improved `Model/DecayingModel` with shortcuts code
+  quality and options. [mokaddem]
+- [decaying] Usage of cakePHP folder API. [mokaddem]
+- [decaying:add] `all_orgs`` checked by default. [mokaddem]
+- [decaying:index] Improved UI. [mokaddem]
+- [decaying] More consistency about `parameters.settings` when empty.
+  [mokaddem]
+- [decaying] `isDefault` for every models and added more JS robustness.
+  [mokaddem]
+- [decaying:edit] Notice if editing a default model. [mokaddem]
+- [decaying] `FetchAllowedModels` now supports `all_orgs` [mokaddem]
+- [decaying] Renamed function and started true implemention of ACL for
+  models. [mokaddem]
+- [decaying] Added restricted edition and `all_orgs`` flag - WiP.
+  [mokaddem]
+- [globalmenu] Added link to `/decayingModel/index` [mokaddem]
+- [decaying:view] Added logo to distinguish between custom and default
+  models. [mokaddem]
+- [decaying:index] Added logo to distinguish between custom and default
+  models. [mokaddem]
+- [decaying] Added some FIXME and changed FontAwesome classes.
+  [mokaddem]
+- [decaying] Allow for model parameteres override. [mokaddem]
+- [decaying] Usage of classname instead of const, support of `retention`
+  taxonomy and small fix. [mokaddem]
+- [decaying] Added list of available formulas and model settings - WiP.
+  [mokaddem]
+- [decaying] Changed default formula name to polynomial. [mokaddem]
+- [sidemenu:decayingModel] Added dividers. [mokaddem]
+- [event:view] Link to simulation page. [mokaddem]
+- [decaying:rest] Renamed `decayed` into `excludeDecayed` for better
+  usability. [mokaddem]
+- [decaying] Added axis labels. [mokaddem]
+- [decaying] Added formula field in the index. [mokaddem]
+- [decaying] Split score computation part into classes for more
+  flexibility. [mokaddem]
+- [decaying] Full support of enable/disable model. [mokaddem]
+- [decaying:index] Added support of enable/disable on the index.
+  [mokaddem]
+- [decaying:tool] Added support of enabled model in the UI. [mokaddem]
+- [decaying:tool] Small UI tweek. [mokaddem]
+- [decaying:basescore] Moved JS in its own file. [mokaddem]
+- [decaying] Usage of the assetLoader. [mokaddem]
+- [decaying] UI/UX improvements. [mokaddem]
+- [decaying] Slight refactoroing for styling. [mokaddem]
+- [decaying] static file renaming and moved to its own style file.
+  [mokaddem]
+- [decaying:simulation] Added responsiveness to SVG. [mokaddem]
+- [decaying:simulation] Improved feedback on how default_base_score is
+  set. [mokaddem]
+- [decaying:simulation] No more modal support for simulation tool.
+  [mokaddem]
+- [decaying:tool] Dynamic redraw of the model table to support dynamic
+  update. [mokaddem]
+- [decaying:simulation] Hints for tag override and change to larger
+  popover. [mokaddem]
+- [decaying:simulation] Added current time and score and improved UI.
+  [mokaddem]
+- [decaying:model] Added support of default base_score. [mokaddem]
+- [decaying:simulation] Alert user if base_score has not been configured
+  yet. [mokaddem]
+- [decaying:simulation] Base score computation steps and improved UI.
+  [mokaddem]
+- [decaying:simulation] Added support of base_score computation, various
+  UI improvements and different method to compute scores. [mokaddem]
+- [attribute:search] Added support of `contain` in
+  fetchAttributeSimple() [mokaddem]
+- [decaying:simulation] Improved tooltip generation. [mokaddem]
+- [decaying:simulation] Removed commented out lines. [mokaddem]
+- [decaying:simulation] Improved UI. [mokaddem]
+- [decaying:simulation] Support of both modal and fullscreen simulation.
+  [mokaddem]
+- [decaying:simulation] Support of sightings in the decaying simulation.
+  [mokaddem]
+- [decaying:simulation] Draft 2 of simulation chart line - WiP.
+  [mokaddem]
+- [decaying:simulation] Draft of simulation chart line - WiP. [mokaddem]
+- [decaying:simulation] Support of row clicking. [mokaddem]
+- [decaying:simulation] Attribute searches. [mokaddem]
+- [decaying:simulation] Started simulation view - WiP. [mokaddem]
+- [decaying:tool] Object categories are treated as an array. [mokaddem]
+- [decaying] Improved UI and limit number of digit in parameters.
+  [mokaddem]
+- [decaying:tool] Full support of base_score configuration. [mokaddem]
+- [decayingModel:controller] Updated edit endpoint to match the correct
+  view. [mokaddem]
+- [decayingModel:add] Edit view based on Add view. [mokaddem]
+- [decaying:base_score] base_score computation for custom tags and
+  Improved UI. [mokaddem]
+- [decaying:base_score] Custom tagging in base score examples.
+  [mokaddem]
+- [decaying:tool] Show available tags in the taxonomy. [mokaddem]
+- [decaying:tool] Added example table with automatic tags picking and
+  pass config to the model - WiP. [mokaddem]
+- [decaying:tool] Started implementation of tag support and examples in
+  the `adjust base_score` [mokaddem]
+- [decaying:tool] Filter taxonomies not having numerical score.
+  [mokaddem]
+- [decaying] UI tweaking on the galaxy tree map. [mokaddem]
+- [css] Increase z-index of popover. [mokaddem]
+- [decaying] Improved UI - WiP. [mokaddem]
+- [decaying] slight UI Improvement - WiP. [mokaddem]
+- [decaying] Improved UI - WiP. [mokaddem]
+- [decaying] Started support of taxonomies (base_score) - WiP.
+  [mokaddem]
+- [decaying] Started taxonomies integretion - WiP. [mokaddem]
+- [decayingTool] Added missing class. [mokaddem]
+- [decayingTool] Added number of type assigned to a model. [mokaddem]
+- [decayingTool] Added selection history and selection restoration.
+  [mokaddem]
+- [decayingTool] Improved UI - WiP. [mokaddem]
+- [decaying] fixed bug (array_values) and improved layout - WiP.
+  [mokaddem]
+- [decaying] Improved getAssociatedModels - WiP. [mokaddem]
+- [decaying] Clean-up - WiP. [mokaddem]
+- [Decaying] Improved mapping reset and started integration with the
+  interface. [mokaddem]
+- [decayingTool] Improved related type retreival and improved UI - WiP.
+  [mokaddem]
+- [DecayingTool] Added more fields. [mokaddem]
+- [decayingModel] Added update mechanism from local files and started
+  `decaying_model_mappings` [mokaddem]
+- [decayingTool] Added grid in the chart. [mokaddem]
+- [decayingTool] Added filtering/search on the Attribute type table.
+  [mokaddem]
+- [decayingTool] Switched to JQuery plugin instead of raw JS. [mokaddem]
+- [decayingTool] Improved bounding rect - WiP. [mokaddem]
+- [decayingTool] removed comments. [mokaddem]
+- [decayingTool] UI improvement - WiP. [mokaddem]
+- [decayingTool] Majority has been moved to d3. Still WiP. [mokaddem]
+- [devayingTool] UI improvement - WiP. [mokaddem]
+- [DecayingTool] Playing around with d3 - WiP. [mokaddem]
+- [decayingTool] Moving from chart.js to d3.js. [mokaddem]
+- [DecayingTool] Added list of available Object Attribute. [mokaddem]
+- [decaying] Improved selection performance. [mokaddem]
+- [decayingTool] Added more description and started support of Object
+  and non-ToIDS Attributes. [mokaddem]
+- [decayingTool] Moved JS in its own file + added table checkbox.
+  [mokaddem]
+- [decayingModel] Improved UI (selectable behavior) - WiP. [mokaddem]
+- [decayingModel] Added Col org and splitted json into input fields.
+  [mokaddem]
+- [decaying] Model and UI improvement - WiP. [mokaddem]
+- [decayingTool] Added model and controller. [mokaddem]
+- [decayingTool] More info on Attribute types and model loading - WiP.
+  [mokaddem]
+- [decayingTool] More info and help text. [mokaddem]
+- [deacyingTool] Improved UI - WiP. [mokaddem]
+- [decayingTool] Added var. [mokaddem]
+- [decaying] UI skeleton - WiP. [mokaddem]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- Set composer vendor dir right in composer.json. [Jakub Onderka]
+- Put require PHP version and extension into composer.json. [Jakub
+  Onderka]
+- [users] Remove unused method UsersController::arrayCopy. [Jakub
+  Onderka]
+- Remove not used Net_GeoIP submodule. [Jakub Onderka]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [sync] Further improvements to the connection test logging. [iglocska]
+- [sync] Connection test POST test logs the full response, not just the
+  expected part. [iglocska]
+
+Fix
+~~~
+- [stix2] Fixed custom objects parsing when an attribute is multiple.
+  [chrisr3d]
+
+  - Avoids loss of attributes that are multiple,
+    during the export, by returning them in a list
+  - Supporting import of of custom values that are
+    in a list, as single multiple attributes
+- [internal] Added a code branch to check if saddarray is available - if
+  yes, use it. [iglocska]
+
+  - for the warninglist model's cacheWarninglistEntries function
+- [UI] Allow to skip pagination in IndexTable. [Jakub Onderka]
+- [internal] warninglist missing Redis::sAddArray() fixed. [Andras
+  Iklody]
+- [prio] changePriority function responses fixed. [iglocska]
+- [API] hard delete passable via different methods to /attributes/delete
+  than just ordered URL parameters. [iglocska]
+- [internal] Fix post check for attribute delete function via the API.
+  [iglocska]
+- [server prio] Don't block the reordering even when the requested move
+  is invalid. [iglocska]
+
+  - helps with fixing misaligned server lists
+- [server prio] reprioritise should be more lenient if there's a messed
+  up priority order as the starting point. [iglocska]
+
+  - should still return false for the rearranging, but should re-set the priority list based on the current positions
+- [UI] Attribute search sort by date fixed. [iglocska]
+- [ACL] priority change for servers tied into the ACL. [iglocska]
+- [server prio] Automatically put new servers to lowest prio instead of
+  highest. [iglocska]
+- [UI] Fix typo in community view. [Jakub Onderka]
+- [decaying:base_score] Create temporary false tags when they are
+  defined in their taxonomy but not created yet. [mokaddem]
+- [decaying:base_score] Single taxonomy appear in the correct namespace.
+  [mokaddem]
+- [decaying:base_score] Round base_score config up to 4 digits.
+  [mokaddem]
+- [decaying] `.json` view in `decaying/view` [mokaddem]
+- [decaying:import] Force somes fields to be present while importing a
+  decaying model. [mokaddem]
+- [UI] removed obsolete logo preview tool from org add/edit. [iglocska]
+- [stix2 export] Avoids passing variable already contained in another
+  variable passed at the same time. [chrisr3d]
+- [stix2 export] Removed some useless processing. [chrisr3d]
+- [decaying] fixed `const` error. [mokaddem]
+- [decaying] Correctly add database indexes. [mokaddem]
+- [regression] removed readded invalid acl entry. [Andras Iklody]
+- [ACL] removed two unused functions. [iglocska]
+- [API] Empty strings should be embedded in an array for the JSON
+  output. [iglocska]
+- [decaying:simulation] Make sure every sightings have a rounded
+  timestamp. [mokaddem]
+- [decaying] typo 4. [mokaddem]
+- [decaying] typo 3. [mokaddem]
+- [event] typo 2. [mokaddem]
+- [event] typo. [mokaddem]
+- [decaying:tool] Replaced `title` function into `text` [mokaddem]
+- [decaying:import] imported models from directory are correctly saved
+  as default. [mokaddem]
+- [decaying:import] Correctly remove id, uuid and preserve the import
+  data. [mokaddem]
+- [event:view] Toggle boolean buttons. [mokaddem]
+- [acl:decaying] Fixed ACL permissions. [mokaddem]
+- [decaying:add] Name should be input rather than textarea. [mokaddem]
+- [decaying:add] Formula field should be a select. [mokaddem]
+- [event:fetch] DO not duplicate scores for object's attributes anymore.
+  [mokaddem]
+- [decaying:tool] Enabled icon is correctly displayed in the model
+  table. [mokaddem]
+- [appModel] SQL query syntax fixed. [mokaddem]
+- [decaying] UI - Interface errors and sanitization. [mokaddem]
+- [decaying:base_score_config] basescore computation steps works again -
+  WiP. [mokaddem]
+- [appmodel] Added db_change number for the decaying update. [mokaddem]
+- [Sightings] Plugin.Sightings_policy=Event Owner now shows sightings
+  that belong to the creating org. [mokaddem]
+- [decaying] Include EventTags for score computation in `event/view`
+  [mokaddem]
+- [Tags] Correctly records `numerical_value` when enabling a taxonomy
+  for the first time. [mokaddem]
+- [decaying:tool] Correctly update the state of the enable/disable
+  button after editing. [mokaddem]
+- [decaying:tool] Prevent Object types overriding attribute types.
+  [mokaddem]
+- [decayingMapping:tool] Returns all allowed mapping if type list is
+  empty. [mokaddem]
+- [decaying:tool] Set `isEditable` parameter after editing a model.
+  [mokaddem]
+- [decaying] Set default value and pre-checks. [mokaddem]
+- [decaying:basescore_config] Fixed CSS for large tags. [mokaddem]
+- [decaying:tool] UI - Basescore does not override table anymore.
+  [mokaddem]
+- [decaying:simulation] Sorting result is displayed properly. [mokaddem]
+- [decaying:simulation] Support of object_attribute in the simulation
+  graph. [mokaddem]
+- [decaying:tool] Attribute type table searching regression fixed.
+  [mokaddem]
+- [decaying] Adjust score if the attribute was modified after the last
+  sighting. [mokaddem]
+- [decaying] Fixes on UI, Basescore overflow and unauthorized edition.
+  [mokaddem]
+- [decaying:acl] Various ACL fixes. [mokaddem]
+- [decaying:.json] Restored working behavior of `.json` views.
+  [mokaddem]
+- [decaying:tool] Correctly record type mapping if assigned during model
+  creation. [mokaddem]
+- [decaying] Do not access existing keys anymore. [mokaddem]
+- [decaying:tool] Correctly save formula changes. [mokaddem]
+- [decaying] attribute_types count fix. [mokaddem]
+- [decaying:tool] Quick fix for mapping attribute type to models.
+  [mokaddem]
+- [decayingModel] Correctly skip tags if taxonomomy has not been
+  configured. [mokaddem]
+- [Taxnomy:updateTag] Do not throw an error if taxonomy does not contain
+  a numerical value. [mokaddem]
+- [taxonomy:update] numerical_value gets updated correctly. [mokaddem]
+- [taxonomy] Keep taxonomy predicates. [mokaddem]
+- [decayingTool] Selection for checkboxes are correctly handled.
+  [mokaddem]
+- [decaying] Allow translation on errors. [mokaddem]
+- [decayingTool] Prevent drawing illegal parameters. [mokaddem]
+- [customauth] default setting for use_header_namespace should adhere to
+  what is displayed (true) [iglocska]
+
+  - as requested by the MELiCERTES consortium for CSP
+- [feed] When fetching feeds, accept also text/plain in HTTP. [Jakub
+  Onderka]
+- Require exact monolog version 1.24. [Jakub Onderka]
+- [internal] blackhole function default fixed. [iglocska]
+- [audit] Correct title in audit log when admin edit user. [Jakub
+  Onderka]
+- [ACL] Added resetremoteauthkey to the ACL system. [iglocska]
+- [sync] Post test fixed for sync users. [iglocska]
+- [stix import] Fixed ttps malware from external stix files parsing.
+  [chrisr3d]
+- [stix import] Additional test if leveraged ttps are not None to avoid
+  issues. [chrisr3d]
+- [stix export] Typo on course of action galaxy type. [chrisr3d]
+- [stix export] Making the validator happy with capec ids. [chrisr3d]
+- [stix export] Avoiding custom vocabularies for an easier parsing of
+  the result file. [chrisr3d]
+- [stix export] Specifying tool name for mitre-tool galaxies. [chrisr3d]
+- [stix export] Exporting tool type. [chrisr3d]
+
+  - Type is what we call galaxy name, for instance
+    Tool, Enterprise Attack - Tool, etc.
+- [stix export] Exporting malware type. [chrisr3d]
+
+  - Type is what we call galaxy name, for instance
+    Stealer, Malware, Ransomware, etc.
+- [stix import] Separation between vulnerability objects & attributes.
+  [chrisr3d]
+- [stix import] Keeping attack pattern, vulnerability & weakness objects
+  uuid. [chrisr3d]
+- [stix import] Listing ttps uuids instead of the full ttp ids.
+  [chrisr3d]
+
+  - Easier to compare directly uuids in related ttps
+- [stix import] Fixed some typos. [chrisr3d]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #5097 from JakubOnderka/patch-18. [Andras Iklody]
+
+  chg: [feed] Break loop when match is found
+- Merge pull request #5163 from JakubOnderka/patch-28. [Andras Iklody]
+
+  fix: [UI] Allow to skip pagination in IndexTable
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #5098 from JakubOnderka/patch-19. [Alexandre
+  Dulaunoy]
+
+  fix: [UI] Fix typo in community view
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into decaying. [mokaddem]
+- Merge pull request #5032 from mokaddem/decaying. [Andras Iklody]
+
+  Decaying Models
+- Merge branch '2.4' of github.com:MISP/MISP into decaying. [mokaddem]
+- Merge pull request #5148 from JakubOnderka/composer-simplify. [Andras
+  Iklody]
+
+  chg: [internal] Simplify installation with composer
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge remote-tracking branch 'origin/2.4' into decaying. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into decaying. [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into decaying. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into decaying. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into decaying. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into decaying. [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into decaying. [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into decaying. [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into decaying. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into decaying. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into decaying. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into decaying. [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into decaying. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into decaying. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into decaying. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into decaying. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into decaying. [mokaddem]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5106 from JakubOnderka/composer-requirements.
+  [Andras Iklody]
+
+  chg: Put require PHP version and extension into composer.json
+- Merge branch '2.4' into composer-requirements. [Jakub Onderka]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5132 from JakubOnderka/patch-27. [Andras Iklody]
+
+  fix: [feed] When fetching feeds, accept also text/plain in HTTP
+- Merge pull request #5121 from JakubOnderka/remove-netgeoip. [Andras
+  Iklody]
+
+  chg: Remove not used Net_GeoIP submodule
+- Merge branch '2.4' into remove-netgeoip. [Andras Iklody]
+- Merge pull request #5125 from JakubOnderka/patch-25. [Andras Iklody]
+
+  fix: Require exact monolog version 1.24
+- Merge pull request #5129 from JakubOnderka/array-copy-remove. [Andras
+  Iklody]
+
+  chg: [users] Remove unused method UsersController::arrayCopy
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5128 from JakubOnderka/patch-26. [Andras Iklody]
+
+  fix: [audit] Correct title in audit log when admin edit user
+- Add: [stix import] Importing Galaxies supported during stix export.
+  [chrisr3d]
+- Add: [stix export] Exporting Branded Vulnerability galaxies.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Add: [stix import] Importing attack pattern galaxies. [chrisr3d]
+- Wip: [stix import] Functions to import attack pattern, vulnerability &
+  weakness objects. [chrisr3d]
+
+  - Functions to parse galaxies to come soon
+- Add: [stix import] Getting IDs of threat actors, courses of action and
+  ttps related to the incident. [chrisr3d]
+
+  - Will be usefull to separate threat actors, courses
+    of action and ttps that are related to incidents
+    and will be imported as galaxies, form the ones
+    not related that will be imported as attributes
+    or objects
+
+
+v2.4.115 (2019-09-09)
+---------------------
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- Install crypt_gpg by composer. [Jakub Onderka]
+- Allow to load Crypt_GPG from composer. [Jakub Onderka]
+- [user] Remove unused private method. [Jakub Onderka]
+- [user] Use machine readable format for fetching PGP keys. [Jakub
+  Onderka]
+- [feed] Error handling for saveFreetextFeedData. [Jakub Onderka]
+- [feed] Handle exceptions for ServerShell::enqueueFeedCache. [Jakub
+  Onderka]
+- [feed] Throw exception if feed filter rules is not valid JSON. [Jakub
+  Onderka]
+- [feed] Better error handling for cacheFeedInitiator method. [Jakub
+  Onderka]
+- [feed] More accurate progress logging for downloadFromFeed. [Jakub
+  Onderka]
+- [feed] Better exception logging. [Jakub Onderka]
+- [feed] New method Feed::jobProgress. [Jakub Onderka]
+- [feed] New private method Feed::isFeedLocal. [Jakub Onderka]
+- [feed] Use Feed::feedGetUri in Feed::getFreetextFeed. [Jakub Onderka]
+- [feed] Feed::getNewEventUuids always return array with 'add' and
+  'edit' fields. [Jakub Onderka]
+- [feed] Proper error handling for fetching feed cache. [Jakub Onderka]
+- [feed] New method Feed::feedGetUri to deduplicate code. [Jakub
+  Onderka]
+- [feed] Proper error handling for fetching feed events. [Jakub Onderka]
+- [feed] Deduplicate preparing filter rules. [Jakub Onderka]
+- [feed] Proper error handling for fetching freetext feed. [Jakub
+  Onderka]
+- [feed] Follow redirects by internal HttpSocket functionality. [Jakub
+  Onderka]
+- [feed] Proper error handling for fetching feed manifest. [Jakub
+  Onderka]
+- [stix2] Bumped latest STIX2 python library changes. [chrisr3d]
+
+Fix
+~~~
+- [UI] Removed duplicate button title in userIndexTable.ctp. [Jakub
+  Onderka]
+- Throw exception when GnuGP homedir is not set. [Jakub Onderka]
+- [UI] GPG keys are fetched from CIRCL keyserver. [Jakub Onderka]
+- [UI] Fetching GPG keys. [Jakub Onderka]
+
+  This error was introduced in 600e54051694ca4d479a9e2c82db45fe19a46a6c
+- [stix2 import] Fixed hash patterns import for external STIX files.
+  [chrisr3d]
+- [security] Fix to a vulnerability related to the server index.
+  [iglocska]
+
+  - along with various support tools
+  - more information coming soon
+- [internal] orgs restricted to a domain displayed incorrectly.
+  [iglocska]
+
+  - afterfind messes up the keys by reusing the same var for an inner loop
+- [feed] Fetching event manifest. [Jakub Onderka]
+- [sync] Fixed major performance blocker. [iglocska]
+
+  - fix based on the insights of @RichieB2B, the hero we need, not the one we deserve
+  - added orgc_uuid to the minimal event index
+  - added handlers for it on the pull side
+  - when pulling from old instances the new functionality is skipped, resulting in the behaviour we had pre-patch
+  - both sides of the sync are encouraged to update, especially if the slow pulls are causing issues
+- [feed] Use own solution how to redirect when fetching feeds. [Jakub
+  Onderka]
+- [feed] shell_exec don't throw Exception. [Jakub Onderka]
+- [UI] Remove rest of unused code. [Jakub Onderka]
+
+  Inner code was removed in 3f03ceb22974352648e5163ee4b19eb94bc21106
+- [server] on-demand action does not redirect to the updateProgress page
+  anywmore. [mokaddem]
+- [stix2 import] Dealing with the case of named pipe attribute being
+  imported from custom object. [chrisr3d]
+- [stix2 export] Avoid fails with named pipe export as custom object.
+  [chrisr3d]
+- [export] Add a proper filename to the event restsearch API's output to
+  make downloading events a bit more convenient, fixes #4905. [iglocska]
+- [authentication] prepend the baseurl to the login/logout redirects -
+  fixes #3871. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5119 from JakubOnderka/patch-24. [Sami Mokaddem]
+
+  fix: [UI] Removed duplicate button title in userIndexTable.ctp
+- Merge pull request #5120 from JakubOnderka/gpg-composer. [Andras
+  Iklody]
+
+  Install Crypt_GPG by composer
+- Merge pull request #5103 from JakubOnderka/circl-key-server-
+  description. [Alexandre Dulaunoy]
+
+  fix: [UI] GPG keys are fetched from CIRCL keyserver
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #5117 from JakubOnderka/patch-23. [Andras Iklody]
+
+  fix: [UI] Fetching GPG keys
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5116 from JakubOnderka/patch-22. [Andras Iklody]
+
+  chg: [user] Remove unused private method
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5115 from RichieB2B/ncsc-nl/speedup-pull. [Andras
+  Iklody]
+
+  Speedup pull
+- Log reason for event download failure. [Richard van den Berg]
+- Log all errors from server pull. [Richard van den Berg]
+- Loose a find when adding existing event. [Richard van den Berg]
+- Merge pull request #5112 from JakubOnderka/fix-feed-get-manifest.
+  [Andras Iklody]
+
+  fix: [feed] Fetching event manifest
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #5101 from JakubOnderka/patch-20. [Andras Iklody]
+
+  chg: [user] Use machine readable format for fetching PGP keys
+- Merge pull request #5052 from JakubOnderka/error-handling. [Andras
+  Iklody]
+
+  Better error handling for fetching feeds
+- Merge pull request #5102 from JakubOnderka/patch-21. [Andras Iklody]
+
+  fix: [UI] Remove rest of unused code
+- Add: [stix import] Importing pipe objects as named pipe attribute.
+  [chrisr3d]
+- Add: [stix export] Exporting named pipe attributes. [chrisr3d]
+- Merge pull request #5084 from RichieB2B/patch-6. [Andras Iklody]
+
+  Fix Declaration of RestResponseComponent warning
+- Fix Declaration of RestResponseComponent warning. [Richie B2B]
+
+
 v2.4.114 (2019-08-30)
 ---------------------
 
