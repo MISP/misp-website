@@ -70,7 +70,7 @@ Now that we've seen the basic concepts, let's have a look at how MISP implements
 
 At the *Event* level, a new filter button has been added, which attaches the real-time computed ``score`` to all *Attributes* that have been mapped to a *Model*.
 
-<img src="/assets/images/misp/blog/decaying/dm-event.png" alt="Decaying Model index" width="700"/>
+<img src="/assets/images/misp/blog/decaying/dm-event.png" alt="Decay Model index" width="700"/>
 
 ### Endpoint: ``attribute/restSearch``
 
