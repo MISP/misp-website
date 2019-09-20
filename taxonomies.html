@@ -14929,189 +14929,374 @@ ics namespace available in JSON format at <a href="https://github.com/MISP/misp-
 <p>FIRST.ORG CTI SIG - MISP Proposal for ICS/OT Threat Attribution (IOC) Project</p>
 </div>
 <div class="sect2">
-<h3 id="_ot_components_category">ot-components-category</h3>
+<h3 id="_ot_security_issues">ot-security-issues</h3>
 <div class="sect3">
-<h4 id="_icsot_components_categoryprogrammable_logic_controller">ics:ot-components-category="programmable-logic-controller"</h4>
+<h4 id="_icsot_security_issuesmessage_authentication">ics:ot-security-issues="Message Authentication"</h4>
 <div class="paragraph">
-<p>Programmable Logic Controller (PLC)</p>
+<p>Message Authentication</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Computing device with user-programmable memory to storing instructions to operate a physical process.\n\n 2.Various PLC types for different processses</p>
-</li>
-</ol>
+<div class="paragraph">
+<p>Auth in used protocols is attacked and falsification command can be sent</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_components_categoryremote_terminal_unit">ics:ot-components-category="remote-terminal-unit"</h4>
+<h4 id="_icsot_security_issuesmessage_integrity_checking">ics:ot-security-issues="Message Integrity Checking"</h4>
 <div class="paragraph">
-<p>Remote Terminal Unit (RTU)</p>
+<p>Message Integrity Checking</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Data aquisitionand control unit designedto support field sites and remote stations.\n\n2. Wired and wireless communication capabilities.\n\n3. No stored program logic.</p>
-</li>
-</ol>
+<div class="paragraph">
+<p>Message poart of the sent protocol is maliciously tampered</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_components_categoryhuman_machine_interface">ics:ot-components-category="human-machine-interface"</h4>
+<h4 id="_icsot_security_issuesmessage_encryption">ics:ot-security-issues="Message Encryption"</h4>
 <div class="paragraph">
-<p>Human-Machine Interface (HMI)</p>
+<p>Message Encryption</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Hardware/software that operators used to interact with control system.\n\n2. From physical control panels to a complete computer systems</p>
-</li>
-</ol>
+<div class="paragraph">
+<p>Self explanatory, i.e. Weak encryption is attacked</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_components_categorysensors">ics:ot-components-category="sensors"</h4>
+<h4 id="_icsot_security_issuescommand_injection">ics:ot-security-issues="Command Injection"</h4>
 <div class="paragraph">
-<p>Sensors</p>
+<p>Command Injection</p>
 </div>
 <div class="paragraph">
-<p>Pressure, Temperature, Flow, Voltage, Optical, Proximity</p>
+<p>Either Remote Command Injection or Local. On local can be timer triggered under tampered firmware</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_components_categoryactuators">ics:ot-components-category="actuators"</h4>
+<h4 id="_icsot_security_issuesreplay_attack">ics:ot-security-issues="Replay Attack"</h4>
 <div class="paragraph">
-<p>Actuators</p>
+<p>Replay Attack</p>
 </div>
 <div class="paragraph">
-<p>Variable Frequency Drive, Servo Drive, Valve, Circuit Breaker</p>
+<p>Self explanatory</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_components_categorycommunications">ics:ot-components-category="communications"</h4>
+<h4 id="_icsot_security_issuesman_in_the_middle_mitm_attack">ics:ot-security-issues="Man in the middle (MITM) Attack"</h4>
 <div class="paragraph">
-<p>Communications</p>
+<p>Man in the middle (MITM) Attack</p>
 </div>
 <div class="paragraph">
-<p>Modems, Routers, Serial - Ethernet Converters, Swtiches</p>
+<p>Self explanatory</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_components_categorysupervisory_level_devices">ics:ot-components-category="supervisory-level-devices"</h4>
+<h4 id="_icsot_security_issuesundocumented_instructions">ics:ot-security-issues="Undocumented instructions"</h4>
 <div class="paragraph">
-<p>Supervisory Level Devices</p>
+<p>Undocumented instructions</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Control Server (Supervisory systems that hosts control software to manage lower level control devices like PLC).\n\n2. Data Historian (Centralized database for information about process, control activity and status record).\n\n3. Engineering workstations (Creating and revising control systems anbd programs, incl. project files).</p>
-</li>
-</ol>
+<div class="paragraph">
+<p>Vendor&#8217;s left several instruction used for development or trouble shooting that is finally leaked and used to performed malicious activities on the devices.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_security_issuesvendor_proprietary_protocols">ics:ot-security-issues="Vendor proprietary protocols"</h4>
+<div class="paragraph">
+<p>Vendor proprietary protocols</p>
+</div>
+<div class="paragraph">
+<p>Internal vendor protocols used for development or trouble shooting, that is being maliciously for an attack.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ot_operating_systems">ot-operating-systems</h3>
+<h3 id="_ot_network_data_transmission_protocols_automatic_automobile_vehicle_aviation">ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation</h3>
 <div class="sect3">
-<h4 id="_icsot_operating_systemsrtos">ics:ot-operating-systems="rtos"</h4>
+<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationarinc_429">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="ARINC 429"</h4>
 <div class="paragraph">
-<p>RTOS</p>
-</div>
-<div class="paragraph">
-<p>Please see the URL reference, there are a lot of it to be listed in here.  These OS are also referred as Firmware. <a href="https://en.wikipedia.org/wiki/Comparison_of_real-time_operating_systems" class="bare">https://en.wikipedia.org/wiki/Comparison_of_real-time_operating_systems</a></p>
+<p>ARINC 429</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_operating_systemslinux_embedded_base_os">ics:ot-operating-systems="linux-embedded-base-os"</h4>
+<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationcan_bus_arinc_825_sae_j1939_nmea_2000_fms">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="CAN bus (ARINC 825 SAE J1939 NMEA 2000 FMS)"</h4>
 <div class="paragraph">
-<p>Linux Embedded Base OS</p>
-</div>
-<div class="paragraph">
-<p>Yocto\nBuildroot\nOpenWRT\nB &amp; R Linux\n Scientific Linux\nRaspbian\nAndroid</p>
+<p>CAN bus (ARINC 825 SAE J1939 NMEA 2000 FMS)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_operating_systemsbsd">ics:ot-operating-systems="bsd"</h4>
+<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationfactory_instrumentation_protocol">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="Factory Instrumentation Protocol"</h4>
 <div class="paragraph">
-<p>BSD</p>
-</div>
-<div class="paragraph">
-<p>NetBSD (NetBSD Embedded Systems)\nFreeBSD (Modified. i.e.: Orbis OS)</p>
+<p>Factory Instrumentation Protocol</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_operating_systemsmicrosoft">ics:ot-operating-systems="microsoft"</h4>
+<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationflexray">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="FlexRay"</h4>
 <div class="paragraph">
-<p>Microsoft</p>
+<p>FlexRay</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationiebus">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="IEBus"</h4>
 <div class="paragraph">
-<p>Windows 10 IoT Enterprise\n Windows Embedded 8.1 Industry Professional\n Windows 7 Professional/Ultimate\n Windows Embedded Standard 7\n Windows Embedded Standard 2009\n Windows CE 6.0\n</p>
+<p>IEBus</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationj1587">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="J1587"</h4>
+<div class="paragraph">
+<p>J1587</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationj1708">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="J1708"</h4>
+<div class="paragraph">
+<p>J1708</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationkeyword_protocol_2000">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="Keyword Protocol 2000"</h4>
+<div class="paragraph">
+<p>Keyword Protocol 2000</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationunified_diagnostic_services">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="Unified Diagnostic Services"</h4>
+<div class="paragraph">
+<p>Unified Diagnostic Services</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationlin">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="LIN"</h4>
+<div class="paragraph">
+<p>LIN</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationmost">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="MOST"</h4>
+<div class="paragraph">
+<p>MOST</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationvan">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="VAN"</h4>
+<div class="paragraph">
+<p>VAN</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ot_communication_interface">ot-communication-interface</h3>
+<h3 id="_ot_network_data_transmission_protocols_automatic_meter_reading">ot-network-data-transmission-protocols-automatic-meter-reading</h3>
 <div class="sect3">
-<h4 id="_icsot_communication_interfacers_232">ics:ot-communication-interface="rs-232"</h4>
+<h4 id="_icsot_network_data_transmission_protocols_automatic_meter_readingansi_c12_18">ics:ot-network-data-transmission-protocols-automatic-meter-reading="ANSI C12.18"</h4>
 <div class="paragraph">
-<p>RS-232 (comm port)</p>
-</div>
-<div class="paragraph">
-<p>Serial communication with an implementation comprises 2 data lines, 6 control lines and one ground.</p>
+<p>ANSI C12.18</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_communication_interfacers_422_rs_423_or_rs_485">ics:ot-communication-interface="rs-422, rs-423 or rs-485"</h4>
+<h4 id="_icsot_network_data_transmission_protocols_automatic_meter_readingiec_61107">ics:ot-network-data-transmission-protocols-automatic-meter-reading="IEC 61107"</h4>
 <div class="paragraph">
-<p>RS-422, RS-423 or RS-485</p>
-</div>
-<div class="paragraph">
-<p>RS-422 is compatible to RS-232, used in situations where long distances are required, it can drive up to 1200m at 100kbit/s, and up to 1Mbit/s over short distances.  RS-422 uses a differential driver, uses a four-conductor cable, and up to ten receivers can be on a multi-dropped network or bus.  RS-485 is like RS-422 but RS-422 allows just one driver with multiple receivers whereas RS-485 supports multiple drivers and receivers RS-485 also allows up to thirty two (32) multi-dropped receivers or transmitters on a multi-dropped network or bus. At 90 kbit/s, the maximum cable length is 1250 m, and at 10 Mbit/s it is 15 m. The devices are half-duplex (i.e. send or receive, but not both at the same time). For more nodes or long distances, you can use repeaters that regenerate the signals and begin a new RS-485 line.</p>
+<p>IEC 61107</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_communication_interfaceieee_488_gpib">ics:ot-communication-interface="ieee-488-gpib"</h4>
+<h4 id="_icsot_network_data_transmission_protocols_automatic_meter_readingdlmsiec_62056">ics:ot-network-data-transmission-protocols-automatic-meter-reading="DLMS/IEC 62056"</h4>
 <div class="paragraph">
-<p>IEEE-488 (GPIB)</p>
-</div>
-<div class="paragraph">
-<p>Known as Hewlett-Packard HP-IB but was renamed as GPIB (General Purpose Interface Bus) by the IEEE-488 (1975). IEEE-488 interface comprises 8 data lines, 8 control lines and 8 ground lines. Up to 15 devices can be interconnected on one bus. Each device is assigned a unique primary address, ranging from 4-30, by setting the address switches on the device. Devices are linked in either a daisy-chain or star (or some combination) configuration with up to 20 m of shielded 24-conductor cable. A maximum separation of 4 m is specified between any two devices, and an average of 2m over the entire bus.  The data transfer rate can be up to 1 Mbyte/s.  Three types of devices can be connected to an IEEE-488 bus (Listeners, Talkers, and Controllers)</p>
+<p>DLMS/IEC 62056</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_communication_interfaceieee_1394_firewire">ics:ot-communication-interface="ieee-1394-firewire"</h4>
+<h4 id="_icsot_network_data_transmission_protocols_automatic_meter_readingm_bus">ics:ot-network-data-transmission-protocols-automatic-meter-reading="M-Bus"</h4>
 <div class="paragraph">
-<p>IEEE-1394 (FireWire)</p>
-</div>
-<div class="paragraph">
-<p>The IEEE-1394 defines a serial serial interface that can use the bus cable to power devices.  Firewire transmits data in packets and incurs some overhead as a result. Firewire frames are 125 msec long which means that despite a 'headline' transfer speed of 400 Mbit/s Firewire can be substantially slower in responding to instruments' service requests.  Firewire uses a peer-peer protocol, similar to IEEE-488. Using standard cable, the maximum length bus comprises 16 hops of 4.5m each. Each hop connects two devices, but each physical device can contain four logical nodes. A Firewire cable contains two twisted-pairs (signals and clock) and two untwisted conductors (power and ground).</p>
+<p>M-Bus</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_communication_interfaceusb_universal_serial_bus">ics:ot-communication-interface="usb-universal-serial-bus"</h4>
+<h4 id="_icsot_network_data_transmission_protocols_automatic_meter_readingmodbus">ics:ot-network-data-transmission-protocols-automatic-meter-reading="Modbus"</h4>
 <div class="paragraph">
-<p>USB (Universal Serial Bus)</p>
-</div>
-<div class="paragraph">
-<p>USB is the bus topology, and host-target protocol, mean that giving existing PC-based instruments a USB port not as trivial as it could be, but instruments with USB ports are coming onto the ICS market increasing numbers.  USB 1.1 has many features as serial data transmission, device powering, data sent in 1 ms packets. USB offers 1.5- and 12-Mbit/s speeds. Individual devices can use the bus for a maximum of 50% of the time. In practice, the maximum rate is not more than 0.6 Mbyte/s.  USB 2.0 specification was released in 2000. In addition to increasing the signaling rate from 12 MHz to 480 MHz, the specification describes a more advanced feature set and uses bandwidth more efficiently than 'Classic' USB. Version 2 of USB seems likely to prevent IEEE 1394 becoming widely adopted in instrument systems.</p>
+<p>Modbus</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_communication_interfaceethernet">ics:ot-communication-interface="ethernet"</h4>
+<h4 id="_icsot_network_data_transmission_protocols_automatic_meter_readingzigbee">ics:ot-network-data-transmission-protocols-automatic-meter-reading="ZigBee"</h4>
 <div class="paragraph">
-<p>Ethernet</p>
+<p>ZigBee</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ot_network_data_transmission_protocols_industrial_control_system">ot-network-data-transmission-protocols-industrial-control-system</h3>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_industrial_control_systemmtconnect">ics:ot-network-data-transmission-protocols-industrial-control-system="MTConnect"</h4>
 <div class="paragraph">
-<p>Instruments with ethernet interfaces have the great advantage that they can be accessed and controlled from a desktop anywhere in the world. A web-enabled ICS device behaves can be operated with standard browser. Systems with comm based on these interface can make use of existing Ethernet networks and connecting an instrument directly into the internet makes sharing of data easy. Fast data transfer is possible. However, when connected to the public internet it is difficult to secure or maintain its security and a full evaluation of the risks involved for this interface usage is very essential.</p>
+<p>MTConnect</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_communication_interfaceothers">ics:ot-communication-interface="others"</h4>
+<h4 id="_icsot_network_data_transmission_protocols_industrial_control_systemopc">ics:ot-network-data-transmission-protocols-industrial-control-system="OPC"</h4>
 <div class="paragraph">
-<p>Others</p>
+<p>OPC</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_industrial_control_systemda">ics:ot-network-data-transmission-protocols-industrial-control-system="DA"</h4>
 <div class="paragraph">
-<p>Other communication interface not listed.</p>
+<p>DA</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_industrial_control_systemhda">ics:ot-network-data-transmission-protocols-industrial-control-system="HDA"</h4>
+<div class="paragraph">
+<p>HDA</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_industrial_control_systemua">ics:ot-network-data-transmission-protocols-industrial-control-system="UA"</h4>
+<div class="paragraph">
+<p>UA</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ot_network_data_transmission_protocols_building_automation">ot-network-data-transmission-protocols-building-automation</h3>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automation1_wire">ics:ot-network-data-transmission-protocols-building-automation="1-Wire"</h4>
+<div class="paragraph">
+<p>1-Wire</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automationbacnet">ics:ot-network-data-transmission-protocols-building-automation="BACnet"</h4>
+<div class="paragraph">
+<p>BACnet</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automationc_bus">ics:ot-network-data-transmission-protocols-building-automation="C-Bus"</h4>
+<div class="paragraph">
+<p>C-Bus</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automationcebus">ics:ot-network-data-transmission-protocols-building-automation="CEBus"</h4>
+<div class="paragraph">
+<p>CEBus</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automationdali">ics:ot-network-data-transmission-protocols-building-automation="DALI"</h4>
+<div class="paragraph">
+<p>DALI</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automationdsi">ics:ot-network-data-transmission-protocols-building-automation="DSI"</h4>
+<div class="paragraph">
+<p>DSI</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automationdynet">ics:ot-network-data-transmission-protocols-building-automation="DyNet"</h4>
+<div class="paragraph">
+<p>DyNet</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automationfactory_instrumentation_protocol">ics:ot-network-data-transmission-protocols-building-automation="Factory Instrumentation Protocol"</h4>
+<div class="paragraph">
+<p>Factory Instrumentation Protocol</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automationknx">ics:ot-network-data-transmission-protocols-building-automation="KNX"</h4>
+<div class="paragraph">
+<p>KNX</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automationlontalk">ics:ot-network-data-transmission-protocols-building-automation="LonTalk"</h4>
+<div class="paragraph">
+<p>LonTalk</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automationmodbus">ics:ot-network-data-transmission-protocols-building-automation="Modbus"</h4>
+<div class="paragraph">
+<p>Modbus</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automationobix">ics:ot-network-data-transmission-protocols-building-automation="oBIX"</h4>
+<div class="paragraph">
+<p>oBIX</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automationvscp">ics:ot-network-data-transmission-protocols-building-automation="VSCP"</h4>
+<div class="paragraph">
+<p>VSCP</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automationx10">ics:ot-network-data-transmission-protocols-building-automation="X10"</h4>
+<div class="paragraph">
+<p>X10</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automationxap">ics:ot-network-data-transmission-protocols-building-automation="xAP"</h4>
+<div class="paragraph">
+<p>xAP</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automationxpl">ics:ot-network-data-transmission-protocols-building-automation="xPL"</h4>
+<div class="paragraph">
+<p>xPL</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_building_automationzigbee">ics:ot-network-data-transmission-protocols-building-automation="ZigBee"</h4>
+<div class="paragraph">
+<p>ZigBee</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ot_network_data_transmission_protocols_power_system_automation">ot-network-data-transmission-protocols-power-system-automation</h3>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_power_system_automationiec_60870">ics:ot-network-data-transmission-protocols-power-system-automation="IEC 60870"</h4>
+<div class="paragraph">
+<p>IEC 60870</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_power_system_automationdnp3">ics:ot-network-data-transmission-protocols-power-system-automation="DNP3"</h4>
+<div class="paragraph">
+<p>DNP3</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_power_system_automationfactory_instrumentation_protocol">ics:ot-network-data-transmission-protocols-power-system-automation="Factory Instrumentation Protocol"</h4>
+<div class="paragraph">
+<p>Factory Instrumentation Protocol</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_power_system_automationiec_61850">ics:ot-network-data-transmission-protocols-power-system-automation="IEC 61850"</h4>
+<div class="paragraph">
+<p>IEC 61850</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_power_system_automationiec_62351">ics:ot-network-data-transmission-protocols-power-system-automation="IEC 62351"</h4>
+<div class="paragraph">
+<p>IEC 62351</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_power_system_automationmodbus">ics:ot-network-data-transmission-protocols-power-system-automation="Modbus"</h4>
+<div class="paragraph">
+<p>Modbus</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_network_data_transmission_protocols_power_system_automationprofibus">ics:ot-network-data-transmission-protocols-power-system-automation="Profibus"</h4>
+<div class="paragraph">
+<p>Profibus</p>
 </div>
 </div>
 </div>
@@ -15335,374 +15520,189 @@ ics namespace available in JSON format at <a href="https://github.com/MISP/misp-
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ot_network_data_transmission_protocols_power_system_automation">ot-network-data-transmission-protocols-power-system-automation</h3>
+<h3 id="_ot_communication_interface">ot-communication-interface</h3>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_power_system_automationiec_60870">ics:ot-network-data-transmission-protocols-power-system-automation="IEC 60870"</h4>
+<h4 id="_icsot_communication_interfacers_232">ics:ot-communication-interface="rs-232"</h4>
 <div class="paragraph">
-<p>IEC 60870</p>
+<p>RS-232 (comm port)</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_power_system_automationdnp3">ics:ot-network-data-transmission-protocols-power-system-automation="DNP3"</h4>
 <div class="paragraph">
-<p>DNP3</p>
+<p>Serial communication with an implementation comprises 2 data lines, 6 control lines and one ground.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_power_system_automationfactory_instrumentation_protocol">ics:ot-network-data-transmission-protocols-power-system-automation="Factory Instrumentation Protocol"</h4>
+<h4 id="_icsot_communication_interfacers_422_rs_423_or_rs_485">ics:ot-communication-interface="rs-422, rs-423 or rs-485"</h4>
 <div class="paragraph">
-<p>Factory Instrumentation Protocol</p>
+<p>RS-422, RS-423 or RS-485</p>
+</div>
+<div class="paragraph">
+<p>RS-422 is compatible to RS-232, used in situations where long distances are required, it can drive up to 1200m at 100kbit/s, and up to 1Mbit/s over short distances.  RS-422 uses a differential driver, uses a four-conductor cable, and up to ten receivers can be on a multi-dropped network or bus.  RS-485 is like RS-422 but RS-422 allows just one driver with multiple receivers whereas RS-485 supports multiple drivers and receivers RS-485 also allows up to thirty two (32) multi-dropped receivers or transmitters on a multi-dropped network or bus. At 90 kbit/s, the maximum cable length is 1250 m, and at 10 Mbit/s it is 15 m. The devices are half-duplex (i.e. send or receive, but not both at the same time). For more nodes or long distances, you can use repeaters that regenerate the signals and begin a new RS-485 line.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_power_system_automationiec_61850">ics:ot-network-data-transmission-protocols-power-system-automation="IEC 61850"</h4>
+<h4 id="_icsot_communication_interfaceieee_488_gpib">ics:ot-communication-interface="ieee-488-gpib"</h4>
 <div class="paragraph">
-<p>IEC 61850</p>
+<p>IEEE-488 (GPIB)</p>
+</div>
+<div class="paragraph">
+<p>Known as Hewlett-Packard HP-IB but was renamed as GPIB (General Purpose Interface Bus) by the IEEE-488 (1975). IEEE-488 interface comprises 8 data lines, 8 control lines and 8 ground lines. Up to 15 devices can be interconnected on one bus. Each device is assigned a unique primary address, ranging from 4-30, by setting the address switches on the device. Devices are linked in either a daisy-chain or star (or some combination) configuration with up to 20 m of shielded 24-conductor cable. A maximum separation of 4 m is specified between any two devices, and an average of 2m over the entire bus.  The data transfer rate can be up to 1 Mbyte/s.  Three types of devices can be connected to an IEEE-488 bus (Listeners, Talkers, and Controllers)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_power_system_automationiec_62351">ics:ot-network-data-transmission-protocols-power-system-automation="IEC 62351"</h4>
+<h4 id="_icsot_communication_interfaceieee_1394_firewire">ics:ot-communication-interface="ieee-1394-firewire"</h4>
 <div class="paragraph">
-<p>IEC 62351</p>
+<p>IEEE-1394 (FireWire)</p>
+</div>
+<div class="paragraph">
+<p>The IEEE-1394 defines a serial serial interface that can use the bus cable to power devices.  Firewire transmits data in packets and incurs some overhead as a result. Firewire frames are 125 msec long which means that despite a 'headline' transfer speed of 400 Mbit/s Firewire can be substantially slower in responding to instruments' service requests.  Firewire uses a peer-peer protocol, similar to IEEE-488. Using standard cable, the maximum length bus comprises 16 hops of 4.5m each. Each hop connects two devices, but each physical device can contain four logical nodes. A Firewire cable contains two twisted-pairs (signals and clock) and two untwisted conductors (power and ground).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_power_system_automationmodbus">ics:ot-network-data-transmission-protocols-power-system-automation="Modbus"</h4>
+<h4 id="_icsot_communication_interfaceusb_universal_serial_bus">ics:ot-communication-interface="usb-universal-serial-bus"</h4>
 <div class="paragraph">
-<p>Modbus</p>
+<p>USB (Universal Serial Bus)</p>
+</div>
+<div class="paragraph">
+<p>USB is the bus topology, and host-target protocol, mean that giving existing PC-based instruments a USB port not as trivial as it could be, but instruments with USB ports are coming onto the ICS market increasing numbers.  USB 1.1 has many features as serial data transmission, device powering, data sent in 1 ms packets. USB offers 1.5- and 12-Mbit/s speeds. Individual devices can use the bus for a maximum of 50% of the time. In practice, the maximum rate is not more than 0.6 Mbyte/s.  USB 2.0 specification was released in 2000. In addition to increasing the signaling rate from 12 MHz to 480 MHz, the specification describes a more advanced feature set and uses bandwidth more efficiently than 'Classic' USB. Version 2 of USB seems likely to prevent IEEE 1394 becoming widely adopted in instrument systems.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_power_system_automationprofibus">ics:ot-network-data-transmission-protocols-power-system-automation="Profibus"</h4>
+<h4 id="_icsot_communication_interfaceethernet">ics:ot-communication-interface="ethernet"</h4>
 <div class="paragraph">
-<p>Profibus</p>
+<p>Ethernet</p>
+</div>
+<div class="paragraph">
+<p>Instruments with ethernet interfaces have the great advantage that they can be accessed and controlled from a desktop anywhere in the world. A web-enabled ICS device behaves can be operated with standard browser. Systems with comm based on these interface can make use of existing Ethernet networks and connecting an instrument directly into the internet makes sharing of data easy. Fast data transfer is possible. However, when connected to the public internet it is difficult to secure or maintain its security and a full evaluation of the risks involved for this interface usage is very essential.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_icsot_communication_interfaceothers">ics:ot-communication-interface="others"</h4>
+<div class="paragraph">
+<p>Others</p>
+</div>
+<div class="paragraph">
+<p>Other communication interface not listed.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ot_network_data_transmission_protocols_building_automation">ot-network-data-transmission-protocols-building-automation</h3>
+<h3 id="_ot_operating_systems">ot-operating-systems</h3>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automation1_wire">ics:ot-network-data-transmission-protocols-building-automation="1-Wire"</h4>
+<h4 id="_icsot_operating_systemsrtos">ics:ot-operating-systems="rtos"</h4>
 <div class="paragraph">
-<p>1-Wire</p>
+<p>RTOS</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automationbacnet">ics:ot-network-data-transmission-protocols-building-automation="BACnet"</h4>
 <div class="paragraph">
-<p>BACnet</p>
+<p>Please see the URL reference, there are a lot of it to be listed in here.  These OS are also referred as Firmware. <a href="https://en.wikipedia.org/wiki/Comparison_of_real-time_operating_systems" class="bare">https://en.wikipedia.org/wiki/Comparison_of_real-time_operating_systems</a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automationc_bus">ics:ot-network-data-transmission-protocols-building-automation="C-Bus"</h4>
+<h4 id="_icsot_operating_systemslinux_embedded_base_os">ics:ot-operating-systems="linux-embedded-base-os"</h4>
 <div class="paragraph">
-<p>C-Bus</p>
+<p>Linux Embedded Base OS</p>
+</div>
+<div class="paragraph">
+<p>Yocto\nBuildroot\nOpenWRT\nB &amp; R Linux\n Scientific Linux\nRaspbian\nAndroid</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automationcebus">ics:ot-network-data-transmission-protocols-building-automation="CEBus"</h4>
+<h4 id="_icsot_operating_systemsbsd">ics:ot-operating-systems="bsd"</h4>
 <div class="paragraph">
-<p>CEBus</p>
+<p>BSD</p>
+</div>
+<div class="paragraph">
+<p>NetBSD (NetBSD Embedded Systems)\nFreeBSD (Modified. i.e.: Orbis OS)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automationdali">ics:ot-network-data-transmission-protocols-building-automation="DALI"</h4>
+<h4 id="_icsot_operating_systemsmicrosoft">ics:ot-operating-systems="microsoft"</h4>
 <div class="paragraph">
-<p>DALI</p>
+<p>Microsoft</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automationdsi">ics:ot-network-data-transmission-protocols-building-automation="DSI"</h4>
 <div class="paragraph">
-<p>DSI</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automationdynet">ics:ot-network-data-transmission-protocols-building-automation="DyNet"</h4>
-<div class="paragraph">
-<p>DyNet</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automationfactory_instrumentation_protocol">ics:ot-network-data-transmission-protocols-building-automation="Factory Instrumentation Protocol"</h4>
-<div class="paragraph">
-<p>Factory Instrumentation Protocol</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automationknx">ics:ot-network-data-transmission-protocols-building-automation="KNX"</h4>
-<div class="paragraph">
-<p>KNX</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automationlontalk">ics:ot-network-data-transmission-protocols-building-automation="LonTalk"</h4>
-<div class="paragraph">
-<p>LonTalk</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automationmodbus">ics:ot-network-data-transmission-protocols-building-automation="Modbus"</h4>
-<div class="paragraph">
-<p>Modbus</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automationobix">ics:ot-network-data-transmission-protocols-building-automation="oBIX"</h4>
-<div class="paragraph">
-<p>oBIX</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automationvscp">ics:ot-network-data-transmission-protocols-building-automation="VSCP"</h4>
-<div class="paragraph">
-<p>VSCP</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automationx10">ics:ot-network-data-transmission-protocols-building-automation="X10"</h4>
-<div class="paragraph">
-<p>X10</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automationxap">ics:ot-network-data-transmission-protocols-building-automation="xAP"</h4>
-<div class="paragraph">
-<p>xAP</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automationxpl">ics:ot-network-data-transmission-protocols-building-automation="xPL"</h4>
-<div class="paragraph">
-<p>xPL</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_building_automationzigbee">ics:ot-network-data-transmission-protocols-building-automation="ZigBee"</h4>
-<div class="paragraph">
-<p>ZigBee</p>
+<p>Windows 10 IoT Enterprise\n Windows Embedded 8.1 Industry Professional\n Windows 7 Professional/Ultimate\n Windows Embedded Standard 7\n Windows Embedded Standard 2009\n Windows CE 6.0\n</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ot_network_data_transmission_protocols_industrial_control_system">ot-network-data-transmission-protocols-industrial-control-system</h3>
+<h3 id="_ot_components_category">ot-components-category</h3>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_industrial_control_systemmtconnect">ics:ot-network-data-transmission-protocols-industrial-control-system="MTConnect"</h4>
+<h4 id="_icsot_components_categoryprogrammable_logic_controller">ics:ot-components-category="programmable-logic-controller"</h4>
 <div class="paragraph">
-<p>MTConnect</p>
+<p>Programmable Logic Controller (PLC)</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_industrial_control_systemopc">ics:ot-network-data-transmission-protocols-industrial-control-system="OPC"</h4>
-<div class="paragraph">
-<p>OPC</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_industrial_control_systemda">ics:ot-network-data-transmission-protocols-industrial-control-system="DA"</h4>
-<div class="paragraph">
-<p>DA</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Computing device with user-programmable memory to storing instructions to operate a physical process.\n\n 2.Various PLC types for different processses</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_industrial_control_systemhda">ics:ot-network-data-transmission-protocols-industrial-control-system="HDA"</h4>
+<h4 id="_icsot_components_categoryremote_terminal_unit">ics:ot-components-category="remote-terminal-unit"</h4>
 <div class="paragraph">
-<p>HDA</p>
+<p>Remote Terminal Unit (RTU)</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Data aquisitionand control unit designedto support field sites and remote stations.\n\n2. Wired and wireless communication capabilities.\n\n3. No stored program logic.</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_industrial_control_systemua">ics:ot-network-data-transmission-protocols-industrial-control-system="UA"</h4>
+<h4 id="_icsot_components_categoryhuman_machine_interface">ics:ot-components-category="human-machine-interface"</h4>
 <div class="paragraph">
-<p>UA</p>
+<p>Human-Machine Interface (HMI)</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_ot_network_data_transmission_protocols_automatic_meter_reading">ot-network-data-transmission-protocols-automatic-meter-reading</h3>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_meter_readingansi_c12_18">ics:ot-network-data-transmission-protocols-automatic-meter-reading="ANSI C12.18"</h4>
-<div class="paragraph">
-<p>ANSI C12.18</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Hardware/software that operators used to interact with control system.\n\n2. From physical control panels to a complete computer systems</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_meter_readingiec_61107">ics:ot-network-data-transmission-protocols-automatic-meter-reading="IEC 61107"</h4>
+<h4 id="_icsot_components_categorysensors">ics:ot-components-category="sensors"</h4>
 <div class="paragraph">
-<p>IEC 61107</p>
+<p>Sensors</p>
+</div>
+<div class="paragraph">
+<p>Pressure, Temperature, Flow, Voltage, Optical, Proximity</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_meter_readingdlmsiec_62056">ics:ot-network-data-transmission-protocols-automatic-meter-reading="DLMS/IEC 62056"</h4>
+<h4 id="_icsot_components_categoryactuators">ics:ot-components-category="actuators"</h4>
 <div class="paragraph">
-<p>DLMS/IEC 62056</p>
+<p>Actuators</p>
+</div>
+<div class="paragraph">
+<p>Variable Frequency Drive, Servo Drive, Valve, Circuit Breaker</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_meter_readingm_bus">ics:ot-network-data-transmission-protocols-automatic-meter-reading="M-Bus"</h4>
+<h4 id="_icsot_components_categorycommunications">ics:ot-components-category="communications"</h4>
 <div class="paragraph">
-<p>M-Bus</p>
+<p>Communications</p>
+</div>
+<div class="paragraph">
+<p>Modems, Routers, Serial - Ethernet Converters, Swtiches</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_meter_readingmodbus">ics:ot-network-data-transmission-protocols-automatic-meter-reading="Modbus"</h4>
+<h4 id="_icsot_components_categorysupervisory_level_devices">ics:ot-components-category="supervisory-level-devices"</h4>
 <div class="paragraph">
-<p>Modbus</p>
+<p>Supervisory Level Devices</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_meter_readingzigbee">ics:ot-network-data-transmission-protocols-automatic-meter-reading="ZigBee"</h4>
-<div class="paragraph">
-<p>ZigBee</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_ot_network_data_transmission_protocols_automatic_automobile_vehicle_aviation">ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation</h3>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationarinc_429">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="ARINC 429"</h4>
-<div class="paragraph">
-<p>ARINC 429</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationcan_bus_arinc_825_sae_j1939_nmea_2000_fms">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="CAN bus (ARINC 825 SAE J1939 NMEA 2000 FMS)"</h4>
-<div class="paragraph">
-<p>CAN bus (ARINC 825 SAE J1939 NMEA 2000 FMS)</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationfactory_instrumentation_protocol">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="Factory Instrumentation Protocol"</h4>
-<div class="paragraph">
-<p>Factory Instrumentation Protocol</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationflexray">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="FlexRay"</h4>
-<div class="paragraph">
-<p>FlexRay</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationiebus">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="IEBus"</h4>
-<div class="paragraph">
-<p>IEBus</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationj1587">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="J1587"</h4>
-<div class="paragraph">
-<p>J1587</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationj1708">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="J1708"</h4>
-<div class="paragraph">
-<p>J1708</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationkeyword_protocol_2000">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="Keyword Protocol 2000"</h4>
-<div class="paragraph">
-<p>Keyword Protocol 2000</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationunified_diagnostic_services">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="Unified Diagnostic Services"</h4>
-<div class="paragraph">
-<p>Unified Diagnostic Services</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationlin">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="LIN"</h4>
-<div class="paragraph">
-<p>LIN</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationmost">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="MOST"</h4>
-<div class="paragraph">
-<p>MOST</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_network_data_transmission_protocols_automatic_automobile_vehicle_aviationvan">ics:ot-network-data-transmission-protocols-automatic-automobile-vehicle-aviation="VAN"</h4>
-<div class="paragraph">
-<p>VAN</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_ot_security_issues">ot-security-issues</h3>
-<div class="sect3">
-<h4 id="_icsot_security_issuesmessage_authentication">ics:ot-security-issues="Message Authentication"</h4>
-<div class="paragraph">
-<p>Message Authentication</p>
-</div>
-<div class="paragraph">
-<p>Auth in used protocols is attacked and falsification command can be sent</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_security_issuesmessage_integrity_checking">ics:ot-security-issues="Message Integrity Checking"</h4>
-<div class="paragraph">
-<p>Message Integrity Checking</p>
-</div>
-<div class="paragraph">
-<p>Message poart of the sent protocol is maliciously tampered</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_security_issuesmessage_encryption">ics:ot-security-issues="Message Encryption"</h4>
-<div class="paragraph">
-<p>Message Encryption</p>
-</div>
-<div class="paragraph">
-<p>Self explanatory, i.e. Weak encryption is attacked</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_security_issuescommand_injection">ics:ot-security-issues="Command Injection"</h4>
-<div class="paragraph">
-<p>Command Injection</p>
-</div>
-<div class="paragraph">
-<p>Either Remote Command Injection or Local. On local can be timer triggered under tampered firmware</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_security_issuesreplay_attack">ics:ot-security-issues="Replay Attack"</h4>
-<div class="paragraph">
-<p>Replay Attack</p>
-</div>
-<div class="paragraph">
-<p>Self explanatory</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_security_issuesman_in_the_middle_mitm_attack">ics:ot-security-issues="Man in the middle (MITM) Attack"</h4>
-<div class="paragraph">
-<p>Man in the middle (MITM) Attack</p>
-</div>
-<div class="paragraph">
-<p>Self explanatory</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_security_issuesundocumented_instructions">ics:ot-security-issues="Undocumented instructions"</h4>
-<div class="paragraph">
-<p>Undocumented instructions</p>
-</div>
-<div class="paragraph">
-<p>Vendor&#8217;s left several instruction used for development or trouble shooting that is finally leaked and used to performed malicious activities on the devices.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_icsot_security_issuesvendor_proprietary_protocols">ics:ot-security-issues="Vendor proprietary protocols"</h4>
-<div class="paragraph">
-<p>Vendor proprietary protocols</p>
-</div>
-<div class="paragraph">
-<p>Internal vendor protocols used for development or trouble shooting, that is being maliciously for an attack.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Control Server (Supervisory systems that hosts control software to manage lower level control devices like PLC).\n\n2. Data Historian (Centralized database for information about process, control activity and status record).\n\n3. Engineering workstations (Creating and revising control systems anbd programs, incl. project files).</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -43501,7 +43501,7 @@ workflow namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-09-09 15:11:44 +0200
+Last updated 2019-09-20 13:16:11 +0200
 </div>
 </div>
 </body>

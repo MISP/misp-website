@@ -472,6 +472,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_cap_info">cap-info</a></li>
 <li><a href="#_cap_resource">cap-resource</a></li>
 <li><a href="#_coin_address">coin-address</a></li>
+<li><a href="#_command">command</a></li>
+<li><a href="#_command_line">command-line</a></li>
 <li><a href="#_cookie">cookie</a></li>
 <li><a href="#_cortex">cortex</a></li>
 <li><a href="#_cortex_taxonomy">cortex-taxonomy</a></li>
@@ -499,6 +501,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_http_request">http-request</a></li>
 <li><a href="#_ilr_impact">ilr-impact</a></li>
 <li><a href="#_ilr_notification_incident">ilr-notification-incident</a></li>
+<li><a href="#_impersonation">impersonation</a></li>
 <li><a href="#_imsi_catcher">imsi-catcher</a></li>
 <li><a href="#_internal_reference">internal-reference</a></li>
 <li><a href="#_interpol_notice">interpol-notice</a></li>
@@ -580,6 +583,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_tor_node">tor-node</a></li>
 <li><a href="#_tracking_id">tracking-id</a></li>
 <li><a href="#_transaction">transaction</a></li>
+<li><a href="#_translation">translation</a></li>
 <li><a href="#_url">url</a></li>
 <li><a href="#_user_account">user-account</a></li>
 <li><a href="#_vehicle">vehicle</a></li>
@@ -4077,6 +4081,151 @@ coin-address is a MISP object available in JSON format at <a href="https://githu
 </div>
 </div>
 <div class="sect1">
+<h2 id="_command"><a class="anchor" href="#_command"></a><a class="link" href="#_command">command</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Command functionalities related to specific commands executed by a program, whether it is malicious or not. Command-line are attached to this object for the related commands.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+command is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/master/objects/command/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Location of the command functionality ['Bundled', 'Module', 'Libraries', 'Unknown']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">trigger</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>How the commands are triggered ['Local', 'Network', 'Unknown']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Description of the command functionalities</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_command_line"><a class="anchor" href="#_command_line"></a><a class="link" href="#_command_line">command-line</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Command line and options related to a specific command executed by a program, whether it is malicious or not.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+command-line is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/master/objects/command-line/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>command code</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>description of the command</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_cookie"><a class="anchor" href="#_cookie"></a><a class="link" href="#_cookie">cookie</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -4917,7 +5066,7 @@ credential is a MISP object available in JSON format at <a href="https://github.
 <p>Type of password(s) ['password', 'api-key', 'encryption-key', 'unknown']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -4930,7 +5079,7 @@ credential is a MISP object available in JSON format at <a href="https://github.
 <p>Origin of the credential(s) ['bruteforce-scanning', 'malware-analysis', 'memory-analysis', 'network-analysis', 'leak', 'unknown']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -4943,7 +5092,7 @@ credential is a MISP object available in JSON format at <a href="https://github.
 <p>Format of the password(s) ['clear-text', 'hashed', 'encrypted', 'unknown']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -4956,7 +5105,7 @@ credential is a MISP object available in JSON format at <a href="https://github.
 <p>Mention of any notification(s) towards the potential owner(s) of the credential(s) ['victim-notified', 'service-notified', 'none']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -8693,6 +8842,150 @@ ilr-notification-incident is a MISP object available in JSON format at <a href="
 </div>
 </div>
 <div class="sect1">
+<h2 id="_impersonation"><a class="anchor" href="#_impersonation"></a><a class="link" href="#_impersonation">impersonation</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Represent an impersonating account.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+impersonation is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/master/objects/impersonation/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type-of-account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type of the impersonated account ['Twitter', 'Facebook', 'LinkedIn', 'Reddit', 'Google+', 'Instagram', 'Forum', 'Other']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">account-url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>url of the impersonating account</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">account-name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of the impersonating account</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">impersonated-account-url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>url of the impersonated account</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">impersonated-account-name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of the impersonated account</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">real-name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Real name of the impersonated person or entity</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type of the account ['Person', 'Association', 'Enterprise', 'Other']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">objective</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Objective of the impersonation ['Information stealing', 'Disinformation', 'Distrusting', 'Advertising', 'Parody', 'Other']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_imsi_catcher"><a class="anchor" href="#_imsi_catcher"></a><a class="link" href="#_imsi_catcher">imsi-catcher</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -11254,7 +11547,20 @@ microblog is a MISP object available in JSON format at <a href="https://github.c
 <td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Original URL location of the microblog post</p>
+<p>Original URL location of the microblog post (potentially malicious)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Original link into the microblog post (Supposed harmless)</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -11329,7 +11635,7 @@ microblog is a MISP object available in JSON format at <a href="https://github.c
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">embedded-link</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Link into the microblog post</p>
@@ -11359,6 +11665,19 @@ microblog is a MISP object available in JSON format at <a href="https://github.c
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Username who are quoted into the microblog post</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hashtag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Hashtag into the microblog post</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -14440,7 +14759,7 @@ process is a MISP object available in JSON format at <a href="https://github.com
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">guid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The globally unique identifier of the assigned by the vendor product</p>
 </div></div></td>
@@ -14466,7 +14785,7 @@ process is a MISP object available in JSON format at <a href="https://github.com
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">parent-guid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The globally unique idenifier of the parent process assigned by the vendor product</p>
 </div></div></td>
@@ -14492,7 +14811,7 @@ process is a MISP object available in JSON format at <a href="https://github.com
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">port</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">src-port</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">port</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Port(s) owned by the process</p>
 </div></div></td>
@@ -21440,7 +21759,7 @@ timesketch-timeline is a MISP object available in JSON format at <a href="https:
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">timestamp</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp-microsec</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>When the log entry was seen in microseconds since Unix epoch</p>
 </div></div></td>
@@ -22268,6 +22587,124 @@ transaction is a MISP object available in JSON format at <a href="https://github
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Target country of a transaction.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_translation"><a class="anchor" href="#_translation"></a><a class="link" href="#_translation">translation</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Used to keep a text and its translation.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+translation is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/master/objects/translation/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">original-text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Original text</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">translated-text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Text after translation</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">original-language</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Language of the original text ['Mandarin (language family)', 'Spanish', 'English', 'Hindi', 'Bengali', 'Portuguese', 'Russian', 'Japanese', 'Western Punjabi', 'Marathi', 'Telugu', 'Wu (language family)', 'Turkish', 'Korean', 'French', 'German', 'Vietnamese', 'Tamil', 'Yue (language family)', 'Urdu', 'Javanese', 'Italian', 'Egyptian Arabic', 'Gujarati', 'Iranian Persian', 'Bhojpuri', 'Min Nan (language family)', 'Hakka', 'Jinyu', 'Hausa', 'Kannada', 'Indonesian (Indonesian Malay)', 'Polish', 'Yoruba', 'Xiang Chinese (language family)', 'Malayalam', 'Odia', 'Maithili', 'Burmese', 'Eastern Punjabi', 'Sunda', 'Sudanese Arabic', 'Algerian Arabic', 'Moroccan Arabic', 'Ukrainian', 'Igbo', 'Northern Uzbek', 'Sindhi', 'North Levantine Arabic', 'Romanian', 'Tagalog', 'Dutch', 'Saʽidi Arabic', 'Gan', 'Amharic', 'Northern Pashto', 'Magahi', 'Thai', 'Saraiki', 'Khmer', 'Chhattisgarhi', 'Somali', 'Malay (Malaysian Malay)', 'Cebuano', 'Nepali', 'Mesopotamian Arabic', 'Assamese', 'Sinhala', 'Northern Kurdish', 'Hejazi Arabic', 'Nigerian Fulfulde', 'South Azerbaijani', 'Greek', 'Chittagonian', 'Kazakh', 'Deccan', 'Hungarian', 'Kinyarwanda', 'Zulu', 'South Levantine Arabic', 'Tunisian Arabic', 'Sanaani Spoken Arabic', 'Min Bei Chinese (language family)', 'Southern Pashto', 'Rundi', 'Czech', 'Taʽizzi-Adeni Arabic', 'Uyghur', 'Min Dong Chinese (language family)', 'Sylheti ']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">translation-language</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Language of translation ['Mandarin (language family)', 'Spanish', 'English', 'Hindi', 'Bengali', 'Portuguese', 'Russian', 'Japanese', 'Western Punjabi', 'Marathi', 'Telugu', 'Wu (language family)', 'Turkish', 'Korean', 'French', 'German', 'Vietnamese', 'Tamil', 'Yue (language family)', 'Urdu', 'Javanese', 'Italian', 'Egyptian Arabic', 'Gujarati', 'Iranian Persian', 'Bhojpuri', 'Min Nan (language family)', 'Hakka', 'Jinyu', 'Hausa', 'Kannada', 'Indonesian (Indonesian Malay)', 'Polish', 'Yoruba', 'Xiang Chinese (language family)', 'Malayalam', 'Odia', 'Maithili', 'Burmese', 'Eastern Punjabi', 'Sunda', 'Sudanese Arabic', 'Algerian Arabic', 'Moroccan Arabic', 'Ukrainian', 'Igbo', 'Northern Uzbek', 'Sindhi', 'North Levantine Arabic', 'Romanian', 'Tagalog', 'Dutch', 'Saʽidi Arabic', 'Gan', 'Amharic', 'Northern Pashto', 'Magahi', 'Thai', 'Saraiki', 'Khmer', 'Chhattisgarhi', 'Somali', 'Malay (Malaysian Malay)', 'Cebuano', 'Nepali', 'Mesopotamian Arabic', 'Assamese', 'Sinhala', 'Northern Kurdish', 'Hejazi Arabic', 'Nigerian Fulfulde', 'South Azerbaijani', 'Greek', 'Chittagonian', 'Kazakh', 'Deccan', 'Hungarian', 'Kinyarwanda', 'Zulu', 'South Levantine Arabic', 'Tunisian Arabic', 'Sanaani Spoken Arabic', 'Min Bei Chinese (language family)', 'Southern Pashto', 'Rundi', 'Czech', 'Taʽizzi-Adeni Arabic', 'Uyghur', 'Min Dong Chinese (language family)', 'Sylheti ']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">translation-service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>translation service used for the translation ['Google Translate', 'Microsoft Translator', 'Babelfish', 'Reverso', 'Dict.cc', 'Linguee', 'unknown']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">translation-type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>type of translation ['Automated translation', 'Manual translation']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -24467,6 +24904,11 @@ yara is a MISP object available in JSON format at <a href="https://github.com/MI
 <td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is-author-of</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being author by someone.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">located</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes the location (of any type) of a specific object.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
@@ -24967,6 +25409,16 @@ yara is a MISP object available in JSON format at <a href="https://github.com/MI
 <td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">injects-into</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents an object injecting something into something</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">injected-into</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents an object which is injected something into something</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">creates</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Represents an object that creates something.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">['misp', 'haxpak']</p></td>
@@ -24983,7 +25435,7 @@ yara is a MISP object available in JSON format at <a href="https://github.com/MI
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-08-02 10:01:54 +0200
+Last updated 2019-09-20 13:14:33 +0200
 </div>
 </div>
 </body>
