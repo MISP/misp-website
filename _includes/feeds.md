@@ -2,14 +2,14 @@
 - [The Botvrij.eu Data](http://www.botvrij.eu/data/feed-osint) - Botvrij.eu - feed format: misp
 - [ZeuS IP blocklist (Standard)](https://zeustracker.abuse.ch/blocklist.php?download=ipblocklist) - zeustracker.abuse.ch - feed format: csv
 - [ZeuS compromised URL blocklist](https://zeustracker.abuse.ch/blocklist.php?download=compromised) - zeustracker.abuse.ch - feed format: csv
-- [blockrules of rules.emergingthreats.net](http://rules.emergingthreats.net/blockrules/compromised-ips.txt) - rules.emergingthreats.net - feed format: csv
+- [blockrules of rules.emergingthreats.net](https://rules.emergingthreats.net/blockrules/compromised-ips.txt) - rules.emergingthreats.net - feed format: csv
 - [malwaredomainlist](https://panwdbl.appspot.com/lists/mdl.txt) - malwaredomainlist - feed format: csv
 - [Tor exit nodes](https://www.dan.me.uk/torlist/?exit) - TOR Node List from dan.me.uk - feed format: csv
 - [Tor ALL nodes](https://www.dan.me.uk/torlist/) - TOR Node List from dan.me.uk - feed format: csv
-- [cybercrime-tracker.net - all](http://cybercrime-tracker.net/all.php) - cybercrime-tracker.net - feed format: freetext
-- [Phishtank online valid phishing](http://data.phishtank.com/data/online-valid.csv) - Phishtank - feed format: csv
+- [cybercrime-tracker.net - all](https://cybercrime-tracker.net/all.php) - cybercrime-tracker.net - feed format: freetext
+- [Phishtank online valid phishing](https://data.phishtank.com/data/online-valid.csv) - Phishtank - feed format: csv
 - [listdynamic dns providers](http://dns-bh.sagadc.org/dynamic_dns.txt) - http://dns-bh.sagadc.org - feed format: csv
-- [ip-filter.blf - labs.snort.org](http://labs.snort.org/feeds/ip-filter.blf) - http://labs.snort.org - feed format: freetext
+- [ip-filter.blf - labs.snort.org](https://labs.snort.org/feeds/ip-filter.blf) - https://labs.snort.org - feed format: freetext
 - [longtail.it.marist.edu](http://longtail.it.marist.edu/honey/current-ip-addresses.txt) - longtail.it.marist.edu - feed format: freetext
 - [longtail.it.marist.edu 7 days](http://longtail.it.marist.edu/honey/last-7-days-ip-addresses.txt) - longtail.it.marist.edu - feed format: freetext
 - [diamondfox_panels](https://raw.githubusercontent.com/pan-unit42/iocs/master/diamondfox/diamondfox_panels.txt) - pan-unit42 - feed format: freetext
@@ -21,10 +21,10 @@
 - [hosts-file.net - hphost - malwarebytes - EMD classification ONLY](https://hosts-file.net/emd.txt) - hosts-file.net - feed format: csv
 - [OpenPhish url list](https://openphish.com/feed.txt) - openphish.com - feed format: freetext
 - [firehol_level1](https://raw.githubusercontent.com/ktsaou/blocklist-ipsets/master/firehol_level1.netset) - iplists.firehol.org - feed format: freetext
-- [IPs from High-Confidence DGA-Based C&Cs Actively Resolving](http://osint.bambenekconsulting.com/feeds/c2-ipmasterlist-high.txt) - osint.bambenekconsulting.com - feed format: csv
-- [Domains from High-Confidence DGA-based C&C Domains Actively Resolving](http://osint.bambenekconsulting.com/feeds/c2-dommasterlist-high.txt) - osint.bambenekconsulting.com - feed format: csv
-- [ci-badguys.txt](http://cinsscore.com/list/ci-badguys.txt) - cinsscore.com - feed format: freetext
-- [alienvault reputation generic](http://reputation.alienvault.com/reputation.generic) - .alienvault.com - feed format: csv
+- [IPs from High-Confidence DGA-Based C&Cs Actively Resolving](https://osint.bambenekconsulting.com/feeds/c2-ipmasterlist-high.txt) - osint.bambenekconsulting.com - feed format: csv
+- [Domains from High-Confidence DGA-based C&C Domains Actively Resolving](https://osint.bambenekconsulting.com/feeds/c2-dommasterlist-high.txt) - osint.bambenekconsulting.com - feed format: csv
+- [ci-badguys.txt](https://cinsscore.com/list/ci-badguys.txt) - cinsscore.com - feed format: freetext
+- [alienvault reputation generic](https://reputation.alienvault.com/reputation.generic) - .alienvault.com - feed format: csv
 - [blocklist.de/lists/all.txt](https://lists.blocklist.de/lists/all.txt) - blocklist.de - feed format: freetext
 - [VNC RFB](https://dataplane.org/vncrfb.txt) - dataplane.org - feed format: csv
 - [sshpwauth.txt](https://dataplane.org/sshpwauth.txt) - dataplane.org - feed format: csv
@@ -35,24 +35,32 @@
 - [VXvault - URL List](http://vxvault.net/URL_List.php) - VXvault - feed format: freetext
 - [abuse.ch SSL IPBL](https://sslbl.abuse.ch/blacklist/sslipblacklist.csv) - abuse.ch - feed format: csv
 - [abuse.ch Dyre SSL IPBL](https://sslbl.abuse.ch/blacklist/dyre_sslipblacklist.csv) - abuse.ch - feed format: csv
-- [http://cybercrime-tracker.net](http://cybercrime-tracker.net/ccamlist.php) - http://cybercrime-tracker.net hashlist - feed format: freetext
-- [http://cybercrime-tracker.net](http://cybercrime-tracker.net/ccamgate.php) - http://cybercrime-tracker.net gatelist - feed format: freetext
+- [http://cybercrime-tracker.net](https://cybercrime-tracker.net/ccamlist.php) - http://cybercrime-tracker.net hashlist - feed format: freetext
+- [http://cybercrime-tracker.net](https://cybercrime-tracker.net/ccamgate.php) - http://cybercrime-tracker.net gatelist - feed format: freetext
 - [hpHosts - GRM only](https://hosts-file.net/grm.txt) - hpHosts - feed format: csv
 - [blocklist.greensnow.co](https://blocklist.greensnow.co/greensnow.txt) - greensnow.co - feed format: csv
-- [conficker all domains generated](http://www.cert.at/static/downloads/data/conficker/all_domains.txt) - cert.at - feed format: csv
+- [conficker all domains generated](https://www.cert.at/static/downloads/data/conficker/all_domains.txt) - cert.at - feed format: csv
 - [This list contains all domains - A list for administrators to prevent mining in networks](https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list.txt?inline=false) - CoinBlockerLists - feed format: freetext
 - [This list contains all optional domains - An additional list for administrators](https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_optional.txt?inline=false) - CoinBlockerLists - feed format: freetext
 - [This list contains all browser mining domains - A list to prevent browser mining only](https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_browser.txt?inline=false) - CoinBlockerLists - feed format: freetext
 - [This list contains all IPs - A additional list for administrators to prevent mining in networks](https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/MiningServerIPList.txt?inline=false) - CoinBlockerLists - feed format: freetext
 - [URLHaus Malware URLs](https://urlhaus.abuse.ch/downloads/csv/) - Abuse.ch - feed format: csv
-- [CyberCure - IP Feed](http://api.cybercure.ai/feed/get_ips?type=csv) - www.cybercure.ai - feed format: csv
-- [CyberCure - Blocked URL Feed](http://api.cybercure.ai/feed/get_url?type=csv) - www.cybercure.ai - feed format: csv
-- [CyberCure - Hash Feed](http://api.cybercure.ai/feed/get_hash?type=csv) - www.cybercure.ai - feed format: csv
+- [CyberCure - IP Feed](https://api.cybercure.ai/feed/get_ips?type=csv) - www.cybercure.ai - feed format: csv
+- [CyberCure - Blocked URL Feed](https://api.cybercure.ai/feed/get_url?type=csv) - www.cybercure.ai - feed format: csv
+- [CyberCure - Hash Feed](https://api.cybercure.ai/feed/get_hash?type=csv) - www.cybercure.ai - feed format: csv
 - [ipspamlist](http://www.ipspamlist.com/public_feeds.csv) - ipspamlist - feed format: csv
 - [mirai.security.gives](https://mirai.security.gives/data/ip_list.txt) - security.gives - feed format: freetext
 - [malsilo.url](https://malsilo.gitlab.io/feeds/dumps/url_list.txt) - MalSilo - feed format: csv
 - [malsilo.ipv4](https://malsilo.gitlab.io/feeds/dumps/ip_list.txt) - MalSilo - feed format: csv
 - [malshare.com - current all](https://malshare.com/daily/malshare.current.all.txt) - malshare.com - feed format: freetext
-- [Benkow.cc RAT](http://benkow.cc/export_rat.php) - benkow.cc - feed format: csv
-- [Panels Tracker](http://benkow.cc/export.php) - Benkow.cc - feed format: csv
-
+- [Benkow.cc RAT](https://benkow.cc/export_rat.php) - benkow.cc - feed format: csv
+- [Panels Tracker](https://benkow.cc/export.php) - Benkow.cc - feed format: csv
+- [IPsum (aggregation of all feeds) - level 1 - lot of false positives](https://raw.githubusercontent.com/stamparm/ipsum/master/levels/1.txt) - IPsum - feed format: freetext
+- [IPsum (aggregation of all feeds) - level 2 - medium false positives](https://raw.githubusercontent.com/stamparm/ipsum/master/levels/2.txt) - IPsum - feed format: freetext
+- [IPsum (aggregation of all feeds) - level 3 - low false positives](https://raw.githubusercontent.com/stamparm/ipsum/master/levels/3.txt) - IPsum - feed format: freetext
+- [IPsum (aggregation of all feeds) - level 4 - very low false positives](https://raw.githubusercontent.com/stamparm/ipsum/master/levels/4.txt) - IPsum - feed format: freetext
+- [IPsum (aggregation of all feeds) - level 5 - ultra false positives](https://raw.githubusercontent.com/stamparm/ipsum/master/levels/5.txt) - IPsum - feed format: freetext
+- [IPsum (aggregation of all feeds) - level 6 - no false positives](https://raw.githubusercontent.com/stamparm/ipsum/master/levels/6.txt) - IPsum - feed format: freetext
+- [IPsum (aggregation of all feeds) - level 7 - no false positives](https://raw.githubusercontent.com/stamparm/ipsum/master/levels/7.txt) - IPsum - feed format: freetext
+- [IPsum (aggregation of all feeds) - level 8 - no false positives](https://raw.githubusercontent.com/stamparm/ipsum/master/levels/8.txt) - IPsum - feed format: freetext
+- [DigitalSide Threat-Intel OSINT Feed](https://osint.digitalside.it/Threat-Intel/digitalside-misp-feed/) - osint.digitalside.it - feed format: misp
