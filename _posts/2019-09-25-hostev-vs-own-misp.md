@@ -1,7 +1,7 @@
 ---
 title: Benefits of running your own MISP instance
 layout: post
-featured: /assets/images/misp/blog/decay.png
+featured: /assets/images/misp/blog/community-view.png
 ---
 
 # Benefits of running your own MISP instance
