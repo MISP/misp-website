@@ -16,7 +16,7 @@ Distribution levels aside, if you create private data for yourself on a hosted i
 
 ## Don't let other snoop on your searches
 
-Inspecting requests against a server you own is trivial, meaning that any search run against a hosted MISP instance could be inspected by the system administrators of the hosted instance. What you search for is often more sensitive than the data that you store in your system, your analysts will often take to their knowledgebases such as MISP as a first step to verify whether datapoints are already known, often accidentally including for example victim information
+Inspecting requests against a server you own is trivial, meaning that any search run against a posted MISP instance could be inspected by the system administrators of the hosted instance. What you search for is often more sensitive than the data that you store in your system, your analysts will often take to their knowledge-base such as MISP as a first step to verify whether datapoints are already known, often accidentally including for example victim information
 
 ## Avoid being performance limited by overburdened systems
 
