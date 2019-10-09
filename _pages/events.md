@@ -17,6 +17,7 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### Current MISP Training(s)
 
+- [MISP Training (Norway)](https://www.first.org/events/colloquia/oslo2019/) in Oslo, October 15-17th 2019
 - [MISP Training (Slovenia)](https://www.first.org/events/colloquia/ljubljana2019/program) in Ljubljana 2019 FIRST Technical Colloquium, November 13–14, 2019
 - [MISP Training - Threat Intelligence Introduction for Analysts and Administrators](https://en.xing-events.com/AOMYCCV.html) in Luxembourg, December 03, 2019
 - [MISP Training - Hands-on workshop for analysts and MISP users](https://en.xing-events.com/JSUSQIV.html) in Luxembourg, December 04, 2019
