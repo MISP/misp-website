@@ -22,3 +22,8 @@ As the MISP project is used in different geographical regions (Europe, North Ame
 ## How MISP enables stakeholders identified by the NISD to perform key activities
 
 - [How MISP enables stakeholders identified by the NISD to perform key activities](/compliance/NISD) latest version 1.0 published on Wednesday, 18 April 2018.
+
+## Guidelines to setting up an information sharing community such as an ISAC or ISAO
+
+- [Guidelines to setting up an information sharing community such as an ISAC or ISAO](https://www.x-isac.org/assets/images/guidelines_to_set-up_an_ISAC.pdf) latest version 1.0, 11 March 2019.
+
