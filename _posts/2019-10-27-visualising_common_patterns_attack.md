@@ -1,10 +1,10 @@
 ---
-title: Visualising common patterns within MISP and ATT&CK data 
+title: Visualising common patterns using MISP and ATT&CK data 
 layout: post
 featured: /assets/images/misp/blog/visualisation_cylance_attack/actor_delta.png
 ---
 
-# Visualising common patterns within MISP and ATT&CK data 
+# Visualising common patterns using MISP and ATT&CK data 
 
 Having access to a large amount of Threat information through MISP Threat Sharing communities, gives you outstanding opportunities to aggregate this information and take the process of trying to understand how all this data fits together tell a broader story to the next level. We are transforming technical data or indicators of compromise (IOCs) into Cyber Threat Intel. This is where the analytical challenge begins.
 
