@@ -11,7 +11,7 @@ MISP Professional Services (MPS) is a program handled by the lead developers of 
 skilled services around MISP and to support the sustainability of the MISP project.
 This initiative is meant to address the policy requirements of companies/organisations requiring commercial support contracts.
 
-In addition to the best-effort support available through the usual (support channels)[/documentation/#community-support/], 
+In addition to the best-effort support available through the usual [support channels](/documentation/#community-support/), 
 our MISP Professional Services are meant to be used by companies and organisations who want to make sure their issues are 
 fast-tracked and are prioritised.
 
@@ -31,7 +31,7 @@ A list of the current trainings can be found at the [events page](/events/).
 There are different custom training offerings:
 
 a) For on-site closed trainings up to 30-50 attendees (depending on conditions of the location): 
-We charge EUR 3.000 per training day plus additional expenses ([see below](#Additional_costs_for_all_missions_outside_Luxembourg))
+We charge EUR 3.000 per training day plus additional expenses ([see below](#additional-costs-for-all-missions-outside-luxembourg))
 
 b) For closed trainings up to 30 attendees in Luxembourg: 
 We charge EUR 3.500 per training day including food and beverages
