@@ -70,8 +70,9 @@ We charge in addition to the displayed prices for the travel and accommodation c
 We might uplift reasonably depending on the training location and the time for travel.
 
 
+# Contact for inquiries and requests
 
-
+Please send your inquiries regarding MISP Professional Services to professional@misp-project.org
 
 
 
