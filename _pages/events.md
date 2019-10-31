@@ -13,18 +13,23 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### MISP Threat Intelligence summit
 
-- [MISP threat intelligence summit 0x5](https://en.xing-events.com/DZXFMJG) - in Luxembourg - 21th October 2019
+- MISP threat intelligence summit 0x6 - in Luxembourg - 19th October 2020
 
 ### Current MISP Training(s)
+
+- [MISP Training (Slovenia)](https://www.first.org/events/colloquia/ljubljana2019/program) in Ljubljana 2019 FIRST Technical Colloquium, November 13–14, 2019
+- [MISP Training - Threat Intelligence Introduction for Analysts and Administrators](https://en.xing-events.com/AOMYCCV.html) in Luxembourg, December 03, 2019
+- [MISP Training - Hands-on workshop for analysts and MISP users](https://en.xing-events.com/JSUSQIV.html) in Luxembourg, December 04, 2019
+- [MISP Training - Advanced developers session, including MISP core](https://en.xing-events.com/WBFKUVK.html) in Luxembourg, December 05, 2019
+
+
+### (some) Past MISP Training(s)
 
 - [MISP Training (Norway)](https://www.first.org/events/colloquia/oslo2019/) in Oslo, October 15-17th 2019
 - [MISP Training (Slovenia)](https://www.first.org/events/colloquia/ljubljana2019/program) in Ljubljana 2019 FIRST Technical Colloquium, November 13–14, 2019
 - [MISP Training - Threat Intelligence Introduction for Analysts and Administrators](https://en.xing-events.com/AOMYCCV.html) in Luxembourg, December 03, 2019
 - [MISP Training - Hands-on workshop for analysts and MISP users](https://en.xing-events.com/JSUSQIV.html) in Luxembourg, December 04, 2019
 - [MISP Training - Advanced developers session, including MISP core](https://en.xing-events.com/WBFKUVK.html) in Luxembourg, December 05, 2019
-
-### (some) Past MISP Training(s)
-
 - [MISP Training (Prague) - Threat Intelligence Analyst and Administrators](https://en.xing-events.com/XDMSLUO) - in Prague - 17th September 2019
 - [MISP Training (Prague) - Developers session - API and Extensions](https://en.xing-events.com/ULBAHVN) - in Prague - 18th September 2019
 - [MISP Training - Threat Intelligence Analyst and Administrators](https://en.xing-events.com/EJKDRZP) - at CIRCL Luxembourg - 24th September 2019
