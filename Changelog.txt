@@ -1,6 +1,406 @@
 Changelog
 =========
 
+
+v2.4.118 (2019-11-08)
+---------------------
+
+New
+~~~
+- [attribute:restSearch] Support of Orgc and GalaxyElement meta
+  searches. [mokaddem]
+- [event:restSearch] Support of Orgc meta searches. [mokaddem]
+- [event:restSearch] Initial work for GalaxyElement searches. [mokaddem]
+- [SightingDB] Added integration with SightingDB. [iglocska]
+
+  - Added configuration tool
+  - Added lookups from the event view
+  - Added includeSightingdb flag for the restSearch searches
+  - Added SightingDB search tool
+  - Added SightingDB connection test tool
+- [UI] Added the index filter component. [iglocska]
+- [UI] Added new/improved index and form builder generators - Added form
+  Builder generator - Added new fields to the index table generator -
+  updated some existing fields for the index table generator. [iglocska]
+- [tags] Preminilary support of exclusive tags based on taxonomy data.
+  [mokaddem]
+- [cli] server connectivity test. [Jan Skalny]
+- [servers:DBDiagnostic] Improved indexTable and added new DB schema
+  diagnostic (WiP) [mokaddem]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [diagnostic] Exposed dbSchemaDiagnostic to the API. [mokaddem]
+- [restSearch] Improved meta-search code - Correctly returns nothing if
+  search on metas does not return anything - Renamed `orgc.sector` into
+  `org.sector` while still being `orgc` behind the hood - Removed
+  duplicated code. [mokaddem]
+- [db_schema] Updated to the latest version. [mokaddem]
+- [queryversion] Bumped queryversion. [mokaddem]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [sightingdb] Added support for bulk lookups and namespacing.
+  [iglocska]
+
+  - aligned with the latest version of the sightingdb (support for the /rb endpoint)
+  - added namespacing as an option / sightingdb connection, defaults to "all" if left empty
+- [misp-taxonomies] updated to the latest version (exclusivity review)
+  [Alexandre Dulaunoy]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [event:view] Exclusive notice UI improvements. [mokaddem]
+- [attribute:addTag] Added support of `exclusive` at Attribute level.
+  [mokaddem]
+- [tag:exclusive] Added support of local while checking for exclusivity.
+  [mokaddem]
+- [event:view] Added notice and improved inconsistency text message.
+  [mokaddem]
+- [PyMISP] bump PyMISP to the latest version. [Alexandre Dulaunoy]
+- [default] old default 'TLP Amber' is now 'tlp:amber' to be consistent
+  and use MISP taxonomy naming. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version of ATT&CK October 2019.
+  [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [doc] Various updates for RHEL8/CentOS8/Debian10.1. [Steve Clement]
+- [stix2 import] Loading the input file once everything is initialysed.
+  [chrisr3d]
+
+  - We no longer pass the loaded stix data as parameter
+    to the parser but we load it once the required
+    variables are initialysed
+  - Instead of passing a potentially big dictionary
+    and parsing it into different variables after the
+    initiation of the parser class, we directly set
+    the different data structures while parsing
+    the loaded file
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- Enable mailing in travis. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [installer] Updated installer to support latest Kali Linux chg: [doc]
+  Amended Centos7 mirror foo. [Steve Clement]
+- [stix2 library] Bumped latest version. [chrisr3d]
+- [doc] ssdeep can be installed via pkg_add. [Marcelo H. P. C. Chaves]
+- Usage of camelCase instead of snake_case. [mokaddem]
+- [update] Added special log action for workers performing the DB
+  update. [mokaddem]
+- [update] Remove lock notice when updates finishes. [mokaddem]
+- [update] Actually reset `UpdateFailNumber` when manually unlocking.
+  [mokaddem]
+- [update] Improved feedback for update lock type in the UI. [mokaddem]
+- [updateProgress] Improved UI. [mokaddem]
+- [ACL] Added missing route to ACLComponent. [mokaddem]
+- [taskScheduler] Correctly link checkbox and removed useless variable
+  declaration. [mokaddem]
+- [travis&install] Updated to use `runUpdates` instead of
+  `updateDatabase` [mokaddem]
+- [update] Added postgresql allowed DB update errors. [mokaddem]
+- [updateProgress] Default to success when no pre-update-test.
+  [mokaddem]
+- [updateProgress] No strict validation for db_number (allow also allow
+  string) [mokaddem]
+- [updateProgress] Do no show negative remaining update anymore in the
+  UI. [mokaddem]
+- [update] Parametrized ignore_disabled in ondemand_action and support
+  of string update in update_progress. [mokaddem]
+- [updateProgress] fixed infinit restart loop and added support of
+  autoThrottle in taskScheduler. [mokaddem]
+- [taskScheduler] Improved listener registration. [mokaddem]
+- [update] Added endpoint to release lock and integration with UI.
+  [mokaddem]
+- [update] Do not release the lock if update fails more than 3 times.
+  [mokaddem]
+- [updates] Disabled time-remaining animation and fixed typos.
+  [mokaddem]
+- [updateProgress] Added 2-way binding task status with switch button.
+  [mokaddem]
+- [updateProgress] Cancel animation if switch turned off. [mokaddem]
+- [updateProgress] Added number of remaining db updates. [mokaddem]
+- [updateProgress] Usage of GPU for animation, deleted sleeps and
+  improved task. [mokaddem]
+- [updateProgress:ui] Prevent text selection for switch label.
+  [mokaddem]
+- [updateProgress] Added threshold preventing animations. [mokaddem]
+- [updateProgress] Redraw the switch if it gets overriden. [mokaddem]
+- [updateProgress] Pooling task now use the taskScheduler. [mokaddem]
+- [updateProgress] Started taking into account stack of updates - WiP.
+  [mokaddem]
+- [diagnostic] Exposed mysql and redis diagnostic on the API. [mokaddem]
+- [dbSchemaDiagnostic] UI improvements. [mokaddem]
+- [dbSchemaDiagnostic] Added `db_schema.json` and `dumpDBSchema.sh`
+  [mokaddem]
+- [update] Usage of sprintf instead of string concatenation. [mokaddem]
+- [dbSchemaDiagnostic] Added big warning if dabase is in inconsistent
+  state. [mokaddem]
+- [dbSchemaDiagnostic] show remaining time before update unlock and
+  columns that should not be there. [mokaddem]
+- [update] Added new worker type `update` to perform updates. [mokaddem]
+- [update] Correctly terminate parallels workers doing updates - WiP.
+  [mokaddem]
+- [update] Moved locking system from `updateDatase` to `runUpdates` -
+  WiP. [mokaddem]
+
+  So that `updateMISP` is also locked and workers benefits of more context
+- [update] Keep track of update number in job - WiP. [mokaddem]
+- [dbSchemaDiagnostic] Improved wording. [mokaddem]
+- [dbSchemaDiagnostic] Improved code quality. [mokaddem]
+- [dbSchemaDiagnostic] Adapt label color. [mokaddem]
+- [dbSchemaDiagnostic] Catches errors and display them in the UI.
+  [mokaddem]
+- [dbSchemaDiagnostic] Added support of db_version. [mokaddem]
+- [dbSchemaDiagnostic] Improved parsing and UI - WiP. [mokaddem]
+- [dbSchemaDiagnostic] changing diagnostic - WiP. [mokaddem]
+- [update] Update function name are more explicit. [mokaddem]
+- [update] `updateDatabase` returns the result of the update (duplicated
+  column are nbot counted as an error) [mokaddem]
+
+Fix
+~~~
+- [attributes:restSearch] Fixed typo. [mokaddem]
+- [UI] Automatic logout. [Jakub Onderka]
+- [UI] Server diagnostics download link. [Jakub Onderka]
+- [releaseUpdateLock] Fixed error message to reflect the reality.
+  [mokaddem]
+- [proxy] Skip_proxy was broken up until now, fixes #5324. [iglocska]
+
+  - was simply ignored, added the hook for it for the sync tool
+- [Tagging] Fixed the user/org restrictions not being adhered to when
+  tagging. [iglocska]
+- [Tag:exclusive] Code clean up. [mokaddem]
+- MIssing quotes in test cases setup. [Raphaël Vinot]
+
+  Fix https://github.com/MISP/PyMISP/issues/484
+- [UI] Proposal attachment downloading. [Jakub Onderka]
+- [stix2 import] Importing directory patterns from external stix.
+  [chrisr3d]
+- Bumped latest stix2 python version + Updated expected version in the
+  diagnostic. [chrisr3d]
+- [internal] Remove dead code from AttributesController. [Jakub Onderka]
+- [UI] Show image attachment for previewing event. [Jakub Onderka]
+- [stix2 import] Fixed registry-key pattern mapping. [chrisr3d]
+- Do not test users settings on travis. [Raphaël Vinot]
+- Revert PyMISP bump. [Raphaël Vinot]
+- Buggy bump of PyMISP. [Raphaël Vinot]
+- [stix diagnostic] Updated the latest stix2 version. [chrisr3d]
+- [user] Include user settings in /users/view. [iglocska]
+- [internal] Load Regexp just when they are requested. [Jakub Onderka]
+- [stix export] Making stix json download return json instead of xml.
+  [chrisr3d]
+- [UI] Remove double id attribute. [Jakub Onderka]
+- [UI] Remove unused code from Communities view template. [Jakub
+  Onderka]
+- [UI] Removed unused JS from galaxy view. [Jakub Onderka]
+- [UI] Input is not pair element. [Jakub Onderka]
+- [stix2 import] Better pattern parsing for values containing an '='
+  [chrisr3d]
+- [stix2 import] Avoid errors with report object refs not actually
+  present in the bundle. [chrisr3d]
+- [stix2 import] Removed unused variable in dictionary loop. [chrisr3d]
+- [live:notice UI] Fixed baseurl variable. [mokaddem]
+- [live:notice UI] Fixed baseurl variable. [mokaddem]
+- [updateProgress] Fixed return message to better handle translation.
+  [mokaddem]
+- [update] Apply restriction of only 1 running process for only the
+  `update` workers. [mokaddem]
+- [update] Fixed bad merge and added more comments. [mokaddem]
+- [update] Correctly sets liveOff and do not consider MySQL index
+  addition as an error anymore. [mokaddem]
+- [update] Init class before using it.. [mokaddem]
+- [update] do not longer start update job if no update available.
+  [mokaddem]
+- [update] Switched to default usage of worker for the update.
+  [mokaddem]
+- [update] Started changing worker place in the update process.
+  [mokaddem]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #5311 from JakubOnderka/patch-63. [Andras Iklody]
+
+  fix: [UI] Automatic logout
+- Merge pull request #5259 from JakubOnderka/patch-47. [Alexandre
+  Dulaunoy]
+
+  fix: [UI] Server diagnostics download link
+- Merge pull request #5381 from MISP/feature-meta-search. [Sami
+  Mokaddem]
+
+  Feature meta search
+- Merge branch '2.4' of github.com:MISP/MISP into feature-meta-search.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into feature-meta-search.
+  [mokaddem]
+- Merge pull request #5002 from MISP/revisedUpdateProcess. [Sami
+  Mokaddem]
+
+  Revised update process
+- Merge branch '2.4' of github.com:MISP/MISP into revisedUpdateProcess.
+  [mokaddem]
+- Merge branch 'sightingdb' into 2.4. [iglocska]
+- Merge branch '2.4' into sightingdb. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into revisedUpdateProcess.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into revisedUpdateProcess.
+  [mokaddem]
+- Merge pull request #5378 from MISP/feature-exclusive-taxonomy. [Sami
+  Mokaddem]
+
+  Feature exclusive taxonomy
+- Merge branch '2.4' of github.com:MISP/MISP into feature-exclusive-
+  taxonomy. [mokaddem]
+- Merge pull request #5352 from MISP/Rafiot-patch-3. [Alexandre
+  Dulaunoy]
+
+  fix: MIssing quotes in test cases setup
+- Merge pull request #5318 from JakubOnderka/patch-66. [Andras Iklody]
+
+  fix: [UI] Proposal attachment downloading
+- Merge pull request #5373 from cudeso/2.4. [Andras Iklody]
+
+  Force botvrij.eu feed to use HTTPS
+- Force botvrij.eu feed to use HTTPS. [Koen Van Impe]
+- Update eventattributetoolbar.ctp. [Andras Iklody]
+- Merge branch '2.4' of github.com:MISP/MISP into revisedUpdateProcess.
+  [mokaddem]
+- Merge pull request #5348 from JanSkalny/2.4. [Andras Iklody]
+
+  new: [cli] server connectivity test
+- Merge pull request #5366 from RichieB2B/ncsc-nl/logrotate. [Alexandre
+  Dulaunoy]
+
+  Allow python scripts to write to exec-errors.log
+- Allow python scripts to write to exec-errors.log. [Richard van den
+  Berg]
+- Merge pull request #5353 from SteveClement/guides. [Andras Iklody]
+
+  chg: [doc] Various updates for RHEL8/CentOS8/Debian10.1
+- Merge pull request #5351 from RuneBergh/2.4. [Alexandre Dulaunoy]
+
+  Adding commenting for key to use with ldap
+- Adding commenting for key to use with ldap. [RuneBergh]
+
+  Commenting in the PHP_AUTH_USER key which is set by basic auth if using ldap or AD authentication.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #5344 from davidonzo/2.4. [Andras Iklody]
+
+  Minor visual bug in event view
+- Minor visual bug in event view. [Davide Baglieri]
+
+  Creating a new event with no attributes the "First recorded change" value displayed is "1970-01-01 01:00:00".
+
+  ![MISP_Event](https://raw.githubusercontent.com/davidonzo/host/master/misp_loves_70s_me_too.png)
+
+  This is quite normal looking at the php code in "app/Controller/EventsController.php" from line 1277 to 1289
+  ```
+  $oldest_timestamp = false;
+          if (!empty($event['Object'])) {
+              foreach ($event['Object'] as $k => $object) {
+                  if (!empty($object['Attribute'])) {
+                      foreach ($object['Attribute'] as $attribute) {
+                          if ($oldest_timestamp == false || $oldest_timestamp < $attribute['timestamp']) {
+                              $oldest_timestamp = $attribute['timestamp'];
+                          }
+                      }
+                      $attributeCount += count($object['Attribute']);
+                  }
+              }
+          }
+  ```
+  Since no attributes/objects are added to the event $oldest_timestamp will always be false.
+  It's just a little visual bug. So my pragmatic solution was change line 200 in "app/view/Events/view.ctp from
+
+  ```'value' => date('Y-m-d H:i:s', $oldest_timestamp)```
+
+  to
+
+  ```'value' => (!$oldest_timestamp) ? '' : date('Y-m-d H:i:s', $oldest_timestamp)```
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #5343 from JakubOnderka/patch-70. [Andras Iklody]
+
+  fix: [internal] Remove dead code from AttributesController
+- Merge pull request #5306 from JakubOnderka/patch-60. [Andras Iklody]
+
+  fix: [UI] Show image attachment for previewing event
+- Add: [stix2 import] Updated the external pattern mapping with
+  directory & email address objects. [chrisr3d]
+- Merge pull request #5320 from eCrimeLabs/2.4. [Alexandre Dulaunoy]
+
+  Added CVE Feed from Metasploit
+- Added CVE Feed from Metasploit. [eCrimeLabs]
+
+  The feed contains CVE numbers of vulnerabilities in Metasploit.
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #5313 from JakubOnderka/patch-64. [Andras Iklody]
+
+  fix: [internal] Load Regexp just when they are requested
+- Add: [restSearch] Support of stix1 json export. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #5312 from RichieB2B/ncsc-nl/retention-update.
+  [Andras Iklody]
+
+  Update misp_retention.py to new api, use local tags
+- Update misp_retention.py to new api, use local tags. [Richard van den
+  Berg]
+- Merge pull request #5310 from JakubOnderka/patch-62. [Andras Iklody]
+
+  fix: [UI] Remove double id attribute
+- Merge pull request #5307 from JakubOnderka/patch-61. [Andras Iklody]
+
+  fix: [UI] Remove unused code from Communities view template
+- Merge pull request #5308 from JakubOnderka/galaxy-unused-code. [Andras
+  Iklody]
+
+  fix: [UI] Removed unused JS from galaxy view
+- Merge pull request #5309 from JakubOnderka/not-pair-input. [Andras
+  Iklody]
+
+  fix: [UI] Input is not pair element
+- Merge pull request #5303 from SteveClement/guides. [Steve Clement]
+
+  chg: [installer] Updated installer to support latest Kali Linux
+- Merge branch '2.4' into guides. [Steve Clement]
+- Merge pull request #5296 from RichieB2B/ncsc-nl/fix-docs. [Alexandre
+  Dulaunoy]
+
+  Fix RHEL 7 / CentOS 7 docs
+- Fix logrotate module for RHEL 7/CentOS 7. [Richard van den Berg]
+- Use PATH_TO_MISP consistently. [Richard van den Berg]
+- Make chcon's more generic. [Richard van den Berg]
+- Use $WWW_USER everywhere. [Richard van den Berg]
+- Keep ini files out of php-fpm.d. [Richard van den Berg]
+- Use python3 from base repo. [Richard van den Berg]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #5293 from mhpchaves/patch-1. [Alexandre Dulaunoy]
+
+  chg: [doc] ssdeep can be installed via pkg_add
+- Merge branch '2.4' of github.com:MISP/MISP into revisedUpdateProcess.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into revisedUpdateProcess.
+  [mokaddem]
+- Merge branch 'revisedUpdateProcess' of github.com:MISP/MISP into
+  revisedUpdateProcess. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into revisedUpdateProcess.
+  [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into revisedUpdateProcess.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into revisedUpdateProcess.
+  [mokaddem]
+- Merge branch '2.4' into revisedUpdateProcess. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into revisedUpdateProcess.
+  [mokaddem]
+- Merge branch 'workerForDBUpdate' into revisedUpdateProcess. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into workerForDBUpdate.
+  [mokaddem]
+
+
 v2.4.117 (2019-10-10)
 ---------------------
 
