@@ -1,0 +1,69 @@
+---
+title: MISP 2.4.118 released (aka the exclusivity tag release and SightingDB support)
+layout: post
+featured: /assets/images/misp/blog/exclusive/exclusive-example-1.png
+---
+
+# MISP 2.4.118 released
+
+A new version of MISP ([2.4.118](https://github.com/MISP/MISP/tree/v2.4.118)) has been release including the exclusivity tag functionality, the support of additional external SightingDB lookup and many fixes.
+
+# Exclusive taxonomies
+
+![](https://www.misp-project.org/assets/images/misp/blog/exclusive/exclusive-example-1.png)
+![](https://www.misp-project.org/assets/images/misp/blog/exclusive/exclusive-example-2.png)
+![](https://www.misp-project.org/assets/images/misp/blog/exclusive/exclusive-example-3.png)
+![](https://www.misp-project.org/assets/images/misp/blog/exclusive/exclusive-example-4.png)
+
+In the MISP taxonomy format, we introduced some time ago the exclusive field to show the exclusivity aspects of a taxonomy or selected part of the taxonomy (at predicate level). Now MISP user-interface shows and enforces inconsistency at user-interface level of exclusivity between tags assigned at event level or attribute level.
+
+# SightingDB support
+
+For the past years, MISP project worked on improving sighting in its threat intelligence sharing platform but also to improve sighting at large for the users. After discussions with various users, we introduced a new functionality to configure external SightingDB server and query large dataset efficiently. Our friends at Devo decided to work with us and provide a [dedicated SightingDB server](https://github.com/stricaud/sightingdb) in open source to have a fast-lookup system. Devo decided to standardise the format of the SightingDB protocol format and we decided to host it under the [misp-standard.org](https://www.misp-standard.org/) umbrella.
+
+The SightingDB support includes the following:
+
+ - Added configuration tool
+ - Added lookups from the event view
+ - Added includeSightingdb flag for the restSearch searches
+ - Added SightingDB search tool
+ - Added SightingDB connection test tool
+
+# Improved meta search in restSearch
+
+The restSearch now supports the ability to search by creator organisation and by also the fields present in the galaxies.
+
+Such request can now be done on any field within a galaxy:
+
+~~~~
+/attributes/restsearch/
+{
+    "galaxy.cfr-suspected-victims": ["China", "Japan"],
+    "galaxy.cfr-target-category" : ["Government"]
+}
+~~~~
+
+or combining the search based on the meta-data presents on MISP organisations:
+
+~~~~
+/events/restsearch/
+{
+    "galaxy.synonyms": "APT29",
+    "orgc.nationality": ["Hungary", "Belgium"]
+}
+~~~~
+
+# Update module
+
+The database schema model update has been improved in MISP and you can see the current inconsistencies of any past model change or the ongoing upgrade of the database model. This has been introduced because the next version of MISP will include a major improvement in the data model to add time references at the all the event of the MISP data model. This update in 2.4.119 includes an update of the attributes table which can take a significant time depending of your MISP installation.
+
+# MISP modules - many new modules with objects support
+
+[Many new modules](http://misp.github.io/misp-modules/) were added such as the (event query language) EQL query module, Endgame EQL export module,  OSINT.digitalside.it lookup module and many improvements to existing modules such as the CSV import module, IBM X-Force expansion module, ... Don't forget to update your modules to the latest version.
+
+# Acknowledgement
+
+We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. Special thanks to Jakub Onderka for the continuous stream of excellent improvements, Sebastien Tricaud for the joint effort in the SightingDB support, [standard](https://raw.githubusercontent.com/MISP/misp-rfc/master/sightingdb-format/raw.md.txt) and [first implementation](https://github.com/stricaud/sightingdb).
+
+As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+
