@@ -40,7 +40,7 @@ As one of the critical user-bases of MISP consists of the CSIRT community, it is
 - [CVE-2019-12868](https://cve.circl.lu/cve/CVE-2019-12868) <= MISP 2.4.109 - app/Model/Server.php in MISP 2.4.109 allows remote command execution by a super administrator because the PHP file_exists function is used with user-controlled entries, and phar:// URLs trigger deserialization.
 - [CVE-2019-14286](https://cve.circl.lu/cve/CVE-2019-14286) <= MISP 2.4.111 - In app/webroot/js/event-graph.js in MISP 2.4.111, a stored XSS vulnerability exists in the event-graph view when a user toggles the event graph view. A malicious MISP event must be crafted in order to trigger the vulnerability.
 - [CVE-2019-16202](https://cve.circl.lu/cve/CVE-2019-16202) <= MISP 2.4.114 - MISP before 2.4.115 allows privilege escalation in certain situations. After updating to 2.4.115, escalation attempts are blocked by the checkLoggedActions function with a "This could be an indication of an attempted privilege escalation on older vulnerable versions of MISP (<2.4.115)" message.
-
+- [CVE-2019-19379](https://cve.circl.lu/cve/CVE-2019-19379) <= MISP 2.4.118 - MISP before 2.4.119 In app/Controller/TagsController.php in MISP 2.4.118, users can bypass intended restrictions on tagging data.
 
 ## PGP Key
 
