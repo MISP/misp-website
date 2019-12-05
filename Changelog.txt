@@ -1,6 +1,393 @@
 Changelog
 =========
 
+v2.4.119 (2019-12-02)
+---------------------
+
+New
+~~~
+- [server:fixDBSchema] Preliminary work to fix database schema.
+  [mokaddem]
+- [refactor] Massive internal refactor and cleanup of deprecated APIs.
+  [iglocska]
+
+  - new centralised restSearch function in AppController as entry point via all controllers
+  - new component handling restSearch related support functions, such as parameter mapping
+  - hollowed out all deprecated export functions on the event/attribute controller
+    - replaced with a new functionality that remaps them to restSearch
+    - all functionality should be maintained with all additional advantages introduced with restsearch
+  - additional cleanup (some unused functions removed)
+- [internal] Log exact error for GPG diag in error log. [Jakub Onderka]
+- [statistics] Added organisation activity over time. [mokaddem]
+- [API] refactored deprecated APIs to use the legacy system. [iglocska]
+- [legacy] handler added for Legacy APIs. [iglocska]
+
+  - allows for a remap of the parameters and subsequent calls to modern functions
+- [sync] Added sighting sync publish button to the event view.
+  [iglocska]
+- [doc] Support request template (#5420) [Steve Clement]
+
+  new: [doc] Support request template
+- [doc] Support request template. [Steve Clement]
+- [deprecation] Added a new library to handle deprecations. [iglocska]
+
+  - send X-Deprecation-Warning via the API
+  - set new Warning flash messages via the UI
+  - counting the use of these functionalities / API endpoint and / user
+    - added a diagnsitic tool to view the outcome of the collection
+    - sharing of these collections with the MISP-Project will be optionally available in the future
+
+  - two modes of operation:
+    - hard deprecation (functions certainly to be removed, reported to the users via API/UI)
+    - soft deprecation (gauging interest for the continued use of these functions)
+- [sql diagnostics] Started work on a system to automatically generate
+  scripts to fix issues. [iglocska]
+
+  - currently somewhat limited
+  - requires additional input to generate correct queries, needs an update for the default schemas
+  - generated, but not exposed for now
+- [sync] view remote user tool added to the server index. [iglocska]
+
+  - should help with debugging what user is being used
+- [API] Added attribute_timestamp flag to attributes/restSearch.
+  [iglocska]
+
+  Explanation of the 4 timestamp filters:
+  timestamp: Filters on attribute AND event timestamp
+  event_timestamp: Filters on event timestamp
+  attribute_timestamp: Filters on attribute timestamp
+  publish_timestamp: Filters on event.publish_timestamp
+- [UI] formInfo element added to the form generator. [iglocska]
+- [API] SQL dump now includes two modes. [iglocska]
+
+  - sql_dump:1 - append the SQL dump to the response
+  - sql_dump:2 - only return the SQL dump in the response
+- [API] Cleaner API debugging via the API. [iglocska]
+
+  - passing sql:1 as a url parameter will try to add the sql_dump key to the response if SQL debugging is enabled
+  - allows for the easier debugging of for example search queries
+
+Changes
+~~~~~~~
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists]  updated. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [VERSION] bump. [iglocska]
+- [deprecation] Show data in an easier to understand format. [iglocska]
+- Bump PyMISP. [Raphaël Vinot]
+- [i18n] Updated norwegian translation (#5438) [Steve Clement]
+
+  chg: [i18n] Updated norwegian translation
+- [i18n] Updated norwegian translation. [Steve Clement]
+- Bump PyMISP, fix lief. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [db_schema] updated. [iglocska]
+- [diagnostic:DBSchema] Added warning for `missing_table` errors.
+  [mokaddem]
+- [dianostic:fixDBSchema] Added warning message. [mokaddem]
+- [diagnostic:fixDBSchema] Support of missing table + support of non-
+  critical warnings. [mokaddem]
+- [diagnostic:fixDBSchema] Updated ACLComponent and added clean cache.
+  [mokaddem]
+- [diagnostic:db_schema] Added support of default_value and quick fix.
+  [mokaddem]
+- [galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [objects] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [feed] Use precomputed hashes to speedup attaching correlation. [Jakub
+  Onderka]
+- [statistics] Added Attribute count. [mokaddem]
+- [CSRF] disable CSRF if you absolutely feel like setting yourself up
+  for failure. [iglocska]
+- Bump PyMISP. [Raphaël Vinot]
+- [API] users/edit refactor. [iglocska]
+
+  - load only what is needed
+  - handle API requests in a cleaner way
+- [REST] Updated to ExpandedPyMISP. [Steve Clement]
+- [cleanup] debug() removed. [iglocska]
+- [installer] Installer checksum updates. [Steve Clement]
+- [doc] Updated viper-framework (-web is broken) and updated… (#5425)
+  [Steve Clement]
+
+  chg: [doc] Updated viper-framework (-web is broken) and updated Debian 10 (minor)
+- [doc] Minor note on composer update. [Steve Clement]
+- [doc] Tried to fix viper. Is semi-fixed viper-web broken. [Steve
+  Clement]
+- [doc] Better wording. [Steve Clement]
+- [doc] Added 2 templates with automatic labelling. [Steve Clement]
+- [internal] switch intval to (int) [iglocska]
+- [internal] Renamed log action name for db worker issues to be <= 20
+  characters in length. [iglocska]
+
+  - it was a restriction based on the db schema of the log table from before
+- [API] described how to add attachments to /attributes/add and
+  /attributes/edit. [iglocska]
+- [diagnostic:dbSchema] Whitelist columns to ignore and highlight
+  critical differences. [mokaddem]
+- [dbDiagnostic] Removed datefield precision as it's only available on
+  MySQL 5.6+ [mokaddem]
+- [dbDiagnostic] Diagnostic result is stored in a keyed array instead of
+  indexed array. [mokaddem]
+- [UI] Small refactor of the event add/edit views. [iglocska]
+
+  - added new flag to form elements for the generator: stayInLine:1 - skip linebreak after field
+  - removed edit view
+  - modified add view to work as both add/edit
+- [UI] Using generic form in the edit event view. [chrisr3d]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [UI] Using generic form in the add event view. [chrisr3d]
+- [internal] Hooked the sql_dump flag into the normal flow. [iglocska]
+- [feed] # ZeuS Tracker has been discontinued on Jul 8th, 20… (#5377)
+  [Steve Clement]
+
+  chg: [feed] # ZeuS Tracker has been discontinued on Jul 8th, 2019
+- [feed] # ZeuS Tracker has been discontinued on Jul 8th, 2019. [Steve
+  Clement]
+- [installer] Updated installer to latest and amended a zmq… (#5390)
+  [Steve Clement]
+
+  chg: [installer] Updated installer to latest and amended a zmq issue
+- [installer] Updated installer to latest and amended a zmq issue.
+  [Steve Clement]
+- [internal] Sharing group loader was grabbing organisations one by one,
+  refactored. [iglocska]
+
+  - simply fetch all org objects for the ACL checks in one shot instead of doing it on demand
+    - has no real performance impact even on large sharing instances
+    - reduces the number of queries greatly making debugging easier
+
+Fix
+~~~
+- [diagnostic:DBSchema] Aligned schema to a clean non-tampered instance.
+  [mokaddem]
+- [internal] When capturing an object, avoid throwig notice errors if no
+  attributes are set, fixes #5439. [iglocska]
+- [internal] fixed the hacky removal of passwords on returned user
+  objects for /users/edit. [iglocska]
+
+  - this commit gets 1*
+- Deleted useless comments. [mokaddem]
+- [diagnostic:DBSchema] Removed query execution and soften the warning
+  message. [mokaddem]
+- [diagnostic:fixDBSchema] Typo. [mokaddem]
+- [API] fix to a double negation fail in the tagging. [iglocska]
+- [API] Better error reporting for attaching tags to events/attributes.
+  [iglocska]
+- [API] /users/edit modifications. [iglocska]
+
+  - remove sanitised password when directly posting back a user object
+  - more graceful error handling if something goes critically wrong
+- [user API] users/edit now avoids having to set confirm_password when
+  setting a password via the API. [iglocska]
+- [internal] taxonomy exclusive flag now handles the key not existing in
+  the JSON format. [iglocska]
+- [internal] sighting restSearch. [iglocska]
+
+  - some small fixes
+- [ACL] added restsearch on the appcontroller. [iglocska]
+- [stix2 export] Fixed pattern mapping for stix2 pattern objects.
+  [chrisr3d]
+- [internal] potential fix to uninitialised AdminSetting model errors
+  when calling changeSetting() in the upgrade process. [iglocska]
+- [API] Don't strip empty usersettings from users/view. [iglocska]
+- [API] users/edit fixed. [iglocska]
+- [internal] fixed weird user massage code. [iglocska]
+
+  - I have no idea what I was thinking there...
+- [internal] Remove unused function. [Jakub Onderka]
+- [internal] Remove unused ShadowAttributesController method. [Jakub
+  Onderka]
+- [internal] potential fix to the sighting_timestamp missing issue when
+  syncing with older instances. [iglocska]
+- [UI] includeSightingdb flag not set correctly in the event attribute
+  index. [iglocska]
+- [tag] do not show actions column for non-admins. [Christophe
+  Vandeplas]
+- [security] tightened checks for restricting users from tagging data
+  they shouldn't be allowed to tag. [iglocska]
+
+  As reported by Christophe Vandeplas
+- [REST] Python has no 'Null' type, it is called 'None' [Steve Clement]
+- [ACL] added /events/publishSightings. [iglocska]
+- [sync] Set org_id to 0 on proposal push if the sighting is anonymised.
+  [iglocska]
+
+  - correctly prevents the remote side from misattributing the sighting to the sync user's org
+- [sync] Some minor changes to the sighting push. [iglocska]
+
+  - correctly handle anonymisation
+  - only push sightings, not rest of the event (decide on sender side)
+  - handle receiving sanitised sightings
+- [UI] duplicate entries in the attribute correlation column on the
+  event view, fixes #5421. [iglocska]
+- [doc] composer update missing. [Steve Clement]
+- [ACL] added missing function. [Andras Iklody]
+- [user view] server issues fixed. [iglocska]
+- [API] bro deprecation message was premature. [iglocska]
+
+  - needs to be added to restsearch first
+- [deprecation] Added missing component. [iglocska]
+- [attribute:massEdit] Allow removal of non exportable tags. Fix #5408.
+  [mokaddem]
+- [stix2 export] Adding attribute type or object name in the custom
+  object id. [chrisr3d]
+
+  - Should fix #5410
+- [API] fixed notice errors for compact() in PHP 7.3+ [iglocska]
+- [stix2 export] Exporting stix2-pattern objects as pattern. [chrisr3d]
+
+  ... Instead of failing and being exported as custom object
+- [indextable] Fixed the link field. [iglocska]
+- [stix2 import] Avoids importing an object_relation value for single
+  attributes. [chrisr3d]
+- [stix2 import] Importing stix2-pattern object only if the pattern
+  parsing failed. [chrisr3d]
+
+  - Also adding the uuid of the stix2-pattern object
+  - It avoids patterns to be exported twice if we
+    export the misp event created from the import
+    afterwards
+- [internal] site admins should not have to be host org users to see
+  server correlations. [iglocska]
+- [API] adding objects now has better validation errors. [iglocska]
+
+  - instead of silently dropping attributes in certain cases
+- [tagging] Events will be unpublished when a local tag is removed
+  #5363. [iglocska]
+- [attribute:massTagging] Check for POST data in `post` code path. Fix
+  #5359. [mokaddem]
+- [temporary] Dirty fix for the diagnostic page failing on MySQL < 5.6.
+  [iglocska]
+- [UI] Removed console.log call for debugging purposes. [chrisr3d]
+- [UI] With the correct field name, it works better ;-) [chrisr3d]
+
+  - threat_level_id is the name of the field, and
+    now the hover description works :D
+- [UI] Passing the distribution, threat level & analysis description for
+  the edit event view. [chrisr3d]
+- Just an indent fix for the eyes. [chrisr3d]
+- [internal] Removed duplicate loading of configuration. [iglocska]
+
+  - lazy-loading the event model after an on-the-fly config change would purge the change otherwise
+  - config already loaded in bootstrap anyway
+- [UI] Cosmetic changes on the add event form. [chrisr3d]
+- [internal] better error messages for attaching a tag failing.
+  [iglocska]
+- [UI] Fixed sharing group & threat level field names in add event view.
+  [chrisr3d]
+- [internal] Attribute/Event connectors for attribute_timestamp added.
+  [iglocska]
+- [UI] formInfo fixed. [iglocska]
+- [internal] Load MISP version just once in AppController. [Jakub
+  Onderka]
+- [internal] tag attacher could run into a situation where an invalid
+  tag's creation failure is not caught. [iglocska]
+
+  - returns puzzling error messages
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'db_fix' into 2.4. [iglocska]
+- Merge branch 'db_fix' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into feature-fix-db-
+  inconsistencies. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5435 from RichieB2B/ncsc-nl/fix-sightings-push.
+  [Andras Iklody]
+
+  Select right servers for pushing sightings
+- Select right servers for pushing sightings. [Richard van den Berg]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5430 from RichieB2B/ncsc-nl/perm-sighting. [Andras
+  Iklody]
+
+  Allow pushing of sightings only for perm_sighting
+- Allow pushing of sightings only for perm_sighting. [Richard van den
+  Berg]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5280 from vpiserchia/fix-feed-cli. [Andras Iklody]
+
+  Server shell: use the right array key
+- Server shell: use the right array key. [Vito Piserchia]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5248 from JakubOnderka/patch-44. [Andras Iklody]
+
+  new: [internal] Log exact error for GPG diag in error log
+- Merge pull request #5273 from JakubOnderka/patch-54. [Andras Iklody]
+
+  fix: [internal] Remove unused function
+- Merge pull request #5317 from JakubOnderka/patch-65. [Andras Iklody]
+
+  fix: [internal] Remove unused ShadowAttributesController method
+- Merge pull request #5342 from JakubOnderka/patch-69. [Andras Iklody]
+
+  chg: [feed] Use precomputed hashes to speedup attaching correlation
+- Merge pull request #5404 from MISP/feature-OrgsStats. [Andras Iklody]
+
+  Added more Organisation statistics
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5400 from SteveClement/REST_Client_python. [Andras
+  Iklody]
+
+  fix: [REST] Python has no 'Null' type, it is called 'None'
+- Merge branch '2.4' into REST_Client_python. [Steve Clement]
+- Merge branch 'push_sightings_final' into 2.4. [iglocska]
+- Sync sightings on push, pull and push on add. [Richard van den Berg]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #5417 from StefanKelm/2.4. [Andras Iklody]
+
+  Update AdminShell.php
+- Update AdminShell.php. [StefanKelm]
+
+  Adding "wwwrun" as a user since it is common under SUSE Linux
+- Merge pull request #5416 from SteveClement/ISSUE_TEMPLATE. [Alexandre
+  Dulaunoy]
+
+  chg: [doc] Added 2 templates with automatic labelling
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Revert "Revert "Merge pull request #5304 from JakubOnderka/version-
+  loading"" [iglocska]
+
+  This reverts commit 623bb20cb09a79da83d31eed8ae0993bca07db13.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Revert "Merge pull request #5304 from JakubOnderka/version-loading"
+  [Raphaël Vinot]
+
+  This reverts commit 71fb7fcbd7d4e63480e6a63c3de5e8beb019ccbe, reversing
+  changes made to 11ee95aeb3d18806ea4753707a0b2c45745cf475.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5304 from JakubOnderka/version-loading. [Andras
+  Iklody]
+
+  fix: [internal] Load MISP version just once in AppController
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+
 
 v2.4.118 (2019-11-08)
 ---------------------
