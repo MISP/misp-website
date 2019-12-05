@@ -8,11 +8,24 @@ featured: /assets/images/misp/blog/exclusive/exclusive-example-1.png
 
 A new version of MISP ([2.4.119](https://github.com/MISP/MISP/tree/v2.4.119)) has been released, including several functionalities that should make the operation of a MISP instance more convenient.
 
+# Vulnerability CVE-2019-19379 has been fixed
+
+In app/Controller/TagsController.php in MISP 2.4.118, users can bypass intended restrictions on tagging data. The vulnerability has been fixed in 2.4.119 and assigned the following [CVE-2019-19379](https://cve.circl.lu/cve/CVE-2019-19379). We strongly recommend to update to this version. Thanks to Christophe Vandeplas for the reporting.
+
 # Database diagnostics
 
 There is a new sub-system in the diagnostics tool that will compare the current state of your MISP database to the reference db schema, highlighting potential issues / divergences. Keep in mind, not all issues are necessarily cause for concern, but generally it is recommended to fix the issues that are deemed critical. If you have doubts about why your DB looks different from what is expected, feel free to open up a github issue and we'll try to point you in the right direction.
 
-On top of flagging diverging traits of your DB compared to the reference, the system also allows users to generate SQL queries that would rectify the potential issues. Please make sure that you back your database up before running the suggested queries and keep in mind that altering existing tables with high volumes of data can temporarily double the disk space requirements of the given table along with taking a long amount of time (especially true for large log, correlation and sighting tables). 
+On top of flagging diverging traits of your DB compared to the reference, the system also allows users to generate SQL queries that would rectify the potential issues. Please make sure that you back your database up before running the suggested queries and keep in mind that altering existing tables with high volumes of data can temporarily double the disk space requirements of the given table along with taking a long amount of time (especially true for large log, correlation and sighting tables).
+
+# Improved timestamp filtering in MISP
+
+attribute_timestamp flag added to attributes/restSearch. Now 4 different timestamp filters exist in MISP and can be used. An explanation of the 4 timestamp filters:
+
+- timestamp: Filters on attribute AND event timestamp
+- event_timestamp: Filters on event timestamp
+- attribute_timestamp: Filters on attribute timestamp
+- publish_timestamp: Filters on event.publish_timestamp
 
 # API deprecation
 
@@ -34,6 +47,10 @@ If you do notice some of your legacy scripts misbehaving, please open a github i
 # Sighting synchronisation
 
 Sightings are now synchronising much more reliably, with a new sighting push setting being added to the server connection and a new publish sighting button being available for users with sighting rights on the event view.
+
+# misp-modules version 2.4.119
+
+MISP modules have been improved and many new modules were added in [expansion](http://misp.github.io/misp-modules/expansion/), [export](http://misp.github.io/misp-modules/export_mod/) and [import](http://misp.github.io/misp-modules/import_mod/). Don't forget to update those.
 
 # Acknowledgement
 
