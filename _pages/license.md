@@ -9,11 +9,11 @@ toc: true
 
 The MISP project is a large open source project, aiming to support and improve information sharing and threat intelligence analysis at large.
 
-As the MISP project is used in different geographical regions (Europe, North America, Asia-Pacific, South America and Africa) as well as different sectors of activities (spanning a wide selection such as cyber security, intelligence community, law enforcement and NGOs), we provide detailed information about the open source licenses used by the various part of the projects.
+As the MISP project is used in different geographical regions (Europe, North America, Asia-Pacific, South America and Africa) as well as different sectors of activities (spanning a wide selection such as cyber security, intelligence community, law enforcement and NGOs), we provide detailed information about the open source licenses used by the various parts of the project.
 
 # Open Source Licenses Used
 
-The MISP projects use different open source licenses depending of the use-cases of the software, library or knowledge base. All the open source licenses used are approved by the OSI and classified as Free/Libre by the Free Software Foundation.
+The MISP sub-projects use different open source licenses depending on the varius use-cases for the given software, library or knowledge base. All the open source licenses used are approved by the OSI and classified as Free/Libre by the Free Software Foundation.
 
 |MISP Repository| License | SPDX Identifier
 |:-:|:-:|---|
@@ -30,9 +30,9 @@ The MISP projects use different open source licenses depending of the use-cases 
 
 # Contributing and copyright
 
-We welcome contributions. Every contributors collectively own the MISP Project (software, libraries and knowledge base) where they did their respective contribution. The contributors acknowledge the [Developer Certificate of Origin](https://developercertificate.org/).
+We welcome contributions. All contributors collectively own the MISP project itself along with the various MISP sub-projects (software, libraries and knowledge bases alike), depending on which parts they have contributed to. The contributors also acknowledge the [Developer Certificate of Origin](https://developercertificate.org/).
 
 # Export control
 
-The MISP Project is developed at an international scale and the core developers are located in Europe. This website is hosted in Belgium. Export restriction might apply (as MISP open source software can be classified as [ECCN 5D002 or 5D992](https://www.bis.doc.gov/index.php/documents/new-encryption/1652-cat-5-part-2-quick-reference-guide/file)) to the users depending of their location if they download from the official GitHub repositories. If you are located in a region where downloading from GitHub is restricted, MISP project provides an alternative git repository for each MISP project repository at the following location: [TO BE COMPLETED]().
+The MISP Project is developed at an international scale and the core developers are located in Europe. This website is hosted in Belgium. Export restriction might apply (as MISP open source software can be classified as [ECCN 5D002 or 5D992](https://www.bis.doc.gov/index.php/documents/new-encryption/1652-cat-5-part-2-quick-reference-guide/file)) for the users depending on their location if they wish to download MISP from the official GitHub repositories. If you are located in a region where downloading from GitHub is restricted, the MISP project provides an alternative git repository for each MISP sub-project at the following location: [TO BE COMPLETED]().
 
