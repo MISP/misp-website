@@ -13,7 +13,7 @@ As the MISP project is used in different geographical regions (Europe, North Ame
 
 # Open Source Licenses Used
 
-The MISP sub-projects use different open source licenses depending on the varius use-cases for the given software, library or knowledge base. All the open source licenses used are approved by the OSI and classified as Free/Libre by the Free Software Foundation.
+The MISP sub-projects use different open source licenses depending on the various use-cases for the given software, library or knowledge base. All the open source licenses used are approved by the OSI and classified as Free/Libre by the Free Software Foundation.
 
 |MISP Repository| License | SPDX Identifier
 |:-:|:-:|---|
@@ -34,5 +34,5 @@ We welcome contributions. All contributors collectively own the MISP project its
 
 # Export control
 
-The MISP Project is developed at an international scale and the core developers are located in Europe. This website is hosted in Belgium. Export restriction might apply (as MISP open source software can be classified as [ECCN 5D002 or 5D992](https://www.bis.doc.gov/index.php/documents/new-encryption/1652-cat-5-part-2-quick-reference-guide/file)) for the users depending on their location if they wish to download MISP from the official GitHub repositories. If you are located in a region where downloading from GitHub is restricted, the MISP project provides an alternative git repository for each MISP sub-projects at the following location: [https://eugit.opencloud.lu/MISP](https://eugit.opencloud.lu/MISP) located in Luxembourg, Europe.
+The MISP Project is developed at an international scale and the core developers are located in Europe. This website is hosted in Belgium. Export restriction might apply (as MISP open source software can be classified as [ECCN 5D002 or 5D992](https://www.bis.doc.gov/index.php/documents/new-encryption/1652-cat-5-part-2-quick-reference-guide/file)) for the users depending on their location if they wish to download MISP from the official GitHub repositories (hosted by GitHub, Inc.). If you are located in a region where downloading from GitHub is restricted, the MISP project provides an alternative git repository for each MISP sub-projects at the following location: [https://eugit.opencloud.lu/MISP](https://eugit.opencloud.lu/MISP) located in Luxembourg, Europe (hosted by [opencloud.lu](https://www.opencloud.lu/)).
 
