@@ -34,6 +34,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |campaign-name| | | X | | | |
 |cc-number| | | | | X | |
 |cdhash| | X | | | | |
+|chrome-extension-id| | | | | | |
 |comment| X | X | X | X | X | X |
 |community-id| | | | X | | |
 |cookie| | X | | | | |
@@ -200,6 +201,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |campaign-name| | | | | | |
 |cc-number| | | | | | |
 |cdhash| | | X | X | | |
+|chrome-extension-id| | | X | X | | |
 |comment| X | X | X | X | X | X |
 |community-id| X | | | | | |
 |cookie| X | | | | | |
@@ -366,6 +368,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |campaign-name| | | | |
 |cc-number| | | | |
 |cdhash| | | | |
+|chrome-extension-id| | | | |
 |comment| X | X | X | X |
 |community-id| | | | |
 |cookie| | | | |
@@ -552,6 +555,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **campaign-name**: Associated campaign name
 *   **cc-number**: Credit-Card Number
 *   **cdhash**: An Apple Code Directory Hash, identifying a code-signed Mach-O executable file
+*   **chrome-extension-id**: Chrome extension id
 *   **comment**: Comment or description in a human language
 *   **community-id**: a community ID flow hashing algorithm to map multiple traffic monitors into common flow id
 *   **cookie**: HTTP cookie as often stored on the user web client. This can include authentication cookie or session cookie.
