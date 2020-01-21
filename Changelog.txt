@@ -1,6 +1,524 @@
 Changelog
 =========
 
+
+v2.4.120 (2020-01-21)
+---------------------
+
+New
+~~~
+- [shadowAttribute] first_seen and last_seen on shadowAttributes.
+  [mokaddem]
+- [timeline/*-seen] Initial import of the timeline code from the
+  zoidberg branch. [mokaddem]
+- [attribute type] kusto-query attribute type. [Alexandre Dulaunoy]
+
+  Kusto query is the query language for the Kusto services in Azure used
+  to search large dataset. It's used in Windows Defender ATP Hunting-Queries
+  and also Azure Sentinel (Cloud-native SIEM).
+
+  To fix #5475
+- [generic index] added lambda function based requirements for actions.
+  [iglocska]
+- [diagnostic:DBIndexes] Added complete diagnostic for database indexes.
+  [mokaddem]
+- [diagnostic:DBIndex] Show table columns having indexes. [mokaddem]
+- [UI] first implementation of the modal forms. [iglocska]
+
+Changes
+~~~~~~~
+- [PyMISP] update to the latest version. [Alexandre Dulaunoy]
+- [attributes] new attribute type 'chrome-extension-id' [Alexandre
+  Dulaunoy]
+
+  This attribute is used by Chrome to uniquely identify extension.
+- [timeline:display_threshold] Increased display threshold. [mokaddem]
+- [worker:diagnostic] typo. [mokaddem]
+- Cleanup python install on travis. [Raphaël Vinot]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [queryVersion] Bumped version. [mokaddem]
+- [pymisp] bump. [iglocska]
+- [UI:formSeenInput] Re-vamped the UI to be more usuable. [mokaddem]
+- [stix2] Bumped the latest stix2 python library version. [chrisr3d]
+- [versions] requirements for languages changed. [iglocska]
+- [VERSION] bump. [iglocska]
+- [PyMISP] bump. [iglocska]
+- [Attribute:seen] Moved conversion iso<->utc of fs/ls in dedicated
+  functions. [mokaddem]
+- [eventTimeline] Cleaner array append. [mokaddem]
+- [popoverPopup] Display errors whenever available. [mokaddem]
+- [timeline] Synchronize *-seen at Object and ObjectAttribute level, few
+  fixes and Improved UI. [mokaddem]
+- [appModel] Fixed merge conflict. [mokaddem]
+- [object:quickAddAttribute] Improved feedback when creation fails.
+  [mokaddem]
+- [timeline:ui] Replaced typeahead by chosen. [mokaddem]
+- [timeline] Improved loading icon UI. [mokaddem]
+- [object:quickAddAttribute:ui] Adjusted qcuik add buton placement.
+  [mokaddem]
+- [object:edit] Reverted useless code. [mokaddem]
+- [attribute:edit] reverted useless line of code. [mokaddem]
+- [mysql] Reverted all changes in `MYSQL.sql` as the update is done when
+  logging in for the first time. [mokaddem]
+- [shadow_attributes:edit] Support of first_seen and last_seen.
+  [mokaddem]
+- [attribute:restSearch] Search support for first_seen and last_seen.
+  [mokaddem]
+- [object:edit] Support of fs/ls sync on object for `edit` and
+  `addQuickField` [mokaddem]
+- [object] Set fs/ls on all attributes when an object got its fs/ls
+  sets. [mokaddem]
+- [attribute:restSearch] Added filtering conditions for first_seen and
+  last_seen. [mokaddem]
+- [restResponse] Updated doc about first_seen and last_seen. [mokaddem]
+- [event:view] Added first_seen/last_seen column (event, server and
+  feed) [mokaddem]
+- [diagnostic] Style tweaking to be consistent with the UI. [mokaddem]
+- [index] Index Attribute.comment. [mokaddem]
+- Bumped queryversion. [mokaddem]
+- [internationalisation] Support of multi-lang for the administrator
+  update notice message. [mokaddem]
+- [update:seen] Switch back to the usage of worker for the update.
+  [mokaddem]
+- [update] DO not execute pre-update test for the timeline update
+  anymore (pre-update feature not fully supported yet) [mokaddem]
+- [timeline] Removed missleading text in tooltip. [mokaddem]
+- [update] Usage of `indexArray` instead of raw sql. [mokaddem]
+- [object:delta] No deletion of ObjectAttribute when sync. with Object's
+  FS/LS. [mokaddem]
+- [timeline] Improved controller name parsing (used in form) - WiP.
+  [mokaddem]
+- [object:quickAttributeAdd] Replace popover selection by the generic
+  picker. [mokaddem]
+- [app] Improved and integrated *-seen database update. [mokaddem]
+- Use default bionic release. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [attributeTag] Stop pruning outdated attribute tag when syncing. Will
+  be re-enabled in the future. [mokaddem]
+- Bump PyMISP, fix dummy event creator. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [install] Updated the way the SHASUM of composer-setup.php… (#5494)
+  [Steve Clement]
+
+  chg: [install] Updated the way the SHASUM of composer-setup.php is handled
+- [install] Updated the way the SHASUM of composer-setup.php is handled
+  as per: https://getcomposer.org/doc/faqs/how-to-install-composer-
+  programmatically.md. [Steve Clement]
+- [install] Updated installer (#5493) [Steve Clement]
+
+  chg: [install] Updated installer
+- [install] Updated installer. [Steve Clement]
+- [composer] Updated composer checksum. [Steve Clement]
+- [decaying-model] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] updated to the latest version which includes kusto-query
+  attribute type. [Alexandre Dulaunoy]
+
+  new: [attribute type] kusto-query attribute type
+
+  Kusto query is the query language for the Kusto services in Azure used
+  to search large dataset. It's used in Windows Defender ATP Hunting-Queries
+  and also Azure Sentinel (Cloud-native SIEM).
+- [view:genericIndex] Auto extract datapaths and pass them to evaluation
+  function. [mokaddem]
+- [screenshots] updates with new functionalities. [Alexandre Dulaunoy]
+- [diagnostic:DBIndexes] Hide notice message if index diagnostic not
+  shown. [mokaddem]
+- [diagnostic:DBIndexes] Cleanup, bug fix and updated db_schema.
+  [mokaddem]
+- Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP, again. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [dianostic:DBSchema] Consider quoted default_value as non-critical.
+  [mokaddem]
+- [diagnostic:DBSchema] Hide non-critical issues by default. [mokaddem]
+- [diagnostic:DBSchemaDiagnostic] Added datasource. [mokaddem]
+- [internal] Faster loading list of attributes. [Jakub Onderka]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- New feature to selectively choose to import objects (or not) [Pierre-
+  Jean Grenier]
+- Bump PyMISP. [Raphaël Vinot]
+- [Console:admin] Allow `travis` user to bring the database up to date.
+  [Sami Mokaddem]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- Update object templates on travis. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version (including new galaxy such
+  as dark patterns and surveillance vendors) [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version (including the ML-abuse
+  one) [Alexandre Dulaunoy]
+- [internal] Simplify UserController::admin_edit. [Jakub Onderka]
+- [internal] Simplify User::extralog method. [Jakub Onderka]
+- [UI] clown solutions. [iglocska]
+- [UI] refactor of the genericForm/submitbutton to support ajax.
+  [iglocska]
+- [add attribute view] Controller changes for adding attribute.
+  [chrisr3d]
+- [types] new eppn attribute type added - EduPersonPricincipalName.
+  [Alexandre Dulaunoy]
+
+  Fix #5448
+- Bumped queryversion. [mokaddem]
+
+Fix
+~~~
+- [install] Update .sfv. [Steve Clement]
+- [stix2] Fix stix2 for the Docs and Installer (#5526) [Steve Clement]
+
+  fix: [stix2] Fix stix2 for the Docs and Installer
+- [tools] re-generated INSTALL.sh fixed small issue in ubu. [Steve
+  Clement]
+- [stix] small fix to get around a current cti-python-stix2 glitch (to
+  be undone) [Steve Clement]
+- [form_seen] Filling *_seen field with no value remove the *_seen time.
+  [mokaddem]
+- [worker:diagnostic] Prevent failing if no worker are running.
+  [mokaddem]
+- [workers:diagnostic] Consider a queue to be healthy if one worker is
+  running. [mokaddem]
+- [adminSetting] Avoid trying to create new entries if previous save
+  failed. [mokaddem]
+- [update] fixed an issue blocking the updates from executing.
+  [iglocska]
+
+  - invalid check for the admin role - too early to check for _isSiteAdmin() at that point
+- [stix 1&2 export] Checking is an error message is returned. [chrisr3d]
+- [internal] upgrade issues fixed. [iglocska]
+- [updateProgress] Display errors in between updates Return empty
+  progress when the current progress can't be fetched. [mokaddem]
+- [upgrade] removed test change. [iglocska]
+- [upgrade] Added a safety net for launching superfluous updates.
+  [iglocska]
+- [update] typo fixed. [iglocska]
+- [settings] purge previous setting, push new one. [iglocska]
+- [UI] small fixes. [iglocska]
+- [model:comment] Do not index the `comment` field anymore for
+  shadowAttribute and Objects. [mokaddem]
+- [Attribute:comment] Do not index the `comment` field anymore.
+  [mokaddem]
+- [db_schema] Bumped db schema to support *-seen and indexes. [mokaddem]
+- [Object:DeltaMerge] Gracefully catch if *_seen field is not present in
+  the pushed Object. [mokaddem]
+- [update:index] Correctly log index addition errors. [mokaddem]
+- [Object:quickAddAttribute] Correctly closes the popover after
+  submission. [mokaddem]
+- [update] Function name conflict introduced by the merge + UI
+  Improvements. [mokaddem]
+- [database] bumped db update number for fs/ls update. [mokaddem]
+- [object:save] Inversed condition. copy/pasta fail... [mokaddem]
+- [object:save] fail-safe if Object doesn't have fs/ls set. [mokaddem]
+- [object:add] Catch exception if fs/ls doesn't exists. [mokaddem]
+- [event:view] Icons color set to white when applicable. [mokaddem]
+- [sql] updated MySQL.sql and modified comment column type. [mokaddem]
+- [update] liveOff recognition and logs when updates are locked.
+  [mokaddem]
+- [timeline] Prevent collision for Object and Attribute having the same
+  ID. [mokaddem]
+- [object:setMetraFromAttribte] Pass Object reference instead of value.
+  [mokaddem]
+- [timeline] Removed illusion of editing timeline objects if you are not
+  the owner. [mokaddem]
+- [timeline] Prevent `Column not found` error if user has the `user`
+  role. [mokaddem]
+- [restResponse] Added support of *-seen fields. [mokaddem]
+- [time_precision_tool] Support of IE. Usage of prototypes instead of a
+  class. [mokaddem]
+- [attribute:view] Correctly pick the matching form. [mokaddem]
+- [attribute:*-seen] Force seconds to be integers and allows editForm
+  for *-seen fields. [mokaddem]
+- [timeline] correctly adapt time scale when expanding items. [mokaddem]
+- [event:timeline] Error when trying to restore non-existing backup
+  entries. [mokaddem]
+- [object:quickEdit] fix input selector. [mokaddem]
+- [object:quickEdit] Fixed response to be of JSON type and improved
+  layout. [mokaddem]
+- [object:quickAttributeAdd] Fixed response to be of JSON type and
+  improved layout. [mokaddem]
+- [Object:editObject] Removed Event unpublishing that induced a
+  divergence of Event.timestamp. Chances are that it was causing ghost
+  loggins and useless sync loops. [mokaddem]
+- [attribute:quickEdit] Escalate the timestamp refresh to the Object.
+  [mokaddem]
+- [Attribute:editTag] Correctly escalate the timestamp refresh to the
+  Object. [mokaddem]
+- [Objects] editing refactored. [iglocska]
+
+  - code made more readable
+  - resolved an issue where objects could not be edited via the API without having the correct template
+- [Discussion] threads cannot link to other events, fixes #5506.
+  [iglocska]
+- Incorrect directionality for oldest_timestamp comparisons. [Tom King]
+- Make feeds a searchable scope in the logs, fixes #5501. [Andras
+  Iklody]
+- [PyMISP] Dummy creator. [Raphaël Vinot]
+- Remove python 2 test suite. [Raphaël Vinot]
+- [compat] The env variable SUDO_USER is a reserved variable (#5492)
+  [Steve Clement]
+
+  fix: [compat] The env variable SUDO_USER is a reserved variable
+- [compat] The env variable SUDO_USER is a reserved variable. [Steve
+  Clement]
+- [module results handler] Setting attribute category/ies accordingly.
+  [chrisr3d]
+
+  - Depending on whether there is one or more type(s)
+    and the category is not already set
+- [module results view] No need to add "selected" [chrisr3d]
+- [modules] Making sure the module format is set. [chrisr3d]
+
+  - Making sure the module format is not empty is
+    better than only making sure the variable is set
+- [module results handler] Fixed wrong call. [chrisr3d]
+
+  - $this->Attribute directly instead of
+    $this->Event->Attribute
+- [view:genericIndex] Fallback if `options` is not defined. [mokaddem]
+- [STIX] import fixed. [iglocska]
+
+  ________________   ___/-\___     ___/-\___     ___/-\___
+       / /             ||  |---------|   |---------|   |---------|
+      / /              ||   |       |     | | | | |     |   |   |
+     / /             __||   | STIX  |     | | | | |     | | | | |
+    / /   \\        I  ||   |       |     | | | | |     | | | | |
+   (-------------------||   | | | | |     | | | | |     | | | | |
+   ||               == ||   |_______|     |_______|     |_______|
+   ||   TAXII       | =============================================
+   ||          ____    |                                ____      |
+  ( | o      / ____ \                                 / ____ \    |)
+   ||      / / . . \ \                              / / . . \ \   |
+  [ |_____| | .   . | |____________________________| | .   . | |__]
+            | .   . |                                | .   . |
+             \_____/                  -cfbd-          \_____/
+- [diagnostic:DBIndexes] Typo keyname. [mokaddem]
+- [internal] fixed newly introduced error with full_group_by directive
+  when adding galaxies to tag collections. [iglocska]
+- [internal] avoid loading outdated versions of galaxies. [iglocska]
+- [diagnostic:DBSchema] Select tables schema with UPPER case. [mokaddem]
+- [diagnostic:DBSchema] Force column `table_name` to be lower case.
+  [mokaddem]
+- [diagnostic:DBSchema] Improved UI with label. [mokaddem]
+- [UI] adding attack-like galaxy clusters to tag collections was slow.
+  [iglocska]
+
+  - was generating a heatmap out of all event metadata each time for no good reason
+- Don't show an empty error when there is no error. [Pierre-Jean
+  Grenier]
+- UpdateObjectTemplates with user ID 1. [Raphaël Vinot]
+- [CLI] updateObjectTemplates handles fetching the user correctly now.
+  [iglocska]
+- [stix import] Storing methods names in the mapping dictionary so we do
+  not store the methods themselves. [chrisr3d]
+- [stix export] Storing methods names in the mapping dictionary so we do
+  not store the methods themselves. [chrisr3d]
+- [stix2 export] Storing methods names in the mapping dictionary so we
+  do not store the methods themselves. [chrisr3d]
+- [stix2 import] Storing methods names and calling them with getattr
+  instead of storing the methods themselves. [chrisr3d]
+- [stix2 import] Fixed import of observables with no marking attached.
+  [chrisr3d]
+- [tags] Fixed the taxonomy view incorrectly fetching mistyped tags over
+  the actual taxonomy tags. [iglocska]
+- [stix2 import] Avoid issues with relationships list when there is no
+  relationship object in the stix file we want to import. [chrisr3d]
+- [cleanup] removed wtf inducing debug message. [iglocska]
+- [taxonomies] Fixed invalid tags being shown on the taxonomy index if
+  mistyped versions exist. [iglocska]
+- [event add view] Avoided setting the action variable. [chrisr3d]
+
+  - That is available from the view side within $this->request->params
+- (#5277) remove out of scope var causing weird behavior when adding an
+  invalid attribute. [Will]
+- [decaying:simulation] Allow ObjectAttributes to be simulated.
+  [mokaddem]
+- [API] include the local flag in tags when using restSearch. [iglocska]
+- [add event view] Reuse of variable. [chrisr3d]
+- [CLI] invalid variable used for server caching log entry. [iglocska]
+- [internal] attribute restsearch - handle empty lines returned from the
+  module better. [iglocska]
+
+  - no more empty lines hopefully in some exports
+- Removed useless spaces. [mokaddem]
+- [decaying:basescoreComputation] Correctly support 2-tag and 3-tag.
+  [mokaddem]
+- [decaying:simulation] base_score popover override shows the correct
+  one. Instead of always the first one. [mokaddem]
+- [eventGraph] Typing do not trigger eventGraph action anymore. Fix
+  #5442. [mokaddem]
+- [eventGraph:addReference] Adding reference to unreferenced nodes do
+  not link to the root unreferenced nodes anymore. [mokaddem]
+- [event:view] Correctly display `Edit Event` when Editing instead of
+  `Add Event` [mokaddem]
+- [feed:previewEvent] Added `Fetch Event` button on the sidemenu.
+  [mokaddem]
+- [event:add] Restored extended event preview. [mokaddem]
+- [event:publishRouter] Fixed parenthesis issue. [mokaddem]
+- [event:view] Pivot form related event fixed. [mokaddem]
+- Remove unusued config option. [Jakub Onderka]
+- [internal] hard delete of attributes after a soft delete fixed.
+  [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add reference to stix2-patterns issue. [Raphaël Vinot]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #5525 from Rafiot/rework_python_install. [Raphaël
+  Vinot]
+
+  chg: cleanup python install on travis
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge remote-tracking branch 'origin/zoidberg-final' into 2.4.
+  [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'zoidberg-final' into 2.4. [iglocska]
+- Merge branch 'zoidberg_final' into zoidberg-final. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into zoidberg-final.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into zoidberg-final.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into zoidberg-final.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into zoidberg-final Not a
+  simple merge. Needed to fix forms and simplified how form_seen_input
+  works. [mokaddem]
+- Merge branch 'zoidberg-timeline' into zoidberg-final. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into zoidberg-timeline.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into zoidberg-timeline.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into zoidberg-timeline.
+  [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into zoidberg-timeline.
+  [mokaddem]
+- Merge branch '2.4' into zoidberg-timeline. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into zoidberg-timeline.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into zoidberg-timeline.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into zoidberg-timeline.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into zoidberg-timeline.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #5515 from Applenice/2.4. [Andras Iklody]
+
+  remove invalid default feed
+- Remove invalid default feed. [Applenice]
+- Merge branch 'fix-sync-objectattributetags' into 2.4. [mokaddem]
+- Merge pull request #5504 from tomking2/bug/first_recorded_change.
+  [Andras Iklody]
+
+  fix: Incorrect directionality for oldest_timestamp comparisons
+- Merge pull request #5490 from RichieB2B/ncsc-nl/schema-status. [Andras
+  Iklody]
+
+  Mark NULL vs "" as not critical
+- Mark NULL vs "" as not critical. [Richard van den Berg]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #5488 from RichieB2B/ncsc-nl/stix-json. [Alexandre
+  Dulaunoy]
+
+  Return STIX in JSON format when Accept header asks for it
+- Return STIX in JSON format when Accept header asks for it. [Richard
+  van den Berg]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch 'sqlIndexDiagnostic' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5473 from airbus-cert/Fix_PHP_composer_hash.
+  [Andras Iklody]
+
+  Wrong hash composer-setup.php
+- Fix composer-setup.php hash. [Amaury Leroy]
+- Fix composer-setup.php hash. [Amaury Leroy]
+- Fix composer-setup.php hash. [Amaury Leroy]
+- Fix composer-setup.php hash. [Amaury Leroy]
+- Fix composer-setup.php hash. [Amaury Leroy]
+- Fix composer-setup.php hash. [Amaury Leroy]
+- Fix composer-setup.php hash. [Amaury Leroy]
+- Merge pull request #1 from MISP/2.4. [devnull-]
+
+  Update fork
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #5459 from mokaddem/schemaDiagnosticImprovement.
+  [Andras Iklody]
+
+  Schema diagnostic improvement
+- Merge pull request #5341 from JakubOnderka/patch-68. [Andras Iklody]
+
+  chg: [internal] Faster loading list of attributes
+- Merge pull request #5463 from
+  zaphodef/feature/selective_import_objects. [Andras Iklody]
+
+  chg: new feature to selectively choose to import objects (or not)
+- Merge pull request #5464 from zaphodef/fix/empty_error_panel. [Andras
+  Iklody]
+
+  fix: Don't show an empty error when there is no error
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge branch 'add_attribute' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into add_attribute.
+  [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5208 from JakubOnderka/patch-34. [Andras Iklody]
+
+  Simplify user profile logging
+- Merge branch 'move_forms' into 2.4. [chrisr3d]
+- Merge branch 'add_attribute_fix' into add_attribute. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into add_attribute.
+  [chrisr3d]
+- Add: [add attribute view] Starting moving add attribute view to
+  generic form. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Add: [genericForm} Added 'empty' in simple fields white list.
+  [chrisr3d]
+
+  - Allows to have default values in inputs with
+    options, as opposed to inputs with no options
+    where 'placeholder' works.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #5445 from RichieB2B/ncsc-nl/fixSaveRole. [Andras
+  Iklody]
+
+  Set rate_limit_count to 0 when not defined
+- Set rate_limit_count to 0 when not defined. [Richard van den Berg]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #5443 from RichieB2B/ncsc-nl/sightingDistribution.
+  [Andras Iklody]
+
+  Push sightings regardsless of distribution level
+- Push sightings regardsless of distribution level. [Richard van den
+  Berg]
+- Merge pull request #5375 from JakubOnderka/patch-71. [Andras Iklody]
+
+  fix: Remove unusued config option
+- Add: [stix import] Importing LinkObjects as link attribute. [chrisr3d]
+
+
 v2.4.119 (2019-12-02)
 ---------------------
 
