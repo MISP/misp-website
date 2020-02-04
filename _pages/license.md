@@ -34,7 +34,7 @@ We welcome contributions. All contributors collectively own the MISP project its
 
 # AGPL Affero General Public License - MISP point of view
 
-MISP core software is licensed under the [Open Source approved](https://opensource.org/licenses/AGPL-3.0) AGPL license. The Affero GPL is a standard GNU GPL version 3 license with an additional specific clause to require the ability to download the source code of MISP core. This requirement only applies if the MISP core software has been modified. You can safely bundle MISP with additional software under different license. The AGPL only applies to the MISP core software and not by using the API of MISP.
+MISP core software is licensed under the [Open Source approved](https://opensource.org/licenses/AGPL-3.0) AGPL license. The Affero GPL is a standard GNU GPL version 3 license with an additional clause which requires the ability to download the source code of the MISP core itself. This requirement only applies if the MISP core software has been modified, Meaning that you are free to bundle MISP with any software under different licenses. AGPL only applies to the MISP core software and not to any other software using the API of MISP.
 
 # Export control
 
