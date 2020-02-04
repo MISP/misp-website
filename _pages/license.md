@@ -32,6 +32,10 @@ The MISP sub-projects use different open source licenses depending on the variou
 
 We welcome contributions. All contributors collectively own the MISP project itself along with the various MISP sub-projects (software, libraries and knowledge bases alike), depending on which parts they have contributed to. The contributors also acknowledge the [Developer Certificate of Origin](https://developercertificate.org/).
 
+# AGPL Affero General Public License - MISP point of view
+
+MISP core software is licensed under the [Open Source approved](https://opensource.org/licenses/AGPL-3.0) AGPL license. The Affero GPL is a standard GNU GPL version 3 license with an additional specific clause to require the ability to download the source code of MISP core. This requirement only applies if the MISP core software has been modified. You can safely bundle MISP with additional software under different license. The AGPL only applies to the MISP core software and not by using the API of MISP.
+
 # Export control
 
 The MISP Project is developed at an international scale and the core developers are located in Europe. This website is hosted in Belgium. Export restriction might apply (as MISP open source software can be classified as [ECCN 5D002 or 5D992](https://www.bis.doc.gov/index.php/documents/new-encryption/1652-cat-5-part-2-quick-reference-guide/file)) for the users depending on their location if they wish to download MISP from the official GitHub repositories (hosted by GitHub, Inc.). If you are located in a region where downloading from GitHub is restricted, the MISP project provides an alternative git repository for each MISP sub-projects at the following location: [https://eugit.opencloud.lu/MISP](https://eugit.opencloud.lu/MISP) located in Luxembourg, Europe (hosted by [opencloud.lu](https://www.opencloud.lu/)).
