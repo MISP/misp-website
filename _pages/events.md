@@ -13,10 +13,9 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 (to be announced)
 
-### MISP Threat Intelligence summit
+### MISP at conferences
 
-(to be announced)
-
+- [FIRST Cyber Threat Intelligence Symposium](https://www.first.org/events/symposium/zurich2020/program) - Turning Data into Actionable Intelligence - Advanced Features in MISP Supporting Your Analysts and Tools in Zurich, Tuesday, 10 March
 
 ### Current MISP Training(s)
 
