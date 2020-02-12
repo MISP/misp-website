@@ -41,6 +41,13 @@ As one of the critical user-bases of MISP consists of the CSIRT community, it is
 - [CVE-2019-14286](https://cve.circl.lu/cve/CVE-2019-14286) <= MISP 2.4.111 - In app/webroot/js/event-graph.js in MISP 2.4.111, a stored XSS vulnerability exists in the event-graph view when a user toggles the event graph view. A malicious MISP event must be crafted in order to trigger the vulnerability.
 - [CVE-2019-16202](https://cve.circl.lu/cve/CVE-2019-16202) <= MISP 2.4.114 - MISP before 2.4.115 allows privilege escalation in certain situations. After updating to 2.4.115, escalation attempts are blocked by the checkLoggedActions function with a "This could be an indication of an attempted privilege escalation on older vulnerable versions of MISP (<2.4.115)" message.
 - [CVE-2019-19379](https://cve.circl.lu/cve/CVE-2019-19379) <= MISP 2.4.118 - MISP before 2.4.119 In app/Controller/TagsController.php in MISP 2.4.118, users can bypass intended restrictions on tagging data.
+- [CVE-2020-8890](https://cve.circl.lu/cve/CVE-2020-8890) <= MISP 2.4.120 - An issue was discovered in MISP before 2.4.121. It mishandled time skew (between the machine hosting the web server and the machine hosting the database) when trying to block a brute-force series of invalid requests.
+- [CVE-2020-8891](https://cve.circl.lu/cve/CVE-2020-8891) <= MISP 2.4.120 - An issue was discovered in MISP before 2.4.121. It did not canonicalize usernames when trying to block a brute-force series of invalid requests.
+- [CVE-2020-8892](https://cve.circl.lu/cve/CVE-2020-8892) <= MISP 2.4.120 - An issue was discovered in MISP before 2.4.121. It did not consider the HTTP PUT method when trying to block a brute-force series of invalid requests.
+- [CVE-2020-8893](https://cve.circl.lu/cve/CVE-2020-8893) <= MISP 2.4.120 - An issue was discovered in MISP before 2.4.121. The Galaxy view contained an incorrectly sanitized search string in app/View/Galaxies/view.ctp.
+- [CVE-2020-8894](https://cve.circl.lu/cve/CVE-2020-8894) <= MISP 2.4.120 - An issue was discovered in MISP before 2.4.121. ACLs for discussion threads were mishandled in app/Controller/ThreadsController.php and app/Model/Thread.php.
+
+
 
 ## PGP Key
 

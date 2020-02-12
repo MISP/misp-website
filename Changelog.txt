@@ -2,6 +2,295 @@ Changelog
 =========
 
 
+v2.4.121 (2020-02-10)
+---------------------
+
+New
+~~~
+- [config load task] Added a task that will reload the settings on any
+  console shell execution, fixes #5498. [iglocska]
+
+  - helps with background workers being forced to fetch new settings whenever they start a new job
+- [objects] pass the /breakOnDuplicate:1 flag to the /objects/add
+  endpoint to deduplicate. [iglocska]
+
+  - returns an error if the object already exists
+    - objects of the same template_uuid are compared
+    - non deleted attributes only
+    - type + category + value + object_relation tuple is compared
+- [API] Enveloping improvements. [iglocska]
+
+  - user controlled envelope settings to control memory estimation for attribute/event sizes
+  - logging of potentially too large events for the current memory envelope
+  - tuning of the default values
+  - added a divider for the event:attribute conversion to account for objects / event level contextualisation / correlations
+- [UI] Show thumbnails at List Attributes view. [Jakub Onderka]
+- [internal] Attribute::isImage method. [Jakub Onderka]
+- [sync] Add additional pull filters to the sync, fixes #5510.
+  [iglocska]
+
+  - uses the same format as the index filters
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [internal] mispzmqtest.py. [Jakub Onderka]
+
+  - Also check if Redis Python library is installed
+  - Do not print "OK" if libraries doesn't exists
+  - Return error code 1 if library doesn't exists
+- [cleanup] Taking out the trash. [iglocska]
+
+  - old unused functions removed
+- [pgpPopover] Transformed text into i18n. [mokaddem]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- Bump PyMISP. [Raphaël Vinot]
+- [dbSchema] Removed log table from the whitelisted tables. [mokaddem]
+- [diagnostic:dbSchema] Added SQL queries to fix issues. [mokaddem]
+- [UI] Check if ssdeep PHP extension is installed. [Jakub Onderka]
+- Bump expected PyMISP version. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [user] GPG key fetching by server. [Jakub Onderka]
+- [attribute:add] Actually show invalid datetime format message in the
+  UI. [mokaddem]
+- [attribute:add] Rephrased missing timezone message. [mokaddem]
+- [attribute:type] Datetime value is forced to be a valid ISO format.
+  [mokaddem]
+
+  - It is converted into UTC in the server
+  - /attribute/add Form includes javascript validation part
+- [misp-object] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- Do not use the merge functionality. [Raphaël Vinot]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [Feed] Change all non MISP feed format feeds to fixed events. [Raphaël
+  Vinot]
+- [PyMISP] Bump, fix tz issues. [Raphaël Vinot]
+- [PyMISP] Bump. [Raphaël Vinot]
+- Changed error messages into translatable strings. [mokaddem]
+- [internal] Much better error handling for feed preview. [Jakub
+  Onderka]
+- [UI] Resizing images. [Jakub Onderka]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [dbschema] Pretty print db_schema and removed Object.comment and
+  ShadowAttr.comment from the index list. [mokaddem]
+- Selectively choose what you want to import. [Pierre-Jean Grenier]
+- [internal] Much faster GalaxyCluster::attachClustersToEventIndex.
+  [Jakub Onderka]
+- [console:server] Stop execution if user does not exists. [mokaddem]
+
+Fix
+~~~
+- [security] Correctly sanitize search string in Galaxy view. [mokaddem]
+
+  - As reported by Dawid Czarnecki
+- [object] object deduplication fixed. [iglocska]
+- [UI] Disable autocomplete for authkey. [Jakub Onderka]
+
+  To prevent saving it into browser cache
+- [internal] Remove unused line. [Jakub Onderka]
+- [indexes] Added SQL index for tag numerical_value. [mokaddem]
+- [security] Further fixes to the bruteforce handling. [iglocska]
+
+  - resolved a potential failure of the subsystem when the MySQL and the webserver time settings are diverged
+    - as reported by Dawid Czarnecki
+  - several tightenings of the checks to avoid potential foul play
+- [security] discussion thread ACL issues fixed. [iglocska]
+
+  - as reported by Dawid Czarnecki
+- [security] brutefoce protection rules tightened. [iglocska]
+
+  - as reported by Dawid Czarnecki
+- [API] make param tag alias of tags for /events/restSearch. [Jeroen
+  Pinoy]
+- [kali] Fixed kali install script (#5586) [Steve Clement]
+
+  fix: [kali] Fixed kali install script
+- [tools] Removed Viper until working again, fixed #5582. [Steve
+  Clement]
+- [sum] Fixed checksums. [Steve Clement]
+- [kali] Fixed kali install script. [Steve Clement]
+- [sync] Pull filters ignored if no custom url params added, fixes
+  #5594. [iglocska]
+- [export] fixed the export page breaking for text exports, fixes #5563.
+  [iglocska]
+- [UI] Icons in network distribution graph. [Jakub Onderka]
+- [internal] cleanup of unused line. [iglocska]
+- [API] several fixes to the Bro API. [iglocska]
+
+  - always use flatten:1 to also include object attributes
+  - fix the generated full export to only include the header once
+- [internal] fetcher logic fail fixed. [iglocska]
+- A few feeds should use fixed events by default. [Raphaël Vinot]
+
+  Related to https://github.com/MISP/MISP/issues/5544
+- [API] taxonomies controller index call fixed for API calls. [iglocska]
+
+  - no longer limiting at 60 elements
+- [log] Proper format log message for reset auth key. [Jakub Onderka]
+
+  In future, it will be also possible to filter auth keys in logs.
+- [objects:edit] Added *_seen validation and error reporting. [mokaddem]
+- [CLI] Die if setting name is not correct. [Jakub Onderka]
+- [server:edit] Correctly escape `%` re-enabling server setting editing.
+  [mokaddem]
+- Proper logout when `CustomAuth_custom_logout` is set. [Jakub Onderka]
+- `DefaultRoleId` is not implemented for ApacheShibbAuth. [Jakub
+  Onderka]
+- [UI] Remove double escaping. [Jakub Onderka]
+- [ui:galaxy] Correctly display galaxy info. [mokaddem]
+- [attribute:search] Unset filtering rules on *_seen if unset.
+  [mokaddem]
+- [internal] AttributesController::viewPicture can be used just for
+  fetching images. [Jakub Onderka]
+- [UI] small username helper changes. [iglocska]
+- [internal] slight tuning to the attribute restsearch memory envelop
+  size. [iglocska]
+- [UI] Add space after ':' in error text. [Jakub Onderka]
+- [serverShell] Stopped usage of reserver keyword. [Sami Mokaddem]
+
+  Renamed function name to let PHP 5.x parse the shell script correctly
+- [diagnostic:dbSchema] Updated schema with the Attribute.comment
+  indexing change nad pretty-printed it. [mokaddem]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5615 from JakubOnderka/patch-85. [Andras Iklody]
+
+  chg: [internal] mispzmqtest.py
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' into enforce-iso-datetime. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into pr-5210. [mokaddem]
+- Merge pull request #5614 from JakubOnderka/patch-84. [Andras Iklody]
+
+  fix: [UI] Disable autocomplete for authkey
+- Merge pull request #5607 from JakubOnderka/patch-83. [Andras Iklody]
+
+  fix: [internal] Remove unused lines
+- Merge branch '2.4' of github.com:MISP/MISP into pr-5210. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #5601 from JakubOnderka/ssdeep_ext. [Andras Iklody]
+
+  chg: [UI] Check if ssdeep PHP extension is installed
+- Fixup! chg: [user] GPG key fetching by server. [Jakub Onderka]
+- Merge remote-tracking branch 'origin/2.4' into enforce-iso-datetime.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5585 from Wachizungu/fix-tag-alias-events-
+  restsearch. [Andras Iklody]
+
+  fix: [API] make param 'tag' alias of 'tags' for /events/restSearch
+- Merge branch '2.4' into tools. [Steve Clement]
+- Merge pull request #5579 from StefanKelm/2.4. [Andras Iklody]
+
+  tiny typo
+- Update update_progress.ctp. [StefanKelm]
+
+  tiny typo
+- Update db_schema_diagnostic.ctp. [StefanKelm]
+
+  tiny typo
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5573 from JakubOnderka/patch-79. [Andras Iklody]
+
+  fix: [UI] Icons in network distribution graph
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5569 from MISP/Rafiot-patch-4. [Andras Iklody]
+
+  chg: Do not use the merge functionality.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5562 from raw-data/2.4. [Alexandre Dulaunoy]
+
+  [add] malsilo.domain feed
+- [add] malsilo.domain feed. [raw-data]
+- Merge pull request #5559 from JakubOnderka/patch-77. [Andras Iklody]
+
+  fix: [log] Proper format log message for reset auth key
+- Merge branch 'pr-5295' into 2.4. [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into pr-5295. [mokaddem]
+- Merge pull request #5555 from JakubOnderka/patch-76. [Andras Iklody]
+
+  fix: [CLI] Die if setting name is not correct
+- Merge pull request #5541 from JakubOnderka/proper_logout. [Andras
+  Iklody]
+
+  fix: Proper logout when `CustomAuth_custom_logout` is set
+- Merge pull request #5553 from ZeroDot1/patch-1. [Andras Iklody]
+
+  Fix the CoinBlockerLists
+- Fix the CoinBlockerLists. [ZeroDot1]
+
+  Delete the MiningServerIPList.txt feed because the feed is no longer available.
+
+  All current downloads can be found via the CoinBlockerLists homepage.
+  https://zerodot1.gitlab.io/CoinBlockerListsWeb/downloads.html
+
+  Thanks to everyone for using the CoinBlockerLists, I appreciate it very much.
+
+  '
+  {
+      "Feed": {
+        "id": "68",
+        "name": "This list contains all IPs - A additional list for administrators to prevent mining in networks",
+        "provider": "CoinBlockerLists",
+        "url": "https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/MiningServerIPList.txt?inline=false",
+        "rules": "",
+        "enabled": true,
+        "distribution": "3",
+        "sharing_group_id": "0",
+        "tag_id": "0",
+        "default": false,
+        "source_format": "freetext",
+        "fixed_event": false,
+        "delta_merge": false,
+        "event_id": "0",
+        "publish": false,
+        "override_ids": false,
+        "settings": "{\"csv\":{\"value\":\"\",\"delimiter\":\",\"},\"common\":{\"excluderegex\":\"\"}}",
+        "input_source": "network",
+        "delete_local_file": false,
+        "lookup_visible": true,
+        "headers": ""
+      }
+    },
+  '
+- Merge pull request #5548 from JakubOnderka/patch-75. [Andras Iklody]
+
+  fix: `DefaultRoleId` is not implemented for ApacheShibbAuth
+- Merge branch '2.4' of github.com:MISP/MISP into pr-view_picutre.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #5542 from JakubOnderka/patch-74. [Sami Mokaddem]
+
+  fix: [UI] Remove double escaping
+- Merge branch '2.4' of github.com:MISP/MISP into pr-patch-67.
+  [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into pr-selective_import_v2.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #5530 from legoguy1000/2.4. [Andras Iklody]
+
+  Add SAML (Shibboleth) login button
+- Add SAML (Shibboleth) login button. [Alex Resnick]
+
+  With Shibboleth and SAML you have 2 options, for SAML login and don't allow local login or allow both.  The example in the documentation forces (requires) SAML authentication and thus doesn't allow you to use local credentials if needed.  This adds a button below the login form to redirect to the Shibboleth login page if using passive Shibboleth auth.  To use passive auth set "ShibRequestSetting requireSession 0/false" instead of "ShibRequestSetting requireSession 1/true"
+- Merge pull request #5527 from JakubOnderka/patch-72. [Andras Iklody]
+
+  fix: [UI] Add space after ':' in error text
+
+
 v2.4.120 (2020-01-21)
 ---------------------
 
