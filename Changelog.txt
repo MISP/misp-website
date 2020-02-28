@@ -1,6 +1,163 @@
 Changelog
 =========
 
+v2.4.122 (2020-02-26)
+---------------------
+
+New
+~~~
+- [logging] Log user IPs on login. [iglocska]
+
+  - feature is optional and needs to be enabled in the server settings
+  - on successful login logs the associated user ID for a given IP (30 day retention)
+  - also logs the IP for the associated user ID (indefinite retention)
+  - added two command line tools to query
+    - Get IPs For User ID: MISP/app/Console/cake Admin UserIP [user_id]
+    - Get User ID For User IP: MISP/app/Console/cake Admin IPUser [ip]
+- [communities] Added Danish community and some fixes to the community
+  system. [iglocska]
+
+Changes
+~~~~~~~
+- [pymisp] bump. [iglocska]
+- Use poetry in travis. [Raphaël Vinot]
+- [version] bump. [iglocska]
+- Bump PyMISP. [Raphaël Vinot]
+- [database] Added db entry to re-correlate Attributes. [mokaddem]
+- [submodule] updates. [iglocska]
+- [UI] show customauth header. [iglocska]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [internal] Removed unused function. [Jakub Onderka]
+- [internal] Little bit faster ssdeep saving. [Jakub Onderka]
+- [mispzmq] Do not create array every 0.1 sec. [Jakub Onderka]
+
+  Should lead to little bit lower CPU usage
+- [internal] Update composer.phar to version 1.9.0. [Jakub Onderka]
+- [objects] updated to the latest version. [Alexandre Dulaunoy]
+- [version] bump. [jcarter]
+
+Fix
+~~~
+- Run python tests from python. [Raphaël Vinot]
+- [CLI] allow for calling the update via the CLI without passing a
+  process ID. [iglocska]
+- Properly install PyMISP with poetry. [Raphaël Vinot]
+- Missing dependency for poetry. [Raphaël Vinot]
+- [correlations] fix to an issue where attribute edits could purge
+  correlations. [iglocska]
+
+  - bug introduced by a merge gone wrong
+  - attribute edits that modify fields that do not affect the correlations (such as to_ids, comment, etc) would cause correlations to be purged
+- [sync] allow for both the minimal and searchminimal keywords to be
+  used on the event index. [iglocska]
+
+  - until now due to a bug only searchminimal was used
+  - sync negotiation uses minimal as the key
+  - this should greatly speed up the negotiation phase
+- [decaying:tool] Support strict sql mode while fetching available
+  Object type. [mokaddem]
+- [decaying] Attributes not having a DM associated will be defaulted as
+  `not decayed` [mokaddem]
+- [eventGraph] Request picture for valid attachement only. [mokaddem]
+- [server:edit] Prevent undefined variable. [mokaddem]
+- [custom auth] correctly use HTTP_ as the default header namespace.
+  [iglocska]
+- [installer] Some typos. [Steve Clement]
+- Force schema columns lowercase to match expected. [Jason Kendall]
+- [enveloping] Fixed typo and added actual event ID to the message
+  saved. [iglocska]
+
+  gremmar meestakes are anoying.
+- [dash] Dashboard not working at the moment. [Steve Clement]
+- [server:edit] Always echo internal instance notice. [mokaddem]
+- [UI] Correct title for '+' button. [Jakub Onderka]
+- [pubsub] Do not fetch setting for every push. [Jakub Onderka]
+- [UI] UUID term should be uppercase. [Jakub Onderka]
+- [internal] Remove unused function. [Jakub Onderka]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Bumped db_version. [Sami Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'feature-recorrelate' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- :magic: [Raphaël Vinot]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #5659 from SteveClement/misp-dash. [Steve Clement]
+
+  fix: [dash] Dashboard not working at the moment
+- Merge branch '2.4' into misp-dash. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5654 from coolacid/issue-5653. [Andras Iklody]
+
+  fix: Force schema columns lowercase to match expected
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #5647 from coolacid/issue-5598. [Andras Iklody]
+
+  Allow forcing tag creation for galaxies
+- Allow forcing tag creation for galaxies. [Jason Kendall]
+- Merge pull request #5639 from JakubOnderka/patch-92. [Andras Iklody]
+
+  fix: [UI] Correct title for '+' button
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5612 from coolacid/issue-5611. [Andras Iklody]
+
+  Ensure we only have the last line from the shell command
+- Ensure we only have the last line from the shell command. [Jason
+  Kendall]
+- Merge pull request #5633 from JakubOnderka/patch-91. [Andras Iklody]
+
+  chg: [internal] Removed unused function
+- Merge pull request #5628 from JakubOnderka/patch-87. [Andras Iklody]
+
+  chg: [internal] Little bit faster ssdeep saving
+- Merge pull request #5631 from JakubOnderka/patch-90. [Andras Iklody]
+
+  fix: [pubsub] Do not fetch setting for every push
+- Merge pull request #5630 from JakubOnderka/patch-89. [Andras Iklody]
+
+  chg: [mispzmq] Do not create array every 0.1 sec
+- Merge pull request #5629 from JakubOnderka/patch-88. [Andras Iklody]
+
+  fix: [UI] UUID term should be uppercase
+- Merge pull request #5623 from stricaud/2.4. [Andras Iklody]
+
+  version 2.4.221 + ask about baseurl during package installation
+- * Adding baseurl as a question when finalizing the package
+  installation. * bump to version 2.4.221. [Sebastien Tricaud]
+- Merge pull request #5625 from JakubOnderka/patch-86. [Andras Iklody]
+
+  fix: [internal] Remove unused function
+- Merge pull request #5149 from JakubOnderka/update-composer. [Andras
+  Iklody]
+
+  chg: [internal] Update composer.phar to version 1.9.0
+- Merge pull request #5616 from jay-carter/patch-1. [Andras Iklody]
+
+  chg: [version] bump
+- Merge pull request #5617 from stricaud/debian. [Andras Iklody]
+
+  Adding instructions to build a Debian Package
+- Remove useless test. [Sebastien Tricaud]
+- Adding instructions to build a Debian Package. [Sebastien Tricaud]
+
+  It does not build a Debian package that can be pushed to the distribution yet, but it provides
+  an easy way to have a Debian package for MISP for minimal configuration efforts.
+
+  It is installed in /usr/share/misp and there are too many things happening in that directory,
+  such as logs, instead of being in /var/log/misp/.
+
+  However it can be useful to a lot of people, and I will gradually improve it over time.
+
+  -- STR
+
 
 v2.4.121 (2020-02-10)
 ---------------------
