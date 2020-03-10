@@ -46,7 +46,8 @@ As one of the critical user-bases of MISP consists of the CSIRT community, it is
 - [CVE-2020-8892](https://cve.circl.lu/cve/CVE-2020-8892) <= MISP 2.4.120 - An issue was discovered in MISP before 2.4.121. It did not consider the HTTP PUT method when trying to block a brute-force series of invalid requests.
 - [CVE-2020-8893](https://cve.circl.lu/cve/CVE-2020-8893) <= MISP 2.4.120 - An issue was discovered in MISP before 2.4.121. The Galaxy view contained an incorrectly sanitized search string in app/View/Galaxies/view.ctp.
 - [CVE-2020-8894](https://cve.circl.lu/cve/CVE-2020-8894) <= MISP 2.4.120 - An issue was discovered in MISP before 2.4.121. ACLs for discussion threads were mishandled in app/Controller/ThreadsController.php and app/Model/Thread.php.
-
+- [CVE-2020-10246](https://cve.circl.lu/cve/CVE-2020-10246) <= MISP 2.4.122 - Reflected XSS via unsanitized URL parameters. This is related to app/View/Users/statistics_orgs.ctp.
+- [CVE-2020-10247](https://cve.circl.lu/cve/CVE-2020-10247) <= MISP 2.4.122 - Persistent XSS in the sighting popover tool. This is related to app/View/Elements/Events/View/sighting_field.ctp.
 
 
 ## PGP Key
