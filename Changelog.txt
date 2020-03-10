@@ -1,6 +1,215 @@
 Changelog
 =========
 
+v2.4.123 (2020-03-10)
+---------------------
+
+New
+~~~
+- [dashboard] added template delete functionality. [iglocska]
+- [dashboard] persistence package. [iglocska]
+
+  - export dashboard state
+  - import dashboard state
+  - save dashboard state
+    - make it available to others on the instance on demand
+    - admins can set a default password for users that don't have anything configured yet
+    - load another template based on what the community has shared
+  - added Whoami widget which was an outcome of the ESDC training
+  - various improvements, new fields for genericElements, etc
+- [workers] restart all dead workers. [iglocska]
+- [widgets] Whoami widget added. [iglocska]
+- [dashboard] various fixes / improvements. [iglocska]
+
+  - simple list now accepts arrays for values
+  - fixed margin issues
+  - fixed empty sync test issues
+- [dashboard] added a way to auto reload widgets. [iglocska]
+
+  - has to be defined in the code of the widget
+- [widget] World map widget added. [iglocska]
+- [dashboard] Resource widget added. [iglocska]
+- [favourite] glow orange when on the page that is already bookmarked.
+  [iglocska]
+
+  - thanks to @mokaddem (graphman) for the idea
+- [dashboard] Added cachelifetimg setting as opposed to hard-coded
+  value. [iglocska]
+- [dashboard] Added server resource module and some fixes. [iglocska]
+- [Dashboard] added hook to check for permissions on module load.
+  [iglocska]
+
+  - allows for modules to have role / host org restrictions
+- [Dashboard] system. [iglocska]
+
+  - Dashboard
+    - modular similar to restSearch
+    - build your own widgets
+    - use a set of visualisation options (more coming!)
+    - full access to internal functions for queries
+    - auto discover core and 3rd party widgets
+    - rearrange / configure widgets for each user individually
+    - rearrange / resize widgets
+    - settings can be configured by a site-admin on behalf of others
+    - modules have a self-explain mode to guide users
+    - caching mechanism for the modules / org
+
+  - set homepage / user
+  - various other fixes
+- [API] object level restSearch added. [iglocska]
+
+  still WiP
+
+Changes
+~~~~~~~
+- [stix2] Bumped latest stix2 python library version. [chrisr3d]
+- Bump PyMISP. [Raphaël Vinot]
+- [version] bump. [iglocska]
+- [cleanup] removed alert. [iglocska]
+- [misp-warninglists] updated to the latest version. [Alexandre
+  Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-taxonimies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [dashboard] world map scale parameterised. [iglocska]
+- [widget:worldmap] Reusage of declated variable. [mokaddem]
+- [widget:worldmap] Various JS and UI Improvements. [mokaddem]
+
+  - Variables and function have their own scope, not overridin each other
+  - Scale color ranges from blue to red
+  - Tooltip picks the correct data instead of the latest declared one
+  - PHP no longuer printed in JS, avoiding the need of `eval` command
+  - Widget redraw itself after a page resize
+- [login] Display last time the user logged in. [mokaddem]
+- [response header] Added `X-XSS-Protection` header. [mokaddem]
+
+  - As reported by an external pentest company on behalf of the Centre for Cyber security Belgium (CCB)
+- [server:rest] Query builder gets loaded with body after the POST.
+  [mokaddem]
+
+  fix #5680
+- Removed unwanted indentation. [mokaddem]
+- [dashboard] show owner email of template to site owners and the owner
+  themselves. [iglocska]
+- [dashboard]  cleanup. [iglocska]
+
+  prevent @mokaddem's and @rommelfs's eyes from bleeding
+- [misp-object] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [dashboard] Allow for the use of subdirectories in
+  /app/Lib/Dashboard/Custom to be able to git clone repos. [iglocska]
+- [querystring] bumped. [iglocska]
+- [dashboard] views for widgets updated. [iglocska]
+- [clenaup] removed old dashboard. [iglocska]
+- [dashboard] Custom dir added. [iglocska]
+- [wip] test. [iglocska]
+- [misp-object] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- Make contact reporter gender neutral. [Raphaël Vinot]
+- [i18n] Updated: Simplified Chinese, German, Italian, Spanish, Russian.
+  [Steve Clement]
+- [i18n] Updated pot files. [Steve Clement]
+
+Fix
+~~~
+- [travis] ANTLR 4.8 works again. [Raphaël Vinot]
+- [ACL] added deleteTemplate. [iglocska]
+- [dashboards:edit] Prevent overriding the edited template with data
+  stored in user-settings. [mokaddem]
+- [dashboard:saveTemplate] Prevent array re-indexing causing issue with
+  HTML select's option value. [mokaddem]
+- [dashboard] grid scope fix. [iglocska]
+- [sfv] Checksums wrong. [Steve Clement]
+- [dashboard] several small fixes. [iglocska]
+
+  - fixed issue of first few updates failing right after adding a self updating widget
+  - don't try to reload a removed widget
+  - fixed the internal random parametrised widget refresh to something more sane
+- [user:resetAuthkey] Allows the function to be called. [mokaddem]
+- [flashErrorMessage] Sanitized error message printed by session that
+  should never contains user-made text. [mokaddem]
+
+  - Better safe than sorry
+- [user:edit] Prevent password change with the current password.
+  [mokaddem]
+
+  - As reported by an external pentest company on behalf of the Centre for Cyber security Belgium (CCB)
+- [user:edit] Correctly re-insert form data wipping password
+  information. [mokaddem]
+- [security] Fixed presistent xss in the sighting popover tool.
+  [mokaddem]
+
+  - As reported by an external pentest company on behalf of the Centre for Cyber security Belgium (CCB)
+- [user:resetauthkey] Method can only be accessed via POST request.
+  [mokaddem]
+
+  - As reported by an external pentest company on behalf of the Centre for Cyber security Belgium (CCB)
+- [security] Fix reflected xss via unsanitized URL parameters.
+  [mokaddem]
+
+  - As reported by an external pentest company on behalf of the Centre for Cyber security Belgium (CCB)
+- [settings] `require_password_confirmation` set to true by default.
+  [mokaddem]
+- [attribute:validation] Better validation of IPv6-[dst/src] and
+  improved display. [mokaddem]
+
+  fix #5682
+- [logs] pagination settings are lost when flipping pages after a
+  search. [iglocska]
+- [widgets] worldmap fixed. [iglocska]
+- [dashboards] fixed invalid recall of dashboard template. [iglocska]
+- [ACL] added new function to ACL. [iglocska]
+- [js] fixed invalid defaults passed from php. [iglocska]
+- [cleanup] removed disabling the caching of dashboard widgets for debug
+  purposes. [iglocska]
+- [dashboard] Some widget visualisation fixes. [iglocska]
+- [cleanup] [iglocska]
+- [synctool] tests improved. [iglocska]
+- [CLI] change authkey description fixed. [iglocska]
+- [homepage] redirects fixed. [iglocska]
+- [user settings] fixed unlocking of API routes. [iglocska]
+- [dashboard] fixed an issue when adding a widget with an empty config.
+  [iglocska]
+- [API] Json converter fixed. [iglocska]
+- [dashboard] fixed multiple adds failing. [iglocska]
+- [dashboard] Fixed adding widgets losing their config settings.
+  [iglocska]
+- [dashboard] custom routing fixed. [iglocska]
+- [i18n] Various edits and small __('') addeage. [Steve Clement]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Bumped db_version. [Sami Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #5687 from MISP/feature-widget-improvement. [Andras
+  Iklody]
+
+  chg: [widget:worldmap] Various JS and UI Improvements
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch 'feature/dashboard' into 2.4. [iglocska]
+- Merge branch '2.4' into feature/dashboard. [iglocska]
+- Merge pull request #5670 from SteveClement/i18n. [Steve Clement]
+
+  chg: [i18n] Updated: Simplified Chinese, German, Italian, Spanish, Russian
+- Merge pull request #5669 from SteveClement/i18n. [Steve Clement]
+
+  chg: [i18n] Updated pot files
+- Merge branch '2.4' into i18n. [Steve Clement]
+- Merge pull request #5668 from SteveClement/i18n. [Steve Clement]
+
+  fix: [i18n] Various edits and small __('') addeage.
+
+
 v2.4.122 (2020-02-26)
 ---------------------
 
