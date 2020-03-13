@@ -102,7 +102,6 @@ For the additional software created by the MISP project, check our [MISP project
 * [MISP2CbR](https://github.com/eCrimeLabs/MISP2CbR/) - MISP Threat Feed into CarbonBlack Response.
 * [misp2cs.py](https://github.com/xg5-simon/MISP-Integrations/blob/master/misp2cs.py) - script to put MISP events/indicators in Crowdstrike.
 * [misp_btc](https://github.com/rommelfs/misp_btc) - Fetch a list of BTC addresses (from MISP) in a given time range. Get the balance and all transactions recorded in Blockchain for the address. Shows the conversion rate in EUR and USD for the transaction at the date of transaction.
-* [MISP Golang](https://github.com/0xrawsec/golang-misp) - Golang Library to interact with your MISP instance.
 * [misp-bulk-tag](https://github.com/morallo/misp-bulk-tag) - this script performs bulk tagging operations over MISP.
 * [misp42splunk](https://github.com/remg427/misp42splunk) - A Splunk app to use one or more MISP in background. misp42splunk is also [available in splunkbase](https://splunkbase.splunk.com/app/4335/#/details).
 * [MISP-IOC-Validator](https://github.com/tom8941/MISP-IOC-Validator/) validates the format of the different IOC from MISP and to remove false positive by comparing these IOC to existing known false positive.
@@ -126,3 +125,12 @@ For the additional software created by the MISP project, check our [MISP project
 ### Tutorials on interconnecting MISP with other tools
 
 * [ELK](https://www.securitydistractions.com/2019/05/17/enriching-elasticsearch-with-threat-data-part-1-misp/) - Excellent guide by David Clayton, explaining how he integrated MISP with ElasticSearch/Logstash/Kibana via Memcached.
+
+### Libraries to access the MISP API
+
+* [PyMISP](https://github.com/MISP/PyMISP) the official Python library using the MISP Rest API.
+* [misp-rb](https://github.com/ninoseki/misp-rb) A dead simple MISP API wrapper for Ruby.
+* [MISP Golang](https://github.com/0xrawsec/golang-misp) - Golang Library to interact with your MISP instance.
+* [mispex](https://github.com/FloatingGhost/mispex) - An Elixir wrapper around MISP's HTTP API to provide native interaction.
+* [mispy](https://github.com/airbus-cert/mispy) - A pythonic MISP module.
+
