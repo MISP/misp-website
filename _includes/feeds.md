@@ -1,7 +1,5 @@
 - [CIRCL OSINT Feed](https://www.circl.lu/doc/misp/feed-osint) - CIRCL - feed format: misp
-- [The Botvrij.eu Data](http://www.botvrij.eu/data/feed-osint) - Botvrij.eu - feed format: misp
-- [ZeuS IP blocklist (Standard)](https://zeustracker.abuse.ch/blocklist.php?download=ipblocklist) - zeustracker.abuse.ch - feed format: csv
-- [ZeuS compromised URL blocklist](https://zeustracker.abuse.ch/blocklist.php?download=compromised) - zeustracker.abuse.ch - feed format: csv
+- [The Botvrij.eu Data](https://www.botvrij.eu/data/feed-osint) - Botvrij.eu - feed format: misp
 - [blockrules of rules.emergingthreats.net](https://rules.emergingthreats.net/blockrules/compromised-ips.txt) - rules.emergingthreats.net - feed format: csv
 - [malwaredomainlist](https://panwdbl.appspot.com/lists/mdl.txt) - malwaredomainlist - feed format: csv
 - [Tor exit nodes](https://www.dan.me.uk/torlist/?exit) - TOR Node List from dan.me.uk - feed format: csv
@@ -13,9 +11,7 @@
 - [longtail.it.marist.edu](http://longtail.it.marist.edu/honey/current-ip-addresses.txt) - longtail.it.marist.edu - feed format: freetext
 - [longtail.it.marist.edu 7 days](http://longtail.it.marist.edu/honey/last-7-days-ip-addresses.txt) - longtail.it.marist.edu - feed format: freetext
 - [diamondfox_panels](https://raw.githubusercontent.com/pan-unit42/iocs/master/diamondfox/diamondfox_panels.txt) - pan-unit42 - feed format: freetext
-- [booterblacklist.com Latest](http://booterblacklist.com/data/booterlist_latest.txt) - booterblacklist.com - feed format: freetext
 - [pop3gropers](https://home.nuug.no/~peter/pop3gropers.txt) - home.nuug.no - feed format: csv
-- [Ransomware Tracker CSV Feed](https://ransomwaretracker.abuse.ch/feeds/csv/) - Ransomware Tracker abuse.ch - feed format: csv
 - [Feodo IP Blocklist](https://feodotracker.abuse.ch/downloads/ipblocklist.csv) - abuse.ch - feed format: csv
 - [hosts-file.net - hphost - malwarebytes](https://hosts-file.net/psh.txt) - hosts-file.net - feed format: csv
 - [hosts-file.net - hphost - malwarebytes - EMD classification ONLY](https://hosts-file.net/emd.txt) - hosts-file.net - feed format: csv
@@ -39,11 +35,9 @@
 - [http://cybercrime-tracker.net](https://cybercrime-tracker.net/ccamgate.php) - http://cybercrime-tracker.net gatelist - feed format: freetext
 - [hpHosts - GRM only](https://hosts-file.net/grm.txt) - hpHosts - feed format: csv
 - [blocklist.greensnow.co](https://blocklist.greensnow.co/greensnow.txt) - greensnow.co - feed format: csv
-- [conficker all domains generated](https://www.cert.at/static/downloads/data/conficker/all_domains.txt) - cert.at - feed format: csv
-- [This list contains all domains - A list for administrators to prevent mining in networks](https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list.txt?inline=false) - CoinBlockerLists - feed format: freetext
-- [This list contains all optional domains - An additional list for administrators](https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_optional.txt?inline=false) - CoinBlockerLists - feed format: freetext
-- [This list contains all browser mining domains - A list to prevent browser mining only](https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_browser.txt?inline=false) - CoinBlockerLists - feed format: freetext
-- [This list contains all IPs - A additional list for administrators to prevent mining in networks](https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/MiningServerIPList.txt?inline=false) - CoinBlockerLists - feed format: freetext
+- [This list contains all domains - A list for administrators to prevent mining in networks](https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list.txt?inline=false) - ZeroDot1 - CoinBlockerLists - feed format: freetext
+- [This list contains all optional domains - An additional list for administrators](https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_optional.txt?inline=false) - ZeroDot1 - CoinBlockerLists - feed format: freetext
+- [This list contains all browser mining domains - A list to prevent browser mining only](https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_browser.txt?inline=false) - ZeroDot1 - CoinBlockerLists - feed format: freetext
 - [URLHaus Malware URLs](https://urlhaus.abuse.ch/downloads/csv/) - Abuse.ch - feed format: csv
 - [CyberCure - IP Feed](https://api.cybercure.ai/feed/get_ips?type=csv) - www.cybercure.ai - feed format: csv
 - [CyberCure - Blocked URL Feed](https://api.cybercure.ai/feed/get_url?type=csv) - www.cybercure.ai - feed format: csv
@@ -52,6 +46,7 @@
 - [mirai.security.gives](https://mirai.security.gives/data/ip_list.txt) - security.gives - feed format: freetext
 - [malsilo.url](https://malsilo.gitlab.io/feeds/dumps/url_list.txt) - MalSilo - feed format: csv
 - [malsilo.ipv4](https://malsilo.gitlab.io/feeds/dumps/ip_list.txt) - MalSilo - feed format: csv
+- [malsilo.domain](https://malsilo.gitlab.io/feeds/dumps/domain_list.txt) - MalSilo - feed format: csv
 - [malshare.com - current all](https://malshare.com/daily/malshare.current.all.txt) - malshare.com - feed format: freetext
 - [Benkow.cc RAT](https://benkow.cc/export_rat.php) - benkow.cc - feed format: csv
 - [Panels Tracker](https://benkow.cc/export.php) - Benkow.cc - feed format: csv
@@ -64,3 +59,5 @@
 - [IPsum (aggregation of all feeds) - level 7 - no false positives](https://raw.githubusercontent.com/stamparm/ipsum/master/levels/7.txt) - IPsum - feed format: freetext
 - [IPsum (aggregation of all feeds) - level 8 - no false positives](https://raw.githubusercontent.com/stamparm/ipsum/master/levels/8.txt) - IPsum - feed format: freetext
 - [DigitalSide Threat-Intel OSINT Feed](https://osint.digitalside.it/Threat-Intel/digitalside-misp-feed/) - osint.digitalside.it - feed format: misp
+- [Metasploit exploits with CVE assigned](https://feeds.ecrimelabs.net/data/metasploit-cve) - eCrimeLabs - feed format: csv
+- [Malware Bazaar](https://bazaar.abuse.ch/export/txt/md5/full/) - abuse.ch - feed format: csv
