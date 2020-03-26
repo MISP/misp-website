@@ -15,16 +15,15 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### MISP at conferences
 
-- [FIRST Cyber Threat Intelligence Symposium](https://www.first.org/events/symposium/zurich2020/program) - Turning Data into Actionable Intelligence - Advanced Features in MISP Supporting Your Analysts and Tools in Zurich, Tuesday, 10 March
 
 ### Current MISP Training(s)
 
-- [MISP Training - Threat Intelligence Introduction for Analysts and Administrators](https://www.xing-events.com/UXMOBFA.html) in Luxembourg, February 18, 2020
-- [MISP Training - Hands-on workshop for analysts and MISP users](https://www.xing-events.com/DLCMDJY.html) in Luxembourg, February 19, 2020
-
+- [MISP Covid training](https://bbb.secin.lu/b/ale-q6v-ecn) Remote on how to use MISP in the scope of sharing information about COVID-19 - 27 March 2020 at 14:00 CET (2 hours)
 
 ### (some) Past MISP Training(s)
 
+- [MISP Training - Hands-on workshop for analysts and MISP users](https://www.xing-events.com/DLCMDJY.html) in Luxembourg, February 19, 2020
+- [MISP Training - Threat Intelligence Introduction for Analysts and Administrators](https://www.xing-events.com/UXMOBFA.html) in Luxembourg, February 18, 2020
 - [MISP Training (Slovenia)](https://www.first.org/events/colloquia/ljubljana2019/program) in Ljubljana 2019 FIRST Technical Colloquium, November 13–14, 2019
 - [MISP Training - Threat Intelligence Introduction for Analysts and Administrators](https://en.xing-events.com/AOMYCCV.html) in Luxembourg, December 03, 2019
 - [MISP Training - Hands-on workshop for analysts and MISP users](https://en.xing-events.com/JSUSQIV.html) in Luxembourg, December 04, 2019
