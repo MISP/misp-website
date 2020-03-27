@@ -18,6 +18,8 @@ We're proud to announce the CogSec Collab MISP Community - the first public MISP
 
 The below article has been kindly contributed by [VVX7](https://twitter.com/VV_X_7) on behalf of the Cogsec Collab MISP Community. We at the MISP-Project team try out best to point those interested in topical information sharing in the right direction, with disinformation being one of the highly sought after topical communities. If you are coming from that particular field, get in touch with the folks at Cogsec Collab community. You can as of now also do that directly via your own MISP instance, simply navigate to the list of communities and send a request directly from there.
 
+For more information about the Cogsec Collab MISP Community head over to [the cogsec-collab.org](https://www.cogsec-collab.org).
+
 *\- the MISP-Project team*
 
 # A community dedicated to information operations
