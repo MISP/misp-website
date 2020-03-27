@@ -1,5 +1,5 @@
 ---
-title: Cogsec Collab MISP Community
+title: Cogsec Collab MISP Community - sharing group dedicated to misinformation and information campaigns
 # summary: foo
 authors:
 - VVX7
@@ -12,9 +12,11 @@ image:
   caption: ''
 ---
 
+We're proud to announce the CogSec Collab MISP Community - the first public MISP sharing group dedicated to misinformation and information campaigns.
+
 ## Note about the following information
 
-The below article has been kindly contributed by VVX7 (@VV\_X\_7 on twitter) on behalf of the Cogsec Collab MISP Community. We at the MISP-Project team try out best to point those interested in topical information sharing in the right direction, with disinformation being one of the highly sought after topical communities. If you are coming from that particular field, get in touch with the folks at Cogsec Collab community. You can as of now also do that directly via your own MISP instance, simply navigate to the list of communities and send a request directly from there.
+The below article has been kindly contributed by [VVX7](https://twitter.com/VV_X_7) on behalf of the Cogsec Collab MISP Community. We at the MISP-Project team try out best to point those interested in topical information sharing in the right direction, with disinformation being one of the highly sought after topical communities. If you are coming from that particular field, get in touch with the folks at Cogsec Collab community. You can as of now also do that directly via your own MISP instance, simply navigate to the list of communities and send a request directly from there.
 
 *\- the MISP-Project team*
 
@@ -27,7 +29,6 @@ Our community seeks to connect misinformation researchers and responders  by pro
 We look forward to working with our partners to provide access to disinformation documentation and sharing standards, indicators, countermeasures and playbooks.
 
 Send us an email to request access.
-
 
 ## MISP
 
