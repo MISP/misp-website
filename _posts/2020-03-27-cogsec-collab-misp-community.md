@@ -33,7 +33,7 @@ Send us an email to request access.
 
 The MISP Project started out as a way to share malware indicators.  It's grown to include much more - financial fraud, climate data and most recently COVID-19 cases.
 
-{{< tweet 1239864641993551873 >}}
+[A dedicated MISP to share information about #COVID2019 https://covid-19.iglocska.eu - If you want access DM us on Twitter.](https://twitter.com/MISPProject/status/1239864641993551873)
 
 At its core MISP is an automated correlation engine.  It assists analysts in finding interesting relationships between indicators and contextualising the data. For Cogsec Collab, it's a means to provide structured threat intelligence to cross-sector partners with highly diverse requirements.
 
@@ -41,14 +41,14 @@ At its core MISP is an automated correlation engine.  It assists analysts in fin
 
 ## AM!TT Misinformation Pattern Galaxy
 
-{{< figure src="/assets/images/cogsec/galaxy_list.png" title="Descriptions of AMITT Techniques in the MISP Misinformation Pattern Galaxy." >}}
+![Descriptions of AMITT Techniques in the MISP Misinformation Pattern Galaxy.](/assets/images/cogsec/galaxy_list.png)
 
 Our first achievement  was the integration of the [AM!TT Framework](https://github.com/misinfosecproject/amitt_framework) as a [MISP Galaxy](https://www.misp-project.org/galaxy.html#_misinformation_pattern).  It contains the tags and definitions needed for describing the misinformation tactics and techniques present in a specific information operation.
 
 
 ## AM!TT Navigatord
 
-{{< figure src="/assets/images/cogsec/amitt.png" title="The MISP Project kindly developed this built-in technique navigator." lightbox="true" >}}
+![The MISP Project kindly developed this built-in technique navigator](/assets/images/cogsec/amitt.png)
 
 Applying the AM!TT galaxy information to an event must be easy in order to encourage use by already overburdened information researchers.  The MISP Project developers kindly created an inline AM!TT Navigator to respond to this need for conveniently tagging events with AM!TT techniques.
 
@@ -57,7 +57,7 @@ With this tool, analysts can simply click on the relevant techniques found in a 
 
 ## DFRLab Dichotomies of Disinformation
 
-{{< figure src="/assets/images/cogsec/dfrlab.png" title="Atlantic Council's DFRLab Dichotomies of Disinformation" lightbox="true" >}}
+![Atlantic Council's DFRLab Dichotomies of Disinformation](/assets/images/cogsec/dfrlab.png)
 
 Also included in the CogSec Collab MISP is [Atlantic Council's DFRLab](https://www.atlanticcouncil.org/programs/digital-forensic-research-lab/) [Dichotomies of Disinformation](https://github.com/DFRLab/Dichotomies-of-Disinformation) which is a new standard for describing information campaigns that can be used alone or in complement to the AM!TT framework.
 
