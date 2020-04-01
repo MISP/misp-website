@@ -1,6 +1,219 @@
 Changelog
 =========
 
+v2.4.124 (2020-03-30)
+---------------------
+
+New
+~~~
+- [attributes:massEdit] Possibility to create proposals instead of edit.
+  [mokaddem]
+- Add support for RHEL in the install script. [Golbark]
+- [audit] Added user monitoring. [iglocska]
+
+  - site admins can set the monitoring flag on a user if the feature is enabled on the instance
+  - monitored users will have all requests logged along with POST bodies
+
+  - keep in mind this functionality is quite heavy and intrusive - so use it with care. The idea is that this allows us to track potentially malicious users during an investigation
+- [UI] indexTable new fields / some refactoring. [iglocska]
+- [helper:scopedCSS] Moved implementation in a helper. [mokaddem]
+- Country galaxy generator. [iglocska]
+- [dashboard] multi line chart UI added. [iglocska]
+
+Changes
+~~~~~~~
+- [server:dbSchemaDiagnostic] UI Improvement to hide tables containing
+  only non-critical entries. [mokaddem]
+- [security] Added setting to restrict the encoding of local feeds.
+  [iglocska]
+
+  - By adding local feeds, a malicious administrator could point MISP to ingest configuration files that the apache user has access to
+  - This includes some more sensitive files (database.php / config.php / .gnupg data)
+  - Whilst this is currently not leading to an exploitable vulnerability as the current implementation wouldn't trigger on the values,
+    having a setting to disable this will become much more interesting once we have a system in place for custom feed parsers
+  - The setting can only be enabled/disabled via the CLI
+
+  - As reported by Matthias Weckbecker
+- Bump PyMISP. [Raphaël Vinot]
+- [version] bump. [iglocska]
+- [publish alert] default added to user creation via the API. [iglocska]
+- Bumped queryversion. [mokaddem]
+- [attribute:edit] Added support of chosen - fix #5736. [mokaddem]
+- [widgets:mutliline] Usage of bootstrap's tooltip and fixed another
+  loading race-condition. [mokaddem]
+- [alert] emails now have instructions on how to disable them.
+  [iglocska]
+- [widgets:multiline] Added possibility to pick datapoint and see the
+  deltas. [mokaddem]
+- [warninglist] bump. [iglocska]
+- [warninglist] bump. [iglocska]
+- [genericElement:indexTable-links] Allow to craft an URL with custom
+  data_path. [mokaddem]
+- [genericElement:IndexTable] Allow to pass pagination options to
+  paginator element. [mokaddem]
+- [widgets:multilines] Improved tooltip placement strategy. [mokaddem]
+- [taxonomies] bumped. [iglocska]
+- [widgets:multiline] Improved label wrapping. [mokaddem]
+- [widgets:multiline] Integrated CSS and new config `hideAxis`
+  [mokaddem]
+- [widgets:worlmap] Resize map on widget container resize. [mokaddem]
+- [widgets:ui] Added possibility to listen to widget-resize events.
+  [mokaddem]
+- [widgets:multiline] Support of linear x-axis. [mokaddem]
+- [widgets:multiline] Pass widget_config to the view. [mokaddem]
+- [widgets:multiline] Flip tooltip position if necessary. [mokaddem]
+- [widgets:multiline] Adapt left margin for big numbers. [mokaddem]
+- [widgets:multiline] Added more Options, datapoints and total serie.
+  [mokaddem]
+- [widgets:multiline] Layout, UI and interactivity improvements - WiP.
+  [mokaddem]
+- [galaxy:view] Commented `altered galaxy` for now. [mokaddem]
+- [galaxyCluster:index] Migrated to use the genericElement factory +
+  added sparkline and icon genericIndex fields. [mokaddem]
+- [galaxyCluster:view] Migrated to use the genericElement factory.
+  [mokaddem]
+- [galaxy:index] Cleaned up artifacts from galaxy2.0. [mokaddem]
+- [galaxy:view] Migrated to use the genericElement factory. [mokaddem]
+- [galaxy:index] Migrated to use the genericElement factory. [mokaddem]
+- [views:genericElements] Multiple addition and improvements for generic
+  IndexTable, TopBar and Form. [mokaddem]
+- [feeds metadata] fix incorrect timestamp field. [Alexandre Dulaunoy]
+- [style] Added spaces in JSON used for the automation examples.
+  [iglocska]
+- [community] CogSec Collab disinformation sharing community :D. [VVX7]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [galaxy] bump. [iglocska]
+- [helper:ScopedCSS] Usage of PHP_EOL. [mokaddem]
+- [scopedCSS] Added more doc and allow having scoped and not scoped mix.
+  [mokaddem]
+- [scopedCSS] Simplified usage and added documentation. [mokaddem]
+- [widgets:multiline] Switched to scoped css usage. [mokaddem]
+- [widgets] Added support of scoped CSS. [mokaddem]
+- [travis] cat exec errors file. [Raphaël Vinot]
+
+Fix
+~~~
+- [sync] Added function to handle older MISP instances despite the new
+  way of passing org filter options. [iglocska]
+- [event:view] Show correct number of related events to be shown - Fix
+  #5732. [mokaddem]
+- [objecs:reviseObject] Pass forgotten template data - Fix #5733.
+  [mokaddem]
+- [event index] org filter correctly accepts array in addition to pipe
+  delimited values. [iglocska]
+
+  - fixes pull org filters
+- [emailing] Added setting for default publish alert behaviour when
+  creating new users. [iglocska]
+- [installer] Updated installer checksums. [Steve Clement]
+- [attribute:edit] Create chosen picker when modal is shown. [mokaddem]
+- [eventGraph:picture] Take correct Attribute picture's name. [mokaddem]
+- [widget:mutlieline] Take into account scrollY position. [mokaddem]
+- [widgets:multiline] Racecondition executing `init` and fetching d3.js
+  twice. [mokaddem]
+- [pull] pull filters fixed. [iglocska]
+- [widgets:multiline] Ensure that d3.js is loaded only once. [mokaddem]
+- [widgets:SimpleList] Fit minimum vertical space. [mokaddem]
+- [widgets:multiline] Correctly parse boolean text for `showAxis`
+  [mokaddem]
+- [galaxy:view] View altered galaxies/clusters buttton correctly
+  redirect. [mokaddem]
+- [php] compatibility with older versions. [iglocska]
+- [servers:pull_rules] Allows sync parameter rules to be above 40 chars.
+  [Sami Mokaddem]
+- [message] user creation shouldn't include the "User notified of new
+  credentials" part of the notification mesage if emailing is disabled.
+  [iglocska]
+- [install] Updated installer and checksums. [Steve Clement]
+- [INSTALL] Properly run tests. [Raphaël Vinot]
+- [suricata] fixed an invalid validation of https hostnames that blocked
+  the attributes from being included in the exports. [iglocska]
+- [dashboard] css conflict resolved. [iglocska]
+
+  - in a really hacky way for now
+- [side menu] Fixed Dashboard link from the side menu in the statistic
+  view. [chrisr3d]
+- [thread:view] Threads are no longer rendered for not related Event on
+  rare occasion. [mokaddem]
+- [user:login] Added support of `RFC822` for older PHP version.
+  [mokaddem]
+- [stix export] Fixed cybox object import. [chrisr3d]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #5643 from Kortho/patch-3. [Steve Clement]
+
+  fixed python venv creation command
+- Fixed python venv creation command. [Kortho]
+
+  The command for creating virtual environment in RHEL was wrong, fixed it :)
+- Merge pull request #5706 from RichieB2B/ncsc-nl/venv-ssdeep. [Steve
+  Clement]
+
+  Fix venv and ssdeep for RHEL 7
+- Update INSTALL.rhel7.md. [Steve Clement]
+- Install ssdeep PHP module on RHEL 7. [Richard van den Berg]
+- Fix virtualenv creation on RHEL 7. [Richard van den Berg]
+- Merge pull request #5705 from Golbark/redhat-install-script-support.
+  [Steve Clement]
+
+  new: usr: add support for RHEL in the install script
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #5721 from stricaud/debian2. [Andras Iklody]
+
+  Debian improvements
+- Add installation files: workers and VERSION.json. [Sebastien Tricaud]
+- Adding missing packages. [Sebastien Tricaud]
+- Adding compat file. [Sebastien Tricaud]
+- Bump version in changelog. [Sebastien Tricaud]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'feature-widget-multipleline' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into feature-widget-
+  multipleline. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into view-migration-galaxy.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'GlennHD-2.4' into 2.4. [Alexandre Dulaunoy]
+- Merge branch '2.4' of https://github.com/GlennHD/MISP into
+  GlennHD-2.4. [Alexandre Dulaunoy]
+- Fixed indentation of DigitalSide & Metasploit CVEs. [GlennHD]
+
+  Fixed indentation of DigitalSide & Metasploit CVEs to align with others.
+- Added Malware Bazaar. [GlennHD]
+
+  Added abuse.ch Malware Bazaar
+- Merge pull request #5717 from VVX7/2.4. [Andras Iklody]
+
+  chg: [community] CogSec Collab disinformation sharing community :D
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5707 from MISP/feature-widgets-scoped-css. [Andras
+  Iklody]
+
+  Scoped css for widget
+- Merge branch '2.4' of github.com:MISP/MISP into feature-widgets-
+  scoped-css. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5697 from MISP/chrisr3d_patch. [Andras Iklody]
+
+  Fix link to the dashboard from the statistics page
+- Merge remote-tracking branch 'origin/2.4' into chrisr3d_patch.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+
+
 v2.4.123 (2020-03-10)
 ---------------------
 
