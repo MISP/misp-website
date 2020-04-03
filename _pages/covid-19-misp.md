@@ -8,23 +8,21 @@ toc: true
 # COVID-19 MISP Information Sharing Community
 
 
-COVID-19 MISP is a MISP instance retrofitted for a COVID-19 information sharing community.
-
-The information sharing community is focusing on two areas of sharing:
+COVID-19 MISP is a MISP instance retrofitted for a COVID-19 information sharing community, focusing on two areas of sharing:
 
 - Medical information
 - Cyber threats related to / abusing COVID-19
 
-The information sharing community has a low barrier of entry, everyone can contribute and use the data. By default, the information is classified as TLP:WHITE for a larger distribution and usefulness.
+The information sharing community has a low barrier of entry, everyone can contribute and use the data. By default, the information is classified as TLP:WHITE for broader distribution and usefulness.
 
 ## Who is the target audience for this community ?
 
-- Anyone wanting to gain situational awareness for the current COVID-19 situation
+- Anyone wanting to gain situational awareness in regards to the current COVID-19 situation
 - Security practitioners trying to fend off covid related attacks
 - Those wanting to share, collaborate, visualise, automate data
-- All data is contextualised as either medical or security related information for easy filtering
+- All data is contextualised as either medical or security related information to make filtering as easy and convenient as possible
 
-## Why using MISP in such context?
+## Why use MISP for such a context?
 
 - We are obviously interested on a personal level, as is everyone
 - Information sharing is what we do anyway
@@ -33,7 +31,7 @@ The information sharing community has a low barrier of entry, everyone can contr
 
 ## How to get access to the COVID-19 MISP
 
-Access can be requested to CIRCL by sending an email to [CIRCL](mailto:info@circl.lu). A self-registration link will be available very soon.
+Access can be requested to CIRCL by sending an email to [CIRCL](mailto:info@circl.lu). A self-registration link will be available shortly.
 
 ## Training
 
@@ -43,7 +41,7 @@ Access can be requested to CIRCL by sending an email to [CIRCL](mailto:info@circ
 
 ## Public Feeds generated from COVID-19 MISP community
 
-Two public feeds are automatically generated from COVID-19 MISP. One is filtered with known source from the MISP project and another full IOC feed.
+Two public feeds are automatically generated from COVID-19 MISP. A filtered feed with the sources being selected by the MISP project team and another with all IOCs shared in the covid-19 MISP community.
 
 - [covid_misp_filtered_ioc_list.csv](https://covid-19.iglocska.eu/public/covid_misp_filtered_ioc_list.csv)
 - [covid_misp_full_ioc_list.csv](https://covid-19.iglocska.eu/public/covid_misp_full_ioc_list.csv)
