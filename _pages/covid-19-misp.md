@@ -7,7 +7,6 @@ toc: true
 
 # COVID-19 MISP Information Sharing Community
 
-![](/assets/images/misp/covid-dash.png){:class="img-responsive"}
 
 COVID-19 MISP is a MISP instance retrofitted for a COVID-19 information sharing community.
 
@@ -49,3 +48,6 @@ Two public feeds are automatically generated from COVID-19 MISP. One is filtered
 - [covid_misp_filtered_ioc_list.csv](https://covid-19.iglocska.eu/public/covid_misp_filtered_ioc_list.csv)
 - [covid_misp_full_ioc_list.csv](https://covid-19.iglocska.eu/public/covid_misp_full_ioc_list.csv)
 
+## Dashboards available in COVID-19 MISP
+
+![](/assets/images/misp/covid-dash.png){:class="img-responsive"}
