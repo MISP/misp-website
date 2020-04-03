@@ -7,6 +7,8 @@ toc: true
 
 # COVID-19 MISP Information Sharing Community
 
+![](/assets/images/misp/covid-dash.png){:class="img-responsive"}
+
 COVID-19 MISP is a MISP instance retrofitted for a COVID-19 information sharing community.
 
 The information sharing community is focusing on two areas of sharing:
@@ -38,6 +40,7 @@ Access can be requested to CIRCL by sending an email to [CIRCL](mailto:info@circ
 
 - [MISP COVID-19 replay training session](https://bbb.secin.lu/playback/presentation/2.0/playback.html?meetingId=741e7d15e14e107dbfffe2106a8547abc8460f3e-1585312475228)
 - [MISP COVID-19 Training](https://peertube.opencloud.lu/videos/watch/4f7acd4c-a909-4315-87aa-38ba95cceaf2)
+- [MISP COVID-19 Slides](https://www.misp-project.org/misp-training/x.5-covid.pdf)
 
 ## Public Feeds generated from COVID-19 MISP community
 
