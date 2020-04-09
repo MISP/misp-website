@@ -46,6 +46,42 @@ Two public feeds are automatically generated from COVID-19 MISP. A filtered feed
 - [covid_misp_filtered_ioc_list.csv](https://covid-19.iglocska.eu/public/covid_misp_filtered_ioc_list.csv)
 - [covid_misp_full_ioc_list.csv](https://covid-19.iglocska.eu/public/covid_misp_full_ioc_list.csv)
 
+## How are the public feeds generated
+
+As the MISP API is quite versatile, the script to generate the public feeds is described below:
+
+~~~~shell
+curl \
+-d '{"returnFormat":"csv","tags":["pandemic:covid-19=\"cyber\""],"enforceWarninglist":1,"requested_attributes":["value","type","event_info"]}' \
+-H "Authorization: [API KEY]" \
+-H "Accept: application/json" \
+-H "Content-type: application/json" \
+-X POST https://covid-19.iglocska.eu/events/restSearch \
+> /var/www/MISP/app/webroot/public/covid_misp_full_ioc_list.csv
+
+chown www-data:www-data /var/www/MISP/app/webroot/public/covid_misp_full_ioc_list.csv
+
+curl \
+-d '{"returnFormat":"csv","org":["CIRCL"], "enforceWarninglist":1,"requested_attributes":["value","type","event_info"], "tags":["pandemic:covid-19=\"cyber\""]
+}' \
+-H "Authorization: [API KEY]" \
+-H "Accept: application/json" \
+-H "Content-type: application/json" \
+-X POST https://covid-19.iglocska.eu/events/restSearch \
+> /var/www/MISP/app/webroot/public/covid_misp_filtered_ioc_list.csv
+
+curl \
+-d '{"returnFormat":"csv","eventid":[262, 372, 269],"enforceWarninglist":1,"requested_attributes":["value","type","event_info"],"tags":["pandemic:covid-19=\"c
+yber\""], "headerless": 1}' \
+-H "Authorization: [API KEY]" \
+-H "Accept: application/json" \
+-H "Content-type: application/json" \
+-X POST https://covid-19.iglocska.eu/events/restSearch \
+>> /var/www/MISP/app/webroot/public/covid_misp_filtered_ioc_list.csv
+
+chown www-data:www-data /var/www/MISP/app/webroot/public/covid_misp_filtered_ioc_list.csv
+~~~~
+
 ## How to access the COVID-19 MISP
 
 - The url of COVID-19 MISP is the following [https://covid-19.iglocska.eu](https://covid-19.iglocska.eu).
