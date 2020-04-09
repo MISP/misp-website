@@ -31,7 +31,7 @@ The information sharing community has a low barrier of entry, everyone can contr
 
 ## How to get access to the COVID-19 MISP
 
-Access can be requested to CIRCL by sending an email to [CIRCL](mailto:info@circl.lu). A self-registration link will be available shortly.
+Access can be requested to CIRCL by sending an email to [CIRCL](mailto:info@circl.lu). A self-registration is also [available](https://covid-19.iglocska.eu/users/register).
 
 ## Training
 
@@ -45,6 +45,10 @@ Two public feeds are automatically generated from COVID-19 MISP. A filtered feed
 
 - [covid_misp_filtered_ioc_list.csv](https://covid-19.iglocska.eu/public/covid_misp_filtered_ioc_list.csv)
 - [covid_misp_full_ioc_list.csv](https://covid-19.iglocska.eu/public/covid_misp_full_ioc_list.csv)
+
+## How to access the COVID-19 MISP
+
+- The url of COVID-19 MISP is the following [https://covid-19.iglocska.eu](https://covid-19.iglocska.eu).
 
 ## Dashboards available in COVID-19 MISP
 
