@@ -12,6 +12,7 @@ COVID-19 MISP is a MISP instance retrofitted for a COVID-19 information sharing 
 
 - Medical information
 - Cyber threats related to / abusing COVID-19
+- Disinformation about COVID-19
 
 The information sharing community has a low barrier of entry, everyone can contribute and use the data. By default, the information is classified as TLP:WHITE for broader distribution and usefulness.
 
