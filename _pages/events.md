@@ -30,7 +30,7 @@ shared by the various MISP communities that you may be part of.
 
 
 The second session will walk participants through the basics and
-pitfalls of MISP server administration, along with community managent,
+pitfalls of MISP server administration, along with community management,
 synchronising data with other communities and using feeds. Additionally
 we'll spend some time on discussing the various deployment options for
 MISP along with some considerations for those looking to deploy MISP.
