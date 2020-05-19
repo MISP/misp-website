@@ -117,6 +117,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [surimisp](https://github.com/StamusNetworks/surimisp) - Check IOC provided by a MISP instance on Suricata events.
 * [Symantec DeepSight Intelligence integration](http://www.symantec.com/deepsight-products) is integrated with MISP and used in production intelligence environments.  DeepSight enables delivery of both technical indicators (e.g. malicious IPs, URLs, hashes) and adversary intelligence (e.g. actor, campaign, TTP profiles).
 * [TheHive](https://thehive-project.org/) A 3-in-1 Security Incident Response Platform has an extensive MISP support.
+* [threatingestor](https://pypi.org/project/threatingestor/) - An extendable tool to extract and aggregate IOCs from threat feeds.
 * [ThreatPinchLookup](https://github.com/cloudtracer/ThreatPinchLookup)  - ThreatPinch Lookup creates informational tooltips when hovering oven an item of interest on any website and contains a MISP connector.
 * [tie2misp](https://github.com/DCSO/tie2misp) - Import DCSO TIE IOCs as MISP events.
 * [Viper](http://www.viper.li/) - is a binary management and analysis framework dedicated to malware and exploit researchers including a MISP module.
