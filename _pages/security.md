@@ -53,7 +53,7 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2020-8894](https://cve.circl.lu/cve/CVE-2020-8894) <= MISP 2.4.120 - An issue was discovered in MISP before 2.4.121. ACLs for discussion threads were mishandled in app/Controller/ThreadsController.php and app/Model/Thread.php.
 - [CVE-2020-10246](https://cve.circl.lu/cve/CVE-2020-10246) <= MISP 2.4.122 - Reflected XSS via unsanitized URL parameters. This is related to app/View/Users/statistics_orgs.ctp.
 - [CVE-2020-10247](https://cve.circl.lu/cve/CVE-2020-10247) <= MISP 2.4.122 - Persistent XSS in the sighting popover tool. This is related to app/View/Elements/Events/View/sighting_field.ctp.
-
+- [CVE-2020-13153](https://cve.circl.lu/cve/CVE-2020-13153) <= MISP 2.4.125 - app/View/Events/resolved_attributes.ctp in MISP before 2.4.126 has XSS in the resolved attributes view.
 
 ## PGP Key
 
