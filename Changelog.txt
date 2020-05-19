@@ -1,6 +1,369 @@
 Changelog
 =========
 
+v2.4.126 (2020-05-18)
+---------------------
+
+New
+~~~
+- [internal] Do not log auhtkeys. [Jakub Onderka]
+- [tool] Generates communities webpage. [Christophe Vandeplas]
+- [pubsub] Show info about processed messages. [Jakub Onderka]
+- [UI] Make clear that the textarea under event is discussion. [Jakub
+  Onderka]
+- [sync] (for now) undocumented force pull added. [iglocska]
+
+  - can only be triggered via the CLI for now
+  - usage: /var/www/MISP/app/Console/cake Server pull [user_id] [server_id] [technique] [force]
+    - the force flag has to be passed as 'force' to avoid accidentally triggering it
+
+  - What it does:
+    - pulls ignoring the timetamp differences
+    - this means that even older states of events, attributes, objects are ingested
+    - useful for when wanting to reset an event / all events to align with an upstream server
+  - Caveats:
+    - attributes added on the low side are maintained
+    - tags added on the low side are maintained
+    - keep in mind this WILL override attributes that are soft deleted
+- [restsearch] object restsearch now has the metadata flag. [iglocska]
+
+  - when set, no attributes are returned
+- [API] added threat_level_id as a restSearch filter. [iglocska]
+- [statistics] added contributing org count. [iglocska]
+
+Changes
+~~~~~~~
+- Bump PyMISP. [Raphaël Vinot]
+- [version] bump. [iglocska]
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [ui] Simplified code for OrgImgHelper. [Jakub Onderka]
+- [installer] Version bump. [Steve Clement]
+- [installer] Version bump. [Steve Clement]
+- [installer] Update after Kali Linux fix. [Steve Clement]
+- [kali] More fixes, perhaps installing cake is useful?! 200QI. [Steve
+  Clement]
+- [kali] More kali fixes and do not udpate apt all the time. [Steve
+  Clement]
+- [kali] Added more kali tweaks, remove 2019.x compat. [Steve Clement]
+- [kali] Some more tweaks and a check if enough space available. [Steve
+  Clement]
+- [installer] Version bump. [Steve Clement]
+- [bash] various bash specific enhances
+  (https://stackoverflow.com/questions/3427872/whats-the-difference-
+  between-and-in-bash) [Steve Clement]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [opendata] Bumped latest misp-opendata submodule version. [chrisr3d]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [server:dbSchema] Added support of mysql's `extra` column. Fix #5860.
+  [mokaddem]
+- [pubsub] Refactored PubSub tool. [Jakub Onderka]
+- [feed] Use https when fetching DGAs feed. [Jakub Onderka]
+- [feed] Modify value when checking if value exists in current event.
+  [Jakub Onderka]
+- [internal] Do not call Configure method for every attribute. [Jakub
+  Onderka]
+- [correlations] Faster inserting data to Redis. [Jakub Onderka]
+- [correlations] Use faster algorithm for IPv6 correlations. [Jakub
+  Onderka]
+- [installer] Installer bump. [Steve Clement]
+- [doc] Various install guide updates. [Steve Clement]
+- [internal] Faster saving attributes. [Jakub Onderka]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [test] Set required GnuPG setting. [Jakub Onderka]
+- [test] Use debug transport for sending emails. [Jakub Onderka]
+- [restSearch] Option to skip fetching attributes/events when only the
+  metadata is wanted. [chrisr3d]
+
+  - As for the opendata export we do not need to get
+    the attributes or event, and are only interested
+    in using the metadata, a parameter to skip
+    fetching the actual data collection has been
+    added, and we avoid iterating through the entire
+    data collection.
+- [opendata] Bumped latest misp-opendata updates. [chrisr3d]
+- [opendata export] Checking opendata setup and raising exception in
+  case of error. [chrisr3d]
+- [opendata] Bumped the latest updates on the opendata python script.
+  [chrisr3d]
+- [user:finaliseAndSendEmail] Aggresively catch errors and log them
+  while sending email. [mokaddem]
+- Bump PyMISP. [Raphaël Vinot]
+- [roles] allow the creation site admin enabled roles without auth
+  access. [iglocska]
+- [i18n] Updated: zh-s. [Applenice]
+- [i18n] Updated: zh-s. [Applenice]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [installer] Bump version. [Steve Clement]
+- [doc] Make misp-modules work again. [Steve Clement]
+- [installer] Version Bump. [Steve Clement]
+
+Fix
+~~~
+- [security] xss in the resolved attributes view. [iglocska]
+
+  - thanks to Jakub Onderka for reporting it
+- [UI] Always use capital UUID. [Jakub Onderka]
+- [feed] Follow redirect when fetching manifest. [Jakub Onderka]
+- Allow_disabling_correlation not taken into account. [Golbark]
+- [ui] Always show full logo for related events box. [Jakub Onderka]
+- [correlations] Ssdeep check all chunks. [Jakub Onderka]
+- [bug] '' != "" especially when trying to eval vars. [Steve Clement]
+- [kali] Some issues with function aliasing. [Steve Clement]
+- [bash] Alias functions need a function and not a string... [Steve
+  Clement]
+- [kali] More fixes to make sure composer install correctly. [Steve
+  Clement]
+- [kali] More kali fixes. [Steve Clement]
+- [installler] Little bug, code would never detect a VM... [Steve
+  Clement]
+- [kali] When it's ugly, it looks like this. [Steve Clement]
+- [doc] mkdocs needs to be kept below a certain version. [Steve Clement]
+- [kali] Kali installer fixes. [Steve Clement]
+- [kali] Kali is now 2020.x need to fix. [Steve Clement]
+- [opendata export] Using external_baseurl if set, before baseurl.
+  [chrisr3d]
+
+  - If external_baseurl is not set, baseurl is used
+- [opendata export] Internalization of the error messages. [chrisr3d]
+- [opendata export] Less confusing variable name for the parameter to
+  only skip exporting the data and keep only the header. [chrisr3d]
+- [stix2 export] Fixed CustomObject creation for MISP objects.
+  [chrisr3d]
+- [stix2 export] Fixed custom objects export from misp objects.
+  [chrisr3d]
+- [stix1 import] Fixed ttps list attribute name for STIX document
+  created with MISP. [chrisr3d]
+- [feed:edit] Do not override feed settings if not provided via the API.
+  Fix #5896. [mokaddem]
+- [indexTable:quickFulltextSearch] Encode additional characters enabling
+  more search possibilities. Fix #5890. [mokaddem]
+- [sightingdbs:model] Added default value for `timestamp`. Fix #5887.
+  [mokaddem]
+- [attribute:simpleAddMalwareSample] Typo in loading `Object` class. Fix
+  #5864. [mokaddem]
+
+  - Was not spotted before because the fixed line was if fact doing
+  nothing as the class's key was already used
+- [correlations] Do not check all attributes when cache is empty. [Jakub
+  Onderka]
+- [correlations] Correlate ShadowAttribute just if exists. [Jakub
+  Onderka]
+- [correlations] Do not correlate CIDR with CIDR. [Jakub Onderka]
+- [attribute] modifyBeforeValidation fix for `domain|ip` type. [Jakub
+  Onderka]
+- [correlations] Return just unique values for CIDR list. [Jakub
+  Onderka]
+- [correlations] IPv6 CIDR correlations works. [Jakub Onderka]
+- [correlations] Removed unnecessary Redis call. [Jakub Onderka]
+- [correlations] Remove references to not exists type 'domain-ip' [Jakub
+  Onderka]
+- [diagnostic] Updated required version for the stix python library.
+  [chrisr3d]
+- [stix1 import] Fixed uuids parsing. [chrisr3d]
+
+  - Using the built-in uuid parsing method to avoid
+    potential issues when some uuids are provided
+    without dashes, instead of getting is as a
+    string, which fails when there is no dash
+- [stix1 import] Fixed ttps list attribute name. [chrisr3d]
+- [feed] Job progressbar fix. [Jakub Onderka]
+- [feed] Optimise saving freetext feeds with a lot of attributes. [Jakub
+  Onderka]
+- [gitmodules] Using https instead of ssh to avoid permission denied
+  error. [chrisr3d]
+- [opendata export] No longer using the returnFormat field as the
+  dataset resource format. [chrisr3d]
+
+  - The resource format can be defined with a
+    'format' field within the resource field in the
+    setup filter
+- [attributes:edit] Do not required the distribution anymore. [mokaddem]
+- [attributes:add] Do not required the distribution anymore. [mokaddem]
+- [registration] log entry action shortened to not cause issues.
+  [iglocska]
+- Fixes STIX2 export bugs when trying to use TLP Tags other than
+  TLP_WHITE, resolve attempted dual registration of custom STIX objects.
+  [Tom King]
+- [JS] left off admin enforced check for the role permission. [iglocska]
+
+  - to allow auth to be unchecked for site admins
+- [object restsearch] fixed, no more trailing commas. [iglocska]
+- [registration] acceptRegistration now accepts non User wrapped input.
+  [iglocska]
+- [users] accepting registration requests can throw a badly mapped
+  exception. [iglocska]
+
+  - changed to 400
+- [object restsearch] fixed. [iglocska]
+
+  Endless loop fixed
+- [ACL] added objects/restSearch. [iglocska]
+- [UI] Always use UUID with capital letter. [Jakub Onderka]
+- [registrations] multi-delete fixed. [iglocska]
+- [API] metadata filter description changed. [iglocska]
+- [github] Release type no needed :) [Jakub Onderka]
+- [json converter] fixed an issue if an expected key was not found.
+  [iglocska]
+
+  - was only accessible due to another bug, but it's more graceful either way
+- [export] JSON export used the wrong handler for /objects/restSearch.
+  [iglocska]
+- [stix export] Bump minimum CybOX version to 2.1.0.21. [Richard van den
+  Berg]
+- [stix2 export] Fixed stix2 imports. [chrisr3d]
+
+  - All the required features are imported and we no
+    longer import them with *
+- [installer] Embarassing typo no1, 7.3!=7.4. [Steve Clement]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge branch 'pr-5917' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into pr-5917. [mokaddem]
+- Merge branch 'pr-5902' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into pr-5902. [mokaddem]
+- Merge branch 'pr-5907' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into pr-5907. [mokaddem]
+- Merge branch 'pr-5911' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into pr-5911. [mokaddem]
+- Merge branch 'pr-5862' into 2.4. [mokaddem]
+- Merge branch '2.4' into pr-5862. [mokaddem]
+- Merge branch 'pr-5856' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into pr-5856. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into pr-5856. [mokaddem]
+- Clean up errors when trying to update warning lists. [Jason Kendall]
+- Merge remote-tracking branch 'MISP/2.4' into 2.4. [Christophe
+  Vandeplas]
+- Merge pull request #5915 from SteveClement/guides. [Steve Clement]
+- Merge pull request #5914 from SteveClement/guides. [Steve Clement]
+- Merge pull request #5913 from SteveClement/guides. [Steve Clement]
+- Merge branch 'guides' of github.com:SteveClement/MISP into guides.
+  [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into guides. [Steve
+  Clement]
+- Merge pull request #5912 from SteveClement/guides. [Steve Clement]
+- Merge pull request #5891 from MISP/opendata. [Christian Studer]
+
+  Opendata export via restSearch
+- Merge branch '2.4' of https://github.com/MISP/MISP into opendata.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into opendata.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #5876 from JakubOnderka/pubsub. [Andras Iklody]
+
+  chg: [pubsub] Refactored PubSub tool
+- Merge pull request #5863 from JakubOnderka/discussion-header. [Andras
+  Iklody]
+
+  new: [UI] Make clear that the textarea under event is discussion
+- Merge pull request #5895 from JakubOnderka/patch-98. [Andras Iklody]
+
+  chg: [feed] Use https when fetching DGAs feed
+- Merge pull request #5897 from
+  JakubOnderka/fixed_event_freetext_feed_speedup. [Andras Iklody]
+
+  chg: [feed] Modify value when checking if value exists in current event
+- Merge pull request #5904 from stricaud/2.4. [Andras Iklody]
+
+  Few improvements to misp-config
+- Few improvements: put the help print in a function. Make sure all the
+  things we update are commented and do not push commented
+  configuration. [Sebastien Tricaud]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5903 from JakubOnderka/correlation-speedup.
+  [Andras Iklody]
+
+  Correlation speedup
+- Merge pull request #5889 from JakubOnderka/attribute_correlation.
+  [Andras Iklody]
+
+  IPv6 CIDR correlations
+- Merge pull request #5870 from SteveClement/guides. [Steve Clement]
+- Merge pull request #5892 from
+  JakubOnderka/fixed_event_freetext_feed_speedup. [Andras Iklody]
+
+  Fixed event freetext feed speedup
+- Merge branch '2.4' of https://github.com/MISP/MISP into opendata.
+  [chrisr3d]
+- Merge pull request #5882 from JakubOnderka/build-fix. [Alexandre
+  Dulaunoy]
+
+  Build fix
+- Merge branch '2.4' of https://github.com/MISP/MISP into opendata.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Add: [opendata export] Support of the deleting abilities. [chrisr3d]
+
+  - Deleting a dataset or its resource(s) is now
+    available from the restSearch side as it already
+    is with the python script
+- Merge branch '2.4' of github.com:MISP/MISP into opendata. [chrisr3d]
+- Merge pull request #5871 from tomking2/bug/stix2_bugs. [Christian
+  Studer]
+
+  fix: Fixes STIX2 export bugs when trying to use TLP Tags other than T…
+- Add: [restSearch] OpenData export module. [chrisr3d]
+- Add: [restSearch] Added opendata to the valid formats. [chrisr3d]
+- Add: [opendata] Submoduling misp-opendata. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5861 from JakubOnderka/capital-uuid. [Alexandre
+  Dulaunoy]
+
+  fix: [UI] Always use UUID with capital letters
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5866 from JakubOnderka/patch-97. [Steve Clement]
+
+  fix: [github] Release type no needed :)
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5859 from stricaud/mispconfig. [Steve Clement]
+
+  Adding misp-config, a Perl tool to configure MISP.
+- Adding misp-config, the Perl tool which configures MISP. It dumps the
+  actual configuration to a prefixed tree, which defaults to
+  /etc/misp/misp.conf.d/ and it sets all the configuration options
+  existing from those files. [Sebastien Tricaud]
+- Merge pull request #5853 from Applenice/2.4. [Steve Clement]
+
+  chg: [i18n] Updated: zh-s
+- Merge pull request #5858 from stricaud/debian. [Steve Clement]
+
+  Adding the apache modules enablement in preinst
+- Adding the apache modules enablement in preinst. [Sebastien Tricaud]
+- Merge pull request #5857 from RichieB2B/ncsc-nl/cybox-version.
+  [Christian Studer]
+
+  fix: [stix export] Bump minimum CybOX version to 2.1.0.21
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #5850 from stricaud/debian_2_4_125. [Andras Iklody]
+
+  Updates on debian package for 2.4.125
+- Merge branch '2.4' into debian_2_4_125. [stricaud]
+- Merge pull request #5846 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] Make misp-modules work again
+- Some changes which improve how Mysql user can be accessed by default,
+  remove the enablement of apache modules in postinst (moved them to
+  preinst). [Sebastien Tricaud]
+- Added new version bump in changelog. [Sebastien Tricaud]
+- Adding installation of cakeresque config. [Sebastien Tricaud]
+- Adding the preinst where required apache modules are enabled.
+  [Sebastien Tricaud]
+- If the submodules have not been initialized and updated, the debian
+  package will build. However the installation will not be a success.
+  [Sebastien Tricaud]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #5843 from SteveClement/tools. [Steve Clement]
+
+  fix: [installer] Embarassing typo no1, 7.3!=7.4
+- Merge remote-tracking branch 'upstream/2.4' into tools. [Steve
+  Clement]
+
 
 v2.4.125 (2020-04-30)
 ---------------------
