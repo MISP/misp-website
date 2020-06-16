@@ -1,6 +1,284 @@
 Changelog
 =========
 
+
+v2.4.127 (2020-06-16)
+---------------------
+
+New
+~~~
+- [cli] Command for pulling from all remote servers. [Jakub Onderka]
+- [Tag] Allow Tag's numerical_values to be overriden by userSettings.
+  [mokaddem]
+- [userSettings] New setting `default_restsearch_parameters` [mokaddem]
+
+  It allows users to supply restSearch parameters that will be injected
+  (and possibly overridden) into the restSearch filters.
+- [type] git-commit-id. [Raphaël Vinot]
+- [UI] Add event ID to page table. [Jakub Onderka]
+
+  With more tabs, navigation between tabs with different events can be pain, when all of them has the same title.
+
+Changes
+~~~~~~~
+- [PyMISP] Bump. [Raphaël Vinot]
+- [version] bump. [iglocska]
+- [internal] Log exception if exception is thrown during event
+  downloading. [Jakub Onderka]
+- [misp-warninglists] updated to the latest version. [Alexandre
+  Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [submodules] Use repository default branch (main) [Raphaël Vinot]
+- [PyMISP] Rename branch master -> main. [Raphaël Vinot]
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-warninglists] updated to the latest version. [Alexandre
+  Dulaunoy]
+- [internal] Bump CakePHP to 2.10.22. [Jakub Onderka]
+- [internal] Drop
+  correlations.{org_id,sharing_group_id,a_sharing_group_id} indexes.
+  [Jakub Onderka]
+- [internal] Drop correlations.value index. [Jakub Onderka]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [internal] Log exception when querying modules. [Jakub Onderka]
+- [decayingModel:listTaxoWithNumericalValue] Cleaner usage of uppercased
+  tag. [mokaddem]
+- [taxonomy] Fixed typo. [mokaddem]
+- [UI] Make Enrichment Results little bit nicer. [Jakub Onderka]
+- [events:distributionGraph] Added close button in popover. Fix #5978.
+  [mokaddem]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [tags:checkForOverride] Do not duplicate user id variable. [mokaddem]
+- [tools] re-add fixed module. [Steve Clement]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [decaying] `last_seen` takes precedence over `timestamp` [mokaddem]
+
+  If `last_seen` is set, it will take precedence over the timestamp if no
+  sightings have been recorded.
+  By doing so, we prevent the score to be refreshed if the attribute is
+  slightly modified (a tag is added/removed)
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [usernamehelper] cheese. [iglocska]
+- [PyMISP] Dump. [Raphaël Vinot]
+- [correlation] When generating correlation, just fetch attributes that
+  can correlate. [Jakub Onderka]
+- [correlations] Refactored correlation saving. [Jakub Onderka]
+
+  * Always show other correlating value (useful for CIDR correlations)
+  * Make correlation saving faster (move more work to database, do not fetch not necessary fields)
+  * Fix some small bugs
+- [doc] Updates to OpenBSD Install (which fails ATM) [Steve Clement]
+- [doc] Variable updates. [Steve Clement]
+- [doc] Reshuffled docs. [Steve Clement]
+- [doc] Update to OpenBSD 6.7. [Steve Clement]
+- [cakephp] bump. [iglocska]
+
+  - updates cakephp to include the UUID generation fix by @RichieB2B to solve the deficiency discovered by @JakubOnderka. You guys rock.
+- [internal] Faster removing galaxy cluster tags from attributes. [Jakub
+  Onderka]
+- [UI] Nicer icon for form info. [Jakub Onderka]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [installer] Updated to latest Installer. [Steve Clement]
+- [var] Wrapped vars {} - Made loops around git clones (for ctrl-c
+  resumeability) [Steve Clement]
+- [galaxy] bump. [iglocska]
+- [feed] Provide more info when caching feeds about failures. [Jakub
+  Onderka]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [UI] Double Discussion header when sending comment. [Jakub Onderka]
+- [internal] object level restsearch issues resolved when querying via
+  filters on the attribute scope, fixes #6016. [iglocska]
+
+  - use subqueries instead of trying to query on the current scope
+  - associated find queries don't work on habtm relationships
+- [pull] Correct progress for pull job. [Jakub Onderka]
+- [internal] Removing attributes from empty event. [Jakub Onderka]
+- [feeds:saveFreetext] Soft-delete Attributes when performing a delta-
+  merge. [mokaddem]
+- [EventShell:enrichment] Improved reporting of error messages.
+  [mokaddem]
+- [users:change_pw] Return error message when trying to use the same
+  password. Fix #5961. [mokaddem]
+- [galaxy] Fetch all events for galaxy cluster. [Jakub Onderka]
+- [UI] Show feed caching just for site admins. [Jakub Onderka]
+
+  Without this patch, when user is not site admin, for all feeds is showed 'Not cached', that is not true. And it also generates a lot of warnings to debug log.
+- [www] webserver user is www on OpenBSD. [Steve Clement]
+- [attribute:fetchAttribute] Prevent notices if tags not set while
+  computing decay. [mokaddem]
+- [internal] Remove unused method. [Jakub Onderka]
+- [UI] Module diagnostic colors. [Jakub Onderka]
+- [attribute] Do not allow for IPv4 CIDR masklen bigger than 32. [Jakub
+  Onderka]
+- [internal] Notices in PHP 7.4 for login page. [Jakub Onderka]
+- [UI] Bootstrap 2 doesn't support auto position for popover. [Jakub
+  Onderka]
+- [internal] Fix notice in PHP7.4 when loading events attrs by ajax.
+  [Jakub Onderka]
+- [internal] Branch setting don't have level value. [Jakub Onderka]
+- [internal] Remove duplicate code that cause error in PHP 7.4. [Jakub
+  Onderka]
+- [internal] Check if user is logged before checking if he is site
+  admin. [Jakub Onderka]
+- [internal] Set notifications count and loggedInUserName just for
+  logged users. [Jakub Onderka]
+- [documentation] Typo with the CLI function name. Fix #5931. [Sami
+  Mokaddem]
+- [UI] Do not show Good-Bye when using custom logout. [Jakub Onderka]
+
+  Becuse without this patch, Good-Bye is show when user successfully log in.
+- [UI] Galaxy cluster links should be clickable. [Jakub Onderka]
+- [whitelist] Correclty refresh the cached values. Fix #3772. [mokaddem]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge pull request #5992 from JakubOnderka/download-event-log-
+  exception. [Andras Iklody]
+
+  chg: [internal] Log exception if exception is thrown during event dow…
+- Merge pull request #6017 from JakubOnderka/patch-114. [Andras Iklody]
+
+  fix: [UI] Double Discussion header when sending comment
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6015 from GlennHD/patch-2. [Andras Iklody]
+
+  Removed hosts-file.net feeds from default feeds
+- Removing hosts-files.net files. [GlennHD]
+
+  Malwarebytes has discontinued the feed:  https://forums.malwarebytes.com/topic/258056-hosts-filenet-domain-lists-are-broken-what-happened/
+- Merge pull request #5993 from JakubOnderka/pull-progress. [Andras
+  Iklody]
+
+  fix: [pull] Correct progress for pull job
+- Merge pull request #6007 from imidoriya/2.4. [Andras Iklody]
+
+  Fix issue #6006 - sgsids is never set
+- Fix issue #6006 - sgsids never set. [deku]
+
+  This value is never set.  I expect it should be $sgids from the incoming function variable.
+- Merge pull request #5990 from cudeso/2.4. [Alexandre Dulaunoy]
+
+  Dashboard widgets
+- Avoid us of extra variable treshold. [Koen Van Impe]
+- Dashboard widgets. [Koen Van Impe]
+
+  - Widget to display system resources (df, cpu, mem)
+  - Widget to display the latest sightings
+  - Widget to display the false positive sightings above certain treshold
+- Merge pull request #6003 from GlennHD/patch-1. [Alexandre Dulaunoy]
+
+  Fixed typo
+- Fixed typo. [GlennHD]
+
+  Fixed typo
+- Merge pull request #5999 from JakubOnderka/pull-all. [Andras Iklody]
+
+  new: [cli] Command for pulling from all remote servers
+- Merge pull request #5996 from JakubOnderka/bump-cake. [Andras Iklody]
+
+  chg: [internal] Bump CakePHP to 2.10.22
+- Merge pull request #5991 from JakubOnderka/drop-big-index. [Andras
+  Iklody]
+
+  chg: [internal] Drop correlations indexes
+- Merge branch 'decaying-v2' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into decaying-v2.
+  [mokaddem]
+- Merge pull request #5988 from JakubOnderka/patch-113. [Andras Iklody]
+
+  fix: [internal] Removing attributes from empty event
+- Merge pull request #5984 from JakubOnderka/patch-112. [Alexandre
+  Dulaunoy]
+
+  chg: [internal] Log exception when querying modules
+- Merge branch '2.4' of github.com:MISP/MISP into decaying-v2.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #5972 from JakubOnderka/patch-111. [Andras Iklody]
+
+  chg: [UI] Make Enrichment Results little bit nicer
+- Merge pull request #5973 from MISP/fix-soft-delete-feed-delta-merge.
+  [Andras Iklody]
+
+  Soft-delete Attributes when performing a feed delta-merge
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Add: [stix2] Supporting import & export of file encoding attributes in
+  file objects. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into decaying-v2.
+  [mokaddem]
+- Merge pull request #5964 from JakubOnderka/patch-109. [Andras Iklody]
+
+  fix: [galaxy] Fetch all events for galaxy cluster
+- Merge pull request #5965 from JakubOnderka/patch-110. [Andras Iklody]
+
+  fix: [UI] Show feed caching just for site admins
+- Merge pull request #5958 from eschultze/eschultze-phishstats.
+  [Alexandre Dulaunoy]
+
+  [feed] Add phishstats.info
+- Add phishstats.info. [eschultze]
+- Merge pull request #5959 from SteveClement/tools. [Steve Clement]
+- Merge pull request #5952 from JakubOnderka/patch-107. [Andras Iklody]
+
+  fix: [internal] Remove unused method
+- Merge pull request #5955 from JakubOnderka/confusing-module-
+  diagnostic. [Andras Iklody]
+
+  fix: [UI] Module diagnostic colors
+- Merge pull request #5941 from MISP/git-commit-id. [Raphaël Vinot]
+
+  new: [type] git-commit-id
+- Merge pull request #5942 from JakubOnderka/correlation-saving. [Andras
+  Iklody]
+
+  Correlation saving
+- Merge pull request #5906 from JakubOnderka/fix-ipv4-cidr-validation.
+  [Andras Iklody]
+
+  fix: [attribute] Do not allow for IPv4 CIDR masklen bigger than 32
+- Merge pull request #5938 from SteveClement/guides. [Steve Clement]
+- Merge pull request #5937 from SteveClement/guides. [Steve Clement]
+- Merge pull request #5936 from JakubOnderka/php74-errors. [Andras
+  Iklody]
+
+  fix: [internal] Notices in PHP 7.4 for login page
+- Merge pull request #5935 from JakubOnderka/patch-106. [Andras Iklody]
+
+  fix: [UI] Bootstrap 2 doesn't support auto position for popover
+- Merge pull request #5924 from JakubOnderka/php74-errors. [Andras
+  Iklody]
+
+  Fix notices in PHP 7.4
+- Merge pull request #5934 from JakubOnderka/remove-galaxy-tags. [Andras
+  Iklody]
+
+  chg: [internal] Faster removing galaxy cluster tags from attributes
+- Merge pull request #5933 from JakubOnderka/patch-105. [Andras Iklody]
+
+  chg: [UI] Nicer icon for form info
+- Merge pull request #5930 from SteveClement/guides. [Steve Clement]
+- Merge pull request #5928 from JakubOnderka/patch-104. [Andras Iklody]
+
+  fix: [UI] Do not show Good-Bye when using custom logout
+- Merge pull request #5925 from JakubOnderka/patch-102. [Alexandre
+  Dulaunoy]
+
+  fix: [UI] Galaxy cluster links should be clickable
+- Merge pull request #5926 from JakubOnderka/patch-103. [Andras Iklody]
+
+  new: [UI] Add event ID to page table
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch 'pr-5256' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into pr-5256. [mokaddem]
+
+
 v2.4.126 (2020-05-18)
 ---------------------
 
