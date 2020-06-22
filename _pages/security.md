@@ -54,6 +54,7 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2020-10246](https://cve.circl.lu/cve/CVE-2020-10246) <= MISP 2.4.122 - Reflected XSS via unsanitized URL parameters. This is related to app/View/Users/statistics_orgs.ctp.
 - [CVE-2020-10247](https://cve.circl.lu/cve/CVE-2020-10247) <= MISP 2.4.122 - Persistent XSS in the sighting popover tool. This is related to app/View/Elements/Events/View/sighting_field.ctp.
 - [CVE-2020-13153](https://cve.circl.lu/cve/CVE-2020-13153) <= MISP 2.4.125 - app/View/Events/resolved_attributes.ctp in MISP before 2.4.126 has XSS in the resolved attributes view.
+- [CVE-2020-14969](https://cve.circl.lu/cve/CVE-2020-14969) <= MISP 2.4.128 - app/Model/Attribute.php in MISP 2.4.127 lacks an ACL lookup on attribute correlations. This occurs when querying the attribute restsearch API, revealing metadata about a correlating but unreachable attribute.
 
 ## PGP Key
 
