@@ -1,6 +1,329 @@
 Changelog
 =========
 
+v2.4.129 (2020-07-13)
+---------------------
+
+New
+~~~
+- [diag] Check if ZIP extension is installed. [Jakub Onderka]
+- [merge] functionality reworked. [iglocska]
+
+  - handle objects, tags, etc via @chrisr3d's module result parsing
+  - handle sharing groups correctly - as reported by Jakub Onderka
+  - using standardised fetchers internally
+  - API enabled (which will directly merge all contents of the source event into the target event)
+- [event block rule system] added. [iglocska]
+
+  - add simple tag filters to block events from being added.
+  - it will not stop a manual creation of an event with subsequent adding of the tag in a later stage
+  - it will however block synced events
+- [statistics] shell added for the git codebase's contributor counters.
+  [iglocska]
+
+  - to be extended with other similar tasks
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [stix2 library] Bumped latest version. [chrisr3d]
+- [UI] Add attribute fixes. [Jakub Onderka]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [correlations] Faster checking if CIDR is IPv4 or IPv6 version. [Jakub
+  Onderka]
+- [correlations] Just check if redis key exists. [Jakub Onderka]
+- [feed] Faster freetext feed caching. [Jakub Onderka]
+- [UI] Sort tags by name for server rules. [Jakub Onderka]
+- [internal] Use tmp file fro Feed::getCache. [Jakub Onderka]
+- [internal] Attribute REST search optimisations and error handling.
+  [Jakub Onderka]
+- [internal] Simplify and optimise eventUI method. [Jakub Onderka]
+- [warning-list] updated to the latest version. [Alexandre Dulaunoy]
+- [ACL] Allow to access to fetchOrgsForSG and fetchServersForSG just
+  with perm_sharing_group. [Jakub Onderka]
+- [users:resgister] Use the trimmed data instead. [mokaddem]
+- [stix2] Bumped latest python stix2 library. [chrisr3d]
+- [sightings] Check if sighting already exists before getting attribute
+  info. [Jakub Onderka]
+- [sightings] Save one SQL query when saving sighting if event UUID is
+  given. [Jakub Onderka]
+- [internal] Move getting sightings range to one place. [Jakub Onderka]
+- [internal] Faster loading sightings if the same attribute is
+  requested. [Jakub Onderka]
+- [statistics shell] added total commit count. [iglocska]
+
+Fix
+~~~
+- [installer] Update to latest. [Steve Clement]
+- [StixExport] suppress unlink warnings. [Richard van den Berg]
+- [stix export] log stack trace on error, support 'AMBER NATO ALLIANCE'
+  TLP tags. [Richard van den Berg]
+- [misp_retention] Support objects, use lists for build_complex_query()
+  [Richard van den Berg]
+- [attributes] Possible duplicate attributes. [Jakub Onderka]
+- [internal] Missing field for server model when editing event. [Jakub
+  Onderka]
+- [stix2 import] Fixed some object reference issues. [chrisr3d]
+
+  - With the newest PyMISP version, the object
+    references creation had to get some slight
+    changes:
+    - We add the referenced object in the event
+      before the add the reference between the 2
+      objects, when it is possible
+    - ** has been removed while calling add_object
+      since we are adding already verified MISP
+      objects, and using ** was actually the reason
+      why the references were not present in the
+      objects when they had been created before the
+      referenced object were added to the event
+- [stix2 import] Fixed Observable object type checking, following the
+  recent changes on the stix2 python library. [chrisr3d]
+- [stix upload] Removed 'isset' already tested with 'empty' at the same
+  place. [chrisr3d]
+- [stix2 import] Avoid duplication of original-imported-file objects
+  during the import process. [chrisr3d]
+
+  - Duplication can happen when the result of the
+    import process is an event that already exists
+- [security] setting a favourite homepage was not CSRF protected.
+  [iglocska]
+
+  - a user could be lured into setting a MISP home-page outside of the MISP baseurl
+  - switched the endpoint to be CSRF protection enabled
+
+  - as discovered by Mislav Božičević <mislav.bozicevic@nn.cz>
+- [opendata export] Fixed resource deletion query creation to avoid
+  silent syntax errors. [chrisr3d]
+- [stix] Store synonymsToTagNames.json file in tmp folder. [Jakub
+  Onderka]
+- [mail] Contacting only event creator. [Jakub Onderka]
+
+  Fix sending e-mails in Contact Reporter for when 'Submit only to the person that created the event' is checked
+- [mail] Contact reporter body. [Jakub Onderka]
+
+  Do not send that GPG or Public key are sent as attachment, when user don't have them
+- [proposals] re-edded the edit view for propsoals. [iglocska]
+- [security] Remove ShadowAttributesController::{getProposalsByUuid,getP
+  roposalsByUuidList} [Jakub Onderka]
+
+  These methods are not used, but they let sync users to access proposals for any event.
+- [security] Remove
+  ShadowAttributesController::{fetchEditForm,editField} [Jakub Onderka]
+
+  These methods are not used, but they allow to access attribute data without proper ACL checks.
+- [MispObject] Do not unpublish synced events, fixes #4838. [Richard van
+  den Berg]
+- [UI] Attribute category select. [Jakub Onderka]
+- [internal] Do not try to access bool as array. [Jakub Onderka]
+- [stix2 import] Better markings parsing for both created with MISP and
+  external STIX. [chrisr3d]
+- [stix2 export] Fixed Markings export following the recent changes on
+  ListProperty. [chrisr3d]
+- [sharingGroup:captureSharingGroup] Fix failing capture in case of
+  roaming mode. [mokaddem]
+
+  - The server list check was incorrect
+  - When capturing, roaming mode was always defaulted to false
+  - The logs could not be written due to non-initialized class
+- [acl] Added event block rule. [iglocska]
+- [security] Check event ACL before allowing user to send event contact
+  form. [Jakub Onderka]
+- [stix2 export] Fixed first_seen/last_seen field parsing. [chrisr3d]
+- [returnAttributes] remap small cleanup. [iglocska]
+
+  - no need to set xml as returnformat, it's the default based on the injected params
+- [security] deprecated function with lacking ACL removed. [iglocska]
+
+  - replaced deprecated, sharing group unaware, broken function with one that follows the documentation of the deprecated endpoint
+  - keeping it alive until we purge the deprecated ones in the move to MISP 3/next whatever
+
+  - Thanks to Jakub Onderka for reporting it!
+- [security] Insufficient ACL checks in the attachment downloader fixed
+  - Thanks to Jakub Onderka for reporting it. [mokaddem]
+- [tag:checkForOverride] Catch if tag didn't have a numerical value
+  before the override. [mokaddem]
+- [user:registration] Report field validations to the user. Fix #6072
+  and #6073. [mokaddem]
+- [stix2] Fixed conversion of object relations containing dots into
+  custom object values. [chrisr3d]
+
+  - Also includes changes to support the import of
+    custom objects into MISP objects containing
+    object relations with dots, to avoid issues or
+    changes on the mapping
+- [stix2] Fixed issue with custom object created from MISP object with
+  underscore in the name. [chrisr3d]
+
+  - Includes fix to export the objects into custom
+    objects, and to import custom objects into MISP
+    objects back
+  - Should fix #6046
+- [UI] Fetching from not enabled feed should be error. [Jakub Onderka]
+- [feed] Incorrect call in Feed::__saveEvent. [Jakub Onderka]
+- [internal] Do not create empty link for anonymized org sighting.
+  [Jakub Onderka]
+- [UI] Expanding attribute correlations on other pages. [Jakub Onderka]
+- [stix2 export] Fixed datetime issue with the 'created' field of some
+  stix objects. [chrisr3d]
+
+  - Following some changes on the python stix2
+    library, that caused an issue with the previous
+    way we created the 'created' field
+- [mail] Fix body of passwordReset/newUser emails. [Václav Bartoš]
+
+  When MISP sends an email with new credentials, the body is generated from one of the configured templates - passwordResetText or newUserText. However, these two templates were swapped - the newUserText was used for password reset, while passwordResetText was used when new account is created.
+
+  This commit fixes it.
+- [internal] HTML code fix. [Jakub Onderka]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6110 from RichieB2B/ncsc-nl/unlink. [Andras
+  Iklody]
+
+  fix: [StixExport] suppress unlink warnings
+- Merge pull request #6109 from RichieB2B/nscc-nl/stixfix. [Andras
+  Iklody]
+
+  fix: [stix export] log stack trace on error, support 'AMBER NATO ALLI…
+- Merge pull request #6108 from RichieB2B/ncsc-nl/fix-retention. [Andras
+  Iklody]
+
+  fix: [misp_retention] Support objects, use lists for build_complex_qu…
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #6067 from JakubOnderka/fix-composite-type-
+  uniquenes. [Andras Iklody]
+
+  fix: [attributes] Possible duplicate attributes
+- Merge pull request #6069 from JakubOnderka/patch-119. [Andras Iklody]
+
+  fix: [internal] Missing field for server model when editing event
+- Merge pull request #6089 from JakubOnderka/add-attribute-ui-fixes.
+  [Andras Iklody]
+
+  chg: [UI] Add attribute fixes
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #6071 from JakubOnderka/patch-120. [Andras Iklody]
+
+  fix: [stix] Store synonymsToTagNames.json file in tmp folder
+- Merge pull request #6070 from JakubOnderka/cidr-correlation-optim.
+  [Andras Iklody]
+
+  Cidr correlation optim
+- Merge pull request #6036 from JakubOnderka/cache-freetext-feed-optim.
+  [Andras Iklody]
+
+  chg: [feed] Faster freetext feed caching
+- Merge pull request #6044 from JakubOnderka/sort-tags-by-name. [Andras
+  Iklody]
+
+  chg: [UI] Sort tags by name for server rules
+- Merge pull request #6035 from JakubOnderka/rest-search-optim. [Andras
+  Iklody]
+
+  chg: [internal] Attribute REST search optimisations and error handling
+- Merge pull request #5963 from JakubOnderka/patch-108. [Andras Iklody]
+
+  fix: [mail] Contact reporter body
+- Merge pull request #6092 from JakubOnderka/event-ui. [Andras Iklody]
+
+  chg: [internal] Simplify and optimise eventUI method
+- Merge pull request #6087 from JakubOnderka/zip-ext. [Andras Iklody]
+
+  new: [diag] Check if ZIP extension is installed
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'fix-sg-creation' into 2.4. [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into fix-sg-creation.
+  [mokaddem]
+- Merge pull request #6095 from JakubOnderka/shadow-attribute-unused-
+  vol2. [Andras Iklody]
+
+  fix: [security] Remove ShadowAttributesController::{getProposalsByUuid,getProposalsByUuidList}
+- Merge pull request #6093 from JakubOnderka/shadow-attribute-unused.
+  [Andras Iklody]
+
+  fix: [security] Remove ShadowAttributesController::{fetchEditForm,editField}
+- Merge pull request #6094 from RichieB2B/ncsc-nl/stop-loop. [Andras
+  Iklody]
+
+  fix: [MispObject] Do not unpublish synced events, fixes #4838
+- Merge pull request #6088 from JakubOnderka/patch-121. [Andras Iklody]
+
+  fix: [UI] Attribute category select
+- Merge pull request #6075 from JakubOnderka/bool-is-not-array. [Andras
+  Iklody]
+
+  fix: [internal] Do not try to access bool as array
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #6078 from JakubOnderka/fix-acl. [Andras Iklody]
+
+  chg: [ACL] Allow to access to fetchOrgsForSG and fetchServersForSG...
+- Merge pull request #6079 from legoguy1000/update_AuthkeyShell. [Andras
+  Iklody]
+
+  Allow you to mannually set the API key for automation purposes
+- Allow you to mannually set the API key for automation purposes. [Alex
+  Resnick]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6077 from JakubOnderka/contact-acl. [Andras
+  Iklody]
+
+  fix: [security] Check event ACL before allowing user to send event contact form
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #6063 from JakubOnderka/patch-118. [Andras Iklody]
+
+  fix: [UI] Fetching from not enabled feed should be error
+- Merge pull request #6062 from JakubOnderka/feed-incorect-call. [Andras
+  Iklody]
+
+  fix: [feed] Incorrect call in Feed::__saveEvent
+- Merge pull request #6064 from obert01/fix-diag-accessibility. [Andras
+  Iklody]
+- Added proper ARIA properties for the "fix" button in the DB index and
+  DB schema diagnostic tables. [Olivier BERT]
+- Merge pull request #6061 from JakubOnderka/list-sightings-ui. [Andras
+  Iklody]
+
+  fix: [internal] Do not create empty link for anonymized org sighting
+- Merge pull request #6060 from JakubOnderka/correlation-expand-fi.
+  [Andras Iklody]
+
+  fix: [UI] Expanding attribute correlations on other pages
+- Ch: Bump warninglists. [Raphaël Vinot]
+- Ch: Bump misp-objects. [Raphaël Vinot]
+- Merge pull request #5985 from vaclavbartos/2.4. [Andras Iklody]
+
+  fix: [mail] Fix body of passwordReset/newUser emails
+- Merge pull request #6026 from JakubOnderka/save-sightings-
+  optimisation. [Andras Iklody]
+
+  Save sightings optimisation
+- Merge pull request #6043 from StefanKelm/2.4. [Andras Iklody]
+
+  Update side_menu.ctp
+- Update side_menu.ctp. [StefanKelm]
+
+  Adjusts menu to be in line with "Global Actions"
+- Merge pull request #6045 from JakubOnderka/sightings-loading-optim.
+  [Andras Iklody]
+
+  chg: [internal] Faster loading sightings if the same attribute is req…
+- Merge pull request #6049 from JakubOnderka/patch-116. [Andras Iklody]
+
+  fix: [internal] HTML code fix
+
 
 v2.4.128 (2020-06-22)
 ---------------------
