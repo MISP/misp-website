@@ -18,7 +18,7 @@ The MISP sub-projects use different open source licenses depending on the variou
 |MISP Repository| License | SPDX Identifier
 |:-:|:-:|---|
 |[MISP core software](https://github.com/MISP/MISP)|GNU Affero General Public License v3.0 or later|[AGPL-3.0-or-later](https://spdx.org/licenses/AGPL-3.0-or-later.html#licenseText)|
-|[MISP objects](https://github.com/MISP/misp-objects)|GNU Affero General Public License v3.0 or later|[AGPL-3.0-or-later](https://spdx.org/licenses/AGPL-3.0-or-later.html#licenseText)|
+|[MISP objects](https://github.com/MISP/misp-objects)|Dual licensed: CC0 1.0 Universal (CC0 1.0) or BSD 2-Clause "Simplified" License - software: GNU Affero General Public License v3.0 or later|[AGPL-3.0-or-later](https://spdx.org/licenses/AGPL-3.0-or-later.html#licenseText)|
 |[MISP taxonomies](https://github.com/MISP/misp-taxonomies)|Dual licensed: CC0 1.0 Universal (CC0 1.0) or BSD 2-Clause "Simplified" License|[CC0-1.0](https://spdx.org/licenses/CC0-1.0.html) or [BSD 2-Clause "Simplified" License](https://spdx.org/licenses/BSD-2-Clause.html)|
 |[MISP galaxy](https://github.com/MISP/misp-galaxy)|Dual licensed: CC0 1.0 Universal (CC0 1.0) or BSD 2-Clause "Simplified" License|[CC0-1.0](https://spdx.org/licenses/CC0-1.0.html) or [BSD 2-Clause "Simplified" License](https://spdx.org/licenses/BSD-2-Clause.html)|
 |[MISP warning-lists](https://github.com/MISP/misp-warninglists)|Dual licensed: CC0 1.0 Universal (CC0 1.0) or BSD 2-Clause "Simplified" License|[CC0-1.0](https://spdx.org/licenses/CC0-1.0.html) or [BSD 2-Clause "Simplified" License](https://spdx.org/licenses/BSD-2-Clause.html)|
