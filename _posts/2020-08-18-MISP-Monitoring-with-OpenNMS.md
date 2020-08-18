@@ -1,3 +1,15 @@
+---
+title: MISP service monitoring (and a bit of healing) with OpenNMS
+layout: post
+authors:
+- Sascha Rommelfangen
+date: 2020-08-18
+tags: ["Monitoring", "OpenNMS", "MISP", "Threat Intelligence"]
+categories: []
+featured: /assets/images/opennms/sc-http-s-response_time.png
+---
+
+
 # MISP service monitoring (and a bit of healing) with OpenNMS
 
 ## Introduction:
@@ -16,7 +28,7 @@ Any (recent) MISP installation is perfectly fitting the requirements to reproduc
 
 ### OpenNMS
 
-The free and open source OpenNMS Horizon (https://www.opennms.com/distributions/) in version 26.1.1 is used for the purpose of this article.
+The free and open source [OpenNMS Horizon](https://www.opennms.com/distributions/) in version 26.1.1 is used for the purpose of this article.
 
 
 
@@ -29,16 +41,16 @@ Assuming you have both a working MISP and an OpenNMS instance running, we can ju
 
 This is the most simple form of monitoring in OpenNMS. It will be enabled by default and checks if the machine hosting MISP will be answering ICMP ('ping') packets. ICMP monitoring acts more like an on/off-switch monitoring, but it can also tell you statistically and historically something about the load of the machine and the network conditions due to the recorded response times.
 
-![ICMP Response time statistics](sc-icmp-response_time.png)
+![ICMP Response time statistics](/assets/images/opennms/sc-icmp-response_time.png)
 
 
 ### HTTP(S) monitoring
 
-HTTP and HTTPS monitoring are also built-in into OpenNMS and activated by default if the server exposed TCP ports 80 and 443 during the initial scan. This check is quite handy to see if the web server is running, but doesn't tell you if the application behind this web server is acting properly. 
+HTTP and HTTPS monitoring are also built-in into OpenNMS and activated by default if the server exposed TCP ports 80 and 443 during the initial scan. This check is quite handy to see if the web server is running, but doesn't tell you if the application behind this web server is acting properly.
 
 As in ICMP monitoring, OpenNMS is collecting the data over time and is able to give us an historic view on the response times without any additional configuration.
 
-![HTTP(S) Response time statistics](sc-http-s-response_time.png)
+![HTTP(S) Response time statistics](/assets/images/opennms/sc-http-s-response_time.png)
 
 
 ### Application monitoring
