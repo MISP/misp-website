@@ -1,6 +1,702 @@
 Changelog
 =========
 
+
+v2.4.130 (2020-08-20)
+---------------------
+
+New
+~~~
+- [internal] cache tags instead of loading them over and over via the
+  event fetcher, fixes #6201. [iglocska]
+
+  - should speed things up for exports of datasets that have a lot of recurring tags
+  - moved the caching of some internals to the appmodel level to make it more generic
+- [internal] Support autocrypt when sending e-mails. [Jakub Onderka]
+- [internal] 'GnuPG.obscure_subject' option to not send unencrypted
+  subject. [Jakub Onderka]
+- [internal] Log if e-mail was send encrypted or not. [Jakub Onderka]
+- [administration] lightweight slow query log analysis added. [iglocska]
+
+  usage: /var/www/MISP/app/Console/cake Statistics analyse_slow_logs [path_to_slow_log]
+- [widgets] Additional widgets for sharing statistics and layouts.
+  [Golbark]
+- Allow tag deletion for an event on update. [Tom King]
+- Allow for attribute tag deletion via Event or Attribute edit. Clean
+  and return the attribute tags on response from editing an attribute,
+  update code to remove legacy. [Tom King]
+- [UI] Show event preview when merging. [Jakub Onderka]
+- [attribute] Add support for IDN domains. [Jakub Onderka]
+- [opt] Added non interactive place holder. [Steve Clement]
+- New: [freetext] Convert `[at]` to `@` and `hxtp` and `htxp` to `http`
+  [Jakub Onderka]
+
+  Fixes #4908 and #4805
+
+Changes
+~~~~~~~
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] Bump tag. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [misp-object] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [correlation] Use less memory when generating correlation. [Jakub
+  Onderka]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [internal] Break loop when match is found. [Jakub Onderka]
+- [UI] Nicer tag removal confirmation. [Jakub Onderka]
+- [internal] Reuse AttachmentTool instance. [Jakub Onderka]
+- [internal] Generate event date even if attachments doesn't exists.
+  [Jakub Onderka]
+- [internal] Move attachment handling to one place. [Jakub Onderka]
+- [mail] Initialize GPG just once. [Jakub Onderka]
+- [mail] Simplified Message-ID generation. [Jakub Onderka]
+- [internal] Move GPG initialization to GpgTool. [Jakub Onderka]
+- [test] Set correct setting for GPG. [Jakub Onderka]
+- [internal] Protect also Reply-To header. [Jakub Onderka]
+- [internal] Protect also Date header. [Jakub Onderka]
+- [internal] Refactor S/MIME certificate validation. [Jakub Onderka]
+- [internal] Rework email sending. [Jakub Onderka]
+- [test] Show all logs from /app/tmp/logs/ folder. [Jakub Onderka]
+- [test] Do not show progress for composer. [Jakub Onderka]
+- [test] Show generated gpg keys. [Jakub Onderka]
+- [test] Remove dist-upgrade to speed up build. [Jakub Onderka]
+- [test] Run apt-get install just once to speed up build. [Jakub
+  Onderka]
+- [doc] Added php-zip. [Steve Clement]
+- [internal] Update correlations in one query. [Jakub Onderka]
+
+  Before, for every event saving action, four queries for updating correlations were generated
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [CLI] Allow to fetch remove event by UUID. [Jakub Onderka]
+- [internal] Refactor Server::getEventIdsFromServer. [Jakub Onderka]
+- [internal] stub for a simple caching mechanism for recurring queries.
+  [iglocska]
+- [users:login] No longer fetch login form multiple times. - Reverted
+  monkey patch - Removed the onclick listener responsible to calling the
+  function twice. [mokaddem]
+- [posts] Allow to add comment to any user that can see event. [Jakub
+  Onderka]
+- [UI] Do not exclude local tags when viewing event. [Jakub Onderka]
+- [UI] Allow to add local galaxy for non host org user. [Jakub Onderka]
+- [proposals:index] Migrated index to the factory index. [mokaddem]
+- [api] fixed restresponse for blacklists. [iglocska]
+- [feed] Better exception messages for invalid JSON. [Jakub Onderka]
+- Bump PyMISP. [Raphaël Vinot]
+- [users:login] Removed duplicated submit button. [mokaddem]
+- Bumped queryversion. [mokaddem]
+- [tags:attachTagToObject] Support array of tags. Fix #5534. [mokaddem]
+- [misp.js] Applied codefactor comments. [mokaddem]
+- [objects:edit] Typo in comments. [mokaddem]
+- [objects:edit] Replaced usage of cookie with session. [mokaddem]
+- [objects:edit] Merge data is passed via cookies instead of the URI.
+  [mokaddem]
+- [attributes:massEditForm] Pass attributes ids to be edited via POST.
+  [mokaddem]
+
+  Fix #5500
+- [internal] Initialize UserSetting just when needed. [Jakub Onderka]
+- [users:acceptRegistration] Displays an error message if saved failed
+  Fix #6134. [mokaddem]
+- Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP, fix test. [Raphaël Vinot]
+- [event:freetextImport] Usage of primaryOnlyCorrelatingTypes and limit
+  the number of correlations displayed. [mokaddem]
+- [internal] Faster loading sighting. [Jakub Onderka]
+- [internal] Small controller cleanup. [Jakub Onderka]
+- [warning-lists] major update. [Alexandre Dulaunoy]
+- [correlations] Faster loading related attributes. [Jakub Onderka]
+- [UI] Side menu optimisations and cleanup. [Jakub Onderka]
+- [feed] Use less memory when parsing CSV feeds. [Jakub Onderka]
+- [internal] Better error handling for JSON decoding. [Jakub Onderka]
+- [UI] Add proposal form refactor. [Jakub Onderka]
+- Bump PyMISP. [Raphaël Vinot]
+- [attributeTag:handleAttributeTags] Removed useless conditions.
+  [mokaddem]
+- [AttributeTags:handleAttributeTags] More generic way to handle capture
+  and association. [mokaddem]
+- [attribute] Added tag handling when saving attributes and objects.
+  [mokaddem]
+- [tag] Support of untagging in Object's Attribute and other fixes.
+  [mokaddem]
+
+  - deleted: 0 is correctly handled
+  - stopped usage of `editAttribute` from Attribute Controller
+- [attribute:editAttribute] Uage of `editableFields` instead of
+  hardcoded array. [mokaddem]
+- [object] Avoid notices if some object attributes fields are not set.
+  [mokaddem]
+- [object:edit] Allow deleting objects by passing `deleted` flag.
+  [mokaddem]
+
+  Fix #6024
+- [stix2 export] Avoiding testing the same field twice. [chrisr3d]
+
+  - Following #6132 recently merged, which avoids
+    potential KeyError exceptions, thanks to
+    @denny-lclin
+- [internal] Faster generating correlations when enabling for event by
+  toggle. [Jakub Onderka]
+- [UI] Wait 100 ms before showing event info. [Jakub Onderka]
+- [UI] Add link to event in event info. [Jakub Onderka]
+- [internal] Better job progress and status logging. [Jakub Onderka]
+- [requirements] Aligning requirements file with Pipfile regarding stix
+  library requirements. [chrisr3d]
+- Bumped latest misp-opendata updates. [chrisr3d]
+- [events:index] Renamed `org` into `creator org`. Fix #6012. [mokaddem]
+- [opendata export] Support of the search functionality + fixed url
+  parameter used in the delete feature. [chrisr3d]
+- [internal] Faster checking if warninglist already exists for event.
+  [Jakub Onderka]
+- [internal] Initialize FinancialTool just when necessary. [Jakub
+  Onderka]
+- [misp-opendata] Bumped latest version. [chrisr3d]
+- [freetext] Various code fixes and optimisations. [Jakub Onderka]
+- [internal] More tests for ComplexTypeTool::checkFreeText. [Jakub
+  Onderka]
+- [internal] Simplified ComplexTypeTool::checkFreeText. [Jakub Onderka]
+- [opendata export] Parsing portal url parameter + slight parameters
+  parsing changes. [chrisr3d]
+
+  - As the possibility of specifying the url of the
+    Open data portal to use instead of the default
+    one, we support here this parameter and adapt
+    the way we build the command that will launch
+    the python script
+  - Slight changes to replace some isset tests by
+    empty tests to make sure the concerned fields
+    are not only set, but also contain a value
+- [diagnostic] Updated required stix2 library version. [chrisr3d]
+
+Fix
+~~~
+- [internal] Syntax error in bootstrap.default.php. [Jakub Onderka]
+- [invalid element reference] element filepath was incorrectly treated
+  as a url. [iglocska]
+- [UI] Show correct options in menu. [Jakub Onderka]
+- [internal] Notice when adding tag to collection. [Jakub Onderka]
+- [security] Check tag restriction for collection tags. [Jakub Onderka]
+- [security] Check tag restriction for attribute tags. [Jakub Onderka]
+- [security] Check tag restriction for event tags. [Jakub Onderka]
+- [attachment] Do not fetch attachment when accepting deletion proposal.
+  [Jakub Onderka]
+- [UI] Showing image thumbnail. [Jakub Onderka]
+- [test] Use two spaces to pass the test. [Jakub Onderka]
+- [internal] Throw exception if invalid event for contact method is
+  provided. [Jakub Onderka]
+- [test] Set GnuPG.email variable. [Jakub Onderka]
+- [internal] Fix undefined index notices. [Jakub Onderka]
+- [test] GPG homedir permission. [Jakub Onderka]
+- [internal] SendEmail exceptions message and logging. [Jakub Onderka]
+- [internal] Do not leak IP address in Message-ID. [Jakub Onderka]
+- [internal] Throw exception when invalid event id provided for contact
+  email. [Jakub Onderka]
+- [intrernal] Undefined index: Organisation notice. [Jakub Onderka]
+- [cli] Show error when invalid user ID provided. [Jakub Onderka]
+- [test] Install missing python3-redis package. [Jakub Onderka]
+- [test] Show error and debug logs also after success test. [Jakub
+  Onderka]
+- [test] Start workers under www-data group. [Jakub Onderka]
+- [doc]  Amended CentOS8 install doc. Removed ssdeep, not working
+  anymore. [Steve Clement]
+- [events:queryEnrichment] Recovers tag colour. [mokaddem]
+
+  - Fix #6186
+- [security] Check if user can access sharing group when uploading
+  attachment. [Jakub Onderka]
+- [UI] Bad merge for mass edit form. [Jakub Onderka]
+- [proposals] Downloading proposal attachment. [Jakub Onderka]
+- [ACL] Allow proposal author to discard it. [Jakub Onderka]
+- [security] Respect ACL for freetext import. [Jakub Onderka]
+- [security] Throw exception if invalid data provided. [Jakub Onderka]
+- [ACL] Use common methods for ACL when editing object reference. [Jakub
+  Onderka]
+- [ACL] Unpublished private for object do not apply for site admin.
+  [Jakub Onderka]
+- [security] Sharing groups for objects respect permissions. [Jakub
+  Onderka]
+- [tags] Show just tags that user can really use. [Jakub Onderka]
+- [security] Respect ACL for proposals. [Jakub Onderka]
+- [proposals] Respect unpublished private event when loading proposals.
+  [Jakub Onderka]
+- [internal] Check `allow_disabling_correlation` before correlation
+  toggle. [Jakub Onderka]
+- [security] ACL check when loading ajax tags. [Jakub Onderka]
+- [security] ACL check when adding or removing tags. [Jakub Onderka]
+- [security] ACL check when editing multiple event attributes. [Jakub
+  Onderka]
+- [security] Respect ACL when event edit. [Jakub Onderka]
+- [stix import] Better TTPs parsing for external STIX. [chrisr3d]
+- [stix import] Fixed parameter determining if a ttp should be handled
+  as attribute/object or as galaxy. [chrisr3d]
+- [stix export] Adding Vulnerability objects created out of attributes
+  to the list of leveraged ttps. [chrisr3d]
+- [stix import] Same change for external indicator as we just did for
+  external observables. [chrisr3d]
+
+  - We also changed the code comments to make them clearer
+- [stix import] Handling the case of multiple attributes returned from
+  the parsing. [chrisr3d]
+
+  - If we get a list of actual attributes, we then
+    handle the MISP object case, otherwise it means
+    it is simply a list of attribute values, and we
+    add as many attributes as there are values
+- [stix import] Splitted threat actors import parsing. [chrisr3d]
+
+  - We now have specific a threat actors parsing for
+    external STIX data, since the structure of the
+    threat actor objects may not always be the same
+  - Parsing threat actors from STIX documents
+    produced with MISP remains the same
+- [stix import] Using generic Exception instead of specific ones to
+  handle the results of the attribute parsing. [chrisr3d]
+
+  - A lot of different exception types may be raised
+    while parsing external stix data
+- [zmg] failing to publish to the ZMQ channel when MISP.org is invalid
+  fixed, fixes #6174. [iglocska]
+
+  - use the host org ID
+  - if it's not set (should never happen), just take the lowest ID org
+- [login] endless blackholeannoyance fixed via monkey-patch. [iglocska]
+- [API] org blacklist copy pasta preventing additions of entries fixed.
+  [iglocska]
+- [api] minor fix to the blacklist responses. [iglocska]
+- [API] blacklisting - don't throw 500 when no valid input is presented
+  on the add interface. [iglocska]
+- [feed] Make HttpSocket instance optional for local feeds. [Jakub
+  Onderka]
+- [ACLComponent] Updated permissions. [mokaddem]
+- [attributes] Do not override unlockedActions anymore. [mokaddem]
+- [attributes:massEditForm] Invalid conditions fixed and performances
+  improvements. [mokaddem]
+- [attributes:massEditForm] Check if event exists. [mokaddem]
+- [users:login] Blackhole on login screen. [mokaddem]
+
+  Fetch, fill and submit a fresh form on login avoiding blackholes due to
+  expired form token
+- [blacklists] fixed add event blacklist via API calls. [iglocska]
+- [internal] older PHP still not happy with the return from a generator.
+  [iglocska]
+- [db_schema] Added feeds.orgc_id in the index. [mokaddem]
+
+  Fix #5838
+- [internal] make ancient PHP versions happy. [iglocska]
+- [users:edit] Reset AUTHKey via interface. [mokaddem]
+
+  Fix #6082
+- [unicode] Temporarily escape 4 byte characters until we move the
+  attribute value fields to mb4, fixes #5123. [iglocska]
+
+  - fixes sync/feed issues related to 4 byte unicode characters
+- [administration] added missing column. [iglocska]
+- [administration] fixed var name. [iglocska]
+- [object:edit] Updating an object to a new template acutally save the
+  template version Fix #6083. [mokaddem]
+- [pull] Check if url_params in pull filter is empty string. [Jakub
+  Onderka]
+- [UI] clearer sync error message for no sync privileges. [iglocska]
+- [internal] Throw NotFoundException for non exists UUID. [Jakub
+  Onderka]
+- [UI] Missing echo for decay score table header. [Jakub Onderka]
+- [internal] Feed controller cleanup. [Jakub Onderka]
+- [UI] Remove PHP warnings from side_menu_link.ctp. [Jakub Onderka]
+- [stix export] Fixed child-pid attributes export that used to make the
+  process object export fail. [chrisr3d]
+- [attribute:editableFields] Typo in variable name. [mokaddem]
+- [attributes:edit] Correct error previsouly merged when importing code.
+  [mokaddem]
+- [stix import] Fixed the remaining failing object references.
+  [chrisr3d]
+- [stix import] Fixed references between file, pe & pe-section obects +
+  moved mapping dict to the mapping script. [chrisr3d]
+- [object:edit] Correctly set the SG of the added new attributes Fix
+  #6025. [mokaddem]
+- [objects:edit] Returns the latest state of the object if it were
+  deleted. [mokaddem]
+- [attribute] Allow editing attributes. [mokaddem]
+
+  Added raw values fields in the `editableFields`
+- [sync] drop the republishing of events when the modification is merely
+  a timestamp bump. [iglocska]
+
+  - due to an already fixed issue still lingering, invalid event edits keep getting synchronised between instances
+  - these events still generate publish alerts erroneously
+
+  - this fix compares the previous state of the event to the modification, if there are no material changes (attributes, objects, object relations, event tags added/updated) then the publishing is dropped.
+- [stix import] Fixed port in ip-port objects import to lose src and dst
+  context. [chrisr3d]
+- [stix export] Fixed the slight difference between parsing x509
+  fingerprint attributes and x509 objects. [chrisr3d]
+- [stix export] Fixed x509 fingerprint attributes export & moved mapping
+  dictionaries to the mapping script. [chrisr3d]
+
+  - Only the x509-fingerprint-sha1 attribute was
+    exported, and as a standard sha1 attribute,
+    which was a loss of context, now the x509
+    fingerprint attributes (md5, sha1 & sha256) are
+    exported as expected within a x509 observable
+  - Also moved the mapping dictionaries with the
+    appropriate indent to the mapping script, where
+    they should belong
+- [stix export] Fixed pep8 & changed indentation for better readability.
+  [chrisr3d]
+- [attribute:edit] Prevent the edition of system reserved fields.
+  [mokaddem]
+- [feed:importFreeText] Make sure to update the timestamp when soft-
+  deleting after delta-merge. [mokaddem]
+
+  Fix #6013
+- [events:index] Do not show events if org doesn't belong to the SG.
+  [mokaddem]
+
+  Event belonging to an organisation which is not
+  included in the sharing group assigned to the event will not see the
+  event on the index anymore.
+  Fix #6033
+  Fix #6107
+- [feed] Accept more text content. Fix #5969. [mokaddem]
+- [stix import] Importing single vulnerability attributes as
+  vulnerability and not as text. [chrisr3d]
+- [sync] internal sync now correctly syncs local tags. [iglocska]
+
+  - also fixes a notice about a missing tag in the sync
+- [galaxyClusters:view] Fixed full_group_by issue when viewing the
+  galaxy matrix. [mokaddem]
+- [UI] Show proper menu when editing event info. [Jakub Onderka]
+- [attributes:massEdit] proposal option not by default. [Christophe
+  Vandeplas]
+
+  this way we do not change the default behavior which was changed in commit 9b33476eedd184bc46665aaae57533ddcf35e5f7
+- [proposals] Delete proposals for object attributes. [Jakub Onderka]
+- Minor typo. [Christophe Vandeplas]
+- [installer] Installer was broken, now fixed. [Steve Clement]
+- [bug] Check for non-existen directory fails if exists. [Steve Clement]
+- [internal] Remove unused Event::setSimpleConditions method. [Jakub
+  Onderka]
+- [internal] Remove unused CidrComponent and CIDRTool classes. [Jakub
+  Onderka]
+- [correlations] Purge ssdeep table after attribute delete. [Jakub
+  Onderka]
+- [audit] Show all attribute changes in event history. [Jakub Onderka]
+- [internal] Do not check event existence twice. [Jakub Onderka]
+- [internal] Reduce number of regexp in refang table. [Jakub Onderka]
+- [freetext] Handle IPv6 and punycode domains when import. [Jakub
+  Onderka]
+- [security] xss fix missing part of solution. [iglocska]
+
+  - the previous fix to the xss in the homepage setter was lacking the controller changes due to a partial commit (#bf4610c947c7dc372c4078f363d2dff6ae0703a8)
+
+    - as originally discovered by Mislav Božičević <mislav.bozicevic@nn.cz>
+    - persistence of the vulnerability after the lacking fix reported by DIEGO JURADO PALLARES from Ciberinteligencia
+- [opendata export] Adding auth param in the python command only if not
+  empty. [chrisr3d]
+
+Other
+~~~~~
+- Merge pull request #6204 from JakubOnderka/2.4. [Jakub Onderka]
+
+  fix: [internal] Syntax error in bootstrap.default.php
+- Merge branch 'baseurl' into 2.4. [iglocska]
+- Syntax check and fix. [Vito Piserchia]
+- Recover from upstream version missing bits. [Vito Piserchia]
+- Recover from upstream version missing bits. [Vito Piserchia]
+- Merge remote-tracking branch 'upstream/2.4' into baseurl-patch. [Vito
+  Piserchia]
+- Rebase continue. [Vito Piserchia]
+- Rebase continue. [Vito Piserchia]
+- Fix genericPopup. [johndoe]
+- Use this here. [johndoe]
+- Use this here. [johndoe]
+- Rebase continue. [Vito Piserchia]
+- Fix rebase. [johndoe]
+- Fix rebase. [johndoe]
+- Fix rebase. [johndoe]
+- Fix rebase. [johndoe]
+- Fix rebase. [johndoe]
+- Fixed Codacy warnings. [Léarch]
+- Corrected redirections. [Léarch]
+
+  See the following for an explanation:
+  https://stackoverflow.com/questions/6836990/how-to-get-complete-current-url-for-cakephp#comment11184149_6875310
+- Rebase continue. [Vito Piserchia]
+- Rebase continue. [Vito Piserchia]
+- Fix rebase. [johndoe]
+- Rebase continue. [Vito Piserchia]
+- Added missed variable declaration. [Vito Piserchia]
+- Improve code quality. [Vito Piserchia]
+- Rebase continue. [Vito Piserchia]
+- Rebase continue. [Vito Piserchia]
+- Fix genericPopup. [Vito Piserchia]
+- Rebase continue. [Vito Piserchia]
+- Rebase continue. [Vito Piserchia]
+- Fix baseurl use to view organizations. [Léarch]
+- Fixed Codacy warnings. [Léarch]
+- Corrected redirections. [Léarch]
+
+  See the following for an explanation:
+  https://stackoverflow.com/questions/6836990/how-to-get-complete-current-url-for-cakephp#comment11184149_6875310
+- Rebase continue. [Vito Piserchia]
+- Rebase continue. [Vito Piserchia]
+- More merge fixes. [Vito Piserchia]
+- Resolve merge. [Vito Piserchia]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6176 from JakubOnderka/fix-menu. [Jakub Onderka]
+
+  fix: [UI] Show correct options in menu
+- Merge pull request #6202 from rmkml/2.4. [Andras Iklody]
+
+  add vhash (VirusTotal Hash) on Attribut.php
+- Add vhash (VirusTotal Hash) on Attribut.php. [rmkml]
+- Merge pull request #6199 from JakubOnderka/generate-correlation-
+  memory. [Jakub Onderka]
+
+  chg: [correlation] Use less memory when generating correlation
+- Merge pull request #6196 from JakubOnderka/event-tags. [Jakub Onderka]
+
+  Event tag adding and removing
+- Fixup! chg: [UI] Nicer tag removal confirmation. [Jakub Onderka]
+- Merge pull request #5865 from JakubOnderka/attachment_tool. [Jakub
+  Onderka]
+
+  chg: [internal] Move attachment handling to one place
+- Merge pull request #5240 from JakubOnderka/patch-43. [Jakub Onderka]
+
+  chg: [internal] Refactor e-mail sending
+- Merge pull request #6192 from JakubOnderka/notices-fix. [Jakub
+  Onderka]
+
+  Notices fixes
+- Merge pull request #6191 from JakubOnderka/travis-fixes-vol2. [Jakub
+  Onderka]
+
+  Travis fixes vol2
+- Merge pull request #6190 from JakubOnderka/travis-fixes. [Jakub
+  Onderka]
+
+  Travis fixes
+- Merge pull request #6187 from SteveClement/guides. [Steve Clement]
+- Merge pull request #5948 from JakubOnderka/update-correlations. [Jakub
+  Onderka]
+
+  chg: [internal] Update correlations in one query
+- Merge pull request #6001 from JakubOnderka/get-events-refactoring.
+  [Jakub Onderka]
+
+  chg: [internal] Refactor Server::getEventIdsFromServer
+- Merge pull request #6181 from JakubOnderka/checek-sg-perm. [Jakub
+  Onderka]
+
+  fix: [security] Check if user can access sharing group when uploading…
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6178 from JakubOnderka/fix-mass-edit. [Jakub
+  Onderka]
+
+  Fix mass edit
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge pull request #6175 from JakubOnderka/shadow-fix. [Jakub Onderka]
+
+  Shadow fix
+- Merge pull request #6172 from JakubOnderka/freetext-import-acl2.
+  [Jakub Onderka]
+
+  fix: [security] Respect ACL for freetext import
+- Merge pull request #6136 from JakubOnderka/acl-can-modify-chekcs.
+  [Jakub Onderka]
+
+  fix: [security] Respect ACL when event edit
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6156 from JakubOnderka/feed-httpsocket-optional.
+  [Jakub Onderka]
+
+  fix: [feed] Make HttpSocket instance optional for local feeds
+- Merge pull request #6052 from stricaud/2.4. [Andras Iklody]
+
+  Using json parser to parse json configuration output from cake
+- Using json parser to parse json configuration output from cake.
+  [Sebastien Tricaud]
+- Merge branch 'fix-no-more-login-blackhole' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into fix-no-more-login-
+  blackhole. [mokaddem]
+- Merge branch 'fix-mass-edit-form-with-post' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into fix-mass-edit-form-
+  with-post. [mokaddem]
+- Merge branch 'feature-5534' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into feature-5534.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into feature-5534.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into fix-mass-edit-form-
+  with-post. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into fix-mass-edit-form-
+  with-post. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #6154 from JakubOnderka/tags-fix. [Sami Mokaddem]
+
+  chg: [internal] Initialize UserSetting just when needed
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'fix-align-object-with-latest-template' into 2.4.
+  [mokaddem]
+- Merge pull request #6150 from JakubOnderka/2.4. [Jakub Onderka]
+
+  fix: [pull] Check if url_params in pull filter is empty string
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'fix-freetext-correlation-improvements' into 2.4.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into fix-freetext-
+  correlation-improvements. [mokaddem]
+- Merge pull request #6148 from JakubOnderka/controller-cleanup. [Jakub
+  Onderka]
+
+  chg: [internal] Small controller cleanup
+- Merge pull request #6146 from JakubOnderka/toolbox-non-exists-uuid.
+  [Jakub Onderka]
+
+  fix: [internal] Throw NotFoundException for non exists UUID
+- Merge pull request #6144 from JakubOnderka/feeds-controller-cleanup.
+  [Jakub Onderka]
+
+  fix: [internal] Feed controller cleanup
+- Merge branch 'fix-update-tags-on-attribute-edit' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into fix-update-tags-on-
+  attribute-edit. [mokaddem]
+- Merge pull request #5954 from JakubOnderka/get-related-attributes-
+  faster. [Jakub Onderka]
+
+  chg: [correlations] Faster loading related attributes
+- Merge pull request #6126 from JakubOnderka/side-menu-optim. [Jakub
+  Onderka]
+
+  chg: [UI] Side menu optimisations and cleanup
+- Merge pull request #6115 from JakubOnderka/freetext-fixes-vol2. [Jakub
+  Onderka]
+
+  chg: [feed] Use less memory when parsing CSV feeds
+- Merge pull request #6031 from JakubOnderka/json_error_handling. [Jakub
+  Onderka]
+
+  chg: [internal] Better error handling for JSON decoding
+- Merge pull request #6141 from JakubOnderka/proposal-form-refactor.
+  [Jakub Onderka]
+
+  chg: [UI] Add proposal form refactor
+- Add: [stix import] Support the import of port, command-line & image
+  attributes in process objects. [chrisr3d]
+- Add: [stix export] Process objects export now supports port
+  attributes. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #6142 from Golbark/feature/sharing_widgets. [Andras
+  Iklody]
+
+  new: [widgets] Additional widgets for sharing statistics and layouts
+- Add: [stix export] Process object export has been improved to support
+  image & command-line attributes. [chrisr3d]
+- Merge branch 'feature/tags-deletion' into fix-update-tags-on-
+  attribute-edit. [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into feature/tags-deletion.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into pr-
+  feature/tags_deletion. [mokaddem]
+- Merge remote-tracking branch 'upstream/2.4' into
+  feature/tags_deletion. [Tom King]
+- Merge branch '2.4' into feature/tags_deletion. [Tom King]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch 'true-2.4' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6132 from denny-lclin/fix/key-error-in-
+  stix2-misp2stix2. [Christian Studer]
+
+  fix: check Misp time fields exist before using them
+- Check time fields exist before using them. [Denny Lin]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #6131 from JakubOnderka/toggle-correlation-speedup.
+  [Jakub Onderka]
+
+  chg: [internal] Faster generating correlations when enabling
+- Merge pull request #6135 from JakubOnderka/merge_show_event_preview.
+  [Jakub Onderka]
+
+  new: [UI] Show event preview when merging
+- Merge pull request #6065 from JakubOnderka/job-progress. [Jakub
+  Onderka]
+
+  chg: [internal] Better job progress and status logging
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #6099 from JakubOnderka/idn-support. [Jakub
+  Onderka]
+
+  new: [attribute] Add support for IDN domains
+- Merge pull request #6112 from JakubOnderka/attr-fetch-optim. [Jakub
+  Onderka]
+
+  Attr fetch optim
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #6119 from MISP/JakubOnderka-patch-1. [Jakub
+  Onderka]
+
+  fix: [UI] Show proper menu when editing event info
+- Additionnal protection against XSS, the response type defaults to html
+  while it should be JSON. (#6118) [Loïc Fortemps]
+- Merge pull request #6117 from JakubOnderka/delete-object-proposal.
+  [Jakub Onderka]
+
+  fix: [proposals] Delete proposals for object attributes
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6116 from SteveClement/guides. [Steve Clement]
+- Merge branch 'guides' of github.com:SteveClement/MISP into guides.
+  [Steve Clement]
+- Merge pull request #6114 from JakubOnderka/remove-cidr. [Jakub
+  Onderka]
+
+  fix: [internal] Remove unused CidrComponent and CIDRTool classes
+- Merge pull request #5929 from JakubOnderka/fuzzy-purge. [Jakub
+  Onderka]
+
+  fix: [correlations] Purge ssdeep table after attribute delete
+- Merge pull request #6113 from JakubOnderka/freetext-fixes-vol2. [Jakub
+  Onderka]
+
+  chg: [freetext] Various code fixes and optimisations
+- Merge pull request #6085 from JakubOnderka/event_log_fix. [Jakub
+  Onderka]
+
+  fix: [audit] Show all attribute changes in event history
+- Merge pull request #6091 from JakubOnderka/existence-checking. [Jakub
+  Onderka]
+
+  fix: [internal] Do not check event existence twice
+- Merge pull request #6097 from JakubOnderka/freetext-fixes. [Jakub
+  Onderka]
+
+  fix: [freetext] Handle IPv6 and punycode domains when import
+
+
 v2.4.129 (2020-07-13)
 ---------------------
 
