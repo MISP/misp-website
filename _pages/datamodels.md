@@ -71,12 +71,17 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |filename&#124;sha1| | X | | X | | |
 |filename&#124;sha224| | X | | | | |
 |filename&#124;sha256| | X | | X | | |
+|filename&#124;sha3-224| | X | | X | | |
+|filename&#124;sha3-256| | X | | X | | |
+|filename&#124;sha3-384| | X | | X | | |
+|filename&#124;sha3-512| | X | | X | | |
 |filename&#124;sha384| | X | | | | |
 |filename&#124;sha512| | X | | | | |
 |filename&#124;sha512/224| | X | | | | |
 |filename&#124;sha512/256| | X | | | | |
 |filename&#124;ssdeep| | X | | | | |
 |filename&#124;tlsh| | X | | | | |
+|filename&#124;vhash| | X | | | | |
 |first-name| | | | | | |
 |float| | | | | | |
 |frequent-flyer-number| | | | | | |
@@ -142,6 +147,10 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |sha1| | X | | X | | |
 |sha224| | X | | | | |
 |sha256| | X | | X | | |
+|sha3-224| | X | | X | | |
+|sha3-256| | X | | X | | |
+|sha3-384| | X | | X | | |
+|sha3-512| | X | | X | | |
 |sha384| | X | | | | |
 |sha512| | X | | | | |
 |sha512/224| | X | | | | |
@@ -166,6 +175,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |uri| | | | | | |
 |url| | | | X | | |
 |user-agent| | | | X | | |
+|vhash| | X | | | | |
 |visa-number| | | | | | |
 |vulnerability| | | | X | | |
 |weakness| | | | X | | |
@@ -239,12 +249,17 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |filename&#124;sha1| | | X | X | | |
 |filename&#124;sha224| | | X | X | | |
 |filename&#124;sha256| | | X | X | | |
+|filename&#124;sha3-224| | | X | X | | |
+|filename&#124;sha3-256| | | X | X | | |
+|filename&#124;sha3-384| | | X | X | | |
+|filename&#124;sha3-512| | | X | X | | |
 |filename&#124;sha384| | | X | X | | |
 |filename&#124;sha512| | | X | X | | |
 |filename&#124;sha512/224| | | X | X | | |
 |filename&#124;sha512/256| | | X | X | | |
 |filename&#124;ssdeep| | | X | X | | |
 |filename&#124;tlsh| | | X | X | | |
+|filename&#124;vhash| | | X | X | | |
 |first-name| | | | | | |
 |float| | X | | | | |
 |frequent-flyer-number| | | | | | |
@@ -310,6 +325,10 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |sha1| | | X | X | | |
 |sha224| | | X | X | | |
 |sha256| | | X | X | | |
+|sha3-224| | | X | X | | |
+|sha3-256| | | X | X | | |
+|sha3-384| | | X | X | | |
+|sha3-512| | | X | X | | |
 |sha384| | | X | X | | |
 |sha512| | | X | X | | |
 |sha512/224| | | X | X | | |
@@ -334,6 +353,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |uri| X | | | | | |
 |url| X | | X | | | |
 |user-agent| X | | X | | | |
+|vhash| | | X | X | | |
 |visa-number| | | | | | |
 |vulnerability| | | X | X | | |
 |weakness| | | X | X | | |
@@ -407,12 +427,17 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |filename&#124;sha1| | | | |
 |filename&#124;sha224| | | | |
 |filename&#124;sha256| | | | |
+|filename&#124;sha3-224| | | | |
+|filename&#124;sha3-256| | | | |
+|filename&#124;sha3-384| | | | |
+|filename&#124;sha3-512| | | | |
 |filename&#124;sha384| | | | |
 |filename&#124;sha512| | | | |
 |filename&#124;sha512/224| | | | |
 |filename&#124;sha512/256| | | | |
 |filename&#124;ssdeep| | | | |
 |filename&#124;tlsh| | | | |
+|filename&#124;vhash| | | | |
 |first-name| X | | | |
 |float| | | | |
 |frequent-flyer-number| X | | | |
@@ -478,6 +503,10 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |sha1| | | | |
 |sha224| | | | |
 |sha256| | | | |
+|sha3-224| | | | |
+|sha3-256| | | | |
+|sha3-384| | | | |
+|sha3-512| | | | |
 |sha384| | | | |
 |sha512| | | | |
 |sha512/224| | | | |
@@ -502,6 +531,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |uri| | | | |
 |url| | | | |
 |user-agent| | | | |
+|vhash| | | | |
 |visa-number| X | | | |
 |vulnerability| | | | |
 |weakness| | | | |
@@ -595,12 +625,17 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **filename&#124;sha1**: A filename and an sha1 hash separated by a &#124;
 *   **filename&#124;sha224**: A filename and a sha-224 hash separated by a &#124;
 *   **filename&#124;sha256**: A filename and an sha256 hash separated by a &#124;
+*   **filename&#124;sha3-224**: A filename and an sha3-224 hash separated by a &#124;
+*   **filename&#124;sha3-256**: A filename and an sha3-256 hash separated by a &#124;
+*   **filename&#124;sha3-384**: A filename and an sha3-384 hash separated by a &#124;
+*   **filename&#124;sha3-512**: A filename and an sha3-512 hash separated by a &#124;
 *   **filename&#124;sha384**: A filename and a sha-384 hash separated by a &#124;
 *   **filename&#124;sha512**: A filename and a sha-512 hash separated by a &#124;
 *   **filename&#124;sha512/224**: A filename and a sha-512/224 hash separated by a &#124;
 *   **filename&#124;sha512/256**: A filename and a sha-512/256 hash separated by a &#124;
 *   **filename&#124;ssdeep**: A checksum in ssdeep format
 *   **filename&#124;tlsh**: A filename and a Trend Micro Locality Sensitive Hash separated by a &#124;
+*   **filename&#124;vhash**: A filename and a VirusTotal hash separated by a &#124;
 *   **first-name**: First name of a natural person
 *   **float**: A floating point value.
 *   **frequent-flyer-number**: The frequent flyer number of a passenger
@@ -666,6 +701,10 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **sha1**: A checksum in sha1 format
 *   **sha224**: A checksum in sha-224 format
 *   **sha256**: A checksum in sha256 format
+*   **sha3-224**: A checksum in sha3-224 format
+*   **sha3-256**: A checksum in sha3-256 format
+*   **sha3-384**: A checksum in sha3-384 format
+*   **sha3-512**: A checksum in sha3-512 format
 *   **sha384**: A checksum in sha-384 format
 *   **sha512**: A checksum in sha-512 format
 *   **sha512/224**: A checksum in the sha-512/224 format
@@ -690,6 +729,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **uri**: Uniform Resource Identifier
 *   **url**: url
 *   **user-agent**: The user-agent used by the malware in the HTTP request.
+*   **vhash**: A VirusTotal checksum
 *   **visa-number**: Visa number
 *   **vulnerability**: A reference to the vulnerability used in the exploit
 *   **weakness**: A reference to the weakness used in the exploit
