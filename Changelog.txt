@@ -2,6 +2,348 @@ Changelog
 =========
 
 
+v2.4.131 (2020-09-08)
+---------------------
+
+New
+~~~
+- [types] pgp-public-key/pgp-private-key added. [iglocska]
+- [internal] filter "type" added for the internal fetcher. [iglocska]
+
+  - appends email as a type if email-src/email-dst are found
+- [types] email added as a new type, affects #6281. [iglocska]
+- [diagnostic] Check if database index is unique. [Jakub Onderka]
+- [API] added count returnformat for the REST api, fixes #6233.
+  [iglocska]
+
+  - simply counts the number of attributes/events found (on each respective scope)
+- [ACL] event blacklisting fully opened up to host org users. [iglocska]
+
+  - also added a new special permission for the ACL system host_org_user - which will evaluate whether the user is in the org configured in the MISP.host_org_id directive
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [misp-object] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [blocklist] Add comment for automatic event blocklist. [Jakub Onderka]
+- [internal] Faster tag fetching for events. [Jakub Onderka]
+- [internal] Little optimise Event::getRelatedAttributes. [Jakub
+  Onderka]
+- [internal] Optimise Event::getRelatedEvents for non correlated events.
+  [Jakub Onderka]
+- [internal] Optimise Event::__attachReferences method. [Jakub Onderka]
+- [PyMISP] bump. [Alexandre Dulaunoy]
+- [attributes] to_ids for new email type. [Alexandre Dulaunoy]
+- [PyMISP] bump (due to describetypes) [Alexandre Dulaunoy]
+- [attribute] pgp is not php ;-) [Alexandre Dulaunoy]
+- [event] Deduplicate related events for extended view. [Jakub Onderka]
+- [event] Deduplicate tags for extended view. [Jakub Onderka]
+- [type] email-src/email-dst descriptions redefined. Also added email to
+  the person category. [iglocska]
+- [OpenIOC] email type added to the export tool. [iglocska]
+- [complex parser] added email as an option for parsed email addresses.
+  [iglocska]
+- [openioc] added email type. [iglocska]
+- [nids] added email type. [iglocska]
+- [bro] added email type. [iglocska]
+- Bumped queryversion. [Sami Mokaddem]
+- [misp-object] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [db_schema] Updated schema to reflect the change with allowlist and
+  blocklist. [mokaddem]
+- [misp.js] Correctly check if the variable exists before comparing.
+  [mokaddem]
+- [misp.js] Make sure the selector path is a valid selection string.
+  [mokaddem]
+- [jquery] Bumped jQuery to version 3.5.1. [mokaddem]
+- [internal] Deduplicate code for event conditions. [Jakub Onderka]
+- [internal] Much faster quick filter. [Jakub Onderka]
+- [internal] Initialize Feed class just once. [Jakub Onderka]
+- [internal] Unsetting SharingGroup is not necessary. [Jakub Onderka]
+- [internal] Remove unused Event::getAccessibleEventIds. [Jakub Onderka]
+- [internal] Remove duplicate event_creator_email fetching. [Jakub
+  Onderka]
+- [internal] Simplified putting attributes to objects. [Jakub Onderka]
+- [internal] Use faster fetcher for viewing sightings. [Jakub Onderka]
+- [JS libraries] Updated to latest version. [mokaddem]
+- Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [internal] Using Allowedlist instead of Whitelist. [Golbark]
+- [internal] Using blocklist instead of blacklist. [Golbark]
+- [internal] Removed unused variables. [Jakub Onderka]
+- [internal] Event::__escapeCSVField is not used. [Jakub Onderka]
+- [internal] Event::generateRandomFileName just redefines AppModel
+  method. [Jakub Onderka]
+- [internal] Validation issues are already checked by fetcher. [Jakub
+  Onderka]
+- [internal] Warninglist::filterWarninglistAttributes takes just two
+  arguments. [Jakub Onderka]
+- [event] Deduplicate attribute related tags. [Jakub Onderka]
+- [db_schema_diagnostic] Do not display remediation queries if an update
+  is in progress. [mokaddem]
+- Install poetry in home directory. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [stix import] Importing test mechanisms from indicators as yara rules.
+  [chrisr3d]
+- [misp-object] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [installer] Made the globalVariables more flexible when you need to
+  override them. [Steve Clement]
+- [internal] Optimise fetching sightings for object. [Jakub Onderka]
+- [internal] Less SQL queries for event index page. [Jakub Onderka]
+- [internal] Distribution is checked by SQL. [Jakub Onderka]
+- [internal] Remove not necessary code. [Jakub Onderka]
+- [internal] Remove unused code. [Jakub Onderka]
+- [PyMISP] bump PyMISP. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [API] GET requests on restsearch with no parameters are no longer
+  allowed. [iglocska]
+
+  - warn the user of the use of GET queries with posted JSON bodies
+- [UI] Nicer selector for attribute search. [Jakub Onderka]
+- [correlation] Fetch just necessary fields. [Jakub Onderka]
+- [cleanup] removed duplicate check in beforefilter() of the
+  eventblacklists controller. [iglocska]
+
+Fix
+~~~
+- [internal] fix to various CLI commands breaking on the IP field in the
+  log table not having a default value, fixes #6263. [iglocska]
+- [internal] Fetch related events for merged events just when necessary.
+  [Jakub Onderka]
+- [db_schema] Missing index for feeds.orgc_id. [Jakub Onderka]
+- [UI] Blocklist mass delete. [Jakub Onderka]
+- [UI] Event blocklist. [Jakub Onderka]
+- Support IE with no template literal support. [Tom King]
+- [internal] Respect ACL for event attribute search. [Jakub Onderka]
+- [stix2 import] Quick fix on external indicator parsing. [chrisr3d]
+
+  - Specifying the indicator version while testing
+    if the object is an indicator to avoid issues
+  - Also added a small warning message for debugging
+    purposes when we face issues to parse the
+    pattern types
+- [stix2 import] Making sure we do not lose the event uuid. [chrisr3d]
+- [stix2 import] Removed useless test in relationships parsing.
+  [chrisr3d]
+- [stix2 import] Fixed external patterns parsing. [chrisr3d]
+
+  - Avoiding brackets to be imported with the type
+    and value within attributes
+  - Going with 55095910c
+- [API] blocklist behaviour index via the API returns empty list.
+  [iglocska]
+
+  - fixed
+- [stix2 import] Fixed external pattern types parsing. [chrisr3d]
+
+  - Avoiding issues with patterns containing parts
+    within brackets and separated by OR statements
+    giving results like "[file" instead of "file"
+- [cluster:index] Prevent highlighting non existing JSON. [mokaddem]
+- [popovers] Prevent closing inexisting popovers. [mokaddem]
+- [userSettings:set_home_page] Added missing view file. Fix #6245.
+  [mokaddem]
+- [serverShell:cacheFeeds] Correct usage of __n function. Fix #6238.
+  [mokaddem]
+- [appmodel] Create indexes after the column has been added. [mokaddem]
+- [stix import] Handling potential key errors with test mechanism types.
+  [chrisr3d]
+- [otp] Allow to send encrypted OTP by mail. [Jakub Onderka]
+- [stix import] Preventing external observables & ttps parsing to fail.
+  [chrisr3d]
+
+  - Testing if observables have properties before
+    trying to parse observable properties
+  - Catching exceptions when ttps cannot be parsed
+  - Should fix #6250
+- [internal] loading a missing proposal attachment leads to an
+  exception. [iglocska]
+
+  - should be silently logged and notice error sent
+- [enrich event] Typo. [chrisr3d]
+- [enrich event] Avoid freetext results to end up lost in the
+  interstellar space of orphaned attributes with no event_id. [chrisr3d]
+- [tag] Show correct count of tag attributes and events. [Jakub Onderka]
+- [UI] Event attribute filters works again. [Jakub Onderka]
+- [JS] Issue #6226 when adding object reference. [Jakub Onderka]
+- [JS] broken URLs due to the baseurl refactor. [iglocska]
+
+  - no need to prepend URLs taken from the forms themselves directly.
+- [internal] Remove unused compositeTypes variable. [Jakub Onderka]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge pull request #6297 from JakubOnderka/fix-merging-events. [Jakub
+  Onderka]
+
+  fix: [internal] Fetch related events for merged events just when necessary
+- Merge pull request #6296 from JakubOnderka/2.4. [Jakub Onderka]
+
+  fix: [db_schema] Missing index for feeds.orgc_id
+- Merge pull request #6293 from JakubOnderka/event-blocklist-view-fix.
+  [Jakub Onderka]
+
+  Event blocklist view fix
+- Merge pull request #6208 from JakubOnderka/faster_attach_tags. [Jakub
+  Onderka]
+- Merge pull request #6288 from JakubOnderka/reference-optimisation.
+  [Jakub Onderka]
+
+  chg: [internal] Optimise Event::__attachReferences method
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #6179 from denny-lclin/fix/variable-name-typo.
+  [Christian Studer]
+
+  [stix1 export] fix some variables' typo
+- [stix1 export] fix some variables' typo. [Denny Lin]
+- Merge pull request #6259 from
+  JakubOnderka/extended_view_deduplication. [Jakub Onderka]
+
+  Extended view deduplication
+- Merge branch 'email_type' into 2.4. [iglocska]
+- Merge branch 'js-libs-update' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into js-libs-update.
+  [mokaddem]
+- Merge pull request #6282 from tomking2/bug/IE-support. [Andras Iklody]
+
+  fix: Support IE with no template literal support
+- Merge pull request #6254 from JakubOnderka/unique_index_diagnostic.
+  [Jakub Onderka]
+
+  new: [diagnostic] Check if database index is unique
+- Merge pull request #6274 from
+  JakubOnderka/acl_filter_attribute_values. [Jakub Onderka]
+
+  fix: [internal] Respect ACL for event attribute search
+- Merge branch '2.4' of github.com:MISP/MISP into js-libs-update.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into js-libs-update.
+  [mokaddem]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #6219 from JakubOnderka/event-small-optim. [Jakub
+  Onderka]
+
+  Event small optim
+- Merge pull request #6271 from JakubOnderka/faster_quick_filter. [Jakub
+  Onderka]
+
+  chg: [internal] Much faster quick filter
+- Merge pull request #6265 from JakubOnderka/not-necessary-code-vol2.
+  [Jakub Onderka]
+
+  Remove not necessary code vol2
+- Fixup! chg: [internal] Simplified putting attributes to objects.
+  [Jakub Onderka]
+- Merge pull request #6268 from JakubOnderka/sightings-faster-fetcher.
+  [Jakub Onderka]
+
+  chg: [internal] Use faster fetcher for viewing sightings
+- Merge pull request #6267 from Golbark/rename_bl. [Andras Iklody]
+
+  Rename blacklist and whitelist to alternatives
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #6264 from JakubOnderka/not-necessary-code. [Jakub
+  Onderka]
+
+  Remove not necessary code
+- Merge branch 'fix-6249' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into fix-6249. [mokaddem]
+- Merge pull request #6262 from JakubOnderka/deduplicate_related_tags.
+  [Jakub Onderka]
+
+  chg: [event] Deduplicate attribute related tags
+- Merge pull request #6258 from MISP/travis_poetry. [Raphaël Vinot]
+
+  chg: Install poetry in home directory
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #6214 from JakubOnderka/otp-encryption. [Jakub
+  Onderka]
+
+  fix: [otp] Allow to send encrypted OTP by mail
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #6241 from SteveClement/tools. [Steve Clement]
+
+  chg: [installer] Made the globalVariables more flexible
+- Merge pull request #6203 from JakubOnderka/tag-count. [Andras Iklody]
+
+  Show proper number of attributes and events for tags
+- Event ID translation feature (#6212) [Loïc Fortemps]
+
+  * new: [sync] Event ID translation between sync servers
+- Merge pull request #6237 from jtdroste/expanded-ip-logging. [Andras
+  Iklody]
+
+  new: Add the ability to customize the IP header field when logging
+- Add the ability to customize the IP header field when logging. [James
+  Droste]
+- Merge pull request #6234 from JakubOnderka/event-filters-fix. [Jakub
+  Onderka]
+
+  fix: [UI] Event attribute filters works again
+- Merge pull request #6230 from JakubOnderka/event-small-optim-simple.
+  [Jakub Onderka]
+
+  Small optimisation for event index page
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6228 from JakubOnderka/fix-6226. [Jakub Onderka]
+
+  fix: [JS] Issue #6226 when adding object reference
+- Merge pull request #6225 from rmkml/2.4. [Alexandre Dulaunoy]
+
+  add SHA3 Hash on Attribut.php
+- Add SHA3 Hash on Attribut.php. [rmkml]
+- Feature/achievements widget (#6129) [Christophe Vandeplas, Loïc
+  Fortemps, Steve Clement]
+
+  * Additionnal protection against XSS, the response type defaults to html while it should be JSON.
+  * new: widget: Achievements widget
+  * Update AchievementsWidget.php
+  * Update AchievementsWidget.php
+  * Visual adjustments, new badges
+  * i18n
+  * indentation to MISP convention
+  * AchievementsWidget minor textual improvements
+  * Optimized query and fix issue with i18n
+- Merge pull request #6221 from cudeso/2.4. [Alexandre Dulaunoy]
+
+  MISP-SNMP Monitor script
+- Add SNMP configuration snippet. [Koen Van Impe]
+- MISP-SNMP Monitor script. [Koen Van Impe]
+
+  Script to return statistics which can be picked up via SNMP.
+  Post for monitoring with Cacti (inspired by OpenNSM) will follow
+  shortly.
+- Merge remote-tracking branch 'MISP/2.4' into 2.4. [Koen Van Impe]
+- Merge pull request #6200 from JakubOnderka/us-attr-search. [Jakub
+  Onderka]
+
+  chg: [UI] Nicer selector for attribute search
+- Merge pull request #6222 from JakubOnderka/correlation-fetch-optim.
+  [Jakub Onderka]
+
+  chg: [correlation] Fetch just necessary fields
+- Merge pull request #6220 from obert01/fix-accessibility. [Andras
+  Iklody]
+
+  A few accessibility fixes for users of screen readers
+- A few accessibility fixes for users of screen readers: - Added aria
+  label and role for the representation of booleans in generic index
+  tables, - Fixed Aria label for actions in generic index tables, - Set
+  titles for actions in the admin user index table, - Added a few
+  missing aria labels in the global menu. [Olivier BERT]
+
+
 v2.4.130 (2020-08-20)
 ---------------------
 
@@ -35,6 +377,7 @@ New
 
 Changes
 ~~~~~~~
+- [VERSION] bump. [iglocska]
 - [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
 - [PyMISP] Bump tag. [Raphaël Vinot]
 - Bump PyMISP. [Raphaël Vinot]
