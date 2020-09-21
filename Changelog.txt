@@ -2,6 +2,73 @@ Changelog
 =========
 
 
+v2.4.132 (2020-09-15)
+---------------------
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [queryversion] Bumped. [mokaddem]
+- [bootstrap-datepicker] Updated to version 1.9.0. [mokaddem]
+- [appmodel] New entry to create an upper bound for the unwanted action
+  through login. [mokaddem]
+
+  This will be used by recovery scripts
+- [sightings] anonymise pushed sightings using new
+  Sightings_anonymise_as setting. [Richard van den Berg]
+- [events] Make sure the fetched form is hidden. [mokaddem]
+- [events] Index table delete buttons switch to fetch then post.
+  [mokaddem]
+- [internal] Better error handling when pushing event to remote server.
+  [Jakub Onderka]
+- [internal] Ensure that UUID is always lowecase and real UUID. [Jakub
+  Onderka]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [users] Avoid POSTing forms not linked to the login page resulting in
+  unwanted actions. [mokaddem]
+
+  - As reported by Michael Kerscher
+- [tag filters] fixed a bug introduced with the previous filter fix,
+  resulting in multiple OR tags being ignored as a valid filter.
+  [iglocska]
+- [Server] only push events/sightings when selected. [Richard van den
+  Berg]
+- [cleanup] [iglocska]
+- [cleanup] [iglocska]
+- [string concat] fix. [iglocska]
+- [cleanup] debug. [iglocska]
+- [internal] Correctly handle positive tag filters for non site admins.
+  [iglocska]
+
+  - tag filters were ignored incorrectly when it was a positive lookup
+- [internal] Nonsense index names. [Jakub Onderka]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Bumped db_schema. [Sami Mokaddem]
+- Merge branch 'fix-login' into 2.4. [mokaddem]
+- Merge pull request #6310 from RichieB2B/ncsc-nl/selective-push.
+  [Andras Iklody]
+
+  Only push events/sightings when selected for server
+- Merge pull request #6308 from RichieB2B/ncsc-nl/anonymise-as. [Andras
+  Iklody]
+
+  Anonymise pushed sightings
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #6286 from JakubOnderka/push-error-handling. [Jakub
+  Onderka]
+
+  chg: [internal] Better error handling when pushing event to remote se…
+- Merge pull request #6272 from JakubOnderka/uuid-validation. [Jakub
+  Onderka]
+
+
 v2.4.131 (2020-09-08)
 ---------------------
 
@@ -23,6 +90,7 @@ New
 
 Changes
 ~~~~~~~
+- Bumped MISP objects latest version. [chrisr3d]
 - [version] bump. [iglocska]
 - [PyMISP] Bump version. [Raphaël Vinot]
 - [misp-object] updated to the latest version. [Alexandre Dulaunoy]
@@ -109,6 +177,10 @@ Changes
 
 Fix
 ~~~
+- [widgets] Adding images by default on the repository (#6298) [Loïc
+  Fortemps]
+- [validation] relaxed first/last/middle name validation. [iglocska]
+- [objects] edit fails due to invalid URLs used fixed. [iglocska]
 - [internal] fix to various CLI commands breaking on the IP field in the
   log table not having a default value, fixes #6263. [iglocska]
 - [internal] Fetch related events for merged events just when necessary.
@@ -176,6 +248,8 @@ Fix
 
 Other
 ~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
 - Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
 - Merge pull request #6297 from JakubOnderka/fix-merging-events. [Jakub
   Onderka]
