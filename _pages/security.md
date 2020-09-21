@@ -57,6 +57,7 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2020-14969](https://cve.circl.lu/cve/CVE-2020-14969) <= MISP 2.4.128 - app/Model/Attribute.php in MISP 2.4.127 lacks an ACL lookup on attribute correlations. This occurs when querying the attribute restsearch API, revealing metadata about a correlating but unreachable attribute.
 - [CVE-2020-15411](https://cve.circl.lu/cve/CVE-2020-15411) <= MISP 2.4.128 - An issue was discovered in MISP 2.4.128. app/Controller/AttributesController.php has insufficient ACL checks in the attachment downloader.
 - [CVE-2020-15412](https://cve.circl.lu/cve/CVE-2020-15412) <= MISP 2.4.128 - An issue was discovered in MISP 2.4.128. app/Controller/EventsController.php lacks an event ACL check before proceeding to allow a user to send an event contact form.
+- [CVE-2020-25766](https://cve.circl.lu/cve/CVE-2020-25766) <= MISP 2.4.131 - An issue was discovered in MISP before 2.4.132. It can perform an unwanted action because of a POST operation on a form that is not linked to the login page.
 
 ## PGP Key
 
