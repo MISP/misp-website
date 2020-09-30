@@ -130,6 +130,7 @@ misp_object = MISPObject(name="github-user")
 ~~~~
 
 **tips:** you can find the object template name is the [MISP object template repository](https://github.com/MISP/misp-objects).
+
 **contributing:** if an object template is missing, you can propose your own.
 
 ### User data
