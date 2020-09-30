@@ -176,7 +176,7 @@ misp_object.add_attribute('blog', github_user['blog'])
 misp_object.add_attribute('node_id', github_user['node_id'])
 ~~~~
 
-Finaly, you add the new object created, then pushed to the specified event id, on your MISP instance:
+Finally, you add the new object created, then pushed to the specified event id, on your MISP instance:
 
 ~~~~python
 retcode = pymisp.add_object(args.event, misp_object)
