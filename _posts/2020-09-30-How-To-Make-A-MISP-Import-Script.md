@@ -123,11 +123,14 @@ The PyMISP connection is instantiated with following parameters coming from the 
 
 ### Object creation
 
-We create a MISP object, the name is object template name:
+We create a MISP object, the name is the object template name:
 
 ~~~~python
 misp_object = MISPObject(name="github-user")
 ~~~~
+
+**tips:** you can find the object template name is the [MISP object template repository](https://github.com/MISP/misp-objects).
+**contributing:** if an object template is missing, you can propose your own.
 
 ### User data
 
