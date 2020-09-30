@@ -2,18 +2,19 @@
 title: Create an import script for MISP , step-by-step tutorial
 layout: post
 authors:
-- Paul Bourmeau
+- Pauline Bourmeau
 date: 2020-09-30
 tags: ["MISP", "Import Script", "MISP", "Threat Intelligence"]
 categories: []
+featured: /assets/images/misp/blog/misp-python.png
 ---
 
-# Create an import script for MISP , step-by-step tutorial
+# Create an import script for MISP in Python, step-by-step tutorial
 
 ## Script description
 ### Example add_github_user.py
 
-Here the goal is to push to MISP information gathered on Github. The script [add_git_user.py](https://github.com/MISP/PyMISP/blob/main/examples/add_github_user.py) will be used as an example.
+Here the goal is to push to MISP information gathered on Github. The script [add_github_user.py](https://github.com/MISP/PyMISP/blob/main/examples/add_github_user.py) will be used as an example.
 
 An **import script**, it's different from a MISP module.
 
