@@ -22,7 +22,7 @@ An import script is run from a terminal to push data into a MISP, but a MISP mod
 
 This script will add data from GitHub as object to an existing MISP event.
 
-**Tips:** in early phase or for testing purpose, it's better to start with an import module to test the code and results. If it's conclusive you can code a MISP module.
+**Tips:** in early phase or for testing purpose, it's better to start with an import script to test the code and results. If it's conclusive you can code a MISP module.
 
 
 ### PyMISP install
