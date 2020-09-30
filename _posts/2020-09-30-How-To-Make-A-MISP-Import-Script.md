@@ -19,7 +19,7 @@ An **import script**, it's different from a MISP module.
 
 An import script is run from a terminal to push data into a MISP, but a MISP module runs into a MISP instance. For more information about MISP modules, see [here](https://misp.github.io/misp-modules/)
 
-This script will add data from github as object to an existing MISP event.
+This script will add data from GitHub as object to an existing MISP event.
 
 **Tips:** in early phase or for testing purpose, it's better to start with an import module to test the code and results. If it's conclusive you can code a MISP module.
 
@@ -54,7 +54,7 @@ PyMISP/examples/add_github_user.py
 
 ### Keys management
 
-For all scripts , you need to have a single key file **keys.py**. The file is not to be commited and contains the credentials for connecting to the MISP instance: API key, URL, SSH validations.
+For all scripts , you need to have a single key file **keys.py**. The file is not to be committed and contains the credentials for connecting to the MISP instance: API key, URL, SSH validations.
 
 - You create a file keys.py into the dir PyMISP/examples.
 
@@ -74,7 +74,7 @@ from keys import misp_url, misp_key, misp_verifycert
 
 ### Usage block
 
-We will go through the Python code and explain step-by-step eachb part.
+We will go through the Python code and explain step-by-step each part.
 
 It will be used by pyDoc, starts with """ and ends with """. You will here describe the usage for the script.
 
@@ -98,10 +98,10 @@ The script needs to grab the event-id (-e), a force to update the template from 
 
 ~~~~python
 parser = argparse.ArgumentParser(description='Fetch GitHub user details and add it in object in MISP')
-    parser.add_argument("-e", "--event", required=True, help="Event ID to update")
-    parser.add_argument("-f", "--force-template-update", required=False, action="store_true")
-    parser.add_argument("-u", "--username", required=True, help="GitHub username to add")
-    args = parser.parse_args()
+parser.add_argument("-e", "--event", required=True, help="Event ID to update")
+parser.add_argument("-f", "--force-template-update", required=False, action="store_true")
+parser.add_argument("-u", "--username", required=True, help="GitHub username to add")
+args = parser.parse_args()
 ~~~~
 
 ### Request
@@ -116,10 +116,9 @@ if args.force_template_update:
 		print("Updating MISP Object templates...")
 		update_objects()
 pymisp = PyMISP(misp_url, misp_key, misp_verifycert)
-
 ~~~~
 
-The PyMISP connection is instanciated with following parameters coming from the file keys.py : *misp_url, misp_keys and misp_verifycert*.
+The PyMISP connection is instantiated with following parameters coming from the file keys.py : *misp_url, misp_keys and misp_verifycert*.
 
 ### Object creation
 
@@ -131,7 +130,7 @@ misp_object = MISPObject(name="github-user")
 
 ### User data
 
-User data from the Github API are transformed into a JSON in order to be parsed by the following commands:
+User data from the GitHub API are transformed into a JSON in order to be parsed by the following commands:
 
 ~~~~python
 github_user = r.json()
