@@ -5,19 +5,19 @@ featured: /assets/images/misp/blog/event-report.png
 ---
 
 # Event Report: A convenient mechanism to edit, visualize and share reports
-MISP is widely known as a powerful tool to gather, correlate and share information yet with the growing information sharing maturity of the community, more features have been introduces over the past few years to meet analyst skills and requirements.
+MISP is widely known as a powerful tool to gather, correlate and share information. As a response to the growing information-sharing maturity of the community, more features have been introduced over the past few years to meet analyst skills and requirements.
 
-MISP evolved to support a richer data structure allowing analysts and operators to describe and visualize complex scenarios. Data stored in MISP can be adjusted and linked in a comprehensive manner turning them into explorable graphs or timelines representing their activity or events.
+MISP has evolved to support a richer data structure allowing analysts and operators to describe and visualize complex scenarios. Data stored in MISP can be adjusted and linked in a comprehensive manner turning them into explorable graphs or timelines representing their activity or events.
 
-However, in the present threat intelligence scene, information is often explained and shared in the form of article and using MISP's raw text comments is far from ergonomic and appealing.
+However, in the current threat intelligence scene, information is often explained and shared in the form of article and using MISP's raw text comments is far from ergonomic and appealing.
 Consequently, a crucial piece of data structure was missing and had to be supported: Reports.
 
-This article present the latest introduced feature to manipulate and share reports in MISP as well as providing tips and tricks on how to use it as its best of capabilities.
+This article presents the most recently introduced feature to manipulate and share reports in MISP as well as provide tips and tricks on how to use it in the best possible way.
 
 
 ## New feature: *Event report*
-**Note**: In order to have a meaningful example, excerpts of the welivesecurity.com's article about [Winnti Group targeting universities in Hong Kong](https://www.welivesecurity.com/2020/01/31/winnti-group-targeting-universities-hong-kong/) have been encoded.
-The full demo *event* along with the *event report* is available [here](/assets/images/misp/blog/event-reports/misp.event-report-demo.json)
+**Note**: In order to have a meaningful example, excerpts of the article from welivesecurity.com about [Winnti Group targeting universities in Hong Kong](https://www.welivesecurity.com/2020/01/31/winnti-group-targeting-universities-hong-kong/) have been encoded.
+The full demo *event* along with the *event report* is available [here](/assets/images/misp/blog/event-reports/misp.event-report-demo.json).
 
 ### Basic operations: Creation, deletion and synchronization
 As the name *Event report* indicates, reports in MISP are contained inside an *event*. It is important to note that *events* can contain more than one report. 
@@ -26,7 +26,7 @@ As the name *Event report* indicates, reports in MISP are contained inside an *e
 
 ![Event toolbar](../assets/images/misp/blog/event-reports/event-toolbar.png)
 
-*Event report* must have a name consisting in a few words summary of what you would expect in the report and a distribution level. The report's content can also be set here but it is optional as a dedicated editor interface is available.
+An *Event report* must have a name consisting of a few words summary about what you would expect in the report and a distribution level. The report's content can also be set here, but it is optional as a dedicated editor interface is available.
 
 Similar to *attributes*, reports can be either `soft-deleted` or `hard-deleted`. The advantage of `soft` over `hard` is that the delete directive will be propagated in the network of connected MISP instances whereas the other will only be effective locally.
 
@@ -34,7 +34,7 @@ To put it simply, *event reports* behave like attributes meaning that their dist
 
 ## Writing an *Event report*
 A report's content can be non-formatted raw text but the power of the feature comes from its markdown parser.
-As a matter of fact, markdown format is **highly recommended** as it offers an easy-to-use syntax, a pleasant document and if coupled with MISP custom directives, an easy-to-write pleasant interactive document!
+As a matter of fact, markdown format is **highly recommended** as it offers an easy-to-use syntax, a pleasant document, and if coupled with MISP custom directives, an easy-to-write pleasant interactive document!
 
 ![Event report](../assets/images/misp/blog/event-reports/report-modal.png)
 
@@ -43,7 +43,7 @@ Information on how to use the custom MISP markdown directives, supported markdow
 
 ![Event toolbar](../assets/images/misp/blog/event-reports/edit-toolbar.png)
 
-When is comes to editing, the best way to write a report is to use the split screen mode as it offers both a text editor and a markdown viewer at the same time, providing an intuitive WYSIWYG experience.
+When it comes to editing, the best way to write a report is to use the split-screen mode as it offers both a text editor and a markdown viewer at the same time, providing an intuitive WYSIWYG experience.
 
 ![Event toolbar](../assets/images/misp/blog/event-reports/editor-full.png)
 
@@ -61,7 +61,7 @@ The supported markdown format is similar to [GFM](https://github.github.com/gfm/
 - No html support, typographer & autolinker
 - An additional syntax to reference MISP Elements
 
-It means that you can use standard markdown syntax such as *italic*, **bold**, `code block` and tables but it also supports custom commands to reference *attributes*, *objects* and *tags* called MISP elements.
+It means that you can use standard markdown syntax such as *italic*, **bold**, `code block` and tables, but it also supports custom commands to reference *attributes*, *objects* and *tags* called MISP elements.
 
 In order to reference MISP elements, a syntax close to the markdown's link syntax is used
 ```
@@ -90,7 +90,7 @@ Here are some examples with their UI appearance
 
     ![galaxy matrix](../assets/images/misp/blog/event-reports/md-galaxy-matrix.png)
 
-*Attributes* containing an attachment of a picture can also display it in the report with the following syntax
+*Attributes* containing an attachment of a picture can also be displayed in the report with the following syntax
 ```
 @![attribute](UUID)
 ```
@@ -99,13 +99,13 @@ Example:
     - Will display the picture
 
 
-With this special syntax, MISP elements can be referenced and reports becomes interactive by clicking on the rendered MISP elements.
+With this special syntax, MISP elements can be referenced and reports become interactive by clicking on the rendered MISP elements.
 
 ![MISP Element popover](../assets/images/misp/blog/event-reports/md-popover.png)
 
 
 ### Editor autocompletion
-The editor provides auto-completion for various types of datapoint. Once the `scope` is picked, suggestions are proposed based on the value provided in the `UUID` field. Once the hint is chosen, the provided value is replaced by the actual UUID of the element, the only exception being for tags.
+The editor provides auto-completion for various types of datapoints. Once the `scope` is picked, suggestions are proposed based on the value provided in the `UUID` field. Once the hint is chosen, the provided value is replaced by the actual UUID of the element, the only exception being for tags.
 
 - Hinting with the filename value
 
@@ -116,8 +116,8 @@ The editor provides auto-completion for various types of datapoint. Once the `sc
     ![Editor hints tags](../assets/images/misp/blog/event-reports/cm-hints-tag.gif)
 
 ## Summary
-With the support of events built-in in MISP, a new kind of knowledge can be used. Classical threat intelligence reports, malware analysis articles or even something of a completely different taste can be shared along with the actionable data.
+With the support of reports built-in in MISP, a new kind of knowledge can be used. Classical threat intelligence reports, malware analysis articles or even something of a completely different taste can be shared along with the actionable data.
 
-*Event reports* also offers a wide range of new possibilities that were not doable efficiently before. For example, Counter analysis on cases can be explained, resolution steps and recommendations can be supplied and complete articles can be included inside an *event*.
+*Event reports* also offer a wide range of new possibilities that were not doable efficiently before. For example, Counter analysis on cases can be explained, resolution steps and recommendations can be supplied, and complete articles can be included inside an *event*.
 
-Furthermore, it opens the door for new ways to create information in MISP. We could imagine doing it the other way around by extracting IoCs, threat actors and so on directly from the report.
+Furthermore, it opens the door for new ways to create information in MISP. In the future, we could imagine doing it the other way around by extracting IoCs, threat actors and so on directly from the report.
