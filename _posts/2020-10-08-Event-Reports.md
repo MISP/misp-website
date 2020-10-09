@@ -28,12 +28,12 @@ As the name *Event report* indicates, reports in MISP are contained inside an *e
 
 *Event report* must have a name consisting in a few words summary of what you would expect in the report and a distribution level. The report's content can also be set here but it is optional as a dedicated editor interface is available.
 
-Similar to *attributes*, reports can be either `soft-deleted` or `hard-deleted`. The advantage of `soft` over `hard` is that the delete directive will be propagated in the network of connected MISP instances whereas the other will only be effective localy.
+Similar to *attributes*, reports can be either `soft-deleted` or `hard-deleted`. The advantage of `soft` over `hard` is that the delete directive will be propagated in the network of connected MISP instances whereas the other will only be effective locally.
 
 To put it simply, *event reports* behave like attributes meaning that their distribution mechanism is identical.
 
 ## Writing an *Event report*
-A report's content can be non-formated raw text but the power of the feature comes from its markdown parser.
+A report's content can be non-formatted raw text but the power of the feature comes from its markdown parser.
 As a matter of fact, markdown format is **highly recommended** as it offers an easy-to-use syntax, a pleasant document and if coupled with MISP custom directives, an easy-to-write pleasant interactive document!
 
 ![Event report](../assets/images/misp/blog/event-reports/report-modal.png)
@@ -48,16 +48,16 @@ When is comes to editing, the best way to write a report is to use the split scr
 ![Event toolbar](../assets/images/misp/blog/event-reports/editor-full.png)
 
 The editor provides features such as:
-- Mardown syntax shortcuts
-- Autocompletion
+- Markdown syntax shortcuts
+- Auto-completion
 - Synchronized scrolling between the text editor and the markdown viewer
 - Automatic markdown rendering when typing
-- Fullscreen and resizeable interface
+- Fullscreen and resizable interface
 - Time since last edit & quick save
 
 
 ### Custom MISP markdown directives
-The suported markdown format is similar to [GFM](https://github.github.com/gfm/) with some differences:
+The supported markdown format is similar to [GFM](https://github.github.com/gfm/) with some differences:
 - No html support, typographer & autolinker
 - An additional syntax to reference MISP Elements
 
@@ -70,7 +70,7 @@ In order to reference MISP elements, a syntax close to the markdown's link synta
 
 Where **scope** represents the scope of the element being referenced and **UUID** is the actual UUID of the element.
 
-Here are some examples with their UI appearence
+Here are some examples with their UI appearance
 - **attribute:** `@[attribute](5f1accda-cde4-47fc-baf1-6ab8f331dc3b)`
 
     ![attribute](../assets/images/misp/blog/event-reports/md-attribute.png)
@@ -105,7 +105,7 @@ With this special syntax, MISP elements can be referenced and reports becomes in
 
 
 ### Editor autocompletion
-The editor provides autocompletion for various types of datapoint. Once the `scope` is picked, suggestions are proposed based on the value provided in the `UUID` field. Once the hint is chosen, the provided value is replaced by the actual UUID of the element, the only exception being for tags.
+The editor provides auto-completion for various types of datapoint. Once the `scope` is picked, suggestions are proposed based on the value provided in the `UUID` field. Once the hint is chosen, the provided value is replaced by the actual UUID of the element, the only exception being for tags.
 
 - Hinting with the filename value
 
@@ -118,6 +118,6 @@ The editor provides autocompletion for various types of datapoint. Once the `sco
 ## Summary
 With the support of events built-in in MISP, a new kind of knowledge can be used. Classical threat intelligence reports, malware analysis articles or even something of a completely different taste can be shared along with the actionable data.
 
-*Event reports* also offers a wide range of new possiblities that were not doable efficiently before. For example, Counter analysis on cases can be explained, resolution steps and recommendations can be supplied and complete articles can be included inside an *event*.
+*Event reports* also offers a wide range of new possibilities that were not doable efficiently before. For example, Counter analysis on cases can be explained, resolution steps and recommendations can be supplied and complete articles can be included inside an *event*.
 
 Furthermore, it opens the door for new ways to create information in MISP. We could imagine doing it the other way around by extracting IoCs, threat actors and so on directly from the report.
