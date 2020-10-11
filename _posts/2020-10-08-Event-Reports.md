@@ -24,7 +24,7 @@ As the name *Event report* indicates, reports in MISP are contained inside an *e
 
 *Event reports* can be revealed by clicking on the toggle button `Event reports` located in the event toolbar
 
-![Event toolbar](../assets/images/misp/blog/event-reports/event-toolbar.png)
+![Event toolbar](/assets/images/misp/blog/event-reports/event-toolbar.png)
 
 An *Event report* must have a name consisting of a few words summary about what you would expect in the report and a distribution level. The report's content can also be set here, but it is optional as a dedicated editor interface is available.
 
@@ -36,16 +36,16 @@ To put it simply, *event reports* behave like attributes meaning that their dist
 A report's content can be non-formatted raw text but the power of the feature comes from its markdown parser.
 As a matter of fact, markdown format is **highly recommended** as it offers an easy-to-use syntax, a pleasant document, and if coupled with MISP custom directives, an easy-to-write pleasant interactive document!
 
-![Event report](../assets/images/misp/blog/event-reports/report-modal.png)
+![Event report](/assets/images/misp/blog/event-reports/report-modal.png)
 
 The editor interface presents a menu where reports can be downloaded in different formats and markdown rules can be turned on and off.
 Information on how to use the custom MISP markdown directives, supported markdown plugins and editor shortcuts can be found in the help menu.
 
-![Event toolbar](../assets/images/misp/blog/event-reports/edit-toolbar.png)
+![Event toolbar](/assets/images/misp/blog/event-reports/edit-toolbar.png)
 
 When it comes to editing, the best way to write a report is to use the split-screen mode as it offers both a text editor and a markdown viewer at the same time, providing an intuitive WYSIWYG experience.
 
-![Event toolbar](../assets/images/misp/blog/event-reports/editor-full.png)
+![Event toolbar](/assets/images/misp/blog/event-reports/editor-full.png)
 
 The editor provides features such as:
 - Markdown syntax shortcuts
@@ -101,7 +101,7 @@ Example:
 
 With this special syntax, MISP elements can be referenced and reports become interactive by clicking on the rendered MISP elements.
 
-![MISP Element popover](../assets/images/misp/blog/event-reports/md-popover.png)
+![MISP Element popover](/assets/images/misp/blog/event-reports/md-popover.png)
 
 
 ### Editor autocompletion
@@ -109,11 +109,11 @@ The editor provides auto-completion for various types of datapoints. Once the `s
 
 - Hinting with the filename value
 
-    ![Editor hints](../assets/images/misp/blog/event-reports/cm-hints.gif)
+    ![Editor hints](/assets/images/misp/blog/event-reports/cm-hints.gif)
 
 - Hinting with the threat actor tag
 
-    ![Editor hints tags](../assets/images/misp/blog/event-reports/cm-hints-tag.gif)
+    ![Editor hints tags](/assets/images/misp/blog/event-reports/cm-hints-tag.gif)
 
 ## Summary
 With the support of reports built-in in MISP, a new kind of knowledge can be used. Classical threat intelligence reports, malware analysis articles or even something of a completely different taste can be shared along with the actionable data.
