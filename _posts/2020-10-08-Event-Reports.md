@@ -1,7 +1,7 @@
 ---
 title: Event Report - A convenient mechanism to edit, visualize and share reports
 layout: post
-featured: /assets/images/misp/blog/event-report.png
+featured: /assets/images/misp/blog/event-reports/report-modal.png
 ---
 
 # Event Report: A convenient mechanism to edit, visualize and share reports
