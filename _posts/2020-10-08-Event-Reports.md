@@ -73,22 +73,22 @@ Where **scope** represents the scope of the element being referenced and **UUID*
 Here are some examples with their UI appearance
 - **attribute:** `@[attribute](5f1accda-cde4-47fc-baf1-6ab8f331dc3b)`
 
-    ![attribute](../assets/images/misp/blog/event-reports/md-attribute.png)
+    ![attribute](/assets/images/misp/blog/event-reports/md-attribute.png)
 - **object:** `@[object](e2293538-93a9-4c53-9c92-75ba75cfec3d)`
 
-    ![object](../assets/images/misp/blog/event-reports/md-object.png)
+    ![object](/assets/images/misp/blog/event-reports/md-object.png)
 - **object's attribute:** `@[attribute](5f5907a9-7bcc-4676-9bd2-4f330a00020f)`
 
-    ![object's attribute](../assets/images/misp/blog/event-reports/md-object-attribute.png)
+    ![object's attribute](/assets/images/misp/blog/event-reports/md-object-attribute.png)
 - **tag:** `@[tag](tlp:green)`
 
-    ![tag](../assets/images/misp/blog/event-reports/md-tag.png)
+    ![tag](/assets/images/misp/blog/event-reports/md-tag.png)
 - **galaxy cluster:** `@[tag](misp-galaxy:malpedia="ShadowPad")`
 
-    ![galaxy cluster](../assets/images/misp/blog/event-reports/md-cluster.png)
+    ![galaxy cluster](/assets/images/misp/blog/event-reports/md-cluster.png)
 - **galaxy matrix:** `@[galaxymatrix](c4e851fa-775f-11e7-8163-b774922098cd)`
 
-    ![galaxy matrix](../assets/images/misp/blog/event-reports/md-galaxy-matrix.png)
+    ![galaxy matrix](/assets/images/misp/blog/event-reports/md-galaxy-matrix.png)
 
 *Attributes* containing an attachment of a picture can also be displayed in the report with the following syntax
 ```
