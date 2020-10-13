@@ -171,6 +171,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |target-machine| | | | | | |
 |target-org| | | | | | |
 |target-user| | | | | | |
+|telfhash| | X | | | | |
 |text| X | X | X | X | X | X |
 |threat-actor| | | X | | | |
 |tlsh| | | | | | |
@@ -353,6 +354,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |target-machine| | | | | | |
 |target-org| | | | | | |
 |target-user| | | | | | |
+|telfhash| | | X | X | | |
 |text| X | X | X | X | X | X |
 |threat-actor| | | | | | |
 |tlsh| | | X | X | | |
@@ -535,6 +537,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |target-machine| | | | X |
 |target-org| | | | X |
 |target-user| | | | X |
+|telfhash| | | | |
 |text| X | X | X | |
 |threat-actor| | | | |
 |tlsh| | | | |
@@ -737,6 +740,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **target-machine**: Attack Targets Machine Name(s)
 *   **target-org**: Attack Targets Department or Organization(s)
 *   **target-user**: Attack Targets Username(s)
+*   **telfhash**: telfhash is symbol hash for ELF files, just like imphash is imports hash for PE files.
 *   **text**: Name, ID or a reference
 *   **threat-actor**: A string identifying the threat actor
 *   **tlsh**: A checksum in the Trend Micro Locality Sensitive Hash format
