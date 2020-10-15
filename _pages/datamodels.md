@@ -41,7 +41,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |cortex| | | | X | | |
 |counter| | | | | | |
 |country-of-residence| | | | | | |
-|cpe| | | | | | |
+|cpe| | | | X | | |
 |dash| | | | | X | |
 |date-of-birth| | | | | | |
 |datetime| | | | | | |
@@ -224,7 +224,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |cortex| | | | | | |
 |counter| | X | | | | |
 |country-of-residence| | | | | | |
-|cpe| | X | | | | |
+|cpe| | X | X | X | | |
 |dash| | | | | | |
 |date-of-birth| | | | | | |
 |datetime| | X | | | | |
@@ -610,7 +610,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **cortex**: Cortex analysis result
 *   **counter**: An integer counter, generally to be used in objects
 *   **country-of-residence**: The country of residence of a natural person
-*   **cpe**: Common platform enumeration
+*   **cpe**: Common Platform Enumeration - structured naming scheme for information technology systems, software, and packages.
 *   **dash**: Dash Address
 *   **date-of-birth**: Date of birth of a natural person (in YYYY-MM-DD format)
 *   **datetime**: Datetime in the ISO 8601 format
