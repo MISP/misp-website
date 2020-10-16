@@ -2,6 +2,1013 @@ Changelog
 =========
 
 
+v2.4.133 (2020-10-16)
+---------------------
+
+New
+~~~
+- [UI] Use flag icons from Twemoji. [Jakub Onderka]
+- [UI] Show organisation nationality flag. [Jakub Onderka]
+- [attribute type] cpe Common Platform Enumeration attribute type added.
+  [Alexandre Dulaunoy]
+- [attribute] telfhash attribute type added - fix #6435. [Alexandre
+  Dulaunoy]
+- [GPG] Validate fetched GPG key. [Jakub Onderka]
+- [UI] Add icons for threat levels. [Jakub Onderka]
+- [internal] Allow to set warning checking for all attributes, not just
+  IDS. [Jakub Onderka]
+- [warninglist] Allow to check if IP in CIDR is part of another CIDR.
+  [Jakub Onderka]
+- [warninglist] Cache warninglist results. [Jakub Onderka]
+- [build] Validate also feed metadata rules and settings JSON contents.
+  [Jakub Onderka]
+- [attribute-type] filename-pattern to describe a filename base on a
+  pattern. [Alexandre Dulaunoy]
+
+  Fix #403
+
+  There is no specific validation on the field. This allows us to have a clear
+  separation between filename and filename-pattern as many users were
+  using filename for regexp. This also helps the creation of object
+  template which requires a filename pattern.
+- [evenReport] Support of extended event. [mokaddem]
+- [eventReport:markdownEditor] Toggleable rendering of MISP Elements.
+  [mokaddem]
+- [eventReport:markdownEditor] Support to reference object attribute.
+  [mokaddem]
+- [markdownEditor] Added support of fullscreen mode. [mokaddem]
+- [eventReport:markdownEditor] Added hints for tags. [mokaddem]
+- [eventReport] Added support of tags. [mokaddem]
+- [user agent] string changed for MISP -> MISP synchronisation.
+  [iglocska]
+- [UI] Truncate long values. [Jakub Onderka]
+- [UI] Go directly to object reference when referenced object is on the
+  same page. [Jakub Onderka]
+- [workers] add kill all / force kill all buttons to the worker
+  management, fixes #6329. [iglocska]
+- [recovery] script added mock method among other changes. [iglocska]
+
+  - also added proposals
+  - add/accept/discard should be fully supported now
+- [recovery] added event deletion recovery tool. [iglocska]
+- [internal] added helper function to get tag id based on cluster id.
+  [iglocska]
+- [markdownEditor] Possibility to toggle rules on-the-fly. [mokaddem]
+- [markdownViewer] Added light support of picture attachment parsing.
+  [mokaddem]
+- [markdownViewer] Support of hints in editor. [mokaddem]
+- [markdownViewer] Added rule and renderer for special MISP elements.
+  [mokaddem]
+
+Changes
+~~~~~~~
+- [VERSION] bump. [iglocska]
+- Bump PyMISP. [Raphaël Vinot]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [UI] Remove famfamfam icon flags. [Jakub Onderka]
+- [UI] Use IconHelper for flag icons. [Jakub Onderka]
+- [internal] Allow to have empty nationality. [Jakub Onderka]
+- [UI] Update country names. [Jakub Onderka]
+- [internal] Normalize AS type to asplain notation. [Jakub Onderka]
+- [internal] Speedup sending module results. [Jakub Onderka]
+- [internal] Sighting saving optimisation. [Jakub Onderka]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [attribute] cpe was already present but not specified in any
+  categories. [Alexandre Dulaunoy]
+- [UI] Use nicer icon for Restore attribute button. [Jakub Onderka]
+- [eventReport] Put back attribute galaxies. [Jakub Onderka]
+- [eventReport] proxyMSIPElements are loaded dynamically. [Jakub
+  Onderka]
+- [eventReport] Do not fetch event reports when it is not necessary.
+  [Jakub Onderka]
+- [eventReport] Do not fetch attribute tags again, they are included in
+  object. [Jakub Onderka]
+- [eventReport] Do not fetch unnecessary event and attribute galaxies.
+  [Jakub Onderka]
+- [eventReport] Do not create separate array, merge is expensive. [Jakub
+  Onderka]
+- [eventReport] Do not attach sharing groups. [Jakub Onderka]
+- [eventReport] Fetch object templates just when event contains objects.
+  [Jakub Onderka]
+- [eventReport] Fetch parental event just when it is necessary. [Jakub
+  Onderka]
+- [eventReport] Do not fetch sightings for events. [Jakub Onderka]
+- [UI] Use existing implementation for popover also for cortex. [Jakub
+  Onderka]
+- [UI] Put back all attribute types when selecting empty category.
+  [Jakub Onderka]
+- [internal] Faster loading od Distribution graph. [Jakub Onderka]
+- [UI] Show hostname|port attribute value on one line. [Jakub Onderka]
+- [validation] Provide better invalid messages for ip-dst|port, ip-
+  src|port and hostname|port. [Jakub Onderka]
+- [validation] Simplify composite validation. [Jakub Onderka]
+- [copyright] AUTHORS updated. [Alexandre Dulaunoy]
+- [copyright] date fixed and top 6 contributors added as copyright
+  holder. [Alexandre Dulaunoy]
+- [PyMISP] latest version. [Alexandre Dulaunoy]
+- [PyMISP] bump version (new telfhash type added) [Alexandre Dulaunoy]
+- [cookie] Set session cookie SameSite to Lax to avoid browser warnings.
+  [Jakub Onderka]
+- [UI] Optimise loading contributors orgs. [Jakub Onderka]
+- [UI] Nicer icon for quick edit buttons. [Jakub Onderka]
+- [UI] Use quick select for objects UUID. [Jakub Onderka]
+- [UI] Enrichment for proposals doesn't exists. [Jakub Onderka]
+- [UI] Use nicer icon for accept proposal. [Jakub Onderka]
+- [UI] Put space between object action icons. [Jakub Onderka]
+- [internal] Provide better exception messages for signing and
+  encrypting. [Jakub Onderka]
+- [validation] Provide more precise and faster attribute validation.
+  [Jakub Onderka]
+- [internal] URL is already defang in ComplexTypeTool. [Jakub Onderka]
+- [UI] Validate object when revising. [Jakub Onderka]
+- [misp-warning] updated to the latest version. [Alexandre Dulaunoy]
+- [internal] Do not fetch event reports for view. [Jakub Onderka]
+- [internal] Merge EventReports for extended view. [Jakub Onderka]
+- [internal] Optimise event fetching. [Jakub Onderka]
+- [internal] Cleanup and simplify ShadowAttribute model code. [Jakub
+  Onderka]
+- [freetext] Send textarea on CMD+ENTER or CTRL+ENTER. [Jakub Onderka]
+- [freetext] Nicer remove icon. [Jakub Onderka]
+- [UI] Focus freetext textarea after opening popover. [Jakub Onderka]
+- [freetext] Process just big number of attributes in background. [Jakub
+  Onderka]
+- [UI] Better description for password popover. [Jakub Onderka]
+- [UI] Automatically select privacy target when is marked as quick
+  select. [Jakub Onderka]
+- [UI] Allow quickSelect organisation UUID. [Jakub Onderka]
+- [UI] Fix some bugs in user view. [Jakub Onderka]
+- [internal] Simplified AttributesController::hoverEnrichment method.
+  [Jakub Onderka]
+- [internal] More checks in Module model. [Jakub Onderka]
+- [UI] Show nice pgp form font. [Jakub Onderka]
+- [UI] Make external links more secure. [Jakub Onderka]
+- [UI] Show error message for hover enrichment when something wrong
+  happen. [Jakub Onderka]
+- [UI] Put title for hover enrichment icon. [Jakub Onderka]
+- [internal] Move hover enrichment script to misp.js. [Jakub Onderka]
+- [UI] Better log when for empty results for enrichment. [Jakub Onderka]
+- [UI] Make link clickable in enrichment. [Jakub Onderka]
+- [UI] Show loading icon when enrichment. [Jakub Onderka]
+- [UI] Limit enrichment popover size. [Jakub Onderka]
+- [internal] Use async version when fetching enrichment popover. [Jakub
+  Onderka]
+- [UI] Change design of attribute hover. [Jakub Onderka]
+- [internal] Better error messages for unzipping feed file. [Jakub
+  Onderka]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [UI] Break words when showing long value in popup. [Jakub Onderka]
+- [UI] Use "raw" view for long URLs. [Jakub Onderka]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [UI] Rename Email to Creator user in event index. [Jakub Onderka]
+- [UI] Keep term when searching for attribute. [Jakub Onderka]
+- [UI] Uppercase ID for event list. [Jakub Onderka]
+- [internal] Do not show attribute warning when searching attributes.
+  [Jakub Onderka]
+- [UI] Support quick select for UUID. [Jakub Onderka]
+- [UI] Move privacy toggle code to misp.js. [Jakub Onderka]
+- [UI] Focus proposal when going from proposals index. [Jakub Onderka]
+- [UI] Use hires icons for event page. [Jakub Onderka]
+- [UI] HTML code cleanup. [Jakub Onderka]
+- [internal] Validate sighting UUID. [Jakub Onderka]
+- [internal] Remove unused code. [Jakub Onderka]
+- [internal] Optimise sightings fetching. [Jakub Onderka]
+- [internal] Much faster attribute search. [Jakub Onderka]
+- [appmodel] Set default value for warninglist_entry_count. [mokaddem]
+- [internal] Clean up EventsController::view code. [Jakub Onderka]
+- [internal] Remove not necessary GalaxyCluster initialization. [Jakub
+  Onderka]
+- [internal] Initialize Sighting class just when necessary. [Jakub
+  Onderka]
+- [optimisation] Load MISP version and commit just once. [Jakub Onderka]
+- [internal] Optimise fetching sightings for object. [Jakub Onderka]
+- [internal] Use ACL also for side menu. [Jakub Onderka]
+- [internal] Move more global menu rules to ACLComponent. [Jakub
+  Onderka]
+- [internal] Use ACLComponent for menu item permission. [Jakub Onderka]
+- [warninglist] Use faster method for fetching data from Redis. [Jakub
+  Onderka]
+- [warninglist] Hash key in binary and store just for one hour. [Jakub
+  Onderka]
+- [internal] Fix for exact string match. [Jakub Onderka]
+- [internal] Normalize CIDR and hostname warninglists. [Jakub Onderka]
+- [internal] Simplified Warninglist::__checkValue. [Jakub Onderka]
+- [internal] Change method name to show that it just filter one attr.
+  [Jakub Onderka]
+- [internal] Save memory when storing warninglist to cache. [Jakub
+  Onderka]
+- [internal] Start IPv4 checking from zero. [Jakub Onderka]
+- [internal] Warninglist code cleanup. [Jakub Onderka]
+- [internal] Fix event warnings without redis cache. [Jakub Onderka]
+- [internal] Move getting missing tlds list to model. [Jakub Onderka]
+- [internal] Refactoring warninglist loading and saving. [Jakub Onderka]
+- [internal] Simplified Event::__prepare... methods. [Jakub Onderka]
+- [internal] Attach warnings to proposals. [Jakub Onderka]
+- [internal] Rename Warninglist::simpleCheckForWarning to
+  checkForWarning. [Jakub Onderka]
+- [complextype] Support for uppercase hashes. [Jakub Onderka]
+- [complextype] Speedup hash parsing from CSVs and freetexts. [Jakub
+  Onderka]
+- [community] add the pisax.org logo. [Alexandre Dulaunoy]
+- [community] new pisax.org community added. [Alexandre Dulaunoy]
+- [cleanup] removed duplicate empty queue declaration. [Andras Iklody]
+- [appModel] Removed prio worker from the list of available workers to
+  perform an update. [mokaddem]
+- [PyMISP] bump to latest version. [Alexandre Dulaunoy]
+- [Shell] Add MISP.osuser for updates. Fix #6368. [Richard van den Berg]
+- [markdownEditor] Adapt popover container if inside modal. [mokaddem]
+- [eventReports:markdownEditor] UI indication when hinting object's
+  Attribute. [mokaddem]
+- [eventReport:markdownEditor] Improved invalid element UI. [mokaddem]
+- [mardownEditor] Added loading backdrop container. [mokaddem]
+- [eventReport:markdownEditor] Fetch MISP elements with a different
+  request. [mokaddem]
+- [eventReport:markdownEditor] Changed popover's container. [mokaddem]
+- [eventReport:markdownEditor] Improved layout for invalid MISP
+  Elements. [mokaddem]
+- [eventReports:helpModal] Fixed some typos. [mokaddem]
+- [events] Simplified attribute_count condition for `minimal` filter
+  parameter. [mokaddem]
+- [event:updateEventReportBeforeSync] Make sure remote instance supports
+  event report. [mokaddem]
+- [eventReport] Added entry in restResponseComponent. [mokaddem]
+- [eventReport:markdownEditor] Propose hints based on substring instead
+  of start of the value. [mokaddem]
+- [eventReport:markdownEditor] Improved rendered object layout.
+  [mokaddem]
+- [eventReport:markdownEditor] Improved rendered attribute layout.
+  [mokaddem]
+- [eventReport:markdownEditor] Allow fetching tag data even if it isn't
+  created on the instance. [mokaddem]
+- [eventReport:markdownEditor] Improved hint UI. [mokaddem]
+- [eventReport:markdownEditor] Improved cluster representation.
+  [mokaddem]
+- [eventReport:markdownEditor] Increased the debounce delay when
+  fetching tags. [mokaddem]
+- [eventReport] Added entry for referencing tags in markdownEditor's
+  help modal. [mokaddem]
+- [internal] Simplified menu code. [Jakub Onderka]
+- [eventReport] Removed support of eventGraph. [mokaddem]
+
+  - eventGraph can still be used as with attribute picture attachment
+- [eventReport] Replace ID by UUID when referencing MISP Elements.
+  [mokaddem]
+- [missing attachment log] added affected orgs. [iglocska]
+- [warning lists] updated to the latest version. [Alexandre Dulaunoy]
+- [missing attachments] debug tool now logs event / attribute IDs.
+  [iglocska]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [correlations] Really limit number of correlations, not number of
+  attributes. [Jakub Onderka]
+- [internal] Initialize Job class just once. [Jakub Onderka]
+- [internal] Delete Redis key in pipeline. [Jakub Onderka]
+- [feed] Faster feed list fetching. [Jakub Onderka]
+- [correlations] Fetch just server of feed that has data in Redis.
+  [Jakub Onderka]
+- [correlations] Allow to get more info about feed correlations also for
+  host org users. [Jakub Onderka]
+- [correlations] Refactor feed cached correlations. [Jakub Onderka]
+- Bumped queryversion. [mokaddem]
+- [UI] Nicer warning box with link to show just warnings. [Jakub
+  Onderka]
+- [internal] Initialize Log model just once. [Jakub Onderka]
+- [internal] Move addMISPExportFile from controller to model. [Jakub
+  Onderka]
+- [internal] Move hex value convertor to misp.js. [Jakub Onderka]
+- [test] Lint all PHP and template files. [Jakub Onderka]
+- [UI] Show event creator for users within event org. [Jakub Onderka]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [eventReports:markdownEditor] Suggests available scope to references
+  MISP Elements. [mokaddem]
+- [eventReports] Updated markdownEditor help modal. [mokaddem]
+- [eventReport] Added support of all galaxy matrixes. [mokaddem]
+- [eventReports] Event reports in modal use the generic views.
+  [mokaddem]
+- [eventReport] Added rearrange function. [mokaddem]
+- [events:index] Minimal searches returns events having event reports
+  and no attributes. [mokaddem]
+- [appmodel] Make sure to trigger the event report db update. [mokaddem]
+- [UI] Show full title for role permission. [Jakub Onderka]
+- [mail] Another code cleanup for alert and contact mails template.
+  [Jakub Onderka]
+- [mail] Use same format for contact email as for alert. [Jakub Onderka]
+- [mail] Add unsubscribe info also for non encrypted mails. [Jakub
+  Onderka]
+- [mail] Simplified mail generation. [Jakub Onderka]
+- [mail] Cleanup mail sending code for event alerts. [Jakub Onderka]
+- [mail] TLP in subject should be uppercase. [Jakub Onderka]
+- [internal] Simplify objects conditions. [Jakub Onderka]
+- [internal] Use cached sharing groups IDs when fetching objects. [Jakub
+  Onderka]
+- [internal] Invalid message for UUID contains that UUID must be RFC
+  4122 compliant. [Jakub Onderka]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [users] Refined login form selector. [mokaddem]
+- [log] Convert shadowAtribute's fs/ls into understood format.
+  [mokaddem]
+- [log] Convert object's fs/ls into understood format. [mokaddem]
+- [events:recover_event] Adapt flash message if mock query requested.
+  [mokaddem]
+- [aclcomponent] Added recovery features in ACLComponent. [mokaddem]
+- [event] Forced usage of worker for event recovery. [mokaddem]
+- [events] Usage of `fix_login` in restoreDeletedEvents. [mokaddem]
+- [warning-lists] regenerated. [Alexandre Dulaunoy]
+- [eventreport] Make sure the format is correct when capturing.
+  [mokaddem]
+- [eventReport] Includes event data when fetching event report from non-
+  admin users. [mokaddem]
+- [eventReports] Improved returned data from controller. [mokaddem]
+- [restResponseComponent] Allow saveFailResponse and saveSuccessResponse
+  to return data. [mokaddem]
+- [markdownEditor] Split eventReport related code to their own files.
+  [mokaddem]
+- [markdownEditor] Move markdown editor to a generic file name.
+  [mokaddem]
+- [eventReport] Added comments. [mokaddem]
+- [eventReports] Prevent fields override. [mokaddem]
+- [eventReport] Moved event unpublishing to model. [mokaddem]
+- [eventReport] Started refactoring model - WiP. [mokaddem]
+- [eventReports] Refactored indexes. [mokaddem]
+- [eventReports] Major refactoring - WiP. [mokaddem]
+- [eventReport] Improved authorization error reporting. [mokaddem]
+- [eventReports] Added event unpublishing. [mokaddem]
+- [eventReports] Few UI improvements. [mokaddem]
+- [server] Allow to sync events if they only have event report.
+  [mokaddem]
+- [server] Added distribution downgrade for event report sync.
+  [mokaddem]
+- [eventReport] Generic improvements and light integration with
+  fetchEvent and sync support. [mokaddem]
+- [eventReports:edit] Improved title. [mokaddem]
+- [eventReports] Improved default index and prevent edition if deleted.
+  [mokaddem]
+- [eventReport] Allow adding event report from the index. [mokaddem]
+- [eventReport] Improved deletion/restoration via the API. [mokaddem]
+- [eventReport:edit] Allow to edit individual fields and better error
+  reporting. [mokaddem]
+- [eventReport] Improved sidemenu integration. [mokaddem]
+- [eventReports] Added redirects. [mokaddem]
+- [markdownEditor] Moved MISP Element rule menu to correct file.
+  [mokaddem]
+- [markdownEditor] Prevent scrolling top when clicking on menu links.
+  [mokaddem]
+- [markdownEditor] Line number for scroll sync should be in default js
+  file. [mokaddem]
+- [eventreport] Set correct context when POSTing report creation.
+  [mokaddem]
+- [event:view] Automatically open event report table. [mokaddem]
+- [eventreports] Reload event report table after report creation.
+  [mokaddem]
+- [eventReports] Deleted unused file. [mokaddem]
+- [eventReport] Improved UI and added support of soft/hard deletion.
+  [mokaddem]
+- [eventReport] Started rework on CRUD operations - WiP. [mokaddem]
+- [markdownEditor] Increased debounced render timer. [mokaddem]
+- [markdownEditor] highlight unsaved changes. [mokaddem]
+- [markdownEditor] Support of lastmodified and UI improvements when
+  saving. [mokaddem]
+- [markdownEditor] Fixes z-index if viewport too small. [mokaddem]
+- [markdownEditor] Added support of trailing characters such as `.`
+  after MISP element reference. [mokaddem]
+- [markdownEditor] Renamed markdownViewer into markdownEditor and split
+  web deps from view file. [mokaddem]
+- [markdownViewer] Added cache for attackmatrix and eventgraph.
+  [mokaddem]
+- [markdownViewer] Improved perfs and light support of permissions.
+  [mokaddem]
+- [eventReport] Centralized elements proxy for markdownViewer.
+  [mokaddem]
+- [markdownViewer] Displayed objects show the attribute with highest ui-
+  priority. [mokaddem]
+- [markdownViewer] Improved popover placement. [mokaddem]
+- [markdownViewer] Added help for plugins. [mokaddem]
+- [markdownViewer] Improved object rendering. [mokaddem]
+- [markdownViewer] Improved attribute rendering. [mokaddem]
+- [markdownViewer] Simplified help. [mokaddem]
+- [markdownViewer] Add support of colors  in attack matrix when
+  printing. [mokaddem]
+- [markdownViewer] Improved help. [mokaddem]
+- [markdownViewer] Added more help. [mokaddem]
+- [markdownViewer] Added support of attack matrix. [mokaddem]
+- [markdownViewer] Added toggles in editor bottom bar. [mokaddem]
+- [markdownViewer] Added notice if couldn't fetch event graph.
+  [mokaddem]
+- [markdownViewer] Improved support of eventgraph. [mokaddem]
+- [markdownViewer] Added drafty support of event graph. [mokaddem]
+- [markdownViewer] Added block picture in viewer and text in help.
+  [mokaddem]
+- [markdownViewer] Added dismiss button for popover. [mokaddem]
+- [markdownViewer] Popover support of MISP Elements. [mokaddem]
+- [markdownViewer] Checkbox for autocomplete while typing. [mokaddem]
+- [markdownViewer] Added more shortcuts. [mokaddem]
+- [markdownViewer] Slightly improved help modal. [mokaddem]
+- [markdownViewer] Added help modal. [mokaddem]
+- [markdownViewer] Ask confirmation before saving. [mokaddem]
+- [markdownViewer] Added download button for pdf and md (both types)
+  [mokaddem]
+- [eventReports:view] Added link to event. [mokaddem]
+- [markdownViewr] Autocomplete triggers automatically when typing.
+  [mokaddem]
+- [markdownViewer] Improve hint suggestions for MISP Elements.
+  [mokaddem]
+- [markdownViewer] Improved top bar UI and added editor helpers.
+  [mokaddem]
+- [eventReport] Improved integration with event index. [mokaddem]
+- [markdownViewer] Added custom rendering for MISP elements. [mokaddem]
+- [markdownViewer] Improved scroll map in modal. [mokaddem]
+- [markdownViewer] Improved layout and added draft of sync-scroll.
+  [mokaddem]
+- [markdownViewer] Improved split layout. [mokaddem]
+- [infoModal] Added support of xl modal body. [mokaddem]
+- [markdownViewer] Improved layout with resizer. [mokaddem]
+- [markdownViewer] Improved layout and added codemirror addons.
+  [mokaddem]
+- [markdownEditor] Added codemirror dependency. [mokaddem]
+- [markdownViewer] Added syntax highlighing. [mokaddem]
+- [markdownView] Improved layout. [mokaddem]
+- [eventReport] Improved models and markdown editor. [mokaddem]
+- [eventReport] Added markdown-it dependency and started integration -
+  WiP. [mokaddem]
+- [eventReport] Continuation of implementation - WiP. [mokaddem]
+
+Fix
+~~~
+- [server] caching notice fixed. [iglocska]
+- [UI] Do not show quick edit for deleted attributes and when user don't
+  have permission. [Jakub Onderka]
+- [UI] Show error for user if activateField request fail. [Jakub
+  Onderka]
+- [eventReport] Include just tags that belongs to requested event or its
+  parent, not to other child. [Jakub Onderka]
+- [eventReport] Properly validate UUID. [Jakub Onderka]
+- [eventReport] Optimize loading by UUID. [Jakub Onderka]
+- [eventReport] Template loading condition. [Jakub Onderka]
+- [UI] Remove checkbox from objects. [Jakub Onderka]
+- [UI] Correctly remove checked attributes after page reload. [Jakub
+  Onderka]
+- [internal] Missing variable. [Jakub Onderka]
+- [internal] Remove unnecessary class initialization. [Jakub Onderka]
+- [UI] Remove space after referecence link. [Jakub Onderka]
+- [UI] Reset popover box after closing. [Jakub Onderka]
+- [UI] Remove underline from icons. [Jakub Onderka]
+- [validation] Correct validation for iban, bic, btc, dash and xmr
+  attributes. [Jakub Onderka]
+- [validation] Normalize mac-address and mac-eui-64 to lowercase. [Jakub
+  Onderka]
+- [validation] Do not accept floats where should be just integers.
+  [Jakub Onderka]
+- [correlations] Disable correlation for port part in hostname|port
+  type. [Jakub Onderka]
+- [stix1 framing] Added Custom objects namespace. [chrisr3d]
+- [UI] Set title for atomic/extended switch. [Jakub Onderka]
+- [UI] Put current language to HTML element. [Jakub Onderka]
+- [UI] Element ID must be unique. [Jakub Onderka]
+- [UI] Try to fix broken form quick edit submit with CTRL+ENTER. [Jakub
+  Onderka]
+- [UI] Provide description for pivot remove button. [Jakub Onderka]
+- [UI] Provide description for search button. [Jakub Onderka]
+- [UI] Remove unused parts from row_proposal template. [Jakub Onderka]
+- [UI] Remove objectType is zero checks. [Jakub Onderka]
+- [UI] Normalize quck add attribute for object with other forms. [Jakub
+  Onderka]
+- [UI] Change new object attribute information margin. [Jakub Onderka]
+- [UI] objectAddFieldTr should not cover checkbox. [Jakub Onderka]
+- [UI] Proposal to delete should be considered as proposal. [Jakub
+  Onderka]
+- [UI] Make proposal links visible. [Jakub Onderka]
+- [UI] Nicer proposal HTML code. [Jakub Onderka]
+- [UI] Base url for OrgImgHelper. [Jakub Onderka]
+- [UI] Show warning if notification when creating new user could not be
+  send. [Jakub Onderka]
+- [UI] Provide proper description for S/MIME cert. [Jakub Onderka]
+- [internal] Properly convert `hostname|port` when delimiter is `:`
+  [Jakub Onderka]
+- [validation] Convert vulnerability attribute to uppercase. [Jakub
+  Onderka]
+- [validation] Float validation. [Jakub Onderka]
+- [mail] S/MIME certificate validation, fixes #6424. [Jakub Onderka]
+- [freetext] Do not load event page twice when saving freetext. [Jakub
+  Onderka]
+- [UI] Add space after icon. [Jakub Onderka]
+- [UI] Non breakable space between hidden value and icon. [Jakub
+  Onderka]
+- [UI] Remove not used organisation landing page. [Jakub Onderka]
+- [internal] Remove unused $page variable. [Jakub Onderka]
+- [UI] Do not hide some errors. [Jakub Onderka]
+- [internal] Check if module has defined userConfig. [Jakub Onderka]
+- [db_schema] Bumped schema with the changes. [mokaddem]
+- [eventReports] Renamed function to make it more explicit and avoid
+  function name override. [mokaddem]
+- [ACLComponent] Added missing entry and removed invalid warnings.
+  [mokaddem]
+- [UI] Hover enrichment popover overflowing. [Jakub Onderka]
+- [UI] Remove margin from long value pre. [Jakub Onderka]
+- [internal] Array to string conversion when constructing request.
+  [Jakub Onderka]
+- [freetext] Convert CVE string to uppercase to follow attribute
+  validation. [Jakub Onderka]
+- [UI] Bigger margin for extend this event button. [Jakub Onderka]
+- [UI] Clear input value when clicking cancel for attribute search.
+  [Jakub Onderka]
+- [UI] #attributesFilterField doesn't exists anymore. [Jakub Onderka]
+- [UI] Show loading also for down attribute paginator. [Jakub Onderka]
+- [UI] Remove unnecessary br from eventattribute template. [Jakub
+  Onderka]
+- [UI] Remove unused page argument for sighting form. [Jakub Onderka]
+- [UI] Fix IDS toggle permission in attribute view. [Jakub Onderka]
+- [UI] Return back sighting popover. [Jakub Onderka]
+- [UI] Remove duplicate request for quick filter. [Jakub Onderka]
+- [UI] Disable To IDS checkbox if user don't have persmission to modify
+  event. [Jakub Onderka]
+- [internal] Removed unused template. [Jakub Onderka]
+- [UI] Use pointer cusros for template choice button. [Jakub Onderka]
+- [decayingModelSimulation] Correctly extract part of atomic tags.
+  [mokaddem]
+- [tags:attachTagToObject] Respect case when searching tags. [mokaddem]
+- [tags:attachTagsToObject] Respect case when attaching tags. Fix #6380.
+  [mokaddem]
+- [UI] Showing active menu item when viewing noticelist. [Jakub Onderka]
+- [UI] Showing item in side menu for org admin. [Jakub Onderka]
+- [UI] Check more menu ACLs. [Jakub Onderka]
+- [UI] Do not show empty global menu item. [Jakub Onderka]
+- [UI] User guide link. [Jakub Onderka]
+- [warnings] enforceWarninglist works again. [Jakub Onderka]
+- [warnings] Cache deletion. [Jakub Onderka]
+- [warninglists] Include warning for merged events. [Jakub Onderka]
+- [warnings] Attach warnings to feed and server event preview. [Jakub
+  Onderka]
+- [internal] IPv6 CIDR warninglist. [Jakub Onderka]
+- [server:workerDiagostics] Default queue status to false. [mokaddem]
+- [tag filters] fixed ridiculously long lists for tag filters.
+  [iglocska]
+- [CLI] missing ; [iglocska]
+- [server] Do not limit TLD to 5 characters. Fix #6342. [Richard van den
+  Berg]
+- [internal] Variable should be defined all the time. [Jakub Onderka]
+- [proposal] No return when org is not defined. [Jakub Onderka]
+- [eventReports:markdownEditor] Force close the popover if parent
+  element not found. [mokaddem]
+- [eventReport] Do not try to fetch report after successful hard
+  deletion. [mokaddem]
+- [markdownEditor] Reset width in editor's split mode when swiching to
+  fullscreen. [mokaddem]
+- [eventReport:markdownEditor] render markdown once MISP elements have
+  been fetched. [mokaddem]
+- [eventReport] Improved variable name and do not crash if event is not
+  extending another one. [mokaddem]
+- [eventReports] Typo in variable name. [mokaddem]
+- [markdownEditor] Layout glitch with resizeable helper and fullscreen.
+  [mokaddem]
+- [misp] Allow re-showing hidden popover after creation. [mokaddem]
+- [eventReports:index] Fixed quicksearches. [mokaddem]
+- [eventReport:markdowEditor] Make add galaxy-matrix shortcut works.
+  [mokaddem]
+- [server:push] Correctly return message when using API. [mokaddem]
+- [event:push] Setup requests headers before sending request. [mokaddem]
+- [server:push] Allow pushing events only having event reports.
+  [mokaddem]
+- [event:updateEventReportBeforeSync] Init httpSocket. [mokaddem]
+- [tags:search] Make sure the predicate exists in the taxonomy.
+  [mokaddem]
+- [eventReport:markdownEditor] Improved colors of attributes and objects
+  in printing view. [mokaddem]
+- [eventReport:markdownEditor] Parse all tags in a line instead of the
+  last one. [mokaddem]
+- [eventReport:markdownEditor] Avoid override of legitimate tags if they
+  don't have data linked to them. [mokaddem]
+- [eventReport:markdownEditor] Prevent error while opening popover for
+  unknown tags. [mokaddem]
+- [doc] Document "cake Server pullAll" [Richard van den Berg]
+- [attachment checker] invalid lookup. [iglocska]
+- [missing attachment log] fixed issue with orgs not being logged.
+  [iglocska]
+- [attachment checks] output of logging cleaned up. [iglocska]
+- [events] Added loading indicator when paginating on event's attribute
+  table. [mokaddem]
+- [hacky] readded org field to shadow attributes - just blank it out for
+  old instances where the update failed to remove it a few years ago.
+  [iglocska]
+- [sync] better logging of error messages and handle the user ID not
+  being set by background processes. [iglocska]
+- [correlations] Properly delete feeds caches. [Jakub Onderka]
+- [internal] Remove duplicates from cancelPopoverForm. [Jakub Onderka]
+- [UI] Popup size. [Jakub Onderka]
+- [decaying] 2-tag base_score ratio. Fix #6352. [mokaddem]
+- [attribute] Typo in regex. Fix #6354. [mokaddem]
+- [UI] Make attribute/object focus work again. [Jakub Onderka]
+- [internal] Remove dead code from template. [Jakub Onderka]
+- [internal] Undefined variable base_url for idTranslator. [Jakub
+  Onderka]
+- [UI] Show error for user if file for import is invalid. [Jakub
+  Onderka]
+- [UI] Hex and binary convertor. [Jakub Onderka]
+- [UI] Show properly formatted attribute value after quick edit. [Jakub
+  Onderka]
+- [UI] Show proper menu when using even import module. [Jakub Onderka]
+- [internal] Prepare for PHP8. [Jakub Onderka]
+- [internal] Fix tests for missing ACL. [Jakub Onderka]
+- [UI] Custom password reset link is absolute. [Jakub Onderka]
+- [internal] Typo in perm name. [Jakub Onderka]
+- [internal] Do not fetch more info than necessary. [Jakub Onderka]
+- [eventReports] Use correct data path to access org_c. [mokaddem]
+- [eventReport] Deleted report can be restored by non-admin users.
+  [mokaddem]
+- [ACL] Permissions when sending contact and alert emails. [Jakub
+  Onderka]
+- [internal] Conditions when object distribution is set to org only.
+  [Jakub Onderka]
+- [internal] Fetching objects with attachments. [Jakub Onderka]
+- [internal] Remove duplicate check for published event when fetch
+  objects. [Jakub Onderka]
+- [internal] Remove duplicate conditions for object restSearch. [Jakub
+  Onderka]
+- [internal] Code style. [Jakub Onderka]
+- [internal] Invalid conditions for sharing group when fetching objects.
+  [Jakub Onderka]
+- [internal] Bad merge. [Jakub Onderka]
+- [server] Downgrade distribution of objects when pulling. [mokaddem]
+- [recovery] various fixes. [iglocska]
+
+  - to_ids fixed
+  - background processing made optional
+  - first/last seen format conversion altering the data's format for the recovery script fixed
+  - added capture of object first/last seen to the recovery script
+- [log:event_recovery] Delete blocklist entry for recovered event.
+  [mokaddem]
+- [objectReference] Do no reset timestamp to current time if already
+  provided. [mokaddem]
+- [log] Convert attribute's fs/ls into understood format. [mokaddem]
+- [events:recover_event] Fixed URL. [mokaddem]
+- [merge issue] resolved. [iglocska]
+- [attributes] Restored action on tags in mass edit. [mokaddem]
+- Added missing test mechanisms mapping mapping. [chrisr3d]
+- [validation] make publish_timestamp on the event object more resilient
+  to malformed empty values. [iglocska]
+- [eventReport] Do not ignore `false` fields when editing. [mokaddem]
+- [event] Delete event report when deleting event. [mokaddem]
+- [eventReport] changed beforeFilter signature to avoid notice.
+  [mokaddem]
+- [eventReports] Add view variables before rendering. [mokaddem]
+- [event] Use correct function name. [mokaddem]
+- [markdownEditor] Make viewer works inside modal. [mokaddem]
+- [markdownEditor] Post split bugs. [mokaddem]
+- [markdownViewer] Fixed missing event_id. [mokaddem]
+- [markdownViewer] Regenerate scroll map after resize + layout
+  improvement. [mokaddem]
+- [datetime] Failed merge. [mokaddem]
+- [attribute tag culling] fixed. [iglocska]
+
+  - no longer hides tags that should be included in the export
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge branch 'tagfix' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into HEAD. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #6414 from JakubOnderka/user-view-ui. [Jakub
+  Onderka]
+
+  Flag icons and country list
+- Merge branch '2.4' into event-report-optimisations. [mokaddem]
+- Merge pull request #6447 from JakubOnderka/as-normalization.
+  [Alexandre Dulaunoy]
+
+  chg: [internal] Normalize AS type to asplain notation
+- Merge pull request #6446 from JakubOnderka/module-import-speedup.
+  [Jakub Onderka]
+
+  chg: [internal] Speedup sending module results
+- Merge pull request #6289 from JakubOnderka/save-sighting-optim. [Jakub
+  Onderka]
+
+  chg: [internal] Sighting saving optimisation
+- Merge pull request #6442 from JakubOnderka/event-ui-vol4. [Jakub
+  Onderka]
+
+  Event UI fixes vol4
+- Merge pull request #6416 from JakubOnderka/event-view-fix. [Alexandre
+  Dulaunoy]
+
+  Remove object checkbox
+- Merge pull request #6440 from JakubOnderka/event-ui-vol3. [Jakub
+  Onderka]
+
+  Event ui vol3
+- Merge pull request #6439 from nighttardis/2.4. [Jakub Onderka]
+
+  Syntax fix for session.cookie_samesite
+- Merge pull request #1 from nighttardis/nighttardis-core-php-syntax.
+  [nighttardis]
+
+  Update core.default.php
+- Update core.default.php. [nighttardis]
+
+  Fixing PHP syntax error that appears on PHP 7.4
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #6436 from JakubOnderka/attribute-validation.
+  [Jakub Onderka]
+
+  Attribute validation
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #6429 from cudeso/2.4. [Alexandre Dulaunoy]
+
+  Send a message to ZMQ when an event from a connected server is added or edited
+- Send message to ZMQ when there is event add/edit coming from a
+  connected server. [Koen Van Impe]
+- Merge remote-tracking branch 'MISP/2.4' into 2.4. [Koen Van Impe]
+- Merge pull request #6438 from JakubOnderka/hostname-port-correlation.
+  [Jakub Onderka]
+
+  fix: [correlations] Disable correlation for port part in hostname|port
+- Merge pull request #6400 from JakubOnderka/cookie-samesite-lax. [Jakub
+  Onderka]
+
+  chg: [cookie] Set session cookie SameSite to Lax to avoid browser warnings
+- Merge pull request #6423 from JakubOnderka/view-event-small-ui-
+  changes. [Jakub Onderka]
+
+  View event small ui changes
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #6432 from JakubOnderka/smime. [Jakub Onderka]
+
+  Smime
+- Merge pull request #6418 from JakubOnderka/revise-object-validation.
+  [Jakub Onderka]
+
+  Revise object validation
+- Merge pull request #6425 from JakubOnderka/fix-smime-certificate-
+  validation. [Jakub Onderka]
+
+  fix: [mail] S/MIME certificate validation
+- Merge pull request #6417 from JakubOnderka/fetch-event-optimisation.
+  [Jakub Onderka]
+
+  Fetch event optimisation
+- Merge pull request #6422 from JakubOnderka/shadow-attribute-code-
+  cleanup. [Jakub Onderka]
+
+  chg: [internal] Cleanup and simplify ShadowAttribute model code
+- Merge pull request #6421 from JakubOnderka/freetext-background. [Jakub
+  Onderka]
+
+  Freetext background processing
+- Merge pull request #6420 from JakubOnderka/user-organisation-ui-
+  changes. [Jakub Onderka]
+
+  User and organisation pages UI changes
+- Merge pull request #6419 from JakubOnderka/event-template-cleanup.
+  [Jakub Onderka]
+
+  fix: [internal] Remove unused $page variable
+- Merge pull request #6395 from JakubOnderka/module-fixes. [Jakub
+  Onderka]
+
+  Module fixes
+- Merge pull request #6300 from JakubOnderka/validate-gpg-key. [Jakub
+  Onderka]
+
+  Validate gpg key
+- Merge pull request #6413 from JakubOnderka/external-links-secure.
+  [Jakub Onderka]
+
+  chg: [UI] Make external links more secure
+- Merge pull request #6412 from mokaddem/feature-event-report.
+  [Alexandre Dulaunoy]
+
+  [feature] Event Report
+- Merge remote-tracking branch 'origin/2.4' into feature-event-report.
+  [mokaddem]
+- Merge pull request #6405 from JakubOnderka/hover-ui. [Jakub Onderka]
+
+  Change hover enrichment user interface
+- Merge pull request #6397 from JakubOnderka/zip-error-messages. [Jakub
+  Onderka]
+
+  chg: [internal] Better error messages for unzipping feed file
+- Merge pull request #6398 from JakubOnderka/ui-long-values-vol2. [Jakub
+  Onderka]
+
+  fix: [UI] Remove margin from long value pre
+- Merge pull request #6393 from JakubOnderka/ui-long-values. [Jakub
+  Onderka]
+
+  Ui long values
+- Merge pull request #6394 from JakubOnderka/fix-array-to-string-
+  conversion. [Jakub Onderka]
+
+  fix: [internal] Array to string conversion when constructing request
+- Merge pull request #6396 from JakubOnderka/freetext-cve-import. [Jakub
+  Onderka]
+
+  fix: [freetext] Convert CVE string to uppercase
+- Merge pull request #6381 from JakubOnderka/ui-small-fixes-vol2. [Jakub
+  Onderka]
+
+  UI small fixes
+- Merge pull request #6385 from JakubOnderka/sighting-fetch-optim.
+  [Jakub Onderka]
+
+  Sighting fetch optim
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #6388 from JakubOnderka/attribute-search-optim.
+  [Jakub Onderka]
+
+  chg: [internal] Much faster attribute search
+- Merge pull request #6384 from JakubOnderka/event-load-optim. [Jakub
+  Onderka]
+
+  Event load optim
+- Merge pull request #6348 from JakubOnderka/version-fetch-optim. [Jakub
+  Onderka]
+
+  chg: [optimisation] Load MISP version and commit just once
+- Merge pull request #6382 from JakubOnderka/fetch-sightings-faster.
+  [Jakub Onderka]
+
+  chg: [internal] Optimise fetching sightings for object
+- Merge pull request #6359 from JakubOnderka/acl-menu-item. [Jakub
+  Onderka]
+
+  Acl menu item
+- Merge pull request #6335 from JakubOnderka/warninglist-cache. [Jakub
+  Onderka]
+
+  Warninglist Redis cache
+- Merge pull request #6378 from JakubOnderka/feed-metadata-validation.
+  [Jakub Onderka]
+
+  new: [build] Validate also feed metadata rules and settings JSON contents
+- Merge branch 'fetcher_debug' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into fetcher_debug.
+  [iglocska]
+- Merge pull request #6377 from JakubOnderka/freetext-hash-parsing.
+  [Jakub Onderka]
+
+  chg: [complextype] Speedup hash parsing from CSVs and freetexts
+- Merge pull request #6370 from MISP/fix-update-no-prio. [Andras Iklody]
+
+  Fix update no prio
+- Update Server.php. [Andras Iklody]
+- Merge pull request #6373 from RichieB2B/issue-6368. [Andras Iklody]
+
+  Allow OS user to be set for upgrades
+- Merge pull request #6375 from RichieB2B/issue-6342. [Andras Iklody]
+
+  Do not limit TLD to 5 characters
+- Merge pull request #6374 from JakubOnderka/test-fix. [Jakub Onderka]
+
+  Test fix
+- Merge branch '2.4' of github.com:MISP/MISP into feature-event-report.
+  [mokaddem]
+- Merge pull request #6360 from JakubOnderka/menu-simplified. [Jakub
+  Onderka]
+
+  chg: [internal] Simplified menu code
+- Merge pull request #6372 from RichieB2B/ncsc-nl/pullAll. [Andras
+  Iklody]
+
+  Document "cake Server pullAll"
+- Merge pull request #6362 from imidoriya/2.4. [Andras Iklody]
+
+  Fix date filter on to / from #6239
+- Filter Event Date - convert timestamp to datetime. [deku]
+
+  PyMisp sends the to / from as a timestamp.  MISP needs to convert a timestamp when comparing.
+- Merge branch '2.4' of github.com:MISP/MISP into feature-event-report.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Revert "fix: [tag] Show correct count of tag attributes and events"
+  [iglocska]
+
+  This reverts commit e644f4ea4c01e1f8018133d2a82aa3c321fff98d.
+- Revert "chg: [internal] Optimise fetching sightings for object"
+  [iglocska]
+
+  This reverts commit e442a394cd4ee7e3797151d8146992d4b1a2bee6.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #6357 from JakubOnderka/feed-correlation-refactor.
+  [Jakub Onderka]
+
+  chg: [correlations] Refactor feed cached correlations
+- Merge pull request #6346 from JakubOnderka/truncate-long-values.
+  [Jakub Onderka]
+
+  Truncate long values
+- Merge pull request #6345 from JakubOnderka/pivot-directly. [Jakub
+  Onderka]
+
+  new: [UI] Go directly to object reference when referenced object is on the same page
+- Merge pull request #6350 from rmkml/2.4. [Andras Iklody]
+
+  fix #6336 vhash
+- Fix #6336 vhash. [rmkml]
+- Merge pull request #6351 from JakubOnderka/template-dead-code. [Jakub
+  Onderka]
+
+  Template dead code
+- Merge pull request #6333 from JakubOnderka/id-translator-fix. [Jakub
+  Onderka]
+
+  fix: [internal] Undefined variable base_url for idTranslator
+- Merge pull request #6349 from JakubOnderka/warninglist-box. [Jakub
+  Onderka]
+
+  chg: [UI] Nicer warning box with link to show just warnings
+- Merge pull request #6344 from JakubOnderka/misp-file-import. [Jakub
+  Onderka]
+
+  Misp file import error message
+- Merge pull request #6347 from JakubOnderka/hex-binary-convertor.
+  [Jakub Onderka]
+
+  Hex binary convertor
+- Merge pull request #6343 from JakubOnderka/after-attribute-edit.
+  [Jakub Onderka]
+
+  fix: [UI] Show properly formatted attribute value after quick edit
+- Merge pull request #6340 from JakubOnderka/import-ui. [Jakub Onderka]
+
+  fix: [UI] Show proper menu when using even import module
+- Merge pull request #6339 from JakubOnderka/lint. [Jakub Onderka]
+
+  chg: [test] Lint all PHP and template files
+- Merge pull request #6338 from JakubOnderka/password-reset-absolute.
+  [Jakub Onderka]
+
+  fix: [UI] Custom password reset link is absolute
+- Merge pull request #6334 from JakubOnderka/role-typo-fix. [Jakub
+  Onderka]
+
+  fix: [internal] Typo in perm name
+- Merge pull request #6330 from JakubOnderka/event-creator. [Jakub
+  Onderka]
+
+  chg: [UI] Show event creator for users from event org
+- Merge pull request #6331 from RichieB2B/ncsc-nl/spaces. [Andras
+  Iklody]
+
+  Remove extraneous spaces from E-mail subject
+- Remove extraneous spaces from E-mail subject. [Richard van den Berg]
+- Merge remote-tracking branch 'origin/2.4' into feature-event-report.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6328 from JakubOnderka/role-ui-full-label. [Jakub
+  Onderka]
+
+  chg: [UI] Show full title for role permission
+- Merge pull request #6090 from JakubOnderka/tlp-uppercase. [Jakub
+  Onderka]
+
+  chg: [mail] Refactor email generating
+- Merge pull request #6327 from JakubOnderka/fix-object-conditons-vol2.
+  [Jakub Onderka]
+
+  fix: [internal] Conditions when object distribution is set to org only
+- Merge pull request #6326 from JakubOnderka/fix-object-conditions.
+  [Jakub Onderka]
+
+  Fix object conditions
+- Merge branch 'event_recovery' into 2.4. [iglocska]
+- Merge branch '2.4' into event_recovery. [iglocska]
+- Merge pull request #6325 from rmkml/2.4. [Alexandre Dulaunoy]
+
+  fix #6266 vhash &
+- Fix #6266 vhash & [rmkml]
+- Merge pull request #6322 from JakubOnderka/invalid-uuid-message.
+  [Jakub Onderka]
+
+  chg: [internal] Invalid message for UUID contains that UUID must be RFC 4122
+- Merge pull request #6315 from eschultze/2.4. [Alexandre Dulaunoy]
+
+  Fix id 117 column number
+- Fix id 117 column number. [eschultze]
+- Merge branch 'event_recovery' of github.com:MISP/MISP into
+  event_recovery. [iglocska]
+- Merge branch 'event_recovery' of github.com:MISP/MISP into
+  event_recovery. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into event_recovery.
+  [iglocska]
+- Merge branch '2.4' into event_recovery. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' into event_recovery. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into feature-event-report.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into feature-event-report.
+  [mokaddem]
+
+
 v2.4.132 (2020-09-15)
 ---------------------
 
