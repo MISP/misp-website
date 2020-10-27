@@ -7,45 +7,45 @@ toc: true
 
 # MISP Research Projects
 
-# Project (1) Pauline Bourmeau - The Social Perspective in the Intelligence Activity among Information Sharing Communities - CNAM Paris.
+# Project (1) Pauline Bourmeau - The Social Perspective in the Intelligence Activity among Information Sharing Communities - CNAM Paris (Supervisor Philippe Baumard).
 
 ## The Social Perspective in Intelligence Activity Among Information Sharing Communities
 
-# Introduction
+## Introduction
 
-# (1) Subject scope
+## (1) Subject scope
 
 Intelligence activity is a common practice shared among different fields. The practice of intelligence evolved to adapt to the evolution of human societies. The transition from analog to digital introduced changes in social practices and communications.
 
 Transmission of information is a key element to intelligence activity, as such a subject of studies in anthropology and social sciences. The subject scope is to analyse the social activities among sharing communities, in order to understand and describe the practices of information exchange.
 
-## (1.1) The interest in studying information sharing
+### (1.1) The interest in studying information sharing
 
 Information sharing has become a key in our societies effectiveness, as in facing information warfare.
 
 Many studies and researches in the field of information security and intelligence focused mainly (cf. state-of-the-art) on the practical, the standardisation, the usage perspective and the technical aspects of information sharing, without an analysis of its social or cultural aspects.
 
-## (1.2) Intelligence and information sharing in the age of online criminal activities, study of group and practices
+### (1.2) Intelligence and information sharing in the age of online criminal activities, study of group and practices
 
 Information sharing plays a key role in law enforcement investigations and especially to track and take-down criminal activities. Efficient information exchange ensure resolution and prosecution in a timely fashion. Information strongly relies on the existence of sharing communities among law enforcement and intelligence.
 
-# (2) Problem statement
+## (2) Problem statement
 
 We lack some opportunities to make successful sharing among the community of research. In order to tackle this issue, we must first understand how information sharing happen.
 
-## (2.1) State of the Art
+### (2.1) State of the Art
 
 An extensive review has been performed in the field of information sharing. A significant number of academic papers focused on the structure of information and especially the tools used. A majority of the researches focus on a niche in intelligence, such as building competitive analysis or structuring data exchange.
 
 In the bibliography, we reviewed papers which are related to the main information sharing platform MISP, which will allow us to meet and interview groups who are actively performing information sharing.
 
-## (2.2) Fundamental question
+### (2.2) Fundamental question
 
 Does the existence of the information depend on the existence of the community?
 
-# (3) Research methodology
+## (3) Research methodology
 
-## (3.1) Research design
+### (3.1) Research design
 
 We assume that we can observe replicates of social practices from real to digital environment, and a specific set of practices on sharing platforms such as MISP ("people need to make sense out of it").
 
@@ -66,7 +66,7 @@ In this case, the observer is a participant : an interview is a conversation bet
 
 Keywords here can illustrate or reflect social practices among the community, and help in creating a first set of variables. Those initial “variables” can be used to discover reasons (explanations of behaviors) or new parameters (unknown reasons) which can emerge after additional interviews, and can be used as a first set of constants for further analysis.
 
-### Example list
+#### Example list
 
 Common reasons why organisations are not sharing (ref. Goldenberg, I., Soeters, J. and Dean, W.H. eds.,) as an example list:
 
@@ -87,7 +87,7 @@ Common reasons why organisations are sharing:
 - Cross-checking (creates a validation or counter analysis)
 
 
-## (3.2) Data analysis model
+### (3.2) Data analysis model
 
 - Collecting structured information from sharing platforms (e.g. MISP data to refine or use existing)
 - Interviews (unstructured or semi-structured model) [^2]
@@ -96,7 +96,7 @@ Structured information from sharing platforms such as the type of information sh
 Partially structured information from the interviews. Different data analysis will be applied especially to cross-check data from sharing platforms and the unstructured data collected from interviews.
 
 
-## (3.3) Expected results and contribution
+### (3.3) Expected results and contribution
 
 The research results will include the description of social practices which participate to information sharing.
 
@@ -109,7 +109,7 @@ Our goal is to discover, elaborate and test social models to qualify specific as
 
 These qualifications can be then used to improve detection mechanisms within organisations.
 
-## (4) Conclusion
+### (4) Conclusion
 
 The research results might be impacted by the following parameters:
 
@@ -119,9 +119,8 @@ The research results might be impacted by the following parameters:
 - Potential strong deviation from standards
 - Inability to collect data due to the confidentiality level of specific sharing communities
 
-\newpage
 
-# Bibliography
+## Bibliography
 
 - Beuving, J. and De Vries, G., 2015. Doing qualitative research: The craft of naturalistic inquiry. Amsterdam University Press.
 - Charmaz, K. and Belgrave, L.L., 2007. Grounded theory. The Blackwell encyclopedia of sociology.
