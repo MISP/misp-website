@@ -9,6 +9,8 @@ toc: true
 
 # Project (1) Pauline Bourmeau - The Social Perspective in the Intelligence Activity among Information Sharing Communities - CNAM Paris (Supervisor Philippe Baumard).
 
+Contact for this research project: social-perspective@misp-project.org
+
 ## The Social Perspective in Intelligence Activity Among Information Sharing Communities
 
 ## Introduction
