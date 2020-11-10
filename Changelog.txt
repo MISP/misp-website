@@ -1,6 +1,384 @@
 Changelog
 =========
 
+v2.4.134 (2020-11-02)
+---------------------
+
+New
+~~~
+- [tag index] simple/advanced view. [iglocska]
+
+  - simple view excludes eventtags / attributetags / sightings
+  - helps with heavier instances
+
+  - refactor of the index to the new generators
+  - new elements for the generators added
+- [UI] Add link to show related feeds attributes. [Jakub Onderka]
+- [UI] Allow to set attachment scan settings from user interface. [Jakub
+  Onderka]
+- [widgets] button for link (#6489) [Loïc Fortemps]
+- [statistics shell] year over year org growth added. [iglocska]
+- [eventReports] Event auto-tagging from report. [mokaddem]
+- [UI] Attachment scan diagnostic. [Jakub Onderka]
+- [av] Allow to scan just by file hash. [Jakub Onderka]
+- [av] Use misp-module for AV scanning. [Jakub Onderka]
+- [av] Malware protection for uploaded files. [Jakub Onderka]
+- [UI] Allow to disable hover enrichment. [Jakub Onderka]
+- [sync] Show client certificate info in connection test. [Jakub
+  Onderka]
+- [eventReports] Creation of reports from URL using MISP-modules.
+  [mokaddem]
+- [eventReport] Added context replacements and suggestions. [mokaddem]
+- [eventReports:markdownEditor] Text replacement with existing
+  attributes. [mokaddem]
+- [eventReports] Attributes suggestion replacement + UI - Draft.
+  [mokaddem]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [misp-taxonomies] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- Bump PyMISP for testing. [Raphaël Vinot]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [markdownEditor] Add cancel button for the editor. Fix #6506.
+  [mokaddem]
+- Bumped queryversion. [mokaddem]
+- [cti-python-stix2] Bumped latest version. [chrisr3d]
+- [eventsReport:markdownEditor] Increased base number of hints.
+  [mokaddem]
+- [eventReport:markdownEditor] Adapt hint number based on the length of
+  the provided input. [mokaddem]
+- [eventReports] Removed confusing edit buton in event view. [mokaddem]
+- [statistics shell] yearly growth now takes a local only flag as
+  parameter. [iglocska]
+- [UI] Cleanup code of default layout. [Jakub Onderka]
+- [module] Allow to specify module timeout. [Jakub Onderka]
+- [internal] Allow to fetch Mitre Attack matrix also by name. [Jakub
+  Onderka]
+- [UI] Attach warnings after attribute quick edit. [Jakub Onderka]
+- [internal] Move warnings popover generation to value_field template.
+  [Jakub Onderka]
+- [statistics shell] added org engagement function to get insights on
+  first event creation. [iglocska]
+- [eventReport] Improved html_to_markdown module handling. [mokaddem]
+- [eventReport] Extracted function. [mokaddem]
+- [eventReport] Renamed functions. [mokaddem]
+- [eventReports:markdownEditor] Added loading screen when extracting
+  entities. [mokaddem]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [logs] search no longer uses csrf tokens for the form. [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to include ATT&CK sub-techniques. [Alexandre
+  Dulaunoy]
+- [module] Better error handling. [Jakub Onderka]
+- [module] Move serialization into module class. [Jakub Onderka]
+- [UI] Update Font Awesome to 5.15.1. [Jakub Onderka]
+- [module] Allow module settings to be dict with setting description.
+  [Jakub Onderka]
+- [module] Serialize post data at one place. [Jakub Onderka]
+- [module] Remove unused variable from Module::getModules method. [Jakub
+  Onderka]
+- [UI] Change quick edit icons also for objects and setting edit. [Jakub
+  Onderka]
+- [UI] Use 'Event' instead of 'Info' in correlation popover. [Jakub
+  Onderka]
+- [UI] Add icon for undefined threat level. [Jakub Onderka]
+- [UI] Nicer required asterisk. [Jakub Onderka]
+- [UI] For revise object, do not validate unique UUID. [Jakub Onderka]
+- [internal] Do not load notifications for ajax requests. [Jakub
+  Onderka]
+- [internal] Add suggested PHP extensions to composer.json. [Jakub
+  Onderka]
+- [internal] Update composer.phar to 1.10.15. [Jakub Onderka]
+- [travis] Do list all directories after failed test. [Jakub Onderka]
+- [internal] Save same time and memory in RestResponseComponent. [Jakub
+  Onderka]
+- [UI] Use standard way how to show attribute values for resolved
+  results. [Jakub Onderka]
+- [UI] Fixes for user profile admin view. [Jakub Onderka]
+- [eventReports:markdownEditor] Improved parsing and provide feedbacks
+  if elements cannot be rendered. [mokaddem]
+- [eventReport:markdownEditor] Improved parsing of context (reduced
+  false positive) + find rendered element in doc. [mokaddem]
+- [eventReport:markdownEditor] Interface improvements. [mokaddem]
+- [eventReport] Draft support of context auto replacement. [mokaddem]
+- [eventReport:markdownEditor] Prevent double extraction for tags.
+  [mokaddem]
+- [eventReport] Simplified replacement mechanism. [mokaddem]
+- [eventReports:markdownEditor] Cleanup and function renaming.
+  [mokaddem]
+- [eventReport] Support of replacement regex & automatic replacement -
+  DRAFT. [mokaddem]
+- [eventReports:markdownEditor] Reorganise function position. [mokaddem]
+- [eventReports:markdownEditor] Popover to show replacement attribute.
+  [mokaddem]
+- [evnetReport:markdownEditor] UI improvements on suggestion tables.
+  [mokaddem]
+- [eventReports:markdownEditor] Suggestion UI improvements. [mokaddem]
+- [eventReport:markdownEditor] Do no propose extractions for existing
+  replacements. [mokaddem]
+
+Fix
+~~~
+- [stix import] Avoiding issue with test_mechanisms with no rule value.
+  [chrisr3d]
+- [internal] Remove warning when modules are not reachable. [Jakub
+  Onderka]
+- [security] SSRF fixed in the rest client. [iglocska]
+
+  - by using the full path parameter in the rest client, users could issue queries to any server
+  - this becomes especially problematic when the MISP server is able to query other internal servers,
+    as external users could trigger those
+
+  - new server setting added that allows enabling the full path option, this is now disabled by default
+  - new server setting added to add an override baseurl for the rest client, removing the need for the full
+    path option in the first place (for example for the training VM with its port forwarding)
+
+  - Thanks to Heitor Gouvêa for reporting this vulnerability
+- [eventReport] Function call not adapted after module rework merge.
+  [mokaddem]
+- [ACL] Add missing controllers from EventReports. [Jakub Onderka]
+- [internal] Warning when viewing feed info. [Jakub Onderka]
+- [UI] Show error message if genericPopup ajax request fails. [Jakub
+  Onderka]
+- [eventReport:markdownEditor] Show full attribute value in print mode.
+  Fix #6507. [mokaddem]
+- [UI] More space in sighting graph for a lot of sightings numbers.
+  [Jakub Onderka]
+- [UI] Add missing line break. [Jakub Onderka]
+- [UI] Remove forgotten removed variable. [Jakub Onderka]
+- [UI] Show correct message when saving object after quick edit. [Jakub
+  Onderka]
+- [UI] Show error if multiSelectAction fails. [Jakub Onderka]
+- [eventReport] Correctly tag event if requested + undefined variable.
+  [mokaddem]
+- #6354. [Nick]
+
+  fix: #6354
+
+  Need escape for quote in regex
+- [av] Send to module also attribute UUID and value. [Jakub Onderka]
+- [modules] Better error handling for connection problems. [Jakub
+  Onderka]
+- [module] Throw exception if response JSON is invalid. [Jakub Onderka]
+- [UI] Remove unnecessary empty div from seen_field. [Jakub Onderka]
+- [UI] Do not allow to add tags when showing event to merge. [Jakub
+  Onderka]
+- [UI] Fix strikethrough text decoration for deleted reference. [Jakub
+  Onderka]
+- [UI] Remove unnecessary form element from correlated events. [Jakub
+  Onderka]
+- [internal] Remove compressing by ZIP PHP extensions. [Jakub Onderka]
+- [internal] Avoid warnings in global_menu. [Jakub Onderka]
+- [resource-widget] Use redisInfo method for getting info. [Jakub
+  Onderka]
+- [tools] Variable names typo. [chrisr3d]
+- [internal] Check Crypt_GPG version. [Jakub Onderka]
+- [UI] Put back missing homepage star. [Jakub Onderka]
+- [internal] Unused variable in Event::__generateCachedTagFilters.
+  [Jakub Onderka]
+- [internal] Remove unused file. [Jakub Onderka]
+- [internal] Remove unused AppModel::checkVersionRequirements method.
+  [Jakub Onderka]
+- [travis] Retry poetry packages installation. [Jakub Onderka]
+- [eventReports:markdownEditor] Better parsing of free text value.
+  [mokaddem]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Raphaël Vinot]
+- Merge pull request #6535 from JakubOnderka/module-warning-fix. [Jakub
+  Onderka]
+
+  fix: [internal] Remove warning when modules are not reachable
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #6527 from JakubOnderka/event-reports-acl-missing.
+  [Jakub Onderka]
+
+  fix: [ACL] Add missing controllers from EventReports
+- Merge pull request #6518 from JakubOnderka/ui-related-feeds. [Andras
+  Iklody]
+
+  chg: [UI] Remove Source Format from related feed popover
+- [UI] Remove Source Format from related feed popover. [Jakub Onderka]
+- Merge pull request #6524 from trolldbois/2.4. [Andras Iklody]
+- Merge pull request #1 from trolldbois/trolldbois-fix-email-
+  sendExternal. [Loïc Jaquemet]
+
+  Remove 'text' from required params from sendExternal
+- Remove 'text' from required params from sendExternal. [Loïc Jaquemet]
+
+  Bug fix, there is no such fields named 'text' in params. It's probably a typo from reading line 309 too fast
+- Merge pull request #6520 from JakubOnderka/feed-view-fix-warning.
+  [Jakub Onderka]
+
+  fix: [internal] Warning when viewing feed info
+- Merge branch 'feature-report-extract-data' into 2.4. [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into feature-report-extract-
+  data. [mokaddem]
+- Merge pull request #6516 from JakubOnderka/generic-popup-fail. [Jakub
+  Onderka]
+
+  fix: [UI] Show error message if genericPopup ajax request fails
+- Merge pull request #6498 from JakubOnderka/attachment-scan-settings.
+  [Jakub Onderka]
+
+  new: [UI] Allow to set attachment scan settings from user interface
+- Merge pull request #6499 from pettai/more-bro-auto-docs. [Andras
+  Iklody]
+
+  Update bro automation docs
+- Update bro automation docs. [pettai]
+
+  More of remove allowNonIDS from bro per https://github.com/MISP/MISP/pull/1726
+- Merge pull request #6451 from Wachizungu/add-extra-shibbauth-
+  documentation. [Alexandre Dulaunoy]
+
+  Extending documentation of ShibbAuth plugin
+- Extending documentation of ShibbAuth plugin. [Jeroen Pinoy]
+- Merge branch '2.4' of github.com:MISP/MISP into feature-report-
+  extract-data. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6495 from JakubOnderka/fixes. [Jakub Onderka]
+
+  UI Fixes
+- Merge pull request #6492 from pettai/bro-automation-docs. [Alexandre
+  Dulaunoy]
+
+  Fix Bro IDS export docs
+- Fix Bro IDS export docs. [pettai]
+
+  As per https://github.com/MISP/MISP/pull/1726 the "allowNonIDS" option was explicitly removed from Bro IDS export, update the docs accordingly
+  (some hairpulling was done prior to this finding...)
+- Merge pull request #6485 from JakubOnderka/module-timeout. [Jakub
+  Onderka]
+
+  chg: [module] Allow to specify module timeout
+- Merge pull request #6494 from JakubOnderka/event-ui-fixes-vol6. [Jakub
+  Onderka]
+
+  Event UI fixes vol6
+- Merge branch '2.4' of github.com:MISP/MISP into feature-report-
+  extract-data. [mokaddem]
+- Merge pull request #6488 from JakubOnderka/attachment-scan-diagnostic.
+  [Jakub Onderka]
+
+  new: [UI] Attachment scan diagnostic
+- Merge pull request #6484 from crowface28/2.4. [Andras Iklody]
+
+  fix: #6354
+- Merge pull request #6411 from JakubOnderka/malware-scan. [Jakub
+  Onderka]
+
+  Attachment malware protection
+- Merge pull request #6483 from JakubOnderka/module-settings. [Jakub
+  Onderka]
+
+  Module settings
+- Merge pull request #6479 from JakubOnderka/event-ui-vol5-small. [Jakub
+  Onderka]
+
+  Event ui vol5 small
+- Merge pull request #6478 from JakubOnderka/remove-zip-ext-compression.
+  [Jakub Onderka]
+
+  fix: [internal] Remove compressing by ZIP PHP extensions
+- Merge pull request #6471 from
+  JakubOnderka/enrichment_hover_popover_only. [Jakub Onderka]
+
+  new: [UI] Allow to disable hover enrichment
+- Merge pull request #6474 from JakubOnderka/avoid-warnings. [Jakub
+  Onderka]
+
+  fix: [internal] Avoid warnings in global_menu
+- Merge pull request #6473 from JakubOnderka/misp-resource-widget.
+  [Jakub Onderka]
+
+  fix: [resource-widget] Use redisInfo method for getting info
+- Merge pull request #6465 from JakubOnderka/ajax-no-notification-
+  [Jakub Onderka]
+
+  chg: [internal] Do not load notification count and homepage for AJAX requests
+- Merge pull request #6450 from JakubOnderka/client-certificate-info.
+  [Jakub Onderka]
+
+  new: [sync] Show client certificate info in connection test
+- Merge pull request #6468 from JakubOnderka/bad-commit-fix. [Jakub
+  Onderka]
+
+  Revert "fix: [internal] Remove unused AppModel::checkVersionRequireme…
+- Revert "fix: [internal] Remove unused
+  AppModel::checkVersionRequirements method" [Jakub Onderka]
+
+  This reverts commit ac6761d7
+- Merge pull request #6460 from MISP/chrisr3d_features. [Alexandre
+  Dulaunoy]
+
+  Small STIX ingestion script
+- Merge branch 'chrisr3d_features' of https://github.com/MISP/MISP into
+  chrisr3d_features. [chrisr3d]
+- Update README.md. [Christian Studer]
+
+  Page layout issue fixed
+- Merge branch '2.4' of https://github.com/MISP/MISP into
+  chrisr3d_features. [chrisr3d]
+- Add: [tools] More documentation for the stix ingestion script.
+  [chrisr3d]
+- Add: [tools] Small script to ingest STIX files using the restAPI.
+  [chrisr3d]
+
+  - Automation of the ingestion for multiple file
+    simply by passing all the filenames
+  - Using PyMISP to connect to MISP and query the
+    /events/upload_stix end point
+- Merge pull request #6463 from JakubOnderka/crypt-gpg-version-check.
+  [Jakub Onderka]
+
+  fix: [internal] Check Crypt_GPG version
+- Merge pull request #6466 from JakubOnderka/homepage-star. [Jakub
+  Onderka]
+
+  fix: [UI] Put back missing homepage star
+- Merge pull request #6459 from JakubOnderka/composer-update. [Jakub
+  Onderka]
+
+  chg: [internal] Update composer.phar to 1.10.15
+- Merge pull request #6458 from JakubOnderka/remove-unused. [Jakub
+  Onderka]
+
+  Remove unused code
+- Fix [internal] Removed unused EventsController::viewEventGraph method.
+  [Jakub Onderka]
+- Fix [internal] Removed unused Server::__handlePulledProposals method.
+  [Jakub Onderka]
+- Fix [internal] Removed unused EventsController::__fetchEvent method.
+  [Jakub Onderka]
+- Merge pull request #6454 from JakubOnderka/travis-fixes-vol3. [Jakub
+  Onderka]
+
+  test: Retry poetry install
+- Merge pull request #6457 from JakubOnderka/rest-response-optim. [Jakub
+  Onderka]
+
+  chg: [internal] Save some time and memory in RestResponseComponent
+- Merge pull request #6455 from JakubOnderka/resolved-misp-format-value.
+  [Jakub Onderka]
+
+  chg: [UI] Use standard way how to show attribute values for resolved …
+- Merge pull request #6456 from JakubOnderka/admin-user-view-fixes.
+  [Jakub Onderka]
+
+  chg: [UI] Fixes for user profile admin view
+
 
 v2.4.133 (2020-10-16)
 ---------------------
