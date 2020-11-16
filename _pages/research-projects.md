@@ -154,6 +154,20 @@ The research results might be impacted by the following parameters:
 
 # Project (2) Borce STOJKOVSKI - a survey about MISP UX - University of Luxembourg
 
+# Project (3) Secure Distributed-Learning on Threat Intelligence - EPFL and armasuisse Science and Technology, Lausanne
+
+Collaboration in the Framework of C4DT between aramasuisse Science and Technology and the Laboratory for Data Security of EPFL.
+
+Cyber security information is extremely sensitive and confidential. This introduces an information-sharing tradeoff, between the benefits of improved threat-response capabilities and the drawbacks of disclosing national-security-related information to foreign agencies or institutions. The purpose of this project is to resolve the aforementioned tradeoff by enabling secure collaborations with valuable sensitive data that is not normally shared. Each institution keeps full control over their data records, that never leave their security perimeter, whereas computations are protected by efficient and highly-scalable multiparty-homomorphic-encryption techniques. This will expand the range of available intelligence, thus leading to new and better threat analyses and predictions.
+
+Website: https://lds.epfl.ch/secure-distributed-learning-on-threat-intelligence/
+
+### Contact:
+  - [Prof. Jean-Pierre Hubaux](https://people.epfl.ch/jean-pierre.hubaux?lang=en)
+  - [Juan Ramón Troncoso-Pastoriza](https://people.epfl.ch/juan.troncoso-pastoriza?lang=en)
+  - [Dr. Alain Mermoud](https://www.linkedin.com/in/alainmermoud/)
+
+
 # Citing MISP
 
 If you are write an academic paper relying or using MISP, you can cite MISP with the following BibTeX entry:
