@@ -145,6 +145,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |place-port-of-original-embarkation| | | | | | |
 |port| | | | | | |
 |primary-residence| | | | | | |
+|process-state| | X | | | | |
 |prtn| | | | | X | |
 |redress-number| | | | | | |
 |regkey| | X | | X | | |
@@ -329,6 +330,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |place-port-of-original-embarkation| | | | | | |
 |port| X | X | | | | |
 |primary-residence| | | | | | |
+|process-state| | | | | | |
 |prtn| | | | | | |
 |redress-number| | | | | | |
 |regkey| | | | | | X |
@@ -513,6 +515,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |place-port-of-original-embarkation| X | | | |
 |port| | | | |
 |primary-residence| X | | | |
+|process-state| | | | |
 |prtn| | | | |
 |redress-number| X | | | |
 |regkey| | | | |
@@ -717,6 +720,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **place-port-of-original-embarkation**: The orignal port of embarkation
 *   **port**: Port number
 *   **primary-residence**: The primary residence of a natural person
+*   **process-state**: State of a process
 *   **prtn**: Premium-Rate Telephone Number
 *   **redress-number**: The Redress Control Number is the record identifier for people who apply for redress through the DHS Travel Redress Inquiry Program (DHS TRIP). DHS TRIP is for travelers who have been repeatedly identified for additional screening and who want to file an inquiry to have erroneous information corrected in DHS systems
 *   **regkey**: Registry key or value
