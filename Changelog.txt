@@ -1,6 +1,1140 @@
 Changelog
 =========
 
+
+v2.4.135 (2020-11-24)
+---------------------
+
+New
+~~~
+- [datamodels] added jarm-fingerprint type. [Kory Kyzar]
+- [galaxyCluster:index] Added badge showing number of custom clusters.
+  [mokaddem]
+- [UI] Allow to sort attributes or objects by first and last seen.
+  [Jakub Onderka]
+- [diagnostic] Check extensions version. [Jakub Onderka]
+- [internal] JSON stream convert. [Jakub Onderka]
+- [eventReport] Report from event. [mokaddem]
+- Github action. [Raphaël Vinot]
+- [diagnostic] Show installed GnuPG version. [Jakub Onderka]
+- [user] Setting `disable_user_add` to disable user creation by org
+  admins. [Jakub Onderka]
+- [user] Disabling password and login changes apply also for org admins.
+  [Jakub Onderka]
+- [UI] Add `disable_user_password_change` and
+  `disable_user_login_change` setting. [Jakub Onderka]
+- [user] Allow to disable user login change. [Jakub Onderka]
+- [user] Allow to disable user password change. [Jakub Onderka]
+- [authkey] generate authkeys automatically when creating users.
+  [iglocska]
+
+  - when using the new authkey system
+- [standardised delete] view factory added. [iglocska]
+- [advanced authkey] system. [iglocska]
+- [CRUD component] backport from Cerebrate. [iglocska]
+- [genericForm] system backport from Cerebrate. [iglocska]
+- [indextable] scaffolding added along with a list of improvements.
+  [iglocska]
+- [advanced authkey] API key copy to the new system added to
+  diagnostics. [iglocska]
+- [CRUD] component port from Cerebrate, initial version. [iglocska]
+- [indextable] factories added. [iglocska]
+- [js] submit form in place. [iglocska]
+
+  - for popup forms, have the option to display the result directly in the popover
+- [generic templates] added with a single view for now (delete)
+  [iglocska]
+- [Authkey] system added. [iglocska]
+- [SingleView factories] added. [iglocska]
+- [accordion] element added. [iglocska]
+- [advanced authkeys] toggle added. [iglocska]
+- [API] Fast check object or attribute existence by HEAD method. [Jakub
+  Onderka]
+- [events] endpoint `runTaxonomyExclusivityCheck` for event elements.
+  [mokaddem]
+- [rest] Allow to return just metadata after creating or editing event.
+  [Jakub Onderka]
+- [API] Allow event existence check by HEAD method. [Jakub Onderka]
+- [GalaxyCluster] Added soft and hard deletion. [mokaddem]
+- [clusterBlocklist] Added initial blocklist similar to the event one.
+  [mokaddem]
+- [galaxyCluster:publish] Upon publishing, push the cluster to remote
+  servers. [mokaddem]
+- [server:pull_relevant_cluster] Added new cluster pull technique.
+  [mokaddem]
+
+  It fetches remote clusters based on cluster tags known locally
+- [galaxyCluster:restSearch] Possibility to search for clusters
+  contained in an Event. [mokaddem]
+- [tag] Added 2 new columns to fetch tags from galaxies faster.
+  [mokaddem]
+- [galaxyCluster] Added `published` flag to clusters. [mokaddem]
+- [clusterRelations:view] Added endpoint for rest query only. [mokaddem]
+- [server] Added `pull_galaxy_cluster` option in the server config.
+  [mokaddem]
+- [events:view] Added Cluster relationship network graph. [mokaddem]
+- [clusterRelations:edit] Added endpoint. [mokaddem]
+- [clusterRelation] Early work on Galaxy Cluster Relations. [mokaddem]
+- [galaxyClusters:updateCluster] Added draft version to align a forked
+  cluster's elements to his parent. [mokaddem]
+- [galaxyClusters:add] Added UI to create/edit GalaxyClusterElements.
+  [mokaddem]
+- [galaxyCluster] Initial import of Galaxy2.0 codebase - WiP. [mokaddem]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [attribute] new process-state type. [Alexandre Dulaunoy]
+- Add optional dep (email) [Raphaël Vinot]
+- Add optional dep (email) [Raphaël Vinot]
+- [PyMISP] updated for jarm-fingerprint type. [Alexandre Dulaunoy]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [installer] Update to latest version. [Steve Clement]
+- Improve actions. [Raphaël Vinot]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [servers:schema_diagnostic] Added notice concerning benign deltas.
+  [mokaddem]
+- [installer] Updated installer. [Steve Clement]
+- [internal] Faster updating JSON structures. [Jakub Onderka]
+- [event:index] Allow passing list when filtering. [mokaddem]
+- [galaxy update] improvements. [iglocska]
+
+  - should be a fair bit faster
+- [installer] even out changes from 20.04. [Steve Clement]
+- [installer] Updated installer. [Steve Clement]
+- [sh] If env vars exist, use that value. [Steve Clement]
+- [doc] Added ignore file mode. [Steve Clement]
+- [UI] Allow to set syslog setting from UI. [Jakub Onderka]
+- [internal] Code style. [Jakub Onderka]
+- [logging] Allow to define syslog identifier. [Jakub Onderka]
+- [logging] Allow to disable syslog logging to stderr. [Jakub Onderka]
+- [internal] Throw exception if setting name doesn't exists. [Jakub
+  Onderka]
+- [galaxyClusterRelations:index] Show edit button for users having the
+  permission. [mokaddem]
+- [galaxyCluster:view_relations] Moved custom relation option at the
+  top. [mokaddem]
+- [galaxyClusterRelations:add] Added picker for relation type.
+  [mokaddem]
+- [galaxyClusterBlocklist:add] Added picker for cluster. [mokaddem]
+- [galaxyClusters] Sort by version then by value. [mokaddem]
+- [UI] Change colors for auth key expiration field. [Jakub Onderka]
+- [UI] Always use auth key with space in UI. [Jakub Onderka]
+- [UI] Use quick click select for new generated authkey. [Jakub Onderka]
+- [UI] Use monospace font for showing autkeys. [Jakub Onderka]
+- [UI] Add information about key expiration to title. [Jakub Onderka]
+- [feed] Optimise freetext feed caching. [Jakub Onderka]
+- [galaxy] Do not fetch full galaxy info for event view UI. [Jakub
+  Onderka]
+- Bumped db_schema. [mokaddem]
+- [mysql] Backported forgotten update. [mokaddem]
+- [UI] For search field, by default put current search term. [Jakub
+  Onderka]
+- [test] Do not run workers in background. [Jakub Onderka]
+- [test] Run under multiple PHP versions. [Jakub Onderka]
+- [test] Merge common commands. [Jakub Onderka]
+- [diagnostic] Smarter PHP extension diagnostics. [Jakub Onderka]
+- [warning-list] updated. [Alexandre Dulaunoy]
+- [export:textExport] Filter out deplicated values Fix #6603 for
+  attribute scope. [mokaddem]
+- [eventReport:reportFromEvent] Added support of attributes and objects.
+  [mokaddem]
+- Set USER everywhere. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- Try to fix weirdness in PyMISP git history. [Raphaël Vinot]
+- Bump PyMISP. [Jakub Onderka]
+- Bump PyMISP. [Raphaël Vinot]
+- Bump warning-lists. [Raphaël Vinot]
+- [mysql] Reverted changes to be aligned with db_version. [mokaddem]
+- [internal] Allow to fetch two orgs in one query. [Jakub Onderka]
+- [rest] For attribute REST search with includeContext, fetch events
+  just once. [Jakub Onderka]
+- [UI] Simplified user edit forms and interface. [Jakub Onderka]
+- [internal] Simplified ACLComponent::printRoleAccess. [Jakub Onderka]
+- [UI] Authkey reset position. [Jakub Onderka]
+- [UI] Ajax user list. [Jakub Onderka]
+- [ACL] User different way how to use dynamic rules. [Jakub Onderka]
+- [UI] Add link to user org from profile. [Jakub Onderka]
+- [automation] page updated to accomodate new authkey system. [iglocska]
+
+  - since the API keys can no longer be retrieved, point the user to where they can manage their keys
+- [user] views aligned with new authkeys. [iglocska]
+
+  - adding users should display the newly created authkey
+  - other views should not show anything
+  - API responses fixed
+- [cleanup] removed superfluous </div> [iglocska]
+- [boolean] field added to the single view fields. [iglocska]
+- [user view] removed separate admin view. [iglocska]
+- [authkey] add view added. [iglocska]
+- [REST client] adapted to the APIkey changes. [iglocska]
+- [Roles] CRUD rework. [iglocska]
+- [users] admin view updated to optionally use the new authkeys.
+  [iglocska]
+- [indexfilter] component updated with several improvements. [iglocska]
+- [user] admin view now loads advanced authkeys when appropriate.
+  [iglocska]
+- [authkey] system tied into authentication. [iglocska]
+- [user index] don't show the old style authkeys when advanced authkeys
+  are enabled. [iglocska]
+- [side menu] authkeyindex added. [iglocska]
+- [form] generator minor improvements. [iglocska]
+- [authkey] model tied to user model. [iglocska]
+- [galaxyCluster] Remote feature support check is based on flag rather
+  than strict version number. [mokaddem]
+- [internal] Simplified getApiInfo method. [Jakub Onderka]
+- [galaxyClusters] Returns created json blob instead of interface
+  response. [mokaddem]
+- [events:automation] Added entry for galaxy cluster restSearch.
+  [mokaddem]
+- [galaxyCluster:add] Adapt page title if forking. [mokaddem]
+- [galaxyCluster:view_relations] Improved UI for relations. [mokaddem]
+- [galaxyCluster] Drop all elements before capture. [mokaddem]
+- [server:index] Changed icon for pull relevant clusters. [mokaddem]
+- [galaxy] Added logging behavior for galaxies, clusters and relations.
+  [mokaddem]
+- [appModel] Logout users after update. [mokaddem]
+- [galaxyCluster:publish] Returns true regardless of the result for
+  pushing to other servers. [mokaddem]
+- [galaxyClusters:index] Added local ID in the index. [mokaddem]
+- Bumped queryversion. [mokaddem]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [warninglists:index] Migrated index to factory view. [mokaddem]
+- [events:view] Renamed object's `name` key into `Object name`
+  [mokaddem]
+
+  - This is done to emphasis that elements bordered with a blue line are
+  in fact MISP Objects
+- [galaxy:export] Improved misp-galaxy format export and added notice.
+  [mokaddem]
+- [galaxy:export] Started conversion tool to misp-galaxy format - WiP.
+  [mokaddem]
+- [galaxies:export] Added form entry to specify the export format - WiP.
+  [mokaddem]
+- Bumped queryversion. [mokaddem]
+- [rest] Faster attributes restSearch. [Jakub Onderka]
+- [UI] Small fixes for report view. [Jakub Onderka]
+- [UI] Put 'Add Event Report' to one line with other buttons. [Jakub
+  Onderka]
+- [UI] Make related event little bit nicer. [Jakub Onderka]
+- Bumped queryversion. [mokaddem]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [object:editField] Make the behavior of fs/ls similar to object/edit.
+  [mokaddem]
+- [taxonomy] Include if the predicate is exclusive at entry level.
+  [mokaddem]
+- [restResponseComponent] Added doc for `tags/search` [mokaddem]
+- [internal] Speedup sightings saving. [Jakub Onderka]
+- [use full path] added conditional to the toggle, instead of silently
+  ignoring the setting when it's disabled server side. [iglocska]
+- [servers:rest] Added CodeMirror support in REST Client and improve
+  url's path parsing. [mokaddem]
+- [internal] Slightly optimise JSONConverterTool. [Jakub Onderka]
+- [feed] Check also URL without protocol. [Jakub Onderka]
+- [galaxyClusterRelations] GetExistingRelationships also returns
+  ObjectReference relation names. [mokaddem]
+- [galaxyClusterRelation] Make sure sourceCluster is always contained.
+  [mokaddem]
+- [galaxyCluster] Do not display publish button for default clusters.
+  [mokaddem]
+- [galaxyCluster] Display value of the cluster in the header. [mokaddem]
+- [galaxyClusterRelations] Displays error while posting. [mokaddem]
+- [galaxyClusterRelations] Changed add/edit relationships to singular.
+  [mokaddem]
+- [galaxyClusterRelations] Allow unpublished clusters in the picker.
+  [mokaddem]
+- [galaxyClusterRelations] Display org and orgc. [mokaddem]
+- [galaxy] Fixed baseurl typo. [mokaddem]
+- [galaxyCluster] Allow all clusters to be forked as long as user can
+  edit galaxies. [mokaddem]
+- [galaxyCluster] Show published status of default clusters as N/A.
+  [mokaddem]
+- [galaxyClusters] Hide more actions based on users permisions.
+  [mokaddem]
+- [galaxyClusters] Added warning regarding useability of clusters.
+  [mokaddem]
+- [sidebar] Move add cluster for more consistency. [mokaddem]
+- [sidemenu] `Export Galaxy Clusters` is now visible when viewing
+  galaxy_cluster/view. [mokaddem]
+- [side_menu] Small glitches due to merge. [mokaddem]
+- [galaxyClusterBlocklist] Replaced blacklist by blocklist. [mokaddem]
+- [clustersRelations:add] Redirect to the index after adding a relation.
+  [mokaddem]
+- [clusterRelations:add] Added helps about relationship type field.
+  [mokaddem]
+- [genericElement] Allow default organisation to be used as a picture.
+  [mokaddem]
+
+  - The default MISP organisation uses the MISP logo
+- [OrgImgHelper] Do not return link for Orgnisation without a valid ID.
+  [mokaddem]
+- [clusterBlocklists:add] Improved validation and added form help.
+  [mokaddem]
+- [clusterRelations:add] Force no galaxy matrix when picking clusters.
+  [mokaddem]
+- [galaxyClusters:index] Do not propose edit for default clusters.
+  [mokaddem]
+- [galaxyClusters:view] Renamed extended_by/from with forked_by/from.
+  [mokaddem]
+- [galaxyClusters:add] Improved form layout and galaxy element ui.
+  [mokaddem]
+- [galaxyClusters] Added more entries in side menu. [mokaddem]
+- [restResponseComponent] Added doc for rest client. [mokaddem]
+- [restResponseComponent] Added doc for cluster and cluster relations.
+  [mokaddem]
+- [galaxyClusters:selectCluster] Only offers non-deleted clusters.
+  [mokaddem]
+- [galaxyCluster:publish] Slightly simplified save process. [mokaddem]
+- [galaxyClusters:publish] Return job id if rest call. [mokaddem]
+- [ACLComponent] Added cluster blocklist endpoints. [mokaddem]
+- [clusterBlocklist:index] Added base url in table actions. [mokaddem]
+- [galaxyCluster] Prevent creation if UUID is in blocklist. Added
+  default distribution fallback. [mokaddem]
+- [clusterBlocklist:delete] Possibility to delete entry by cluster_uuid.
+  [mokaddem]
+- [clusterBlocklist] Added forms and endpoints to interract with the
+  model. [mokaddem]
+- [galaxyCluster:delete] Creates entry in cluster blocklist whenever
+  hard-deleting. [mokaddem]
+- [galaxyCluster] Unset ids before capturing. [mokaddem]
+- Removed empty line. [mokaddem]
+- [genericElements:extended] Renamed `extended` related fields into
+  `tree` and added doc. [mokaddem]
+- [galaxy_cluster_link] Added doc. [mokaddem]
+- [genericElements:cluster_link] Renamed `cluster_link` into
+  `galaxy_cluster_link` [mokaddem]
+- Added more doc. [mokaddem]
+- [galaxyClusterRelation] Code refactoring and documentation. [mokaddem]
+- [galaxyCluster] Added bunch of doc. [mokaddem]
+- [galaxy] Improved doc. [mokaddem]
+- Added more docs. [mokaddem]
+- [ClusterRelationsGraphTool] Refacto and simplified code. [mokaddem]
+- Removed integer type hinting in controllers. [mokaddem]
+- [galaxyClusters] Doc and code reuse. [mokaddem]
+- [galaxyClusters] Variable renaming and code reuse. [mokaddem]
+- [clusterRelations] Added type hinting. [mokaddem]
+- [galaxyCluster:fetchIfAuthorized] Renamed function checkAuthorization
+  into fetchIfAuthorized. [mokaddem]
+- Added comments. [mokaddem]
+- Refacto bunch of galaxy clusters files. [mokaddem]
+- Refacto some galaxy cluster controller files. [mokaddem]
+- [galaxyCluster:saveCluster] Make sure collection_uuid is set before
+  saving. [mokaddem]
+- [galaxyCluster:add/edit] Automatically prepend GalaxyCluster if
+  missing. [mokaddem]
+- [galaxyClusters:index] Allow site_admin to publish from the cluster
+  index. [mokaddem]
+- [galaxyClusters:index] Allow site_admin to perfom more actions.
+  [mokaddem]
+- [server:pull] Pluralized `pull_relevant_cluster` as we may pull more
+  than one. [mokaddem]
+- [galaxyCluster:publish_router] Accept cluster data or cluster id.
+  [mokaddem]
+- [galaxyClusters:view_relations] Rebuild tree right after quick form
+  submit. [mokaddem]
+- [galaxyCluster:view_relations] Added support of pickers in quick add
+  form. [mokaddem]
+- [clusterRelations:add] Added picker for cluster source. [mokaddem]
+- [galaxyCluster:add] Usage of new genericForm's picker for
+  clusterElement UI. [mokaddem]
+- [genericForm:picker] Use a default text for the picker label if not
+  provided. [mokaddem]
+- [formHelper] Added support of picker widget. [mokaddem]
+- [clusterRelations:add] Added target cluster and tags picker.
+  [mokaddem]
+- [event:publish] Publishing also pushes attached custom galaxy
+  clusters. [mokaddem]
+- [server:push_galaxy_cluster] Working version of cluster push all
+  technique. [mokaddem]
+- [server:pull_cluster] Added support of `numeric` pull technique.
+  [mokaddem]
+- [galaxyCluster:pull] Pull clusters before events and added support of
+  published state. [mokaddem]
+- [galaxyClusters:updateCluster] Improved parsing of new element to be
+  added from parent. [mokaddem]
+- [galaxyCluster] Usage of model alias when fetching a cluster.
+  [mokaddem]
+- [galaxyCluster] Centralized permission checks and code refactoring.
+  [mokaddem]
+- [galaxyCluster] Replaced `galaxyCluster->find` by its ACL-aware
+  counterpart where applicable - WiP. [mokaddem]
+- [clusterRelation] Unpublish source cluster when altering a relation.
+  [mokaddem]
+- [servers:getVersion] Return `perm_galaxy_editor` status. [mokaddem]
+- [clusterRelation:captureRelation] More lenient capture of orgc.
+  Fallback to orgc=org if user is not a sync user. [mokaddem]
+- [galaxyCluster:captureCluster] More lenient capture of orgc. Fallback
+  to orgc=org if user is not a sync user. [mokaddem]
+- [galaxyCluster:push] Only push custom clusters that are contained in
+  the event getting pushed. [mokaddem]
+- [GalaxyCluster] Fetcher function arrange the data before returing its
+  results. [mokaddem]
+- [galaxyCluster:add] Force orgc to be the user adding the cluster.
+  [mokaddem]
+- [GalaxyClusters:edit] Improved error message format. [mokaddem]
+- [GalaxyClusters:add] Improved error message format. [mokaddem]
+- [galaxyCluster:add] Allow adding cluster with galaxy uuid. [mokaddem]
+- [ACLComponent] Added entry galaxy_clusters/restSearch. [mokaddem]
+- [server:pull] Improved pull process for galaxyClusters. [mokaddem]
+- [galaxyCluster] Usage of alias when building ACL conditions.
+  [mokaddem]
+- [clusterRelations:add] Savings tags is more flexible and reliable.
+  [mokaddem]
+- [acl] Updated endpoints and sidebar permissions. [mokaddem]
+- [galaxyCluster:view] Arrange data before exporting. [mokaddem]
+- [galaxyCluster:add] Improved error reporting and importing now uses
+  `add` endpoint. [mokaddem]
+- [galaxyCluster:crud] Improved how clusters and their linked models are
+  saved. [mokaddem]
+- [galaxies:delete] Allow deletion by uuid. [mokaddem]
+- [galaxyCluster:restSearch] Added support of additional search params.
+  [mokaddem]
+- [galaxyCluster:capture] Improved cluster catpure. [mokaddem]
+
+  - Allow to capture relationships pointing to unknown clusters
+  - Improved display of relationships
+- [galaxyCluster:export] Unset useless fields before export. [mokaddem]
+- [galaxyClusers:relations_graph] Display notice if no relation.
+  [mokaddem]
+- [galaxyCluster:relations_graph] Added filtering capability and fixed
+  redraw issue. [mokaddem]
+- [clusterRelations:view_relations] Select default distribution.
+  [mokaddem]
+- [clusterRelations:index] Use correct alias. [mokaddem]
+- [clusterElements:updateElements] Possibility to delete or not old
+  data. [mokaddem]
+- [generic_index:relation_counts] Changed icons. [mokaddem]
+- [clusterRelations:relations_graph] Slight UI improvements. [mokaddem]
+- [clusterRelations:relations_graph] Display tags on the links.
+  [mokaddem]
+- [galaxyClusters:relations_graph] Support of tag numerical values.
+  [mokaddem]
+- [clusterRelations:view_relations] Display all relation tags.
+  [mokaddem]
+- [clusterRelations:fetcher] Performs massaging on targetting relations.
+  [mokaddem]
+- [galaxyCluster:restSearch] Improved iterated_fetch process. [mokaddem]
+- [galaxyCluster:view_relations] Added #relations and added relation
+  tag. [mokaddem]
+- [clusterRelations:add] Refactored how relations are saved to better
+  support tags and force override. [mokaddem]
+- [clusterRelations:index] Support of tags. [mokaddem]
+- [clusterRelations:CRUD] Added support of tags. [mokaddem]
+- [clusterRelations:index] Improved UI and new `cluster_link` generic
+  index field. [mokaddem]
+- [appModel:update-55] Added indexes and removed incorrect sql commands.
+  [mokaddem]
+- [galaxyClusters:pull] Added pull capabilities to fetch remote
+  clusters. [mokaddem]
+- [galaxyCluster:push] Correctly alter data before pushing and added
+  nets to avoid pushing if not applicable. [mokaddem]
+- [galaxyCluster:getElligibleClustersToPush] Renamed function for better
+  clarity. [mokaddem]
+- [server:push] Drafty version of galaxyCluster push. [mokaddem]
+- [galaxyCluster] Added drafty version of restSearch. [mokaddem]
+- [clusterRelations:edit] Make edit works again and improved error
+  reporting. [mokaddem]
+- [galaxyCluster] Usage of both ID and UUID for relation with drafty
+  working version of import/export. [mokaddem]
+- [galaxyClusters] Improved logging and error reporting. [mokaddem]
+- [galaxyCluster] First version of capture functions. [mokaddem]
+- [galaxy:export] Added configurable galaxy exporter. [mokaddem]
+- [event:view] Added support of relation_tree for galaxyQuickView.
+  [mokaddem]
+- [clusterRelations] Moved relation_tree into its own `tool` and added
+  modal support for galaxyQuickView. [mokaddem]
+- [cluster:view_relations] Decoupled relation_tree from the form.
+  [mokaddem]
+- [clusters:index] Reworked how the forks are displayed. [mokaddem]
+- [clusters:update_cluster] Changed title for improved clarity.
+  [mokaddem]
+- [clusterRelations:networkGenerator] Moved function in `Lib/Tools`
+  [mokaddem]
+- [clusterRelations:relations_graph] Added distribution and Org info.
+  [mokaddem]
+- [galaxyClusters:relations_graph] Keep link labels always readable.
+  [mokaddem]
+- [events:relations_graph] Added Referencing Clusters. [mokaddem]
+- [clusters:view] Added Cluster relation index table. [mokaddem]
+- [clusterRelations:networkGraphs] Improved UI by highlighting root
+  nodes. [mokaddem]
+- [cluster:relations_graph] Added labels to links. [mokaddem]
+- [clusterRelations:index] Support of tag_name search. [mokaddem]
+- [galaxy:relations_graph] Added links in tooltip. [mokaddem]
+- [galaxy:relations_graph] Support of node and link selection.
+  [mokaddem]
+- [galaxy:relations_graph] Added tooltip support. [mokaddem]
+- [clusterRelations:view_relations] Improved layout support tags in both
+  side. [mokaddem]
+- [clusterRelations:view_relations] Added arrows and improved UI.
+  [mokaddem]
+- [clusterRelations:view_relations] Working draft version for 2-sided
+  tree. [mokaddem]
+- [clusterRelations:view_relations] Attached referencing relations.
+  [mokaddem]
+- [clusterRelations:view_relations] Started implementation of double
+  sided tree. [mokaddem]
+- [clusterRelations:view_relations] Quick submit and few fixes.
+  [mokaddem]
+- [clusterRelations] Very basic CRUD. [mokaddem]
+- [clusterRelations] Model linking and basic index. [mokaddem]
+- [galaxyClusters:viewRelations] Improved UI. [mokaddem]
+- [clusterRelations] Improved UI of relation_graph and relation_viewer.
+  [mokaddem]
+- [galaxy] Renamed `reference` into `relation` [mokaddem]
+- [galaxyClusters:updateCluster] Working version and improved UI and
+  text. [mokaddem]
+- [galaxyClusters:updateCluster] Slightly improved UI. [mokaddem]
+- [galaxy:sidebar] Moved item for more consistency. [mokaddem]
+- [galaxyClusters:fork_tree] Replaced rectangle by label for version.
+  [mokaddem]
+- [galaxyClusters:view] Added warning if new parent version available.
+  [mokaddem]
+- [galaxuCluster:add] Added `extends_version` [mokaddem]
+- [galaxyClusters:view] Added forked version number. [mokaddem]
+- [galaxy:fork_tree] Version's rectangle with is now dynamically
+  computed. [mokaddem]
+- [galaxy:fork_tree] Added version node - WiP. [mokaddem]
+- [galaxy:fork_tree] Added more information in the tooltip. [mokaddem]
+- [galaxyClusters] Added column `extends_version` [mokaddem]
+- [galaxy:fork_tree] Adapth root node size. [mokaddem]
+- [galaxy:import] Preliminary work on export/import galaxy clusters.
+  [mokaddem]
+- [galaxyCluster:index] Added titles to action buttons. [mokaddem]
+- [galaxyCluster:view] Added org/orgc in meta. [mokaddem]
+- [galaxy:fork_tree] Added orgc picture in nodes. [mokaddem]
+- [galaxy:fork_tree] Added galaxyElement in the tooltip. [mokaddem]
+- [galaxy:index] Possibility to toggle fork view. [mokaddem]
+- [galaxy:fork_tree] Moved generation in the model. [mokaddem]
+- [galaxy:fork_tree] Doubleclick redirects to the cliked element.
+  [mokaddem]
+- [galaxy:fork_tree] Added fork tree visualisation - WiP. [mokaddem]
+- [genericForm:extend] Adde `extended_generic` that support both
+  `extended_by` and `extended_from` [mokaddem]
+- [galaxyCluster:sidebar] Reorganised the sidebar a bit. [mokaddem]
+- [galaxyCluster:views] Added `extended_by` and `extended_from`
+  information. [mokaddem]
+- [galaxyCluster:edit] Created model and controller functions.
+  [mokaddem]
+- [galaxyClusters:add] Created views, controller and models functions.
+  [mokaddem]
+- [galaxyCluster] Restored working behavior of `index` and `view` views.
+  [mokaddem]
+- [genericElement:indexTable] Removed auto casting to boolean as the
+  bool element exists. [mokaddem]
+- [galaxyCluster:fetchClusters] Added function. [mokaddem]
+
+Fix
+~~~
+- [security] Make cluster's elements adhere to ACL. [mokaddem]
+- Missing dep in actions. [Raphaël Vinot]
+- [installer] Added missing checkout. [Steve Clement]
+- [galaxy update] tag capture fixed. [iglocska]
+
+  - set random colour and some other default values
+- [galaxy update] force flag should be cast to boolean. [iglocska]
+- [eventReport:reportFromEvent] Correctly apply filter conditions Fix
+  #6631. [mokaddem]
+- [tags] Pass user object to massaging function. [mokaddem]
+- [event:index] Pass missing parameter. [mokaddem]
+- [installer] if not installed as a user other then 'misp' we used to
+  fail, now fixed. [Steve Clement]
+- [internal] Do not try to fetch empty job. [Jakub Onderka]
+- [tags] invalid function call for the tag massaging after adding a tag.
+  [iglocska]
+- [tags] Pass user object to massaging function. [mokaddem]
+- [appController] Prevent notice for `perm_galaxy_editor`  if update is
+  still running. [mokaddem]
+- [logs] Add missing AuthKey model to log search. [Jakub Onderka]
+- [authkey] There is no AuthKey.timestamp column. [Jakub Onderka]
+- [UI] There is nothing like AuthKey.disabled. [Jakub Onderka]
+- [UI] Auto prevent default for index table actions. [Jakub Onderka]
+- [UI] Add label to delete auth key icon. [Jakub Onderka]
+- [UI] Remove unused inbox controller and menu link. [Jakub Onderka]
+- [server:sqlRecoveryQuery] Added support of unsigned int Fix #6618.
+  [mokaddem]
+- [galaxy:update] Correctly delete clusters when performing a force
+  update. [mokaddem]
+- [security] XSS in the template element index view - As reported by
+  Rubin Azad. [mokaddem]
+- [object] Send all required arguments. [mokaddem]
+- [authkey] default value incorrect. [iglocska]
+- [galaxy:update] Make sure the fake user has the perm_sync right.
+  [mokaddem]
+- [UI] Correct path to user profile from authkey view. [Jakub Onderka]
+- [security] Proper check who can view new authkeys. [Jakub Onderka]
+- [test] Do not pull PyMISP. [Jakub Onderka]
+- [internal] MISP update without branch. [Jakub Onderka]
+- [test] Run updates. [Jakub Onderka]
+- [attribute:fetch_attributes] Respect group_by request. [mokaddem]
+- [mispObject:save_object] Returns error in correct format. Fix #6598.
+  [mokaddem]
+- [acl] Added report_from_event entry in ACL. [mokaddem]
+- Fix spelling of sightings_anonymise_as description. [Mat]
+- Perms in travis, var in gh action. [Raphaël Vinot]
+- Just make config writable by everyone, again. [Raphaël Vinot]
+- Just make config writable by everyone. [Raphaël Vinot]
+- [internal] Diagnostic data download. [Jakub Onderka]
+- [internal] Server::update method. [Jakub Onderka]
+- [internal] Initialize ZMQ just when necessary after setting change.
+  [Jakub Onderka]
+- [event index] search via attribute key allows for empty input now.
+  [iglocska]
+- [internal] Destroy session just when session is started. [Jakub
+  Onderka]
+- [index search] allow for list of values to be passed via the attribute
+  key. [iglocska]
+- [tag:search] Correctly pass user data. [mokaddem]
+- [UI] Put back requesting API access  to user page. [Jakub Onderka]
+- [security] Properly validate new auth key. [Jakub Onderka]
+- [UI] Cerebrate -> MISP. [Jakub Onderka]
+- [MYSQL.sql] added first/last seen. [iglocska]
+- [MYSQL.sql] removed duplicate entry. [iglocska]
+- [test] Update db_schema.json for auth_keys table. [Jakub Onderka]
+- [test] Update database before generating new user. [Jakub Onderka]
+- [MYSQL.sql] updated. [iglocska]
+
+  - incorporated all changes from 40 -> 61
+  - should solve the userinit issues
+- [authkey] convert existing keys. [iglocska]
+
+  - added functionality to convert old style API keys to the setting description
+- [UI] various smaller fixes. [iglocska]
+- [authkey] various improvements. [iglocska]
+
+  - correct lookup of users by API key when no expiration is set
+  - added authkey reset functions
+- [rest client] implenented changes for advanced authkeys. [iglocska]
+
+  - strip auth headers in the history
+  - but not in the actual request
+- [various fixes] to the authkeys controller. [iglocska]
+
+  - invalid admin lookup fixed
+  - restriction to individual users added when using a user view to access the authkey index
+- [copy pasta] menues shown twice on user view fixed. [iglocska]
+- [galaxyCluster] Improved compatibility detection. [mokaddem]
+- [galaxyCluster] Bump timestamp after soft-deletion and restoration.
+  [mokaddem]
+- [RestClient] Catch exceptions and show error message to user. [Jakub
+  Onderka]
+- [galaxyCluster] Apply deleteAll on correct model. [mokaddem]
+- [galaxyClusters:view_relations] No galaxy matrix in the picker.
+  [mokaddem]
+- [galaxyCluster] Allow forks with same name to appear in the picker.
+  [mokaddem]
+- [galaxyClusterController:edit] Default empty list to empty string.
+  [mokaddem]
+- [galaxies:export] typo. [mokaddem]
+- [galaxyCluster] Fixed publishing cluster permissions. [mokaddem]
+- [galaxyCluster:edit] Edit do not require distribution field.
+  [mokaddem]
+- [galaxies] Correctly highlight galaxy in index scope. [mokaddem]
+- [galaxyClusters:index] Apply find on correct model for REST requests.
+  [mokaddem]
+- [galaxyClusterRelations:index] Added baseurl. [mokaddem]
+- [servers:restClient] Keep HTTP body on template selection if it
+  changed. [mokaddem]
+
+  Making someone happy:
+  oooooooooooooooo+++ssyyyysso++ooooooooooosssyyysoo
+  oooooooooooooo+shmMNNNNNNNmmmdys+ooooooooyyyyysyhs
+  oooooooooooo+yNMNMNNNNNNNNNNNNdhds/ooooooosooooooo
+  oooooooooo+omMMMMMNNNNNNNNNNNNNmhdy/oooooooooooooo
+  ooooooooo++NMMMMNMNNNNNNNNNNmmmmdhm/oooooooooooooo
+  ooooooooo+yMMMMMMMMMNNNNNNNmmdmdmhN/oooooooooooooo
+  ooooooooo+oNMMNNmNMMMMMMNNNmddmdmhN/oooooooooooooo
+  oooooooooooodddhmys+.yyyhNNmdmNdNhh/oooooooooooooo
+  oooooooooooss/y+syso+s---+smdNhomdy+oooooooooooooo
+  ooooooooooooos:+oo+/-.....:hoos+Nmo+oooooooooooooo
+  oooooooooooo+sysso/-.......-.ohmNd/ooooooooooooooo
+  ooooooooooooo+yooo:-........-hNmh/+ooooooooooooooo
+  oooooooooooooo/ho+-.......-:+dhs//oooooooooooooooo
+  ooooooooooooooo+ys/::::/o++ooh:.:/+o+/+ooooooooooo
+  oooooooooooooooo+ooyhydNyoshy+.`````:++o++oooooooo
+  ooooooooooooooo+osssossyyhyo+-`````/:.``:y/+oooooo
+  ooooooooooooo+oyooosssssso/-````../:-````+s/oooooo
+  oooooooooooo++hosssssso+-```````::/:+hhyyyd:oooooo
+  oooooooooooo/hossssso+:````````./oo+ymsdyym:oooooo
+  ooooooooooo/ssoyysso/.```````.:+ho+smNmmmmN/+ooooo
+  ooooooooooo/moshdyyso/`````:osydsoohodddhym/oooooo
+  oooooooooo+yyossdhsooo-``.-ossshosd/:-..-sd/oooooo
+  oooooooooo/msshdd++/:--//+++oo+sss++:.```oy+oooooo
+  oooooooooo/mosssshhs+oo+/::-..``-/++--```m++oooooo
+  oooooooooo/d++ooossdmhs++oooo++/:--:-.``:d/ooooooo
+- [internal] Do not fetch unnecessary correlations for distribution
+  graph. [Jakub Onderka]
+- [object:deltaMerge] Stopped updating object's attributes when updating
+  the FS/LS. [mokaddem]
+
+  - Make sure to compare the correct date value of FS/LS and not their representation
+- [eventReports] Handle exception for EventReportsController::index.
+  [Jakub Onderka]
+- [regression] invalid server loaded for connection test. [iglocska]
+- [galaxyClusters] Fixing badly merged merge-conflict. [mokaddem]
+- [internal] Properly set login times for custom auth. [Jakub Onderka]
+- [UI] Join with ", " array meta values for event reports. [Jakub
+  Onderka]
+- [UI] Prepend URL with baseurl. [Jakub Onderka]
+- [UI] Disable debounce slowdown for first event report render. [Jakub
+  Onderka]
+- [UI] Show 'Add Event Report' just when user can modify event. [Jakub
+  Onderka]
+- [internal] Do not start session for shell commands. [Jakub Onderka]
+- [internal] Do not load all attributes and sightings when editing
+  event. [Jakub Onderka]
+- [server:restclient] Removed force url for codemirror hints. [mokaddem]
+- [object:edit] Changes on fs/ls handling for object's attributes.
+  [mokaddem]
+
+  - Allow object's attributes to have fs/ls different from their object.
+  - Object's attribute's timestamp is no longer refreshed when editing an object unless the attribute changed
+  - Object's attribute's inherit their object fs/ls if unset
+- [attribute] `only_full_group_by` fixed for `__getCDIRList`. Fix #6218.
+  [mokaddem]
+- [appmodel] Make sure parameter is a string before accessing string
+  index. Fix #6544. [mokaddem]
+- [logs:admin_index] Removed bad usage of PHP's compact function Fix
+  #6543. [mokaddem]
+- [tags:search] Apply correct conditions on corresponding models. Fix
+  #6475. [mokaddem]
+- [stix2 import] Fixed parsing of objects mapped into galaxies for
+  external STIX. [chrisr3d]
+
+  - Mapping dictionary was not loaded correctly
+    while calling the ExternalStixParser class, and
+    it is now fixed
+  - For objects from external STIX content that
+    should be mapped as galaxies (such as malware,
+    threat actor, and so on), we do not only test
+    the perfect match with one of the galaxy names
+    in the mapping dictionary, we also test now if
+    the galaxy name is contained in any of the
+    known galaxy names of the dictionary
+- [new tag index] added, left off in previous commit. [iglocska]
+- [servers:rest] Querybuilder performance improved when loading a new
+  endpoint. [mokaddem]
+- [internal] `Undefined index: value` warning. [Jakub Onderka]
+- [galaxyClusters] Removed print statement. [mokaddem]
+- [galaxyCluster] Only fetch targeting relations if full requested.
+  [mokaddem]
+- [galaxyClusterRelation] id condition not ambiguous. [mokaddem]
+- [galaxyClusterRelation] Make sure contain is an array. [mokaddem]
+- [galaxyClusterRelation] Make sure to include sourceCluster for the ACL
+  condition. [mokaddem]
+- [galaxyClusterRelation] Make sure owner of source cluser can see
+  org_only relations. [mokaddem]
+- [galaxyCluster] Hide edit cluster for notallowed users. [mokaddem]
+- [galaxyCluster] Recursive conditions on grandparent model. [mokaddem]
+- [galaxyClusterRelations] Hide delete button for non-elligible users.
+  [mokaddem]
+- [galaxyClusterRelation] Hide linked clusters where applicable.
+  [mokaddem]
+
+  - For source cluster, hide the relation
+  - For target cluster, show the relation but hide target data
+- [galaxyCluster] Allow hard-deletion of default clusters. [mokaddem]
+- [galaxyClusterBlocklist] Correct usage of the new blocklist component.
+  [mokaddem]
+- [event] Failed merge conflict. [mokaddem]
+- [clusterRelations:edit] Make edition of relation possible Make sure to
+  assign the source cluster id to the relation. [mokaddem]
+- [clusterRelations:index] Correctly unset target cluster if unkown and
+  uses correct index element. [mokaddem]
+- [galaxies:export] Return application/json MIME type for all exports.
+  [mokaddem]
+- [misp.js] Addressed lgtm warnings. [mokaddem]
+- [galaxyCluster] Make sure the value is not empty while saving.
+  [mokaddem]
+- [server:pull] Make sure to update the job progress only if we are
+  running in a background job. [mokaddem]
+- [server:pull] Makes pull works with jobs. [mokaddem]
+- [galaxyCluster:updateRelationsForSync] Use correct model to get
+  announceBaseUrl. [mokaddem]
+- [galaxyCluster:captureCluster] Block any attempt to modify a not
+  locked clusters if server is not internal. [mokaddem]
+- [galaxyClusterRelation:editRelation] Removed typo. [mokaddem]
+
+  Cluster returned by fetchIfAuthorized is not inside a list
+- [galaxyCluster:saveRelation] Set `default` value if unset and allow
+  saving unknown clusters if force flag set. [mokaddem]
+- [galaxyCluster:fetchIfAuthorized] Adhere to $throwErrors if the ID is
+  invalid. [mokaddem]
+- [galaxyCluster:publish] Cluster parameter can be of any type.
+  [mokaddem]
+- [galaxyCluster:publishRouter] Cluster parameter can be of any type.
+  [mokaddem]
+- [appModel:db_changes] Added new entry. [mokaddem]
+- [galaxyCluster:fetchGalaxyCluster] Make sure to fetch a fresh version
+  of the sharinggroup with all its associated data. [mokaddem]
+- [GalaxyCluster:fetchGalaxyCluster] Correctly attach all sharinggroup
+  information. [mokaddem]
+- [galaxyCluster] Make sure we correctly update cluster relations and
+  few QoL fixes. [mokaddem]
+- [clusterRelations:add] Correctly report validation errors. [mokaddem]
+- [install:MySQL] Create `perm_galaxy` in roles table before updating
+  rows. [mokaddem]
+- [clusterRelations:add/edit] Avoid error variable override. [mokaddem]
+- [clusterRelation:delete] Take first result if id matches. [mokaddem]
+- [clusterRelation] Use correct linked model alias. [mokaddem]
+- [galaxyCluster] Typo when accessing variables. [mokaddem]
+- [ACLComponent] Put `pushClusters` into the correct section. Also
+  removed useless condition. [mokaddem]
+- [servers:push] Do not throw exception while pushing via rest query.
+  [mokaddem]
+- [galaxy:import] Set org and orgc to default MISP org. [mokaddem]
+- [clusterRelations:view_relation_tree] Avoid id collision for cross-
+  referencing clusters. [mokaddem]
+- [galaxy:import] Correctly set distribution when importing from
+  repository. [mokaddem]
+- [clusterRelations:edit] Endpoint access data with/without model key.
+  [mokaddem]
+- [clusterRelation] Added entry in ACLComponent and improved rest error
+  message. [mokaddem]
+- [clusterRelations] Corrected conditions allowing the creation/update
+  of relations. Plus, get rid of not-used relation's value. [mokaddem]
+- [clusterRelation:add] Use the correct key to access cluster info.
+  [mokaddem]
+- [clusterRelations:add] Removed useless translation. [mokaddem]
+- [clusterRelation:restSearch] Allow org to see their own relations if
+  they are distribution=org_only. [mokaddem]
+- [galaxyCluster] Typo in linked model. [mokaddem]
+- [galaxyCluster:fetchClusters] Added missing conditions for
+  clusterRelations. [mokaddem]
+- [galaxyCluster:pull] Correctly capture the Orgc. [mokaddem]
+- [galaxyClusterRelation:getRelations] Could not fetch relations with no
+  full group by enabled. [mokaddem]
+- [galaxyCluster:captureCluster] Make sure to capture the galaxy if
+  unkown. [mokaddem]
+- [clusterRelation:captureRelations] Default referenced galaxy id to 0
+  if it's unkown. [mokaddem]
+- [galaxyCluster:view_relation_tree] Tree links takes into account the
+  avg numerical_value. [mokaddem]
+- [galaxies:massageTags] Pass user to the model. [mokaddem]
+- [clusterRelations:syncUUIDsAndIDs] Make sure to default referenced
+  cluster id to 0 if unknown. [mokaddem]
+- [galaxy:import] Use correct data path to retrieve galaxy id.
+  [mokaddem]
+- [galaxyCluster:edit] Fixed key name issues preventing clusters to be
+  edited similar to the `add` endpoint. [mokaddem]
+- [galaxyCluster:relations_graph] Fixed link id not used consistently.
+  [mokaddem]
+- [clusterRelations:catpure] More flexible tag capture. [mokaddem]
+- [galaxy:import] Set the locked flag for the imported galaxyCluster.
+  [mokaddem]
+- [galaxyCluster] Make sure to sync id/uuid for the target relation.
+  [mokaddem]
+- [galaxyCluster:view_relation_tree] Fixed division by 0. [mokaddem]
+- [galaxyClusters:relations_graph] Draw relation text only once +
+  Physics tweaking. [mokaddem]
+- [galaxyClusers:relations_graph] Draw nodes after links. [mokaddem]
+- [galaxyCluster:CRUD] Fixed fields not being saved correctly and
+  improved API feedback. [mokaddem]
+- [clusterRelations:relation_tree] looping with function callback change
+  the value of `this` [mokaddem]
+- [server:pushGalaxyCluster] Correctly select UUIDs to be pushed.
+  [mokaddem]
+- [clusterRelations:view_relations] Avoid duplication of targetting
+  relations. [mokaddem]
+- [clusterRelations:view_relations] Correctly sync ID and UUID when
+  adding a relation and repaired view. [mokaddem]
+- [clusterRelations:relations_graph] Support of fallback `MISP`
+  Organisation and improved tooltip layout. [mokaddem]
+- [galaxy:quickViewMini] Prevent multiple `mouseover` listeners.
+  [mokaddem]
+- [cluster:add_relation] Correctly use the freetext relation if picked.
+  [mokaddem]
+- [clusters:edit] ClusterElementUI do not duplicate rows each time it's
+  displayed. [mokaddem]
+- [event:view] Prevent global variable overide. [mokaddem]
+- [ClusterRelationsGraphTool] Inject Orgs and SharingGroup info for
+  referencing nodes. [mokaddem]
+- [events:view] Fixed cluster_relations filename and distribution info.
+  [mokaddem]
+- [clusterRelations:fork_tree] Prevent division by 0. [mokaddem]
+- [galaxy] Few leftovers to be renamed. [mokaddem]
+- [galaxy:fork_tree] Better handling of versions. [mokaddem]
+- [galaxyCluster:view] Catch if cluster has no `extended_from`
+  [mokaddem]
+- [galaxy:editCluster] Correctly update galaxyElements. [mokaddem]
+- [galaxy:fork_tree] Correctly print default value. [mokaddem]
+- [galaxu:index] Corrected cluster base urls locations. [mokaddem]
+- [genericIndexTable:extended_generic] Do not duplicate field if both
+  `from` and `by` are used. [mokaddem]
+- [galaxyCluster:attachToEventIndex] Usage of the correct function.
+  [mokaddem]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #6638 from korrosivesec/feature/jarm. [Alexandre
+  Dulaunoy]
+
+  new: [datamodels] added jarm-fingerprint type
+- Merge pull request #6639 from SteveClement/guides. [Steve Clement]
+- Merge branch '2.4' into guides. [Steve Clement]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6636 from MISP/gh_actions_var. [Raphaël Vinot]
+
+  chg: Improve actions
+- Merge pull request #6632 from StefanKelm/2.4. [Alexandre Dulaunoy]
+
+  Update Server.php
+- Update Server.php. [StefanKelm]
+
+  Tiny re-wording
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #6630 from SteveClement/guides. [Steve Clement]
+- Merge pull request #6628 from JakubOnderka/update-json-speedup. [Jakub
+  Onderka]
+
+  chg: [internal] Faster updating JSON structures
+- Merge pull request #6629 from SteveClement/guides. [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into guides. [Steve
+  Clement]
+- Merge branch 'guides' of github.com:SteveClement/MISP into guides.
+  [Steve Clement]
+- Merge pull request #6572 from JakubOnderka/syslog-stderr-disable.
+  [Jakub Onderka]
+
+  Syslog stderr disable
+- Merge pull request #6625 from JakubOnderka/setting-change-exception.
+  [Jakub Onderka]
+
+  chg: [internal] Throw exception if setting name doesn't exists
+- Merge pull request #6626 from JakubOnderka/no-empty-job. [Jakub
+  Onderka]
+
+  fix: [internal] Do not try to fetch empty job
+- Merge remote-tracking branch 'origin/2.4' into JakubOnderka-galaxy-
+  cluster-fetch. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6623 from JakubOnderka/log-search-models. [Jakub
+  Onderka]
+
+  fix: [logs] Add missing AuthKey model to log search
+- Merge pull request #6586 from JakubOnderka/autkey-fixes. [Jakub
+  Onderka]
+
+  Authkey UI  fixes
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #6559 from JakubOnderka/fist-last-seen-sort. [Jakub
+  Onderka]
+
+  new: [UI] Allow to sort attributes or objects by first and last seen
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #6617 from JakubOnderka/freetext-feed-saving.
+  [Jakub Onderka]
+
+  chg: [feed] Optimise freetext feed caching
+- Merge pull request #6609 from JakubOnderka/remove-inbox-controller.
+  [Jakub Onderka]
+
+  fix: [UI] Remove unused inbox controller and menu link
+- Merge pull request #6621 from JakubOnderka/extension-version. [Jakub
+  Onderka]
+
+  new: [diagnostic] Check extensions version
+- Merge pull request #6120 from mokaddem/galaxy-cluster2.0. [Sami
+  Mokaddem]
+
+  [feature] Cluster relations and synchronization - aka Galaxy 2.0
+- Merge branch '2.4' into galaxy-cluster2.0. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into galaxy-cluster2.0.
+  [mokaddem]
+- Merge pull request #6496 from JakubOnderka/experimental-stream-
+  convert. [Jakub Onderka]
+- Merge pull request #6589 from JakubOnderka/group-search-current-value.
+  [Jakub Onderka]
+
+  chg: [UI] For search field, by default put current search term
+- Merge pull request #6587 from JakubOnderka/authkey-view. [Jakub
+  Onderka]
+
+  Authkey view permission fix
+- Merge pull request #6604 from JakubOnderka/github-test-changes. [Jakub
+  Onderka]
+
+  GitHub test changes
+- Merge pull request #6605 from JakubOnderka/php-extension-diagnostic.
+  [Jakub Onderka]
+
+  chg: [diagnostic] Smarter PHP extension diagnostics
+- Merge branch 'feature-report-from-event' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into feature-report-from-
+  event. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into feature-report-from-
+  event. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into feature-report-from-
+  event. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into feature-report-from-
+  event. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into galaxy-cluster2.0.
+  [mokaddem]
+- Merge pull request #6580 from Maddosaurus/fix-plugin-setting-spelling.
+  [Sami Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into galaxy-cluster2.0.
+  [mokaddem]
+- Merge pull request #6600 from MISP/github_action_2. [Raphaël Vinot]
+
+  chg: try to fix weirdness in PyMISP git history
+- Merge pull request #6601 from JakubOnderka/fix-diagnostic-download.
+  [Jakub Onderka]
+
+  fix: [internal] Diagnostic data download
+- Merge pull request #6599 from JakubOnderka/misp-update-fix. [Jakub
+  Onderka]
+
+  fix: [internal] Server::update method
+- Merge pull request #6597 from JakubOnderka/zmq-setting-change-fix.
+  [Jakub Onderka]
+
+  fix: [internal] Initialize ZMQ just when necessary after setting change
+- Merge pull request #6596 from JakubOnderka/bump-pymisp. [Raphaël
+  Vinot]
+
+  chg: Bump PyMISP
+- Merge pull request #6588 from JakubOnderka/gpg-version-diagnostics.
+  [Jakub Onderka]
+
+  new: [diagnostic] Show installed GnuPG version
+- Merge remote-tracking branch 'origin/2.4' into galaxy-cluster2.0.
+  [mokaddem]
+- Merge branch 'session_destruction' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into galaxy-cluster2.0.
+  [mokaddem]
+- Merge pull request #6561 from JakubOnderka/rest-attribute-include-
+  context. [Jakub Onderka]
+
+  chg: [rest] For attribute REST search with includeContext, fetch events just once
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6532 from JakubOnderka/user_edit. [Jakub Onderka]
+
+  User edit permissions
+- Merge branch 'authkey_fix' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6584 from JakubOnderka/authkeys-test-fix. [Jakub
+  Onderka]
+
+  fix: [test] Update database before generating new user
+- Merge branch '2.4' of github.com:MISP/MISP into galaxy-cluster2.0.
+  [mokaddem]
+- Merge branch 'CRUD' into 2.4. [iglocska]
+- Merge branch '2.4' into CRUD. [iglocska]
+- Merge branch '2.4' into CRUD. [iglocska]
+- Merge branch '2.4' into CRUD. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into galaxy-cluster2.0.
+  [mokaddem]
+- Merge pull request #6560 from JakubOnderka/rest-client-handle-
+  exceptions. [Jakub Onderka]
+
+  fix: [RestClient] Catch exceptions and show error message to user
+- Merge branch '2.4' of github.com:MISP/MISP into galaxy-cluster2.0.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #6566 from JakubOnderka/distribution-disable-
+  correlation. [Jakub Onderka]
+
+  fix: [internal] Do not fetch unnecessary correlations for distributio…
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #6564 from JakubOnderka/fix-can-modify-report.
+  [Jakub Onderka]
+
+  fix: [eventReports] Handle exception for EventReportsController::index
+- Merge remote-tracking branch 'origin/2.4' into galaxy-cluster2.0.
+  [mokaddem]
+- Merge branch 'jakub-event-ui-vol5' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into jakub-event-ui-vol5.
+  [mokaddem]
+- Merge pull request #6529 from JakubOnderka/experimenteal-faster-rest-
+  fetch. [Jakub Onderka]
+
+  chg: [rest] Faster attributes restSearch
+- Merge pull request #6541 from JakubOnderka/head-check-attribute-
+  object. [Jakub Onderka]
+
+  new: [API] Fast check object or attribute existence by HEAD method
+- Merge pull request #6519 from JakubOnderka/update-login-times. [Jakub
+  Onderka]
+
+  fix: [internal] Properly set login time for custom auth
+- Merge pull request #6533 from JakubOnderka/shell-no-session. [Jakub
+  Onderka]
+
+  fix: [internal] Do not start session for shell commands
+- Merge pull request #6538 from JakubOnderka/event-edit-optimisation.
+  [Jakub Onderka]
+
+  fix: [internal] Do not load all attributes when editing event
+- Merge pull request #6548 from JakubOnderka/related-event-template.
+  [Jakub Onderka]
+
+  chg: [UI] Make related event little bit nicer
+- Merge branch 'feature-rest-client-codemirror' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into feature-rest-client-
+  codemirror. [mokaddem]
+- Merge pull request #6542 from JakubOnderka/speedup-sightings-saving.
+  [Jakub Onderka]
+
+  chg: [internal] Speedup sightings saving
+- Merge branch '2.4' of github.com:MISP/MISP into feature-rest-client-
+  codemirror. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #6510 from JakubOnderka/event-edit-metadata. [Jakub
+  Onderka]
+
+  new: [rest] Allow to return just metadata after creating or editing event
+- Merge pull request #6490 from JakubOnderka/json-converter-optim.
+  [Jakub Onderka]
+
+  chg: [internal] Slightly optimise JSONConverterTool
+- Merge pull request #6528 from JakubOnderka/event-view-head. [Jakub
+  Onderka]
+
+  new: [API] Allow event existence check by HEAD method
+- Merge pull request #6521 from JakubOnderka/cached-feed-url-match.
+  [Jakub Onderka]
+
+  chg: [feed] Check also URL without protocol
+- Merge pull request #6514 from JakubOnderka/fix-indefined-index. [Jakub
+  Onderka]
+
+  fix: [internal] `Undefined index: value` warning
+- Merge remote-tracking branch 'origin/2.4' into galaxy-cluster2.0.
+  [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into galaxy-cluster2.0.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into galaxy-cluster2.0.
+  [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into galaxy-cluster2.0.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into galaxy-cluster2.0.
+  [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into galaxy-cluster2.0.
+  [mokaddem]
+- Merge branch 'fix-sg-creation' into galaxy-cluster2.0. [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into galaxy-cluster2.0.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into galaxy-cluster2.0.
+  [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into galaxy-cluster2.0.
+  [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into galaxy-cluster2.0.
+  [mokaddem]
+
+
 v2.4.134 (2020-11-02)
 ---------------------
 
