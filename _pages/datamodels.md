@@ -63,6 +63,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |email-thread-index| | | | | | |
 |email-x-mailer| | | | | | |
 |eppn| | | | | | |
+|favicon-mmh3| | | | | | |
 |filename| | X | | X | | |
 |filename&#124;authentihash| | X | | | | |
 |filename&#124;impfuzzy| | X | | | | |
@@ -248,6 +249,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |email-thread-index| | | X | | | |
 |email-x-mailer| | | X | | | |
 |eppn| X | | | | | |
+|favicon-mmh3| X | | | | | |
 |filename| | | X | X | | X |
 |filename&#124;authentihash| | | X | X | | |
 |filename&#124;impfuzzy| | | X | X | | |
@@ -433,6 +435,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |email-thread-index| | | | |
 |email-x-mailer| | | | |
 |eppn| | X | | |
+|favicon-mmh3| | | | |
 |filename| | | | |
 |filename&#124;authentihash| | | | |
 |filename&#124;impfuzzy| | | | |
@@ -638,6 +641,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **email-thread-index**: The email thread index header
 *   **email-x-mailer**: Email x-mailer header
 *   **eppn**: eduPersonPrincipalName - eppn - the NetId of the person for the purposes of inter-institutional authentication. Should be stored in the form of user@univ.edu, where univ.edu is the name of the local security domain.
+*   **favicon-mmh3**: favicon-mmh3 is the murmur3 hash of a favicon as used in Shodan.
 *   **filename**: Filename
 *   **filename&#124;authentihash**: A checksum in md5 format
 *   **filename&#124;impfuzzy**: Import fuzzy hash - a fuzzy hash created based on the imports in the sample.
