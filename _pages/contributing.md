@@ -71,5 +71,5 @@ If you want to contribute to the MISP formats (which are actively based on the M
 
 ## Partnerships or other contributions
 
-Don't hesitate to [contact us](info@misp-project.org), if you would like to support the MISP project in some ways.
+Don't hesitate to [contact us](mailto:info@misp-project.org), if you would like to support the MISP project in some ways.
 
