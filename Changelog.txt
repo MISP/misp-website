@@ -2,6 +2,736 @@ Changelog
 =========
 
 
+v2.4.137 (2021-01-20)
+---------------------
+
+New
+~~~
+- [UI] Show event count in server popover for comparison. [Jakub
+  Onderka]
+- [object add] make add event / edit event breakOnDuplicate aware.
+  [iglocska]
+
+  - cull objects that would be duplicates
+  - cache the fetching of existing objects to speed up the query
+
+  - thanks to @github-germ for the suggested fixes to the duplicate checking to accomodate this patch
+- [API] update command got new branch parameter. [iglocska]
+
+  - instruct the update process to be prepended by a checkout of a given branch
+  - passed via a URL parameter (/servers/update/branch:develop)
+  OR
+  - passed via a JSON object ({"branch": "develop"})
+- [server] Compare server events overlap. [Jakub Onderka]
+- [internal] New ability to get JSON data from event preview. [Jakub
+  Onderka]
+- [doc] Added doc about how to change the installer generator. [Steve
+  Clement]
+- [taxonomy] Importing taxonomy in machinetag format by REST API. [Jakub
+  Onderka]
+- [UI] Show link to event preview for ID translator. [Jakub Onderka]
+- [idTranslator] Allow check event on different servers from event view.
+  [Jakub Onderka]
+- [UI] Show sharing groups in org view. [Jakub Onderka]
+- [sync] Enable compression for server sync. [Jakub Onderka]
+- [feed] Support brotli compression. [Jakub Onderka]
+- [correlation] added system to exclude certain values from the
+  correlation engine. [iglocska]
+
+  - simply add values at /exclude_correlations
+  - new values coming in will not correlate if they trip over the values listed there
+  - to remove existing correlations run the cleaner tool on the above endpoint
+
+  - values can be 1:1 matches, or substring searches (denoted with a leading, ending, or both '%')
+    - https://www.google.com/%  will match anything starting with https://www.google.com/
+    - %google.com% will match anything that contains google.com
+- [UI] Allow to sort orgs by number of orgs. [Jakub Onderka]
+- [sighting] New setting that will allow users to see host org
+  sightings. [Jakub Onderka]
+- [UI] Show tag description if tag belongs to taxonomy. [Jakub Onderka]
+- [internal] New model method find('column') [Jakub Onderka]
+- [security] Check org list when accessing distribution graph. [Jakub
+  Onderka]
+- [security] Test for hide_organisations_in_sharing_groups setting.
+  [Jakub Onderka]
+- [security] Setting to hide orgs form sharing group view. [Jakub
+  Onderka]
+- [internal] Allow to output directly TmpFileTool. [Jakub Onderka]
+- [UI] Show number of unique IPs for key usage. [Jakub Onderka]
+- [UI] Show last key usage in index table. [Jakub Onderka]
+- [UI] Show information about key expiration in server list. [Jakub
+  Onderka]
+- [security] Cancel API session right after auth key is deleted. [Jakub
+  Onderka]
+- [security] Put information about key expiration into response header.
+  [Jakub Onderka]
+- [security] Allow to set key validity. [Jakub Onderka]
+- [security] New setting Security.username_in_response_header. [Jakub
+  Onderka]
+- [test] Check when `MISP.authkey_keep_session` is true. [Jakub Onderka]
+- [internal] Show auth key usage in key view page. [Jakub Onderka]
+- [internal] Allow to log authkey usage in Redis. [Jakub Onderka]
+- [rest] Allow to search sightings by event or attribute UUID. [Jakub
+  Onderka]
+- [UI] Download GPG public key from GPG homedir. [Jakub Onderka]
+- [type] favicon-mmh3 is the murmur3 hash of a favicon as used in
+  Shodan. [Alexandre Dulaunoy]
+- [Statistics shell] Added new statistics shell. [iglocska]
+
+  - (R)etrieval (o)f (m)etrics (m)atrix (e)xtended (f)or (s)tatistics
+
+  - run it via /var/www/MISP/app/Console/cake Statistics rommelfs
+
+Changes
+~~~~~~~
+- [VERSION] bump. [iglocska]
+- Bump PyMISP version. [Raphaël Vinot]
+- [pgp] default pgp key server updated to openpgp.circl.lu. [Alexandre
+  Dulaunoy]
+
+  openpgp.circl.lu is the replacement keyserver of pgp.circl.lu
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- Add authenticode support in generate_file_objects. [Raphaël Vinot]
+- [PyMISP] Bump package (new lief). [Raphaël Vinot]
+- [internal] Faster fetching galaxy clusters by REST API. [Jakub
+  Onderka]
+- [internal] Simplified code for index and event preview. [Jakub
+  Onderka]
+- [internal] Remove deprecated Set class calls. [Jakub Onderka]
+- [internal] Optimise fetching tags for event index API requests. [Jakub
+  Onderka]
+- [internal] Optimise filter event index window. [Jakub Onderka]
+- [UI] Simplified event ajax index template. [Jakub Onderka]
+- [UI] Generate pagination just once. [Jakub Onderka]
+- [internal] Fetch user email just when user is site admin. [Jakub
+  Onderka]
+- [internal] Optimise appending tags to events. [Jakub Onderka]
+- [internal] Do not fetch unnecessary fields. [Jakub Onderka]
+- [internal] Do not fetch full clusters for rest event index. [Jakub
+  Onderka]
+- [internal] Optimise fetching tags for rest client. [Jakub Onderka]
+- [internal] Optimise fetching event index by API. [Jakub Onderka]
+- [UI] Optimise fetching tags for picker. [Jakub Onderka]
+- [misp-warninglists] updated. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [installer] Updated installer. [Steve Clement]
+- [doc] Considered $DBHOST. [Steve Clement]
+- [UI] Optimise loading taxonomy tags for for tagging form. [Jakub
+  Onderka]
+- [sync] Simplified fetching version from remote server. [Jakub Onderka]
+- [taxonomy] Faster fetching event and attribute counts for tag. [Jakub
+  Onderka]
+- [installer] Update to latest. [Steve Clement]
+- [git] Made the checkouts more proxy friendly. [Steve Clement]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [idTranslator] Allow to use from GET request. [Jakub Onderka]
+- [idTranslator] Check also servers that we push. [Jakub Onderka]
+- [UI] Optimise generic picker. [Jakub Onderka]
+- [UI] Faster paginator for index table. [Jakub Onderka]
+- [UI] Faster event paginator. [Jakub Onderka]
+- [internal] Remove unnecessary Attribute::defaultCategories array.
+  [Jakub Onderka]
+- [internal] Call array_values method just when necessary. [Jakub
+  Onderka]
+- [internal] Use strict comparison for in_array. [Jakub Onderka]
+- [internal] Generate server settings just when need. [Jakub Onderka]
+- [internal] Generate type definitions just when required. [Jakub
+  Onderka]
+- [UI] Deduplicate sightings form. [Jakub Onderka]
+- [internal] Optimise sightings saving. [Jakub Onderka]
+- [UI] Make server index view nicer. [Jakub Onderka]
+- [sync] Optimise version compatibility checking to save sql queries.
+  [Jakub Onderka]
+- [sync] Return content encoding in postTest. [Jakub Onderka]
+- [sync] Convert connection timeout to exception. [Jakub Onderka]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [optimisation] Faster Tag::fetchSimpleEventsForTag method. [Jakub
+  Onderka]
+- [optimisation] Faster fetching attributes with tags. [Jakub Onderka]
+- [optimisation] Decode JSON input from request just once. [Jakub
+  Onderka]
+- [internal] Remove unused methods. [Jakub Onderka]
+- [distribution-graph] Optimise loading. [Jakub Onderka]
+- [internal] Use find('column') on more places. [Jakub Onderka]
+- [internal] Do not load sightings for event log. [Jakub Onderka]
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [internal] Use find('column') on more places. [Jakub Onderka]
+- [internal] Optimise loading event correlation graph. [Jakub Onderka]
+- [UI] Use chosen when select contains more than 10 sharing groups.
+  [Jakub Onderka]
+- [role] Do not allow delete role when is still assigned to user. [Jakub
+  Onderka]
+- [UI] Show cancel button for event report filter. [Jakub Onderka]
+- [UI] Merge roles index and admin_index. [Jakub Onderka]
+- [UI] Rotate header for role index table. [Jakub Onderka]
+- [UI] Site admin redirects from role index to admin index. [Jakub
+  Onderka]
+- [UI] Set dbclickAction for user index. [Jakub Onderka]
+- [UI] Go directly to edit mode after clicking to "Edit report" button.
+  [Jakub Onderka]
+- [UI] Make event report page nicer. [Jakub Onderka]
+- [sighting] Faster and memory efficient rest search. [Jakub Onderka]
+- [log] Do not log request type logs to syslog. [Jakub Onderka]
+- [REST] Close session early for `authkey_keep_session` connections.
+  [Jakub Onderka]
+- [test] Update testlive_security.py to new version. [Jakub Onderka]
+- [internal] Code cleanup. [Jakub Onderka]
+- [internal] Small optimisations. [Jakub Onderka]
+- [interna] AppController code cleanup. [Jakub Onderka]
+- [internal] Rename MISP.log_user_ips_auth ->
+  MISP.log_user_ips_authkeys. [Jakub Onderka]
+- [internal] Move access monitoring to own method. [Jakub Onderka]
+- [internal] Force to update session data after database update. [Jakub
+  Onderka]
+- [internal] Allow to reuse session for API requests. [Jakub Onderka]
+- [internal] Do not log full authkeys. [Jakub Onderka]
+- [internal] Simplify User::describeAuthFields. [Jakub Onderka]
+- [internal] Update role changes immediately. [Jakub Onderka]
+- [internal] Do not fetch user settings for User::getAuthUser. [Jakub
+  Onderka]
+- [UI] Change description for user edit checkboxes. [Jakub Onderka]
+- [internal] Load just necessary info when loading homepage info. [Jakub
+  Onderka]
+- [internal] Load user role info from session data. [Jakub Onderka]
+- [internal] Move user checks to one place. [Jakub Onderka]
+- [UI] Convert taxonomies to default view. [Jakub Onderka]
+- [sync] When pushing event to remote server, request back just
+  metadata. [Jakub Onderka]
+- [eventReport] Load tags in one call. [Jakub Onderka]
+- [shibb] Better log messages for ApacheShibbAuthenticate. [Jakub
+  Onderka]
+- [sighting] Optimise bulk sighting saving. [Jakub Onderka]
+- [debug] cleanup. [iglocska]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-list] updated to the latest version. [Alexandre Dulaunoy]
+- [doc] From Travis to GH action. [Alexandre Dulaunoy]
+- [veracode] removed. [Alexandre Dulaunoy]
+- [installer] Latest update. [Steve Clement]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [installer] update to latest. [Steve Clement]
+- [fix] typo. [Steve Clement]
+- [doc] OpenBSD 6.8 update. [Steve Clement]
+- [php] Added 2 missing modules. [Steve Clement]
+- [doc] Added new default flags. [Steve Clement]
+
+Fix
+~~~
+- [update] fixed due to issues introduced with the branch flag.
+  [iglocska]
+- [security] Reflective XSS in the RestClient. [mokaddem]
+- [security] XSS in the user homepage favourite button. [iglocska]
+
+  - navigating to a url in MISP with the URL containing a javascript payload would cause the execution of reflected xss
+  - automatically sanitised by modern browsers, but still confirmed via raw curl fetches
+- [security] XSS via galaxy cluster element values for reference types
+  could contain javascript links. [iglocska]
+
+  - ref type elements are automatically converted to links. A user would have to click a javascript: link for it to trigger, it's still too risky to keep as is
+  - only urls starting with http:// and https:// are converted from here on
+
+  - As reported by Patrik Kontura from ESET
+- [security] Stored XSS in the galaxy cluster view. [iglocska]
+
+  - Galaxy cluster names were vulnerable to XSS injection
+
+  - As reported by Patrik Kontura of ESET
+- [security] Require password confirmations by default. [iglocska]
+
+  - the setting is optional, but the default should be that it's required unless disabled
+
+  - As reported by Patrix Kontura from ESET
+- [UI] Nicer first and last seen form. [Jakub Onderka]
+- [log] Correctly handle limit and page params. [Jakub Onderka]
+- [internal] Group for getting sightings for tag. [Jakub Onderka]
+- [taxonomy] Support unicode chars in tag names. [Jakub Onderka]
+- [S/MIME] don't sign e-mails if no signing key is set. [iglocska]
+
+  - fixes e-mails not going out on instances where no signing key was provided
+- [server] Handle case when checking CLI version is not possible. [Jakub
+  Onderka]
+- [object] the optional blocking of duplicates fixed for objects
+  including malware samples. [iglocska]
+
+  - also looping the attributes through the pre-validation massaging ensures that attributes modified by it are correctly compared
+- [objects] breakonduplicate fixed. [iglocska]
+- [sighting] Order must contain group for some mysql servers. [Jakub
+  Onderka]
+- [UI] Make event paginator universal. [Jakub Onderka]
+- [UI] Remove nonsense paginator options. [Jakub Onderka]
+- [UI] Chosen autofocus. [Jakub Onderka]
+- [internal] Remove unused method isOwnedByOrg. [Jakub Onderka]
+- [internal] Remove duplicate array definition. [Jakub Onderka]
+- [rest] Allow to edit roaming mode of sharing group. [Jakub Onderka]
+- [dbSchema] Update to v65. [Jakub Onderka]
+- MIssing dependency. [Raphaël Vinot]
+- Call the security test suite properly. [Raphaël Vinot]
+- Remove call to python script out of the virtenv. [Raphaël Vinot]
+- [S/MIME] don't sign e-mails if no signing key is set. [iglocska]
+
+  - fixes e-mails not going out on instances where no signing key was provided
+- [inernal] Remove duplicates from server correlations. [Jakub Onderka]
+- [internal] Attaching warninglist for feed event preview without
+  attributes. [Jakub Onderka]
+- [UI] Multiple popovers for cluster relations. [Jakub Onderka]
+- [UI] Change role name for admin view and add title. [Jakub Onderka]
+- [UI] Redirect after add role modal to index page. [Jakub Onderka]
+- [UI] Cancelling search didn't work for index table. [Jakub Onderka]
+- [UI] Add Object works again for all databases. [Jakub Onderka]
+- [UI] Remove unnecessary padding from form. [Jakub Onderka]
+- [UI] Correctly show contributors in event view. [Jakub Onderka]
+- [UI] Fix attribte search in event view. [Jakub Onderka]
+- [UI] Show error message when galaxy info couldn't be loaded. [Jakub
+  Onderka]
+- [sighting] Grouping sighting fetch for tags. [Jakub Onderka]
+- [sighting] Order must contain group for some mysql servers. [Jakub
+  Onderka]
+- [UI] Move debug mode variable before setting database connection.
+  [Jakub Onderka]
+- [monitoring] Do not encode payload, it is string. [Jakub Onderka]
+- [UI] Enable quick filter for auth keys. [Jakub Onderka]
+- [UI] Auth Key index and view changes and fixes. [Jakub Onderka]
+- [UI] Days to expire count. [Jakub Onderka]
+- [security] Do not return hashed authentication key after creation.
+  [Jakub Onderka]
+- [internal] Check if setting value is scalar. [Jakub Onderka]
+- [security] Auth key must be always random generated at server side.
+  [Jakub Onderka]
+- [security] Do not allow to use API key authenticated session to do non
+  API calls. [Jakub Onderka]
+- [internal] Remove unused variables. [Jakub Onderka]
+- [internal] Remove unused $user siteadmin variable. [Jakub Onderka]
+- [UI] Use generic style for taxonomy view. [Jakub Onderka]
+- [UI] Autofocus generic picker. [Jakub Onderka]
+- [UI] Replace GnuPG with PGP. [Jakub Onderka]
+- [UI] Empty field for galaxy 'Forked From' and 'Forked By' [Jakub
+  Onderka]
+- [UI] Use correct font for Show all. [Jakub Onderka]
+- [UI] Send request just when opening event detail windows. [Jakub
+  Onderka]
+- [eventReport] Smarter extractWithReplacements. [Jakub Onderka]
+- [eventReport] Replace defanged values. [Jakub Onderka]
+- [eventReport] Notice when galaxy value is not separated by ` - `
+  [Jakub Onderka]
+- [stix2 import] Checking if attack-pattern, course-of-action and
+  vulnerability names are known galaxies before importing them as MISP
+  object. [chrisr3d]
+- [tags] truncate tag names that are too long. [Andras Iklody]
+
+  Otherwise we run into issues on the DB level anyway. For the future, perhaps change the field length.
+- [installer] Typo. [Steve Clement]
+- [search] don't append the same quicksearch value more than once in the
+  URL. [iglocska]
+- [statistics] Local org flag fixed to show the correct count.
+  [iglocska]
+- [mistake in a comment fixed] [iglocska]
+- [internal] sharing_group graph missing org_ids - throwing notices.
+  [iglocska]
+- [internal] further promises removed from the galaxy model. [iglocska]
+
+  - easier than getting people to stop using EOL software
+- [installer] type in php-bcmath package. [Steve Clement]
+- [installer] forgot to add sfv. [Steve Clement]
+- [internal] removed function promises in crud component. [iglocska]
+
+  - to appease EOL php versions...
+- [delegation] invalid user call. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge pull request #6880 from JakubOnderka/server-compare-count.
+  [Jakub Onderka]
+
+  new: [UI] Show event count in server popover for comparison
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #6879 from JakubOnderka/first-seen-input-format.
+  [Jakub Onderka]
+
+  fix: [UI] Nicer first and last seen form
+- Merge pull request #6870 from JakubOnderka/galaxy-cluster-rest-search.
+  [Jakub Onderka]
+
+  chg: [internal] Faster fetching galaxy clusters by REST API
+- Merge pull request #6860 from JakubOnderka/log-fix. [Jakub Onderka]
+
+  fix: [log] Correctly handle limit and page params
+- Merge pull request #6874 from JakubOnderka/preview-server. [Jakub
+  Onderka]
+
+  Preview server
+- Merge pull request #6869 from JakubOnderka/event-index-tags. [Jakub
+  Onderka]
+
+  chg: [internal] Optimise fetching tags for event index API requests
+- Merge pull request #6868 from JakubOnderka/event-index-rest-optim.
+  [Jakub Onderka]
+
+  Event index rest optim
+- Merge pull request #6867 from JakubOnderka/event-index-rest-optim.
+  [Jakub Onderka]
+
+  chg: [internal] Optimise fetching event index by API
+- Merge pull request #6866 from JakubOnderka/fix-bad-merge. [Jakub
+  Onderka]
+
+  fix: [internal] Group for getting sightings for tag
+- Merge pull request #6863 from JakubOnderka/tag-fetching-optimisation.
+  [Jakub Onderka]
+
+  chg: [UI] Optimise fetching tags for picker
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #6865 from SteveClement/guides. [Andras Iklody]
+
+  chg: [doc] Considered $DBHOST
+- Merge pull request #6858 from SteveClement/guides. [Steve Clement]
+
+  new: [doc] Added doc about how to change the installer generator
+- Merge pull request #6862 from JakubOnderka/tag-chose-optimise. [Jakub
+  Onderka]
+
+  chg: [UI] Optimise loading taxonomy tags for for tagging form
+- Merge pull request #6861 from JakubOnderka/taxonomy-unicode. [Jakub
+  Onderka]
+
+  fix: [taxonomy] Support unicode chars in tag names
+- Merge branch '2.4' into develop. [Steve Clement]
+- Merge pull request #6854 from JakubOnderka/server-pull-version. [Jakub
+  Onderka]
+
+  chg: [sync] Simplified fetching version from remote server
+- Merge pull request #6851 from JakubOnderka/taxonomy-import. [Jakub
+  Onderka]
+
+  new: [taxonomy] Importing taxonomy in machinetag format by REST API
+- Merge pull request #6853 from JakubOnderka/server-diagnostic-fix.
+  [Jakub Onderka]
+
+  fix: [server] Handle case when checking CLI version is not possible
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #6835 from MISP/dependabot/pip/lxml-4.6.2.
+  [Alexandre Dulaunoy]
+
+  build(deps): bump lxml from 4.3.3 to 4.6.2
+- Build(deps): bump lxml from 4.3.3 to 4.6.2. [dependabot[bot]]
+
+  Bumps [lxml](https://github.com/lxml/lxml) from 4.3.3 to 4.6.2.
+  - [Release notes](https://github.com/lxml/lxml/releases)
+  - [Changelog](https://github.com/lxml/lxml/blob/master/CHANGES.txt)
+  - [Commits](https://github.com/lxml/lxml/compare/lxml-4.3.3...lxml-4.6.2)
+- Merge pull request #6825 from StefanKelm/2.4. [Alexandre Dulaunoy]
+
+  Update index.ctp
+- Update index.ctp. [StefanKelm]
+
+  Tinies of typos...
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6826 from SteveClement/guides. [Steve Clement]
+
+  chg: [git] Made the checkouts more proxy friendly
+- Fix git urls to https (users behind proxy) [Alexandre Dulaunoy]
+
+  Fix git urls to https (users behind proxy)
+- Merge pull request #6849 from JakubOnderka/id-translator-preview-link.
+  [Jakub Onderka]
+
+  new: [UI] Show link to event preview for ID translator
+- Merge pull request #6833 from JakubOnderka/id-translator-push. [Jakub
+  Onderka]
+
+  chg: [idTranslator] Check also servers that we push
+- Merge pull request #6845 from JakubOnderka/generic-picker-
+  optimisation. [Jakub Onderka]
+
+  chg: [UI] Optimise generic picker
+- Merge pull request #6841 from JakubOnderka/paginator-fix. [Jakub
+  Onderka]
+
+  Paginator fix
+- Merge pull request #6843 from JakubOnderka/choosen-autofocus-fix.
+  [Jakub Onderka]
+
+  fix: [UI] Chosen autofocus
+- Merge pull request #6842 from JakubOnderka/small-optims. [Jakub
+  Onderka]
+
+  Small optims
+- Merge pull request #6840 from JakubOnderka/translate-optimisation.
+  [Jakub Onderka]
+
+  Translate optimisation
+- Merge pull request #6839 from JakubOnderka/deduplicate-sighting-form.
+  [Jakub Onderka]
+
+  chg: [UI] Deduplicate sightings form
+- Merge pull request #6809 from JakubOnderka/optimise-sightings-saving.
+  [Jakub Onderka]
+
+  chg: [internal] Optimise sightings saving
+- Merge pull request #6827 from JakubOnderka/sharing_groups_org. [Jakub
+  Onderka]
+
+  new: [UI] Show sharing groups in org view
+- Merge pull request #6830 from JakubOnderka/sg-roaming-edit. [Jakub
+  Onderka]
+
+  fix: [rest] Allow to edit roaming mode of sharing group
+- Merge pull request #6837 from JakubOnderka/db-schema. [Jakub Onderka]
+
+  fix: [dbSchema] Update to v65
+- Merge pull request #6831 from JakubOnderka/server-view-ui. [Jakub
+  Onderka]
+
+  chg: [UI] Make server index view nicer
+- Merge pull request #6828 from JakubOnderka/check-version-
+  compatibility-optim. [Jakub Onderka]
+
+  chg: [sync] Optimise version compatibility checking to save sql queries
+- Merge pull request #6822 from JakubOnderka/server-sync-compression.
+  [Jakub Onderka]
+
+  new: [sync] Enable compression for server sync
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #6821 from JakubOnderka/http-socket-brotli. [Jakub
+  Onderka]
+
+  new: [feed] Support brotli compression
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #6820 from MISP/Rafiot-patch-6. [Raphaël Vinot]
+
+  [Test] Run the security suite from the virtualenv
+- [Test] Run the security suite from the virtualenv. [Raphaël Vinot]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Alexandre
+  Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge pull request #6813 from JakubOnderka/feed-cache-deduplicate.
+  [Jakub Onderka]
+
+  fix: [inernal] Remove duplicates from server correlations
+- Merge pull request #6812 from JakubOnderka/feed-warninglist. [Jakub
+  Onderka]
+
+  fix: [internal] Attaching warninglist for feed event preview without …
+- Merge pull request #6811 from JakubOnderka/attach-tags-to-attributes.
+  [Jakub Onderka]
+
+  Attach tags to attributes
+- Merge pull request #6810 from JakubOnderka/json-decode-just-once.
+  [Jakub Onderka]
+
+  chg: [optimisation] Decode JSON input from request just once
+- Merge pull request #6804 from JakubOnderka/optimisations-vol2. [Jakub
+  Onderka]
+
+  Optimisations vol2
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge pull request #6797 from JakubOnderka/optimisations. [Jakub
+  Onderka]
+
+  Optimisations
+- Merge pull request #6745 from JakubOnderka/user-sort. [Jakub Onderka]
+
+  User sort
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge pull request #6772 from JakubOnderka/sighting-policy-host-org.
+  [Jakub Onderka]
+
+  new: [sighting] New setting that will allow users to see host org sig…
+- Merge pull request #6778 from JakubOnderka/tag-info. [Jakub Onderka]
+
+  Tag info popover
+- Merge pull request #6749 from JakubOnderka/hide-orgs-from-sg. [Jakub
+  Onderka]
+
+  Hide orgs from sharing group view
+- Merge pull request #6788 from JakubOnderka/ui-fixes. [Jakub Onderka]
+
+  UI fixes
+- Merge pull request #6789 from JakubOnderka/sighting-tag-group. [Jakub
+  Onderka]
+
+  Sighting tag group
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge pull request #6497 from JakubOnderka/experimental-cake-tmp-
+  response. [Jakub Onderka]
+- Merge pull request #6787 from JakubOnderka/sighting-rest-optim. [Jakub
+  Onderka]
+
+  chg: [sighting] Faster and memory efficient rest search
+- Merge pull request #6786 from JakubOnderka/sighting-bug-6773. [Jakub
+  Onderka]
+
+  fix: [sighting] Order must contain group for some mysql servers
+- Merge pull request #6581 from JakubOnderka/newsread-loading. [Jakub
+  Onderka]
+
+  chg: [internal] Move user checks to one place
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [Steve Clement]
+- Merge pull request #6782 from JakubOnderka/taxonomies-view. [Jakub
+  Onderka]
+
+  chg: [UI] Convert taxonomies to default view
+- Merge pull request #6760 from JakubOnderka/sighting-rest-uuid. [Jakub
+  Onderka]
+
+  new: [rest] Allow to search sightings by event or attribute UUID
+- Merge pull request #6781 from JakubOnderka/another-ui-fixes. [Jakub
+  Onderka]
+
+  Another UI fixes
+- Merge pull request #6776 from JakubOnderka/event-push-metadata. [Jakub
+  Onderka]
+
+  chg: [sync] When pushing event to remote server, request back just me…
+- Merge pull request #6779 from JakubOnderka/event-report-extract-fix.
+  [Jakub Onderka]
+
+  Event report extract fix
+- Merge pull request #6755 from JakubOnderka/shibb-log-messages. [Jakub
+  Onderka]
+
+  chg: [shibb] Better log messages for ApacheShibbAuthenticate
+- Merge pull request #6759 from JakubOnderka/bulk-sighting-saving-optim.
+  [Jakub Onderka]
+
+  chg: [sighting] Optimise bulk sighting saving
+- Merge pull request #5234 from JakubOnderka/gpg_key_footer. [Jakub
+  Onderka]
+
+  new: [UI] Download GPG public key from GPG homedir
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6747 from legoguy1000/ja3_zeek_intel_rules.
+  [Alexandre Dulaunoy]
+
+  Create JA3 Hash Zeek Intel Rules
+- JA3 Zeek Intel Rules. [Alex Resnick]
+- Merge pull request #6799 from simonflood/patch-1. [Alexandre Dulaunoy]
+
+  INSTALL.rhel8.md - update EoL for CentOS 8
+- INSTALL.rhel8.md - update EoL for CentOS 8. [Simon Flood]
+
+  Maintenance for CentOS 8 will now end on 31 December 2021
+- Merge pull request #6795 from sdenel/patch-2. [Alexandre Dulaunoy]
+
+  Typo in Server.php: currenty -> currently
+- Typo in Server.php. [Simon DENEL]
+- Veracode added. [Alexandre Dulaunoy]
+- CodeQL added. [Alexandre Dulaunoy]
+- HandlerSSL should be true. [Alexandre Dulaunoy]
+- Merge pull request #6785 from StefanKelm/2.4. [Alexandre Dulaunoy]
+
+  Typos
+- Update indexForEvent.ctp. [StefanKelm]
+- Update importReportFromUrl.ctp. [StefanKelm]
+- Merge pull request #6783 from FafnerKeyZee/patch-1. [Alexandre
+  Dulaunoy]
+
+  Add the possibility to have a '-' in the baseurl
+- Add the possibility to have a '-' in the baseurl. [Fafner [_KeyZee_]]
+
+  With the actual regex in testBaseURL, we can not have a '-' inside the BaseURL, I did a quick fix
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6767 from SteveClement/guides. [Steve Clement]
+- Merge pull request #6764 from Natsec/patch-1. [Andras Iklody]
+
+  Typo caused fail of dependency installation
+- Typo caused fail of dependency installation. [Kamil]
+
+  Hello,
+
+  During installation, I would get the following error :
+  ```shell
+  Cloning into '/var/www/MISP/app/files/scripts/python-cybox'...
+  remote: Enumerating objects: 343, done.
+  remote: Counting objects: 100% (343/343), done.
+  remote: Compressing objects: 100% (191/191), done.
+  remote: Total 14731 (delta 180), reused 253 (delta 152), pack-reused 14388
+  Receiving objects: 100% (14731/14731), 7.39 MiB | 3.10 MiB/s, done.
+  Resolving deltas: 100% (10487/10487), done.
+  ERROR: Invalid requirement: '/var/www/MISP/app/files/scripts/CybOXProject/python-cybox'
+  Hint: It looks like a path. File '/var/www/MISP/app/files/scripts/CybOXProject/python-cybox' does not exist.
+  apt is maybe locked, waiting 3 seconds.
+  Cloning into '/var/www/MISP/app/files/scripts/python-stix'...
+  remote: Enumerating objects: 298, done.
+  remote: Counting objects: 100% (298/298), done.
+  remote: Compressing objects: 100% (215/215), done.
+  remote: Total 13777 (delta 190), reused 155 (delta 83), pack-reused 13479
+  Receiving objects: 100% (13777/13777), 5.78 MiB | 2.58 MiB/s, done.
+  Resolving deltas: 100% (10076/10076), done.
+  ERROR: Invalid requirement: '/var/www/MISP/app/files/scripts/STIXProject/python-stix'
+  Hint: It looks like a path. File '/var/www/MISP/app/files/scripts/STIXProject/python-stix' does not exist.
+  apt is maybe locked, waiting 3 seconds.
+  Cloning into '/var/www/MISP/app/files/scripts/python-maec'...
+  remote: Enumerating objects: 59, done.
+  remote: Counting objects: 100% (59/59), done.
+  remote: Compressing objects: 100% (39/39), done.
+  remote: Total 4472 (delta 32), reused 40 (delta 20), pack-reused 4413
+  Receiving objects: 100% (4472/4472), 1.29 MiB | 1.90 MiB/s, done.
+  Resolving deltas: 100% (2992/2992), done.
+  ERROR: Invalid requirement: '/var/www/MISP/app/files/scripts/MAECProject/python-maec'
+  Hint: It looks like a path. File '/var/www/MISP/app/files/scripts/MAECProject/python-maec' does not exist.
+  apt is maybe locked, waiting 3 seconds.
+  Cloning into '/var/www/MISP/app/files/scripts/mixbox'...
+  remote: Enumerating objects: 39, done.
+  remote: Counting objects: 100% (39/39), done.
+  remote: Compressing objects: 100% (26/26), done.
+  remote: Total 1055 (delta 20), reused 27 (delta 13), pack-reused 1016
+  Receiving objects: 100% (1055/1055), 278.98 KiB | 901.00 KiB/s, done.
+  Resolving deltas: 100% (696/696), done.
+  ERROR: Invalid requirement: '/var/www/MISP/app/files/scripts/CybOXProject/mixbox'
+  Hint: It looks like a path. File '/var/www/MISP/app/files/scripts/CybOXProject/mixbox' does not exist.
+  ```
+
+  Making the modification fixed the installation of the dependencies.
+
+  Best regards,
+  Kamil
+
+
 v2.4.136 (2020-12-16)
 ---------------------
 
