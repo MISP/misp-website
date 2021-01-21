@@ -60,8 +60,11 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2020-25766](https://cve.circl.lu/cve/CVE-2020-25766) <= MISP 2.4.131 - An issue was discovered in MISP before 2.4.132. It can perform an unwanted action because of a POST operation on a form that is not linked to the login page.
 - [CVE-2020-28043](https://cve.circl.lu/cve/CVE-2020-28043) <= MISP 2.4.133 - MISP through 2.4.133 allows SSRF in the REST client via the use_full_path parameter with an arbitrary URL.
 - [CVE-2020-28947](https://cve.circl.lu/cve/CVE-2020-28947) <= MISP 2.4.134 - In MISP 2.4.134, XSS exists in the template element index view because the id parameter is mishandled. 
-- [CVE-2020-29572](https://cve.circl.lu/cve/CVE-2020-29572)2) =< MISP 2.4.135 - app/View/Elements/genericElements/SingleViews/Fields/genericField.ctp in MISP 2.4.135 has XSS via the authkey comment field.
-
+- [CVE-2020-29572](https://cve.circl.lu/cve/CVE-2020-29572) =< MISP 2.4.135 - app/View/Elements/genericElements/SingleViews/Fields/genericField.ctp in MISP 2.4.135 has XSS via the authkey comment field.
+- [CVE-2021-25324](https://cvepremium.circl.lu/cve/CVE-2021-25324) <= MISP 2.4.136 - Stored XSS in the galaxy cluster view via a cluster name to app/View/GalaxyClusters/view.ctp.
+- [CVE-2021-25325](https://cvepremium.circl.lu/cve/CVE-2021-25325) <= MISP 2.4.136 - XSS via galaxy cluster element values to app/View/GalaxyElements/ajax/index.ctp. Reference types could contain javascript: URLs.
+- [CVE-2021-25323](https://cvepremium.circl.lu/cve/CVE-2021-25323) <= MISP 2.4.136 - The default setting of MISP 2.4.136 did not enable the requirements (aka require_password_confirmation) to provide the previous password when changing a password.
+- [CVE-2021-3184](https://cvepremium.circl.lu/cve/CVE-2021-3184) <= MISP 2.4.136 - XSS via a crafted URL to the app/View/Elements/global_menu.ctp user homepage favourite button.
 
 ## PGP Key
 
