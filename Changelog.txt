@@ -2,7 +2,338 @@ Changelog
 =========
 
 
-v2.4.137 (2021-01-20)
+v2.4.138 (2021-02-08)
+---------------------
+
+New
+~~~
+- [settings] Allow to use ThreatLevel.name for alert filter. [Jakub
+  Onderka]
+- [test] Update github actions build to Ubuntu 20.04. [Jakub Onderka]
+- [internal] Cidr tool for faster checking CIDR ranges. [Jakub Onderka]
+- [objectTemplate] Allow fetching the raw template stored on disk by
+  UUID or name. [mokaddem]
+- [PHP] version notification. [iglocska]
+
+  - 8.0 is not supported, let users know in a more obvious way
+
+Changes
+~~~~~~~
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [version] bump. [iglocska]
+- Bump PyMISP & version. [Raphaël Vinot]
+- [ACLComponent] Added new galaxy element endpoints. [mokaddem]
+- [tools] Removed useless library. [mokaddem]
+- [galaxyClusters:view_relation] Reuse already fetched relations.
+  [mokaddem]
+- [galaxyElement] Added individual deletion and JSON
+  flattening/expanding. [mokaddem]
+- [misp.js] Allow index filtering without searchbox. [mokaddem]
+- [galaxyElements] Migrated galaxy element index to generic factory.
+  [mokaddem]
+- [galaxyElement] Added draft of element flattening and unflattening.
+  [mokaddem]
+- [internal] Optimise fetching trending tags widget. [Jakub Onderka]
+- [internal] Cache warninglist for eight hours. [Jakub Onderka]
+- [UI] Make toggle buttons nicer. [Jakub Onderka]
+- [internal] Optimise correlation exclusion. [Jakub Onderka]
+- [internal] Optimise CidrTool. [Jakub Onderka]
+- [PyMISP] Bump, update deps (reportlab release removed) [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [objecTemplate:getRaw] Refactored and optimized feature. [mokaddem]
+- [eventReports:delete] Make delete/restore call consistent with other
+  models. [mokaddem]
+- [internal] Raise memory limit for TmptFileTool to 5 MB. [Jakub
+  Onderka]
+- [internal] Generate event to TmpFile. [Jakub Onderka]
+- [eventReports:delete] Accept hard flag to be passed in POST body.
+  [mokaddem]
+- Bumped queryversion. [mokaddem]
+- [eventReports] Improved manual extraction layout. [mokaddem]
+- [export:csv] Added support of decaying model. Fix #6734. [mokaddem]
+- [console:admin] Improved feedback when updating object templates. Fix
+  #6715. [mokaddem]
+- [objects:delete] Support of hard flag in posted body. Fix #6689.
+  [mokaddem]
+- [PyMISP] bump to latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [installer] fixes to misp-modules. [Steve Clement]
+- [misp-modules] some reqs are not in sync, fixing manually. [Steve
+  Clement]
+- [installer] Update to latest installer. [Steve Clement]
+- [misp-objects] updated to the latest. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [cake] Make misp-after-installer less yellow. [Steve Clement]
+- [misp-galaxy] updated (RSIT galaxy added) [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- Bumped queryversion. [mokaddem]
+- [objects:delete] Support of hard flag in posted body. Fix #6689.
+  [mokaddem]
+- Bumped queryversion. [mokaddem]
+
+Fix
+~~~
+- [zmq/kafka] attribute edits should include non exportable attributes.
+  [iglocska]
+- [UI] notice resolved on the feed index. [iglocska]
+- [internal] Do not throw warning when user don't have collections.
+  [Jakub Onderka]
+- [galaxyCluster] Delete elements if field is empty. [mokaddem]
+- [galaxyCluster] Integrated changes of improved index factory.
+  [mokaddem]
+- [CLI] Check user existence. [Jakub Onderka]
+- [UI] passedArgs should be JSON encoded. [Jakub Onderka]
+- [widget] Typo in MispSystemResourceWidget. [Jakub Onderka]
+- [internal] First check if attribute value is valid composite, then run
+  other checks. [Jakub Onderka]
+- [internal] Bump CakePHP to 2.10.24. [Jakub Onderka]
+- [internal] Bump PyMISP. [Jakub Onderka]
+- [UI] Nicer forms. [Jakub Onderka]
+- [internal] Fix some warnings. [Jakub Onderka]
+- [logs:event] Added missing line breaks. [mokaddem]
+- [log] Allow to filter logs by org name. [Jakub Onderka]
+- [acl] Added missing ACL entry. [mokaddem]
+- [objectTemplate:update] Typo instance variable. [mokaddem]
+- [shadowAttributes:viewPicture] Allows shadow attribute's pictures to
+  be displayed. [mokaddem]
+- [attributes:viewPicture] Allow viewing pictures of deleted attributes.
+  [mokaddem]
+- [events:eventGraph] Deleted object reference are no longer shown in
+  the graph. [mokaddem]
+
+  - Fix #6487
+- [UI] Allow to download attachments from attribute index. [Jakub
+  Onderka]
+- [internal] Remove compact method call that do nothing. [Jakub Onderka]
+- [eventReport:getProxyElement] Prevent crash if viewing a report for an
+  extended event. [mokaddem]
+
+  - Make sure merging array happens in existing keys
+- [server:recoveyQuery] Only add `unsigned` when applicable. Fix #6762.
+  [mokaddem]
+
+  - Correctly compare return value of strpos
+- [UI] Show proper unit for diagnostics. [Jakub Onderka]
+- [servers:rest] Speed up rest client and improved reactivity.
+  [mokaddem]
+
+  - Added debounce when typing
+  - Only update query builder when its displayed
+- [warninglists:index] Fixed URL for ID. [mokaddem]
+- [UI] Remote event preview. [Jakub Onderka]
+- [stix2 import] Fixed pattern parsing. [chrisr3d]
+
+  - Stripping patterns to avoid issue with space
+    characters at the beginning or at the end of the
+    patterns
+- [UI] hard-delete option missing for soft-deleted objects. [iglocska]
+- [internal] timestmaping when adding clusters to attributes wasn't
+  working. [iglocska]
+
+  - added it as a quick fix, should be moved in the future to a more generic place
+- [extended event] layout broken, fixes #6946. [iglocska]
+- [internal] Capturing sightings for attributes. [Jakub Onderka]
+- [kali] Fixed Kali installer, now only works on 2020.4 and higher.
+  [Steve Clement]
+- [breakOnDuplicate] invalid placement return, affects #6917. [iglocska]
+
+  - as reported by @github-germ
+- [UI] Allow to sort feeds by name. [Jakub Onderka]
+- [eventReport:edit] Editing event via /events/edit should work as
+  expected. [mokaddem]
+
+  - Correct call to editReport
+  - Force local ID to match provided UUID
+- [dashboards] saving the dashboard state failed due to uninitialised
+  model. [Andras Iklody]
+- [events:eventTimeline] Correctly restore elements after changing
+  context or group. [mokaddem]
+
+  - Fix #6885
+- [events:eventGraph] Makes additions and editions of nodes working as
+  expected. [mokaddem]
+
+  Fix #6877
+- Bump PyMISP, make gh actions happy. [Raphaël Vinot]
+- [eventReport:getProxyElement] Prevent crash if viewing a report for an
+  extended event. [mokaddem]
+
+  - Make sure merging array happens in existing keys
+- [server:recoveyQuery] Only add `unsigned` when applicable. Fix #6762.
+  [mokaddem]
+
+  - Correctly compare return value of strpos
+- [servers:rest] Speed up rest client and improved reactivity.
+  [mokaddem]
+
+  - Added debounce when typing
+  - Only update query builder when its displayed
+- [warninglists:index] Fixed URL for ID. [mokaddem]
+- [diagnostics] complain about PHP >= 8.0. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge pull request #6939 from JakubOnderka/warnings-fix. [Jakub
+  Onderka]
+
+  fix: [internal] Do not throw warning when user don't have collections
+- Merge branch 'feature-galaxy-element-tree-view' into develop.
+  [mokaddem]
+- Merge remote-tracking branch 'origin/develop' into feature-galaxy-
+  element-tree-view. [mokaddem]
+- Merge branch 'develop' into feature-galaxy-element-tree-view.
+  [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-galaxy-
+  element-tree-view. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into feature-galaxy-
+  element-tree-view. [mokaddem]
+- Merge pull request #6973 from JakubOnderka/check-user-existence.
+  [Jakub Onderka]
+
+  fix: [CLI] Check user existence
+- Merge pull request #6971 from JakubOnderka/threat-level-notification-
+  filter. [Jakub Onderka]
+
+  new: [settings] Allow to use ThreatLevel.name for alert filter
+- Merge pull request #6948 from JakubOnderka/fix-passed-args. [Jakub
+  Onderka]
+
+  fix: [UI] passedArgs should be JSON encoded
+- Merge pull request #6962 from JakubOnderka/trending-tags-optimisation.
+  [Jakub Onderka]
+
+  chg: [internal] Optimise fetching trending tags widget
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #6964 from JakubOnderka/attribute-validation-order.
+  [Jakub Onderka]
+
+  fix: [internal] First check if attribute value is valid composite
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [Steve Clement]
+- Merge pull request #6950 from JakubOnderka/bump-cakephp. [Jakub
+  Onderka]
+
+  fix: [internal] Bump CakePHP to 2.10.24
+- Merge pull request #6949 from JakubOnderka/bump-pymisp-v2. [Jakub
+  Onderka]
+
+  fix: [internal] Bump PyMISP
+- Merge pull request #6944 from JakubOnderka/warninglist-cache-raise.
+  [Jakub Onderka]
+
+  chg: [internal] Cache warninglist for eight hours
+- Merge pull request #6935 from JakubOnderka/event-toggle-buttons.
+  [Jakub Onderka]
+
+  chg: [UI] Make toggle buttons nicer
+- Merge pull request #6894 from JakubOnderka/github-actions-os. [Jakub
+  Onderka]
+
+  new: [test] Update github actions build to Ubuntu 20.04
+- Merge pull request #6888 from JakubOnderka/form-ui-fixes. [Jakub
+  Onderka]
+
+  fix: [UI] Nicer forms
+- Merge pull request #6927 from JakubOnderka/correlation-exclusion-
+  optimise. [Jakub Onderka]
+
+  chg: [internal] Optimise correlation exclusion
+- Merge pull request #6926 from JakubOnderka/faster-cidr-tool. [Jakub
+  Onderka]
+
+  chg: [internal] Optimise CidrTool
+- Merge pull request #6899 from marjatech/smime-signature. [Andras
+  Iklody]
+
+  fix: generate S/MIME Signature in DETACHED mode
+- Switch S/MIME Signature generation to DETACHED mode. [marjatech]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge pull request #6924 from JakubOnderka/cidr-tool. [Jakub Onderka]
+
+  new: [internal] Cidr tool for faster checking CIDR ranges
+- Merge pull request #6922 from JakubOnderka/warnings-fixes. [Jakub
+  Onderka]
+
+  fix: [internal] Fix some warnings
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #6889 from JakubOnderka/log-org-filter. [Jakub
+  Onderka]
+
+  fix: [log] Allow to filter logs by org name
+- Merge branch 'feature-getRawObjectTemplate' into develop. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-
+  getRawObjectTemplate. [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #6873 from JakubOnderka/event-output. [Jakub
+  Onderka]
+
+  Event output
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge branch '2.4' into develop. [mokaddem]
+- Merge pull request #6900 from JakubOnderka/attribute-index-attachment-
+  download. [Jakub Onderka]
+
+  fix: [UI] Allow to download attachments from attribute index
+- Merge pull request #6737 from JakubOnderka/remove-compat. [Andras
+  Iklody]
+
+  fix: [internal] Remove compact method call that do nothing
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge pull request #6890 from JakubOnderka/php-diagnostics-unit.
+  [Jakub Onderka]
+
+  fix: [UI] Show proper unit for diagnostics
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge pull request #6881 from JakubOnderka/remote-event-preview-fix.
+  [Jakub Onderka]
+
+  fix: [UI] Remote event preview
+- Merge pull request #6976 from StefanKelm/2.4. [Jakub Onderka]
+
+  Update Server.php
+- Update Server.php. [StefanKelm]
+
+  wording
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6951 from JakubOnderka/fix-sighting-capture.
+  [Jakub Onderka]
+
+  fix: [internal] Capturing sightings for attributes
+- Merge pull request #6953 from SteveClement/guides. [Steve Clement]
+
+  chg: [misp-modules] some reqs are not in sync, fixing manually.
+- Merge pull request #6952 from SteveClement/guides. [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into guides. [Steve
+  Clement]
+- Merge pull request #6916 from JakubOnderka/feed-sort. [Jakub Onderka]
+
+  fix: [UI] Allow to sort feeds by name
+
+
+v2.4.137 (2021-01-21)
 ---------------------
 
 New
@@ -229,6 +560,11 @@ Changes
 
 Fix
 ~~~
+- [helper:genericPicker] Adding object from pill selector - Prevents
+  double encoding of the passed data. [mokaddem]
+- [login] Correctly convert old password hash to blowfish. [Jakub
+  Onderka]
+- [login] Convert old password hash to blowfish. [Jakub Onderka]
 - [update] fixed due to issues introduced with the branch flag.
   [iglocska]
 - [security] Reflective XSS in the RestClient. [mokaddem]
@@ -351,6 +687,12 @@ Fix
 
 Other
 ~~~~~
+- Merge pull request #6896 from JakubOnderka/fix-old-password-convert.
+  [Jakub Onderka]
+
+  fix: [login] Correctly convert old password hash to blowfish
+- Merge branch 'old-hash-transfer' into 2.4. [Christophe Vandeplas]
+- Merge branch '2.4' into develop. [iglocska]
 - Merge branch 'develop' into 2.4. [iglocska]
 - Merge branch 'develop' into 2.4. [iglocska]
 - Merge branch 'develop' of github.com:MISP/MISP into develop.
