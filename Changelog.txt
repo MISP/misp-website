@@ -2,6 +2,249 @@ Changelog
 =========
 
 
+v2.4.139 (2021-02-16)
+---------------------
+
+New
+~~~
+- [widget] Eventstream widget and index widget UI added. [iglocska]
+
+  - EventStream
+    - add a lightweight event index to your dashboard
+    - configure filters for the events you're interested in (tags, orgs, published)
+    - set the number of events to display (limit)
+    - set the list of fields it should display (id, orgc, info, tags, threat_level, analysis, date)
+
+  - Index widget UI
+    - uses the generic index builder
+    - build simple index like UIs
+- [event] Added supports of eventReport coming from modules. [mokaddem]
+- [modules] Export module can specify event fetch options. [Jakub
+  Onderka]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [array lookup index field] updatd to work correctly. [iglocska]
+- [event model] fetchEvent() now accepts page/limit/order as parameters.
+  [iglocska]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [events] Enables index search for object. Fix #6961. [mokaddem]
+- [organisation] "International" typo fixed + Europe added. [Alexandre
+  Dulaunoy]
+
+  Notes TODO: Improve the selection using the region galaxy in addition to
+  country galaxy
+- [installer] Updated installer Checksums. [Steve Clement]
+- [installer] The installer is compatible with Ubuntu 21.04 LTS. [Steve
+  Clement]
+- [LogsController] add missing EventReport in log search. [Alexandre
+  Dulaunoy]
+- [organisation] "International" typo fixed + Europe added. [Alexandre
+  Dulaunoy]
+
+  Notes TODO: Improve the selection using the region galaxy in addition to
+  country galaxy
+- [UI] Make event preview nicer. [Jakub Onderka]
+- [UI] Highlight column for roles table. [Jakub Onderka]
+- [internal] Faster updating warninglist. [Jakub Onderka]
+- [UI] Allow filter enabled/disabled warninglists. [Jakub Onderka]
+- [internal] Small optimisation for filterEventIds. [Jakub Onderka]
+- [internal] Use RestResponse for filterEventIdsForPush. [Jakub Onderka]
+- [internal] Update moment javascript library. [Jakub Onderka]
+- [internal] Update composer to 2.0.9. [Jakub Onderka]
+- [UI] Use TimeHelper for datetime formatting. [Jakub Onderka]
+- [internal] Refactor TagsController::view. [Jakub Onderka]
+- [event fetcher] add limit and page parameters to the event fetcher.
+  [iglocska]
+- [connection test] clarified that read only users can pull. [iglocska]
+
+  - Reduced error level to "orange"
+  - Added a clarification that they can still pull
+
+Fix
+~~~
+- [UI] Escaping in row_attribute. [Jakub Onderka]
+- [internal] Field name in HttpSocketExtended. [Jakub Onderka]
+- [breakOnDuplicate] on event add fixed, fixes #6917. [iglocska]
+
+  - add breakOnDuplicate on the event level as a flag
+    - {"Event":{"breakOnDuplicate":1, "info": "foo", ...}}
+
+  - correctly handle 2 equal objects added to the same event in memory
+- [auto logout] disabled. [iglocska]
+
+  - this crap just causes issues and is pretty pointless
+- [event] `merge from` feature correctly saves object relations. Fix
+  #6969. [mokaddem]
+- [event] Includes eventReport when using the `merge from` feature.
+  [mokaddem]
+- [dashboard] Typo breakig the dashboards fixed. [iglocska]
+- [eventreport] add fixed to avoid ID collisions. [iglocska]
+- [STIX] fix typo in message. [Alexandre Dulaunoy]
+- [events] Attach cluster from matrix in multiselect. Fix #6956.
+  [mokaddem]
+- [eventTimeline] Refrsh attribute index when dragging. Fix #6958.
+  [mokaddem]
+- [STIX] fix typo in message. [Alexandre Dulaunoy]
+- [taxonomy] Hide unselectable tags by default. Fix #6912. [mokaddem]
+- [event] Publishing to pub/sub queues includes all tags. [mokaddem]
+- [internal] Bad variable. [Jakub Onderka]
+- [UI] Undefined variables in authkeys view. [Jakub Onderka]
+- [idTranslator] Distinguish between not found and unreachable. [Jakub
+  Onderka]
+- [UI] Broken checkboxes for role permissions. [Jakub Onderka]
+- [internal] GalaxyCluster::getCluster also accepts ID. [Jakub Onderka]
+- Correctly show hidden tags in tag-list. [marjatech]
+- [UI] Attach correct count of enabled taxonomy tags. [Jakub Onderka]
+- [UI] Remove right margin from form seen input. [Jakub Onderka]
+- [feed] Feed name is required. [Jakub Onderka]
+- [internal] idTranslator could show invalid results. [Jakub Onderka]
+- [generic_picker] Improved perfs by adding a debounce for redrawing
+  results. [mokaddem]
+- [logs] aded eventgraph to log search. [iglocska]
+- [UI] Undefined variables in authkeys view. [Jakub Onderka]
+- [galaxyClusters:view_relation_tree] Fix inital draw of the tree.
+  [mokaddem]
+
+  - Declare variables before assigning value
+- Elasticsearch complains when an IP is an empty string. [Tom King]
+- [tag collections] typo causing tag collections to break completely
+  fixed. [iglocska]
+- [bro] export fixed. [iglocska]
+
+  - invalid group by statement removed
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7012 from JakubOnderka/row-attribute-escaping.
+  [Jakub Onderka]
+
+  fix: [UI] Escaping in row_attribute
+- Merge pull request #7011 from JakubOnderka/http-socket-fied-name.
+  [Jakub Onderka]
+
+  fix: [internal] Field name in HttpSocketExtended
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #7009 from SteveClement/guides. [Steve Clement]
+
+  chg: [installer] The installer is compatible with Ubuntu 21.04 LTS
+- Merge pull request #7001 from JakubOnderka/nicer-event-preview. [Jakub
+  Onderka]
+
+  chg: [UI] Make event preview nicer
+- Merge pull request #7004 from JakubOnderka/bad-variable. [Jakub
+  Onderka]
+
+  fix: [internal] Bad variable
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #6999 from JakubOnderka/authkey-undefined-
+  variables. [Jakub Onderka]
+
+  fix: [UI] Undefined variables in authkeys view
+- Merge pull request #6997 from JakubOnderka/id-translator-fixes. [Jakub
+  Onderka]
+
+  fix: [idTranslator] Distinguish between not found and unreachable
+- Merge pull request #6995 from JakubOnderka/fix-role-edit-view. [Jakub
+  Onderka]
+
+  fix: [UI] Broken checkboxes for role permissions
+- Merge pull request #6996 from JakubOnderka/highlight-column-role.
+  [Jakub Onderka]
+
+  chg: [UI] Highlight column for roles table
+- Merge pull request #6994 from JakubOnderka/get-cluster-id. [Jakub
+  Onderka]
+
+  fix: [internal] GalaxyCluster::getCluster also accepts ID
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #6993 from JakubOnderka/warninglist-index. [Jakub
+  Onderka]
+
+  chg: [UI] Allow filter enabled/disabled warninglists
+- Merge pull request #6816 from JakubOnderka/filter-event-ids-
+  optimisation. [Jakub Onderka]
+
+  chg: [internal] Small optimisation for filterEventIds
+- Merge pull request #6872 from JakubOnderka/rest-response-filter-event.
+  [Jakub Onderka]
+
+  chg: [internal] Use RestResponse for filterEventIdsForPush
+- Merge pull request #6898 from JakubOnderka/export-module-fetch-
+  options. [Jakub Onderka]
+
+  new: [modules] Export module can specify event fetch options
+- Merge pull request #6937 from marjatech/fix_list_hidden_tags. [Jakub
+  Onderka]
+
+  fix: correctly show hidden tags in tag-list
+- Merge pull request #6992 from JakubOnderka/taxonomy-attach-real-count.
+  [Jakub Onderka]
+
+  fix: [UI] Attach correct count of enabled taxonomy tags
+- Merge branch '2.4' into develop. [mokaddem]
+- Merge pull request #6989 from JakubOnderka/moment-update. [Jakub
+  Onderka]
+
+  chg: [internal] Update moment javascript library
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge pull request #6985 from JakubOnderka/form-seen-fix. [Jakub
+  Onderka]
+
+  fix: [UI] Remove right margin from form seen input
+- Merge pull request #6986 from JakubOnderka/feed-name-required. [Jakub
+  Onderka]
+
+  fix: [feed] Feed name is required
+- Merge pull request #6983 from JakubOnderka/composer-update-2. [Jakub
+  Onderka]
+
+  chg: [internal] Update composer to 2.0.9
+- Merge pull request #6982 from JakubOnderka/time-helper. [Jakub
+  Onderka]
+
+  chg: [UI] Use TimeHelper for datetime formatting
+- Merge pull request #6980 from JakubOnderka/tag-view-refactor. [Jakub
+  Onderka]
+
+  chg: [internal] Refactor TagsController::view
+- Merge pull request #6977 from JakubOnderka/fix-idTranslator. [Jakub
+  Onderka]
+
+  fix: [internal] idTranslator could show invalid results
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6988 from tomking2/bug/elasticsearch_ip.
+  [Alexandre Dulaunoy]
+
+  fix: Elasticsearch complains when an IP is an empty string
+
+
 v2.4.138 (2021-02-08)
 ---------------------
 
