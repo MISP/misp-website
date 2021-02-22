@@ -19,7 +19,9 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### Current MISP Training(s)
 
-- Thursday 25th February 2021 - Online MISP Training - Introduction to CTI (French) - [Registration](https://www.xing-events.com/TFHIOJQ)
+- (FULL) Thursday 25th February 2021 - Online MISP Training - Introduction to CTI (French) - [Registration](https://www.xing-events.com/TFHIOJQ)
+- Tuesday 2nd March 2021 - Online MISP Training - MISP - Threat Intelligence Introduction for Analysts - [Registration](https://www.xing.com/events/misp-threat-intelligence-introduction-analysts-3315431)
+- Wednesday 3rd March 2021 - Online MISP Training - MISP - Threat Intelligence for Administrators and Building Information Sharing Communities - [Registration](https://www.xing-events.com/WZGDMOP)
 
 ### (some) Past MISP Training(s)
 
