@@ -2,6 +2,550 @@ Changelog
 =========
 
 
+v2.4.140 (2021-03-03)
+---------------------
+
+New
+~~~
+- [server shell] list servers, fixes #7115. [iglocska]
+
+  - simple human readable listing
+  - kept the old weird JSON producing listServers intact
+- [oidc] Readme. [Jakub Onderka]
+- [security] Content-Security-Policy support. [Jakub Onderka]
+- [CLI] check if updates are done yet or not. [iglocska]
+
+  usage:
+
+  - /var/www/MISP/app/Console/cake Admin updatesDone [blocking]
+  - returns True or False based on whether it is done
+  - When the blocking parameter is set, it will not return until all updates are done
+- [api] When creating object, allow to mark tag as local. [Jakub
+  Onderka]
+- [type] new dkim and dkim-signature attribute type. [Alexandre
+  Dulaunoy]
+- [objectReference] Allow adding reference across extended events.
+  [mokaddem]
+
+  Fix #6255
+- [UI] Event locks for background jobs and automatic tools. [Jakub
+  Onderka]
+- [UI] Show tag info in taxonomy view. [Jakub Onderka]
+- [sync] Compressed requests support. [Jakub Onderka]
+- [security] Security audit. [Jakub Onderka]
+- [oidc] OpenID Connect authentication. [Jakub Onderka]
+- [devshell] added a new shell for developer related tasks. [iglocska]
+
+  - 1 task currently, cleanFeedDefault
+    - runs some cleanup on the feed definition file to remove local IDs etc
+- [object] Allows updating from an unknown object templates. [mokaddem]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [UI] fix keyboard shortcut manager popup triangle. [Jeroen Pinoy]
+- [UI] Add small description of what event block rules do. [Jeroen
+  Pinoy]
+- [sighting] Simplified sighting deletion. [Jakub Onderka]
+- Bump PyMISP. [Raphaël Vinot]
+- [genericForm] added description field to the explanation. [iglocska]
+- Add small description of what org blocklist does. Fix #4363. [Jeroen
+  Pinoy]
+- [oidc] Use first match as user role. [Jakub Onderka]
+- [UI] correct edit org blocklist entries view. [Jeroen Pinoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [UI] Disable sync XHR. [Jakub Onderka]
+- [ineternal] Opimise GalaxyCluster::fetchGalaxyClusters when full is
+  True. [Jakub Onderka]
+- [UI] Put type under name for object add form. [Jakub Onderka]
+- [UI] Nicer Object pre-save review. [Jakub Onderka]
+- [UI] Make different forms nicer. [Jakub Onderka]
+- [internal] Check missing taxonomies at one place. [Jakub Onderka]
+- [internal] New method Taxonomy::splitTagToComponents. [Jakub Onderka]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- Add can access check for correlation exclusions menu entry. [Jeroen
+  Pinoy]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [js] Use proper message when remote server returns 401. [Jakub
+  Onderka]
+- [internal] Faster fetching galaxy clusters when fetching event. [Jakub
+  Onderka]
+- [UI] Remove authors from galaxy cluster popover. [Jakub Onderka]
+- [UI] Do not create links for galaxy cluster source popover. [Jakub
+  Onderka]
+
+  Links are not clickable in popovers
+- [UI] Do not show refs for galaxy cluster popover, becasue links are
+  not clickable. [Jakub Onderka]
+- [UI] Do not show description if is empty for galaxy cluster popover.
+  [Jakub Onderka]
+- [galaxy] Make Galaxy cluster description optional. [Jakub Onderka]
+- [server] DBSchemaDiagnostic consider nullable inconsistencies as
+  critical. [mokaddem]
+- [genericPicker] Allow using picker for galaxy matrixes. [mokaddem]
+- [objectReference] Renamed function. [mokaddem]
+- [events:eventGraph] Improved hull algorithm and UI. [mokaddem]
+- [js] Move code from template to misp.js. [Jakub Onderka]
+- [internal] Faster Event::removeOlder method used when pulling from
+  remote server. [Jakub Onderka]
+- [internal] Simplified ServersController::serverSettings. [Jakub
+  Onderka]
+- Use a more suitable Sighting creation function as recommended, grab
+  the Org ID from the user if present. [Tom King]
+- Add in ability to update sightings against each attribute from a
+  POSTed MISP Event. [Tom King]
+- [feed] Simplified code for loading feeds. [Jakub Onderka]
+- [restResponse] Return role_id along with its name. [mokaddem]
+- [objectReference] Added objectReference/view endpoint. [mokaddem]
+- [dashboard] added to the root level of the top menu. [iglocska]
+- [internal] Make Redis connection static. [Jakub Onderka]
+- [internal] Faster updating taxonomies. [Jakub Onderka]
+
+Fix
+~~~
+- [Sharing groups] capturing a sharing group correctly ignores the
+  incoming data's active flag when editing. [iglocska]
+
+  - based on PR #7101 by @lfortemps
+- [sync] prevent local tags from being pulled. [Golbark]
+- [email_otp] Trim value for increased UX. [Loïc Fortemps]
+- [sharing groups] fixed regression with updating local sharing groups.
+  [iglocska]
+- [comments] updated for two recent changes in the code. [iglocska]
+- [sharing groups] Allow users to see events they own, even if their
+  organisation is not explicitly mentioned in the SG. [iglocska]
+
+  - however, show a clear message that this is the case
+  - in-line with the rest of the ACL
+- [security] sharing group all org flag too lax. [iglocska]
+
+  - the all org flag was used as a trigger to make the sharing group obejct itself viewable to all local organisations
+  - even if the all org flag was set for an instance other than the local one
+
+  - as reported by Jeroen Pinoy
+- [tag index] remove sorting on count fields. [iglocska]
+
+  - doesn't work anyway
+- [galaxyCluster] Revoke relations on sync. [mokaddem]
+
+  - Relationships are now re-build from scratch for the cluster being sync
+  - This cancels any modification done locally (which should not have
+  happened in the first place)
+- [galaxyClusterRelations] Bump cluster's timestamp after performing
+  CRUD on relations. [mokaddem]
+- [pull] invalid internal vs external server lookup when deciding
+  whether to pull local tags. [iglocska]
+- [sharing group] saving fixed. [iglocska]
+
+  invalid boolean operator when encoding the local org
+- [email_otp] skip OTP for disabled users. [Loïc Fortemps]
+- [internal] Empty object when getting event info for event report.
+  [Jakub Onderka]
+- [internal] Correctly save log. [Jakub Onderka]
+- [Sharing group] refactored and fixed. [iglocska]
+
+  - include own org in pulled sharing groups (to avoid implicit inclusion not being visible after a pull)
+  - refactor the pulling method to be more maintainable
+  - avoid pulling proposals/sightings on each event cherry pick
+- [internal] Incorrect tag three components split. [Jakub Onderka]
+- [UI] Fetch GalaxyElements for event index. [Jakub Onderka]
+- [UI] Pagination for event reports in event view. [Jakub Onderka]
+- [internal] Bad 7085. [Jakub Onderka]
+- [internal] Bad merge that prevents language change. [Jakub Onderka]
+- [sync] Undefined index when pushing sightings. [Jakub Onderka]
+- [internal] perm_tag_editor can just create tags. [Jakub Onderka]
+- [internal] Include cluster elements for user interface. [Jakub
+  Onderka]
+- [internal] Really disable password change. [Jakub Onderka]
+- [sync] Fixed a critical issue causing sharing groups to lose
+  orgs/instance information on sync when using non sync users on a pull.
+  [iglocska]
+- Ui  _ function does not exist, l10n function is __ [Patrizio Tufarolo]
+- Syntax error in constructTaxonomyInfo() [Fredrik Soderblom]
+- [server] Add application/x-pie-executable to the list of accepted
+  mimetypes in testForBinExec. [Patrizio Tufarolo]
+- [schema feed] remove non-required fields in feed format. [Alexandre
+  Dulaunoy]
+- [API] password reset was broken for admins. [iglocska]
+- [tools] misp-wipe updated list of table to truncate. [mokaddem]
+- [js] Use error callback for relevant ajax calls. [Jakub Onderka]
+- [js] Remove async default value. [Jakub Onderka]
+- [galaxy] GalaxyClusterRelation doesn't have Org and Orgc. [Jakub
+  Onderka]
+- [restsearch] fixed a bug introduced via the new page/limit filters.
+  [iglocska]
+- [caching] monkey-patching a client side MISP bug causing the caching
+  to loop endlessly. [iglocska]
+
+  - MISP caching can run into an endless loop if errors are returned for whatever reason
+  - This patch handles the specific case when the remote MISP requests an attribute range for caching that has an offset beyond the highest ID (should never happen)
+
+  - It's a dirty fix but should have nearly no impact on performance whilst resolving the issue
+- [server] Caching a server ensures that the returned data is an actual
+  UUID. [mokaddem]
+- [ACL] opened up postTest to all roles. [Andras Iklody]
+- [securityAudit] Display python version. [mokaddem]
+- [dashboard] Saving an invalid JSON when importing templates shows an
+  error. [mokaddem]
+- [galaxy] Missing variable when editing relation. [Jakub Onderka]
+- [attributes] full_group_by fix for statistics. Fix #7014. [mokaddem]
+- [event] Fix retreiving selected referenced element data. [mokaddem]
+- [event] Provide text for missing referenced elements. [mokaddem]
+
+  - The event might not contain the referenced elements if they belong to
+  an extended event
+- [events:eventGraph] Make sure to include event_id for attribute nodes.
+  [mokaddem]
+- [post] Do not send emails to disabled user for new posts. [Jakub
+  Onderka]
+- [UI] Attribute create button nicer. [Jakub Onderka]
+- [internal] Remove unused ServerTag. [Jakub Onderka]
+- [internal] Remove unused layouts. [Jakub Onderka]
+- [internal] Remove unused roboto font. [Jakub Onderka]
+- [UI] Remove unnecessary CSS from default template. [Jakub Onderka]
+- [restClient] Make sure to split value on strings. [mokaddem]
+
+  Fix #7032
+- [objectReference] Make sure to bump timestamp. [mokaddem]
+- [objectReference] Make sure to save source_uuid field as well.
+  [mokaddem]
+- [Event] Correctly save references after sync. [mokaddem]
+- [galaxy] Fix undefined variable when capturing clusters. [Jakub
+  Onderka]
+- [feed defaults] Removed some required properties in the validation
+  schema. [mokaddem]
+
+  - Propoerties like IDs are instance dependant and therefore are not
+  necessary
+- [dashboard] Saving an invalid JSON shows an error. [mokaddem]
+
+  Fix #6975
+- [feed defaults] removed a bunch of feeds and clarified the description
+  of some, fixes #7006. [iglocska]
+- [UI] Galaxy pagination. [Jakub Onderka]
+- [feed] edit ignored changes to the header, fixes #6780. [iglocska]
+- [UI] Showing date and time in user profile. [Jakub Onderka]
+- [UI] Object template pagination. [Jakub Onderka]
+- [feeds] feed edit ignored the headers field, ffixes #6780. [iglocska]
+- Allow cluster authors to be an actual array. [Tom King]
+- Allow 'hard' param in POSTed body for deleting a cluster, send back a
+  proper message. [Tom King]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #6661 from cudeso/2.4. [Andras Iklody]
+
+  Azure Active Directory Authentication
+- Avoid "TODO" in the README to avoid CodeFactor. [Koen Van Impe]
+- Azure Active Directory Authentication. [Koen Van Impe]
+- Merge pull request #7100 from lfortemps/local-tags-fix. [Andras
+  Iklody]
+
+  Prevent pulling local tags
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7130 from Wachizungu/fix-shortcut-manager-
+  triangle-popup. [Andras Iklody]
+
+  chg: [UI] fix keyboard shortcut manager popup triangle
+- Merge pull request #7114 from Wachizungu/add-short-event-block-rule-
+  explanation. [Andras Iklody]
+
+  chg: [UI] Add small description of what event block rules do
+- Merge pull request #6736 from JakubOnderka/sighting-deletion. [Andras
+  Iklody]
+
+  chg: [sighting] Simplified sighting deletion
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #7059 from adammchugh/patch-1. [Andras Iklody]
+
+  Inclusion of full-name under person
+- Inclusion of full-name under person. [adammchugh]
+
+  Proposing the inclusion of full-name under person to allow for better capture and correlation of full names of identified persons in events. Particularly where there are multiple identities within an event which may create confusion with multiple first-name and last-name entries.
+- Merge pull request #7080 from StefanKelm/2.4. [Andras Iklody]
+
+  Update resolved_misp_format.ctp
+- Update resolved_misp_format.ctp. [StefanKelm]
+
+  slight rewording
+- Merge pull request #7092 from lfortemps/patch-2. [Andras Iklody]
+
+  fix: [email_otp] Trim value for increased UX
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7094 from JakubOnderka/oidc-readme. [Jakub
+  Onderka]
+
+  new: [oidc] Readme
+- Merge pull request #7106 from Wachizungu/add-short-org-blocklist-
+  explanation. [Alexandre Dulaunoy]
+
+  chg: [UI] Add small description of what org blocklist does. Fix #4363
+- Merge pull request #7105 from JakubOnderka/oidc-roles. [Jakub Onderka]
+
+  chg: [oidc] Use first match as user role
+- Merge pull request #7107 from Wachizungu/change-edit-org-blocklist-
+  view-title. [Jakub Onderka]
+
+  chg: [UI] correct edit org blocklist entries view
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #7091 from Golbark/patch-1. [Alexandre Dulaunoy]
+
+  fix: [email_otp] skip OTP for disabled users
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge pull request #7095 from JakubOnderka/event-report-empty-objects.
+  [Jakub Onderka]
+
+  fix: [internal] Empty object when getting event info for event report
+- Merge pull request #7097 from JakubOnderka/csp. [Jakub Onderka]
+
+  new: [security] Content-Security-Policy support
+- Merge pull request #7102 from JakubOnderka/disable-sync-xhr. [Jakub
+  Onderka]
+
+  chg: [UI] Disable sync XHR
+- Merge pull request #7090 from JakubOnderka/fix-saving-log. [Jakub
+  Onderka]
+
+  fix: [internal] Correctly save log
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7089 from JakubOnderka/fix-tag-split. [Jakub
+  Onderka]
+
+  fix: [internal] Incorrect tag three components split
+- Merge pull request #7083 from JakubOnderka/event-index-galaxy-
+  elements. [Jakub Onderka]
+
+  fix: [UI] Fetch GalaxyElements for event index
+- Merge pull request #7088 from JakubOnderka/event-report-pagination.
+  [Jakub Onderka]
+
+  fix: [UI] Pagination for event reports in event view
+- Merge pull request #7087 from JakubOnderka/fix-7085. [Jakub Onderka]
+
+  fix: [internal] Bad 7085
+- Merge pull request #7085 from JakubOnderka/optimise-cluster-fetch.
+  [Jakub Onderka]
+
+  Optimise cluster fetch
+- Merge pull request #7084 from JakubOnderka/fix-bad-merge-lang. [Jakub
+  Onderka]
+
+  fix: [internal] Bad merge that prevents language change
+- Merge pull request #7049 from JakubOnderka/ui-form-fixes. [Jakub
+  Onderka]
+
+  chg: [UI] Make different forms nicer
+- Merge pull request #7079 from JakubOnderka/fix-sightings-pushing.
+  [Jakub Onderka]
+
+  fix: [sync] Undefined index when pushing sightings
+- Merge pull request #7078 from JakubOnderka/missing-taxonomies. [Jakub
+  Onderka]
+
+  Missing taxonomies
+- Merge pull request #7069 from JakubOnderka/tag-edit-delete. [Jakub
+  Onderka]
+
+  fix: [internal] perm_tag_editor can just create tags
+- Merge pull request #7073 from JakubOnderka/include-cluster-meta.
+  [Jakub Onderka]
+
+  fix: [internal] Include cluster elements for user interface
+- Merge pull request #7065 from JakubOnderka/disable-password-change.
+  [Jakub Onderka]
+
+  fix: [internal] Really disable password change
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #7056 from Wachizungu/add-can-access-check-for-
+  menu-entry-correlation-exclusions. [Jakub Onderka]
+
+  chg: [UI] Add can access check for correlation exclusions menu entry
+- Merge pull request #7070 from fsoderblom/fix-syntaxerror. [Andras
+  Iklody]
+
+  fix: syntax error in constructTaxonomyInfo()
+- Update misp-wipe.sql. [Raphaël Vinot]
+
+  Rename whitelist -> allowedlist / blacklist -> blocklist
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #7037 from Wachizungu/add-list-auth-keys-button-to-
+  global-menu. [Alexandre Dulaunoy]
+
+  Adds 'List Auth Keys' button to Administration in global menu
+- Adds 'List Auth Keys' button to Administration in global menu. [Jeroen
+  Pinoy]
+- Merge pull request #7052 from patriziotufarolo/patch-1. [Alexandre
+  Dulaunoy]
+
+  fix: [server] Add application/x-pie-executable to the list of accepted mimetypes in testForBinExec
+- Merge pull request #7053 from eCrimeLabs/2.4. [Alexandre Dulaunoy]
+
+  Fix for ZeroMQ - #7040 and #7039
+- Fix for #7040 and #7039. [eCrimeLabs]
+
+  The following commit contains the fix for ZeroMQ only listening on 0.0.0.0
+- Merge pull request #7033 from MISP/fix-misp-wipe. [Andras Iklody]
+
+  fix: [tools] misp-wipe updated list of table to truncate
+- Merge pull request #7048 from JakubOnderka/xhr-401-handling. [Jakub
+  Onderka]
+
+  XHR 401 handling
+- Merge pull request #7055 from JakubOnderka/fast-event-galaxies. [Jakub
+  Onderka]
+
+  chg: [internal] Faster fetching galaxy clusters when fetching event
+- Merge pull request #7057 from JakubOnderka/tag-local. [Jakub Onderka]
+
+  new: [api] When creating object, allow to mark tag as local
+- Merge pull request #7050 from JakubOnderka/cluster-relation. [Jakub
+  Onderka]
+
+  fix: [galaxy] GalaxyClusterRelation doesn't have Org and Orgc
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7027 from JakubOnderka/galaxy-view-mini. [Jakub
+  Onderka]
+
+  Galaxy view mini
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge pull request #7029 from JakubOnderka/galaxy-cluster-description.
+  [Jakub Onderka]
+
+  chg: [galaxy] Make Galaxy cluster description optional
+- Merge pull request #7043 from JakubOnderka/cluster-relattion-missing-
+  var. [Jakub Onderka]
+
+  fix: [galaxy] Missing variable when editing relation
+- Merge branch 'feature-reference-for-extended-event' into develop.
+  [mokaddem]
+- Merge branch 'develop' into feature-reference-for-extended-event.
+  [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge pull request #6742 from JakubOnderka/post-user-disabled. [Jakub
+  Onderka]
+
+  fix: [post] Do not send emails to disabled user for new posts
+- Merge pull request #6925 from JakubOnderka/event-locks. [Jakub
+  Onderka]
+
+  new: [UI] Event locks for background jobs and automatic tools
+- Merge pull request #6943 from JakubOnderka/ui-create-button. [Jakub
+  Onderka]
+
+  fix: [UI] Attribute create button nicer
+- Merge pull request #7002 from JakubOnderka/code-cleanup. [Jakub
+  Onderka]
+
+  fix: [UI] Remove unnecessary CSS from default template
+- Merge pull request #7034 from JakubOnderka/taxonomy-tag-info. [Jakub
+  Onderka]
+
+  new: [UI] Show tag info in taxonomy view
+- Merge pull request #6906 from JakubOnderka/compressed-requests. [Jakub
+  Onderka]
+
+  new: [sync] Compressed requests support
+- Merge pull request #6871 from JakubOnderka/faster-pull. [Jakub
+  Onderka]
+
+  chg: [internal] Faster Event::removeOlder method used when pulling
+- Merge pull request #6741 from JakubOnderka/security-diagnostics.
+  [Jakub Onderka]
+
+  new: [security] Security diagnostics
+- Merge pull request #6938 from tomking2/feature/attribute_sightings.
+  [Jakub Onderka]
+
+  [API] Update attribute sightings from REST POST
+- Merge remote-tracking branch 'upstream/2.4' into
+  feature/attribute_sightings. [Tom King]
+- Merge branch '2.4' into feature/attribute_sightings. [Tom King]
+- Merge pull request #6984 from JakubOnderka/oidc. [Jakub Onderka]
+
+  new: [oidc] OpenID Connect authentication
+- Merge pull request #7020 from JakubOnderka/feed-saving-simplified.
+  [Jakub Onderka]
+
+  chg: [feed] Simplified code for saving feed
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge branch 'fix-sync-object-relations' into 2.4. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into fix-sync-object-
+  relations. [mokaddem]
+- Merge pull request #7035 from JakubOnderka/galaxy-fix-undefined-
+  variable. [Jakub Onderka]
+
+  fix: [galaxy] Fix undefined variable when capturing clusters
+- Merge branch 'tomking2-bug/galaxy_cluster' into develop. [mokaddem]
+- Merge remote-tracking branch 'origin/develop' into
+  tomking2-bug/galaxy_cluster. [mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7017 from JakubOnderka/fix-galaxies-pagination.
+  [Jakub Onderka]
+
+  fix: [UI] Galaxy pagination
+- Merge pull request #7015 from JakubOnderka/redis-static. [Jakub
+  Onderka]
+
+  chg: [internal] Make Redis connection static
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7016 from JakubOnderka/fix-user-view-time. [Jakub
+  Onderka]
+
+  fix: [UI] Showing date and time in user profile
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge pull request #7008 from JakubOnderka/update-taxnomies-faster.
+  [Jakub Onderka]
+
+  chg: [internal] Faster updating taxonomies
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7007 from JakubOnderka/object-template. [Jakub
+  Onderka]
+
+  fix: [UI] Object template
+- Merge branch '2.4' into develop. [iglocska]
+- Merge remote-tracking branch 'upstream/2.4' into bug/galaxy_cluster.
+  [Tom King]
+
+
 v2.4.139 (2021-02-16)
 ---------------------
 
@@ -64,6 +608,12 @@ Changes
 
 Fix
 ~~~
+- [dashboard] removed training example left in the code. [iglocska]
+
+  - restricted new module to only 3 user IDs
+- [event index] changed the galaxy cluster field width. [iglocska]
+
+  - no longer looks like it was sandwiched between two semis
 - [UI] Escaping in row_attribute. [Jakub Onderka]
 - [internal] Field name in HttpSocketExtended. [Jakub Onderka]
 - [breakOnDuplicate] on event add fixed, fixes #6917. [iglocska]
