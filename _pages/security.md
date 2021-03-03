@@ -65,6 +65,7 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2021-25325](https://cvepremium.circl.lu/cve/CVE-2021-25325) <= MISP 2.4.136 - XSS via galaxy cluster element values to app/View/GalaxyElements/ajax/index.ctp. Reference types could contain javascript: URLs.
 - [CVE-2021-25323](https://cvepremium.circl.lu/cve/CVE-2021-25323) <= MISP 2.4.136 - The default setting of MISP 2.4.136 did not enable the requirements (aka require_password_confirmation) to provide the previous password when changing a password.
 - [CVE-2021-3184](https://cvepremium.circl.lu/cve/CVE-2021-3184) <= MISP 2.4.136 - XSS via a crafted URL to the app/View/Elements/global_menu.ctp user homepage favourite button.
+- [CVE-2021-27904](https://cvepremium.circl.lu/cve/CVE-2021-27904) <= MISP 2.4.139 - An issue was discovered in app/Model/SharingGroupServer.php in MISP 2.4.139. In the implementation of Sharing Groups, the "all org" flag sometimes provided view access to unintended actors.
 
 ## PGP Key
 
