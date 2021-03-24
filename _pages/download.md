@@ -17,6 +17,10 @@ MISP Install guides (stock install instructions for getting a base MISP system r
 
 MISP can be easily installed on any standard GNU/Linux distribution. Installation guides for various distributions are included in the [INSTALL directory](https://github.com/MISP/MISP/tree/2.4/INSTALL). If you did a git clone of MISP for the installation, an [UPDATE procedure is available](https://github.com/MISP/MISP/blob/2.4/INSTALL/UPDATE.txt) to keep your MISP up-to-date.
 
+### Recommended distribution
+
+We recommend to use a recent and stable Ubuntu distribution (such as 20.04) for deploying MISP.
+
 ### Virtual images
 
 If you would like to test MISP and don't want to do an installation, CIRCL generates automatically VMware images and VirtualBox at each MISP core commit. Available at the [following location](https://www.circl.lu/misp-images/latest/). The image is to be used for testing purposes only, production-use is considered to be dangerous as is, it contains much more than MISP alone but also misp-dashboard and viper which requires additional security review before being in production.
