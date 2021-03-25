@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.9">
+<meta name="generator" content="Asciidoctor 2.0.12">
 <title>MISP taxonomies and classification as machine tags</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -47,7 +47,7 @@ textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
 *,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -62,10 +62,8 @@ img{-ms-interpolation-mode:bicubic}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
-.center{margin-left:auto;margin-right:auto}
-.stretch{width:100%}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
-div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
 a{color:#2156a5;text-decoration:underline;line-height:inherit}
 a:hover,a:focus{color:#1d4b8f}
 a img{border:0}
@@ -105,19 +103,22 @@ h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
 h4{font-size:1.4375em}}
-table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede;word-wrap:normal}
 table thead,table tfoot{background:#f7f8f7}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt{background:#f8f8f7}
-table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
 .clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
 .clearfix::after,.float-group::after{clear:both}
-:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
-:not(pre)>code.nobreak{word-wrap:normal}
-:not(pre)>code.nowrap{white-space:nowrap}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
 pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
 pre>code{display:block}
@@ -182,7 +183,7 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
-#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
 #footer-text{color:rgba(255,255,255,.8);line-height:1.44}
 #content{margin-bottom:.625em}
 .sect1{padding-bottom:.625em}
@@ -205,7 +206,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .admonitionblock>table td.icon{text-align:center;width:80px}
 .admonitionblock>table td.icon img{max-width:none}
 .admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
-.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
 .exampleblock>.content>:first-child{margin-top:0}
@@ -215,7 +216,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
 .exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
-.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
 .literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
@@ -240,7 +241,7 @@ table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;pad
 pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
 pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock{margin:0 1em 1.25em 1.5em;display:table}
-.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
 .quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
 .quoteblock blockquote{margin:0;padding:0;border:0}
 .quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
@@ -257,24 +258,24 @@ pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
 .quoteblock.abstract{margin:0 1em 1.25em;display:block}
 .quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
-.quoteblock.excerpt,.quoteblock .quoteblock{margin:0 0 1.25em;padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
 .quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
 .quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
-table.tableblock{max-width:100%;border-collapse:separate}
 p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
 td.tableblock>.content>:last-child{margin-bottom:-1.25em}
-td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
-table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
-table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
-table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
-table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
-table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
-table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
-table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
 table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
 table.frame-sides{border-width:0 1px}
-table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
 table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
 th.halign-left,td.halign-left{text-align:left}
 th.halign-right,td.halign-right{text-align:right}
@@ -283,7 +284,7 @@ th.valign-top,td.valign-top{vertical-align:top}
 th.valign-bottom,td.valign-bottom{vertical-align:bottom}
 th.valign-middle,td.valign-middle{vertical-align:middle}
 table thead th,table tfoot th{font-weight:bold}
-tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th{background:#f7f8f7}
 tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
 p.tableblock>code:only-child{background:none;padding:0}
 p.tableblock{font-size:1em}
@@ -312,6 +313,7 @@ ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
 td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
 td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
 .colist td:not([class]):first-child img{max-width:none}
@@ -384,7 +386,7 @@ a span.icon>.fa{cursor:inherit}
 .admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
 .admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
 .admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
-.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:50%;border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
 .conum[data-value] *{color:#fff!important}
 .conum[data-value]+b{display:none}
 .conum[data-value]::after{content:attr(data-value)}
@@ -411,6 +413,7 @@ thead{display:table-header-group}
 svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
 #toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
 body.book #header{text-align:center}
@@ -473,8 +476,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_csirt_americas">csirt-americas</a></li>
 <li><a href="#_csirt_case_classification">csirt_case_classification</a></li>
 <li><a href="#_cssa">cssa</a></li>
+<li><a href="#_cti">cti</a></li>
 <li><a href="#_current_event">current-event</a></li>
 <li><a href="#_cyber_threat_framework">cyber-threat-framework</a></li>
+<li><a href="#_cycat">cycat</a></li>
 <li><a href="#_cytomic_orion">cytomic-orion</a></li>
 <li><a href="#_dark_web">dark-web</a></li>
 <li><a href="#_data_classification">data-classification</a></li>
@@ -523,6 +528,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_information_security_data_source">information-security-data-source</a></li>
 <li><a href="#_information_security_indicators">information-security-indicators</a></li>
 <li><a href="#_interception_method">interception-method</a></li>
+<li><a href="#_ioc">ioc</a></li>
 <li><a href="#_iot">iot</a></li>
 <li><a href="#_kill_chain">kill-chain</a></li>
 <li><a href="#_maec_delivery_vectors">maec-delivery-vectors</a></li>
@@ -565,9 +571,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_tlp_2">tlp</a></li>
 <li><a href="#_tor">tor</a></li>
 <li><a href="#_trust">trust</a></li>
-<li><a href="#_type_6">type</a></li>
+<li><a href="#_type_7">type</a></li>
 <li><a href="#_use_case_applicability">use-case-applicability</a></li>
 <li><a href="#_veris">veris</a></li>
+<li><a href="#_vmray">vmray</a></li>
 <li><a href="#_vocabulaire_des_probabilites_estimatives">vocabulaire-des-probabilites-estimatives</a></li>
 <li><a href="#_workflow">workflow</a></li>
 </ul>
@@ -623,7 +630,7 @@ The following document is generated from the machine-readable JSON describing th
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-CERT-XLM namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/CERT-XLM/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+CERT-XLM namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/CERT-XLM/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -1039,7 +1046,7 @@ CERT-XLM namespace available in JSON format at <a href="https://github.com/MISP/
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-DFRLab-dichotomies-of-disinformation namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/DFRLab-dichotomies-of-disinformation/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+DFRLab-dichotomies-of-disinformation namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/DFRLab-dichotomies-of-disinformation/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -5109,7 +5116,7 @@ DFRLab-dichotomies-of-disinformation namespace available in JSON format at <a hr
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-DML namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/DML/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+DML namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/DML/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -5278,7 +5285,7 @@ The second, and more important area of tool detection, is detecting the tool rel
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-PAP namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/PAP/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+PAP namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/PAP/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -5346,7 +5353,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-access-method namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/access-method/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+access-method namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/access-method/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -5486,7 +5493,7 @@ access-method namespace available in JSON format at <a href="https://github.com/
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-accessnow namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/accessnow/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+accessnow namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/accessnow/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -5840,7 +5847,7 @@ accessnow namespace available in JSON format at <a href="https://github.com/MISP
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-action-taken namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/action-taken/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+action-taken namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/action-taken/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -5914,7 +5921,7 @@ action-taken namespace available in JSON format at <a href="https://github.com/M
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-admiralty-scale namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/admiralty-scale/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+admiralty-scale namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/admiralty-scale/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -6108,7 +6115,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-adversary namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/adversary/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+adversary namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/adversary/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -6161,6 +6168,12 @@ adversary namespace available in JSON format at <a href="https://github.com/MISP
 <h4 id="_adversaryinfrastructure_actionpending_law_enforcement_request">adversary:infrastructure-action="pending-law-enforcement-request"</h4>
 <div class="paragraph">
 <p>Law enforcement requests are ongoing on the adversary infrastructure</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_adversaryinfrastructure_actionsinkholed">adversary:infrastructure-action="sinkholed"</h4>
+<div class="paragraph">
+<p>Infrastructure of the adversary is sinkholed and information is collected</p>
 </div>
 </div>
 </div>
@@ -6229,6 +6242,12 @@ adversary namespace available in JSON format at <a href="https://github.com/MISP
 <p>Traffic Distribution Systems including exploit delivery or/and web monetization channels</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_adversaryinfrastructure_typec2">adversary:infrastructure-type="c2"</h4>
+<div class="paragraph">
+<p>C2 infrastructure without known specific type.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -6242,7 +6261,7 @@ adversary namespace available in JSON format at <a href="https://github.com/MISP
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-ais-marking namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/ais-marking/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+ais-marking namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/ais-marking/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -6382,7 +6401,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-analyst-assessment namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/analyst-assessment/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+analyst-assessment namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/analyst-assessment/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -6702,7 +6721,7 @@ analyst-assessment namespace available in JSON format at <a href="https://github
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-approved-category-of-action namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/approved-category-of-action/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+approved-category-of-action namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/approved-category-of-action/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -6812,7 +6831,7 @@ approved-category-of-action namespace available in JSON format at <a href="https
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-binary-class namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/binary-class/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+binary-class namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/binary-class/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -6865,7 +6884,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-cccs namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/cccs/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+cccs namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/cccs/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -8136,7 +8155,7 @@ cccs namespace available in JSON format at <a href="https://github.com/MISP/misp
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-circl namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/circl/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+circl namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/circl/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -8156,6 +8175,18 @@ circl namespace available in JSON format at <a href="https://github.com/MISP/mis
 <h4 id="_circlincident_classificationsystem_compromise">circl:incident-classification="system-compromise"</h4>
 <div class="paragraph">
 <p>System compromise</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_circlincident_classificationsabotage">circl:incident-classification="sabotage"</h4>
+<div class="paragraph">
+<p>Sabotage</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_circlincident_classificationprivacy_violation">circl:incident-classification="privacy-violation"</h4>
+<div class="paragraph">
+<p>Privacy violation</p>
 </div>
 </div>
 <div class="sect3">
@@ -8183,6 +8214,18 @@ circl namespace available in JSON format at <a href="https://github.com/MISP/mis
 </div>
 </div>
 <div class="sect3">
+<h4 id="_circlincident_classificationwhaling">circl:incident-classification="whaling"</h4>
+<div class="paragraph">
+<p>Whaling</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_circlincident_classificationsmishing">circl:incident-classification="smishing"</h4>
+<div class="paragraph">
+<p>SMS Phishing</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_circlincident_classificationmalware">circl:incident-classification="malware"</h4>
 <div class="paragraph">
 <p>Malware</p>
@@ -8204,6 +8247,12 @@ circl namespace available in JSON format at <a href="https://github.com/MISP/mis
 <h4 id="_circlincident_classificationfastflux">circl:incident-classification="fastflux"</h4>
 <div class="paragraph">
 <p>Fastflux</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_circlincident_classificationdomain_fronting">circl:incident-classification="domain-fronting"</h4>
+<div class="paragraph">
+<p>Domain Fronting</p>
 </div>
 </div>
 <div class="sect3">
@@ -8249,9 +8298,27 @@ circl namespace available in JSON format at <a href="https://github.com/MISP/mis
 </div>
 </div>
 <div class="sect3">
+<h4 id="_circlincident_classificationransomware">circl:incident-classification="ransomware"</h4>
+<div class="paragraph">
+<p>ransomware</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_circlincident_classificationsextortion">circl:incident-classification="sextortion"</h4>
 <div class="paragraph">
 <p>sextortion</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_circlincident_classificationsocial_engineering">circl:incident-classification="social-engineering"</h4>
+<div class="paragraph">
+<p>Social Engineering</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_circlincident_classificationgdpr_violation">circl:incident-classification="gdpr-violation"</h4>
+<div class="paragraph">
+<p>GDPR Violation</p>
 </div>
 </div>
 <div class="sect3">
@@ -8318,7 +8385,7 @@ circl namespace available in JSON format at <a href="https://github.com/MISP/mis
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-coa namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/coa/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+coa namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/coa/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -8725,7 +8792,7 @@ coa namespace available in JSON format at <a href="https://github.com/MISP/misp-
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-collaborative-intelligence namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/collaborative-intelligence/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+collaborative-intelligence namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/collaborative-intelligence/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -8838,7 +8905,7 @@ collaborative-intelligence namespace available in JSON format at <a href="https:
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-common-taxonomy namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/common-taxonomy/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+common-taxonomy namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/common-taxonomy/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -9110,7 +9177,7 @@ common-taxonomy namespace available in JSON format at <a href="https://github.co
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-copine-scale namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/copine-scale/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+copine-scale namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/copine-scale/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -9262,7 +9329,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-course-of-action namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/course-of-action/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+course-of-action namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/course-of-action/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -9330,7 +9397,7 @@ course-of-action namespace available in JSON format at <a href="https://github.c
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-cryptocurrency-threat namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/cryptocurrency-threat/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+cryptocurrency-threat namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/cryptocurrency-threat/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -9440,7 +9507,7 @@ cryptocurrency-threat namespace available in JSON format at <a href="https://git
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-csirt-americas namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/csirt-americas/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+csirt-americas namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/csirt-americas/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -9586,7 +9653,7 @@ csirt-americas namespace available in JSON format at <a href="https://github.com
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-csirt_case_classification namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/csirt_case_classification/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+csirt_case_classification namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/csirt_case_classification/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -9717,7 +9784,7 @@ csirt_case_classification namespace available in JSON format at <a href="https:/
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-cssa namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/cssa/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+cssa namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/cssa/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -9834,6 +9901,116 @@ cssa namespace available in JSON format at <a href="https://github.com/MISP/misp
 </div>
 </div>
 <div class="sect1">
+<h2 id="_cti">cti</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+cti namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/cti/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Cyber Threat Intelligence cycle to control workflow state of your process.</p>
+</div>
+<div class="sect2">
+<h3 id="_planning">planning</h3>
+<div class="paragraph">
+<p>CTI requirementes being generated.</p>
+</div>
+<div class="sect3">
+<h4 id="_ctiplanning">cti:planning</h4>
+<div class="paragraph">
+<p>Phase</p>
+</div>
+<div class="paragraph">
+<p>CTI requirementes being generated.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_collection">collection</h3>
+<div class="paragraph">
+<p>Data collection initiated.</p>
+</div>
+<div class="sect3">
+<h4 id="_cticollection">cti:collection</h4>
+<div class="paragraph">
+<p>Phase</p>
+</div>
+<div class="paragraph">
+<p>Data collection initiated.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_processing_and_analysis">processing-and-analysis</h3>
+<div class="paragraph">
+<p>Data is being processed and analyzed</p>
+</div>
+<div class="sect3">
+<h4 id="_ctiprocessing_and_analysis">cti:processing-and-analysis</h4>
+<div class="paragraph">
+<p>Phase</p>
+</div>
+<div class="paragraph">
+<p>Data is being processed and analyzed</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dissemination_done">dissemination-done</h3>
+<div class="paragraph">
+<p>CTI product created and delivered to stakeholders.</p>
+</div>
+<div class="sect3">
+<h4 id="_ctidissemination_done">cti:dissemination-done</h4>
+<div class="paragraph">
+<p>Phase</p>
+</div>
+<div class="paragraph">
+<p>CTI product created and delivered to stakeholders.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_feedback_received">feedback-received</h3>
+<div class="paragraph">
+<p>Feedback received by stakeholders.</p>
+</div>
+<div class="sect3">
+<h4 id="_ctifeedback_received">cti:feedback-received</h4>
+<div class="paragraph">
+<p>Phase</p>
+</div>
+<div class="paragraph">
+<p>Feedback received by stakeholders.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_feedback_pending">feedback-pending</h3>
+<div class="paragraph">
+<p>Feedback pending by stakeholders.</p>
+</div>
+<div class="sect3">
+<h4 id="_ctifeedback_pending">cti:feedback-pending</h4>
+<div class="paragraph">
+<p>Phase</p>
+</div>
+<div class="paragraph">
+<p>Feedback pending by stakeholders.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_current_event">current-event</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -9843,7 +10020,7 @@ cssa namespace available in JSON format at <a href="https://github.com/MISP/misp
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-current-event namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/current-event/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+current-event namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/current-event/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -9893,7 +10070,7 @@ current-event namespace available in JSON format at <a href="https://github.com/
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-cyber-threat-framework namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/cyber-threat-framework/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+cyber-threat-framework namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/cyber-threat-framework/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -10087,6 +10264,182 @@ cyber-threat-framework namespace available in JSON format at <a href="https://gi
 </div>
 </div>
 <div class="sect1">
+<h2 id="_cycat">cycat</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+cycat namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/cycat/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Taxonomy used by CyCAT, the Universal Cybersecurity Resource Catalogue, to categorize the namespaces it supports and uses.</p>
+</div>
+<div class="sect2">
+<h3 id="_type_2">type</h3>
+<div class="paragraph">
+<p>Type of entry in the catalogue.</p>
+</div>
+<div class="sect3">
+<h4 id="_cycattypetool">cycat:type="tool"</h4>
+<div class="paragraph">
+<p>Tool</p>
+</div>
+<div class="paragraph">
+<p>Open source or proprietary tool used in cybersecurity.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycattypeplaybook">cycat:type="playbook"</h4>
+<div class="paragraph">
+<p>Playbook</p>
+</div>
+<div class="paragraph">
+<p>Playbook, such as a defined set of rules with one or more actions triggered by different events to respond to, orchestrate or automate cybersecurity related actions.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycattypetaxonomy">cycat:type="taxonomy"</h4>
+<div class="paragraph">
+<p>Taxonomy</p>
+</div>
+<div class="paragraph">
+<p>Cybersecurity taxonomy is a set of labels used to classify (in both terms - arrange in classes or/and design to national classification) cybersecurity related information.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycattyperule">cycat:type="rule"</h4>
+<div class="paragraph">
+<p>Rule</p>
+</div>
+<div class="paragraph">
+<p>Detection rule or set of detection rules used in the cybersecurity field. Rulesets can be in different formats for (N/L)IDS/SIEM (such as Snort, Suricata, Zeek, SIGMA or YARA) or any other tool capable of parsing them.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycattypenotebook">cycat:type="notebook"</h4>
+<div class="paragraph">
+<p>Notebook</p>
+</div>
+<div class="paragraph">
+<p>Interactive document to code, experiment, train or visualize cybersecurity-related information. A notebook can be transcribed in a format such as Jupyter Notebooks, Apache Zeppelin, Pluton or Google Colab.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycattypevulnerability">cycat:type="vulnerability"</h4>
+<div class="paragraph">
+<p>Vulnerability</p>
+</div>
+<div class="paragraph">
+<p>Public or non-public information about a security vulnerability in a specific software, hardware or service.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycattypeproof_of_concept">cycat:type="proof-of-concept"</h4>
+<div class="paragraph">
+<p>Proof-of-concept</p>
+</div>
+<div class="paragraph">
+<p>Code to validate a known vulnerability.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycattypefingerprint">cycat:type="fingerprint"</h4>
+<div class="paragraph">
+<p>Fingerprint</p>
+</div>
+<div class="paragraph">
+<p>Code to uniquely identify specific cybersecurity-relevant patterns. Fingerprints can be expressed in different formats such as ja3, ja3s, hassh, jarm or favicon-mmh3.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycattypemitigation">cycat:type="mitigation"</h4>
+<div class="paragraph">
+<p>Mitigation</p>
+</div>
+<div class="paragraph">
+<p>Mitigating control to prevent unwanted activity from happening, like a specific configuration of the operating system/tools or an implementation policy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycattypedataset">cycat:type="dataset"</h4>
+<div class="paragraph">
+<p>Dataset</p>
+</div>
+<div class="paragraph">
+<p>Dataset for validation of detections and tool stacks,</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scope">scope</h3>
+<div class="paragraph">
+<p>Scope of usage for the entry in the catalogue.</p>
+</div>
+<div class="sect3">
+<h4 id="_cycatscopeidentify">cycat:scope="identify"</h4>
+<div class="paragraph">
+<p>Identify</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycatscopeprotect">cycat:scope="protect"</h4>
+<div class="paragraph">
+<p>Protect</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycatscopedetect">cycat:scope="detect"</h4>
+<div class="paragraph">
+<p>Detect</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycatscoperespond">cycat:scope="respond"</h4>
+<div class="paragraph">
+<p>Respond</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycatscoperecover">cycat:scope="recover"</h4>
+<div class="paragraph">
+<p>Recover</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycatscopeexploit">cycat:scope="exploit"</h4>
+<div class="paragraph">
+<p>Exploit</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycatscopeinvestigate">cycat:scope="investigate"</h4>
+<div class="paragraph">
+<p>Investigate</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycatscopetrain">cycat:scope="train"</h4>
+<div class="paragraph">
+<p>Train</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cycatscopetest">cycat:scope="test"</h4>
+<div class="paragraph">
+<p>Test</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_cytomic_orion">cytomic-orion</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -10096,7 +10449,7 @@ cyber-threat-framework namespace available in JSON format at <a href="https://gi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-cytomic-orion namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/cytomic-orion/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+cytomic-orion namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/cytomic-orion/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -10152,7 +10505,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-dark-web namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/dark-web/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+dark-web namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/dark-web/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -10757,7 +11110,7 @@ dark-web namespace available in JSON format at <a href="https://github.com/MISP/
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-data-classification namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/data-classification/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+data-classification namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/data-classification/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -10852,7 +11205,7 @@ data-classification namespace available in JSON format at <a href="https://githu
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-dcso-sharing namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/dcso-sharing/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+dcso-sharing namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/dcso-sharing/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -10905,7 +11258,7 @@ dcso-sharing namespace available in JSON format at <a href="https://github.com/M
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-ddos namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/ddos/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+ddos namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/ddos/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -10914,7 +11267,7 @@ ddos namespace available in JSON format at <a href="https://github.com/MISP/misp
 <p>Distributed Denial of Service - or short: DDoS - taxonomy supports the description of Denial of Service attacks and especially the types they belong too.</p>
 </div>
 <div class="sect2">
-<h3 id="_type_2">type</h3>
+<h3 id="_type_3">type</h3>
 <div class="paragraph">
 <p>Types and techniques described the way that the attack is performed to launch the Denial of Service attacks. A combination of type values can be used to explain combined techniques and methods.</p>
 </div>
@@ -10961,7 +11314,7 @@ ddos namespace available in JSON format at <a href="https://github.com/MISP/misp
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-de-vs namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/de-vs/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+de-vs namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/de-vs/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -11032,7 +11385,7 @@ de-vs namespace available in JSON format at <a href="https://github.com/MISP/mis
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-dhs-ciip-sectors namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/dhs-ciip-sectors/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+dhs-ciip-sectors namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/dhs-ciip-sectors/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -11155,7 +11508,7 @@ dhs-ciip-sectors namespace available in JSON format at <a href="https://github.c
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-diamond-model namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/diamond-model/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+diamond-model namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/diamond-model/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -11211,7 +11564,7 @@ diamond-model namespace available in JSON format at <a href="https://github.com/
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-dni-ism namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/dni-ism/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+dni-ism namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/dni-ism/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -11720,7 +12073,7 @@ dni-ism namespace available in JSON format at <a href="https://github.com/MISP/m
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-domain-abuse namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/domain-abuse/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+domain-abuse namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/domain-abuse/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -11842,7 +12195,7 @@ domain-abuse namespace available in JSON format at <a href="https://github.com/M
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-drugs namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/drugs/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+drugs namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/drugs/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -13687,7 +14040,7 @@ drugs namespace available in JSON format at <a href="https://github.com/MISP/mis
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-economical-impact namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/economical-impact/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+economical-impact namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/economical-impact/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -13899,7 +14252,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-ecsirt namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/ecsirt/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+ecsirt namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/ecsirt/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -14294,7 +14647,7 @@ ecsirt namespace available in JSON format at <a href="https://github.com/MISP/mi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-enisa namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/enisa/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+enisa namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/enisa/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -15880,7 +16233,7 @@ enisa namespace available in JSON format at <a href="https://github.com/MISP/mis
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-estimative-language namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/estimative-language/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+estimative-language namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/estimative-language/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -16029,7 +16382,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-eu-marketop-and-publicadmin namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/eu-marketop-and-publicadmin/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+eu-marketop-and-publicadmin namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/eu-marketop-and-publicadmin/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -16130,13 +16483,13 @@ eu-marketop-and-publicadmin namespace available in JSON format at <a href="https
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-eu-nis-sector-and-subsectors namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/eu-nis-sector-and-subsectors/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+eu-nis-sector-and-subsectors namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/eu-nis-sector-and-subsectors/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Sectors and sub sectors as identified by the NIS Directive</p>
+<p>Sectors, subsectors, and digital services as identified by the NIS Directive</p>
 </div>
 <div class="sect2">
 <h3 id="_eu_nis_oes">eu-nis-oes</h3>
@@ -16149,7 +16502,7 @@ eu-nis-sector-and-subsectors namespace available in JSON format at <a href="http
 <div class="sect3">
 <h4 id="_eu_nis_sector_and_subsectorseu_nis_oestransport">eu-nis-sector-and-subsectors:eu-nis-oes="transport"</h4>
 <div class="paragraph">
-<p>Transport Sector</p>
+<p>Transport</p>
 </div>
 </div>
 <div class="sect3">
@@ -16161,7 +16514,7 @@ eu-nis-sector-and-subsectors namespace available in JSON format at <a href="http
 <div class="sect3">
 <h4 id="_eu_nis_sector_and_subsectorseu_nis_oesfinancial">eu-nis-sector-and-subsectors:eu-nis-oes="financial"</h4>
 <div class="paragraph">
-<p>Financial market operators</p>
+<p>Financial Market Infrastructures</p>
 </div>
 </div>
 <div class="sect3">
@@ -16188,19 +16541,19 @@ eu-nis-sector-and-subsectors namespace available in JSON format at <a href="http
 <div class="sect3">
 <h4 id="_eu_nis_sector_and_subsectorseu_nis_oes_energyelectricity_energy">eu-nis-sector-and-subsectors:eu-nis-oes-energy="electricity-energy"</h4>
 <div class="paragraph">
-<p>Electricity Sub Sector</p>
+<p>Electricity Subsector</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_eu_nis_sector_and_subsectorseu_nis_oes_energyoil_energy">eu-nis-sector-and-subsectors:eu-nis-oes-energy="oil-energy"</h4>
 <div class="paragraph">
-<p>Oil Sub Sector</p>
+<p>Oil Subsector</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_eu_nis_sector_and_subsectorseu_nis_oes_energygas_energy">eu-nis-sector-and-subsectors:eu-nis-oes-energy="gas-energy"</h4>
 <div class="paragraph">
-<p>Gas Sub Sector</p>
+<p>Gas Subsector</p>
 </div>
 </div>
 </div>
@@ -16209,115 +16562,66 @@ eu-nis-sector-and-subsectors namespace available in JSON format at <a href="http
 <div class="sect3">
 <h4 id="_eu_nis_sector_and_subsectorseu_nis_oes_transportair_transport">eu-nis-sector-and-subsectors:eu-nis-oes-transport="air-transport"</h4>
 <div class="paragraph">
-<p>Air Transport Sub Sector</p>
+<p>Air Transport Subsector</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_eu_nis_sector_and_subsectorseu_nis_oes_transportrail_transport">eu-nis-sector-and-subsectors:eu-nis-oes-transport="rail-transport"</h4>
 <div class="paragraph">
-<p>Rail Transport Sub Sector</p>
+<p>Rail Transport Subsector</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_eu_nis_sector_and_subsectorseu_nis_oes_transportwater_transport">eu-nis-sector-and-subsectors:eu-nis-oes-transport="water-transport"</h4>
 <div class="paragraph">
-<p>Water Transport Sub Sector</p>
+<p>Water Transport Subsector</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_eu_nis_sector_and_subsectorseu_nis_oes_transportroad_transport">eu-nis-sector-and-subsectors:eu-nis-oes-transport="road-transport"</h4>
 <div class="paragraph">
-<p>Road Transport Sub Sector</p>
+<p>Road Transport Subsector</p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_eu_nis_oes_banking">eu-nis-oes-banking</h3>
-<div class="sect3">
-<h4 id="_eu_nis_sector_and_subsectorseu_nis_oes_bankingcredit_banking">eu-nis-sector-and-subsectors:eu-nis-oes-banking="credit-banking"</h4>
-<div class="paragraph">
-<p>Bank Credit Institutions Sub Sector</p>
-</div>
-</div>
+
 </div>
 <div class="sect2">
 <h3 id="_eu_nis_oes_financial">eu-nis-oes-financial</h3>
-<div class="sect3">
-<h4 id="_eu_nis_sector_and_subsectorseu_nis_oes_financialtrading_financial">eu-nis-sector-and-subsectors:eu-nis-oes-financial="trading-financial"</h4>
-<div class="paragraph">
-<p>Operators of Financial Trading Sub Sector</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_eu_nis_sector_and_subsectorseu_nis_oes_financialccp_financial">eu-nis-sector-and-subsectors:eu-nis-oes-financial="ccp-financial"</h4>
-<div class="paragraph">
-<p>Financial Central Counterparty Sub Sector</p>
-</div>
-</div>
+
 </div>
 <div class="sect2">
 <h3 id="_eu_nis_oes_health">eu-nis-oes-health</h3>
-<div class="sect3">
-<h4 id="_eu_nis_sector_and_subsectorseu_nis_oes_healthhealthcare_health">eu-nis-sector-and-subsectors:eu-nis-oes-health="healthcare-health"</h4>
-<div class="paragraph">
-<p>Healthcare Provider Sub Sector</p>
-</div>
-</div>
+
 </div>
 <div class="sect2">
 <h3 id="_eu_nis_oes_water">eu-nis-oes-water</h3>
-<div class="sect3">
-<h4 id="_eu_nis_sector_and_subsectorseu_nis_oes_watersupply_water">eu-nis-sector-and-subsectors:eu-nis-oes-water="supply-water"</h4>
-<div class="paragraph">
-<p>Water Supply Sub Sector</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_eu_nis_sector_and_subsectorseu_nis_oes_waterdistribution_water">eu-nis-sector-and-subsectors:eu-nis-oes-water="distribution-water"</h4>
-<div class="paragraph">
-<p>Water Distribution Sub Sector</p>
-</div>
-</div>
+
 </div>
 <div class="sect2">
 <h3 id="_eu_nis_oes_diginfra">eu-nis-oes-diginfra</h3>
-<div class="sect3">
-<h4 id="_eu_nis_sector_and_subsectorseu_nis_oes_diginfraixp_diginfra">eu-nis-sector-and-subsectors:eu-nis-oes-diginfra="ixp-diginfra"</h4>
-<div class="paragraph">
-<p>IXPs Sub Sector</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_eu_nis_sector_and_subsectorseu_nis_oes_diginfradns_diginfra">eu-nis-sector-and-subsectors:eu-nis-oes-diginfra="dns-diginfra"</h4>
-<div class="paragraph">
-<p>DNS Service Provider Sub Sector</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_eu_nis_sector_and_subsectorseu_nis_oes_diginfratld_diginfra">eu-nis-sector-and-subsectors:eu-nis-oes-diginfra="tld-diginfra"</h4>
-<div class="paragraph">
-<p>TLD Name Registry Sub Sector</p>
-</div>
-</div>
+
 </div>
 <div class="sect2">
 <h3 id="_eu_nis_dsp">eu-nis-dsp</h3>
 <div class="sect3">
 <h4 id="_eu_nis_sector_and_subsectorseu_nis_dspmarket_dsp">eu-nis-sector-and-subsectors:eu-nis-dsp="market-dsp"</h4>
 <div class="paragraph">
-<p>Online Marketplace Sub Sector</p>
+<p>Online Marketplace Digital Service</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_eu_nis_sector_and_subsectorseu_nis_dspsearch_dsp">eu-nis-sector-and-subsectors:eu-nis-dsp="search-dsp"</h4>
 <div class="paragraph">
-<p>Online Search Engine Sub Sector</p>
+<p>Online Search Engine Digital Service</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_eu_nis_sector_and_subsectorseu_nis_dspcloud_dsp">eu-nis-sector-and-subsectors:eu-nis-dsp="cloud-dsp"</h4>
 <div class="paragraph">
-<p>Cloud Computing Service Sub Sector</p>
+<p>Cloud Computing Digital Service</p>
 </div>
 </div>
 </div>
@@ -16333,7 +16637,7 @@ eu-nis-sector-and-subsectors namespace available in JSON format at <a href="http
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-euci namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/euci/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+euci namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/euci/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -16425,7 +16729,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-europol-event namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/europol-event/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+europol-event namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/europol-event/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -17139,7 +17443,7 @@ europol-event namespace available in JSON format at <a href="https://github.com/
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-europol-incident namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/europol-incident/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+europol-incident namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/europol-incident/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -17376,7 +17680,7 @@ europol-incident namespace available in JSON format at <a href="https://github.c
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-event-assessment namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/event-assessment/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+event-assessment namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/event-assessment/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -17438,7 +17742,7 @@ event-assessment namespace available in JSON format at <a href="https://github.c
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-event-classification namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/event-classification/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+event-classification namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/event-classification/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -17497,7 +17801,7 @@ event-classification namespace available in JSON format at <a href="https://gith
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-exercise namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/exercise/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+exercise namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/exercise/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -17739,7 +18043,7 @@ exercise namespace available in JSON format at <a href="https://github.com/MISP/
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-extended-event namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/extended-event/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+extended-event namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/extended-event/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -17864,7 +18168,7 @@ extended-event namespace available in JSON format at <a href="https://github.com
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-failure-mode-in-machine-learning namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/failure-mode-in-machine-learning/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+failure-mode-in-machine-learning namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/failure-mode-in-machine-learning/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -18049,7 +18353,7 @@ failure-mode-in-machine-learning namespace available in JSON format at <a href="
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-false-positive namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/false-positive/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+false-positive namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/false-positive/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -18162,7 +18466,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-file-type namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/file-type/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+file-type namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/file-type/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -18171,7 +18475,7 @@ file-type namespace available in JSON format at <a href="https://github.com/MISP
 <p>List of known file types.</p>
 </div>
 <div class="sect2">
-<h3 id="_type_3">type</h3>
+<h3 id="_type_4">type</h3>
 <div class="sect3">
 <h4 id="_file_typetypepeexe">file-type:type="peexe"</h4>
 <div class="paragraph">
@@ -18959,7 +19263,7 @@ file-type namespace available in JSON format at <a href="https://github.com/MISP
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-flesch-reading-ease namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/flesch-reading-ease/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+flesch-reading-ease namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/flesch-reading-ease/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -19078,7 +19382,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-fpf namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/fpf/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+fpf namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/fpf/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -19212,7 +19516,7 @@ fpf namespace available in JSON format at <a href="https://github.com/MISP/misp-
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-fr-classif namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/fr-classif/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+fr-classif namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/fr-classif/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -19319,7 +19623,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-gdpr namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/gdpr/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+gdpr namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/gdpr/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -19405,7 +19709,7 @@ gdpr namespace available in JSON format at <a href="https://github.com/MISP/misp
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-gea-nz-activities namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/gea-nz-activities/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+gea-nz-activities namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/gea-nz-activities/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -20898,7 +21202,7 @@ gea-nz-activities namespace available in JSON format at <a href="https://github.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-gea-nz-entities namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/gea-nz-entities/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+gea-nz-entities namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/gea-nz-entities/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -22088,7 +22392,7 @@ gea-nz-entities namespace available in JSON format at <a href="https://github.co
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-gea-nz-motivators namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/gea-nz-motivators/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+gea-nz-motivators namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/gea-nz-motivators/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -23059,7 +23363,7 @@ gea-nz-motivators namespace available in JSON format at <a href="https://github.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-gsma-attack-category namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/gsma-attack-category/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+gsma-attack-category namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/gsma-attack-category/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -23151,7 +23455,7 @@ gsma-attack-category namespace available in JSON format at <a href="https://gith
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-gsma-fraud namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/gsma-fraud/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+gsma-fraud namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/gsma-fraud/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -23480,7 +23784,7 @@ gsma-fraud namespace available in JSON format at <a href="https://github.com/MIS
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-gsma-network-technology namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/gsma-network-technology/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+gsma-network-technology namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/gsma-network-technology/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -23547,7 +23851,7 @@ gsma-network-technology namespace available in JSON format at <a href="https://g
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-honeypot-basic namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/honeypot-basic/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+honeypot-basic namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/honeypot-basic/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -23792,7 +24096,7 @@ honeypot-basic namespace available in JSON format at <a href="https://github.com
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-ics namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/ics/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+ics namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/ics/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -24590,7 +24894,7 @@ ics namespace available in JSON format at <a href="https://github.com/MISP/misp-
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-iep namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/iep/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+iep namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/iep/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -24898,7 +25202,7 @@ iep namespace available in JSON format at <a href="https://github.com/MISP/misp-
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-iep2-policy namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/iep2-policy/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+iep2-policy namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/iep2-policy/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -25146,7 +25450,7 @@ iep2-policy namespace available in JSON format at <a href="https://github.com/MI
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-iep2-reference namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/iep2-reference/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+iep2-reference namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/iep2-reference/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -25202,7 +25506,7 @@ iep2-reference namespace available in JSON format at <a href="https://github.com
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-ifx-vetting namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/ifx-vetting/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+ifx-vetting namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/ifx-vetting/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -26212,7 +26516,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-incident-disposition namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/incident-disposition/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+incident-disposition namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/incident-disposition/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -26358,7 +26662,7 @@ incident-disposition namespace available in JSON format at <a href="https://gith
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-infoleak namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/infoleak/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+infoleak namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/infoleak/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -27002,7 +27306,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-information-security-data-source namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/information-security-data-source/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+information-security-data-source namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/information-security-data-source/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -27346,7 +27650,7 @@ information-security-data-source namespace available in JSON format at <a href="
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-information-security-indicators namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/information-security-indicators/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+information-security-indicators namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/information-security-indicators/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -28305,7 +28609,7 @@ information-security-indicators namespace available in JSON format at <a href="h
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-interception-method namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/interception-method/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+interception-method namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/interception-method/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -28421,6 +28725,30 @@ interception-method namespace available in JSON format at <a href="https://githu
 </div>
 </div>
 <div class="sect1">
+<h2 id="_ioc">ioc</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+ioc namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/ioc/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>An IOC classification to facilitate automation of malicious and non malicious artifacts</p>
+</div>
+<div class="sect2">
+<h3 id="_artifact_state">artifact-state</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_iot">iot</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -28430,7 +28758,7 @@ interception-method namespace available in JSON format at <a href="https://githu
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-iot namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/iot/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+iot namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/iot/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -28642,7 +28970,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-kill-chain namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/kill-chain/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+kill-chain namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/kill-chain/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -28725,7 +29053,7 @@ kill-chain namespace available in JSON format at <a href="https://github.com/MIS
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-maec-delivery-vectors namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/maec-delivery-vectors/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+maec-delivery-vectors namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/maec-delivery-vectors/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -28850,7 +29178,7 @@ maec-delivery-vectors namespace available in JSON format at <a href="https://git
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-maec-malware-behavior namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/maec-malware-behavior/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+maec-malware-behavior namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/maec-malware-behavior/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -29761,7 +30089,7 @@ maec-malware-behavior namespace available in JSON format at <a href="https://git
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-maec-malware-capabilities namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/maec-malware-capabilities/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+maec-malware-capabilities namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/maec-malware-capabilities/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -30198,7 +30526,7 @@ maec-malware-capabilities namespace available in JSON format at <a href="https:/
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-maec-malware-obfuscation-methods namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/maec-malware-obfuscation-methods/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+maec-malware-obfuscation-methods namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/maec-malware-obfuscation-methods/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -30293,7 +30621,7 @@ maec-malware-obfuscation-methods namespace available in JSON format at <a href="
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-malware_classification namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/malware_classification/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+malware_classification namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/malware_classification/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -30499,7 +30827,7 @@ malware_classification namespace available in JSON format at <a href="https://gi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-misinformation-website-label namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/misinformation-website-label/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+misinformation-website-label namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/misinformation-website-label/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -30687,7 +31015,7 @@ misinformation-website-label namespace available in JSON format at <a href="http
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-misp namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/misp/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+misp namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/misp/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -30992,6 +31320,45 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_event_type_2">event-type</h3>
+<div class="sect3">
+<h4 id="_mispevent_typeobservation">misp:event-type="observation"</h4>
+<div class="paragraph">
+<p>observation</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mispevent_typeincident">misp:event-type="incident"</h4>
+<div class="paragraph">
+<p>incident</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mispevent_typereport">misp:event-type="report"</h4>
+<div class="paragraph">
+<p>report</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mispevent_typecollection">misp:event-type="collection"</h4>
+<div class="paragraph">
+<p>collection</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mispevent_typeanalysis">misp:event-type="analysis"</h4>
+<div class="paragraph">
+<p>analysis</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mispevent_typeautomatic_analysis">misp:event-type="automatic-analysis"</h4>
+<div class="paragraph">
+<p>automatic-analysis</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -31004,7 +31371,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-monarc-threat namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/monarc-threat/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+monarc-threat namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/monarc-threat/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -31312,7 +31679,7 @@ monarc-threat namespace available in JSON format at <a href="https://github.com/
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-ms-caro-malware namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/ms-caro-malware/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+ms-caro-malware namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/ms-caro-malware/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -31985,7 +32352,7 @@ ms-caro-malware namespace available in JSON format at <a href="https://github.co
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-ms-caro-malware-full namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/ms-caro-malware-full/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+ms-caro-malware-full namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/ms-caro-malware-full/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -35405,7 +35772,7 @@ ms-caro-malware-full namespace available in JSON format at <a href="https://gith
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-mwdb namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/mwdb/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+mwdb namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/mwdb/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -36085,7 +36452,7 @@ mwdb namespace available in JSON format at <a href="https://github.com/MISP/misp
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-nato namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/nato/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+nato namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/nato/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -36174,7 +36541,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-nis namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/nis/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+nis namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/nis/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -36521,7 +36888,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-open_threat namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/open_threat/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+open_threat namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/open_threat/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -37021,7 +37388,7 @@ open_threat namespace available in JSON format at <a href="https://github.com/MI
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-osint namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/osint/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+osint namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/osint/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -37257,7 +37624,7 @@ osint namespace available in JSON format at <a href="https://github.com/MISP/mis
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-pandemic namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/pandemic/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+pandemic namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/pandemic/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -37316,7 +37683,7 @@ pandemic namespace available in JSON format at <a href="https://github.com/MISP/
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-passivetotal namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/passivetotal/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+passivetotal namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/passivetotal/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -37408,7 +37775,7 @@ passivetotal namespace available in JSON format at <a href="https://github.com/M
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-pentest namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/pentest/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+pentest namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/pentest/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -37722,7 +38089,7 @@ pentest namespace available in JSON format at <a href="https://github.com/MISP/m
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-phishing namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/phishing/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+phishing namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/phishing/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -38063,7 +38430,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-priority-level namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/priority-level/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+priority-level namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/priority-level/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -38218,7 +38585,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-ransomware namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/ransomware/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+ransomware namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/ransomware/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -38227,7 +38594,7 @@ ransomware namespace available in JSON format at <a href="https://github.com/MIS
 <p>Ransomware is used to define ransomware types and the elements that compose them.</p>
 </div>
 <div class="sect2">
-<h3 id="_type_4">type</h3>
+<h3 id="_type_5">type</h3>
 <div class="paragraph">
 <p>Type is used to describe the type of a ransomware and how it works.</p>
 </div>
@@ -38459,6 +38826,144 @@ Again, there are some possibilities, but this may be a rivalry company in a simi
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_target">target</h3>
+<div class="paragraph">
+<p>Target of the ransomware.</p>
+</div>
+<div class="sect3">
+<h4 id="_ransomwaretargetpc_workstation">ransomware:target="pc-workstation"</h4>
+<div class="paragraph">
+<p>Ransomware that targets PCs or workstations.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ransomwaretargetmobile_device">ransomware:target="mobile-device"</h4>
+<div class="paragraph">
+<p>Ransomware that targets mobile devices.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ransomwaretargetiot_cps_device">ransomware:target="iot-cps-device"</h4>
+<div class="paragraph">
+<p>Ransomware that targets IoT or CPS devoces.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ransomwaretargetend_user">ransomware:target="end-user"</h4>
+<div class="paragraph">
+<p>Ransomware that targets end users.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ransomwaretargetorganisation">ransomware:target="organisation"</h4>
+<div class="paragraph">
+<p>Ransomware that targets organisation.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_infection">infection</h3>
+<div class="paragraph">
+<p>Infection vector used by the ransomware.</p>
+</div>
+<div class="sect3">
+<h4 id="_ransomwareinfectionphishing_emails">ransomware:infection="phishing-e=mails"</h4>
+<div class="paragraph">
+<p>Malicious e-mails are the most commonly used infection vectors for ransomware. Attackers send spam e-mails to victims that have attachments containing ransomware. Such spam campaigns can be distributed using botnets. Ransomware may come with an attached malicious file, or the e-mail may contain a malicious link that will trigger the installation of ransomware once visited (drive-by download).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ransomwareinfectionsms_instant_message">ransomware:infection="sms-instant-message"</h4>
+<div class="paragraph">
+<p>SMS Messages or IMs are used frequently for mobile ransomware. In such kind of infections, attackers send SMS messages or IMs to the victims that will cause them to browse a malicious website to download ransomware to their platforms.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ransomwareinfectionmalicious_apps">ransomware:infection="malicious-apps"</h4>
+<div class="paragraph">
+<p>Malicious Applications are used by ransomware attackers who develop and deploy mobile applications that contain ransomware camouflaged as a benign application.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ransomwareinfectiondrive_by_download">ransomware:infection="drive-by-download"</h4>
+<div class="paragraph">
+<p>Drive-by download happens when a user unknowingly visits an infected website or clicks a malicious advertisement (i.e., malvertisement) and then the malware is downloaded and installed without the user’s knowledge.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ransomwareinfectionvulnerabilities">ransomware:infection="vulnerabilities"</h4>
+<div class="paragraph">
+<p>Vulnerabilities in the victim platform such as vulnerabilities in operating systems, browsers, or software can be used by ransomware authors as infection vectors. Attackers can use helper applications, exploit kits, to exploit the known or zero-day vulnerabilities in target systems. Attackers can redirect victims to those kits via malvertisement and malicious links.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_communication">communication</h3>
+<div class="paragraph">
+<p>Communication method used by the ransomware;</p>
+</div>
+<div class="sect3">
+<h4 id="_ransomwarecommunicationhard_coded_ip">ransomware:communication="hard-coded-ip"</h4>
+<div class="paragraph">
+<p>Ransomware connecting to C&amp;C via hard-coded IP addresses or domains</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ransomwarecommunicationdga_based">ransomware:communication="dga-based"</h4>
+<div class="paragraph">
+<p>Ransomware connecting to C&amp;C via dynamically fast-fluxed/generated/shifted domain names using Domain Generation Algorithms (DGA)</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_malicious_action">malicious-action</h3>
+<div class="paragraph">
+<p>Malicious action performed by the ransomware.</p>
+</div>
+<div class="sect3">
+<h4 id="_ransomwaremalicious_actionsymmetric_key_encryption">ransomware:malicious-action="symmetric-key-encryption"</h4>
+<div class="paragraph">
+<p>Ransomware that encrypts data using symmetric-key encryption.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ransomwaremalicious_actionasymmetric_key_encryption">ransomware:malicious-action="asymmetric-key-encryption"</h4>
+<div class="paragraph">
+<p>Ransomware that encrypts data using asymmetric-key encryption.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ransomwaremalicious_actionhybrid_key_encryption">ransomware:malicious-action="hybrid-key-encryption"</h4>
+<div class="paragraph">
+<p>Ransomware that encrypts data using hybrid-key encryption.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ransomwaremalicious_actionscreen_locking">ransomware:malicious-action="screen-locking"</h4>
+<div class="paragraph">
+<p>Ransomware that locks the system’s graphical user interface and prevent access.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ransomwaremalicious_actionbrowser_locking">ransomware:malicious-action="browser-locking"</h4>
+<div class="paragraph">
+<p>Ransomware that locks slock web browser of the victim.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ransomwaremalicious_actionmbr_locking">ransomware:malicious-action="mbr-locking"</h4>
+<div class="paragraph">
+<p>Ransomware that locks Master Boot Records.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ransomwaremalicious_actiondata_exfiltration">ransomware:malicious-action="data-exfiltration"</h4>
+<div class="paragraph">
+<p>Ransomware that exfiltrates data.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -38471,7 +38976,7 @@ Again, there are some possibilities, but this may be a rivalry company in a simi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-retention namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/retention/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+retention namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/retention/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -38632,7 +39137,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-rsit namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/rsit/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+rsit namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/rsit/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -38651,7 +39156,7 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <p>Spam</p>
 </div>
 <div class="paragraph">
-<p>Or 'Unsolicited Bulk Email', this means that the recipient has not granted verifiable permission for the message to be sent and that the message is sent as part of a larger collection of messages, all having a functionally comparable content.</p>
+<p>Or 'Unsolicited Bulk Email', this means that the recipient has not granted verifiable permission for the message to be sent and that the message is sent as part of a larger collection of messages, all having a functionally comparable content. This IOC refers to resources, which make up a SPAM infrastructure, be it a harvesters like address verification, URLs in spam e-mails etc.</p>
 </div>
 </div>
 <div class="sect3">
@@ -38660,16 +39165,16 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <p>Harmful Speech</p>
 </div>
 <div class="paragraph">
-<p>Discreditation or discrimination of somebody, e.g. cyber stalking, racism or threats against one or more individuals.</p>
+<p>Discretization or discrimination of somebody, e.g. cyber stalking, racism or threats against one or more individuals.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_rsitabusive_contentviolence">rsit:abusive-content="violence"</h4>
 <div class="paragraph">
-<p>Child Porn/Sexual/Violent Content</p>
+<p>(Child) Sexual Exploitation/Sexual/Violent Content</p>
 </div>
 <div class="paragraph">
-<p>Child pornography, glorification of violence, etc.</p>
+<p>Child Sexual Exploitation (CSE), Sexual content, glorification of violence, etc.</p>
 </div>
 </div>
 </div>
@@ -38684,7 +39189,7 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <p>Infected System</p>
 </div>
 <div class="paragraph">
-<p>System infected with malware, e.g. PC, smartphone or server infected with a rootkit.</p>
+<p>System infected with malware, e.g. PC, smartphone or server infected with a rootkit. Most often this refers to a connection to a sinkholed C2 server</p>
 </div>
 </div>
 <div class="sect3">
@@ -38702,7 +39207,7 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <p>Malware Distribution</p>
 </div>
 <div class="paragraph">
-<p>URI used for malware distribution, e.g. a download URL included in fake invoice malware spam.</p>
+<p>URI used for malware distribution, e.g. a download URL included in fake invoice malware spam or exploit-kits (on websites).</p>
 </div>
 </div>
 <div class="sect3">
@@ -38711,7 +39216,7 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <p>Malware Configuration</p>
 </div>
 <div class="paragraph">
-<p>URI hosting a malware configuration file, e.g. webinjects for a banking trojan.</p>
+<p>URI hosting a malware configuration file, e.g. web-injects for a banking trojan.</p>
 </div>
 </div>
 </div>
@@ -38768,7 +39273,7 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <p>Login attempts</p>
 </div>
 <div class="paragraph">
-<p>Multiple login attempts (Guessing / cracking of passwords, brute force).</p>
+<p>Multiple login attempts (Guessing / cracking of passwords, brute force). This IOC refers to a resource, which has been observed to perform brute-force attacks over a given application protocol.</p>
 </div>
 </div>
 <div class="sect3">
@@ -38784,7 +39289,7 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <div class="sect2">
 <h3 id="_intrusions_2">intrusions</h3>
 <div class="paragraph">
-<p>A successful compromise of a system or application (service). This can have been caused remotely by a known or new vulnerability, but also by an unauthorized local access. Also includes being part of a botnet.</p>
+<p>A successful compromise of a system or application (service). This can have been caused remotely by a known or new vulnerability, but also by an unauthorised local access. Also includes being part of a botnet.</p>
 </div>
 <div class="sect3">
 <h4 id="_rsitintrusionsprivileged_account_compromise">rsit:intrusions="privileged-account-compromise"</h4>
@@ -38810,7 +39315,16 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <p>Application Compromise</p>
 </div>
 <div class="paragraph">
-<p>Compromise of an application by exploiting (un)known software vulnerabilities, e.g. SQL injection.</p>
+<p>Compromise of an application by exploiting (un-)known software vulnerabilities, e.g. SQL injection.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_rsitintrusionssystem_compromise">rsit:intrusions="system-compromise"</h4>
+<div class="paragraph">
+<p>System Compromise</p>
+</div>
+<div class="paragraph">
+<p>Compromise of a system, e.g. unauthorised logins or commands. This includes compromising attempts on honeypot systems.</p>
 </div>
 </div>
 <div class="sect3">
@@ -38819,7 +39333,7 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <p>Burglary</p>
 </div>
 <div class="paragraph">
-<p>Physical intrusion, e.g. into corporate building or data center.</p>
+<p>Physical intrusion, e.g. into corporate building or data-centre.</p>
 </div>
 </div>
 </div>
@@ -38885,7 +39399,7 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <p>Unauthorised access to information</p>
 </div>
 <div class="paragraph">
-<p>Unauthorized access to information, e.g. by abusing stolen login credentials for a system or application, intercepting traffic or gaining access to physical documents.</p>
+<p>Unauthorised access to information, e.g. by abusing stolen login credentials for a system or application, intercepting traffic or gaining access to physical documents.</p>
 </div>
 </div>
 <div class="sect3">
@@ -38894,7 +39408,7 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <p>Unauthorised modification of information</p>
 </div>
 <div class="paragraph">
-<p>Unauthorised modification of information, e.g. by an attacker abusing stolen login credentials for a system or application or a ransomware encrypting data.</p>
+<p>Unauthorised modification of information, e.g. by an attacker abusing stolen login credentials for a system or application or a ransomware encrypting data. Also includes defacements.</p>
 </div>
 </div>
 <div class="sect3">
@@ -38906,6 +39420,15 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <p>Loss of data, e.g. caused by harddisk failure or physical theft.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_rsitinformation_content_securitydata_leak">rsit:information-content-security="data-leak"</h4>
+<div class="paragraph">
+<p>Leak of confidential information</p>
+</div>
+<div class="paragraph">
+<p>Leaked confidential information like credentials or personal data.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_fraud_5">fraud</h3>
@@ -38913,12 +39436,12 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <p>Fraud.</p>
 </div>
 <div class="sect3">
-<h4 id="_rsitfraudunauthorized_use_of_resources">rsit:fraud="unauthorized-use-of-resources"</h4>
+<h4 id="_rsitfraudunauthorised_use_of_resources">rsit:fraud="unauthorised-use-of-resources"</h4>
 <div class="paragraph">
-<p>Unauthorized use of resources</p>
+<p>Unauthorised use of resources</p>
 </div>
 <div class="paragraph">
-<p>Using resources for unauthorized purposes including profit-making ventures, e.g. the use of e-mail to participate in illegal profit chain letters or pyramid schemes.</p>
+<p>Using resources for unauthorised purposes including profit-making ventures, e.g. the use of e-mail to participate in illegal profit chain letters or pyramid schemes.</p>
 </div>
 </div>
 <div class="sect3">
@@ -38945,7 +39468,7 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <p>Phishing</p>
 </div>
 <div class="paragraph">
-<p>Masquerading as another entity in order to persuade the user to reveal private credentials.</p>
+<p>Masquerading as another entity in order to persuade the user to reveal private credentials. This IOC most often refers to a URL, which is used to phish user credentials.</p>
 </div>
 </div>
 </div>
@@ -38996,7 +39519,7 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <p>Vulnerable system</p>
 </div>
 <div class="paragraph">
-<p>A system which is vulnerable to certain attacks. Example: misconfigured client proxy settings (example: WPAD), outdated operating system version, etc.</p>
+<p>A system which is vulnerable to certain attacks. Example: misconfigured client proxy settings (example: WPAD), outdated operating system version, XSS vulnerabilities, etc.</p>
 </div>
 </div>
 </div>
@@ -39008,10 +39531,19 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <div class="sect3">
 <h4 id="_rsitotherother">rsit:other="other"</h4>
 <div class="paragraph">
-<p>Other</p>
+<p>Uncategorised</p>
 </div>
 <div class="paragraph">
-<p>All incidents which don&#8217;t fit in one of the given categories should be put into this class.</p>
+<p>All incidents which don&#8217;t fit in one of the given categories should be put into this class or the incident is not categorised.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_rsitotherundetermined">rsit:other="undetermined"</h4>
+<div class="paragraph">
+<p>Undetermined</p>
+</div>
+<div class="paragraph">
+<p>The categorisation of the incident is unknown/undetermined.</p>
 </div>
 </div>
 </div>
@@ -39042,7 +39574,7 @@ rsit namespace available in JSON format at <a href="https://github.com/MISP/misp
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-rt_event_status namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/rt_event_status/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+rt_event_status namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/rt_event_status/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -39113,7 +39645,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-runtime-packer namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/runtime-packer/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+runtime-packer namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/runtime-packer/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -39293,7 +39825,7 @@ runtime-packer namespace available in JSON format at <a href="https://github.com
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-scrippsco2-fgc namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/scrippsco2-fgc/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+scrippsco2-fgc namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/scrippsco2-fgc/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -39493,7 +40025,7 @@ scrippsco2-fgc namespace available in JSON format at <a href="https://github.com
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-scrippsco2-fgi namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/scrippsco2-fgi/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+scrippsco2-fgi namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/scrippsco2-fgi/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -39618,7 +40150,7 @@ scrippsco2-fgi namespace available in JSON format at <a href="https://github.com
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-scrippsco2-sampling-stations namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/scrippsco2-sampling-stations/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+scrippsco2-sampling-stations namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/scrippsco2-sampling-stations/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -39755,7 +40287,7 @@ scrippsco2-sampling-stations namespace available in JSON format at <a href="http
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-smart-airports-threats namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/smart-airports-threats/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+smart-airports-threats namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/smart-airports-threats/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -40198,7 +40730,7 @@ smart-airports-threats namespace available in JSON format at <a href="https://gi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-stealth_malware namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/stealth_malware/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+stealth_malware namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/stealth_malware/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -40207,7 +40739,7 @@ stealth_malware namespace available in JSON format at <a href="https://github.co
 <p>Classification based on malware stealth techniques. Described in <a href="https://vxheaven.org/lib/pdf/Introducing%20Stealth%20Malware%20Taxonomy.pdf" class="bare">https://vxheaven.org/lib/pdf/Introducing%20Stealth%20Malware%20Taxonomy.pdf</a></p>
 </div>
 <div class="sect2">
-<h3 id="_type_5">type</h3>
+<h3 id="_type_6">type</h3>
 <div class="sect3">
 <h4 id="_stealth_malwaretype0">stealth_malware:type="0"</h4>
 <div class="paragraph">
@@ -40245,7 +40777,7 @@ stealth_malware namespace available in JSON format at <a href="https://github.co
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-stix-ttp namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/stix-ttp/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+stix-ttp namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/stix-ttp/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -40406,7 +40938,7 @@ stix-ttp namespace available in JSON format at <a href="https://github.com/MISP/
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-targeted-threat-index namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/targeted-threat-index/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+targeted-threat-index namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/targeted-threat-index/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -40537,7 +41069,7 @@ targeted-threat-index namespace available in JSON format at <a href="https://git
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-threatmatch-alert-types namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/threatmatch-alert-types/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+threatmatch-alert-types namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/threatmatch-alert-types/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -40674,7 +41206,7 @@ threatmatch-alert-types namespace available in JSON format at <a href="https://g
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-threatmatch-incident-types namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/threatmatch-incident-types/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+threatmatch-incident-types namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/threatmatch-incident-types/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -40925,7 +41457,7 @@ threatmatch-incident-types namespace available in JSON format at <a href="https:
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-threatmatch-malware-types namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/threatmatch-malware-types/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+threatmatch-malware-types namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/threatmatch-malware-types/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -41086,7 +41618,7 @@ threatmatch-malware-types namespace available in JSON format at <a href="https:/
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-threatmatch-sectors namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/threatmatch-sectors/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+threatmatch-sectors namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/threatmatch-sectors/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -41325,7 +41857,7 @@ threatmatch-sectors namespace available in JSON format at <a href="https://githu
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-threats-to-dns namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/threats-to-dns/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+threats-to-dns namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/threats-to-dns/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -41525,7 +42057,7 @@ threats-to-dns namespace available in JSON format at <a href="https://github.com
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-tlp namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/tlp/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+tlp namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/tlp/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -41626,7 +42158,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-tor namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/tor/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+tor namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/tor/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -41673,7 +42205,7 @@ tor namespace available in JSON format at <a href="https://github.com/MISP/misp-
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-trust namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/trust/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+trust namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/trust/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -41777,7 +42309,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 </div>
 <div class="sect1">
-<h2 id="_type_6">type</h2>
+<h2 id="_type_7">type</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
 <table>
@@ -41786,7 +42318,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-type namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/type/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+type namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/type/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -41971,7 +42503,7 @@ type namespace available in JSON format at <a href="https://github.com/MISP/misp
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-use-case-applicability namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/use-case-applicability/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+use-case-applicability namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/use-case-applicability/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -42111,7 +42643,7 @@ use-case-applicability namespace available in JSON format at <a href="https://gi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-veris namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/veris/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+veris namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/veris/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -54253,6 +54785,101 @@ veris namespace available in JSON format at <a href="https://github.com/MISP/mis
 </div>
 </div>
 <div class="sect1">
+<h2 id="_vmray">vmray</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+vmray namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/vmray/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>VMRay taxonomies to map VMRay Thread Identifier scores and artifacts.</p>
+</div>
+<div class="sect2">
+<h3 id="_artifact">artifact</h3>
+<div class="sect3">
+<h4 id="_vmrayartifactioc">vmray:artifact="ioc"</h4>
+<div class="paragraph">
+<p>is IOC</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_verdict">verdict</h3>
+<div class="sect3">
+<h4 id="_vmrayverdictmalicious">vmray:verdict="malicious"</h4>
+<div class="paragraph">
+<p>Malicious</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vmrayverdictsuspicious">vmray:verdict="suspicious"</h4>
+<div class="paragraph">
+<p>Suspicious</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vmrayverdictclean">vmray:verdict="clean"</h4>
+<div class="paragraph">
+<p>Clean</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vmrayverdictna">vmray:verdict="n/a"</h4>
+<div class="paragraph">
+<p>N/A</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_vti_analysis_score">vti_analysis_score</h3>
+<div class="sect3">
+<h4 id="_vmrayvti_analysis_score_15">vmray:vti_analysis_score="-1/5"</h4>
+<div class="paragraph">
+<p>-1/5</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vmrayvti_analysis_score15">vmray:vti_analysis_score="1/5"</h4>
+<div class="paragraph">
+<p>1/5</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vmrayvti_analysis_score25">vmray:vti_analysis_score="2/5"</h4>
+<div class="paragraph">
+<p>2/5</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vmrayvti_analysis_score35">vmray:vti_analysis_score="3/5"</h4>
+<div class="paragraph">
+<p>3/5</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vmrayvti_analysis_score45">vmray:vti_analysis_score="4/5"</h4>
+<div class="paragraph">
+<p>4/5</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vmrayvti_analysis_score55">vmray:vti_analysis_score="5/5"</h4>
+<div class="paragraph">
+<p>5/5</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_vocabulaire_des_probabilites_estimatives">vocabulaire-des-probabilites-estimatives</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -54262,7 +54889,7 @@ veris namespace available in JSON format at <a href="https://github.com/MISP/mis
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-vocabulaire-des-probabilites-estimatives namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/vocabulaire-des-probabilites-estimatives/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+vocabulaire-des-probabilites-estimatives namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/vocabulaire-des-probabilites-estimatives/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -54345,7 +54972,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-workflow namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/master/workflow/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+workflow namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/workflow/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
 </td>
 </tr>
 </table>
@@ -55176,7 +55803,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-20 14:40:44 +0200
+Last updated 2021-03-25 12:18:24 +0100
 </div>
 </div>
 </body>
