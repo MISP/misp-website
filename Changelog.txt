@@ -2,6 +2,533 @@ Changelog
 =========
 
 
+v2.4.141 (2021-03-29)
+---------------------
+
+New
+~~~
+- [cli] enable all tags for a taxonomy. [Jeroen Pinoy]
+- [eventgraph:viewPicture] Allow access to saved picture from the
+  eventgraph history. [mokaddem]
+- [UI] Reworked galaxy quick view. [Jakub Onderka]
+- [UI] Show threat level icons on event index. [Jakub Onderka]
+- [freetext] Faster freetext parsing with more tests. [Jakub Onderka]
+- [event loader] has a new extensionList parameter. [iglocska]
+
+  - boolean, if set includes a list of extension events, metadata only
+- [test] Alert email generating. [Jakub Onderka]
+- [email] New setting `MISP.event_alert_metadata_only` [Jakub Onderka]
+- [email] Command for testing generated alert email. [Jakub Onderka]
+- [email] Allow to set email subject from template. [Jakub Onderka]
+- [mail] Add reference for event alert emails. [Jakub Onderka]
+- [mail] Move contact alert email to templates. [Jakub Onderka]
+- [mail] HTML alert emails. [Jakub Onderka]
+- [mail] Backend support for sending HTML emails. [Jakub Onderka]
+- [shortcuts] Show help when pressing ? key. [Jakub Onderka]
+- [internal] Security setting force_https. [Jakub Onderka]
+- [authkeys] Copy key info when resetting key. [Jakub Onderka]
+- [authkeys] Allowed IPs. [Jakub Onderka]
+- [UI] Render galaxy cluster description as markdown. [Jakub Onderka]
+
+Changes
+~~~~~~~
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [doc] when enabling remi 7.4 by default, paths change. [Steve Clement]
+- [doc] CentOS8Stream is now supported. [Steve Clement]
+- [doc] reshuffle documentation order and archive some older guides.
+  [Steve Clement]
+- [i18n] Updated base strings. [Steve Clement]
+- [i8n] Added localization progress. [Steve Clement]
+- [i18n] Fix mrg conflict. [Steve Clement]
+- [i18n] Updated base strings. [Steve Clement]
+- [i18n] Updated translations. [Steve Clement]
+- [galaxy] Update. [Jakub Onderka]
+- [UI] fix debugon for debug = 1. fix #7131. [Jeroen Pinoy]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [doc] more fine tuning to RHEL8. [Steve Clement]
+- [doc] Balanced RHEL 8 and 7 Docs. [Steve Clement]
+- [doc] Move away from expect. [Steve Clement]
+- [installer] Update to latest. [Steve Clement]
+- [doc] Added additional hardening and logging defaults. [Steve Clement]
+- [doc] Some minor changes and hardening. [Steve Clement]
+- [doc] Minor adjustments to permissions setter. [Steve Clement]
+- [doc] typo. [Steve Clement]
+- [doc] Added symlink to php. [Steve Clement]
+- [doc] Be friendly to automation. [Steve Clement]
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [auth] if no API key is provided for an API action - log it.
+  [iglocska]
+- [auth key] logging no longer collapsed if the new setting is enabled.
+  [iglocska]
+
+  Security.log_each_individual_auth_fail will log all API failures instead of collapsing repeated queries
+- [statistics] fix typo in statistics_data view - monthly attributes
+  styling check. [Jeroen Pinoy]
+- [ShibbAuth] Add login entry on logging in for audit. [Jeroen Pinoy]
+- [statistics] fix typo in statistics_data view - monthly attributes
+  styling check. [Jeroen Pinoy]
+- [ShibbAuth] Add login entry on logging in for audit. [Jeroen Pinoy]
+- [feed] Check if value is clean IP without doing expensive operations.
+  [Jakub Onderka]
+- [test] Add test for #7214. [Jakub Onderka]
+- [shibbauth] added two extra settings. [iglocska]
+
+  - ApacheShibbauth.DefaultRole: defaults to false, if set, pick the supplied roleID for any user authenticating. Can be used together with BlockRoleModifications
+  - ApacheShibbauth.BlockRoleModifications: defaults to false, boolean. If set to true, will block any updates to the existing users on authentication. This preserves any modifications made by a site admin in MISP.
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [UI] Show number of items in freetext feed. [Jakub Onderka]
+- [UI] Make feed event preview nicer. [Jakub Onderka]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [internal] Threat levels list. [Jakub Onderka]
+- [restClient:querybuilder] add events and attributes addTag and
+  removeTag actions. [Jeroen Pinoy]
+- [attributes] fix attribute addtag by name conditions for find not set.
+  [Jeroen Pinoy]
+- [attributes] fix copypasta error leading to internal server error on
+  addtag with tag name. [Jeroen Pinoy]
+- [attributes] fix copypasta error leading to internal server error on
+  addtag with tag name. [Jeroen Pinoy]
+- Bumped queryversion. [mokaddem]
+- [optimisation] Faster Model::_findList method. [Jakub Onderka]
+- [internal] Faster event locks with Redis. [Jakub Onderka]
+- [correlation] Do not update info and date column, since they are not
+  used anymore. [Jakub Onderka]
+- [restClient:querybuilder] fix remove tag from object template. [Jeroen
+  Pinoy]
+- [restClient:querybuilder] add events and attributes addTag and
+  removeTag actions. [Jeroen Pinoy]
+- [attributes] fix attribute addtag by name conditions for find not set.
+  [Jeroen Pinoy]
+- [attributes] fix copypasta error leading to internal server error on
+  addtag with tag name. [Jeroen Pinoy]
+- [email] Move event alert email subject generting. [Jakub Onderka]
+- [internal] Fetch attribute UUIDs for sightings in different query.
+  [Jakub Onderka]
+- [UI] It is 2021! Removed -moz and -webkit specific CSS properties.
+  [Jakub Onderka]
+- [UI] Make some parts of MISP nicer. [Jakub Onderka]
+- [eventGraph] Improved object coloring strategy. [mokaddem]
+- [security audit] removed sharing group recommendation and fixed
+  grammar. [iglocska]
+
+  - the hide sharing group org setting is actively harmful, we should definitely not promote it
+- [sync] Code cleanup. [Jakub Onderka]
+- [sync] Do not decode body if is empty. [Jakub Onderka]
+- [UI] Nicer pivots. [Jakub Onderka]
+- [diagnostics] Show Redis memory fragmentation. [Jakub Onderka]
+- [internal] When caching feed, save progress to db less often. [Jakub
+  Onderka]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [PyMISP] Fix tests. [Raphaël Vinot]
+- [PyMISP] Bump before release. [Raphaël Vinot]
+- [internal] Set cookie name just when no name is set. [Jakub Onderka]
+- [schema] Add index for EventReport.event_id. [Jakub Onderka]
+- [schema] Convert GalaxyCluster tag name to case insensitive. [Jakub
+  Onderka]
+- [UI] Do not show published for default galaxy clusters. [Jakub
+  Onderka]
+- [internal] Cleanup code that is resposible for fetching server
+  setting. [Jakub Onderka]
+- [UI] Simplify keyboard-shortcuts.js. [Jakub Onderka]
+- [UI] Use Page Visibility API. [Jakub Onderka]
+- [optimise] Faster loading galaxy cluster index. [Jakub Onderka]
+
+Fix
+~~~
+- [attribute:restSearch] `includeCorrelations` Do not longer returns
+  soft-deleted attributes. [mokaddem]
+- [sharinggroup:captureSG] Correctly capture the roaming state.
+  [mokaddem]
+
+  Fix #7254
+- [attribute] typo in place-port-of-original-embarkation fixed.
+  [Alexandre Dulaunoy]
+- [doc] Partial fix for misp-modules. [Steve Clement]
+- [doc] Fixed a bash variable bug. [Steve Clement]
+- [doc] MISP-core now working on RHEL 7.9. [Steve Clement]
+- [doc] next stages of the RHEL7 install. [Steve Clement]
+- [sync:local-tag] Local tags converted into global after sync for
+  internal sync. [mokaddem]
+
+  Fix #7253
+- [attribute] typo in place-port-of-original-embarkation fixed.
+  [Alexandre Dulaunoy]
+- [attributes:restSearch] pop attribute timestamp filtering condition.
+  [mokaddem]
+
+  This avoid the condition to propagates to the event level.
+  Fix #7096
+- [command:admin] UpdateTaxonomies provides correct feedback Fix #7132.
+  [mokaddem]
+- [tags] More granularity for local and global add cluster buttons.
+  [mokaddem]
+- [tags] More granularity for local and global add tag buttons.
+  [mokaddem]
+- [attributes:addTag] Pass the event to check ACL. [mokaddem]
+- [taxonomy] avoid MISP becoming unhappy when trying to enable tags for
+  a non-existing taxonomy. [iglocska]
+- [doc] rhel 7 install doc initial fixes. [Steve Clement]
+- [selinux] allow log files rename. [Richard van den Berg]
+- [db_schema] Cerebrates's comment default value. [mokaddem]
+
+  Fix #7200, fix #7137
+- [API] Fixes crash when a new indicator in existing event has a
+  sighting. [Tom King]
+- [Sync] Crash when attempting to sync with 'Pull Galaxy Clusters'
+  enabled. [Tom King]
+- [swp] /var/swap.img is not a safe place. [Steve Clement]
+- [merge] Local tags should stay local vol. 2. [Jakub Onderka]
+- [internal] Keep OidcAuth setting when modify setting value from UI.
+  [Jakub Onderka]
+- Remove broken refang. [Raphaël Vinot]
+- [config.php] file permission after changes fixes #7229. [iglocska]
+
+  - will revert to the permissions before the save
+  - caused by the create -> rename cycle that backs up server settings on each change actually creating a new file instead of modifying it
+- [sharing groups] uuid not logged when saving failed due to invalid
+  variable lookup. [iglocska]
+- [UI] signature allowedlist clarification. [iglocska]
+- Fixes bug that stops country flag being displayed alongside the coutry
+  in galaxy clusters. [Tom King]
+- [refanging] Removed obnoxious regexes, fixes #7214. [iglocska]
+
+  - refanging \\. and .. to . is a stupid idea
+- [shibbauth] fixed invalid varname. [iglocska]
+- [test] Repo is missing. [Jakub Onderka]
+- [feed] Convert invalid key case. [Jakub Onderka]
+- [test] Repo is missing. [Jakub Onderka]
+- [internal] Remove unnecessary create call. [Jakub Onderka]
+- [workers] Worker name when processing freetext. [Jakub Onderka]
+- [merge] Local tags should stay local. [Jakub Onderka]
+- [unsafe API keys] fixed. [iglocska]
+
+  - if you really have to use them, they should work again
+
+  - please don't use them, you are disclosing your APIkey via the URL
+  - apache logs, proxy logs they will all have your APIkey
+  - adding headers with your APIkey isn't so difficult
+  - if a tool you use has no way of configuring headers, reach out to your vendor, they ought to do something about that
+- [UI] indextable link generation on empty result set. [iglocska]
+
+  - empty string instead of notice barfed back
+- [email] Correctly check if user has PGP or S/MIME key. [Jakub Onderka]
+- [email] Correct Content-Type header for alternative content. [Jakub
+  Onderka]
+- [email] Correctly set domain for email message ID. [Jakub Onderka]
+- [internal] PHP warnings when pivoting. [Jakub Onderka]
+- [internal] Warning when object has no attributes. [Jakub Onderka]
+- [SG] allow saving sharing groups with empty releasabiltiy tags, fixes
+  #7165. [iglocska]
+- [sync] Warning when sync object without attributes. [Jakub Onderka]
+- [UI] event matrix heatmap view correctly flattens the event.
+  [iglocska]
+
+  - object attributes were excluded
+- [UI] fix broken checkbox layout in generic Form builder forms.
+  [iglocska]
+- [Freetext import] handle end of sentence periods and brackets better,
+  fixes #7163. [iglocska]
+- [UI] Module diagnostics view. [Jakub Onderka]
+- [UI] event matrix heatmap view correctly flattens the event.
+  [iglocska]
+
+  - object attributes were excluded
+- [UI] Add attribute checkboxes. [Jakub Onderka]
+- [UI] Diagnostics box. [Jakub Onderka]
+- [UI] Remove warning about old PHP a Python. [Jakub Onderka]
+- [diagnostics] Typo in security audit message. [Jakub Onderka]
+- [UI] fix broken checkbox layout in generic Form builder forms.
+  [iglocska]
+- [OIDC] Change algo how roles are assigned to users. [Jakub Onderka]
+- [internal] Undefined index when importing from module. [Jakub Onderka]
+
+Other
+~~~~~
+- Chg; [version] bump. [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #7261 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] when enabling remi 7.4 by default, paths change
+- Merge pull request #7260 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] CentOS8Stream is now supported
+- Merge pull request #7259 from SteveClement/guides. [Steve Clement]
+- Merge pull request #7257 from SteveClement/i18n. [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into i18n. [Steve Clement]
+- Merge pull request #7256 from SteveClement/i18n. [Steve Clement]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge pull request #7264 from JakubOnderka/galaxy-update. [Jakub
+  Onderka]
+
+  chg: [galaxy] Update
+- Merge pull request #7255 from Wachizungu/fix-debugon-gui-logic.
+  [Alexandre Dulaunoy]
+
+  chg: [UI] fix debugon for debug = 1. fix #7131
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge pull request #7251 from SteveClement/guides. [Steve Clement]
+
+  fix: [doc] Partial fix for misp-modules
+- Merge pull request #7250 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] more fine tuning to RHEL8
+- Merge pull request #7249 from SteveClement/guides. [Steve Clement]
+- Merge pull request #7248 from SteveClement/guides. [Steve Clement]
+
+  fix: [doc] Fixed a bash variable bug
+- Merge pull request #7247 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] Added additional hardening and logging defaults
+- Merge pull request #7246 from SteveClement/guides. [Steve Clement]
+- Merge pull request #7245 from SteveClement/guides. [Steve Clement]
+- Merge pull request #7244 from SteveClement/guides. [Steve Clement]
+
+  fix: [doc] MISP-core now working on RHEL 7.9
+- Merge pull request #7243 from SteveClement/guides. [Steve Clement]
+
+  fix: [doc] next stages of the RHEL7 install
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7242 from Wachizungu/add-enable-taxonomy-tags-
+  cake-command. [Andras Iklody]
+
+  new: [cli] enable all tags for a taxonomy
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge pull request #7236 from Wachizungu/fix-users-statistics-data-
+  typo. [Alexandre Dulaunoy]
+
+  chg: [statistics] fix typo in statistics_data view - monthly attribut…
+- Merge pull request #7231 from Wachizungu/add-login-log-shibbauth.
+  [Alexandre Dulaunoy]
+
+  chg: [ShibbAuth] Add login entry on logging in for audit
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #7238 from SteveClement/guides. [Steve Clement]
+- Merge pull request #7237 from RichieB2B/ncsc-nl/selinux-rename. [Steve
+  Clement]
+- Merge pull request #7206 from tomking2/bug/sighting_crash. [Andras
+  Iklody]
+
+  fix: [api] Fixes crash when a new indicator in existing event has a sighting
+- Merge pull request #7219 from tomking2/bug/galaxy-cluster-
+  sharinggroup. [Jakub Onderka]
+
+  fix: [sync] Crash when attempting to sync with 'Pull Galaxy Clusters' enabled
+- Merge pull request #7215 from SteveClement/tools. [Steve Clement]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7081 from JakubOnderka/galaxy-view-new. [Jakub
+  Onderka]
+
+  New galaxy view for events
+- Merge pull request #6722 from JakubOnderka/threat-level-index. [Jakub
+  Onderka]
+
+  new: [UI] Show threat level icons on event index
+- Merge pull request #7183 from JakubOnderka/merge-local-tags-v2. [Jakub
+  Onderka]
+
+  fix: [merge] Local tags should stay local vol. 2
+- Merge pull request #7181 from JakubOnderka/freetext-speedup. [Jakub
+  Onderka]
+
+  new: [freetext] Faster freetext parsing with more tests
+- Merge pull request #7213 from JakubOnderka/oidc-keep-setting. [Jakub
+  Onderka]
+
+  fix: [internal] Keep OidcAuth setting when modify setting value from UI
+- Merge pull request #7222 from JakubOnderka/refang-test. [Jakub
+  Onderka]
+
+  chg: [test] Add test for #7214
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #7205 from tomking2/bug/galaxy_country_flag. [Jakub
+  Onderka]
+
+  fix: [UI] Fixes bug that stops country flag being displayed alongside country
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #7188 from dataplane/2.4. [Alexandre Dulaunoy]
+
+  added newest DataPlane.org feeds
+- Added newest DataPlane.org feeds. [John Kristoff]
+- Merge pull request #7207 from JakubOnderka/freetext-feed-view. [Jakub
+  Onderka]
+
+  chg: [UI] Show number of items in freetext feed
+- Merge pull request #7184 from JakubOnderka/feed-event-preview-nicer.
+  [Jakub Onderka]
+
+  chg: [UI] Make feed event preview nicer
+- Merge pull request #7203 from JakubOnderka/fix-build. [Alexandre
+  Dulaunoy]
+
+  fix: [test] Repo is missing
+- Merge pull request #7191 from JakubOnderka/create-no-need. [Jakub
+  Onderka]
+
+  fix: [internal] Remove unnecessary create call
+- Merge pull request #7190 from JakubOnderka/worker-name. [Jakub
+  Onderka]
+
+  fix: [workers] Worker name when processing freetext
+- Merge pull request #7186 from JakubOnderka/threat-level-list. [Jakub
+  Onderka]
+
+  chg: [internal] Threat levels list
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7182 from JakubOnderka/merge-local-tags. [Jakub
+  Onderka]
+
+  fix: [merge] Local tags should stay local
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'eventgraph-node-coloring' into develop. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into eventgraph-node-
+  coloring. [mokaddem]
+- Merge pull request #7170 from JakubOnderka/find-list-optim. [Jakub
+  Onderka]
+
+  chg: [optimisation] Faster Model::_findList method
+- Merge pull request #7174 from JakubOnderka/event-locks-faster. [Jakub
+  Onderka]
+
+  chg: [internal] Faster event locks with Redis
+- Merge pull request #7173 from JakubOnderka/disable-correlation-info-
+  date. [Jakub Onderka]
+
+  chg: [correlation] Do not update info and date column
+- Merge pull request #7159 from Wachizungu/fix-removetag-querybuilder-
+  template. [Alexandre Dulaunoy]
+
+  chg: [restClient:querybuilder] fix remove tag from object template
+- Merge pull request #7172 from Wachizungu/add-addTag-removeTag-actions-
+  event-attribute-query-builder. [Alexandre Dulaunoy]
+
+  chg: [restClient:querybuilder] add events and attributes addTag and r…
+- Merge pull request #7171 from Wachizungu/fix-attributes-addtag-by-
+  name. [Alexandre Dulaunoy]
+
+  chg: [attributes] fix attribute addtag by name conditions for find no…
+- Merge pull request #7168 from Wachizungu/fix-copypasta-error-
+  attributes-addTag. [Jakub Onderka]
+
+  chg: [attributes] fix copypasta error leading to internal server erro…
+- Merge pull request #6967 from JakubOnderka/html-alert-email. [Jakub
+  Onderka]
+
+  HTML alert email
+- Merge pull request #7161 from JakubOnderka/sighting-different-query.
+  [Jakub Onderka]
+
+  chg: [internal] Fetch attribute UUIDs for sightings in different query
+- Merge pull request #7133 from JakubOnderka/pivot-fix. [Jakub Onderka]
+
+  fix: [internal] PHP warnings when pivoting
+- Merge pull request #7156 from JakubOnderka/fix-empty-object. [Jakub
+  Onderka]
+
+  fix: [internal] Warning when object has no attributes
+- Merge pull request #7166 from JakubOnderka/css-nice. [Jakub Onderka]
+
+  CSS nice
+- Merge pull request #7167 from JakubOnderka/keyboard-shortucts. [Jakub
+  Onderka]
+
+  Keyboard shortcuts
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #7162 from JakubOnderka/empty-object-sync. [Jakub
+  Onderka]
+
+  fix: [sync] Warning when sync object without attributes
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #7160 from JakubOnderka/fix-diagnotics. [Jakub
+  Onderka]
+
+  fix: [UI] Module diagnostics view
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7155 from JakubOnderka/push-optim. [Jakub Onderka]
+
+  Push optim
+- Merge pull request #7154 from JakubOnderka/diagnostics. [Jakub
+  Onderka]
+
+  Diagnostics
+- Merge pull request #7150 from JakubOnderka/force-https. [Jakub
+  Onderka]
+
+  new: [internal] Security setting force_https
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7138 from JakubOnderka/oidc-role-fix. [Jakub
+  Onderka]
+
+  fix: [OIDC] Change algo how roles are assigned to users
+- Merge pull request #7086 from JakubOnderka/save-progress. [Jakub
+  Onderka]
+
+  chg: [internal] When caching feed, save progress to db less often
+- Merge pull request #7104 from JakubOnderka/authkeys-allowed-ips.
+  [Jakub Onderka]
+
+  new: [authkeys] Allowed IPs
+- Merge pull request #7111 from JakubOnderka/cookie-name. [Jakub
+  Onderka]
+
+  chg: [internal] Set cookie name just when no name is set
+- Merge pull request #7060 from JakubOnderka/galaxy-cluster-tag-name-ci.
+  [Jakub Onderka]
+
+  chg: [schema] Convert GalaxyCluster tag name to case insensitive
+- Merge pull request #7112 from JakubOnderka/galaxy-cluster-md. [Jakub
+  Onderka]
+
+  new: [UI] Render galaxy cluster description as markdown
+- Merge pull request #7127 from JakubOnderka/server-setting-cleanup.
+  [Jakub Onderka]
+
+  chg: [internal] Cleanup code that is resposible for fetching setting
+- Merge pull request #7117 from JakubOnderka/keyboard-shortcuts. [Jakub
+  Onderka]
+
+  chg: [UI] Simplify keyboard-shortcuts.js
+- Merge pull request #7116 from JakubOnderka/page-visibility-api. [Jakub
+  Onderka]
+
+  chg: [UI] Use Page Visibility API
+- Merge pull request #7125 from JakubOnderka/fix-undefined-index. [Jakub
+  Onderka]
+
+  fix: [internal] Undefined index when importing from module
+- Merge pull request #7113 from JakubOnderka/optimise-loading-clusters.
+  [Jakub Onderka]
+
+  chg: [optimise] Faster loading galaxy cluster index
+- Merge branch '2.4' into develop. [iglocska]
+
+
 v2.4.140 (2021-03-03)
 ---------------------
 
