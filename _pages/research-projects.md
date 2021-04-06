@@ -156,7 +156,7 @@ The research results might be impacted by the following parameters:
 
 # Project (3) Secure Distributed-Learning on Threat Intelligence - EPFL and armasuisse Science and Technology, Lausanne
 
-Collaboration in the Framework of C4DT between aramasuisse Science and Technology and the Laboratory for Data Security of EPFL.
+Collaboration in the Framework of C4DT between armasuisse Science and Technology and the Laboratory for Data Security of EPFL.
 
 Cyber security information is extremely sensitive and confidential. This introduces an information-sharing trade-off, between the benefits of improved threat-response capabilities and the drawbacks of disclosing national-security-related information to foreign agencies or institutions. The purpose of this project is to resolve the aforementioned trade-off by enabling secure collaborations with valuable sensitive data that is not normally shared. Each institution keeps full control over their data records, that never leave their security perimeter, whereas computations are protected by efficient and highly-scalable multiparty-homomorphic-encryption techniques. This will expand the range of available intelligence, thus leading to new and better threat analyses and predictions.
 
@@ -164,7 +164,7 @@ Website: [https://lds.epfl.ch/secure-distributed-learning-on-threat-intelligence
 
 ### Contact:
   - [Prof. Jean-Pierre Hubaux](https://people.epfl.ch/jean-pierre.hubaux?lang=en)
-  - [Juan Ramón Troncoso-Pastoriza](https://people.epfl.ch/juan.troncoso-pastoriza?lang=en)
+  - [Dr. Juan Ramón Troncoso-Pastoriza](https://people.epfl.ch/juan.troncoso-pastoriza?lang=en)
   - [Dr. Alain Mermoud](https://www.linkedin.com/in/alainmermoud/)
 
 
