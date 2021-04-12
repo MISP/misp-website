@@ -1,3 +1,10 @@
+---
+layout: page
+title: Help, Support, and Forums
+permalink: /support/
+toc: true
+---
+
 # Help, Support, and Forums
 
 Help and support for MISP is available from the [documentation](https://www.circl.lu/doc/misp/), [GitHub issues](https://github.com/MISP/MISP/issues), and [Gitter rooms](https://gitter.im/orgs/MISP/rooms) which are explained below. 
