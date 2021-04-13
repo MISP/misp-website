@@ -7,19 +7,19 @@ toc: true
 
 # MISP Professional Services
 
-MISP Professional Services (MPS) is a program handled by the lead developers of MISP Project, in order to offer highly 
+MISP Professional Services (MPS) is a program handled by the lead developers of MISP Project, in order to offer highly
 skilled services around MISP and to support the sustainability of the MISP project.
 This initiative is meant to address the policy requirements of companies/organisations requiring commercial support contracts.
 
-In addition to the best-effort support available through the usual [support channels](/documentation/#community-support/), 
-our MISP Professional Services are meant to be used by companies and organisations who want to make sure their issues are 
+In addition to the best-effort support available through the usual [support channels](/documentation/#community-support/),
+our MISP Professional Services are meant to be used by companies and organisations who want to make sure their issues are
 fast-tracked and are prioritised.
 
-The following MISP Professional Services are available: 
+The following MISP Professional Services are available:
 
 ## Trainings
 
-The MISP Project team is very experienced in both focused/targeted small group and broader large audience trainings, 
+The MISP Project team is very experienced in both focused/targeted small group and broader large audience trainings,
 either at our location or at a location specified by the organisation taking the training.
 We are flexible on the content and can adapt it to the level of expertise of the participants if required.
 Most of the time we are doing sessions lasting 1 to 3 days, with an incremental approach when it comes to the required technical experience each day.
@@ -30,10 +30,10 @@ A list of the current trainings can be found at the [events page](/events/).
 
 There are different custom training offerings:
 
-a) For on-site closed trainings up to 30-50 attendees (depending on conditions of the location): 
+a) For on-site closed trainings up to 30-50 attendees (depending on conditions of the location):
 We charge EUR 3.000 per training day plus additional expenses ([see below](#additional-costs-for-all-missions-outside-luxembourg))
 
-b) For closed trainings up to 30 attendees in Luxembourg: 
+b) For closed trainings up to 30 attendees in Luxembourg:
 We charge EUR 3.500 per training day including food and beverages
 
 
@@ -56,7 +56,7 @@ Fast-tracking a new/custom feature is usually project based and not included in 
 
 The following options are available for any holder of an active support contract:
 
-- Training, virtual (EUR 3.000 per training day)
+- Training, virtual (EUR 3.000 per training day if you are not holder an active support contract: EUR 3,500)
 - Installation support on-site or remotely (EUR 1.500 per day)
 - Integration support on-site or remotely (EUR 1.500 per day)
 - Development of new and/or custom features (project based, cost depending on scope)
@@ -64,7 +64,7 @@ The following options are available for any holder of an active support contract
 
 # Additional costs for all missions outside Luxembourg
 
-In addition to the displayed prices, we also charge for the travel and accomodation costs according to the number of trainers or support engineers required.
+In addition to the displayed prices, we also charge for the travel and accommodation costs according to the number of trainers or support engineers required.
 
 Based on the training location and the time of travel an additional uplift of the price may be included.
 
