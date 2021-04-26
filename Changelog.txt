@@ -2,6 +2,567 @@ Changelog
 =========
 
 
+v2.4.142 (2021-04-26)
+---------------------
+
+New
+~~~
+- [correlations] added new background task for correlating individual
+  values. [iglocska]
+- [Correlations] refactor / rework. [iglocska]
+
+  - moved to own controller and model
+  - refactored several long incomprehensible functions
+
+  - extracted reused tasks from functions and made them reusable
+  - added a way to correlate individual values as opposed to attributes
+
+  - Added top correlations index
+- [UI] added stupid pagination links. [iglocska]
+
+  - sometimes we want to paginate data not derrived from the usual backend but still have a first/last/next/previous link included
+- [correlations] top correlations index view added. [iglocska]
+- [Correlations] added dedicated controller/model/views. [iglocska]
+- [servers:edit] Fetches available orgs and tags from remote server.
+  [mokaddem]
+
+  - Componentized views and made them responsive
+  - Usage of picker for orgs and tags
+  - For server pull rule, fetches available choices from remote server
+- [galaxyCluster:wipe_default] New endpoint to wipe out all default
+  clusters. [mokaddem]
+- [Cache] search allows bulk lookups. [iglocska]
+
+  - it is now possible to search for a list of values such as:
+
+  {
+      "value": ["1.1.1.1", "8.8.8.8", "8.8.4.4"]
+  }
+
+  - this will now return a dictionary with the key being the lookup value and the value being a list of hits and their metadata
+
+  - passing a single value will revert to the old behaviour, returning a simple list with the hits and their metadata
+- [doc] Add doc on how MISP uses git. [E. Cleopatra]
+- [Dashboard] Adding user count evolution widget. [Jeroen Pinoy]
+- [Dashboard] Add org count evolution widget. [Jeroen Pinoy]
+- [doc] Add roadmap. [E. Cleopatra]
+- [event:timeline] Fit visible window from provided start/end dates +
+  help tooltip. [mokaddem]
+- [servers:diagnostic] Tool to remove orphaned correlations. [mokaddem]
+- [UI] Smarter events lock checking. [Jakub Onderka]
+- [API] REST repose for jobs index. [Jakub Onderka]
+- [docs] Added API_Doc. [mokaddem]
+- [Console] New API shell to create API documentation from
+  RestResponseComponent. [mokaddem]
+- [Dashboard] Add usage data widget. [Jeroen Pinoy]
+- [UI] User column selector. [Jakub Onderka]
+- [UI] User can choose columns for event index. [Jakub Onderka]
+- [chg] timestamp index field allows a new "x units ago" representation.
+  [iglocska]
+
+  - just pass "ago": 1 as a parameter to the field
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- Force perms for logfiles before tests. [Raphaël Vinot]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [CRUD] component, changed two filtering functions to be accessible
+  externally. [iglocska]
+- [indextable] added stupid pagination options. [iglocska]
+- [menues] updated with new correlation functionality. [iglocska]
+- [elements:indexTable] Allow passing URL parameters for link actions.
+  [mokaddem]
+- [css:event-report] Improved layout when using objects in markdown
+  headers. [mokaddem]
+- [internal] Do not load not necessary event info for attack export.
+  [Jakub Onderka]
+- [UI] Hide URL from feed and server cache hits. [Jakub Onderka]
+- [elements:serverRuleElements] Added notice for older server not
+  supporting filtering rule queries. [mokaddem]
+- [elements:serverRuleElements] Better function name for
+  maintainability. [mokaddem]
+- [element:serverRuleElements] Rules are parsed and build on
+  rules_widget container. [mokaddem]
+
+  They can later be recovered by external commands without having to rely
+  on fixed HTML ID properties
+- [elements:serverRuleElements] Parametrized display of freetext input.
+  [mokaddem]
+- [servers:add] Removed unused view. [mokaddem]
+- [server:queryAvailableSyncFilteringRules] Includes the HTTP return
+  code in case of errors. [mokaddem]
+- [elements:serverRuleElements] Added support of existing rules for
+  feeds. [mokaddem]
+- [elements:serverRuleElements] Inject existing rules into widget.
+  [mokaddem]
+- [elements:serverRuleElements] Support of previous rule states - WiP.
+  [mokaddem]
+- [elements:serverRuleElements] Added preventive sanitizations.
+  [mokaddem]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [elements:infoModal] Added sanitization. Just in case. [mokaddem]
+- [servers:edit] Slight UI adjustements. [mokaddem]
+- [servers:edit] Added support of codemirror and delete buttons.
+  [mokaddem]
+- [internal] fetchEventIds refactored. [iglocska]
+
+  - the stupid ordered params were driving me nuts
+- [warning-list] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [doc] FIx links. [E. Cleopatra]
+- [doc] Some minor changes. [E. Cleopatra]
+- [doc] Fix grammatical errors. [E. Cleopatra]
+- [doc] update and rename. [E. Cleopatra]
+- [doc] Add content. [E. Cleopatra]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [MispObject] fix copy paste error in checkForDuplicateObjects. [Jeroen
+  Pinoy]
+- [MispObject] fix copy paste error in editObject. [Jeroen Pinoy]
+- [Dashboard:MultiLineChart] make enabling 'total' line on initial
+  render configurable. [Jeroen Pinoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [metadata] JSON fixed. [Alexandre Dulaunoy]
+- [feed] JSON fixed. [Alexandre Dulaunoy]
+- [feed] default feed JSON fixed. [Alexandre Dulaunoy]
+- [doc] Minor changes. [E. Cleopatra]
+- [installer] Update to latest. [Steve Clement]
+- [installer] Update template for rhel7/8. [Steve Clement]
+- [doc] Updates to RHEL7/8 doc. [Steve Clement]
+- [installer] Update to latest. [Steve Clement]
+- [installer] Updated template for RHEL install. [Steve Clement]
+- [fix] Missing version number. [Steve Clement]
+- [installer] Installer Update, RHEL support added. [Steve Clement]
+- [installer] Minor clean-up. [Steve Clement]
+- [doc] More specific tweak to v7 and v8. [Steve Clement]
+- [doc] Makes v7/v8 more clear. [Steve Clement]
+- [doc] More cohesive docs. [Steve Clement]
+- [installer] Latest installer. [Steve Clement]
+- [installer] Template update to support RHEL7/8 CentOS7/8. [Steve
+  Clement]
+- [installer] udpated template to install php7.4 on ubuntu18.04. [Steve
+  Clement]
+- [doc] Suggest installing php74 on Ubuntu 18.04. [Steve Clement]
+- Bump PyMISP. [Raphaël Vinot]
+- [installer] Update to latest installer. [Steve Clement]
+- [installer] Added modulesCAKE fn. [Steve Clement]
+- [installer] Update to latest. [Steve Clement]
+- [sh] Small fix to make misp-refresh non-interactive. [Steve Clement]
+- [doc] lief is in requirements.txt. [Steve Clement]
+- [feeds:edit] Improved saving of edits Fix #7293. [mokaddem]
+- [event:search] Allow filtering by org uuid. Fix #7288. [mokaddem]
+- [internal] Move fetching related attributes to one place. [Jakub
+  Onderka]
+- [internal] Install DebugKit by Composer. [Jakub Onderka]
+- [internal] Install random_compat by Composer. [Jakub Onderka]
+- [internal] Install CakePHP by Composer. [Jakub Onderka]
+- [UI] Correctly handle progress for jobs. [Jakub Onderka]
+- [UI] Make possible to filter jobs by prio queue. [Jakub Onderka]
+- Bump PyMISP. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [attributes/restSearch] add clarifying comments. [Jeroen Pinoy]
+- [restResponseComponent] Get scoped available endpoints. [mokaddem]
+- Bump PyMISP. [Raphaël Vinot]
+- [doc] Updated cake config defaults. [Steve Clement]
+- [doc] Further RHELL tweaks. [Steve Clement]
+- [doc] Seperated RHEL 7/8 install fn. Fedora33 supported. [Steve
+  Clement]
+- [doc] some cleanups. [Steve Clement]
+- [doc] Seperated cake commands into seperate files. [Steve Clement]
+- [doc] fix merge. [Steve Clement]
+- Bump pipfile lock. [Raphaël Vinot]
+- [UI] Use choosen for tag select. [Jakub Onderka]
+- [UI] dblclickElement. [Jakub Onderka]
+- [internal] Optimise fetching correlation count for events. [Jakub
+  Onderka]
+- [doc] Automation adaption. [Steve Clement]
+- [doc] Updated Changelog.md. [Steve Clement]
+- [doc] Added details on MISPvars. [Steve Clement]
+
+Fix
+~~~
+- [galaxy] logging - use SYSTEM as the default org name for logging.
+  [iglocska]
+- [galaxy] new logging to catch meta field errors assumed that the user
+  object was available. [iglocska]
+
+  - [narrator] It wasn't.
+- [galaxy] update fails gracefully and skips over malformed meta fields
+  in a cluster. [iglocska]
+- [feeds:edit] Recover event_id if it exists Fix #7293 (second part)
+  [mokaddem]
+- [correlations] added fix for invalid function call. [iglocska]
+
+  - introduced by the refactor, looking up Attribute object variables such as noncorrelatingTypes
+- [correlations] Don't barf when trying to add data with no
+  correlations. [iglocska]
+- [correlation exclusions] controller comment fixed. [iglocska]
+- [Correlations] controller - added missing components. [iglocska]
+- [Correlations] fixed advanced correlations for ssdeep and separated
+  into own function. [iglocska]
+- [stix1 framing] Fixed CIQ Identity namespace. [chrisr3d]
+- Add strict commit test function. [Luciano Righetti]
+- Allow setting org_id=0 via cake console, add --force option to force
+  settings. [Luciano Righetti]
+- [UI] Event lock warning. [Jakub Onderka]
+- [UI] Wrong org id for galaxy matrix stats. [Jakub Onderka]
+- [misp.js] Support display on fretext values and removed useless
+  functions. [mokaddem]
+- [servers:edit] Support servers/add with the server/edit view.
+  [mokaddem]
+- [feeds:edit] Display additional filtering rules. [mokaddem]
+- [elements:serverRuleElement] Push should not be allowed to set
+  freetext orgs. [mokaddem]
+- [elements:serverRuleElements] Avoid saving the space character as
+  additional rule. [mokaddem]
+- [feeds:edit] Log correct action. Fix #7347. [mokaddem]
+- [elements:serverRuleElementPull] Typo. [mokaddem]
+- [elements:serverRuleElementsPull] Correctly setup codemirror.
+  [mokaddem]
+- [server:edit] Usage of IDs or raw values on correct context.
+  [mokaddem]
+
+  - PUSH should use IDs
+  - PULL should use raw values
+- [test] Allow access from IPv6 addresses. [Jakub Onderka]
+- [GHA] change in hostname, bump pymisp, fix vhost. [Raphaël Vinot]
+- [feed:edit] Fixed bug preventing to recover feed data in the UI.
+  [mokaddem]
+- [doc] moreutils package added (required for sponge) [Alexandre
+  Dulaunoy]
+
+  Fix #7353
+- [decaying:row_simulation] Removed buggy HTML title. [mokaddem]
+- [decaying:row_simulation] Correctly pass event data to galaxy element.
+  [mokaddem]
+- [audit] Better path to cake version file. [Jakub Onderka]
+- [decaying:row_simulation] Correctly pass event data to galaxy element.
+  [mokaddem]
+- [decaying:row_simulation] Removed buggy HTML title. [mokaddem]
+- Fix remove attribute tag showing text/html content-type. [Luciano
+  Righetti]
+- [CSRF] issues resolved for the dashboards controller. [iglocska]
+- [security] Sharing group misassociation on sync. [iglocska]
+
+  - when an object has a sharing group associated on an event edit, the sharing group object is ignored and instead the passed local ID is reused
+  - as reported by Jeroen Pinoy
+- [doc] Small regression. [Steve Clement]
+- Remove call to private method, call __alterAttributeCount() from
+  Attribute::restore() method. [Luciano Righetti]
+- [installer] Updated template to fix v7/8. [Steve Clement]
+- [installer] Fix merge fup of template. [Steve Clement]
+- [webroot:index] Make sure MISP works if cakephp is not installed via
+  composer. [mokaddem]
+- [internal] Organisation object for user is not included all time.
+  [Jakub Onderka]
+- [UI] Hide job retries since this column is always zero. [Jakub
+  Onderka]
+- [UI] Failed jobs are not considered as Queued. [Jakub Onderka]
+- [xml] Object can be without attributes. [Jakub Onderka]
+- [factories] links and timestamps fixed. [iglocska]
+
+  - really annoying timestamp issue
+  - as discovered during LS21
+- [tools] Fixed misp-backup. [Steve Clement]
+- [emailing] subject restored. [iglocska]
+
+  - view template not having the subject var set defaulted the subject to null
+- [UI] Event index filter nicer. [Jakub Onderka]
+- [UI] Event index filter edit. [Jakub Onderka]
+- [internal] Remove unused code. [Jakub Onderka]
+- [doc] CentOS 7 needs to use Remi too. [Steve Clement]
+- [installer] Use awk to print until EoF from match. [Steve Clement]
+- [installer] globalVariables fix to ignore preceeding lines. [Steve
+  Clement]
+- [tools] now works on MacOS and considers gsed. [Steve Clement]
+- [internal] ThreatLevel::list() function renamed. [iglocska]
+
+  - causes issues under certain PHP versions as it's a reserved keyword
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #7369 from MISP/fix-link. [Alexandre Dulaunoy]
+
+  Fix link
+- Fix link. [E. Cleopatra]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch 'developt push' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge pull request #7366 from righel/allow-cake-cli-set-null-settings.
+  [Andras Iklody]
+
+  fix: allow setting org_id=0 via cake console, add --force option
+- Merge branch 'feature-galaxy-cluster-wipe-default' into develop.
+  [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-galaxy-
+  cluster-wipe-default. [mokaddem]
+- Merge pull request #7364 from JakubOnderka/galaxy-stats-fix. [Jakub
+  Onderka]
+
+  Galaxy stats fix
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Security: [feeds] Hide headers for non-site admin users. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge pull request #7365 from JakubOnderka/feed-url-remove. [Jakub
+  Onderka]
+
+  chg: [UI] Hide URL from feed and server cache hits
+- Merge branch 'develop' of github.com:MISP/MISP into feature-galaxy-
+  cluster-wipe-default. [mokaddem]
+- Merge branch 'improvements-sync-filter-rules' into develop. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into improvements-sync-
+  filter-rules. [mokaddem]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into improvements-sync-
+  filter-rules. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into improvements-sync-
+  filter-rules. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7358 from JakubOnderka/fix-security-test. [Jakub
+  Onderka]
+
+  fix: [test] Allow access from IPv6 addresses
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge pull request #7230 from jozuatec/patch-2. [Jakub Onderka]
+
+  Update OidcAuthenticate.php
+- Update OidcAuthenticate.php. [jozuatec]
+
+  With our IDP the user roles do not get delivered through claims. With this edit (get roles through "requestUserInfo" when claims fails to do so), our IDP can deliver the roles through an "Extra Attributes" field.
+  I am already using this code in our production, it works fine for us.
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #7235 from imidoriya/patch-1. [Andras Iklody]
+
+  chg: [tag] Use detailed message in tag return
+- Restored generic when successes > 1. [Deku]
+
+  Generic can handle when more than 1 tag is added.
+- Generic message overwrites detailed message. [Deku]
+
+  A detailed message is created on lines 870 and 877, however, they're never used in the response as it is overwritten by the generic message on line 888.
+- Merge pull request #7326 from PROTechThor/contribute. [Alexandre
+  Dulaunoy]
+
+  Improve contributing.md, Add coding style, workflow
+- Update STYLE.md. [E. Cleopatra]
+- Update GITWORKFLOW.md. [E. Cleopatra]
+- Update CONTRIBUTING.md. [E. Cleopatra]
+- Update CONTRIBUTING.md. [E. Cleopatra]
+- Write coding style guidelines. [E. Cleopatra]
+- Merge pull request #7342 from Wachizungu/fix-checkForDuplicateObjects-
+  typo. [Andras Iklody]
+
+  chg: [MispObject] fix copy paste error in checkForDuplicateObjects
+- Merge pull request #7343 from Wachizungu/fix-typo-in-editObject.
+  [Andras Iklody]
+
+  chg: [MispObject] fix copy paste error in editObject
+- Merge pull request #7345 from Wachizungu/user-count-evolution-widget.
+  [Andras Iklody]
+
+  new: [Dashboard] Add user count evolution widget
+- Merge pull request #7350 from Wachizungu/org-count-evolution-widget.
+  [Andras Iklody]
+
+  new: [Dashboard] Add org count evolution widget
+- Merge pull request #7352 from JakubOnderka/revert-composer. [Jakub
+  Onderka]
+
+  Revert composer
+- Revert "chg: [internal] Install CakePHP by Composer" [Jakub Onderka]
+
+  This reverts commit 74eccfe9
+- Revert "chg: [internal] Install random_compat by Composer" [Jakub
+  Onderka]
+
+  This reverts commit fe7d0a46
+- Merge pull request #7349 from Wachizungu/multilinechart-make-enabling-
+  total-configurable. [Alexandre Dulaunoy]
+
+  chg: [Dashboard:MultiLineChart] make enabling 'total' line on initial…
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #7336 from stevengoossensB/2.4. [Alexandre
+  Dulaunoy]
+
+  Change config.default.php to have everything needed for Azure AD auth
+- Change config.default.php to have everything needed for Azure AD
+  authentication in there (as suggested in PR 6661) [Steven]
+- Merge pull request #7339 from righel/fix-remove-tag-attribute-content-
+  type-header. [Andras Iklody]
+
+  fix: fix remove attribute tag showing text/html content-type
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #7304 from StefanKelm/2.4. [Alexandre Dulaunoy]
+
+  add MalwareBazaar and URLhaus
+- Add MalwareBazaar and URLhaus. [StefanKelm]
+
+  https://github.com/MISP/MISP/issues/7176
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #7320 from PROTechThor/roadmap. [Alexandre
+  Dulaunoy]
+
+  MISP Roadmap
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #7309 from SteveClement/guides. [Steve Clement]
+- Merge pull request #7308 from SteveClement/tools. [Steve Clement]
+
+  chg: [installer] Update template for rhel7/8
+- Merge pull request #7307 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] Updates to RHEL7/8 doc
+- Merge pull request #7306 from SteveClement/tools. [Steve Clement]
+- Merge pull request #7303 from righel/fix-error-when-restoring-
+  attribute-from-api. [Andras Iklody]
+
+  fix: remove call to private method, call __alterAttributeCount() from…
+- Merge pull request #7302 from SteveClement/tools. [Steve Clement]
+
+  chg: [installer] Minor clean-up
+- Merge pull request #7301 from SteveClement/tools. [Steve Clement]
+- Merge branch 'tools' of github.com:SteveClement/MISP into tools.
+  [Steve Clement]
+- Merge branch 'tools' of github.com:SteveClement/MISP into tools.
+  [Steve Clement]
+- Merge branch '2.4' into tools. [Steve Clement]
+- Merge remote-tracking branch 'upstream/2.4' into tools. [Steve
+  Clement]
+- Merge pull request #7300 from SteveClement/guides. [Steve Clement]
+- Merge pull request #7298 from SteveClement/tools. [Steve Clement]
+
+  chg: [installer] Template update to support RHEL7/8 CentOS7/8
+- Merge pull request #7297 from SteveClement/tools. [Steve Clement]
+
+  chg: [installer] udpated template to install php7.4 on ubuntu18.04
+- Merge pull request #7296 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] Suggest installing php74 on Ubuntu 18.04
+- Merge pull request #7291 from stevengoossensB/2.4. [Alexandre
+  Dulaunoy]
+
+  Added Threatfox to default feeds
+- Fix typo. [Steven]
+- Added Threatfox to default feeds. [Steven]
+- Merge pull request #7289 from SteveClement/tools. [Steve Clement]
+
+  chg: [installer] Added modulesCAKE fn
+- Merge pull request #7287 from SteveClement/tools. [Steve Clement]
+- Merge pull request #7187 from JakubOnderka/related-attributes. [Jakub
+  Onderka]
+
+  chg: [internal] Move fetching related attributes to one place
+- Merge pull request #7227 from JakubOnderka/smarter-event-locks-check.
+  [Jakub Onderka]
+
+  new: [UI] Smarter events lock checking
+- Merge pull request #7158 from JakubOnderka/sg-user-org-id. [Jakub
+  Onderka]
+
+  fix: [internal] Organisation object for user is not included all time
+- Merge pull request #7294 from JakubOnderka/cakephp-composer. [Jakub
+  Onderka]
+
+  chg: [internal] Install CakePHP by Composer
+- Merge pull request #7204 from JakubOnderka/fix-jobs. [Jakub Onderka]
+
+  Fix jobs
+- Merge pull request #7267 from JakubOnderka/fix-xml-empty-object.
+  [Jakub Onderka]
+
+  fix: [xml] Object can be without attributes
+- Added Threatfox to default feeds. [Steven]
+- Merge pull request #7266 from stephengroat/patch-1. [Jakub Onderka]
+
+  fix recursive submodule checkout
+- Fix recursive submodule checkout. [Stephen]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Add: [module results] Catching MISP Objects first_seen & last_seen
+  values. [chrisr3d]
+
+  - Will probably also check at attribute level to
+    have it too if needed
+- Merge branch 'develop' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge pull request #7273 from Wachizungu/add-comments-attributes-
+  restsearch. [Sami Mokaddem]
+
+  chg: [attributes/restSearch] add clarifying comments
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #7282 from SteveClement/tools. [Steve Clement]
+- Merge branch '2.4' into tools. [Steve Clement]
+- Merge branch '2.4' of github.com:SteveClement/MISP into 2.4. [Steve
+  Clement]
+- Merge branch '2.4' into tools. [Steve Clement]
+- Merge pull request #7281 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] Further RHELL tweaks
+- Chf: [doc] More amendments to RHEL8. [Steve Clement]
+- Add: [module results] Catching MISP Objects first_seen & last_seen
+  values. [chrisr3d]
+
+  - Will probably also check at attribute level to
+    have it too if needed
+- Merge pull request #7278 from SteveClement/guides. [Steve Clement]
+- Merge pull request #7276 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] some cleanups
+- Merge pull request #7275 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] Seperated cake commands into seperate files
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7263 from Wachizungu/add-usagedata-dashboard-
+  widget. [Andras Iklody]
+
+  new: [Dashboard] Add usage data widget
+- Merge pull request #7228 from JakubOnderka/event-index-custom-columns.
+  [Jakub Onderka]
+
+  Event index custom columns
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #7269 from SteveClement/guides. [Steve Clement]
+- Merge pull request #7268 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] Added details on MISPvars
+- Merge pull request #7233 from EvaYiYang/patch-1. [Andras Iklody]
+
+  fix: [internal] Keep AadAuth setting in config.php when modify setting value from UI
+- Merge branch '2.4' into patch-1. [Andras Iklody]
+- Add AadAuth module as saved settings. [Eva Yang]
+- Merge branch '2.4' into develop. [iglocska]
+
+
 v2.4.141 (2021-03-29)
 ---------------------
 
