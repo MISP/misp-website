@@ -66,6 +66,7 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2021-25323](https://cvepremium.circl.lu/cve/CVE-2021-25323) <= MISP 2.4.136 - The default setting of MISP 2.4.136 did not enable the requirements (aka require_password_confirmation) to provide the previous password when changing a password.
 - [CVE-2021-3184](https://cvepremium.circl.lu/cve/CVE-2021-3184) <= MISP 2.4.136 - XSS via a crafted URL to the app/View/Elements/global_menu.ctp user homepage favourite button.
 - [CVE-2021-27904](https://cvepremium.circl.lu/cve/CVE-2021-27904) <= MISP 2.4.139 - An issue was discovered in app/Model/SharingGroupServer.php in MISP 2.4.139. In the implementation of Sharing Groups, the "all org" flag sometimes provided view access to unintended actors.
+- [CVE-2021-31780](https://cvepremium.circl.lu/cve/CVE-2021-31780) <= MISP 2.4.141 - an incorrect sharing group association could lead to information disclosure on an event edit. When an object has a sharing group associated with an event edit, the sharing group object is ignored and instead the passed local ID is reused.
 
 ## PGP Key
 
