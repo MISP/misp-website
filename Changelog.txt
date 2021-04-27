@@ -1,12 +1,26 @@
 Changelog
 =========
 
-
-v2.4.142 (2021-04-26)
+v2.4.142 (2021-04-27)
 ---------------------
 
 New
 ~~~
+- [correlation exclusions] now have an optional comment field.
+  [iglocska]
+
+  - explain why you exclude a value for easier maintenance
+  - edit existing exclusions to add those comments after the fact
+- [top correlations] Redirect to the attribute search when clicking a
+  value. [iglocska]
+- [Index builder] add simple postlink field. [iglocska]
+- [Correlations] Added cached toplist. [iglocska]
+
+  - stored via zset in redis
+  - very fast, but needs to be generated
+  - generation background processed
+- [index top bar] added element to act as a text replacement field
+  instead of a button. [iglocska]
 - [correlations] added new background task for correlating individual
   values. [iglocska]
 - [Correlations] refactor / rework. [iglocska]
@@ -64,6 +78,19 @@ New
 
 Changes
 ~~~~~~~
+- [elements:indexPostlink] Added possibility to add confirm messages.
+  [mokaddem]
+
+  Fixed JS error throwing undefined variable in top correlations
+- [correlations] reverted the division by 2 for the correlation counts.
+  [iglocska]
+
+  - there are legitimate cases where we get one way correlations
+    - we use the value field to aggregate the count, which leads to it being incorrect when using advanced correlations (the reverse correlation will use the value of the remote side)
+- [CRUD] component - added redirect_controller parameter. [iglocska]
+
+  - redirect to other controllers on demand, not just other actions
+- [ACL] added top correlation generation to ACL. [iglocska]
 - [version] bump. [iglocska]
 - Force perms for logfiles before tests. [Raphaël Vinot]
 - [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
@@ -185,6 +212,15 @@ Changes
 
 Fix
 ~~~
+- [attribute search] Don't use form tampering protection for searches.
+  [iglocska]
+- [top correlations] Divide the count by 2. [iglocska]
+
+  - Each correlation has 2 entries in the DB (A->B and B->A)
+  - this doesn't mean that we should count each of those entries, but rather divide by 2 to get the actual correlation count
+- [default feeds] duplicate name resolved, fixes #6978. [iglocska]
+
+  - as reported by @chrisinmtown
 - [galaxy] logging - use SYSTEM as the default org name for logging.
   [iglocska]
 - [galaxy] new logging to catch meta field errors assumed that the user
@@ -285,6 +321,9 @@ Fix
 
 Other
 ~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
 - Merge branch 'develop' into 2.4. [iglocska]
 - Merge branch '2.4' into develop. [Alexandre Dulaunoy]
 - Merge branch '2.4' into develop. [Alexandre Dulaunoy]
