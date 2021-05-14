@@ -1,6 +1,366 @@
 Changelog
 =========
 
+
+v2.4.143 (2021-05-14)
+---------------------
+
+New
+~~~
+- [internal] View event as different user. [Jakub Onderka]
+- [event index] add report count. [iglocska]
+- [users:index] Batch toggleable fields. [mokaddem]
+- [elements:genericForm] Added support of field descriptions. [mokaddem]
+- [elements:indexCountry] Added country element to display flags and
+  nationalities. [mokaddem]
+- [log] Add supoort for AuthKeys. [Jakub Onderka]
+- [log] Show full change in popup. [Jakub Onderka]
+- [log] Audit Log statistics. [Jakub Onderka]
+- [log] LogShell. [Jakub Onderka]
+- [log] Audit log. [Jakub Onderka]
+- [event:alert] Re-publishing ban feature based on configurable
+  threshold. [mokaddem]
+- [event:alert] Re-publishing ban feature based on configurable
+  threshold. [mokaddem]
+- [Correlation exclusions] clean function reworked. [iglocska]
+
+  - does everything on DB side
+  - no more issues with large lists being passed around
+  - should also be a fair bit faster
+
+Changes
+~~~~~~~
+- [version] bumped. [iglocska]
+- [birthday] logo added. [iglocska]
+
+  - to be removed on the next release
+- [routes] fix allowedlists routes. Renamed from whitelists. [Jeroen
+  Pinoy]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [setting] Add missing setting fo new audit log. [Jakub Onderka]
+- [correlation] Cleanup Correlation model code. [Jakub Onderka]
+- [object] Added validation rules for some fields. [mokaddem]
+- [organisations:edit] Usage of the add view. [mokaddem]
+- [organisations:add] Migrated view to factory. [mokaddem]
+- [organisations:index] Migrated view to factory. [mokaddem]
+- [elements:indexGenericField] Allow passing implode's glue. [mokaddem]
+- [warninglists:index] Moved views to factory - WiP. [mokaddem]
+- [UsageData] fix active proposal count, exclude deleted entries.
+  [Jeroen Pinoy]
+- Bumped queryversion. [mokaddem]
+- [event-report] Improved hints autocomplete while typing. [mokaddem]
+
+  - Hints available scopes
+  - Allow searching for object's priority value
+- [log] Add link to Role. [Jakub Onderka]
+- [log] Add link to ObjectTemplate from audit log. [Jakub Onderka]
+- [log] Correctly show request type in user interface. [Jakub Onderka]
+- [internal] Return ugly print JSON for AJAX requests. [Jakub Onderka]
+- [warninglists:checkValue] Exposed feature in the UI. [mokaddem]
+- [server:setting] Added missing config `warning_for_all` [mokaddem]
+- [allowedlist] Migrated views to factory. [mokaddem]
+- [users:index] Migrated view to factory. [mokaddem]
+- Bumped queryversion. [mokaddem]
+- [event-report] Improved hints autocomplete while typing. [mokaddem]
+
+  - Hints available scopes
+  - Allow searching for object's priority value
+- [warninglists:checkValue] Exposed feature in the UI. [mokaddem]
+- [server:setting] Added missing config `warning_for_all` [mokaddem]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [event:alert] Added option to refresh to ban. [mokaddem]
+- [event:getEventRepublishBanStatus] Improved wording. [mokaddem]
+- [UI] Link to proposal limited view from proposal event index. [Jakub
+  Onderka]
+- [event:alert] Added option to refresh to ban. [mokaddem]
+- [event:getEventRepublishBanStatus] Improved wording. [mokaddem]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [objects] updated to the latest version. [Alexandre Dulaunoy]
+- [elements:serverRuleElements] Removed useless spaces. [mokaddem]
+- [server:queryAvailableSyncFilteringRules] Returns error message
+  instead of throwing error. [mokaddem]
+- [servers:edit] Added indicative text for serverRuleElements.
+  [mokaddem]
+- [elements:serverRuleServers] Added text for each scopes. [mokaddem]
+- [elements:serverRuleElements] Reset widgets state on modal close.
+  [mokaddem]
+- [elements:rules_widget] Added collapsible for freetext inputs.
+  [mokaddem]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [ACL] added correlation exception edit. [iglocska]
+- [elements:indexPostlink] Added possibility to add confirm messages.
+  [mokaddem]
+
+  Fixed JS error throwing undefined variable in top correlations
+
+Fix
+~~~
+- [jobs view] Typo with $baseurl variable name. [chrisr3d]
+- [module results] References between objects returned with module
+  results and the original object attribute are now pointing to the
+  original object itself. [chrisr3d]
+
+  - A reference between an object and an object
+    attribute is supported in the API, but does not
+    appear on the event graph
+  - Instead of pointing to the initial object
+    attribute then, we look for the uuid of the
+    object containing the attribute and use this
+    uuid for the reference
+  - The references between objects returned as
+    module results and the object containing the
+    attribute initially used for the enrichment
+    with a module are then handled properly
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [attribute:first_seen/last_seen] First seen value can be equal to the
+  last_seen value. Fix #7404. [mokaddem]
+- [module results] Included the object references handling loop in the
+  objects handling loop. [chrisr3d]
+
+  - If we did not get any object in a result from
+    a misp module, the `$references` variable would
+    not have been defined and would have raised an
+    issue. The references are related to objects,
+    it is then obvious to handle them both together
+- [modules results] Fixed the query to find the uuid of the attribute
+  used as input of a misp-module. [chrisr3d]
+
+  - With `Attribute.object_id => 0`, the query did
+    only return attributes outside of a MISP object
+  - This was causing issues with references between
+    the MISP objects returned by the modules and the
+    attribute used as input to the module. Those
+    references were visible in the module results
+    preview, but skipped then after the submit
+    button is pressed.
+  - The references are now correctly handled
+- [attributes] Enforce FS to be before LS (also for ShadowAttributes &
+  Objects) [mokaddem]
+- Servers cannot be edited via API when MISP.host_org_id setting is
+  empty. [Luciano Righetti]
+- [attribute:first_seen/last_seen] First seen value can be equal to the
+  last_seen value. Fix #7404. [mokaddem]
+- [correlations] Correctly handle exclusion. [Jakub Onderka]
+- [internal] Attribute correlation toggle. [Jakub Onderka]
+- [attributes] Enforce FS to be before LS (also for ShadowAttributes &
+  Objects) [mokaddem]
+- [internal] Missing variable. [Jakub Onderka]
+- [UI] Chosen autofocus for attribute mass edit. [Jakub Onderka]
+- [feed] Better error handling when downloading MISP feeds. [Jakub
+  Onderka]
+- [export] YARA export. [Jakub Onderka]
+- [warninglists:index] Restored site admin permission requirement for
+  deletion. [mokaddem]
+- [log] Do not log unnecessary data to AuditLog. [Jakub Onderka]
+- [feed preview] fixed exception thrown to invalid threat level listing
+  call. [iglocska]
+- [UI] Warning message for event modification warning. [Jakub Onderka]
+- [server:settings] Typo. [mokaddem]
+- [db_schema] Update to version 68. [Jakub Onderka]
+- [files:defaut_feeds] Added trailing slash Fix #7022. [mokaddem]
+- [worker] restart not working correctly with SELinux. [iglocska]
+
+  - endless process spawn due to not being able to fetch the user's name
+- [server:settings] Typo. [mokaddem]
+- [db_schema] Update to version 68. [Jakub Onderka]
+- [stix2 export] Making sure timestamps are always converted into the
+  format STIX likes. [chrisr3d]
+- [stix2 export] Making sure attributes have their Galaxy field before
+  trying to parse it. [chrisr3d]
+- [stix2 export] Copy paste issue. [chrisr3d]
+- [stix2 export] Trying to make first_seen & last_seen fields are
+  exported in an iso-formatted datetime format. [chrisr3d]
+- [stix2 export] Avoiding issues with MISP events 'Event' field.
+  [chrisr3d]
+- [stix2 import] Added the missing ip address observable parsing
+  function. [chrisr3d]
+
+  - Should fix #6855
+- [stix2 import] Avoid missing the to_ids flag when set to False.
+  [chrisr3d]
+
+  - attribute.get('to_ids') with 'to_ids' set to
+    False will simply skip the field, and let then
+    MISP set the flag to the default 'to_ids' value
+    depending on the attribute type
+  - With the test being `attribute.get('to_ids') is not None`
+    we make sure even if 'to_ids' is False, we get
+    the field as it is
+- [stix1 import] Avoiding AttributeError exceptions when the STIX
+  packages have no header. [chrisr3d]
+- [worker] restart not working correctly with SELinux. [iglocska]
+
+  - endless process spawn due to not being able to fetch the user's name
+- [emailing] password resets and OTP didn't handle line breaks
+  correctly. [iglocska]
+- [elements:serverRuleElementPush] Recover freetext tags not known by
+  the instance. [mokaddem]
+- [decayings:add] Correct usage of the translation function. [mokaddem]
+- [UI] Correctly display last login time. [Loïc Fortemps]
+
+  Until now, we were showing the "one before last" login time, this fixes the issue
+- [galaxyCluster:export] Only unset fields if they exists. [mokaddem]
+
+  In some cases, galaxy clusters might not have targeting clusters
+- [galaxyCluster:export] Only unset fields if they exists. [mokaddem]
+
+  In some cases, galaxy clusters might not have targeting clusters
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #7377 from 86x/pi-support. [Andras Iklody]
+
+  fix: Support various Raspberry Pi OS's in SUPPORT_MAP
+- Added support for raspberry pi. [User]
+- Merge pull request #7334 from Wachizungu/fix-allowedlists-route.
+  [Andras Iklody]
+
+  chg: [routes] fix allowedlists routes. Renamed from whitelists.
+- Merge pull request #7403 from righel/fix-restricted_to_domain-reset-
+  on-org-edit-allow-json-arrays. [Andras Iklody]
+
+  fix restricted_to_domain reset when updating org, allow arrays via api.
+- Fix restricted_to_domain reset when updating org, allow arrays via
+  api. [Luciano Righetti]
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #7405 from righel/fix-edit-servers-via-api-when-
+  host_org_id-is-empty. [Andras Iklody]
+
+  fix: servers cannot be edited via API when MISP.host_org_id setting i…
+- Merge pull request #7397 from JakubOnderka/log-new-setting. [Jakub
+  Onderka]
+
+  chg: [setting] Add missing setting fo new audit log
+- Merge pull request #7400 from JakubOnderka/after-save-correlation-fix.
+  [Jakub Onderka]
+
+  After save correlation fix
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7189 from JakubOnderka/view-as. [Jakub Onderka]
+
+  new: [internal] View event as different user
+- Merge pull request #7390 from JakubOnderka/fix-chosen-autofix. [Jakub
+  Onderka]
+
+  fix: [UI] Chosen autofocus for attribute mass edit
+- Merge pull request #7395 from JakubOnderka/feed-download-error-
+  handlig. [Jakub Onderka]
+
+  fix: [feed] Better error handling when downloading MISP feeds
+- Merge pull request #7018 from JakubOnderka/yara-export-fix. [Jakub
+  Onderka]
+
+  fix: [export] YARA export
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'migration-allowlists' into develop. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into migration-
+  allowlists. [mokaddem]
+- Merge branch 'migration-users-views' into develop. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into migration-users-
+  views. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into migration-users-
+  views. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into migration-
+  allowlists. [mokaddem]
+- Merge branch 'migration-organisations-views' into develop. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into migration-
+  organisations-views. [mokaddem]
+- Merge branch 'migration-warninglists' into develop. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into migration-
+  warninglists. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into migration-
+  allowlists. [mokaddem]
+- Merge pull request #7392 from Wachizungu/fix-usage-data-active-
+  proposals-count. [Andras Iklody]
+
+  chg: [statistics:UsageData] fix active proposal count, exclude deleted entries
+- Merge pull request #6914 from JakubOnderka/audit-log. [Jakub Onderka]
+
+  New Audit log system
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #7389 from aaronkaplan/patch-1. [Andras Iklody]
+
+  Update apache.24.misp.ssl
+- Update apache.24.misp.ssl. [AaronK]
+
+  StrongCiphers4All! \o/
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7388 from JakubOnderka/fix-log-warning. [Jakub
+  Onderka]
+
+  Fix log warning
+- Merge branch 'feature-event-republishing-ban' into develop. [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into feature-event-
+  republishing-ban. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge pull request #7384 from JakubOnderka/fix-db-schema. [Jakub
+  Onderka]
+
+  fix: [db_schema] Update to version 68
+- Merge pull request #7367 from JakubOnderka/proposal-index-ui. [Jakub
+  Onderka]
+
+  chg: [UI] Link to proposal limited view from proposal event index
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [chrisr3d]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Update supportFunctions.md. [Raphaël Vinot]
+
+  pull from oirigin main and not origin master in PyMISP
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [chrisr3d]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'improvements-sync-filter-rules2' into develop.
+  [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7374 from lfortemps/patch-3. [Alexandre Dulaunoy]
+
+  fix: [UI] Correctly display last login time
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+
+
 v2.4.142 (2021-04-27)
 ---------------------
 
