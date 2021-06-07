@@ -2,6 +2,249 @@ Changelog
 =========
 
 
+v2.4.144 (2021-06-07)
+---------------------
+
+New
+~~~
+- Add initial version of openapi spec, add ReDoc js files. [Luciano
+  Righetti]
+- [doc:sync] Added notes and diagrams about synchornisation logics.
+  [mokaddem]
+- [galaxy] Support of enabled/disabled state at galaxy level. [mokaddem]
+
+  Fix #7019
+- [CyCat integration] v1. [iglocska]
+
+  - lookup on relationshis for a given galaxy cluster
+- [UI] Add link to event report history. [Jakub Onderka]
+- [doc:auth-diagram] Added authentication diagram. [mokaddem]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [logo] reverted to the non-birthday version. [iglocska]
+- [PyMISP] Bump deps. [Raphaël Vinot]
+- [galaxyCluster:CyCat relations] Added icon and reference of the
+  project. [mokaddem]
+- [genericElements:accordion] Added possiblity to pass html title.
+  [mokaddem]
+- [cluster:cycat_relations] Added missing view. [mokaddem]
+- [galaxyCluster:view] oved CyCat relationships in their own child
+  elements - Significantly speed up view loading time. [mokaddem]
+- [sharinggroup] Allow pushing SG if remote internal server is not in
+  the list of SG servers. [mokaddem]
+- [dashboard:updateSetting] Work with form data in memory rather than in
+  HTML body. [mokaddem]
+- [db_schema] Updated schema. [mokaddem]
+- [acl] Updated ACL to support new endpoints. [mokaddem]
+- [doc:synchronisation-digrams] Added original diag. file. [mokaddem]
+- [doc:synchronisation-diagrams] Added full version for both sync and
+  clarification about conditions. [mokaddem]
+- [doc:synchronisation-diagrams] Added precision regarding index
+  filtering. [Sami Mokaddem]
+- [doc:synchronisation] Renamed files. [mokaddem]
+- [UI] Show warning when advanced auth keys are not enabled. [Jakub
+  Onderka]
+- [UI] Make permision titles translatable. [Jakub Onderka]
+- [Pip] lock updated. [Alexandre Dulaunoy]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated fix #7445. [Alexandre Dulaunoy]
+- [config] default config now uses RFC2606 example.com domain.
+  [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [PyMISP] Bump pipenv. [Raphaël Vinot]
+- /feeds/add endpoint returns empty 'name' error via api call. [Luciano
+  Righetti]
+- Pr comments, update acl to allow all for /servers/openapi view, remove
+  rest client from events menu, remove php7 return hint. [Luciano
+  Righetti]
+- [appController] Bumped queryversion. [mokaddem]
+- [events:view] Correctly support arrays passed as deleted parameter.
+  [mokaddem]
+- [events:view] Restored previous deleted behavior. [mokaddem]
+- [events:view] Replaced correlation scope to behave similarly to the
+  filtering tool. [mokaddem]
+- [events:view] Fixed deleted toggle enabled by default. [mokaddem]
+- [galaxyCluster:view] Use CyCat local icon. [mokaddem]
+- [galaxyCluster:view] Make sure the cluster contain cycat relations
+  before inserting content. [mokaddem]
+- [galaxyCluster:view] Typo in setting name. [mokaddem]
+- [event:__prepareForPushToServer] Slight refactoring. [mokaddem]
+- [event:prepareForPush] Gracefully handle the case if
+  SharingGroupServer is empty. [mokaddem]
+- [sharinggroup:capture] Re-use the ID of an existing SG if it exists
+  instead of the defaulted value 0. [mokaddem]
+- [sharinggroup:captureOrg/captureServer] Use the ID of the existing
+  sharing group. [mokaddem]
+- [dashboard:update_settings] Added missing view. [mokaddem]
+- [dashbpard:updateSetting] Usage of CSRF token. [mokaddem]
+- [security] Always capture attribute sharing groups. [iglocska]
+
+  - via object edits it was omitted, leading to a possible misassociation of sharing groups by using the local ID of a referenced SG
+
+  - as reported by Jeroen Pinoy
+- [Event:set_filter_value] Support of wildcard searches. [mokaddem]
+- Nonaggregated column mysql error when calling
+  /sightings/index/[event_id] [Luciano Righetti]
+- Decode json ref and geographical_area properties in
+  /noticelists/view/[noticelist_id] endpoint. [Luciano Righetti]
+- [Event:set_filter_value] Reset array indexing. [mokaddem]
+- [Event:set_filter_value] Allows searching for composite attributes.
+  [mokaddem]
+
+  Fix #7119
+- [typo in attribute add] caused the view to fail when adding
+  attributes. [iglocska]
+- [doc:auth-diagram] Filename typo. [mokaddem]
+- [UI] Security audit message. [Jakub Onderka]
+- [UI] Simplify warninglist view template. [Jakub Onderka]
+- Return api error when feed is not enabled. [Luciano Righetti]
+- [UI] Show error only if it is not empty. [Jakub Onderka]
+- [UI] Add missing event report model in audit log. [Jakub Onderka]
+- [events:index] Reindex tag array to always return a list. [mokaddem]
+- [markdown-editor:event-report] Fixed MISPElements in table. [mokaddem]
+- [organisations:add] Wrong label value. [mokaddem]
+- [db] rename org_blacklists to org_blocklists everywhere. [Richard van
+  den Berg]
+- [post:send_mails] Make sure to have full group_by. [mokaddem]
+- [attribute add] fixed typo causing the add function to fail.
+  [iglocska]
+- [organisations index] added quickfilter as an alias for the search.
+  [iglocska]
+- [Sharing groups] show roaming state in the API view. [iglocska]
+- [UI] Restore notice list warnings when adding or editing attribute.
+  [Anders Einar Hilden]
+
+  Restore the notice_message div that vanished in commit 0d4df7c98b0fc67618b1c3c298e64efb668fc4fe.
+- [security] disable email uniqueness validation for the self
+  registration. [iglocska]
+- [OTP] identifier tag fixed. [iglocska]
+
+  - was hard coded to [MISP]
+- [events:index] Reindex tag array to always return a list. [mokaddem]
+- [organisations:add] Wrong label value. [mokaddem]
+- [group by] error fixed in diagnostics,  fixes #7411. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'fix-dahsboard-updateSettings' into develop. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into fix-dahsboard-
+  updateSettings. [mokaddem]
+- Merge pull request #7427 from righel/fix-add-feed-api-endpoint.
+  [Alexandre Dulaunoy]
+
+  fix: /feeds/add endpoint returns empty 'name' error via api call
+- Merge pull request #7468 from righel/add-openapi-spec. [Andras Iklody]
+
+  Add openapi spec
+- Add /users/initiatePasswordReset/[user_id]/[first_time] openapi spec.
+  [Luciano Righetti]
+- Fix openapi errors, fix default organisation restricted_to_domain
+  value. [Luciano Righetti]
+- Merge branch 'fix-event-view-attribute-toolbar' into develop.
+  [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into fix-event-view-
+  attribute-toolbar. [mokaddem]
+- Merge branch 'fix-sg-api-edit' into develop. [mokaddem]
+- Merge remote-tracking branch 'origin/develop' into fix-sg-api-edit.
+  [mokaddem]
+- Merge pull request #7470 from mokaddem/improvements-cycat. [Andras
+  Iklody]
+
+  Improvements for cycat integration
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'fix-composite-attribute-filtering' into develop.
+  [mokaddem]
+- Merge remote-tracking branch 'origin/develop' into fix-composite-
+  attribute-filtering. [mokaddem]
+- Merge branch 'feature-galaxy-disabled' into develop. [mokaddem]
+- Merge remote-tracking branch 'origin/develop' into feature-galaxy-
+  disabled. [mokaddem]
+- Merge pull request #7456 from righel/fix-mysql-error-index-sightings-
+  by-event-id. [Andras Iklody]
+
+  Fix mysql error index sightings by event
+- Merge pull request #7455 from righel/fix-non-deserialized-properties-
+  view-noticelist. [Andras Iklody]
+
+  fix: decode json ref and geographical_area properties in /noticelists…
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge branch 'doc-sync' into develop. [mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #7443 from JakubOnderka/fix-securiy-audit. [Jakub
+  Onderka]
+
+  Fix securiy audit
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge pull request #7435 from JakubOnderka/event-report-history.
+  [Jakub Onderka]
+
+  Event report history
+- Merge pull request #7440 from righel/return-api-error-when-fetch-from-
+  feed-fails. [Alexandre Dulaunoy]
+
+  fix: return api error when fetch from feed fails
+- Merge branch 'return-api-error-when-fetch-from-feed-fails' of
+  github.com:righel/MISP into return-api-error-when-fetch-from-feed-
+  fails. [Luciano Righetti]
+- Return api error when feed is not enabled. [Luciano Righetti]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #7432 from JakubOnderka/perm_flags_translatable.
+  [Jakub Onderka]
+
+  Perm flags translatable
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'airbus-cert-synchronisation_servers_cache_features' into
+  develop. [Alexandre Dulaunoy]
+- Add cacheServerAll documentation. [Amaury Leroy]
+- Add 'Cache server' documentation. [Amaury Leroy]
+- Add PushAll documentation. [Amaury Leroy]
+- Function pushAll -- push all servers. [Amaury Leroy]
+- Function cacheServerAll -- cache all server. [Amaury Leroy]
+- Revert "Merge pull request #7476 from RichieB2B/ncsc-nl/org_blocklist"
+  [Alexandre Dulaunoy]
+
+  This reverts commit ea73d2613f457bb0459da874f3f84ffd3444c203, reversing
+  changes made to 6d8c2eebcf35f4bf68fcd88677331b0d65bbd14a.
+- Merge pull request #7476 from RichieB2B/ncsc-nl/org_blocklist.
+  [Alexandre Dulaunoy]
+
+  fix: [db] rename org_blacklists to org_blocklists everywhere
+- Merge pull request #7459 from Kagee/patch-1. [Andras Iklody]
+
+  fix: [UI] Restore notice list warnings when adding or editing attribute
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+
+
 v2.4.143 (2021-05-14)
 ---------------------
 
