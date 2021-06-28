@@ -2,6 +2,185 @@ Changelog
 =========
 
 
+v2.4.145 (2021-06-28)
+---------------------
+
+New
+~~~
+- [API] Import warninglist. [Jakub Onderka]
+- [internal] Support Cake installation by composer. [Jakub Onderka]
+- [ZMQ] Send warninglist changes to ZMQ. [Jakub Onderka]
+- [API] Export warninglists to CSV. [Jakub Onderka]
+- [API] Export warninglists. [Jakub Onderka]
+- Custom warninglist. [Jakub Onderka]
+- [emailing] added event summaries only as a setting. [iglocska]
+
+  - publish the normal alert report to eligible users
+  - exclude attributes/objects, so the e-mail will only include a summary
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [doc:authentication_diagrams] Included session and cookie handling.
+  [mokaddem]
+- [servers:add] Fallback to correct json structure if synchronisation
+  rules are empty. [mokaddem]
+- [server] Relaxed url validation rule. [mokaddem]
+- [user] Relaxed email validation rule. [mokaddem]
+- [warning-list] updated to the latest version. [Alexandre Dulaunoy]
+- [composer] Crypt_GPG updated to 1.6.5. [Alexandre Dulaunoy]
+- [internal] Remove unused 'full' arg when fetching taxonomies. [Jakub
+  Onderka]
+- [API] Add description to predicates and values. [Jakub Onderka]
+- Log remote IP for authkey use attempt if remote IP not allowed by key.
+  [Jeroen Pinoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [installer] Added Rocky Linux 8.4 tweaks. [Steve Clement]
+- [doc] Added Rocky Linux 8.4. [Steve Clement]
+- [doc] Updated to OpenBSD 6.9. [Steve Clement]
+- [misp-warninglists] updated to the latest version. [Alexandre
+  Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [composer] Crypt_GPG updated to 1.6.5. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [rest client] Handle state when body is too big to save into rest
+  client history. [Jakub Onderka]
+- [server caching] only push data to redis / logs if there's something
+  to push. [iglocska]
+
+  - avoids the count() notice if no data was returned by the remote
+- Add mising return formats for rest search endpoints. [Luciano
+  Righetti]
+- Add missing returnFormat to restSearch endpoints, move the parameter
+  as requestBody property. [Luciano Righetti]
+- [getSettings] include the options. [iglocska]
+- [API] Taxonomy namespace is case insensitive. [Jakub Onderka]
+- Copy/pasta, rename galaxy clusters tag, move restSearch endpoints to
+  resource 1st. [Luciano Righetti]
+- [server:edit] Typo in index. [Sami Mokaddem]
+- [user edit] lost the set password checkbox. [iglocska]
+- [server caching] only push data to redis / logs if there's something
+  to push. [iglocska]
+
+  - avoids the count() notice if no data was returned by the remote
+- Add mising return formats for rest search endpoints. [Luciano
+  Righetti]
+- [user add/edit] added missing JS change to restore the external auth
+  field. [iglocska]
+- [external auth key / password] fields changed, fixes #7488. [iglocska]
+
+  - show what's relevant based on the customauth settings and hide that which is not
+- [emailing] added missing if branch for the publish alert summary mode
+  to trigger. [iglocska]
+- [validation] account for the edge-case where a composite attribute
+  does not yet have a second value. [iglocska]
+- [attribute validation] - also check for composite values containing
+  control characters, fixes #7391. [iglocska]
+- [validation] fixed issue introduced in last commit. [iglocska]
+- [attribute] validation tightened for empty strings. [iglocska]
+
+  - a value containing only control characters will now be blocked from entry
+- [CRUD] accept contain as a parameter for edit, fixes an issue with
+  auth key edits. [iglocska]
+- Typo. [Bart]
+
+  😅
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #7495 from JakubOnderka/warninglist-import. [Jakub
+  Onderka]
+
+  Warninglist import
+- Merge pull request #7494 from JakubOnderka/cake-composer-support.
+  [Jakub Onderka]
+
+  new: [internal] Support Cake installation by composer
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #7504 from mokaddem/fix-server-url-validation.
+  [Andras Iklody]
+
+  Fix server url validation
+- Merge branch 'develop' of github.com:MISP/MISP into fix-server-url-
+  validation. [mokaddem]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #7502 from mokaddem/fix-user-email-validation.
+  [Andras Iklody]
+
+  chg: [user] Relaxed email validation rule
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #7464 from JakubOnderka/warninglist. [Jakub
+  Onderka]
+
+  Custom warninglists
+- Merge pull request #7444 from JakubOnderka/taxonomy-add-description.
+  [Jakub Onderka]
+
+  chg: [API] Add description to predicates and values
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #7479 from Wachizungu/log-IP-if-not-allowed-for-
+  authkey. [Andras Iklody]
+
+  chg: log remote IP for authkey use attempt if remote IP not allowed b…
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #7524 from SteveClement/tools. [Steve Clement]
+- Merge pull request #7523 from SteveClement/guides. [Steve Clement]
+- Merge branch 'guides' of github.com:SteveClement/MISP into guides.
+  [Steve Clement]
+- Security: [generic-template:index] Fixed unsanitized input. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #7506 from adliwahid/patch-1. [Alexandre Dulaunoy]
+
+  Added 3 feeds sources from APNIC
+- Added 3 feeds sources from APNIC. [Adli Wahid]
+
+  Added 3 daily feeds (ssh bruteforce, telnet bruteforce, URLs seen)  from the APNIC Community Honeynet Project
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Luciano
+  Righetti]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Luciano
+  Righetti]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Luciano
+  Righetti]
+- Merge branch 'develop' of github.com:MISP/MISP into 2.4. [Luciano
+  Righetti]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Update README.md. [Alexandre Dulaunoy]
+- Merge pull request #7483 from bartblaze/2.4. [Alexandre Dulaunoy]
+
+  fix: typo
+- Merge pull request #1 from bartblaze/bartblaze-patch-1. [Bart]
+
+  fix: typo
+
+
 v2.4.144 (2021-06-07)
 ---------------------
 
