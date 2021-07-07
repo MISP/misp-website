@@ -68,6 +68,7 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2021-27904](https://cvepremium.circl.lu/cve/CVE-2021-27904) <= MISP 2.4.139 - An issue was discovered in app/Model/SharingGroupServer.php in MISP 2.4.139. In the implementation of Sharing Groups, the "all org" flag sometimes provided view access to unintended actors.
 - [CVE-2021-31780](https://cvepremium.circl.lu/cve/CVE-2021-31780) <= MISP 2.4.141 - an incorrect sharing group association could lead to information disclosure on an event edit. When an object has a sharing group associated with an event edit, the sharing group object is ignored and instead the passed local ID is reused.
 - [CVE-2021-35502](https://cvepremium.circl.lu/cve/CVE-2021-35502) <= MISP 2.4.144 - app/View/Elements/genericElements/IndexTable/Fields/generic_field.ctp in MISP 2.4.144 does not sanitize certain data related to generic-template:index.
+- [CVE-2021-36212](https://cvepremium.circl.lu/cve/CVE-2021-36212) <= MISP 2.4.145 - app/View/SharingGroups/view.ctp in MISP 2.4.145 does not sanitize the sharing group name.
 
 ## PGP Key
 
