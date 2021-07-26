@@ -69,6 +69,7 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2021-31780](https://cvepremium.circl.lu/cve/CVE-2021-31780) <= MISP 2.4.141 - an incorrect sharing group association could lead to information disclosure on an event edit. When an object has a sharing group associated with an event edit, the sharing group object is ignored and instead the passed local ID is reused.
 - [CVE-2021-35502](https://cvepremium.circl.lu/cve/CVE-2021-35502) <= MISP 2.4.144 - app/View/Elements/genericElements/IndexTable/Fields/generic_field.ctp in MISP 2.4.144 does not sanitize certain data related to generic-template:index.
 - [CVE-2021-36212](https://cvepremium.circl.lu/cve/CVE-2021-36212) <= MISP 2.4.145 - app/View/SharingGroups/view.ctp in MISP 2.4.145 does not sanitize the sharing group name.
+- [CVE-2021-37534](https://cvepremium.circl.lu/cve/CVE-2021-37534) <= MISP 2.4.146 - app/View/GalaxyClusters/add.ctp in MISP 2.4.146 allows Stored XSS when forking a galaxy cluster.
 
 ## PGP Key
 
