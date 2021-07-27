@@ -2,6 +2,349 @@ Changelog
 =========
 
 
+v2.4.147 (2021-07-27)
+---------------------
+
+New
+~~~
+- [sync] When saving sightings, push just new sightings. [Jakub Onderka]
+- [sync] When pushing event, upload sightings by another call. [Jakub
+  Onderka]
+- [sync] Filter out existing sightings if remote sever supports that
+  method. [Jakub Onderka]
+- [sync] Method for filtering out existing sightings. [Jakub Onderka]
+- [API] Taxonomy export. [Jakub Onderka]
+- [misp2stix2] Return traceback for error. [Jakub Onderka]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [PyMISP] bump. [iglocska]
+- [security audit] Check config.php.bk file permission. [Jakub Onderka]
+- [internal] Create config backup just when it is necessary. [Jakub
+  Onderka]
+- [internal] Reset PHP cache after config file is successfully changed.
+  [Jakub Onderka]
+- [test] Move PHP tests to different task. [Jakub Onderka]
+- [PyMISP] bump. [iglocska]
+- [PyMISP] bump. [iglocska]
+- [UI] Use time element for event published timestamp. [Jakub Onderka]
+- [UI] Raise font size of local org description. [Jakub Onderka]
+- [UI] After creating new org, redirect to org details. [Jakub Onderka]
+- [UI] Add link to add new organisation. [Jakub Onderka]
+- [republish ban] enabled by default on new installs. [iglocska]
+- [config] Added missing options Fix #7549. [mokaddem]
+- [CLI] better error messages when a setting change fails. [iglocska]
+
+  - explain why it failed
+  - explain how a user can override it
+- [misp-objects] fix #7599. [Alexandre Dulaunoy]
+- [misp-warninglists] updated to the latest version. [Alexandre
+  Dulaunoy]
+- Migrate threads/index to factory view. [Luciano Righetti]
+- Migrate /event_blocklist/add,edit to view factory. [Luciano Righetti]
+- Migrate /event_blocklists/index to view factory. [Luciano Righetti]
+- Migrate /templates/view/:id to view factory. [Luciano Righetti]
+- Reuse add view for /templates/edit. [Luciano Righetti]
+- Migrate /templates/add view to factory. [Luciano Righetti]
+- Migrate /templates/index view, use CRUD compoenent in
+  TemplatesController::delete() [Luciano Righetti]
+- [internal] Use const arrays. [Jakub Onderka]
+- [internal] Use strict comparison. [Jakub Onderka]
+- [internal] Use constants that should be faster. [Jakub Onderka]
+- [UI] Simplified generating categories that can be malware sample.
+  [Jakub Onderka]
+- [internal] Remove unused method. [Jakub Onderka]
+- [internal] Remove unnecessary method calls. [Jakub Onderka]
+- [internal] Move variable from AppModel to Server model. [Jakub
+  Onderka]
+- [internal] Convert variable to const. [Jakub Onderka]
+- [internal] Remove JS helper from controllers. [Jakub Onderka]
+- [user:updateToAdvancedAuthKeys] Functionality accessible via the CLI.
+  [mokaddem]
+- [logs] Add link to SG and Taxonomy in AuditLog. [Jakub Onderka]
+- Initial port genericForm changes from cerebrate. [Luciano Righetti]
+- Migrate FeedsController to use CRUD component. [Luciano Righetti]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [galaxies:view_relations] Both inbound and outbound relations can be
+  viewed. [mokaddem]
+- [galaxyClusters:view] Both inbound and outbound relations can be
+  viewed. [mokaddem]
+- [genericElement:topbar] Support of raw html. [mokaddem]
+- [sync] Faster capturing sighting when pushing whole event. [Jakub
+  Onderka]
+- [sync] Optimise event filtering. [Jakub Onderka]
+- [sync] Check if event exists before pushing. [Jakub Onderka]
+- [sync] Remove old method for uploading sightings. [Jakub Onderka]
+- [sync] Check event existence before pushing sightings. [Jakub Onderka]
+- [sync] New separate method for uploading sightings to remote server.
+  [Jakub Onderka]
+- [internal] Disable unicode escaping for JSON. [Jakub Onderka]
+- [diagnostic] STIX diagnostics. [Jakub Onderka]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [internal] Use standardized response output. [Jakub Onderka]
+- [internal] Remove redundant checks. [Jakub Onderka]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [internal] Regenerate warninglist cache just when save was successful.
+  [Jakub Onderka]
+- [internal] Use less memory when inserting warninglist to db. [Jakub
+  Onderka]
+- [API] Deprecate getPyMISPVersion and returns required info in
+  getVersion. [Jakub Onderka]
+- [mispObject:breakOnDuplicate] Provide more feedback. [mokaddem]
+- [installer] Update to latest version. [Steve Clement]
+- [installer] Update to latest version. [Steve Clement]
+- [doc] Guides now compatible with Fedora WS/Server 34. [Steve Clement]
+- [warning-list] updated. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [test] Set expected config for security tests. [Jakub Onderka]
+- [test] Check if user is logged. [Jakub Onderka]
+- [config defaults] unset the default python bin path. [iglocska]
+- [config defaults] changed default attachment storage. [iglocska]
+- [Userinit] create advanced auth key when needed. [iglocska]
+- [config] Fixed indentation. [mokaddem]
+- [test] Redis password can be empty. [Jakub Onderka]
+- [test] After CLI setSetting change. [Jakub Onderka]
+- [security] Stored XSS when forking a galaxy cluster As reported by
+  Giuseppe Diego Gianni. [mokaddem]
+- [posts] add org field to email job. [iglocska]
+- Add missing newline. [Luciano Righetti]
+- Rename container div. [Luciano Righetti]
+- Add mass selector for deleting event blocklists. [Luciano Righetti]
+- Remove old copy. [Luciano Righetti]
+- Add view action to index templates. [Luciano Righetti]
+- [internal] Remove unused variable. [Jakub Onderka]
+- [API] Remove duplicate objects from warninglist. [Jakub Onderka]
+- [internal] Remove unused variable. [Jakub Onderka]
+- Add missing search parameters for [POST]/events/index. [Luciano
+  Righetti]
+- [UI] Do not use inline JS. [Jakub Onderka]
+- [API] Always return bool for perm fields in getVersion response.
+  [Jakub Onderka]
+- Nest noticelist entries inside Noticelist property. [Luciano Righetti]
+- Add noticelist entries in view response. [Luciano Righetti]
+- Undefined index notice when enable/disable noticelist. [Luciano
+  Righetti]
+- Remove unsused field. [Luciano Righetti]
+- Merge develop branch. [Luciano Righetti]
+- Fix ui issues on multiple views. [Luciano Righetti]
+- Add missing input descriptions. [Luciano Righetti]
+- Fix pr comments: add warning notice for local feeds disabled on
+  feeds/add, fix various ui elements. [Luciano Righetti]
+- Add missing refresh to feed pull rules. [Luciano Righetti]
+- Fix issue when adding attribute, add optionalField class to inputs.
+  [Luciano Righetti]
+- Fix pr comments: replace whitelist->allowlist, checkbox label inline,
+  add missing feed fields for csv and freetext. add missing button for
+  adding basic auth headers. [Luciano Righetti]
+- Remove required attr from hidden inputs in add attribute form.
+  [Luciano Righetti]
+- Remove required attr from hidden inputs in add event form. [Luciano
+  Righetti]
+- Escape js variable. [Luciano Righetti]
+- Fix error when decoding array feed settings, maintain same response
+  schema as before. [Luciano Righetti]
+- Add type dropdown in all generic forms. [Luciano Righetti]
+- Fix pull rules legend not showing on feeds/edit load. [Luciano
+  Righetti]
+- Handle feed rules. [Luciano Righetti]
+- Fix genericForm builder issues. [Luciano Righetti]
+- Only override values that were set in the input. [Luciano Righetti]
+- Allow 0 or '0' to be a possible field value, for example 'selected'
+  property. [Luciano Righetti]
+- [sync] Better error handling when fetching IDs for push/pull. [Jakub
+  Onderka]
+- [tags:attachTagToObject] No longer return a failure message is
+  relation already exists Fix #6569. [mokaddem]
+- [organisations:view] Restored org logo Fix #7491. [mokaddem]
+- [event:contact] User object passed in contact reporter Fix #7471.
+  [mokaddem]
+- [sync] Do not append 'metadata:1' when pushing event. [Jakub Onderka]
+- [attribute:edit] Make sure event_id cannot be changed. [mokaddem]
+- [tags:detachFromObject] Make travis test passes. [mokaddem]
+- [internal] Update object relationships when updating JSONs. [Jakub
+  Onderka]
+- [API] Check if user can view object that contains reference. [Jakub
+  Onderka]
+- [UI] Trim object UUID when adding reference. [Jakub Onderka]
+- [internal] Change exception type. [Jakub Onderka]
+- [internal] Relationship import. [Jakub Onderka]
+- [tag] Update object's timestamp and unpublish only if in global
+  context Fix #5806. [mokaddem]
+- [internal] Faster deleting warninglist. [Jakub Onderka]
+- [galaxies:add] Missing entry in sidebar Fix #7499. [mokaddem]
+- [install:MySQL] Removed org_blacklists table creation Fix #7476.
+  [mokaddem]
+- Wrong attribute value hash computed inside checkForDuplicateObjects
+  function. [Sebastiano Mariani]
+- [doc] Fix conditonal error. [Steve Clement]
+- [tools] Catch openssl not being installed. [Steve Clement]
+- [galaxies:add] Missing entry in sidebar Fix #7499. [mokaddem]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge pull request #7603 from JakubOnderka/fix-tests-vol2. [Jakub
+  Onderka]
+
+  Fix tests vol2
+- Merge pull request #7596 from JakubOnderka/publishd-time. [Jakub
+  Onderka]
+
+  chg: [UI] Use time element for event published timestamp
+- Merge pull request #7589 from JakubOnderka/org-ui. [Jakub Onderka]
+
+  Org UI
+- Merge branch 'config_defaults' into develop. [iglocska]
+- Merge pull request #7600 from JakubOnderka/fix-tests. [Jakub Onderka]
+
+  fix: [test] After CLI setSetting change
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Alexandre
+  Dulaunoy]
+- Merge pull request #7578 from Cooper-Dale/patch-1. [Alexandre
+  Dulaunoy]
+
+  updated suricata legacy modifiers
+- Updated suricata legacy modifiers. [Cooper Dale]
+
+  based on https://suricata.readthedocs.io/en/suricata-6.0.3/rules/tls-keywords.html?highlight=tls_sni#tls-sni
+  https://suricata.readthedocs.io/en/suricata-6.0.3/rules/http-keywords.html#http-keywords
+  https://suricata.readthedocs.io/en/suricata-6.0.3/rules/dns-keywords.html
+- Merge branch 'threads_refactor' into develop. [iglocska]
+- Merge branch 'blocklist_refactor' into develop. [iglocska]
+- Merge branch 'template_refactor' into develop. [iglocska]
+- Merge pull request #7595 from JakubOnderka/code-cleanup-vol4. [Jakub
+  Onderka]
+
+  Code cleanup vol4
+- Merge pull request #7581 from JakubOnderka/simplified-template. [Jakub
+  Onderka]
+
+  chg: [UI] Simplified generating categories that can be malware sample
+- Merge pull request #7562 from JakubOnderka/warninglist-output. [Jakub
+  Onderka]
+
+  fix: [API] Remove duplicate objects from warninglist
+- Merge pull request #7583 from JakubOnderka/code-cleanup-vol2. [Jakub
+  Onderka]
+
+  Code cleanup
+- Merge pull request #7538 from JakubOnderka/js-helper. [Jakub Onderka]
+
+  chg: [internal] Remove JS helper from controllers
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Luciano
+  Righetti]
+- Updated suricata legacy modifiers. [Cooper Dale]
+
+  based on https://suricata.readthedocs.io/en/suricata-6.0.3/rules/tls-keywords.html?highlight=tls_sni#tls-sni
+  https://suricata.readthedocs.io/en/suricata-6.0.3/rules/http-keywords.html#http-keywords
+  https://suricata.readthedocs.io/en/suricata-6.0.3/rules/dns-keywords.html
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [mokaddem]
+- Merge branch 'shibb' into develop. [iglocska]
+- Block org modiufication option for shibb auth. [mzp]
+- Merge pull request #7560 from JakubOnderka/audit-sg. [Jakub Onderka]
+
+  Add link to SG and Taxonomy in AuditLog
+- Merge pull request #7566 from JakubOnderka/getversion-bool. [Jakub
+  Onderka]
+
+  fix: [API] Always return bool for perm fields in getVersion response
+- Merge pull request #7357 from righel/refactor-noticelists-controller-
+  to-use-crud-component. [Luciano Righetti]
+
+  chg: refactor noticelists controller to use crud component
+- Merge develop. [Luciano Righetti]
+- Merge pull request #7520 from righel/migrate-feeds-controller-to-crud-
+  component. [Luciano Righetti]
+
+  chg: migrate feeds controller to crud component
+- Merge branch 'develop' into migrate-feeds-controller-to-crud-
+  component. [Luciano Righetti]
+- Merge branch 'pr-7551' into develop. [mokaddem]
+- Merge remote-tracking branch 'origin/develop' into pr-7551. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge pull request #7433 from JakubOnderka/sync-clusters-error-
+  handling. [Jakub Onderka]
+
+  fix: [sync] Better error handling when fetching IDs for push/pull
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #6817 from JakubOnderka/upload-sightings. [Jakub
+  Onderka]
+
+  chg: [sync] New separate method for uploading sightings to remote server
+- Merge pull request #7157 from JakubOnderka/sighting-push-filtering.
+  [Jakub Onderka]
+
+  new: [sync] Method for filtering out existing sightings
+- Merge pull request #7558 from JakubOnderka/taxonomy_export. [Jakub
+  Onderka]
+
+  new: [API] Taxonomy export
+- Merge pull request #7553 from JakubOnderka/stix-diagnostics. [Jakub
+  Onderka]
+
+  chg: [diagnostic] STIX diagnostics
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Alexandre
+  Dulaunoy]
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge branch 'fix-5806' into develop. [mokaddem]
+- Merge remote-tracking branch 'origin/develop' into fix-5806.
+  [mokaddem]
+- Merge pull request #7530 from JakubOnderka/fix-relationship-import.
+  [Jakub Onderka]
+
+  fix: [internal] Relationship import
+- Merge pull request #7555 from JakubOnderka/misp2stix_traceback. [Jakub
+  Onderka]
+
+  new: [misp2stix2] Return traceback for error
+- Merge remote-tracking branch 'origin' into develop. [Alexandre
+  Dulaunoy]
+- Merge pull request #7540 from MISP/2.4. [Jakub Onderka]
+
+  Merge 2.4 to develop to fix build
+- Merge pull request #7532 from JakubOnderka/warninglist-quick-delete.
+  [Jakub Onderka]
+
+  fix: [internal] Faster deleting warninglist
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge pull request #7525 from JakubOnderka/deprecate-getpymisp-
+  version. [Jakub Onderka]
+
+  chg: [API] Deprecate getPyMISPVersion
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #7537 from SteveClement/guides. [Steve Clement]
+
+  fix: [doc] Fix conditonal error
+- Merge pull request #7536 from SteveClement/tools. [Steve Clement]
+
+  fix: [tools] Catch openssl not being installed
+- Merge pull request #7535 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] Guides now compatible with Fedora WS/Server 34
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Add search bar, fix col widths, show ref field as links. [Luciano
+  Righetti]
+- Deserialize ref and geographical_area fields in index and view
+  endpoints. [Luciano Righetti]
+- Resolve pr comments. [Luciano Righetti]
+- Support toggle noticelist enable checkbox. [Luciano Righetti]
+- Fix noticelist message not showing. [Luciano Righetti]
+- Refactor noticelists index and view to use crud component. [Luciano
+  Righetti]
+- Add crud component noticelists index. [Luciano Righetti]
+
+
 v2.4.146 (2021-06-30)
 ---------------------
 
