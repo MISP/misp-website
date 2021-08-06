@@ -2,6 +2,155 @@ Changelog
 =========
 
 
+v2.4.148 (2021-08-05)
+---------------------
+
+New
+~~~
+- [test] Check schema diagnostics in CI. [Jakub Onderka]
+- [citation-cff] added. [Alexandre Dulaunoy]
+- [citation-cff] added. [Alexandre Dulaunoy]
+- [test] Security test for publishing events. [Jakub Onderka]
+
+Changes
+~~~~~~~
+- [VERSION] bump. [iglocska]
+- [PyMISP] Bump recommended version. [Raphaël Vinot]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [internal] Use ServerSyncTool for fetching remote user info. [Jakub
+  Onderka]
+- [internal] org_blocklists.org_uuid should be unique index. [Jakub
+  Onderka]
+- [internal] Organisation and object UUID should be unique. [Jakub
+  Onderka]
+- [zmq] Convert array to JSON at one place. [Jakub Onderka]
+- [internal] Optimise loading attribute histogram. [Jakub Onderka]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [opendata] updated and changed parameter handling. [iglocska]
+- [shibbauth] added option to block organisation changes at login - New
+  ApacheShibbAuth.BlockOrgModifications setting added, defaults to
+  false, boolean. If set to true, will block updates to the organisation
+  of existing users on authentication. This preserves any modifications
+  made by a site admin in MISP and is similar to
+  ApacheShibbauth.BlockRoleModifications (same logic applied to role
+  modifications). [Liviu Valsan]
+- [API] Refactor event publishing. [Jakub Onderka]
+- [internal] Convert array to const. [Jakub Onderka]
+- [internal] Convert array to const. [Jakub Onderka]
+- [internal] Simplified Attribute::deleteAttribute method. [Jakub
+  Onderka]
+- [internal] Removed unused variables. [Jakub Onderka]
+- [internal] Remove unused variable. [Jakub Onderka]
+- [internal] Convert array to const. [Jakub Onderka]
+- [shibbauth] added option to block organisation changes at login - New
+  ApacheShibbAuth.BlockOrgModifications setting added, defaults to
+  false, boolean. If set to true, will block updates to the organisation
+  of existing users on authentication. This preserves any modifications
+  made by a site admin in MISP and is similar to
+  ApacheShibbauth.BlockRoleModifications (same logic applied to role
+  modifications). [Liviu Valsan]
+- [compatibility] scoped constant changed to unscoped to allow for 7.0
+  compatibility. [iglocska]
+
+  - update your PHP version though
+
+Fix
+~~~
+- [js] Show correct error message for get remote version. [Jakub
+  Onderka]
+- [UI] Show correct error message for get remote user. [Jakub Onderka]
+- [sync] Fetching remote server version. [Jakub Onderka]
+- [schema] audit_logs.authkey_id columns should be nullable. [Jakub
+  Onderka]
+- [zmq] Add missing `misp_json_warninglist` topic to Python script.
+  [Jakub Onderka]
+- [API] Undefined index when just last_seen is set. [Jakub Onderka]
+- [afterHook] for setting changes wasn't returning true, fixes 7477.
+  [iglocska]
+
+  - this caused the CLI setting change to error out
+- [stix2misp] Use describeTypes from PyMISP. [Jakub Onderka]
+- [security] Stored XSS when viewing galaxy cluster relationships - As
+  reported by Dawid Czarnecki. [mokaddem]
+- [security] Stored XSS when viewing galaxy cluster elements in JSON
+  format. [mokaddem]
+- [compatibility] several scoped constants reverted. [iglocska]
+- [proposal alert email] function call fixed. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge pull request #7624 from JakubOnderka/get-remote-user-fixes.
+  [Jakub Onderka]
+
+  fix: [UI] Show correct error message for get remote user
+- Merge pull request #7622 from JakubOnderka/fix-fetching-version.
+  [Jakub Onderka]
+
+  fix: [sync] Fetching remote server version
+- Merge pull request #7619 from JakubOnderka/get-remote-update. [Jakub
+  Onderka]
+
+  chg: [internal] Use ServerSyncTool for fetching remote user info
+- Merge pull request #7620 from JakubOnderka/database-indexes. [Jakub
+  Onderka]
+
+  Database indexes
+- Merge pull request #7568 from JakubOnderka/zmq. [Jakub Onderka]
+
+  Add missing misp_json_warninglist topic to Python script
+- Merge pull request #7606 from JakubOnderka/undefined-index-fix. [Jakub
+  Onderka]
+
+  fix: [API] Undefined index when just last_seen is set
+- Merge pull request #7614 from JakubOnderka/optimise-statistics. [Jakub
+  Onderka]
+
+  chg: [internal] Optimise loading attribute histogram
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #7613 from lk-dll/patch-1. [Alexandre Dulaunoy]
+
+  quick fix sticky buffers
+- Quick fix sticky buffers. [lk-dll]
+
+  According to documention (https://suricata.readthedocs.io/en/suricata-6.0.3/rules/http-keywords.html#http-keywords) sticky buffers should be before content, http.header and http.uri isn't marked as sticky buffers, but rules are wrongly generated and reported to logs. Tested on stable Suricata v6.0.1+
+- Quick fix sticky buffers. [lk-dll]
+
+  According to documention (https://suricata.readthedocs.io/en/suricata-6.0.3/rules/http-keywords.html#http-keywords) sticky buffers should be before content, http.header and http.uri isn't marked as sticky buffers, but rules are wrongly generated and reported to logs. Tested on stable Suricata v6.0.1+
+- Merge pull request #7500 from JakubOnderka/stix-to-misp-types-path.
+  [Jakub Onderka]
+
+  Stix to misp types path
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge remote-tracking branch 'origin/2.4' into develop. [mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #7602 from liviuvalsan/shib_user_org. [Alexandre
+  Dulaunoy]
+
+  chg: [shibbauth] added option to block organisation changes at login
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge pull request #7539 from JakubOnderka/publishing-refactoring.
+  [Jakub Onderka]
+
+  Refactor publishing event
+- Merge pull request #7609 from JakubOnderka/code-cleanup-vol6. [Jakub
+  Onderka]
+
+  Code cleanup vol6
+- Merge pull request #7607 from JakubOnderka/non-correlationg-types-
+  const. [Jakub Onderka]
+
+  chg: [internal] Convert array to const
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+
+
 v2.4.147 (2021-07-27)
 ---------------------
 
