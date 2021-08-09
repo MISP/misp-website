@@ -70,6 +70,8 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2021-35502](https://cvepremium.circl.lu/cve/CVE-2021-35502) <= MISP 2.4.144 - app/View/Elements/genericElements/IndexTable/Fields/generic_field.ctp in MISP 2.4.144 does not sanitize certain data related to generic-template:index.
 - [CVE-2021-36212](https://cvepremium.circl.lu/cve/CVE-2021-36212) <= MISP 2.4.145 - app/View/SharingGroups/view.ctp in MISP 2.4.145 does not sanitize the sharing group name.
 - [CVE-2021-37534](https://cvepremium.circl.lu/cve/CVE-2021-37534) <= MISP 2.4.146 - app/View/GalaxyClusters/add.ctp in MISP 2.4.146 allows Stored XSS when forking a galaxy cluster.
+- [CVE-2021-37742](https://cvepremium.circl.lu/cve/CVE-2021-37742) <= MISP 2.4.147 - app/View/Elements/GalaxyClusters/view_relation_tree.ctp in MISP 2.4.147 allows Stored XSS when viewing galaxy cluster relationships.
+- [CVE-2021-37743](https://cvepremium.circl.lu/cve/CVE-2021-37743) <= MISP 2.4.147 - app/View/GalaxyElements/ajax/index.ctp in MISP 2.4.147 allows Stored XSS when viewing galaxy cluster elements in JSON format.
 
 ## PGP Key
 
