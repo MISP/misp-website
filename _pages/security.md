@@ -72,6 +72,8 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2021-37534](https://cvepremium.circl.lu/cve/CVE-2021-37534) <= MISP 2.4.146 - app/View/GalaxyClusters/add.ctp in MISP 2.4.146 allows Stored XSS when forking a galaxy cluster.
 - [CVE-2021-37742](https://cvepremium.circl.lu/cve/CVE-2021-37742) <= MISP 2.4.147 - app/View/Elements/GalaxyClusters/view_relation_tree.ctp in MISP 2.4.147 allows Stored XSS when viewing galaxy cluster relationships.
 - [CVE-2021-37743](https://cvepremium.circl.lu/cve/CVE-2021-37743) <= MISP 2.4.147 - app/View/GalaxyElements/ajax/index.ctp in MISP 2.4.147 allows Stored XSS when viewing galaxy cluster elements in JSON format.
+- [CVE-2021-39302](https://cvepremium.circl.lu/cve/CVE-2021-39302) <= MISP 2.4.168 - MISP in certain configurations, when used with PostgreSQL (which is not a default configuration), allows SQL injection via the app/Model/Log.php $conditions['org'] value.
+
 
 ## PGP Key
 
