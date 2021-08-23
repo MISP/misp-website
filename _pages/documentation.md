@@ -36,7 +36,8 @@ other developers willing to develop their own tools or software supporting the M
 * [misp-object-template-format](https://github.com/MISP/misp-rfc/blob/master/misp-object-template-format/raw.md.txt) which describes the [object](https://github.com/MISP/misp-objects) template format to add combined and composite object to the MISP core format. Current Internet-Draft: [02](https://datatracker.ietf.org/doc/draft-dulaunoy-misp-object-template-format/)
 
 ### MISP OpenAPI Spec
-MISP API OpenAPI spec available is [here](/documentation/openapi).
+
+MISP API OpenAPI spec available is [here](/documentation/openapi.html).
 
 ## Community Support
 
