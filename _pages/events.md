@@ -16,15 +16,15 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### MISP at conferences
 
+- [Virtual MISP Summit 0x06](https://www.misp-project.org/misp-summit/) - Thursday 21st October 2021.
 
 ### Current MISP Training(s)
+
+### (some) Past MISP Training(s)
 
 - (FULL) Thursday 25th February 2021 - Online MISP Training - Introduction to CTI (French) - [Registration](https://www.xing-events.com/TFHIOJQ)
 - Tuesday 2nd March 2021 - Online MISP Training - MISP - Threat Intelligence Introduction for Analysts - [Registration](https://www.xing.com/events/misp-threat-intelligence-introduction-analysts-3315431)
 - Wednesday 3rd March 2021 - Online MISP Training - MISP - Threat Intelligence for Administrators and Building Information Sharing Communities - [Registration](https://www.xing-events.com/WZGDMOP)
-
-### (some) Past MISP Training(s)
-
 - [MISP Covid training](https://bbb.secin.lu/b/ale-q6v-ecn) Remote on how to use MISP in the scope of sharing information about COVID-19 - 27 March 2020 at 14:00 CET (2 hours)
 - [MISP Training - Hands-on workshop for analysts and MISP users](https://www.xing-events.com/DLCMDJY.html) in Luxembourg, February 19, 2020
 - [MISP Training - Threat Intelligence Introduction for Analysts and Administrators](https://www.xing-events.com/UXMOBFA.html) in Luxembourg, February 18, 2020
