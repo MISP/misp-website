@@ -25,3 +25,6 @@ The event will take place online from 14:00 CET until 18:00.
 
 If you want to talk, present and share your experience, you can submit one or more talks of 10 minutes sharing your contribution, experience, integration of MISP in your use-cases. We also welcome other open source tools who use MISP and share their integration details.
 
+Propose and submit your talk [https://cfp.hack.lu/misp-2021/cfp](https://cfp.hack.lu/misp-2021/cfp).
+
+
