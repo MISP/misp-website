@@ -21,7 +21,9 @@ The registration to the Virtual MISP Summit is free.
 
 The event will take place online from 14:00 CET until 18:00.
 
-# Call for paper
+{% include tickets.html %}
+
+# Call for papers
 
 If you want to talk, present and share your experience, you can submit one or more talks of 10 minutes sharing your contribution, experience, integration of MISP in your use-cases. We also welcome other open source tools who use MISP and share their integration details.
 
