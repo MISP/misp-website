@@ -88,6 +88,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [EclecticIQ Platform Integrations](https://www.eclecticiq.com/platform/integrations) - Intelligence Integration.
 * [Elastic.co - a filebeat module for reading threat intel information from the MISP platform](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-module-misp.html)
 * [FireMISP](https://github.com/deralexxx/FireMISP) FireEye Alert json files to MISP Malware information sharing platform (Alpha).
+* [FLARE MISP Service](https://github.com/cisagov/flare-misp-service) This service is provided to enable the specific use case of retrieving AIS data (in STIX 1.1.1 format) from AIS and loading the content in a MISP Server.
 * [Hybrid analysis](https://www.hybrid-analysis.com/) exports in MISP format.
 * [IntelMQ](https://github.com/certtools/intelmq) support MISP to retrieve events and update tags.
 * [iSight MISP integration](https://github.com/deralexxx/PySight2MISP) - iSight integration with MISP.
