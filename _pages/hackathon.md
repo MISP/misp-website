@@ -3,8 +3,12 @@ layout: page
 title: Open Source Security hackathon - Monday 25th October 2021 and Tuesday 26th October 2021
 permalink: /hackathon/
 toc: true
+featured: /assets/images/stack.jpg
 ---
+
 # Open Source Security hackathon - Monday 25th October 2021 and Tuesday 26th October 2021
+
+![](/assets/images/stack.jpg)
 
 [CIRCL](https://www.circl.lu/) in collaboration with the [MISP Project](https://www.misp-project.org/) is organising the 5th Open Source Security Software Hackathon, which will take place over two days, on Monday 25th October 2021 and Tuesday 26th October 2021.
 
@@ -57,3 +61,4 @@ The projects listed are merely examples and you’re more than welcome to propos
 [![cve-search](https://www.cve-search.org/images/cve-search.png)](https://www.cve-search.org)
 [![AIL](https://www.ail-project.org/assets/img/logonav.png)](https://www.ail-project.org/)
 [![Cerebrate project](https://avatars.githubusercontent.com/u/60326167?s=200&v=4)](https://github.com/cerebrate-project/)
+[LookyLoo](https://www.lookyloo.eu/)
