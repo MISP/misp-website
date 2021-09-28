@@ -61,4 +61,4 @@ The projects listed are merely examples and you’re more than welcome to propos
 [![cve-search](https://www.cve-search.org/images/cve-search.png)](https://www.cve-search.org)
 [![AIL](https://www.ail-project.org/assets/img/logonav.png)](https://www.ail-project.org/)
 [![Cerebrate project](https://avatars.githubusercontent.com/u/60326167?s=200&v=4)](https://github.com/cerebrate-project/)
-[LookyLoo](https://www.lookyloo.eu/)
+[![Lookyloo icon](https://github.com/Lookyloo/lookyloo/raw/main/website/web/static/lookyloo.jpeg){: width="250" }](https://www.lookyloo.eu/)
