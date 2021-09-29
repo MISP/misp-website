@@ -62,5 +62,5 @@ The projects listed are merely examples and you’re more than welcome to propos
 [![AIL](https://www.ail-project.org/assets/img/logonav.png)](https://www.ail-project.org/)
 [![Cerebrate project](https://avatars.githubusercontent.com/u/60326167?s=200&v=4)](https://github.com/cerebrate-project/)
 [![Lookyloo icon](https://github.com/Lookyloo/lookyloo/raw/main/website/web/static/lookyloo.jpeg){: width="250" }](https://www.lookyloo.eu/)
-[![IntelMQ Logo](https://raw.githubusercontent.com/certtools/intelmq/develop/docs/_static/Logo_Intel_MQ.png){: width="250" }](https://github.com/certtools/intelmq))
+[![IntelMQ Logo](https://raw.githubusercontent.com/certtools/intelmq/develop/docs/_static/Logo_Intel_MQ.png){: width="250" }](https://github.com/certtools/intelmq)
 [![WHIDS Logo](https://raw.githubusercontent.com/0xrawsec/whids/master/doc/img/logo.png){: width="250"}](https://github.com/0xrawsec/whids)
