@@ -21,6 +21,8 @@ The registration to the Virtual MISP Summit is free.
 
 The event will take place online from 14:00 CET until 18:00.
 
+Registration is sold out but the MISP summit event will be [streamed live on YouTube](https://www.youtube.com/watch?v=IFqfCkT4X8w). You will able to ask question(s) or make comment live.
+
 {% include tickets.html %}
 
 # Call for papers
