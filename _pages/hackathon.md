@@ -60,6 +60,8 @@ The projects listed are merely examples and you’re more than welcome to propos
 [![D4 Project](https://www.d4-project.org/assets/images/logo.png)](https://www.d4-project.org/)
 [![cve-search](https://www.cve-search.org/images/cve-search.png)](https://www.cve-search.org)
 [![AIL](https://www.ail-project.org/assets/img/logonav.png)](https://www.ail-project.org/)
+[![OWASP Zap Proxy](https://pbs.twimg.com/profile_images/935515807949434880/T8RuttbQ_400x400.jpg)](https://www.zaproxy.org/)
+[![OWASP ModSecurity Core Rule Set](https://owasp.org/www-project-modsecurity-core-rule-set/assets/images/CRS-logo-full_size-512x257.png)](https://coreruleset.org/)
 [![Cerebrate project](https://avatars.githubusercontent.com/u/60326167?s=200&v=4)](https://github.com/cerebrate-project/)
 [![Lookyloo icon](https://github.com/Lookyloo/lookyloo/raw/main/website/web/static/lookyloo.jpeg){: width="250" }](https://www.lookyloo.eu/)
 [![IntelMQ Logo](https://raw.githubusercontent.com/certtools/intelmq/develop/docs/_static/Logo_Intel_MQ.png){: width="250" }](https://github.com/certtools/intelmq)
