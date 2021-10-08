@@ -2,6 +2,891 @@ Changelog
 =========
 
 
+v2.4.149 (2021-10-08)
+---------------------
+
+New
+~~~
+- [internal] Store MISP live status also in Redis. [Jakub Onderka]
+- [internal] OrgBlocklist::removeBlockedEvents. [Jakub Onderka]
+- [internal] Method Job::createJob. [Jakub Onderka]
+- Support for BECH32 (P2WPKH) BTC address. [Jakub Onderka]
+- [CLI] UserShell::ip_user command. [Jakub Onderka]
+- [CLI] New tasks that will check if Redis is available. [Jakub Onderka]
+- Add more /taxonomies/* endpoints api docs. [Luciano Righetti]
+- Add openapi docs for /users_settings/* endpoints. [Luciano Righetti]
+- [shell] Tag merging. [Jakub Onderka]
+- [event:notification] Added email notification ban system based on
+  users triggering the notification. [mokaddem]
+- [cerebrate:pull_sg] Pull sharing groups from a cerebrate instance.
+  [mokaddem]
+- [UI] Allow to filter attributes by specific warninglist. [Jakub
+  Onderka]
+- [CLI] User shell. [Jakub Onderka]
+- [oidc] Allow to automatically unblock user after successful login.
+  [Jakub Onderka]
+- [security] Disable browser autocomplete for authkeys field. [Jakub
+  Onderka]
+- [export:host] RestSearch export for blackholing via host file.
+  [mokaddem]
+- [warninglist] Assign warninglist comment. [Jakub Onderka]
+- [sighting:add] Ability to provide filtering parameters when adding
+  sightings for specific values Fix #7669. [mokaddem]
+- [API] Allow to delete multiple events by UUID. [Jakub Onderka]
+- [test] Test more endpoints in sync test. [Jakub Onderka]
+- [API] Allow more granular specification what data to return when
+  viewing event. [Jakub Onderka]
+- [test] Push to remote server. [Jakub Onderka]
+- [test] Sync. [Jakub Onderka]
+
+Changes
+~~~~~~~
+- [install] Update installer checksums. [Steve Clement]
+- [PyMISP] bump to the latest version. [Alexandre Dulaunoy]
+- [GitHub action] install the python-cti-stix2 from the local submodule.
+  [Alexandre Dulaunoy]
+- [GitHub action] raging on venv library path. [Alexandre Dulaunoy]
+- [GitHubAction] add2virtualenv the STIX stuff. [Alexandre Dulaunoy]
+- [modules] typo fixed. [Alexandre Dulaunoy]
+- [gitmodules] fix the branch to main. [Alexandre Dulaunoy]
+- [gitmodules] TLS is always fine. [Alexandre Dulaunoy]
+- [version] bump. [iglocska]
+- [misp-object] updated. [Alexandre Dulaunoy]
+- [misp-stix] Bumped latest version including recent PR merged.
+  [chrisr3d]
+- [stix] Bumped latest version of `misp-stix` $ `cti-python-stix2`
+  python libraries. [chrisr3d]
+- [INSTALL] Removing the install commands for the STIX libraries.
+  [chrisr3d]
+- [stix2 export] Moved the stix2 python library with its stix1 friends
+  in the `scripts` dir. [chrisr3d]
+- [users:routeafterlogin] Allow forcing the pre-login URL to be HTTPS.
+  [Sami Mokaddem]
+
+  This can be achieved by turning the setting MISP.forceHTTPSforPreLoginRequestedURL to true.
+- [misp-stix] Bumped the latest version including some fixes and
+  updates. [chrisr3d]
+- [misp-stix] Bumped latest misp-stix version. [chrisr3d]
+- [stix export] Removed mapping files not used anymore. [chrisr3d]
+
+  - The STIX1 & STIX2 mapping is now managed with
+    the misp-stix python library
+- [cti-python-stix2] Bumped latest version. [chrisr3d]
+- [misp-stix] Bumped latest version. [chrisr3d]
+- [stix1 export] Using the misp-stix library to export MISP format into
+  STIX 1.1.1 or 1.2. [chrisr3d]
+- [stix export] Updated Stix export libraries. [chrisr3d]
+
+  - Including parameters to define versions in the
+    restSearch filters
+  - New parameters to call the python scripts
+- [misp-stix] Bumped latest version. [chrisr3d]
+- [misp-stix] Updated to the latest version. [chrisr3d]
+- [internal] Generate correlations just once. [Jakub Onderka]
+- [internal] Faster adding tags to attributes. [Jakub Onderka]
+- [users:routeafterlogin] Allow forcing the pre-login URL to be HTTPS.
+  [Sami Mokaddem]
+
+  This can be achieved by turning the setting MISP.forceHTTPSforPreLoginRequestedURL to true.
+- [internal] Use hasAny. [Jakub Onderka]
+- [internal] Faster event tag attaching. [Jakub Onderka]
+- [misp-warninglists] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [warning-list] updated. [Alexandre Dulaunoy]
+- [gitmodules] as Branch 2.x was removed from the original repository,
+  we now use our own repo. [Alexandre Dulaunoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- Detail attribute categories in openapi doc. [Luciano Righetti]
+- Detail attribute types in openapi doc. [Luciano Righetti]
+- Detail attribute types in openapi doc. [Luciano Righetti]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [internal] Refactor FileAccessTool. [Jakub Onderka]
+- [internal] Simplified EventsController::view code. [Jakub Onderka]
+- [sync] Use server sync tool for fetching remote events index. [Jakub
+  Onderka]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [internal] Use AdminSetting::getSetting method. [Jakub Onderka]
+- [internal] Fetch just value for AdminSetting::getSetting method.
+  [Jakub Onderka]
+- [internal] Switch admin setting  name column to unique index. [Jakub
+  Onderka]
+- [internal] Faster Attribute search. [Jakub Onderka]
+- [gitmodules] as Branch 2.x was removed from the original repository,
+  we now use our own repo. [Alexandre Dulaunoy]
+- [internal] Server::command_line_functions is generated on demand.
+  [Jakub Onderka]
+- [internal] Do not try to save config when config file is not
+  writeable. [Jakub Onderka]
+- [internal] Cleanup AdminShell::{updateJSON,runUpdates} [Jakub Onderka]
+- [internal] Optimise saving logs. [Jakub Onderka]
+- [internal] Cleanup unnecessary permissions. [Jakub Onderka]
+- [internal] Simplify ACLComponent. [Jakub Onderka]
+- [internal] AppController code cleanup. [Jakub Onderka]
+- [internal] Move methods to specific controllers. [Jakub Onderka]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- Migrate /event_blocklist/add,edit to view factory. [Luciano Righetti]
+- Move org blocklists add and edit to new views factories. [Luciano
+  Righetti]
+- Migrate org_blocklists/index view to factory. [Luciano Righetti]
+- Detail attribute categories in openapi doc. [Luciano Righetti]
+- Detail attribute types in openapi doc. [Luciano Righetti]
+- Detail attribute types in openapi doc. [Luciano Righetti]
+- [internal] Code cleanup. [Jakub Onderka]
+- [UI] Better error messages when uploading MISP file. [Jakub Onderka]
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [internal] Try to fix validation when value1 and value2 provided.
+  [Jakub Onderka]
+- [UI] PGP error message. [Jakub Onderka]
+- [internal] Do not fetch authkey from db. [Jakub Onderka]
+- [internal] Do not fetch password from db. [Jakub Onderka]
+- [internal] Do not fetch keys from db for authkey login. [Jakub
+  Onderka]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [internal] Remove deprecated variables. [Jakub Onderka]
+- [internal] Optimise fetching event index by org or by email. [Jakub
+  Onderka]
+- [internal] Check if file exists. [Jakub Onderka]
+- [internal] Simplify ServerShell code. [Jakub Onderka]
+- [internal] Faster capturing organisation. [Jakub Onderka]
+- [internal] Remove AdminSetting from AuditLog. [Jakub Onderka]
+- [internal] Use faster algo for checking duplicate objects. [Jakub
+  Onderka]
+- [internal] Faster editing attributes when change is required. [Jakub
+  Onderka]
+- [internal] Faster capturing object attributes. [Jakub Onderka]
+- [internal] Faster processing freetext import. [Jakub Onderka]
+- [UI] Add link to exact attribute for related attribute. [Jakub
+  Onderka]
+- [internal] Do not fetch tags for related attributes. [Jakub Onderka]
+- [misp-wipe] wipe auth_keys tables. [Richard van den Berg]
+- Add openapi docs for [POST]/admin/logs. [Luciano Righetti]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [PyMISP] Bump. [Raphaël Vinot]
+- Skip dev dependencies when installing via INSTALL.sh script. [Luciano
+  Righetti]
+- [alert] Deprecate `publish_alerts_summary_only`, this option just
+  duplicate `event_alert_metadata_only` [Jakub Onderka]
+- [user:checkNotificationBanStatus] Typo in comment. [mokaddem]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [internal] Simplify code for editing object. [Jakub Onderka]
+- [internal] Simplify code for editing attribute. [Jakub Onderka]
+- [internal] Faster calls. [Jakub Onderka]
+- [internal] Use correlation object from attribute. [Jakub Onderka]
+- [internal] Faster deleting correlation when deleting attribute. [Jakub
+  Onderka]
+- [internal] Optimise ssdeep correlation. [Jakub Onderka]
+- [internal] Use object variable and not Configure again and again.
+  [Jakub Onderka]
+- [internal] Do not fetch 'Event.disable_correlation' field. [Jakub
+  Onderka]
+- [internal] Fetch just necessary attributes when editing attribute.
+  [Jakub Onderka]
+- [internal] Fetch less CIDR for correlation. [Jakub Onderka]
+- Add openapi docs for [POST]/admin/logs. [Luciano Righetti]
+- [sync] Examine less events for sightings pulling. [Jakub Onderka]
+- [UI] Sort orgs by name in statistics. [Jakub Onderka]
+- [optim] Little optimise sighting statistics. [Jakub Onderka]
+- [internal] Throw exception if JSON could not be encoded. [Jakub
+  Onderka]
+- [internal] Simplify capturing object code. [Jakub Onderka]
+- [internal] Simplify capturing attribute code. [Jakub Onderka]
+- [correlation] Allow to drop Correlation.{date,info} columns. [Jakub
+  Onderka]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [diagnostic] Bumped updated STIX python libraries versions. [chrisr3d]
+
+  - Should fix diagnostic issues with version mentioned in #7054
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [internal] Server controller cleanup. [Jakub Onderka]
+- [security] Use const hasher also for login. [Jakub Onderka]
+- [sync] Use server sync to get available sync filtering rules. [Jakub
+  Onderka]
+- [sync] Simplify server post test code. [Jakub Onderka]
+- [sync] Use server sync tool for connection test. [Jakub Onderka]
+- [security] Mitigate timing attacks when comparing advanced auth keys
+  hashes. [Jakub Onderka]
+- [restResponseComponent] Added doc for new sighting/add filters
+  parameter. [Sami Mokaddem]
+- [sync] Filter out events that do not exist locally when pulling
+  sightings. [Jakub Onderka]
+- [sync] Pull just necessary data when pulling sightings. [Jakub
+  Onderka]
+- [sync] Use sync tool for pulling proposals. [Jakub Onderka]
+- [validation] UUID unique validation. [Jakub Onderka]
+- [schema] Mark more indexes as unique. [Jakub Onderka]
+- [attributes] fixed typo in genCategoriesDefinitions function name.
+  [Christophe Vandeplas]
+- Update openapi spec with new parameters in add sightings endpoint.
+  [Luciano Righetti]
+- [i18n] Updated default.pot. [Steve Clement]
+- [UI] Show matched value for warninglist search. [Jakub Onderka]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- Migrate sharing_views/view/[id] to factory. [Luciano Righetti]
+- [sync] Remove `commit` and MISP-version from HTTP header. [Jakub
+  Onderka]
+- Remove previous /tags/edit view. [Luciano Righetti]
+- Migrate /tags/add view to factory. [Luciano Righetti]
+- [schema] Organisation name should be unique. [Jakub Onderka]
+- [internal] Fetch just necessary fields when capturing tag. [Jakub
+  Onderka]
+- [internal] Do not fetch attribute tags when editing attribute. [Jakub
+  Onderka]
+- [schema] Tag name should be unique. [Jakub Onderka]
+- [internal] Do not load exclusion list from Redis again and again.
+  [Jakub Onderka]
+- [sync] Pull events with less info. [Jakub Onderka]
+- [schema] Sightings UUID column should be unique. [Jakub Onderka]
+- [internal] Convert PubSubTool to static. [Jakub Onderka]
+- [internal] Simplified code for adding events. [Jakub Onderka]
+- [internal] Do not keep original variable to save memory. [Jakub
+  Onderka]
+- [internal] Simplified Event::getRelatedAttributes. [Jakub Onderka]
+- [internal] Use hash for removing duplicate attributes. [Jakub Onderka]
+- [internal] Use one EventLock instance. [Jakub Onderka]
+- [internal] Cleanup code responsible for adding events. [Jakub Onderka]
+- [rest] Change User-Agent to `MISP REST Client` [Jakub Onderka]
+- [UI] Cleanup REST client template. [Jakub Onderka]
+- [internal] Do not convert values to lower, since collation is already
+  case-insensitive. [Jakub Onderka]
+- [internal] Code style for event pulling. [Jakub Onderka]
+- [sync] Refactor server overlap events fetching. [Jakub Onderka]
+- [sync] Better error handling for pulling. [Jakub Onderka]
+- [internal] Better exception handling for server sync. [Jakub Onderka]
+- [logbehaviour] skipfields reverted to an array from a constant.
+  [iglocska]
+
+  - keeps ancient PHP versions happy (as happy as anyone can be knowing they run ancient PHP versions)
+- [internal] Log exception for remote server POST test. [Jakub Onderka]
+- [internal] Optimise updating galaxies. [Jakub Onderka]
+- [internal] Remove unused methods. [Jakub Onderka]
+- [internal] Galaxy cluster relation UUID must be RFC 4122 valid. [Jakub
+  Onderka]
+- [internal] Faster removing blocked events. [Jakub Onderka]
+- [schema] Mark event_blocklist uuid column as unique. [Jakub Onderka]
+- [taxonomies] Migrated views to use the UI factories. [mokaddem]
+- [ui] Various improvements in factories. [mokaddem]
+
+Fix
+~~~
+- Sharing groups dropdown not showing when adding a feed with
+  distribution set to sharing group. [Luciano Righetti]
+- [misp-stix] Bumped latest version. [chrisr3d]
+- [github actions] removed the cti stix installation as it's no longer
+  there. [iglocska]
+- [github actions] removed the cti stix installation as it's no longer
+  there. [iglocska]
+- [stix2 import] Using path to import the stix2 python library.
+  [chrisr3d]
+- [stix1 export] Added the required stix python library path for their
+  import. [chrisr3d]
+
+  - Support of the coming changes to use paths instead
+    of maintaining the pip updates
+- [stix1 import] Quick fix due to some recent changes library changes
+  and the support of STIX 1.2. [chrisr3d]
+- [stix export] Aligning path of the STIX2 python library to following
+  its recent location change. [chrisr3d]
+- [stix export] Added all the needed paths to load the required python
+  libraries. [chrisr3d]
+- [misp-stix] Bumped latest version with a quick fix on email objects
+  export as STIX 2.0 & 2.1. [chrisr3d]
+- [diagnostic] Updated stix2 python library requirements. [chrisr3d]
+- [stix1 export] Removed debugging prints. [chrisr3d]
+- [stix export] Quick single line php `if else` command clean-up.
+  [chrisr3d]
+- [gitmodules] Added current misp-stix branch. [chrisr3d]
+- [misp-stix] Dumped latest MISP-STIX Converter version. [chrisr3d]
+- [log] Do not call callbacks when deleting. [Jakub Onderka]
+- [users] adding/modifying users fails silently for org admins if domain
+  restriction checks fail. [iglocska]
+- [organisations] correctly handle a list of org domain restrictions.
+  [iglocska]
+- [internal] Bad merge. [Jakub Onderka]
+- Incorrect check for alertemail and publishSightings event commands.
+  [Luciano Righetti]
+- Incorrect check for publish event command. [Luciano Righetti]
+- [shells] Sync improved cmd line help to 9d7da310. [Matjaz Rihtar]
+- [shells] Additional command line help. [Matjaz Rihtar]
+- [refanging] Fix test for commit b7733615. [Matjaz Rihtar]
+- [shells] Fixed/improved command line help. [Matjaz Rihtar]
+- [eventReport:contextExtraction] Make sure the cluster's value has
+  enough characters before trying to perform the replacement. [mokaddem]
+- [stix1 import] Fixed STIX header call that made the classification of
+  the STIX file always being external. [chrisr3d]
+
+  - `from_misp` variable was always False since the
+    try / catch to get the title always raised an
+    exception with `event.header` being an invalid
+    attribute. The valid one is `event.stix_header`
+- [internal] Better error handling when uploading STIX file. [Jakub
+  Onderka]
+- [internal] Undefined offset in AppController. [Jakub Onderka]
+- Wrong input name. [Luciano Righetti]
+- Add missing translation function. [Luciano Righetti]
+- Remove CRUDComponent usage. [Luciano Righetti]
+- Add missing new line. [Luciano Righetti]
+- Remove CRUDComponent usage to mantain same api response. [Luciano
+  Righetti]
+- [eventReport:contextExtraction] Make sure the cluster's value has
+  enough characters before trying to perform the replacement. [mokaddem]
+- [internal] Modifying domain|ip attribute. [Jakub Onderka]
+- [misp-retention] use update_tag. [Richard van den Berg]
+- Bug correlation exclusion comment overriding value. [Luciano Righetti]
+- [internal] Sending external e-mail. [Jakub Onderka]
+- [UI] Fix link to user profile. [Jakub Onderka]
+- [taxonomies] disabling tags via API call failed. [iglocska]
+- [taxonomies] enabling breaks on POST request if named parameters
+  aren't used. [iglocska]
+- [Taxonomy] search for taxonomy by namespace when accessing
+  /taxonomies/view. [iglocska]
+- [internal] Argument parsing for testEventNotificationEmail command.
+  [Jakub Onderka]
+- [object] validation and modification fixes. [iglocska]
+
+  - require certain metafields to be set (such as template uuid, template version, etc)
+  - allow editing for unknown templates / no templates via the API (was previously incorrectly blocked / generated notices due to some UI related functionalities being triggered)
+- [acl] Added routes in ACL. [mokaddem]
+- [internal] Remove ssdeep data when deleting attribute. [Jakub Onderka]
+- [internal] Filtering warninglist in objects. [Jakub Onderka]
+- [UI] Warninglist order. [Jakub Onderka]
+- [internal] Typo. [Jakub Onderka]
+- Add missing requestBodies to servers endpoint. [Luciano Righetti]
+- [internal] Fetching filter rules. [Jakub Onderka]
+- [sync] Fix pulling sightings. [Jakub Onderka]
+- [sync] Pushing sightings. [Jakub Onderka]
+- [ACL] queryAvailableSyncFilteringRules is required just for site
+  admins. [Jakub Onderka]
+- [security] Check permission when viewing shadow attribute picture.
+  [Jakub Onderka]
+- [internal] Code cleanup. [Jakub Onderka]
+- [API] Deprecation header. [Jakub Onderka]
+- Fix query to make it work on all supported db engines. [Luciano
+  Righetti]
+- [tools] fixed gen_misp_types_categories script. [Christophe Vandeplas]
+- Fix broken queries on postgres. [Luciano Righetti]
+- [eventReport:reprotFromEvent] Make sure filtering condition are not
+  empty. [mokaddem]
+- [UI] Warninglist form. [Jakub Onderka]
+- [event:filter_value] Allow searching for multiple values. [mokaddem]
+- [db_schema] Fixed column default value for audit_log table - Fix
+  #7662. [mokaddem]
+- [event:view] Attribute filtering widget `deleted` parameter
+  inconsistency. [mokaddem]
+
+  - Potentially fix #7594
+- [log] Array to string conversion. [Jakub Onderka]
+- [API] Boolean options in index filter conditions. [Jakub Onderka]
+- [internal] Shadow attributes don't have tags. [Jakub Onderka]
+- [acl] Bumped ACL. [mokaddem]
+
+Other
+~~~~~
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge branch 'develop' of https://github.com/MISP/MISP into misp-stix.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into misp-stix.
+  [chrisr3d]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'misp-stix' into develop. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into misp-stix.
+  [chrisr3d]
+- Add: [stix export] Submoduled all the required python libraries.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into misp-stix.
+  [chrisr3d]
+- Wip: [misp-stix] Bumped latest version. [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into misp-stix.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into misp-stix.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into misp-stix.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into misp-stix.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into misp-stix.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into misp-stix.
+  [chrisr3d]
+- Wip: [stix2 export] Args parsing to better handle parameters & Support
+  for STIX 2.1. [chrisr3d]
+- Wip: [stix export, framing] Reworked misp_framing. [chrisr3d]
+
+  - Made it cleaner
+  - Made it support the STIX framing provided by
+    misp-stix converter library
+- Merge branch '2.4' of https://github.com/MISP/MISP into misp-stix.
+  [chrisr3d]
+- Wip: [stix2 export] Testing MISP-STIX python library with the included
+  changes on the Export Lib and on the misp2stix2.py script. [chrisr3d]
+- Add: [submodules, stix] Added MISP-STIX converter library as
+  submodule. [chrisr3d]
+- Merge pull request #7808 from JakubOnderka/tag-add. [Jakub Onderka]
+
+  chg: [internal] Faster adding tags to attributes
+- Merge pull request #7809 from JakubOnderka/audit-log-fix. [Jakub
+  Onderka]
+
+  fix: [log] Do not call callbacks when deleting
+- Merge branch 'feature-force-https-for-pre-login-request' into develop.
+  [Sami Mokaddem]
+- Merge pull request #7805 from JakubOnderka/event-tag-attach. [Jakub
+  Onderka]
+
+  chg: [internal] Faster event tag attaching
+- Merge pull request #7806 from JakubOnderka/bad-merge-fix. [Jakub
+  Onderka]
+
+  fix: [internal] Bad merge
+- Merge remote-tracking branch 'origin/2.4' into develop. [Sami
+  Mokaddem]
+- Merge pull request #7224 from mrihtar/cmdLineHelp. [Andras Iklody]
+
+  fix: [shells] Fixed/improved command line help
+- Merge branch '2.4' into cmdLineHelp. [Matjaz Rihtar]
+
+  # Conflicts:
+  #	app/Console/Command/AdminShell.php
+  #	app/Console/Command/EventShell.php
+  #	app/Model/Server.php
+- Merge branch 'MISP:2.4' into 2.4. [Matjaz Rihtar]
+- Merge branch 'MISP:2.4' into 2.4. [Matjaz Rihtar]
+- Merge pull request #1 from MISP/2.4. [Matjaz Rihtar]
+
+  Sync fork with original MISP/MISP
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #7792 from JakubOnderka/misp-live-redis-v2. [Jakub
+  Onderka]
+
+  new: [internal] Store MISP live status also in Redis
+- Merge pull request #7800 from JakubOnderka/file-accesss-tool. [Jakub
+  Onderka]
+
+  chg: [internal] Refactor FileAccessTool
+- Merge pull request #7796 from JakubOnderka/org-blocklist. [Jakub
+  Onderka]
+
+  new: [internal] OrgBlocklist::removeBlockedEvents
+- Merge pull request #7795 from JakubOnderka/event-view-controller.
+  [Jakub Onderka]
+
+  chg: [internal] Simplified EventsController::view code
+- Merge pull request #7688 from JakubOnderka/server-sync-get-ids. [Jakub
+  Onderka]
+
+  chg: [sync] Use server sync tool for fetching remote events index
+- Merge pull request #7779 from JakubOnderka/create-job. [Jakub Onderka]
+
+  new: [internal] Method Job::createJob
+- Merge pull request #7791 from JakubOnderka/admin-settings. [Jakub
+  Onderka]
+
+  Admin settings
+- Merge pull request #7789 from JakubOnderka/stix-upload-error. [Jakub
+  Onderka]
+
+  Stix upload error
+- Merge pull request #7788 from JakubOnderka/search-attr-faster. [Jakub
+  Onderka]
+
+  chg: [internal] Faster Attribute search
+- Merge pull request #7778 from JakubOnderka/server-command-line. [Jakub
+  Onderka]
+
+  chg: [internal] Server::command_line_functions is generated on demand
+- Merge pull request #7780 from JakubOnderka/btc-bech32. [Jakub Onderka]
+
+  new: Support for BECH32 (P2WPKH) BTC address
+- Merge pull request #7776 from JakubOnderka/user_shell_ip_user. [Jakub
+  Onderka]
+
+  new: [CLI] UserShell::ip_user command
+- Merge pull request #7775 from JakubOnderka/set-setting-not-writeable.
+  [Jakub Onderka]
+
+  chg: [internal] Do not try to save config when config file is not writeable
+- Merge pull request #7772 from JakubOnderka/update-cleanup. [Jakub
+  Onderka]
+
+  chg: [internal] Cleanup AdminShell::{updateJSON,runUpdates}
+- Merge pull request #7774 from JakubOnderka/log-save-optim. [Jakub
+  Onderka]
+
+  chg: [internal] Optimise saving logs
+- Merge pull request #7771 from JakubOnderka/cli-redis-available. [Jakub
+  Onderka]
+
+  new: [CLI] New tasks that will check if Redis is available
+- Merge pull request #7769 from JakubOnderka/app-controller-cleanup-
+  vol3. [Jakub Onderka]
+
+  chg: [internal] AppController code cleanup
+- Merge pull request #7768 from JakubOnderka/app-controller-cleanup-
+  vol2. [Jakub Onderka]
+
+  chg: [internal] Move methods to specific controllers
+- Merge pull request #7767 from JakubOnderka/undefined-offset-fix.
+  [Jakub Onderka]
+
+  fix: [internal] Undefined offset in AppController
+- Merge pull request #7571 from righel/migrate-org_blocklists-index-
+  view. [Andras Iklody]
+
+  Migrate org blocklists index view
+- Revert "chg: migrate /event_blocklist/add,edit to view factory."
+  [Luciano Righetti]
+
+  This reverts commit 51f226fd8c79d5b7e514d459968e89c211535025.
+- Merge pull request #7761 from JakubOnderka/code-cleanup-vol8. [Jakub
+  Onderka]
+
+  chg: [internal] Code cleanup
+- Merge pull request #7762 from JakubOnderka/upload-mistp-file. [Jakub
+  Onderka]
+
+  chg: [UI] Better error messages when uploading MISP file
+- Merge pull request #7722 from JakubOnderka/attribute-validation-fix.
+  [Jakub Onderka]
+
+  chg: [internal] Try to fix validation when value1 and value2 provided
+- Merge pull request #7759 from JakubOnderka/pgp-view-pgp. [Jakub
+  Onderka]
+
+  chg: [UI] PGP error message
+- Add: add initial api docs fo /taxonomies endpoints. [Luciano Righetti]
+- Merge pull request #7754 from JakubOnderka/do-not-fetch-keys. [Jakub
+  Onderka]
+
+  chg: [internal] Do not fetch keys from db for authkey login
+- Merge pull request #7758 from JakubOnderka/modify-domain|ip. [Jakub
+  Onderka]
+
+  fix: [internal] Modifying domain|ip attribute
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #7744 from RichieB2B/ncsc-nl/retention. [Sami
+  Mokaddem]
+
+  fix: [misp-retention] use update_tag
+- Merge pull request #7752 from JakubOnderka/fix-sending-external.
+  [Jakub Onderka]
+
+  fix: [internal] Sending external e-mail
+- Merge pull request #7753 from JakubOnderka/deprecated-variables.
+  [Jakub Onderka]
+
+  cchg: [internal] Remove deprecated variables
+- Merge pull request #7590 from JakubOnderka/event-index-optim. [Jakub
+  Onderka]
+
+  chg: [internal] Optimise fetching event index by org or by email
+- Doc: add /auth_keys/* endpoints to openapi spec. [Luciano Righetti]
+- Merge pull request #7746 from JakubOnderka/security-audit-file. [Jakub
+  Onderka]
+
+  chg: [internal] Check if file exists
+- Merge pull request #7725 from JakubOnderka/server-shell. [Jakub
+  Onderka]
+
+  chg: [internal] Simplify ServerShell code
+- Merge pull request #7740 from JakubOnderka/capture-org-faster. [Jakub
+  Onderka]
+
+  chg: [internal] Faster capturing organisation
+- Merge pull request #7739 from JakubOnderka/audit-log-admin-setting.
+  [Jakub Onderka]
+
+  chg: [internal] Remove AdminSetting from AuditLog
+- Merge pull request #7733 from JakubOnderka/capture-object-attributes.
+  [Jakub Onderka]
+
+  chg: [internal] Faster capturing object attributes
+- Merge pull request #7738 from JakubOnderka/related-faster. [Jakub
+  Onderka]
+
+  chg: [internal] Faster processing freetext import
+- Merge pull request #7737 from JakubOnderka/related-faster. [Jakub
+  Onderka]
+
+  chg: [internal] Do not fetch tags for related attributes
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #7720 from RichieB2B/ncsc-nl/wipe-auth. [Alexandre
+  Dulaunoy]
+
+  chg: [misp-wipe] wipe auth_keys tables
+- Merge pull request #7734 from righel/add-composer-no-dev-flag. [Steve
+  Clement]
+
+  chg: skip dev dependencies when installing via INSTALL.sh script.
+- Merge pull request #7579 from
+  JakubOnderka/publish_alerts_summary_only_deprecate. [Jakub Onderka]
+
+  chg: [alert] Deprecate `MISP.publish_alerts_summary_only`
+- Merge pull request #7732 from JakubOnderka/tag-merging. [Jakub
+  Onderka]
+
+  new: [shell] Tag merging
+- Merge branch 'migration-taxonomy' into develop. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into migration-
+  taxonomy. [mokaddem]
+- Merge branch 'feature-cerebrate-sg-pull' into develop. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-cerebrate-
+  sg-pull. [mokaddem]
+- Merge branch 'feature-email-notification-bans' into develop.
+  [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-email-
+  notification-bans. [mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into feature-email-
+  notification-bans. [mokaddem]
+- Merge pull request #7728 from JakubOnderka/edit-attr-simplify. [Jakub
+  Onderka]
+
+  chg: [internal] Simplify code for editing attribute
+- Merge pull request #7727 from JakubOnderka/correlation-optim. [Jakub
+  Onderka]
+
+  Correlation optim
+- Merge pull request #7724 from JakubOnderka/attr-edit-speedup. [Jakub
+  Onderka]
+
+  chg: [internal] Fetch just necessary attributes when editing attribute
+- Merge pull request #7723 from JakubOnderka/less-cidr. [Jakub Onderka]
+
+  chg: [internal] Fetch less CIDR for correlation
+- Merge pull request #7721 from JakubOnderka/fix-typo. [Jakub Onderka]
+
+  fix: [internal] Typo
+- Merge pull request #7719 from JakubOnderka/warninglist-filtering.
+  [Jakub Onderka]
+
+  new: [UI] Allow to filter attributes by specific warninglist
+- Merge pull request #7713 from JakubOnderka/sync-pull-sightings. [Jakub
+  Onderka]
+
+  chg: [sync] Examine less events for sightings pulling
+- Merge pull request #7712 from JakubOnderka/sight-stats-optim. [Jakub
+  Onderka]
+
+  chg: [optim] Little optimise sighting statistics
+- Merge pull request #7708 from JakubOnderka/json-throw-exception.
+  [Jakub Onderka]
+
+  chg: [internal] Throw exception if JSON could not be encoded
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge pull request #7704 from JakubOnderka/capture-attr-refactor.
+  [Jakub Onderka]
+
+  chg: [internal] Simplify capturing attribute code
+- Merge pull request #7706 from JakubOnderka/fix-filter-rules. [Jakub
+  Onderka]
+
+  fix: [internal] Fetching filter rules
+- Merge pull request #6021 from JakubOnderka/correlations-dummy-values.
+  [Jakub Onderka]
+
+  chg: [correlation] Allow to drop Correlation.{date,info} columns
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #7691 from JakubOnderka/user-shell. [Jakub Onderka]
+
+  new: [CLI] User shell
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Alexandre
+  Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge pull request #7696 from JakubOnderka/server-controller-cleanup.
+  [Jakub Onderka]
+
+  chg: [internal] Server controller cleanup
+- Merge pull request #7692 from JakubOnderka/const-hasher-password.
+  [Jakub Onderka]
+
+  chg: [security] Use const hasher also for login
+- Merge pull request #7693 from JakubOnderka/oidc_auth_unblock. [Jakub
+  Onderka]
+
+  new: [oidc] Allow to automatically unblock user after successful login
+- Merge pull request #7683 from JakubOnderka/pull-sightings-optimise.
+  [Jakub Onderka]
+
+  fix: [sync] Fix pulling sightings
+- Merge pull request #7634 from JakubOnderka/fix-sighting-push-vol2.
+  [Jakub Onderka]
+
+  fix: [sync] Pushing sightings
+- Merge pull request #7672 from JakubOnderka/acl-fix. [Jakub Onderka]
+
+  fix: [ACL] queryAvailableSyncFilteringRules is required just for site admins
+- Merge pull request #7673 from JakubOnderka/sync-filter-ref. [Jakub
+  Onderka]
+
+  chg: [sync] Use server sync to get available sync filtering rules
+- Merge pull request #7686 from JakubOnderka/code-fixes. [Jakub Onderka]
+
+  Code fixes
+- Merge pull request #7685 from JakubOnderka/fix-deprecation-warning.
+  [Jakub Onderka]
+
+  fix: [API] Deprecation header
+- Merge pull request #7678 from JakubOnderka/post-test-simplify. [Jakub
+  Onderka]
+
+  chg: [sync] Simplify server post test code
+- Merge pull request #7676 from JakubOnderka/connection-test-server-
+  sync. [Jakub Onderka]
+
+  chg: [sync] Use server sync tool for connection test
+- Merge pull request #7677 from JakubOnderka/mitigate-timing-attacks.
+  [Jakub Onderka]
+
+  chg: [security] Mitigate timing attacks
+- Merge pull request #7675 from JakubOnderka/authkeys-autocompelte-off.
+  [Jakub Onderka]
+
+  new: [security] Disable browser autocomplete for authkeys field
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Luciano
+  Righetti]
+- Merge pull request #7649 from JakubOnderka/pull-sightings. [Jakub
+  Onderka]
+
+  chg: [sync] Pull just necessary data when pulling sightings
+- Merge pull request #7650 from JakubOnderka/pull-proposals-vol2. [Jakub
+  Onderka]
+
+  chg: [sync] Use sync tool for pulling proposals
+- Merge pull request #7659 from JakubOnderka/unique-indexes. [Jakub
+  Onderka]
+
+  chg: [schema] Mark more indexes as unique
+- Security: fix unescaped parameter leading to sqli. [Luciano Righetti]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Alexandre
+  Dulaunoy]
+- Merge pull request #7694 from SteveClement/i18n. [Steve Clement]
+
+  chg: [i18n] Updated default.pot
+- Security: fix unescaped parameter leading to sqli. [Luciano Righetti]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [mokaddem]
+- Merge pull request #7666 from JakubOnderka/assign-comment. [Jakub
+  Onderka]
+
+  new: [warninglist] Assign warninglist comment
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #7665 from JakubOnderka/fix-7663. [Jakub Onderka]
+
+  fix: [log] Array to string conversion
+- Merge pull request #7641 from righel/migrate-sharing-groups-views.
+  [Andras Iklody]
+
+  chg: migrate sharing_views/view/[id] to factory
+- Merge pull request #7648 from JakubOnderka/remove-http-commit. [Andras
+  Iklody]
+
+  chg: [sync] Remove commit and MISP-version from HTTP header
+- Merge pull request #7656 from righel/migrate-tags-views. [Andras
+  Iklody]
+
+  Migrate tags views
+- Merge pull request #7657 from JakubOnderka/org-name-unique. [Jakub
+  Onderka]
+
+  Org name unique
+- Merge pull request #7653 from JakubOnderka/edit-event-optim. [Jakub
+  Onderka]
+
+  chg: [internal] Do not fetch attribute tags when editing attribute
+- Merge pull request #7654 from JakubOnderka/tag-name-unique. [Jakub
+  Onderka]
+
+  chg: [schema] Tag name should be unique
+- Merge pull request #7655 from JakubOnderka/do-not-load-exclusion-
+  again. [Jakub Onderka]
+
+  chg: [internal] Do not load exclusion list from Redis again and again
+- Merge pull request #7651 from JakubOnderka/event-index-filter. [Jakub
+  Onderka]
+
+  fix: [API] Boolean options in index filter conditions
+- Merge pull request #7644 from JakubOnderka/pull-less-info. [Jakub
+  Onderka]
+
+  chg: [sync] Pull events with less info
+- Merge pull request #7645 from JakubOnderka/sightins-uuid-unique.
+  [Jakub Onderka]
+
+  chg: [schema] Sightings UUID column should be unique
+- Merge pull request #7643 from JakubOnderka/pubsub-static. [Jakub
+  Onderka]
+
+  chg: [internal] Convert PubSubTool to static
+- Merge pull request #7541 from JakubOnderka/delete-event-refactor.
+  [Jakub Onderka]
+
+  new: [API] Allow to delete multiple events by UUID
+- Merge pull request #7640 from JakubOnderka/add-event-cleanup-part.
+  [Jakub Onderka]
+
+  Add event cleanup
+- Merge pull request #7587 from JakubOnderka/rest-client-user-agent.
+  [Jakub Onderka]
+
+  Change User-Agent to MISP REST Client
+- Merge pull request #7617 from JakubOnderka/attribute-search. [Jakub
+  Onderka]
+
+  chg: [internal] Do not convert values to lower, since collation is al…
+- Merge pull request #7639 from JakubOnderka/pull-codestyle. [Jakub
+  Onderka]
+
+  chg: [internal] Code style for event pulling
+- Merge pull request #7637 from JakubOnderka/test-syncc. [Jakub Onderka]
+
+  new: [test] Test more endpoints in sync test
+- Merge pull request #7636 from JakubOnderka/event-view-spec. [Jakub
+  Onderka]
+
+  new: [API] Allow more granular specification what data to return when viewing event
+- Merge pull request #7635 from JakubOnderka/server-overlap-method.
+  [Jakub Onderka]
+
+  chg: [sync] Refactor server overlap events fetching
+- Merge pull request #7625 from JakubOnderka/pull-error-handling. [Jakub
+  Onderka]
+
+  chg: [sync] Better error handling for pulling
+- Merge pull request #7632 from JakubOnderka/server-sync-exception.
+  [Jakub Onderka]
+
+  chg: [internal] Better exception handling for server sync
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #7627 from JakubOnderka/post-test-error-log. [Jakub
+  Onderka]
+
+  chg: [internal] Log exception for remote server POST test
+- Merge pull request #7610 from JakubOnderka/galaxy-update-vol2. [Jakub
+  Onderka]
+
+  Galaxy update vol2
+- Merge pull request #7615 from JakubOnderka/event_blocklist_unique.
+  [Jakub Onderka]
+
+  Event blocklist unique
+- Merge pull request #7628 from JakubOnderka/fix-invalid-foreach. [Jakub
+  Onderka]
+
+  fix: [internal] Shadow attributes don't have tags
+- Merge branch 'develop' of github.com:MISP/MISP into migration-
+  taxonomy. [mokaddem]
+
+
 v2.4.148 (2021-08-05)
 ---------------------
 
