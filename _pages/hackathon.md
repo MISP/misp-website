@@ -44,11 +44,11 @@ If you want to have your project listed, please send the name, logo and a brief 
 
 ## Core principles
 
-The hackathon is not a competition, it’s an opportunity for open source and free software developers to work together on interesting ideas, projects or collaborations. The goal is to welcome newcomers (especially to help them get started) as well as established contributors of the various projets. Code is one aspect of the hackathon, but documentation, website presence, presentation materials and design are also important to open source and free software projects in information security.
+The hackathon is not a competition, it’s an opportunity for open source and free software developers to work together on interesting ideas, projects or collaborations. The goal is to welcome newcomers (especially to help them get started) as well as established contributors of the various projects. Code is one aspect of the hackathon, but documentation, website presence, presentation materials and design are also important to open source and free software projects in information security.
 
 ## Agenda
 
-As this is a hackathon, there is no strict agenda. This helps with avoiding interruptions to the work on specific problems or projects and ensures that the hacking on the various problems and ideas progresses smoothly. Nevertheless a global etherpad will be provided to keep track of all the activities and projects ongoing during these two days.
+As this is a hackathon, there is no strict agenda. This helps with avoiding interruptions to the work on specific problems or projects and ensures that the hacking on the various problems and ideas progresses smoothly. Nevertheless a [global etherpad](https://hdoc.csirt-tooling.org/G-IuJ1aeR7adY0eWNpLyjg) is provided to keep track of all the activities and projects ongoing during these two days. The [pad can be updated](https://hdoc.csirt-tooling.org/G-IuJ1aeR7adY0eWNpLyjg) before the hackathon with ideas and proposals.
 
 ## Participating Organisations
 
