@@ -28,6 +28,11 @@ The hackathon will take place in cyberspace and it's free of charge.
 
 {% include hackathon.html %}
 
+For the in-person event in New York City, please note that the numbed of seats available is very limited (3 to 7 people), so please
+send us a mail to info@circl.lu to let us know that you'd like to attend, and when you will be there, so we can organize accordingly.
+The location is [Hudson Yards co-working space](https://www.google.com/maps/place/31+Hudson+Yards,+New+York,+NY+10001,+USA/@40.7547282,-74.0021819,19.75z/data=!4m5!3m4!1s0x89c259b467cfa12b:0x7f1bb3a4085008fd!8m2!3d40.7547466!4d-74.001957).
+Please note that in order to access the venue, vaccination is required and we must check it. If you're not vaccinated yet, you can of course participate to the event online.
+
 ## Register your project
 
 If you want to have your project listed, please send the name, logo and a brief description of your project to info@circl.lu in order to be listed. The only requirements are that your project is:
@@ -48,6 +53,8 @@ As this is a hackathon, there is no strict agenda. This helps with avoiding inte
 ## Supporting Organisations
 
 Security orchestration hackathon is supported by the EC under “Connecting Europe Facility – Cybersecurity Digital Service Infrastructure Maintenance and Evolution of Core Service Platform Cooperation Mechanism for CSIRTs – MeliCERTes Facility” ([SMART 2018/1024](https://digital-strategy.ec.europa.eu/en/news/open-platforms-collaborate-cyber-threats)).
+
+The location for the in-person hackathon taking place in New York City is supported by [Unfinished](https://unfinished.com/).
 
 ## Participating Projects
 
