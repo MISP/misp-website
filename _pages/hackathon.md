@@ -76,4 +76,4 @@ The projects listed are merely examples and you’re more than welcome to propos
 [![IntelMQ Logo](https://raw.githubusercontent.com/certtools/intelmq/develop/docs/_static/Logo_Intel_MQ.png){: width="250" }](https://github.com/certtools/intelmq)
 [![WHIDS Logo](https://raw.githubusercontent.com/0xrawsec/whids/master/doc/img/logo.png){: width="250"}](https://github.com/0xrawsec/whids)
 [![MONARC](https://raw.githubusercontent.com/monarc-project/monarc-training/master/common_pictures/logo-monarc.png)](https://www.monarc.lu)
-[![MOSP](https://raw.githubusercontent.com/CASES-LU/MOSP/master/mosp/static/img/logo-large.png)](https://github.com/CASES-LU/MOSP)
+[![MOSP](https://raw.githubusercontent.com/CASES-LU/MOSP/master/mosp/static/img/logo-large.png){: width="250"}](https://github.com/CASES-LU/MOSP)
