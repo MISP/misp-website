@@ -26,11 +26,13 @@ The hackathon will take place in cyberspace and it's free of charge.
 
 ## Registration
 
+The hackathon is taking place mostly online, and you can register using the form below to get notifications and updates.
+
 {% include hackathon.html %}
 
-For the in-person event in New York City, please note that the numbed of seats available is very limited (3 to 7 people), so please
-send us a mail to info@circl.lu to let us know that you'd like to attend, and when you will be there, so we can organize accordingly.
-The location is [Hudson Yards co-working space](https://www.google.com/maps/place/31+Hudson+Yards,+New+York,+NY+10001,+USA/@40.7547282,-74.0021819,19.75z/data=!4m5!3m4!1s0x89c259b467cfa12b:0x7f1bb3a4085008fd!8m2!3d40.7547466!4d-74.001957).
+If you are in New York City, we also have a small in-person event but please note that the number of seats available is very limited (3 to 7 people) so
+we'd appreciate it if you send us a mail to info@circl.lu to let us know that you'd like to attend, and when you will be there, so we can organize accordingly.
+The location is [Industrious - Equinox Hudson Yards](https://www.google.com/maps/place/Industrious+at+Equinox+Hudson+Yards/@40.7546312,-74.004437,17z/data=!3m2!4b1!5s0x89c259b4431df435:0xb6e1fe740e407ce1!4m5!3m4!1s0x89c259dbd9535dbf:0x24d1362425f7b6f3!8m2!3d40.7546272!4d-74.002243), 11th floor.
 Please note that in order to access the venue, vaccination is required and we must check it. If you're not vaccinated yet, you can of course participate to the event online.
 
 ## Register your project
