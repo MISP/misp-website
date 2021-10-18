@@ -77,3 +77,4 @@ The projects listed are merely examples and you’re more than welcome to propos
 [![WHIDS Logo](https://raw.githubusercontent.com/0xrawsec/whids/master/doc/img/logo.png){: width="250"}](https://github.com/0xrawsec/whids)
 [![MONARC](https://raw.githubusercontent.com/monarc-project/monarc-training/master/common_pictures/logo-monarc.png)](https://www.monarc.lu)
 [![MOSP](https://raw.githubusercontent.com/CASES-LU/MOSP/master/mosp/static/img/logo-large.png){: width="250"}](https://github.com/CASES-LU/MOSP)
+[![MWDB Core](https://raw.githubusercontent.com/CERT-Polska/mwdb-core/master/mwdb/web/src/assets/logo.png){: width="250"}](https://github.com/CERT-Polska/mwdb-core)
