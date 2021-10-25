@@ -26,7 +26,12 @@ The hackathon will take place in cyberspace and it's free of charge.
 
 ## Registration
 
-The hackathon is taking place mostly online, and you can register using the form below to get notifications and updates.
+The hackathon is taking place mostly online,
+
+- Join the MM chat [invitation link](https://mm.circl.lu/signup_user_complete/?id=j8tpo19z53fmmcaheoprg3izhe)
+- Review the [hackathon activity document](https://hdoc.csirt-tooling.org/G-IuJ1aeR7adY0eWNpLyjg) for each projects, pick a project, propose, join the discussions and work on it
+
+and you can register using the form below to get notifications and updates.
 
 {% include hackathon.html %}
 
