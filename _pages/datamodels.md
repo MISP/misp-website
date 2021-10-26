@@ -67,6 +67,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |eppn| | | | | | |
 |favicon-mmh3| | | | | | |
 |filename| | X | | X | | |
+|filename-pattern| | X | | X | | |
 |filename&#124;authentihash| | X | | | | |
 |filename&#124;impfuzzy| | X | | | | |
 |filename&#124;imphash| | X | | | | |
@@ -133,7 +134,6 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |passport-country| | | | | | |
 |passport-expiration| | | | | | |
 |passport-number| | | | | | |
-|pattern-filename| | | | | | |
 |pattern-in-file| | X | | X | | |
 |pattern-in-memory| | X | | X | | |
 |pattern-in-traffic| | | | X | | |
@@ -170,6 +170,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |snort| | | | X | | |
 |special-service-request| | | | | | |
 |ssdeep| | X | | | | |
+|ssh-fingerprint| | | | | | |
 |stix2-pattern| | X | | | | |
 |target-email| | | | | | |
 |target-external| | | | | | |
@@ -256,6 +257,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |eppn| X | | | | | |
 |favicon-mmh3| X | | | | | |
 |filename| | | X | X | | X |
+|filename-pattern| X | | X | X | | |
 |filename&#124;authentihash| | | X | X | | |
 |filename&#124;impfuzzy| | | X | X | | |
 |filename&#124;imphash| | | X | X | | |
@@ -322,7 +324,6 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |passport-country| | | | | | |
 |passport-expiration| | | | | | |
 |passport-number| | | | | | |
-|pattern-filename| | | | | | |
 |pattern-in-file| X | | X | X | | |
 |pattern-in-memory| | | | X | | |
 |pattern-in-traffic| X | | X | X | | |
@@ -359,6 +360,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |snort| X | | | | | |
 |special-service-request| | | | | | |
 |ssdeep| | | X | X | | |
+|ssh-fingerprint| X | | | | | |
 |stix2-pattern| X | | X | X | | |
 |target-email| | | | | | |
 |target-external| | | | | | |
@@ -445,6 +447,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |eppn| | X | | |
 |favicon-mmh3| | | | |
 |filename| | | | |
+|filename-pattern| | | | |
 |filename&#124;authentihash| | | | |
 |filename&#124;impfuzzy| | | | |
 |filename&#124;imphash| | | | |
@@ -511,7 +514,6 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |passport-country| X | | | |
 |passport-expiration| X | | | |
 |passport-number| X | | | |
-|pattern-filename| | | | |
 |pattern-in-file| | | | |
 |pattern-in-memory| | | | |
 |pattern-in-traffic| | | | |
@@ -548,6 +550,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 |snort| | | | |
 |special-service-request| X | | | |
 |ssdeep| | | | |
+|ssh-fingerprint| | | | |
 |stix2-pattern| | | | |
 |target-email| | | | X |
 |target-external| | | | X |
@@ -654,6 +657,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **eppn**: eduPersonPrincipalName - eppn - the NetId of the person for the purposes of inter-institutional authentication. Should be stored in the form of user@univ.edu, where univ.edu is the name of the local security domain.
 *   **favicon-mmh3**: favicon-mmh3 is the murmur3 hash of a favicon as used in Shodan.
 *   **filename**: Filename
+*   **filename-pattern**: A pattern in the name of a file
 *   **filename&#124;authentihash**: A checksum in md5 format
 *   **filename&#124;impfuzzy**: Import fuzzy hash - a fuzzy hash created based on the imports in the sample.
 *   **filename&#124;imphash**: Import hash - a hash created based on the imports in the sample.
@@ -720,7 +724,6 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **passport-country**: The country in which the passport was issued
 *   **passport-expiration**: The expiration date of a passport
 *   **passport-number**: The passport number of a natural person
-*   **pattern-filename**: A pattern in the name of a file
 *   **pattern-in-file**: Pattern in file that identifies the malware
 *   **pattern-in-memory**: Pattern in memory dump that identifies the malware
 *   **pattern-in-traffic**: Pattern in network traffic that identifies the malware
@@ -757,6 +760,7 @@ The MISP format is described as Internet-Draft in [misp-rfc](https://github.com/
 *   **snort**: An IDS rule in Snort rule-format
 *   **special-service-request**: A Special Service Request is a function to an airline to provide a particular facility for A Passenger or passengers. 
 *   **ssdeep**: A checksum in ssdeep format
+*   **ssh-fingerprint**: A fingerprint of SSH key material
 *   **stix2-pattern**: STIX 2 pattern
 *   **target-email**: Attack Targets Email(s)
 *   **target-external**: External Target Organizations Affected by this Attack
