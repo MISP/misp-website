@@ -1,0 +1,3480 @@
+# Changelog
+
+
+## v2.4.151 (2021-11-19)
+
+### New
+
+* [ja3s] JA3 server object template added Fix #296. [Alexandre Dulaunoy]
+
+* Submarine object template added. [iglocska]
+
+* Added submarine. [iglocska]
+
+* Add address related relationships. [Jeroen Pinoy]
+
+* Postal address object. [Jeroen Pinoy]
+
+* [relationships] new "alerts" relationship type. [Alexandre Dulaunoy]
+
+* [security-playbook] security-playbook added. [Pavel Eis]
+
+* [hashlookup] new hashlookup.circl.lu object. [Alexandre Dulaunoy]
+
+* [relationships] parent-of added. [Alexandre Dulaunoy]
+
+### Changes
+
+* [ja3s] updated. [Alexandre Dulaunoy]
+
+* [doc] object template list updated. [Alexandre Dulaunoy]
+
+* [submarine] fixes and list of types added. [iglocska]
+
+* Jq all the things. [iglocska]
+
+* [report] disable correlation on report type. [Alexandre Dulaunoy]
+
+* [passive-ssh] newlines disaster. [Alexandre Dulaunoy]
+
+* [passive-ssh] change fingerprint type. [Jean-Louis Huynen]
+
+* [schema] updated ssh-fingerprint type. [Alexandre Dulaunoy]
+
+* [device] ui-priority added. [Alexandre Dulaunoy]
+
+* [devices] fixed missing ui-priority. [Alexandre Dulaunoy]
+
+* [device] added hits, status and infection_type (from ShadowServer) - request for VarIOT project. [Alexandre Dulaunoy]
+
+* [geolocation] countrycode added as requested for the VarIOT. [Alexandre Dulaunoy]
+
+* [email] add a `bcc` field, `reply-to` can be multiple. [Sami Tainio]
+
+  Fix #329
+
+* [security-playbook] updated. [Alexandre Dulaunoy]
+
+* [doc] updated README. [Alexandre Dulaunoy]
+
+* [hashlookup] add KnownMalicious field in hashlookup record. [Alexandre Dulaunoy]
+
+* [hashlookup] add source, TLSH, SSDEEP fields in the object template. [Alexandre Dulaunoy]
+
+* [process] remove ambiguity between user-creator and current user running the process. [Alexandre Dulaunoy]
+
+  Following CISA/DHS feedback
+
+  Fix #322
+
+* [domain-ip] newline fix. [Alexandre Dulaunoy]
+
+* [ss7-attack] order and newline. [Alexandre Dulaunoy]
+
+* [hashlookup] Using the `filename` type for the FileName attribute instead of `text` [chrisr3d]
+
+* [index] add hashlookup object in the directory list. [Alexandre Dulaunoy]
+
+* [hashlookup] newline because you know. [Alexandre Dulaunoy]
+
+* [hashlookup] filename changed. [Alexandre Dulaunoy]
+
+* [tsk-web-search-query] jq all the things. [Alexandre Dulaunoy]
+
+* [relationships] jq all the things. [Alexandre Dulaunoy]
+
+### Fix
+
+* [naval] meta category fixed. [iglocska]
+
+* [report] Removed parenthesis from the object relation `report-file` [chrisr3d]
+
+* [playbook] it's always a newline story ;-) [Alexandre Dulaunoy]
+
+* [security-playbook] newline issue. [Alexandre Dulaunoy]
+
+* [security-playbook] Categories are case sensitive. [Alexandre Dulaunoy]
+
+* [user-account] replace the unclear text in description. [Alexandre Dulaunoy]
+
+  Feedback from CISA/DHS - fix #323
+
+### Other
+
+* Merge pull request #336 from iglocska/main. [Alexandre Dulaunoy]
+
+  new: submarine object template added
+
+* Revert "new: added submarine" [iglocska]
+
+  This reverts commit d1401437cb5c4a3b67582515536c2a9af73cc78e.
+
+* Merge pull request #335 from Wachizungu/add-address-related-relationships. [Alexandre Dulaunoy]
+
+  new: add address related relationships
+
+* Merge pull request #334 from Wachizungu/add-postal-address-object-template. [Alexandre Dulaunoy]
+
+  new: postal address object
+
+* Merge branch 'main' of github.com:MISP/misp-objects into main. [Alexandre Dulaunoy]
+
+* Merge pull request #332 from gallypette/master. [Alexandre Dulaunoy]
+
+  add: [passive-ssh] new object
+
+* Add: [passive-ssh] new object. [misp]
+
+* Add: [email] Added display name attribute for CC and BCC. [chrisr3d]
+
+* Merge pull request #330 from samitainio/patch-1. [Alexandre Dulaunoy]
+
+  chg: [email] add a `bcc` field, `reply-to` can be multiple
+
+* Ran jq_all_the_things_.sh. [Sami Tainio]
+
+* Merge pull request #328 from 0xrawsec/main. [Alexandre Dulaunoy]
+
+  Added edr-report MISP Object Template
+
+* Ran jq_all_the_things.sh. [Quentin JEROME]
+
+* Update descriptions of edr-report. [qjerome]
+
+* Added edr-report MISP Object definition. [Quentin JEROME]
+
+* Merge branch 'Vasileios-Mavroeidis-improved-descriptions-02102021' into main. [Alexandre Dulaunoy]
+
+* Update definition.json. [Vasileios Mavroeidis]
+
+  Improved the descriptions of the properties to aid their usability and resolve numerous ambiguities.
+
+* Merge pull request #325 from Vasileios-Mavroeidis/patch-1. [Alexandre Dulaunoy]
+
+  Update definition.json
+
+* Update definition.json. [Vasileios Mavroeidis]
+
+  person-role is not included in the attributes
+
+* Merge branch 'Aisik00-main' into main. [Alexandre Dulaunoy]
+
+* Remove multiple from ip field. [Andras Iklody]
+
+* Merge branch 'yodresh-SS7-gt-leasing' into main. [Alexandre Dulaunoy]
+
+* Added few fields for GT Leasing - v3. [Alexandre De Oliveira]
+
+* Fix incorrect type for domain. [Alexandre Dulaunoy]
+
+
+## v2.4.145 (2021-06-28)
+
+### Changes
+
+* Make mypy happy. [Raphaël Vinot]
+
+* [email] add a from-domain field to add domain when full email is not known or a wild card. [Alexandre Dulaunoy]
+
+  Fix #318
+
+  Feedback from Eurocontrol training
+
+### Other
+
+* Merge branch 'main' of github.com:MISP/misp-objects into main. [Alexandre Dulaunoy]
+
+
+## v2.4.144 (2021-06-07)
+
+### New
+
+* [open-data-security] new object template based on open data security definition. [Alexandre Dulaunoy]
+
+  To be used in VARIoT project. https://www.variot.eu/
+
+### Changes
+
+* [paloalto-threat-event] fix newline. [Alexandre Dulaunoy]
+
+* [ddos] fix newline. [Alexandre Dulaunoy]
+
+* [doc] list of object templates updated. [Alexandre Dulaunoy]
+
+* [jq] all the things. [Alexandre Dulaunoy]
+
+* [geolocation] fix UUID to be valid UUIDv4. [Alexandre Dulaunoy]
+
+* [phishing] newline. [Alexandre Dulaunoy]
+
+* [phishing] version bump. [Alexandre Dulaunoy]
+
+* [passive-dns] jq. [Alexandre Dulaunoy]
+
+* [passive-dns] fix. [Alexandre Dulaunoy]
+
+### Fix
+
+* [passive-dns-dnsdbflex] newline. [Alexandre Dulaunoy]
+
+* [network-socket] Typo. [chrisr3d]
+
+* [passive-dns] fix the JSON and the version. [Alexandre Dulaunoy]
+
+### Other
+
+* Merge branch 'phmazzoni-patch-4' into main. [Alexandre Dulaunoy]
+
+* Disabling some field correlations. [phmazzoni]
+
+  Disabling some field correlations to avoid excessive number of events
+
+* Multiple fields for port, ip-src,dst-port following feedback from CONCORDIA. [Alexandre Dulaunoy]
+
+  Multiple fields for port, ip-src,dst-port following feedback from CONCORDIA
+
+* Merge branch 'aaronkaplan-cof2misp-dnsdbflex' into main. [Alexandre Dulaunoy]
+
+* Dnsdbflex object. [aaronkaplan]
+
+* Merge branch 'main' of github.com:MISP/misp-objects into main. [Alexandre Dulaunoy]
+
+* Add: [network-socket] Added Socket type attribute. [chrisr3d]
+
+* Merge branch 'aaronkaplan-main' into main. [Alexandre Dulaunoy]
+
+* Re-Do the definition.json, according to the results of the discussion in https://github.com/MISP/misp-objects/pull/314. [aaronkaplan]
+
+  Removing *_ip and *_domain
+  Keeping bailiwick a domain type
+
+* Merge branch 'main' of https://github.com/MISP/misp-objects. [aaronkaplan]
+
+* Merge branch 'aaronkaplan-patch-1' into main. [Alexandre Dulaunoy]
+
+* Update definition.json. [AaronK]
+
+  Added time_first_ms, time_last_ms. Clarified a few things in the descriptions.
+
+* As discussed with @rafiot, we can't simply add rdata and rrname as text only into MISP objects. Why? Because otherwise we can't use MISP's correlation engine to correlate attributes (rrname, rdata) inside these MISP objects with other events. Because "text" would not correlate with other "ip-src" or "domain" types in other objects/attributes. [aaronkaplan]
+
+  Kind of sucks to duplicate the rrname and rdata entries, but that's the
+  only solution we came up with.
+
+  The COF2MISP module will populate both the rrname,rdata as well as the
+  rrname_{domain,ip} and rdata_{domain,ip} attributes.
+
+  Checked with jq_all_the_things.sh.
+  Thanks for your consideration.
+
+
+## v2.4.142 (2021-04-27)
+
+### New
+
+* [doc] gitchangelog.rc added. [Alexandre Dulaunoy]
+
+* [dkim] DomainKeys Identified Mail - DKIM object template. [Alexandre Dulaunoy]
+
+* [windows-service] windows-service object added. [Alexandre Dulaunoy]
+
+* [telegram-user] basic telegram user. [Alexandre Dulaunoy]
+
+* [jarm] new jarm object to describe TLS/SSL implementation matching a jarm fingerprint. [Alexandre Dulaunoy]
+
+* GH workflow. [Raphaël Vinot]
+
+* [sh] Added process state. [Steve Clement]
+
+* [cpe-asset] an asset as defined with a CPE value. [Alexandre Dulaunoy]
+
+  This object was created to support the use-case of pisax.org for the
+  following use-case:
+
+   - They define well-known assets which are used by IXPs and GRXs via
+   their CPEs;
+   - The assets are defined in a set of fixed/master MISP events;
+   - Those events are used to query NVD/CVE database via cve-search
+   (https://github.com/cve-search/cve-search) using a PyMISP script
+   - Then the CVEs matching the CPE are added in MISP and dispatched to the
+   sharing community of users as specific MISP events.
+
+* [gitlab-user] GitLab user. Gitlab.com user or self-hosted GitLab instance  object template. [Alexandre Dulaunoy]
+
+* [github-user] a GitHub user object template. [Alexandre Dulaunoy]
+
+  Based on the information seen on the web interface.
+
+* Android-app object template. [Raphaël Vinot]
+
+* [dev] add Twitter objects: twitter-account, twitter-list, twitter-post. add YouTube objects: youtube-channel, youtube-comment, youtube-playlist, youtube-video. add object: image. [VVX7]
+
+* [dev] add Reddit objects: reddit-account, reddit-post, reddit-comment, reddit-subreddit. [VVX7]
+
+* [dev] add facebook-account. [VVX7]
+
+* [dev] add facebook-post object. [VVX7]
+
+* [dev] add facebook-page object. [VVX7]
+
+* [dev] add facebook-group object. [VVX7]
+
+* Preliminary version of git-vuln-finder object template. [Raphaël Vinot]
+
+* Objects and relations for FollowTheMoney. [Raphaël Vinot]
+
+* [publication] jq'd the object. [VVX7]
+
+* [publication] add object to describe academic journals, books, etc. [VVX7]
+
+* Category FollowTheMoney. [Raphaël Vinot]
+
+  To represent objects described there:
+  https://docs.alephdata.org/developers/FollowTheMoney
+
+* [object] add scheduled-event, add social-media-group. [VVX7]
+
+* [object] add narrative. [VVX7]
+
+* Add covid19 dxy live object. [Raphaël Vinot]
+
+* Health object meta type. [Raphaël Vinot]
+
+* [crypto-material] add generic-symmetric-key. [Raphaël Vinot]
+
+* CSSE COVID-19 Dataset - Daily report. [Raphaël Vinot]
+
+  Source:
+    https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data
+
+* [iot] a first version of the IoT object. [Alexandre Dulaunoy]
+
+  Ref: based on the workshop discussion in https://github.com/C00kie-/workshop-materials
+
+  The idea is to have this root object when a new IoT device is documented
+  and further objects will be connected such as firmware or even file object
+
+* [objects] add instant-message object. add instant-message-group object. [VVX7]
+
+* [objects] news-agency, news-media. [VVX7]
+
+* TruStar report object. [Raphaël Vinot]
+
+* [attributes] chrome-extension-id added. [Alexandre Dulaunoy]
+
+* [objects] blog, forged-document, leaked-document, meme-image. [VVX7]
+
+* [attribute type] kusto-query attribute type. [Alexandre Dulaunoy]
+
+  Kusto query is the query language for the Kusto services in Azure used
+  to search large dataset. It's used in Windows Defender ATP Hunting-Queries
+  and also Azure Sentinel (Cloud-native SIEM).
+
+* IntelQM objects. [Raphaël Vinot]
+
+* [virustotal-graph] VirusTotal graph object added. [Alexandre Dulaunoy]
+
+  Based on the discussion with VT, virustotal-graph object has been added which will
+  be used with the expansion modules and also to trigger the specific
+  quick-tab in MISP to display the VT graph result in an iframe if this
+  object is present.
+
+* Weakness & attack-pattern objects to describe CWE & CAPEC related to a CVE. [chrisr3d]
+
+  - The attack-pattern object is using a new
+    attribute type called weakness to describe CWE
+    id, which will link to its own information as
+    described in https://cve.circl.lu
+
+* Add "includes" relationship. [Raphaël Vinot]
+
+* Objects for Scripps CO2. [Raphaël Vinot]
+
+* New object describing user accounts. [chrisr3d]
+
+* [imsi-catcher] object based on the output format of IMSI-catcher open source tools. [Alexandre Dulaunoy]
+
+  The object has been created to show the flexibility of the object
+  template during the PassTheSalt 2019 conference and the D4 presentation.
+
+* [shell-commands] Object describing a series of shell commands executed. This object can be linked with malicious files in order to describe a specific execution of shell commands. [Alexandre Dulaunoy]
+
+* Add offset, virtual_address and virtual_size to the pe section object. [Raphaël Vinot]
+
+  Related to https://github.com/MISP/PyMISP/issues/388
+
+* Internal reference object. [Raphaël Vinot]
+
+* Add Alfred relationships (CCCS) [Raphaël Vinot]
+
+* New Object describing original files usedd to import data in MISP. [chrisr3d]
+
+* [tracking-id] Analytics and tracking ID such as used in Google Analytics or other analytic platform. [Alexandre Dulaunoy]
+
+* [short-message-service] Short Message Service (SMS) object template describing one or more SMS message added. [Alexandre Dulaunoy]
+
+* Threatgrid-report object template. [Raphaël Vinot]
+
+* Exploit-poc object describing a proof of concept or exploit of a vulnerability. This object has often a relationship with a vulnerability object. [Alexandre Dulaunoy]
+
+* Add EML to the email template. [Raphaël Vinot]
+
+* Attach logfile to fail2ban. [Raphaël Vinot]
+
+* Fail2ban object. [Raphaël Vinot]
+
+### Changes
+
+* [doc] list of objects updated. [Alexandre Dulaunoy]
+
+* Make jq validation happy. [Raphaël Vinot]
+
+* Make jq validation happy. [Raphaël Vinot]
+
+* Add PR to GH actions. [Raphaël Vinot]
+
+* [report] add a report type. [Alexandre Dulaunoy]
+
+* [person] full-name attribute type added + expanding object person with full-name. [Alexandre Dulaunoy]
+
+* [schema] dkim and dkim signature added. [Alexandre Dulaunoy]
+
+* [network-element] jq. [Alexandre Dulaunoy]
+
+* [network-profile] AS updated. [Alexandre Dulaunoy]
+
+* [network-profile] add jarm-fingerprint. [Alexandre Dulaunoy]
+
+* [relationships] jq all the things. [Alexandre Dulaunoy]
+
+* Update json schema for relationships to include opposite key. [Théo BARRAGUÉ]
+
+* [report] make link or summary as non-required field. [Alexandre Dulaunoy]
+
+* [regexp] fixed. [Alexandre Dulaunoy]
+
+* [regexp] added Farsight Compatible Regular Expressions (FCRE) added. [Alexandre Dulaunoy]
+
+* [splunk] object updated. [Alexandre Dulaunoy]
+
+* [report] add a link field to the report object template. [Alexandre Dulaunoy]
+
+* Disable correlation in VT objects. [Raphaël Vinot]
+
+* [relationships] updated. [Alexandre Dulaunoy]
+
+* [relationships] writes added. [Alexandre Dulaunoy]
+
+* [url] jq all the things. [Alexandre Dulaunoy]
+
+* Allow multiple IPs in URL object. [Raphaël Vinot]
+
+* [telegram-account] required attributes. [Terrtia]
+
+* [telegram-account] fixes. [Alexandre Dulaunoy]
+
+* Update objects to match lief output for authenticode. [Raphaël Vinot]
+
+* [jarm] jq all the things. [Alexandre Dulaunoy]
+
+* [jarm] jarm type is jarm-fingerprint. [Alexandre Dulaunoy]
+
+* [doc] fixed. [Alexandre Dulaunoy]
+
+* [trustar_report] Updated to add "THREAT_ACTOR" [Alexandre Dulaunoy]
+
+  Fixing #273
+
+* [yara] disable correlations on some fields. [Alexandre Dulaunoy]
+
+* [crypto-material] add a public field for public cryptographic materials. [Alexandre Dulaunoy]
+
+* [favicon] jq all the things. [Alexandre Dulaunoy]
+
+* [favicon] A favicon, also known as a shortcut icon, website icon, tab icon, URL icon, or bookmark icon, is a file containing one or more small icons, associated with a particular web site or web page. The object template can include the murmur3 hash of the favicon to facilitate correlation. [Alexandre Dulaunoy]
+
+* [type] favicon-mmh3 is the murmur3 hash of a favicon as used in Shodan. [Alexandre Dulaunoy]
+
+* [doc] MISP objects list updated. [Alexandre Dulaunoy]
+
+* [twitter-post] jq. [Alexandre Dulaunoy]
+
+* [jq] all the things. [Alexandre Dulaunoy]
+
+* [doc] travis removed. [Alexandre Dulaunoy]
+
+* Can have mutliple text attributes. [Beaujeant]
+
+* [domain-ip] hostname added as an attribute. [Alexandre Dulaunoy]
+
+* Add type in schema. [Raphaël Vinot]
+
+* [schema] process-state updated. [Alexandre Dulaunoy]
+
+* [jq] all the [things] [Alexandre Dulaunoy]
+
+* [json] sort. [Steve Clement]
+
+* [process] revert back to single char in light of the new process-attribute. [Steve Clement]
+
+* [process] Added sane defaults. [Steve Clement]
+
+* [process] Updated process object. [Steve Clement]
+
+* [types] jarm-fingerprint added. [Alexandre Dulaunoy]
+
+* Using the actual attribute type for cpe and weakness instead of text. [chrisr3d]
+
+* [cpe-asset] updated. [Alexandre Dulaunoy]
+
+* [vulnerability] fixed. [Alexandre Dulaunoy]
+
+* [vulnerability] vulnerable_configuration are now cpe type. [Alexandre Dulaunoy]
+
+* [file] because sorted is always better. [Alexandre Dulaunoy]
+
+* [file] imphash and telfhash added. [Alexandre Dulaunoy]
+
+* [attribute type] new telfhash added. [Alexandre Dulaunoy]
+
+* [gitlab-user] because -r is important. [Alexandre Dulaunoy]
+
+* [type] new type added. [Alexandre Dulaunoy]
+
+* [doc] object lists updated. [Alexandre Dulaunoy]
+
+* Sort json. [Raphaël Vinot]
+
+* [github-user] reflect the API fields. [Alexandre Dulaunoy]
+
+* [keybase] be consistent with keybase API. [Alexandre Dulaunoy]
+
+* [keybase-account] at least username is required. [Alexandre Dulaunoy]
+
+* [twitter-account] incorrect description fixed. [Alexandre Dulaunoy]
+
+* [relationships] leaks, leaked-by doxed-by. [Alexandre Dulaunoy]
+
+* [schema] updated. [Alexandre Dulaunoy]
+
+* Making source port attribute multiple in the ip-port object. [chrisr3d]
+
+* [keybase] newline issue. [Alexandre Dulaunoy]
+
+* [keybase-account] meta category updated. [Alexandre Dulaunoy]
+
+* [jq] all the things. [Alexandre Dulaunoy]
+
+* [keybase] description updated. [Alexandre Dulaunoy]
+
+* [keybase] updated. [Alexandre Dulaunoy]
+
+* [restore] file. [Alexandre Dulaunoy]
+
+* [doc] MISP object template. [Alexandre Dulaunoy]
+
+* [doc] example was broken. [Alexandre Dulaunoy]
+
+* [doc] README. [Alexandre Dulaunoy]
+
+* [jq] all the things. [Alexandre Dulaunoy]
+
+* [jq] all the things. [Alexandre Dulaunoy]
+
+* [jq] all the things. [Alexandre Dulaunoy]
+
+* [jq] all the things. [Alexandre Dulaunoy]
+
+* [relationships] update relationships with space. [Alexandre Dulaunoy]
+
+* [tools] now using main branch instead of master while generating documentation. [Alexandre Dulaunoy]
+
+* [vulnerability] vulnerability is is now a vulnerability type. [Alexandre Dulaunoy]
+
+  The vulnerability type is an official CVE number.
+
+  We might need to add in the future a new attribute in the object
+  for non-CVE id of a vulnerability or adding other id type in the object.
+
+  This commit fixes #234
+
+* [schema] new types added. [Alexandre Dulaunoy]
+
+* [misp-objects] newline newline newline is the evil. [Alexandre Dulaunoy]
+
+* [pe] multiple is true not 1 ;-) [Alexandre Dulaunoy]
+
+* [pe] richpe. [Alexandre Dulaunoy]
+
+* [RichPE] added. [Andras Iklody]
+
+* [file] jq. [Alexandre Dulaunoy]
+
+* [doc] misp-objects list updated. [Alexandre Dulaunoy]
+
+* [license] clarify the license of MISP objects and software. [Alexandre Dulaunoy]
+
+  The MISP objects JSON template are dual-licensed under CC-0 or 2-clause
+  BSD (like the taxonomies).
+
+  Only the software in /tools is under the AGPL.
+
+  Fix #266
+
+* [dev] add Parler app objects. [VVX7]
+
+* [cortex-taxonomy] sort attributes. [Marc Hörsken]
+
+  Make sure the attributes are sorted like a Cortex taxonomy
+  would normally be displayed/summarized:
+
+  `namespace:predicate="value"` with `level` as a meta information.
+
+* [dev] disable correlation on some attributes. fix underscore typo in account profile-image. [VVX7]
+
+* [dev] make Reddit attributes (mostly) reflect Reddit API. [VVX7]
+
+* [dev] run validate_all/jq. [VVX7]
+
+* [dev] make twitter object attributes more consistent with twitter api. [VVX7]
+
+* [dev] add object properties from #257. [VVX7]
+
+* [dev] fix attribute type. [VVX7]
+
+* [dev] add user avatar. [VVX7]
+
+* [dev] change post-id attribute type to text. [VVX7]
+
+* [dev] run rq. [VVX7]
+
+* [dev] update tracking-id to disable correlation on id description. minor changes to attribute descriptions. [VVX7]
+
+* [new types] git-commit-id added. [Alexandre Dulaunoy]
+
+* [sms] format fixed. [Alexandre Dulaunoy]
+
+* [boleto] JSON fixed. [Alexandre Dulaunoy]
+
+* [publication] modify requiredOneOf, contributor type to text attribute. [VVX7]
+
+* Sort relationships. [Raphaël Vinot]
+
+* Sort all entries in jq script. [Raphaël Vinot]
+
+* Sort all the entries in the templates by default. [Raphaël Vinot]
+
+* [legal-entity] website and logo added for legal entity. [Alexandre Dulaunoy]
+
+  Thanks to Emmanuel MANCIET for the proposal
+
+* [object] add new microblog attributes, change some of the descriptions to make them clearer. [VVX7]
+
+* [victim] add a domain to field to reference a victim by their Internet domain name. [Alexandre Dulaunoy]
+
+* [object] update narrative required object fields. [VVX7]
+
+* [object] update narrative object fields. [VVX7]
+
+* [x509] using built-in types wherever possible. [Golbark]
+
+* [doc] clarify the need to validate before doing a PR. [Christophe Vandeplas]
+
+* [object] disable correlation on some fields. add external references. [VVX7]
+
+* [object] add narrative description/summary. [VVX7]
+
+* [object] add narrative description/summary. [VVX7]
+
+* [object] change narrative version. [VVX7]
+
+* Bump CSSE COVID-19 Daily report to new version. [Raphaël Vinot]
+
+* [victim] add reference to case (as requested by law-enforcement - ENFORCE project) [Alexandre Dulaunoy]
+
+* [http-request] fixed. [Alexandre Dulaunoy]
+
+* [network-socket] add filename to object template. [Alexandre Dulaunoy]
+
+* [microblog] add Twitter-id reference. [Alexandre Dulaunoy]
+
+* [IntelMQ Event] replace non-ascii double quote by single quote. [Raphaël Vinot]
+
+* [vulnerability] remove underscore from the object. [Alexandre Dulaunoy]
+
+* [iot-device] reference added. [Alexandre Dulaunoy]
+
+* [file] imphash removed as it should be at PE level. [Alexandre Dulaunoy]
+
+* [pe] imphash and impfuzzy can be as key attribute. [Alexandre Dulaunoy]
+
+* [domain-crawled] domain shouldn't be a multiple. [Terrtia]
+
+* [iot] add SPI, Serial and JTAG status. [Alexandre Dulaunoy]
+
+* [iot] because reusing UUID is bad. [Alexandre Dulaunoy]
+
+* [schema] iot category added. [Alexandre Dulaunoy]
+
+* [crawled domain] rename object. [Terrtia]
+
+* Add domain crawled object. [Terrtia]
+
+* [relationships] 'knows' relationship added. [Alexandre Dulaunoy]
+
+* [sms] the SMS center is a phone number. [Alexandre Dulaunoy]
+
+* [rtir] disable correlation on incident state. [Alexandre Dulaunoy]
+
+* [sms] missing Cellebrite fields added. [Alexandre Dulaunoy]
+
+* [email] ip-src added in the email object templated as requested by Norberto Chavez. [Alexandre Dulaunoy]
+
+* [vehicule] image + type of vehicle added. [Alexandre Dulaunoy]
+
+* [organization] typo fixed + description added. [Alexandre Dulaunoy]
+
+* [phone] add brand and model. [Alexandre Dulaunoy]
+
+* [new object pgp-meta] Metadata extracted from a PGP keyblock, message or signature. [Terrtia]
+
+* [object fields] allow additional requiredOneOf fields in blog, microblog, meme-image objects. add attachment field to blog object. add username to news-media. [VVX7]
+
+* [object field] add profile picture to user-account. [VVX7]
+
+* [object field] enable multiple URL/link in microblog. [VVX7]
+
+* [object field] add title to microblog. [VVX7]
+
+* [object field] add link for user-account page. [VVX7]
+
+* [object fields] add forged-document types, add microblog state. [VVX7]
+
+* [microblog] allow multiple attachments per the enhancement request. [VVX7]
+
+* [microblog] add attachment field for issue #186. [VVX7]
+
+* [misinfosec objects] add archive (Internet Archive, Archive.is, etc) fields, change blog post title description. [VVX7]
+
+* [blog] add title field to object. [VVX7]
+
+* [meme-image] uuid and name duplicate. [VVX7]
+
+* [domain-ip] port added (required by AIL crawling) [Alexandre Dulaunoy]
+
+* [microblog] disable correlation for the verified-username state. [Alexandre Dulaunoy]
+
+* [annotation] 'full report' type added. [Alexandre Dulaunoy]
+
+* [organization] VAT - TAX-ID added in the template. [Alexandre Dulaunoy]
+
+* [relationships] mentions relationship has been added. [Alexandre Dulaunoy]
+
+  Fix #214
+
+* [microblog] add the ability to have non-malicious links. [Alexandre Dulaunoy]
+
+  Fix #215
+
+* [dark-pattern] typos. [Jean-Louis Huynen]
+
+* [types] updated. [Alexandre Dulaunoy]
+
+* [script] attachment field added. [Alexandre Dulaunoy]
+
+* Update crypto-material and url. [Raphaël Vinot]
+
+* [microblog] verified field added to add the state of the username. [Alexandre Dulaunoy]
+
+* [x509, crypto-material] several changes: - enables correlation on n, p, q; - allows for only providing modulus for crypto material; - specifies the expected data format of several fields. [Jean-Louis Huynen]
+
+* [crypto-material] new object to described key materials (public and private) [Alexandre Dulaunoy]
+
+* [x509] to map with D4 project snakeoil database. [Alexandre Dulaunoy]
+
+* [cowrie] to add HASSH of the client SSH session following Salesforce algorithm. [Alexandre Dulaunoy]
+
+  As mentioned in #84
+
+* [coin-address] DASH cryptocurrency address added. [Alexandre Dulaunoy]
+
+* [schema] updated to the latest version. [Alexandre Dulaunoy]
+
+* [translation] double entry fixed in requiredOneOf. [Alexandre Dulaunoy]
+
+  Signed-off by:  By de leaduh of JavaScript and decayin' indicatawhs
+
+* [translation] list of sane default for the languages + type of translation. [Alexandre Dulaunoy]
+
+* [credential] adding disable correlation when required. [Alexandre Dulaunoy]
+
+* [new object templates] various updates. [Alexandre Dulaunoy]
+
+* [relationships] new relationship added is-author-of - fix #183. [Alexandre Dulaunoy]
+
+* [validation] complement schema with categories/types. [Christophe Vandeplas]
+
+* [validation] improve validation script. [Christophe Vandeplas]
+
+* Rename category environment -> climate. [Raphaël Vinot]
+
+* [process] updated following the "mess" of representation in process object. [Alexandre Dulaunoy]
+
+* [doc] new object templates added. [Alexandre Dulaunoy]
+
+* [network-connection] community-id added. [Alexandre Dulaunoy]
+
+* [netflow] attribute community-id added in netflow object template. [Alexandre Dulaunoy]
+
+* [yara] add a yara-rule-name field which can be optional or the only field. [Alexandre Dulaunoy]
+
+  As requested in https://github.com/MISP/MISP/issues/4858
+
+* [objects] new objects added in the README. [Alexandre Dulaunoy]
+
+* Added user-id attribute as one of the required ones. [chrisr3d]
+
+* [rogue-dns] new object template expressing rogue dns. [Alexandre Dulaunoy]
+
+  Thanks to CERT.br for the contribution
+
+* [relationships] screenshot-of added to the list of default relationships. [Alexandre Dulaunoy]
+
+* [shell-commands] fix typo in object name. [Alexandre Dulaunoy]
+
+* [doc] shell-commands object added. [Alexandre Dulaunoy]
+
+* [script] requiredOneOf for script or filename. [Alexandre Dulaunoy]
+
+  Malicious scripts can be received without having a filename.
+
+* [doc] ssh-authorized-keys object template added. [Alexandre Dulaunoy]
+
+* [person] Gender unknown added. [Alexandre Dulaunoy]
+
+  This has been added when investigation is ongoing and
+  alias is know but gender is unknown discovered during
+  Enforce training.
+
+  topic:enforce
+
+* [microblog] state field added to describe if the tweet is malicious or just OSINT. [Alexandre Dulaunoy]
+
+* [authenticode] signerinfo template added. [Alexandre Dulaunoy]
+
+* [authenticode-signerinfo] first version. [Alexandre Dulaunoy]
+
+* [jq] jq all the things(tm) [Alexandre Dulaunoy]
+
+* [x509] improve X.509 certificate description to match required ones from LIEF (as discussed in #180). [Alexandre Dulaunoy]
+
+* [regripper] version updated. [Alexandre Dulaunoy]
+
+* [irc] add nickname used for associated IRC server and channel(s) [Alexandre Dulaunoy]
+
+* [device] name of an object must be lowercase. [Alexandre Dulaunoy]
+
+* [doc] phishing-kit object added to the list. [Alexandre Dulaunoy]
+
+* [phishing-kit] small typo fixed in the description. [Alexandre Dulaunoy]
+
+* [tools] remove trailing dot if presents. [Alexandre Dulaunoy]
+
+* Allow to create a file object with a non-malicious file. [Raphaël Vinot]
+
+  Fix #175 #176
+
+* [doc] new organization and device object added. [Alexandre Dulaunoy]
+
+* [schema] category removed. [Alexandre Dulaunoy]
+
+* [ip-port] ip-src added to fix #149. [Alexandre Dulaunoy]
+
+* [script] filename added to fix #149. [Alexandre Dulaunoy]
+
+* [doc] tor-hiddenservices added. [Alexandre Dulaunoy]
+
+* [lnk] new LNK object (Windows Shortcut) [Alexandre Dulaunoy]
+
+* [process] fix the type - fix #160. [Alexandre Dulaunoy]
+
+* Bump vehicle object. [Raphaël Vinot]
+
+* [person] Spanish IDs added (NIE, NIF and DNI) [Alexandre Dulaunoy]
+
+* [elf] disable correlation on file type. [Alexandre Dulaunoy]
+
+* [email] IP and hostname fields from extracted headers. [Alexandre Dulaunoy]
+
+* [file] preferred charset used by the file (if decoded from mime-type parsing) [Alexandre Dulaunoy]
+
+* [doc] to_ids flag was missing in the README. [Alexandre Dulaunoy]
+
+* [phishing] removed the IDS flag on the email used for takedown - and change attribute type. [Alexandre Dulaunoy]
+
+* [anonymisation] add level-of-knowledge to request for more information if needed. [Alexandre Dulaunoy]
+
+* [anonymisation] algo list fixed. [Alexandre Dulaunoy]
+
+* [script] added PHP in the most used programming language (at least when looking at malicious WebShells on the Internet) [Alexandre Dulaunoy]
+
+  - I sense a new stackoverflow survey category
+
+* [http-request] IP as allowed type. [Christophe Vandeplas]
+
+* [doc] copyright date fixed. [Alexandre Dulaunoy]
+
+* [relationships] witness-of added. [Alexandre Dulaunoy]
+
+* [doc] facial-composite object added. [Alexandre Dulaunoy]
+
+* [person] portrait added #133. [Alexandre Dulaunoy]
+
+* [person] OFAC fields - Office of Foreign Assets Control. [Alexandre Dulaunoy]
+
+* Chg: [microblog] a small clarification about the username to avoid the @ [Alexandre Dulaunoy]
+
+* [cortex] description updated as TheHive/Cortex observables will be attributes with relationships from this object. [Alexandre Dulaunoy]
+
+* [cortex-taxonomy] aka mini-report. [Alexandre Dulaunoy]
+
+* [definition] Extended crypto coin object to be able to enrich with interesting data. [Steve Clement]
+
+* [mactime-timeline-analysis] disable some correlations. [Alexandre Dulaunoy]
+
+* [ip-api-adress] updated to ensure correlation disabled. [Alexandre Dulaunoy]
+
+* Add type of internal reference. [Raphaël Vinot]
+
+* [regripper-sam-hive-single-user] uuid fixed. [Alexandre Dulaunoy]
+
+* [tsk-web-downloads] including link versus url (we assume it's malicious link by default) [Alexandre Dulaunoy]
+
+* Jq'ed all the objects. [aksha]
+
+* [pcap-metadata] linktype added in the sane default. [Alexandre Dulaunoy]
+
+* [relationships] newline and relationship file ;-) [Alexandre Dulaunoy]
+
+* [person] add attributes to whois-related information which can be associated to a person. [Alexandre Dulaunoy]
+
+* [relationships] references added (useful for *INT collection referencing something which needs further analysis) [Alexandre Dulaunoy]
+
+  - Example: a tweet referencing a hash which needs further analysis:
+
+* [network-connection] disable correlation. [Alexandre Dulaunoy]
+
+* [process] disable correlation where it's not required. [Alexandre Dulaunoy]
+
+* [phishing] new object added. [Alexandre Dulaunoy]
+
+* [phishing] new template object (first draft) based on the phishtank format. [Alexandre Dulaunoy]
+
+* [doc] mactime template added. [Alexandre Dulaunoy]
+
+* Jq all the things ;-) [Alexandre Dulaunoy]
+
+* [relationship] annotates relationship added (useful for the annotation object) [Alexandre Dulaunoy]
+
+* [README] malware-config object added. [Alexandre Dulaunoy]
+
+* [malware-config] new object to describe malware configuration in clear-text or encrypted/encoded. [Alexandre Dulaunoy]
+
+  ref: fix https://github.com/MISP/MISP/issues/3679
+
+* [file] fullpath can be part of a single file object. [Alexandre Dulaunoy]
+
+* [relationships] updated with new relationships. [Alexandre Dulaunoy]
+
+* [ail] version of the template updated. [Alexandre Dulaunoy]
+
+* [tracking-id] add the tracker origin such as the vendor or software. [Alexandre Dulaunoy]
+
+* [original-import-file] list of "sane" default format. [Alexandre Dulaunoy]
+
+* [doc] tracking-id added to the list of templates. [Alexandre Dulaunoy]
+
+* Deleted filename attribute since it is already contained in attachment. [chrisr3d]
+
+* [file] following some CyBOX import adding a fullpath field which includes filename and path request. [Alexandre Dulaunoy]
+
+* [forensic-evidence] updated to include other tools and correlation disabled for some fields. [Alexandre Dulaunoy]
+
+* Chg: [forensic-case] object added based on the original one from @Aks6193. [Alexandre Dulaunoy]
+
+  The idea is to separate the evidences from the case itself as you can
+  have multiple acquisitions for a specific case. Another object template
+  is required such as [forensic-evidence] to be able to link between the
+  forensic-case object and one or more evidences.
+
+* [ja3] categories removed (default attributes categories will be used) [Alexandre Dulaunoy]
+
+  Fix MISP/MISP/issues/3593
+
+* [geolocation] disable correlation on specific attributes. [Alexandre Dulaunoy]
+
+* [vehicle] Vehicle object template to describe a vehicle information and registration. [Alexandre Dulaunoy]
+
+* [paste object] add a link attribute when the paste reference is not malicious. [Alexandre Dulaunoy]
+
+* [misp-objects] multiple flag is now visible in asciidoctor output. [Alexandre Dulaunoy]
+
+* Allow multiple domains too fix #108. [Alexandre Dulaunoy]
+
+* [threadgrid-report] added in the list of objects. [Alexandre Dulaunoy]
+
+* [coin-address] ETN symbol added. [Alexandre Dulaunoy]
+
+* [relationship] exploits added. [Alexandre Dulaunoy]
+
+* [exploit-poc] a same context can contains multiple PoC samples. [Alexandre Dulaunoy]
+
+* [exploit-poc] added to the list of objects. [Alexandre Dulaunoy]
+
+* [JSON schema] vulnerability added as meta-category. [Alexandre Dulaunoy]
+
+* [vulnerability] is now in its own vulnerability meta-category. [Alexandre Dulaunoy]
+
+* [vulnerability] updated following NATO and CIRCL feedback. [Alexandre Dulaunoy]
+
+  - CVSS score added
+  - CVSS string added
+  - credit attribute added
+  - text -> description
+  - vulnerability attribute can now be any format (not only the CVE
+  format)
+
+* [coin-address] XMR type address added in addition to the default Bitcoin address format. [Alexandre Dulaunoy]
+
+* Jq all the things. [Alexandre Dulaunoy]
+
+* New script template object. [Alexandre Dulaunoy]
+
+  Object describing a computer program written to be run in a special run-time environment. The script or shell
+  script can be used for malicious activities but also as support tools for threat analysts.
+
+  Fix #101
+
+* EPSG and spacial-reference add fix #102. [Alexandre Dulaunoy]
+
+  Following feedback during the last ENISA Cyber Europe 2018, we updated
+  the geolocation object to the following:
+
+   - Fixing ui-priority to ensure lat,long in order
+   - Adding the ability to specify an EPSG value instead of coordinates
+   (handy if you want to quickly express a known location/area)
+   - Set a default spacial-reference to avoid confusion between reported
+   value from GPS versus values projected into a specific spacial
+   projection. default is WGS-84.
+
+* Shortened-link template added. [Alexandre Dulaunoy]
+
+* Username of the author added + disable correlation for origin. [Alexandre Dulaunoy]
+
+* Change version of the SS7 template object. [Alexandre Dulaunoy]
+
+* Timecode object to describe a start of video sequence (e.g. CCTV evidence) and the end of the video sequence. [Alexandre Dulaunoy]
+
+* Update email template. [Raphaël Vinot]
+
+* [email] add email-body in requiredOneOf. [Raphaël Vinot]
+
+* Disable correlations in fail2ban. [Raphaël Vinot]
+
+* Fix&update fail2ban def. [Raphaël Vinot]
+
+* Added address and zip code attributes. [chrisr3d]
+
+* Updated name of the new attribute. [chrisr3d]
+
+* Added identity card number. [chrisr3d]
+
+* Whois object now includes registrant-org matching new MISP attributes type - whois-registrant-org. [Alexandre Dulaunoy]
+
+* Allow malware-sample as only attribute in file. [Raphaël Vinot]
+
+* Fix logic in URL. [Raphaël Vinot]
+
+  Fix #21
+
+* Disable some correlations by default in URL. [Raphaël Vinot]
+
+  Fix #47
+
+### Fix
+
+* [stix2-pattern] disable correlation on version. [Alexandre Dulaunoy]
+
+  Thanks to the new feature in MISP 2.4.142 to find top correlations ;-)
+
+* Typo. [Raphaël Vinot]
+
+* [dkim] clean-up. [Alexandre Dulaunoy]
+
+* Commas were sometimes doubled. [Théo BARRAGUÉ]
+
+* [splunk] fixed. [Alexandre Dulaunoy]
+
+* Keys order in VT object. [Raphaël Vinot]
+
+* [tool] link to object template fixed. [Alexandre Dulaunoy]
+
+* [twitter-post] underscore - minus are difficult to choose from ;-) [Alexandre Dulaunoy]
+
+* JSON Validation. [chrisr3d]
+
+* Disabling correlation for all the bgp-ranking object attributes. [chrisr3d]
+
+* JSON validation. [chrisr3d]
+
+* Incorrect relationships in requiredoneof field. [Raphaël Vinot]
+
+* Validate json. [Raphaël Vinot]
+
+* Validation issue fixed. [chrisr3d]
+
+* Normalised object relations of the ilr objects. [chrisr3d]
+
+  - Using dash as separator instead of space
+
+* Normalised object relations of the vehicle object. [chrisr3d]
+
+  - Using dash as separator instead of space
+
+* Normalised object relations of the phishing objects. [chrisr3d]
+
+  - Using dash as separator instead of space
+
+* Normalised object relations of the ip-api-address object. [chrisr3d]
+
+  - Using dash as separator instead of space
+
+* Python2 is dead dead dead. [Raphaël Vinot]
+
+* Align directory names with object name. [Raphaël Vinot]
+
+* Typo in requiredOneOf. [Raphaël Vinot]
+
+* Typo in requiredOneOf. [Raphaël Vinot]
+
+* Attachment object relation does not exists. [Raphaël Vinot]
+
+* Added iban as an alternative to bank account for the requirements. [Andras Iklody]
+
+  - fixes https://github.com/MISP/MISP/issues/5358
+
+* [new object pgp-meta] remove first seen/last seen + fix description. [Terrtia]
+
+* Missing pep8 check. [Raphaël Vinot]
+
+* Wrong name in requiredOneOf. [Raphaël Vinot]
+
+* To_ids must be a bool. [Raphaël Vinot]
+
+* [microblog] to_ids changes. [Andras Iklody]
+
+* Type asn -> AS. [Raphaël Vinot]
+
+* Ui-priority is required in the object template. [Raphaël Vinot]
+
+* Make jq happy. [Raphaël Vinot]
+
+* Duplicate in coin-address. [Raphaël Vinot]
+
+* [virustotal] corrected typo in category. [Christophe Vandeplas]
+
+* [timesketch] fix incorrect attribute type. [Christophe Vandeplas]
+
+* [process] change undefined attributes. [Pierre-Jean Grenier]
+
+  misp-attributes 'uuid' and 'src-port' do not exist, change those to something else so that we can use this object properly
+
+* JQed all the things. [chrisr3d]
+
+* TYPO. [chrisr3d]
+
+* Disabled correlation for original imported samples. [chrisr3d]
+
+* [relationships] removed duplicate. [Christophe Vandeplas]
+
+* [cortex-taxonomy] jq all the things(tm) [Alexandre Dulaunoy]
+
+* [definition] Fixed current balance type, is float. [Steve Clement]
+
+* JQ things. [Raphaël Vinot]
+
+* Various typos. [Alexandre Dulaunoy]
+
+* Jq all the things(tm) [Alexandre Dulaunoy]
+
+* Changed TSK object names to lower case. [aksha]
+
+* Regripper object templates fixed. [aksha]
+
+* NTUser template. [aksha]
+
+* Disabled correlation of imported files format attribute. [chrisr3d]
+
+* JQed ip-api-address template. [chrisr3d]
+
+* Fixed ip-api-address object template filename. [chrisr3d]
+
+* [ail-leak] disable correlation. [Terrtia]
+
+* Typo in link to an object. [chrisr3d]
+
+* Changed 'type' attribute that is more relevant as being called 'format' [chrisr3d]
+
+* [geolocation] to include accuracy-radius as described by maxmind geoip2 API. [Alexandre Dulaunoy]
+
+* Some relationships typo fixed. [chrisr3d]
+
+* Fixed exploits relationship properties. [chrisr3d]
+
+* [suricata] allow multiple Suricata rules in the object (similar context) and fix the rule to be in Snort format. [Alexandre Dulaunoy]
+
+  Fix #106
+
+* Missing ui-priority. [Alexandre Dulaunoy]
+
+* RequiredOneOf field. [chrisr3d]
+
+  Sorry, ate too much ananas in my pizza
+
+* Jq all. [Alexandre Dulaunoy]
+
+* Bump email template version. [Raphaël Vinot]
+
+* Add hostname to ip-port template and make attributes multiple. [Alexandre Dulaunoy]
+
+* File path added in file object. [Alexandre Dulaunoy]
+
+* Fix: Feedback from @sheidan. [Alexandre Dulaunoy]
+
+* Name of the object template was incorrect. [Alexandre Dulaunoy]
+
+* Wrong attribute name. [Raphaël Vinot]
+
+* Attribute type fixed. [Alexandre Dulaunoy]
+
+* Version field added if stix2-pattern has multiple version in the future. [Alexandre Dulaunoy]
+
+* Whois record object updated to cover both cases: domain or IP address. [Alexandre Dulaunoy]
+
+* Raw whois is also accepted as single attribute in whois object. [Alexandre Dulaunoy]
+
+  Required for importing STIX CybOX 1.1 object where just a raw whois
+  entry is added in remarks.
+
+* Some parts of the URL can be repeated such as resource path, anchor... [Alexandre Dulaunoy]
+
+  multiple flag added to the potential part to be repeated.
+
+  following a discussion in Gitter with @makflwana
+
+* Disable correlation for compression algorithms. [Alexandre Dulaunoy]
+
+* Cowrie object - SSH attributes added. [Alexandre Dulaunoy]
+
+* Add missing destination and source port. [Alexandre Dulaunoy]
+
+* Jq all the things. [Alexandre Dulaunoy]
+
+* Fixed somme bank-account fields. [chrisr3d]
+
+* Use new attribute type mime-type instead of text. [Alexandre Dulaunoy]
+
+* Trailing dot removed. [Alexandre Dulaunoy]
+
+* Improve ip-port object to add domain instead of IP address. [Alexandre Dulaunoy]
+
+* Increment version of the MISP email object. [Alexandre Dulaunoy]
+
+* Sandbox report. [Alexandre Dulaunoy]
+
+* Sandbox signature added. [Alexandre Dulaunoy]
+
+* Sandbox report object added in the list. [Alexandre Dulaunoy]
+
+* Passive DNS records especially on the disabled_correlation fields. [Alexandre Dulaunoy]
+
+* Make the schema happy. [Raphaël Vinot]
+
+* Make JQ happy. [Raphaël Vinot]
+
+* Person object updated to match AML client record + various fixes. [Alexandre Dulaunoy]
+
+* Registry-key updated. [Alexandre Dulaunoy]
+
+* We are in 2018. [Alexandre Dulaunoy]
+
+* Annotation object. [Alexandre Dulaunoy]
+
+* Add missing attribute type for the state. [Alexandre Dulaunoy]
+
+* Vulnerability object improved to include the case of unpublished security vulnerability. [Alexandre Dulaunoy]
+
+* GTPInterface updated. [Alexandre Dulaunoy]
+
+* GTP attack - multiple on GTP interface. [Alexandre Dulaunoy]
+
+* Disable correlation on fields where is not needed. [Alexandre Dulaunoy]
+
+* Disable correlation on microblog type (Twitter or alike) [Alexandre Dulaunoy]
+
+* Disable correlation on all filename-* [Alexandre Dulaunoy]
+
+* Disable correlation on filename by default. [Alexandre Dulaunoy]
+
+* Update registry-key to match correct MISP attributes. [Alexandre Dulaunoy]
+
+* X509 object now uses the new and proper fp type. [Alexandre Dulaunoy]
+
+* Update android permissions based on Google latest list. [Alexandre Dulaunoy]
+
+* MISP type are case-sensitive - fixing AS number type. [Alexandre Dulaunoy]
+
+* AIL leak object to include raw-data. [Alexandre Dulaunoy]
+
+* Subnets announced is an ip-src type. [Alexandre Dulaunoy]
+
+* Structure fixed + CEF dedication added. [Alexandre Dulaunoy]
+
+* Origin of credential as sane_default. [Alexandre Dulaunoy]
+
+* RequiredOneOf list of r2graphity was wrong. [Raphaël Vinot]
+
+  Fix #20
+
+* Missing description added in asciidoc files. [Alexandre Dulaunoy]
+
+* Fixed typo. [iglocska]
+
+* Updated the required value field to values list. [iglocska]
+
+* Updated the required_value field with the new name: values_list. [iglocska]
+
+* Fixed an issue with the email object not having the correct requiredoneof fieldnames, fixes MISP/MISP#2481. [iglocska]
+
+* Port is used instead of text type. [Alexandre Dulaunoy]
+
+* Communicate-with relationship added. [Alexandre Dulaunoy]
+
+* Tld type not existing in MISP. [Alexandre Dulaunoy]
+
+### Other
+
+* Merge branch 'main' of github.com:MISP/misp-objects into main. [Alexandre Dulaunoy]
+
+* Merge branch 'phmazzoni-patch-3' into main. [Raphaël Vinot]
+
+* Create definition.json. [phmazzoni]
+
+* Delete objects/panorama directory. [phmazzoni]
+
+* Merge pull request #308 from phmazzoni/main. [Raphaël Vinot]
+
+  Create Palo Alto Threat Log Object Template.
+
+* Create definition.json. [phmazzoni]
+
+  Create Palo Alto Threat Log Object Template.
+
+* Merge pull request #307 from hackunagi/main. [Alexandre Dulaunoy]
+
+  Creation of Network Profile MISP Object
+
+* Creation of Network Profile MISP Object. [Carlos Borges]
+
+  The idea behind this object is to provide a unique form to identify network artifacts.
+  It's a mix of different including whois, URL and domain.
+
+  The need for a consolidated object comes to group correlated elements.
+
+  Beyond that, I'm introducing the idea to use the correlation feature in more generic ways.
+  Example:
+
+  The value of "threat-actor-infrastructure-value" is the unique value observed on a network resource that identify it. A practical and tested example is this resources from Kaspesky.
+
+  https://securelist.com/the-tetrade-brazilian-banking-malware/97779/
+
+  On this article they mention a trojan family called Javali. They recover the C2 server abusing Google Docs services. The mentioned field "threat-actor-infrastructure-value" would register the values available on this image. This item should be hard to correlate with other similar items, as this can change frequently.
+
+  A way to change it is also to register a more general pattern of the data with the "threat-actor-infrastructure-pattern". I.E
+
+  inicio{
+  "host":"<variable>",
+  "porta":"<variable>"
+  }fim
+
+  With other investigations and registry of it on MISP, is possible to correlate this data, facilitate identification of patterns used for tracking purposes and facilitate analysis.
+
+* Merge branch 'main' of github.com:MISP/misp-objects into main. [Alexandre Dulaunoy]
+
+* Merge pull request #306 from theobarrague/main. [Alexandre Dulaunoy]
+
+  Ajout des relations opposées dans relationships/definition.json
+
+* Merge branch 'main' into main. [Théo BARRAGUÉ]
+
+* Add: check if opposite key is valid in relationships. [Théo BARRAGUÉ]
+
+* Add: tool to validate if declared opposites exist. [Théo BARRAGUÉ]
+
+* Add: opposite of 26 relationships. [Théo BARRAGUÉ]
+
+* Merge pull request #305 from marcnil815/patch-1. [Alexandre Dulaunoy]
+
+  Update definition.json
+
+* Update definition.json. [marcnil815]
+
+  Added possibility for multiple searches in same object to accomodate using raw searches and datamodel searches.
+
+* Merge pull request #304 from Terrtia/master. [Alexandre Dulaunoy]
+
+  chg: [telegram-account] required attributes
+
+* Merge pull request #302 from ater49/main. [Alexandre Dulaunoy]
+
+  Adding fields in twitter-post and paste
+
+* Typo and version number correction + adding a field in twitter-post. [ater49]
+
+  Adding created-at field in twitter-post
+
+* Add media in twitter-post in order to store attached medias in a tweet. [ater49]
+
+  Add pastebin.fr in source of paste and paste_file for storing whole
+  paste file.
+
+* Merge pull request #303 from seamustuohy/pymisp-pr/631. [Alexandre Dulaunoy]
+
+  Updated for support for msg format.
+
+* Updated for support for msg format. [seamus tuohy]
+
+  Adding first class support for Emails in .msg format to the email definition.
+  This includes making the  attribute support multiple bodies. Msg formats
+  nearly always have at least 2, if not 3, versions of the body (plain text, rtf, html).
+
+* Merge branch 'main' of github.com:MISP/misp-objects into main. [Alexandre Dulaunoy]
+
+* Merge pull request #299 from beaujeant/main. [Alexandre Dulaunoy]
+
+  chg: can have mutliple text attributes
+
+* Merge branch 'main' of github.com:MISP/misp-objects into main. [Alexandre Dulaunoy]
+
+* Merge branch 'SteveClement-process' into main. [Alexandre Dulaunoy]
+
+* Merge branch 'process' of https://github.com/SteveClement/misp-objects into SteveClement-process. [Alexandre Dulaunoy]
+
+* Merge remote-tracking branch 'upstream/main' into process. [Steve Clement]
+
+* Merge remote-tracking branch 'upstream/master' into process. [Steve Clement]
+
+* Add: [passive-dns] Added a raw_rdata object relation. [chrisr3d]
+
+* Merge pull request #297 from MISP/chrisr3d_patch. [Alexandre Dulaunoy]
+
+  Using the actual attribute type for cpe and weakness instead of text
+
+* Merge pull request #295 from rhallick/intel471-1. [Raphaël Vinot]
+
+  Addition of intel471-vulnerability-intelligence object
+
+* .DS_Store file removed. [Richard Hallick]
+
+  .DS_Store file removed.
+
+* Addition of Intel 471 vulnerability intelligence object. [Richard Hallick]
+
+  Intel 471 object to contain structured vulnerability related data.
+
+* Addition of intel471-vulnerability-intelligence object. [Richard Hallick]
+
+  Intel 471 object to contain structured vulnerability related data.
+
+* Merge branch 'main' of github.com:MISP/misp-objects into main. [Alexandre Dulaunoy]
+
+* Merge branch 'main' of github.com:MISP/misp-objects into main. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-objects into main. [Alexandre Dulaunoy]
+
+* Add: Description of the bgp-ranking new object added to the list of objects. [chrisr3d]
+
+* Merge pull request #293 from MISP/chrisr3d_patch. [Alexandre Dulaunoy]
+
+  BGP Ranking object & relationships
+
+* Add: Added specific relationship between an asn object and the recently added bgp-ranking object. [chrisr3d]
+
+* Add: Added some relationships introduced recently in misp modules. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-objects into chrisr3d_patch. [chrisr3d]
+
+* Add: Added an IP address family attribute to describe the address family concerned by the BGP ranking. [chrisr3d]
+
+* Add: First version of a BGP ranking object to represent the ranking of an ASN at a specific point of time. [chrisr3d]
+
+  - We can then associate as many bgp-ranking
+    objects as we need to the corresponding  ASN
+    object, each one of them being the ranking of
+    the ASN for a given day
+
+* Merge pull request #291 from MISP/chrisr3d_patch. [Alexandre Dulaunoy]
+
+  Normalisation of the object relations for some object + small change on an attribute of the ip-port object
+
+* Merge branch 'C00kie--main' into main. [Alexandre Dulaunoy]
+
+* Merge branch 'main' of https://github.com/C00kie-/misp-objects into C00kie--main. [Alexandre Dulaunoy]
+
+* Revert "added description field in attributes" [Pauline Bourmeau]
+
+  This reverts commit 3224f78d4ff6b40bd34fe25f4f7f6b2d2d12eed6.
+
+* Merge branch 'main' of https://github.com/C00kie-/misp-objects into C00kie--main. [Alexandre Dulaunoy]
+
+* Jq-ed file. [Pauline Bourmeau]
+
+* Added description field in attributes. [Pauline Bourmeau]
+
+* Fixed comments. [Pauline Bourmeau]
+
+* First addition of keybase object. [Pauline Bourmeau]
+
+* Merge pull request #284 from C00kie-/patch-5. [Alexandre Dulaunoy]
+
+  added json multiple objects twitter-following and twitter-followers
+
+* Update definition.json. [Pauline Bourmeau]
+
+* Merge pull request #283 from C00kie-/patch-3. [Alexandre Dulaunoy]
+
+  added multiple json object for following and followers
+
+* Update definition.json. [Pauline Bourmeau]
+
+* Merge pull request #282 from C00kie-/patch-1. [Alexandre Dulaunoy]
+
+  Update definition.json
+
+* Update definition.json. [Pauline Bourmeau]
+
+* Merge branch 'C00kie--main' into main. [Alexandre Dulaunoy]
+
+* Merge branch 'main' of https://github.com/C00kie-/misp-objects into C00kie--main. [Alexandre Dulaunoy]
+
+* Update definition.json. [Pauline Bourmeau]
+
+* Update definition.json. [Pauline Bourmeau]
+
+* Update definition.json. [Pauline Bourmeau]
+
+* Merge branch 'main' of github.com:MISP/misp-objects into main. [Alexandre Dulaunoy]
+
+* Merge pull request #276 from rmkml/main. [Alexandre Dulaunoy]
+
+  add SHA3 Hash on definition.json
+
+* Add SHA3 Hash on definition.json. [rmkml]
+
+* Merge branch 'rmkml-main' into main. [Alexandre Dulaunoy]
+
+* UUID must be the same. [Alexandre Dulaunoy]
+
+* Add vhash (VirusTotal Hash) on definition.json. [rmkml]
+
+* Merge pull request #269 from emilhf/additional-dns-records. [Alexandre Dulaunoy]
+
+  Add more rrtypes to dns-record
+
+* Add more rrtypes to dns-record. [Emil Henry Flakk]
+
+* Merge pull request #265 from VVX7/master. [Andras Iklody]
+
+  chg: [dev] add Parler app objects
+
+* Merge pull request #264 from mback2k/patch-1. [Alexandre Dulaunoy]
+
+  chg: [cortex-taxonomy] sort attributes
+
+* Merge pull request #262 from gallypette/master. [Alexandre Dulaunoy]
+
+  add: [d4] authentication failure report object
+
+* Add: [d4] authentication failure report object. [Jean-Louis Huynen]
+
+* Merge pull request #261 from VVX7/master. [Alexandre Dulaunoy]
+
+  chg: [dev] disable correlation on some attributes.
+
+* Merge pull request #260 from VVX7/master. [Alexandre Dulaunoy]
+
+  chg: [dev] make Reddit attributes reflect Reddit API.
+
+* Merge pull request #258 from VVX7/master. [Alexandre Dulaunoy]
+
+  chg: [dev] add object properties from #254
+
+* Merge pull request #259 from trustar/EN-4434/misp-objects/trustar_report_update. [Alexandre Dulaunoy]
+
+  extending trustar_report object in order to provide fields in which e…
+
+* Fixed order. [Jesse Hedden]
+
+* Extending trustar_report object in order to provide fields in which enrichment data from a planned expansion module can be stored. [Jesse Hedden]
+
+* Merge pull request #257 from VVX7/master. [Alexandre Dulaunoy]
+
+  new reddit objects
+
+* Merge branch 'master' of https://github.com/misp/misp-objects. [VVX7]
+
+* Merge pull request #256 from VVX7/master. [Alexandre Dulaunoy]
+
+  facebook account object
+
+* Merge pull request #255 from VVX7/master. [Andras Iklody]
+
+  add facebook objects
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Merge pull request #253 from MISP/git-vuln-finder. [Raphaël Vinot]
+
+  new: Preliminary version of git-vuln-finder object template
+
+* Merge branch 'hackunagi-master' [Alexandre Dulaunoy]
+
+* Updating template version. [Carlos Borges]
+
+* Updating a missing comma. [Carlos Borges]
+
+* Adding phone company of the sending SMS number. [Carlos Borges]
+
+  While sharing some data using this object, we saw the need to add the phone company of the number sending the sms.
+  With it we can make good local correlations and have an idea of flaws ocurring on phone number release by these companies.
+  Using web services like Truecaller, it's possible to enrich an analysis with this data.
+
+* Merge pull request #2 from MISP/master. [Carlos Borges]
+
+  Fork update
+
+* Merge branch 'hackunagi-master' [Alexandre Dulaunoy]
+
+* New object - Boleto. [Carlos Borges]
+
+  Boleto is a very common form of payment used in Brazil and used a lot by cybercriminals to execute fraud.
+  Basically a bank or financial instituion is allowed to generate boletos, that is a 40 digit number code.
+  This object will help institutions identify frauds sources and improve orgs protection.
+
+* Merge pull request #1 from MISP/master. [Carlos Borges]
+
+  Fork update
+
+* Merge pull request #250 from VVX7/master. [Alexandre Dulaunoy]
+
+  chg: [publication] modify requiredOneOf field
+
+* Merge pull request #249 from VVX7/master. [Alexandre Dulaunoy]
+
+  new: [publication] add object to describe academic journals, books, etc.
+
+* Merge pull request #248 from MISP/sort. [Alexandre Dulaunoy]
+
+  Sort all json files, fix a few directories names.
+
+* Merge pull request #247 from VVX7/master. [Andras Iklody]
+
+  chg: [object] add new microblog attributes
+
+* Merge pull request #246 from VVX7/master. [Alexandre Dulaunoy]
+
+  chg: [object] update narrative required object fields
+
+* Merge branch 'master' of https://github.com/misp/misp-objects. [VVX7]
+
+* Merge pull request #245 from VVX7/master. [Alexandre Dulaunoy]
+
+  chg: [narrative] add disproof property
+
+* Merge branch 'master' of https://github.com/misp/misp-objects. [VVX7]
+
+* Merge pull request #244 from Golbark/x509_enhancements. [Christophe Vandeplas]
+
+  chg: [x509] using built-in types wherever possible
+
+* Merge pull request #243 from VVX7/master. [Alexandre Dulaunoy]
+
+  chg: [narrative] update narrative object
+
+* Merge branch 'master' of https://github.com/misp/misp-objects. [VVX7]
+
+* Merge pull request #242 from VVX7/master. [Alexandre Dulaunoy]
+
+  new: [object] add narrative.
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* Merge pull request #241 from MISP/chrisr3d_patch. [Alexandre Dulaunoy]
+
+  External references attribute for attack-pattern object
+
+* Add: External references attribute for attack-pattern object. [chrisr3d]
+
+* Merge branch 'master' into chrisr3d_patch. [chrisr3d]
+
+* Merge pull request #240 from cudeso/master. [Alexandre Dulaunoy]
+
+  Objects for data coming from the Cytomic Orion API
+
+* JQ-all-the-things. [Koen Van Impe]
+
+* Update object definition with first-|last- seen. [Koen Van Impe]
+
+* Remove -x from JSON files. [Koen Van Impe]
+
+* Fix with jq_all_the_things. [Koen Van Impe]
+
+* Objects for data coming from the Cytomic Orion API. [Koen Van Impe]
+
+* Merge pull request #239 from cbboggs/cbboggs-http-request. [Alexandre Dulaunoy]
+
+  Adding optional ip-src to http-request
+
+* Adding optional ip-src to http-request. [cbboggs]
+
+  modified existing "ip" attribute to "ip-dst", and added attribute for ip-src.   This allows http-request to be used in scenarios where observed connections are source specific, not destination specific.
+
+* Merge pull request #238 from pettai/intelmq_event. [Alexandre Dulaunoy]
+
+  More explicit misp-attribute types
+
+* Update definition.json. [frpet]
+
+  bump version
+
+* Use more explicit misp-attribute types. [frpet]
+
+  Use the apropriate misp-attribute type for *local_hostname, *fqdn, *.md5|*.sha*
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* Merge pull request #235 from MISP/gen_sym_key. [Alexandre Dulaunoy]
+
+  new: [crypto-material] add generic-symmetric-key
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* Add: [iot-firmware] new object template to describe IoT firmware. [Alexandre Dulaunoy]
+
+  The relationship will be often between iot-device and iot-firmware.
+
+* Merge pull request #233 from Terrtia/master. [Alexandre Dulaunoy]
+
+  chg: [domain-crawled] domain shouldn't be a multiple
+
+* Merge pull request #232 from Terrtia/master. [Alexandre Dulaunoy]
+
+  domain-crawled object
+
+* Merge pull request #231 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  allow several subjects or sender for email objects
+
+* Update version. [Deborah Servili]
+
+* Allow several subjects or sender for email objects. [Deborah Servili]
+
+* Merge pull request #229 from ater49/master. [Alexandre Dulaunoy]
+
+  Adding compatibility with some HAR fields
+
+* Adding some parts from HAR format description (http://www.softwareishard.com/blog/har-12-spec/) (More to come) [ater49]
+
+* Merge pull request #228 from VVX7/master. [Alexandre Dulaunoy]
+
+  new: [objects] instant message objects
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Merge pull request #227 from Terrtia/master. [Alexandre Dulaunoy]
+
+  chg: [new object pgp-meta]
+
+* Merge pull request #226 from VVX7/master. [Alexandre Dulaunoy]
+
+  chg: [object fields] allow additional requiredOneOf fields
+
+* Merge pull request #225 from VVX7/master. [Alexandre Dulaunoy]
+
+  chg: [object field] add title to microblog
+
+* Merge pull request #223 from VVX7/master. [Alexandre Dulaunoy]
+
+  chg: [misinfosec objects] add archive field
+
+* Fic: Make pep8 happy. [Raphaël Vinot]
+
+* Merge pull request #222 from VVX7/master. [Alexandre Dulaunoy]
+
+  chg: [blog] add title field to blog object
+
+* Merge pull request #221 from VVX7/master. [Alexandre Dulaunoy]
+
+  Disinformation objects
+
+* Merge remote-tracking branch 'upstream/master' [VVX7]
+
+* Merge pull request #219 from N1col4s5742/master. [Alexandre Dulaunoy]
+
+  Add vehicle state
+
+* Change definition.json for vehicle and geolocation with verification sponge. [Nicolas]
+
+* Change definition.json for vehicle and geolocation. [Nicolas]
+
+* Change definition.json for vehicle. [Nicolas]
+
+* Vehicle state. [N1col4s5742]
+
+* Bump version. [N1col4s5742]
+
+* Add vehicle state. [N1col4s5742]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Merge pull request #220 from StefanKelm/master. [Alexandre Dulaunoy]
+
+  Update definition.json
+
+* Update definition.json. [StefanKelm]
+
+  Add compilation timestamp (similar to pe object)
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Merge pull request #217 from Delta-Sierra/master. [Deborah Servili]
+
+  add imphash in file object
+
+* Add imphash in file object. [Deborah Servili]
+
+* Switch requiredOneOf list to required since it contains only one element. [Deborah Servili]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Merge pull request #216 from gallypette/patch-1. [Christian Studer]
+
+  chg: [dark-pattern] typos
+
+* Merge pull request #213 from gallypette/master. [Alexandre Dulaunoy]
+
+  add: [dark-pattern] new object to share dark-patterns
+
+* Add: [dark-pattern] new object to share dark-patterns. [Jean-Louis Huynen]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Merge pull request #211 from file-not-found/master. [Alexandre Dulaunoy]
+
+  added "type" to "requiredOneOf"
+
+* Updated "version" to 4. [m4tze]
+
+* Added "type" to "requiredOneOf" [m4tze]
+
+* New [tools] simple tool to dump list of objects with their descriptions. [Alexandre Dulaunoy]
+
+* Merge pull request #209 from gallypette/master. [Alexandre Dulaunoy]
+
+  chg: [x509, crypto-material] several changes:
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Update definition.json. [Alexandre Dulaunoy]
+
+  Following discussion during MISP training - new language seen in a malware campaign.
+
+* Merge pull request #207 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  rename object misc to organization + update version
+
+* Rename object misc to organization + update version. [Deborah Servili]
+
+* Update version of paste object. [Deborah Servili]
+
+* Merge pull request #206 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  add translation object
+
+* Jq. [Deborah Servili]
+
+* Add translation object. [Deborah Servili]
+
+* Add hashtag attribute in microblog object. [Deborah Servili]
+
+* Merge pull request #205 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  update microblog object - use link for non malicious link of the micr…
+
+* Merge https://github.com/MISP/misp-objects. [Deborah Servili]
+
+* Merge pull request #204 from saadkadhi/patch-1. [Alexandre Dulaunoy]
+
+  Better wording
+
+* Better wording. [Saad Kadhi]
+
+* Merge pull request #203 from saadkadhi/patch-2. [Alexandre Dulaunoy]
+
+  Better wording
+
+* Better wording. [Saad Kadhi]
+
+* Update microblog object - use link for non malicious link of the microblog post and embedded-link forlink into the microblog post. [Deborah Servili]
+
+* Merge branch 'Delta-Sierra-master' [Alexandre Dulaunoy]
+
+* Merge branch 'master' of https://github.com/Delta-Sierra/misp-objects into Delta-Sierra-master. [Alexandre Dulaunoy]
+
+* Draft command object. [Deborah Servili]
+
+* Add impersonation object. [Deborah Servili]
+
+* Merge pull request #200 from cvandeplas/master. [Christophe Vandeplas]
+
+  adds validation on type/categories and fixes an incorrect one
+
+* Sort schema_objects. [Christophe Vandeplas]
+
+* Merge pull request #198 from zaphodef/patch-3. [Raphaël Vinot]
+
+  fix: [process] change undefined attributes
+
+* Add: Updated readme with the latest objects added. [chrisr3d]
+
+* Merge pull request #197 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  add injects-into and injected-into relationships
+
+* Merge. [Deborah Servili]
+
+* Merge pull request #196 from zaphodef/patch-1. [Christophe Vandeplas]
+
+  Change undefined category to "External analysis"
+
+* Change undefined category to "External analysis" [Pierre-Jean Grenier]
+
+* Merge pull request #195 from chrisr3d/new_objects. [Alexandre Dulaunoy]
+
+  New objects to describe CWE & CAPEC data related to a CVE
+
+* Merge pull request #193 from kx499/master. [Alexandre Dulaunoy]
+
+  Adds employee object, dns-record object, and shodan object
+
+* Merge remote-tracking branch 'upstream/master' [kx1499]
+
+* Merge remote-tracking branch 'upstream/master' [kx1499]
+
+* Merge remote-tracking branch 'upstream/master' [kx1499]
+
+* Merge branch 'master' of https://github.com/kx499/misp-objects. [kx1499]
+
+* Merge remote-tracking branch 'upstream/master' [kx499]
+
+* Updated employee object to disable correlation on specific fields. [kx499]
+
+* Merge remote-tracking branch 'upstream/master' [kx499]
+
+* Updated disabling correlation for userid. [kx1499]
+
+* Merge remote-tracking branch 'upstream/master' [kx1499]
+
+* Added employee-type. [kx499]
+
+* Added employee object. [kx499]
+
+* Dns record and shodan report objects. [kx499]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Disable correlation on the text field. [Sascha Rommelfangen]
+
+* Transaction number must be multiple (and text) [Sascha Rommelfangen]
+
+* Merge pull request #191 from MISP/rommelfs-patch-5. [Sascha Rommelfangen]
+
+  fixed issue with requirements
+
+* Bumped version. [Sascha Rommelfangen]
+
+* Fixed issue with requirements. [Sascha Rommelfangen]
+
+* Merge pull request #190 from MISP/rommelfs-patch-4. [Sascha Rommelfangen]
+
+  missing parts for balance corrected
+
+* Bumped version. [Sascha Rommelfangen]
+
+* Missing parts for balance corrected. [Sascha Rommelfangen]
+
+* Merge pull request #188 from rommelfs/master. [Alexandre Dulaunoy]
+
+  btc wallet and transaction object templates
+
+* Merge pull request #1 from rommelfs/rommelfs-patch-1. [Sascha Rommelfangen]
+
+  removed unneeded characters
+
+* Removed unneeded characters. [Sascha Rommelfangen]
+
+* Merge commit 'ad1300767f7b7757867a8c01ffb4c7d6fa308540' [Sascha Rommelfangen]
+
+* Add: btc wallet and transaction object templates. [Sascha Rommelfangen]
+
+* Merge pull request #187 from chrisr3d/master. [Alexandre Dulaunoy]
+
+  User account object
+
+* Add: [ip-port] Added ip-dst as one of the required attributes. [chrisr3d]
+
+* Add: [ip-port] Added ip-dst attribute eeeeeeeeeeeeeeeeeeeeeee. [chrisr3d]
+
+  - Users can then choose between "ip" when they do
+    not know whever it is a source or destination IP
+    address, or "ip-src" & "ip-dst" to have more
+    clarity about the IP address
+
+* Merge pull request #185 from ater49/master. [Alexandre Dulaunoy]
+
+  Adding IIN and bank_name in objects
+
+* Adding IIN and bank_name. [ater49]
+
+* Merge pull request #2 from MISP/master. [ater49]
+
+  update
+
+* Add: [ssh-authorized-keys] object to add elements from SSH authorized keys (and do correlation for fun-and-profit(tm)) [Alexandre Dulaunoy]
+
+* Merge pull request #181 from ater49/master. [Alexandre Dulaunoy]
+
+  Adding registration-date in domain-ip
+
+* Correcting "_" to "-" in fields name. [ater49]
+
+* Adding registration-date to domain-ip. [ater49]
+
+* Merge pull request #1 from MISP/master. [ater49]
+
+  merge
+
+* Merge pull request #179 from mtday/fix-empty-misp-attribute. [Alexandre Dulaunoy]
+
+  Attribute Fixes
+
+* Update the misp-attribute to specify a valid value instead of an empty string. [mday]
+
+* Merge pull request #178 from mtday/fix-missing-required-attribute. [Alexandre Dulaunoy]
+
+  Fix Missing Required Attributes
+
+* Update the definition files of various object types so that the `required` and `requiredOneOf` lists no longer specify attributes that do not exist in the objects. [mday]
+
+* Add: [irc] IRC object to describe an IRC server with associated IRC channels. [Alexandre Dulaunoy]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* Merge pull request #177 from haxpak/haxpak/update-device. [Andras Iklody]
+
+  Haxpak/update device
+
+* Changed device type drop down from category to sane_default. [haxpak]
+
+* Merge pull request #174 from haxpak/haxpak/relationship-executes. [Andras Iklody]
+
+  Haxpak/relationship executes
+
+* [added] relationship 'executes' : Describes a an object that executes another object. [haxpak]
+
+* Added relationship "executes" [haxpak]
+
+* Merge pull request #173 from haxpak/master. [Andras Iklody]
+
+  added option "Further Analysis Required" to attribute stage of object course-of-action
+
+* Added option "Further Analysis Required" to attribute stage. [haxpak]
+
+* Merge pull request #172 from haxpak/haxpak/#24. [Andras Iklody]
+
+  updated device object
+
+* Merge branch 'master' into haxpak/#24. [Andras Iklody]
+
+* Merge pull request #170 from haxpak/haxpak-objects. [Andras Iklody]
+
+  Haxpak objects
+
+* Meta category for organization changed back to misc since schema_objects.json does not recognize organization as a meta category. [haxpak]
+
+* Corrected typo. [haxpak]
+
+* Added meta category organization. [haxpak]
+
+* Modified:   relationships/definition.json. [haxpak]
+
+* Modified:   objects/device/definition.json 	modified:   objects/phishing-kit/definition.json. [haxpak]
+
+* Added MAC address to device meta category of organization changed to organization meta category of person object changed to organization new object phishing-kit. [haxpak]
+
+* Merge pull request #166 from haxpak/haxpak-objects. [Alexandre Dulaunoy]
+
+  Added new objects
+
+* Changed organization meta category to misc. [haxpak]
+
+* Merge pull request #163 from haxpak/master. [Alexandre Dulaunoy]
+
+  add : relationship "creates"
+
+* Added attribute DNS name to device object changed MAC address misp attribute to mac-address. [haxpak]
+
+* Added OS, version, dns-name attribute to device changed misp-attribute of mac-address from text to mac-address. [haxpak]
+
+* Reverted device to misc category. [haxpak]
+
+* Added requiredOneOf to device definition. [haxpak]
+
+* Fixed typos and ran jq_all_things. [haxpak]
+
+* - added : attachment attribute to annotation - added : new object type device. [haxpak]
+
+* Added : meta_category "organization" #162. [haxpak]
+
+* Modified : person object "changed UI priority of the attributes" modified : report object "added attachment to report" [haxpak]
+
+* New-object : Organization "Defines an organization" [haxpak]
+
+* Add : relationship "creates" [haxpak]
+
+* Add: [tor-hiddenservice] a simple object template to describe Tor Onion Service. [Alexandre Dulaunoy]
+
+* Merge pull request #161 from geekscrapy/geekscrapy-patch-1. [Alexandre Dulaunoy]
+
+  Username is often utilised alongside a credential
+
+* Username is often utilised alongside a credential. [molley]
+
+  Username can often identify malicious behavior, and is usually part of the credential tuple - it can also be used to highlight common user accounts without password/api key
+
+* Merge pull request #159 from geekscrapy/patch-1. [Alexandre Dulaunoy]
+
+  Added current-directory to required field
+
+* Added current-directory to required field. [molley]
+
+  This field will often indicate where a malicious binary is started from, therefore a good candidate for solo use
+
+* Merge pull request #158 from geekscrapy/patch-2. [Alexandre Dulaunoy]
+
+  Added issuer as one of the required fields
+
+* Added issuer as one of the required fields. [molley]
+
+  This is often a field used on it's own to identify a malicious cert
+
+* Add: New relationship "retrieved-from" [chrisr3d]
+
+* Merge pull request #155 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  remove accent from ilr objects
+
+* Merge pull request #154 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  add ilr-notification-incident object
+
+* Merge pull request #153 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  fix ilr-impact attributes names
+
+* Merge pull request #152 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  add ilr-impact object
+
+* Add injects-into and injected-into relationships. [Deborah Servili]
+
+* Remove accent from ilr objects - bis. [Deborah Servili]
+
+* Remove accent from ilrobjects. [Deborah Servili]
+
+* Add ilr-notification-incident object. [Deborah Servili]
+
+* Fix lr-impact attributes names. [Deborah Servili]
+
+* Disable correlations on ilr-impact attributes. [Deborah Servili]
+
+* Add ilr-impact object. [Deborah Servili]
+
+* Merge pull request #151 from MISP/rommelfs-patch-3. [Alexandre Dulaunoy]
+
+  corrected order
+
+* Corrected order. [Sascha Rommelfangen]
+
+* Merge pull request #148 from marcnil815/master. [Alexandre Dulaunoy]
+
+  Create splunk object definition.json
+
+* Jq'ed definition.json. [marcnil815]
+
+* Create splunk object definition.json. [marcnil815]
+
+  Adding misp-object for basic splunk search/correlation search values.
+
+* Merge pull request #147 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  Person object - Add a (or several) role to a person
+
+* Person object - Add a (several) role to a person. [Deborah Servili]
+
+* Merge pull request #144 from MISP/rommelfs-patch-1. [Alexandre Dulaunoy]
+
+  added hostname attribute to the phishing object
+
+* Added hostname attribute to the phishing object. [Sascha Rommelfangen]
+
+* Merge pull request #143 from rommelfs/master. [Alexandre Dulaunoy]
+
+  added values valuable to operators
+
+* Added values valuable to operators. [Sascha Rommelfangen]
+
+* Update definition.json. [Andras Iklody]
+
+* Add: [anonymisation] Anonymisation object describing an anonymisation technique which is used in MISP anonymised attributes. [Alexandre Dulaunoy]
+
+* Merge pull request #141 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  fix jq_all_the_things script
+
+* Fix jq_all_the_things script. [Deborah Servili]
+
+* Merge pull request #140 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  add interpol notice object
+
+* Merge https://github.com/MISP/misp-objects. [Deborah Servili]
+
+* Merge pull request #139 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  Person object - add alias as a requiredOneof attribute
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [chrisr3d]
+
+* Fix required field for interpol notice. [Deborah Servili]
+
+* Add interpol notice object. [Deborah Servili]
+
+* Update person object version. [Deborah Servili]
+
+* Add alias as a requiredOneof attribute. [Deborah Servili]
+
+* Merge pull request #138 from cvandeplas/master. [Alexandre Dulaunoy]
+
+  chg: [http-request] IP as allowed type
+
+* Merge pull request #137 from StefanKelm/master. [Alexandre Dulaunoy]
+
+  New object: Information related to known scanning activity (e.g. from research projects)
+
+* New object: Information related to known scanning activity (e.g. from research projects) [Stefan Kelm]
+
+* Merge pull request #136 from eCrimeLabs/master. [Alexandre Dulaunoy]
+
+  Updated JA3 to have own data type ja3-fingerprint-md5 and bumped the …
+
+* Updated JA3 to have own data type ja3-fingerprint-md5 and bumped the version. [eCrimeLabs]
+
+* Merge pull request #135 from cvandeplas/master. [Christophe Vandeplas]
+
+  fix: [relationships] removed duplicate
+
+* Add: [facial-composite] new facial composite object. [Alexandre Dulaunoy]
+
+* Merge pull request #134 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  Object Victim - Extended requiredOneof
+
+* Object Victim - Extended requiredOneof. [Deborah Servili]
+
+* Merge pull request #130 from deralexxx/patch-2. [Raphaël Vinot]
+
+  new misp object for a timesketch message
+
+* New misp object for a timesketch message. [Alexander J]
+
+  to be able to push timesketch messages (timesketch.org) to a misp event it is handy to have a specific type of object for it.
+
+* Add: [cortex] new object based on a discussion with Jerome L. from TheHive (thanks to SNCF) [Alexandre Dulaunoy]
+
+* Merge pull request #129 from tk-hendrik/cortex-taxonomy-obj. [Alexandre Dulaunoy]
+
+  Added cortex taxonomy object definition
+
+* Added cortex taxonomy object definition. [Hendrik]
+
+* Merge pull request #127 from thomaspatzke/process-extension. [Alexandre Dulaunoy]
+
+  Extension of process object
+
+* Extension of process object. [Thomas Patzke]
+
+* Merge pull request #126 from thomaspatzke/paste-fix. [Alexandre Dulaunoy]
+
+  Fixed misp-attribute in link attribute of paste object
+
+* Fixed misp-attribute in link attribute of paste object. [Thomas Patzke]
+
+* Merge pull request #125 from SteveClement/master. [Alexandre Dulaunoy]
+
+  chg: [definition] Extended crypto coin for enrichment module
+
+* Typo fixed. [Alexandre Dulaunoy]
+
+* Fix typo. [Alexandre Dulaunoy]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Merge pull request #123 from neok0/sandbox-file-attribute. [Alexandre Dulaunoy]
+
+  added sandbox-file type as attribute for storing e.g. sandbox results…
+
+* Fix failing check via running .jq_all_the_things.sh. [Tobias Mainka]
+
+* Added sandbox-file type as attribute for storing e.g. sandbox results file in sandbox-report object. [Tobias Mainka]
+
+* Merge pull request #122 from neok0/master. [Alexandre Dulaunoy]
+
+  enable multiple summary attribute in report object
+
+* Enable multiple summary attribute in report object. [Tobias Mainka]
+
+* Merge branch 'master' of https://github.com/Aks6193/misp-objects. [Alexandre Dulaunoy]
+
+* Add: Web artefacts objects. [aksha]
+
+* Add: python-etvx object. [aksha]
+
+* Add: Regripper objects (System + Software Hive) [aksha]
+
+* Add: regripper objects for system hive. [aksha]
+
+* Add: Regripper 3 object templates including SAM hive and NTUSer.dat. [aksha]
+
+* Fix the required part of the url. [Alexandre Dulaunoy]
+
+* Add: [pcap-metadata] new object template for pcap file metadata (WiP) [Alexandre Dulaunoy]
+
+* Merge pull request #120 from MISP/alfred. [Alexandre Dulaunoy]
+
+  new: Add Alfred relationships (CCCS)
+
+* Updated list of objects in README. [chrisr3d]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Merge pull request #117 from DigitalLeukocyte/master. [Alexandre Dulaunoy]
+
+  Added new IP Address Object
+
+* Added ip-api-address object. [DigitalLeukocyte]
+
+  Object useful for IP data from http://ip-api.com.
+
+* Delete IP_API_IP_Address.json. [DigitalLeukocyte]
+
+* Deleted IP_API single file. [DigitalLeukocyte]
+
+* Uploaded IP_API Object in folder. [DigitalLeukocyte]
+
+* Updated to match more of ip-api.com. [DigitalLeukocyte]
+
+* Created for data from ip-api.com. [DigitalLeukocyte]
+
+* Create IP_API.JSON. [DigitalLeukocyte]
+
+* Merge branch 'Aks6193-master' [Alexandre Dulaunoy]
+
+* Merge branch 'master' of https://github.com/Aks6193/misp-objects into Aks6193-master. [Alexandre Dulaunoy]
+
+* Add: Misp object for Mactime-timeline-analysis. [aksha]
+
+* Merge pull request #115 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  add docs - time related objects
+
+* Add docs - time related objects. [Deborah Servili]
+
+* Merge pull request #114 from StefanKelm/master. [Alexandre Dulaunoy]
+
+  BGP hijack
+
+* Bgp-hijack. [Stefan Kelm]
+
+* Bgp-hijack. [Stefan Kelm]
+
+* Bgp-hijack. [Stefan Kelm]
+
+* Merge pull request #113 from Terrtia/master. [Alexandre Dulaunoy]
+
+  fix: [ail-leak] disable correlation
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Merge branch 'master' of github.com:MISP/misp-objects into chrisr3d_patch. [chrisr3d]
+
+* Jq all the things (tm) [Alexandre Dulaunoy]
+
+* Merge pull request #112 from Aks6193/master. [Alexandre Dulaunoy]
+
+  Forensic-evidence
+
+* Update: Forensic-evidence object. [aksha]
+
+* Fixed intendation. [aksha]
+
+* Add: Object template for digital evidence. [aksha]
+
+* Merge pull request #1 from MISP/master. [Aks6193]
+
+  chg: [forensic-case] object added based on the original one from @Aks…
+
+* Add: Misp object for Digital Forensic - Case metadata. [aksha]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [chrisr3d]
+
+* Added "signed-by" relationship fix #87. [Alexandre Dulaunoy]
+
+* Merge pull request #111 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  fix requiredOneOf lists regarding non-existing attributes
+
+* Fix file object version. [Deborah Servili]
+
+* Fix RequiredOneOf list in fle object. [Deborah Servili]
+
+* Url is not a field of email object, then not one of the requiredOneOf. [Deborah Servili]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Allow multiple "pattern-in-file" in file object, fixes #109. [Andras Iklody]
+
+* Add: Updated relationships list with Cybox relationships best practices. [chrisr3d]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Merge pull request #105 from chrisr3d/master. [Alexandre Dulaunoy]
+
+  Added some relations used on stix1 files
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [chrisr3d]
+
+* Add: Added some relations seen on stix. [chrisr3d]
+
+* Add: missing timesketch-timeline object template. [Alexandre Dulaunoy]
+
+* Merge pull request #104 from ahuan-gdms/master. [Alexandre Dulaunoy]
+
+  adding STIX AIS Information source Object
+
+* STIX AIS Information source. [AH]
+
+* Merge pull request #103 from Terrtia/master. [Alexandre Dulaunoy]
+
+  modify ail-leak object for the tagging system
+
+* Modify ail-leak object for the tagging system. [Thirion Aurélien]
+
+* Merge pull request #100 from cocaman/master. [Alexandre Dulaunoy]
+
+  New misp-object for a shortened URL and the redirect URL
+
+* Renamed url attributed, versioning date based. [Corsin Camichel]
+
+* Updated definition, removed some attributes. [Corsin Camichel]
+
+* Shortened link and its redirect target. [Corsin Camichel]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [chrisr3d]
+
+* Add: Timecode object to describe a start of video sequence (e.g. CCTV evidence) and the end of the video sequence. [Alexandre Dulaunoy]
+
+* Attribute typo. [chrisr3d]
+
+* Add: Added protocol attribute in the network socket object. [chrisr3d]
+
+* Add: Added hostname (src & dst) attributes. [chrisr3d]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Fixed link. [chrisr3d]
+
+* Network socket connection template object added. [Alexandre Dulaunoy]
+
+* Missing objects added. [Alexandre Dulaunoy]
+
+* Merge pull request #98 from yodresh/patch-2. [Alexandre Dulaunoy]
+
+  Update definition.json
+
+* Update definition.json. [Alexandre De Oliveira]
+
+  To avoid having multiple object for each similar attacks coming from the same source, we allow multiple attack source in the same attack.
+
+* First version of process object. [chrisr3d]
+
+  - Potentially more attributes to come
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [chrisr3d]
+
+* Added definition. [chrisr3d]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [chrisr3d]
+
+* Add: Context where the YARA rule can be applied. [Alexandre Dulaunoy]
+
+* Add: new timestamp object. [Alexandre Dulaunoy]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* Merge pull request #97 from StefanKelm/master. [Alexandre Dulaunoy]
+
+* Update definition.json. [StefanKelm]
+
+* Allow multiple domains and/or IP addresses per object. [StefanKelm]
+
+* Network connection object. [chrisr3d]
+
+* Add: Added 2 relationships seen on stix. [chrisr3d]
+
+* Merge pull request #96 from ater49/master. [Raphaël Vinot]
+
+  Adding comment fields in VT report objects
+
+* Adding ui-priority fields. [ater49]
+
+* Correction for multiple parameter. [ater49]
+
+* Modifying version number. [ater49]
+
+* Dding comment fields in VT report objects. [ater49]
+
+* Merge pull request #94 from Delta-Sierra/master. [Deborah Servili]
+
+  regexp object - disable correlation on type
+
+* Regexp object - change version. [Deborah Servili]
+
+* Regexp object - disable correlation on type. [Deborah Servili]
+
+* Merge pull request #93 from chrisr3d/master. [Andras Iklody]
+
+  Course of Action object
+
+* Add: Course of action description added in readme. [chrisr3d]
+
+* Course of Action object. [chrisr3d]
+
+* Merge pull request #92 from eCrimeLabs/master. [Alexandre Dulaunoy]
+
+  Added target-system
+
+* Moved object into internal. [Dennis Rand]
+
+* Added target-system as object. [Dennis Rand]
+
+* Merge pull request #3 from MISP/master. [eCrimeLabs]
+
+  Update
+
+* Merge pull request #2 from MISP/master. [eCrimeLabs]
+
+  Updated from master
+
+* Add: Suricata template object added. [Alexandre Dulaunoy]
+
+* Add: Suricata object added with context. [Alexandre Dulaunoy]
+
+* Fail2ban and yara object template added in list. [Alexandre Dulaunoy]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* Version fixed for X509 object. [Alexandre Dulaunoy]
+
+* Merge pull request #86 from Sh3idan/master. [Alexandre Dulaunoy]
+
+  x509-add-required-one-of-serial-number
+
+* X509-add-required-one-of-serial-number. [Sheidan]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* Add: new yara object added with a version number. [Alexandre Dulaunoy]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* Jq all. [Alexandre Dulaunoy]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* Add: Connected_To (old STIX 1.1 relationship) [Alexandre Dulaunoy]
+
+* Merge pull request #1 from MISP/master. [eCrimeLabs]
+
+  fix: some parts of the URL can be repeated such as resource path, anc…
+
+* Merge pull request #85 from mokaddem/master. [Alexandre Dulaunoy]
+
+  typo: passsword -> password
+
+* Typo: passsword -> password. [Sami Mokaddem]
+
+* Add: Cowrie object template added. [Alexandre Dulaunoy]
+
+* Add: Cowrie honeypot object template. [Alexandre Dulaunoy]
+
+* Merge branch 'zoomequipd-patch-1' [Alexandre Dulaunoy]
+
+* Correct rbn --> rtn. [zoomequipd]
+
+* Add aba-rtn to bank-account object. [zoomequipd]
+
+* Merge pull request #82 from chrisr3d/master. [Alexandre Dulaunoy]
+
+  Fixed somme bank-account fields
+
+* Merge pull request #81 from chrisr3d/master. [Alexandre Dulaunoy]
+
+  Fixed the bank-account meta-category
+
+* Fixed the bank-account meta-category. [chrisr3d]
+
+  ... which is actually "financial"
+
+* Merge pull request #80 from chrisr3d/transaction_test. [Alexandre Dulaunoy]
+
+  Attributes describing "t_to" and "t_from" fields of a transaction
+
+* Added default values of funds code. [chrisr3d]
+
+* Merge branch 'master' of github.com:MISP/misp-objects into transaction_test. [chrisr3d]
+
+* Merge pull request #79 from chrisr3d/master. [Alexandre Dulaunoy]
+
+  Added optional attributes for a transaction
+
+* Added attributes to describe some origin and target fields of a transaction. [chrisr3d]
+
+* Added attributes for the teller and the authorizer of a transaction. [chrisr3d]
+
+* Changed http request object template. [Andras Iklody]
+
+  require either uri or url, http method is no longer required.
+
+* Add: Common Alerting Protocol Version (CAP) object templates. [Alexandre Dulaunoy]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Merge pull request #78 from chrisr3d/master. [Alexandre Dulaunoy]
+
+  Transaction Object definition and readme file updated
+
+* Updated description and readme. [chrisr3d]
+
+* Add: Common Alerting Protocol Version (CAP) resource object. [Alexandre Dulaunoy]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Merge pull request #76 from chrisr3d/master. [Alexandre Dulaunoy]
+
+  Transaction object, first version
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [chrisr3d]
+
+* Transaction object. [chrisr3d]
+
+* Add: Common Alerting Protocol Version (CAP) info object. [Alexandre Dulaunoy]
+
+* Common Alerting Protocol Version (CAP) alert object. [Alexandre Dulaunoy]
+
+* Merge pull request #75 from chrisr3d/master. [Alexandre Dulaunoy]
+
+  legal-entity object
+
+* Fixed disable_correlation variable type. [chrisr3d]
+
+* Typo. [chrisr3d]
+
+* Added additional attributes. [chrisr3d]
+
+* Updated readme. [chrisr3d]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [chrisr3d]
+
+* Merge pull request #74 from chrisr3d/master. [Alexandre Dulaunoy]
+
+  Updated person & geolocation objects
+
+* First version of the legal-entity object. [chrisr3d]
+
+* Description typo. [chrisr3d]
+
+* Merge pull request #73 from d-lord/master. [Alexandre Dulaunoy]
+
+  Add email-body to the email object definition
+
+* Add email-body to the email object definition. [David Lord]
+
+* Add: bank-account added in the list. [Alexandre Dulaunoy]
+
+* Add: an object describing bank account information based on account description from goAML 4.0. [Alexandre Dulaunoy]
+
+  A generic bank account partially based on the goAML 4.0 standard.
+  The bank account alone can convey information regarding the type
+  of transactions seen or suspected which allow to use the object alone
+  without the need to describe the full list of transactions.
+
+  Additional objects could be created like report, transactions and like
+  to fully support AML.
+
+  The existing person in MISP objects was previously updated to include
+  the field missing from AML.
+
+  A potential evolution is based on the transaction status which can
+  be described as a simple relationship between MISP objects like:
+
+  Bought, Sold, Let, Hired, Exchanged, Donated, Destroyed and Other
+
+* Merge branch 'LDO-CERT-master' [Raphaël Vinot]
+
+* Sandbox-signature. [garanews]
+
+  Added object sb-signature
+
+* Add: Object to describe mutual exclusion locks (mutex) as seen in memory or computer program. [Alexandre Dulaunoy]
+
+* Remove registry hive because registry-key is enough. [Alexandre Dulaunoy]
+
+* Add: registry-hive object describing a Windows registry hive including key, subkey and value (and associated data if any) [Alexandre Dulaunoy]
+
+* Merge pull request #68 from yodresh/patch-1. [Alexandre Dulaunoy]
+
+  Update SS7-attack definition.json
+
+* Update definition.json. [Alexandre De Oliveira]
+
+  Adding the multiple possibility for SMSC GT to cover SMS Spaming case. Also text field for multiple details if needed.
+  Adding "MapSmsText" attribute to help matching malicious URL, keywords or MSISDN inside SMS.
+
+* Merge pull request #66 from c-goes/sandbox_report_object. [Alexandre Dulaunoy]
+
+  added sandbox-report object
+
+* Added sandbox-report object. [c-goes]
+
+* Add: An annotation object allowing analysts to add annotations, comments, executive summary to a MISP event, objects or attributes. [Alexandre Dulaunoy]
+
+* Add: ss7-attack object for the attack against GSM/UMTS networks seen in SS7 logging. [Alexandre Dulaunoy]
+
+* Add: Diameter attack object targeting GSM, UMTS and 4G networks. [Alexandre Dulaunoy]
+
+* Add: first version of a MISP object to describe GTP attack on GSM/UTMS/3G network. [Alexandre Dulaunoy]
+
+* Add: new relationship "drops" - This relationship describes an object which drops another object. [Alexandre Dulaunoy]
+
+* Add: new stix2-pattern object to include STIX 2 patterning. [Alexandre Dulaunoy]
+
+* Merge pull request #61 from cvandeplas/master. [Alexandre Dulaunoy]
+
+  whois - adds nameserver attributes
+
+* Whois - adds nameserver attributes. [Christophe Vandeplas]
+
+  adding nameserver attributes as a whois response contains those
+
+* Jq all the things! [Alexandre Dulaunoy]
+
+* Merge pull request #41 from truckydev/patch-1. [Alexandre Dulaunoy]
+
+  regex addon
+
+* Regex addon. [truckydev]
+
+  Add field to specify which type correspond to this regex.
+
+* Merge pull request #58 from c-goes/master. [Alexandre Dulaunoy]
+
+  disable correlation for last-seen/first-seen/text
+
+* Disable correlation for last-seen/first-seen/text. [c-goes]
+
+* Android-permission and coin-address added. [Alexandre Dulaunoy]
+
+* Merge pull request #57 from c-goes/coin-address. [Alexandre Dulaunoy]
+
+  Coin address object
+
+* Added coin-address object(2) [c-goes]
+
+* Added coin-address object. [c-goes]
+
+* Never trust standards using Google docs to store list of machine parsable information. [Alexandre Dulaunoy]
+
+  Another good reason, why all open vocabularies in OASIS should be
+  in parsable and validated JSON files. And not *bloody* list of words
+  in a Google doc.
+
+* State of the file is no more correlated - and default state value is Malicious. [Alexandre Dulaunoy]
+
+* Merge pull request #56 from c-goes/victim_wip. [Alexandre Dulaunoy]
+
+  Victim object extended, attributes changed
+
+* Victim object: changed attributes, added object relations(2) [c-goes]
+
+* Victim object: changed attributes, added object relations. [c-goes]
+
+* Disable correlation on classification on the victim object. [Alexandre Dulaunoy]
+
+* Typo fixed. [Alexandre Dulaunoy]
+
+* Add: x509-fingerprint-sha1 added to file object description (e.g signed APK but not PE) [Alexandre Dulaunoy]
+
+* Registar->registrar. [Alexandre Dulaunoy]
+
+* Add: first version of an android permission(s) object. [Alexandre Dulaunoy]
+
+* Merge pull request #54 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  ddos v5 - add destination domain attribute
+
+* Ddos v5 - add destination domain attribute. [Deborah Servili]
+
+* Merge pull request #53 from c-goes/filenames_multiple. [Alexandre Dulaunoy]
+
+  allow multiple filenames for file
+
+* Allow multiple filenames. [c-goes]
+
+* Raw data is now an attachment. [Alexandre Dulaunoy]
+
+* Being lax on origin to avoid rebuilding url path for unknown services. [Alexandre Dulaunoy]
+
+* AIL leak template updated to include duplicate of leaks. [Alexandre Dulaunoy]
+
+* Add: "followed-by" - "preceding-by" added as relationship type when the time is not known. [Alexandre Dulaunoy]
+
+* Asn added in the default objects. [Alexandre Dulaunoy]
+
+* Added: Autonomous system object describing an autonomous system which can include one or more network operators management an entity (e.g. ISP) along with their routing policy, routing prefixes o r alike. [Alexandre Dulaunoy]
+
+  Fix #50
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* Merge pull request #49 from c-goes/master. [Alexandre Dulaunoy]
+
+  Added file attribute screenshot to email object
+
+* Added file attribute screenshot to email object. [c-goes]
+
+* Merge pull request #48 from Delta-Sierra/master. [Andras Iklody]
+
+  allow multiple ips in domain|ip object
+
+* Allow multiple ips in domain|ip object. [Deborah Servili]
+
+* Merge pull request #46 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  update ail-leak object
+
+* Update ail-leak object. [Deborah Servili]
+
+* Description clarified. [Alexandre Dulaunoy]
+
+* Typo fixed. [Alexandre Dulaunoy]
+
+* New objects added. [Alexandre Dulaunoy]
+
+* Add: credential object (fix #44) [Alexandre Dulaunoy]
+
+* Merge pull request #43 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  add cert eu relationships
+
+* Add cert eu relationships. [Deborah Servili]
+
+* Merge pull request #42 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  add cert-eu relationships
+
+* Replace space by dash in names. [Deborah Servili]
+
+* Add cert-eu relationships. [Deborah Servili]
+
+* Remove the executable flag from the json files. [Raphaël Vinot]
+
+* Add report object. [Raphaël Vinot]
+
+* Merge pull request #40 from CenturyLinkCIRT/master. [Raphaël Vinot]
+
+  Disabled correlation for software name in av-signature
+
+* Fixed av-signature merge conflicts with upstream. [Thomas Gardner]
+
+* Fix the file object. [Alexandre Dulaunoy]
+
+* State added to file like signed, harmless... [Alexandre Dulaunoy]
+
+* Jq all the things. [Raphaël Vinot]
+
+* Merge pull request #39 from CenturyLinkCIRT/master. [Raphaël Vinot]
+
+  added av-signature and virustotal-report
+
+* Disabled AV software correlation and re-ran jq-all-the-things. [Thomas Gardner]
+
+* Added av-signature and virustotal-report. [Thomas Gardner]
+
+* Merge pull request #34 from MISP/fix-31-2. [Alexandre Dulaunoy]
+
+  Fix object name
+
+* Fix object name. [Raphaël Vinot]
+
+  Related to: https://github.com/MISP/misp-objects/issues/31
+
+* Merge pull request #33 from MISP/fix-31-1. [Alexandre Dulaunoy]
+
+  Fix object name.
+
+* Fix object name. [Raphaël Vinot]
+
+  Related to: https://github.com/MISP/misp-objects/issues/31
+
+* Fix typo in the field. [Alexandre Dulaunoy]
+
+* Some updates including description of fields. [Alexandre Dulaunoy]
+
+* First version of Netflow object based on proposal from @JanKoDFNCERT. [Alexandre Dulaunoy]
+
+  Open questions:
+
+    - What is a minimal Netflow records? I relax a bit the required fields.
+    - How does this work with IPFIX (and variable templates)?
+    - How should we express the TCP flags expressed? (S/SA/SAF)
+
+* Add: RTIR - Request Tracker for Incident Response added in index. [Alexandre Dulaunoy]
+
+* Add: RTIR object added (as requested by CSP - Cyber Security Core Service Platform) [Alexandre Dulaunoy]
+
+* Merge branch 'ater49-patch-4' [Alexandre Dulaunoy]
+
+* Use url attribute type for link inside a post. [Alexandre Dulaunoy]
+
+* Merge branch 'patch-4' of https://github.com/ater49/misp-objects into ater49-patch-4. [Alexandre Dulaunoy]
+
+* Update definition.json. [ater49]
+
+  Link attribute added in case of url present into the post.
+
+  Multiple set to true for "username-quoted"
+
+* Merge pull request #29 from ater49/patch-2. [Alexandre Dulaunoy]
+
+  New attribute: title
+
+* New attributes: title. [ater49]
+
+  In case of paste or post has a title.
+
+  Ghostbin.com origin added
+
+* Paste added. [Alexandre Dulaunoy]
+
+* Add: Paste or similar post from a website allowing to share privately or publicly posts. [Alexandre Dulaunoy]
+
+* Microblog object added. [Alexandre Dulaunoy]
+
+* Merge pull request #28 from deralexxx/patch-1. [Alexandre Dulaunoy]
+
+  mention uuid
+
+* Mention uuid. [Alexander J]
+
+  How to create a uuid and also mention the UUID in the example.
+
+  https://twitter.com/alexanderjaeger/status/913505371817435138
+
+* Merge branch 'ater49-patch-1' [Alexandre Dulaunoy]
+
+* Jq all and fix the space ;-) [Alexandre Dulaunoy]
+
+* Attributes username-quoted added. [ater49]
+
+  Added Attributes: "username-quoted"
+  Added types: LinkedIn, Reddit, Google+, Instagram
+
+* Add: Microblog post object like a Twitter tweet or a post on a Facebook wall. [Alexandre Dulaunoy]
+
+* Carbon copy field added. [Alexandre Dulaunoy]
+
+* Documentation links added. [Alexandre Dulaunoy]
+
+* Return-path added in email object. [Alexandre Dulaunoy]
+
+* Fixed the release version. [Alexandre Dulaunoy]
+
+* Sane_default added in the documentation. [Alexandre Dulaunoy]
+
+* Victim object added to the list. [Alexandre Dulaunoy]
+
+* Victim object added mainly based on the STIX 2.0 victim proposal. [Alexandre Dulaunoy]
+
+* Ja3 and person added in the list. [Alexandre Dulaunoy]
+
+* First version of the ja3 object based on the proposal from @delbs. [Alexandre Dulaunoy]
+
+* Fixing typo in the credit-card object. [Alexandre Dulaunoy]
+
+* 2.4.80 released. [Alexandre Dulaunoy]
+
+* Whois template fixed. [Alexandre Dulaunoy]
+
+* Fix #22. [Alexandre Dulaunoy]
+
+* Values_list added in the documentation. [Alexandre Dulaunoy]
+
+* An object describing a regular expression (regex or regexp). The object can be linked via a relationship to other attributes or objects to describe how it can be represented as a regular expression. [Alexandre Dulaunoy]
+
+* Add: first version of a person object (partially based on the PNR types) [Alexandre Dulaunoy]
+
+* Link fixed. [Alexandre Dulaunoy]
+
+* Url fixed. [Alexandre Dulaunoy]
+
+* Add: first version of the credit-card object. [Alexandre Dulaunoy]
+
+* Port type instead of text. [Alexandre Dulaunoy]
+
+* Disable some correlations. [Raphaël Vinot]
+
+* Be consistent and use hyphen everywhere (not more underscore). [Alexandre Dulaunoy]
+
+  Thanks to Terry MacDonald
+
+* Feedback from David added (two new relationships - triggers and detected_as) [Alexandre Dulaunoy]
+
+* Updated following Andras feedback. [Alexandre Dulaunoy]
+
+* Yabin updated following Andras feedback. [Alexandre Dulaunoy]
+
+* First version of a yabin object. [Alexandre Dulaunoy]
+
+* Relationships added to the documentation export. [Alexandre Dulaunoy]
+
+* Typo fixed. [Alexandre Dulaunoy]
+
+* Add descriptions in all the objects. [Raphaël Vinot]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* First version of a documentation generator tool. [Alexandre Dulaunoy]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* Phone object added. [Alexandre Dulaunoy]
+
+* Remove pipe from PE object def. [Raphaël Vinot]
+
+* Update definitions of binaries. [Raphaël Vinot]
+
+* Allow multiple entries of type flag in the ELFSection object. [Raphaël Vinot]
+
+* Phone defintion fixed. [Alexandre Dulaunoy]
+
+* Typo fixed. [Alexandre Dulaunoy]
+
+* First version of a mobile phone object. [Alexandre Dulaunoy]
+
+* Calls relationship type added. [Alexandre Dulaunoy]
+
+* Mach object file format added. [Alexandre Dulaunoy]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* New relationship types added. [Alexandre Dulaunoy]
+
+* Some more relationship type. [Alexandre Dulaunoy]
+
+* Update ELF definitions, add MachO. [Raphaël Vinot]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* Relationships types added + target MISP version. [Alexandre Dulaunoy]
+
+* Often used relationships added used for malware analysis. [Alexandre Dulaunoy]
+
+* Keep it consistent. [Alexandre Dulaunoy]
+
+* Add mimetype to file object template. [Raphaël Vinot]
+
+* Add schema for relationships. [Raphaël Vinot]
+
+* Make relationship type more generic. [Alexandre Dulaunoy]
+
+  Make the relationship types more generic especially to avoid issue
+  with community-designed standards that might change later the types,
+  broke compatibility or decide to change their mind due to some
+  proprietary vendors trying to lock-in the users.
+
+* First version of the types of relationships for MISP objects. [Alexandre Dulaunoy]
+
+  Relationship type can be from existing STIX 2.0 ones, MISP
+  relationships or other proposed by the community. Please be
+  careful that a relationship type can influence the ability
+  of export of MISP events if the type is not supported by
+  the target format.
+
+* Version updated. [Alexandre Dulaunoy]
+
+* Merge pull request #18 from truckydev/truckydev_2357. [Alexandre Dulaunoy]
+
+  add X509-fingerprint
+
+* Add X509-fingerprint. [truckydev]
+
+  https://github.com/MISP/MISP/pull/2357
+
+* Merge pull request #17 from CenturyLinkCIRT/master. [Alexandre Dulaunoy]
+
+  added http-request object
+
+* Added http-request object. [Thomas Gardner]
+
+* A cookie object has been added. [Alexandre Dulaunoy]
+
+  An HTTP cookie (web cookie, browser cookie) is a small piece of data
+  that a server sends to the user's web browser. The object includes
+  type which can help to describe the malicious use-case of the cookie.
+
+* Typo fixed in key-size - Thanks to @StefanKelm. [Alexandre Dulaunoy]
+
+* Update required entries for PE objects. [Raphaël Vinot]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* Improved Tor node object to include support of the new Tor monitoring. [Alexandre Dulaunoy]
+
+* Template definitions are not always distributed along with the objects. [Alexandre Dulaunoy]
+
+* Add a comment field. [Alexandre Dulaunoy]
+
+* Tor node object template which are part of the Tor network at a time. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority. [Alexandre Dulaunoy]
+
+* Ui-priority updated. [Alexandre Dulaunoy]
+
+* Ui-frequency updated. [Alexandre Dulaunoy]
+
+* Ui-frequency is the one! [Alexandre Dulaunoy]
+
+* Ui-priority is now the King! [Alexandre Dulaunoy]
+
+* Ui-priority is now the new frequency. [Alexandre Dulaunoy]
+
+* Misp-usage-frequency updated. [Alexandre Dulaunoy]
+
+* Misp-usage-frequency updated. [Alexandre Dulaunoy]
+
+* Misp-usage-frequency updated. [Alexandre Dulaunoy]
+
+* Misp-usage-frequency updated. [Alexandre Dulaunoy]
+
+* Misp-usage-frequency updated. [Alexandre Dulaunoy]
+
+* Misp-usage-frequency updated. [Alexandre Dulaunoy]
+
+* Misp-usage-frequency updated. [Alexandre Dulaunoy]
+
+* Misp-usage-frequency updated. [Alexandre Dulaunoy]
+
+* Misp-usage-frequency updated. [Alexandre Dulaunoy]
+
+* Misp-usage-frequency updated. [Alexandre Dulaunoy]
+
+* Misp-usage-frequency updated. [Alexandre Dulaunoy]
+
+* Misp-usage-frequency updated. [Alexandre Dulaunoy]
+
+* Misp-usage-frequency. [Alexandre Dulaunoy]
+
+* Misp-usage-frequency -> ui-priority. [Alexandre Dulaunoy]
+
+* Fix #14. [Alexandre Dulaunoy]
+
+* Merge pull request #15 from MISP/ddos-port-fix. [Alexandre Dulaunoy]
+
+  Changed DDOS port attributes to port type
+
+* Changed DDOS port attributes to port type. [Andras Iklody]
+
+* Update versions. [Raphaël Vinot]
+
+* Enforce meta-category. [Raphaël Vinot]
+
+* Now meta category for ail to misc. [Alexandre Dulaunoy]
+
+* The list of default meta-category: file, network, financial, misc, internal has been updated. [Alexandre Dulaunoy]
+
+* Geolocation object added. [Alexandre Dulaunoy]
+
+* Jq of geolocation object. [Alexandre Dulaunoy]
+
+* Geolocation - an object to describe a geographic location. [Alexandre Dulaunoy]
+
+* Ail-leak, elf, self-section and r2graphity added to the list of MISP objects. [Alexandre Dulaunoy]
+
+* Jq of ail-leak. [Alexandre Dulaunoy]
+
+* Information leak object as defined by the AIL Analysis Information Leak framework. [Alexandre Dulaunoy]
+
+* Update required fields on PE object. [Raphaël Vinot]
+
+* Update attributes os r2graphity object. [Raphaël Vinot]
+
+* Updade r2graphity definition. [Raphaël Vinot]
+
+* Add initial version of the r2graphity object. [Raphaël Vinot]
+
+* Remove duplicate entries in file object. [Raphaël Vinot]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* Jq all. [Alexandre Dulaunoy]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Alexandre Dulaunoy]
+
+* Disable_correlation added. [Alexandre Dulaunoy]
+
+* Add and enforce UUID in the object definitions. [Raphaël Vinot]
+
+* Add malware-sample to file object. [Raphaël Vinot]
+
+* Merge pull request #10 from sebdraven/master. [Raphaël Vinot]
+
+  add impfuzzy
+
+* Correct travis. [Sébastien Larinier]
+
+* Add impfuzzy. [Sébastien Larinier]
+
+* Disable_correlation added. [Alexandre Dulaunoy]
+
+* Update PE object. [Raphaël Vinot]
+
+* Merge pull request #9 from sebdraven/master. [Raphaël Vinot]
+
+  add information in elf and elf sections
+
+* Correct travis failed. [Sébastien Larinier]
+
+* Add type of sections. [Sébastien Larinier]
+
+* Add attributes. [Sébastien Larinier]
+
+* Delete attribute. [Sébastien Larinier]
+
+* Merge pull request #8 from sebdraven/master. [Raphaël Vinot]
+
+  add elf,elf-section and number of sections in a pe, and move pehash in pe object
+
+* Add elf,elf-section and number of sections in a pe, and move pehash in pe. [Sébastien Larinier]
+
+* Merge pull request #7 from sebdraven/master. [Alexandre Dulaunoy]
+
+  add characteristics and ssdeep to pe-sections
+
+* Correct bug on characteristics. [Sébastien Larinier]
+
+* Correct bug. [Sébastien Larinier]
+
+* Correct bug. [Sébastien Larinier]
+
+* Add characteristics and ssdeep to pe-sections. [Sébastien Larinier]
+
+* Add disable_correlation. [Raphaël Vinot]
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* Add sane_default to the schema. [Alexandre Dulaunoy]
+
+* JQifized. [Alexandre Dulaunoy]
+
+* Url object added. [Alexandre Dulaunoy]
+
+* Url object JQified. [Alexandre Dulaunoy]
+
+* Url object describes an url along with its normalized field (e.g. using faup parsing library) and its metadata. [Alexandre Dulaunoy]
+
+* PE section added. [Alexandre Dulaunoy]
+
+* Update file/PE objects. [Raphaël Vinot]
+
+  * Add sane defaults
+  * Disable correlation when it doesn't make sense
+
+* Merge branch 'master' of github.com:MISP/misp-objects. [Raphaël Vinot]
+
+* Portable Executable format added. [Alexandre Dulaunoy]
+
+* Update file and pe, add pe-section. [Raphaël Vinot]
+
+* Add PE object. [Raphaël Vinot]
+
+* Update schema. [Raphaël Vinot]
+
+* Jq all the things. [Alexandre Dulaunoy]
+
+* Required_value for protocol added. [Alexandre Dulaunoy]
+
+* Required_value and sane_default description added. [Alexandre Dulaunoy]
+
+* DDoS object added. [Alexandre Dulaunoy]
+
+* First proposal of a DDoS object in MISP. [Alexandre Dulaunoy]
+
+* Add forgotten dep for travis. [Raphaël Vinot]
+
+* JQ all the things. [Raphaël Vinot]
+
+* Add testing, update travis. [Raphaël Vinot]
+
+* Registry-key and email objects added. [Alexandre Dulaunoy]
+
+* Merge pull request #1 from mike1703/master. [Alexandre Dulaunoy]
+
+  email object added
+
+* Registry key object added. [Michael Kerscher]
+
+* Email object added. [Michael Kerscher]
+
+* Merge pull request #2 from MISP/Rafiot-patch-1. [Alexandre Dulaunoy]
+
+  Update definition.json
+
+* Update definition.json. [Raphaël Vinot]
+
+* Passive dns link fixed. [Alexandre Dulaunoy]
+
+* Clarification regarding the multiple field as discussed with @igloska as used in the vulnerability object. [Alexandre Dulaunoy]
+
+* First version of the vulnerability object (basic CVE support) [Alexandre Dulaunoy]
+
+* Fix json files (file and whois) [Raphaël Vinot]
+
+* Add Travis file (validate json files) [Raphaël Vinot]
+
+* Raw-base64 attribute added. [Alexandre Dulaunoy]
+
+* X509 object added. [Alexandre Dulaunoy]
+
+* Ip-port added. [Alexandre Dulaunoy]
+
+* Ip-port added. [Alexandre Dulaunoy]
+
+  An IP address and a port seen as a tuple (or as a triple) in a specific
+  time frame.
+
+* Passive DNS record added as misp-object. [Alexandre Dulaunoy]
+
+* Passive DNS object added. [Alexandre Dulaunoy]
+
+* Typo fixed. [Alexandre Dulaunoy]
+
+* Definition and some clarification. [Alexandre Dulaunoy]
+
+* Optional text attributes added. [Alexandre Dulaunoy]
+
+* Pattern-in-file added. [Alexandre Dulaunoy]
+
+* File object added. [Alexandre Dulaunoy]
+
+* First version of the file object. [Alexandre Dulaunoy]
+
+* Whois object added + requireOneOf added. [Alexandre Dulaunoy]
+
+* Whois object added. [Alexandre Dulaunoy]
+
+* Misp-attribute is more logical. [Alexandre Dulaunoy]
+
+* Updates on the attributes format. [Alexandre Dulaunoy]
+
+* Some updates. [Alexandre Dulaunoy]
+
+* Simple README added. [Alexandre Dulaunoy]
+
+* Everything is meta... [Alexandre Dulaunoy]
+
+* Adding a category field to classify the object (e.g. quick filter) [Alexandre Dulaunoy]
+
+* Updated version based on feedback from Andras. [Alexandre Dulaunoy]
+
+* Proposal updated based on feedback from Andras. [Alexandre Dulaunoy]
+
+* A first experimental description of a MISP combined object. [Alexandre Dulaunoy]
+
+
