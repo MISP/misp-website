@@ -30,13 +30,20 @@ The default credentials for the automatically generated virtual machines are the
 ~~~~
 For the MISP web interface -> admin@admin.test:admin
 For the system -> misp:Password1234
+~~~~
+#### VirtualBox
 Please add the following forwards on your VM Host:
-
+~~~~
 VBoxManage controlvm MISP_VM_NAME natpf1 www,tcp,,8080,,80
 VBoxManage controlvm MISP_VM_NAME natpf1 ssh,tcp,,2222,,22
 VBoxManage controlvm MISP_VM_NAME natpf1 dashboard,tcp,,8001,,8001
 ~~~~
-
+#### VMWare Users
+Log in on the VM using the console, and change the baseurl to the IP address of your VM.
+~~~~
+sudo -u www-data /var/www/MISP/app/Console/cake Baseurl https://a.b.c.d
+sudo systemctl restart apache2
+~~~~
 ### Vagrant
 
 [misp-vagrant](https://github.com/MISP/misp-vagrant) deploys MISP project software with Vagrant.

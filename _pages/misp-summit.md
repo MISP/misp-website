@@ -19,13 +19,18 @@ The registration to the Virtual MISP Summit is free.
 
 # Registration
 
-The event will take place online from 14:00 CET until 18:00.
+The event will take place online from 14:00 CET until 18:00 (21st October 2021).
 
-Registration is sold out but the MISP summit event will be [streamed live on YouTube](https://www.youtube.com/watch?v=IFqfCkT4X8w). You will able to ask question(s) or make comment live.
+The MISP summit event will be [streamed live on YouTube](https://youtu.be/zLX-ykn57uQ). You will able to ask question(s) or make comment live.
 
-{% include tickets.html %}
+# Agenda
 
-# Call for papers
+{% raw %}
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" height="2000" width="100%" src="https://cfp.hack.lu/misp-2021/schedule/"></iframe>
+{% endraw %}
+
+
+# Call for papers is closed
 
 If you want to talk, present and share your experience, you can submit one or more talks of 10 minutes sharing your contribution, experience, integration of MISP in your use-cases. We also welcome other open source tools who use MISP and share their integration details.
 

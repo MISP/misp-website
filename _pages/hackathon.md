@@ -26,7 +26,19 @@ The hackathon will take place in cyberspace and it's free of charge.
 
 ## Registration
 
+The hackathon is taking place mostly online,
+
+- Join the MM chat [invitation link](https://mm.circl.lu/signup_user_complete/?id=j8tpo19z53fmmcaheoprg3izhe)
+- Review the [hackathon activity document](https://hdoc.csirt-tooling.org/G-IuJ1aeR7adY0eWNpLyjg) for each projects, pick a project, propose, join the discussions and work on it
+
+and you can register using the form below to get notifications and updates.
+
 {% include hackathon.html %}
+
+If you are in New York City, we also have a small in-person event but please note that the number of seats available is very limited (3 to 7 people) so
+we'd appreciate it if you send us a mail to info@circl.lu to let us know that you'd like to attend, and when you will be there, so we can organize accordingly.
+The location is [Industrious - Equinox Hudson Yards](https://www.google.com/maps/place/Industrious+at+Equinox+Hudson+Yards/@40.7546312,-74.004437,17z/data=!3m2!4b1!5s0x89c259b4431df435:0xb6e1fe740e407ce1!4m5!3m4!1s0x89c259dbd9535dbf:0x24d1362425f7b6f3!8m2!3d40.7546272!4d-74.002243), 11th floor.
+Please note that in order to access the venue, vaccination is required and we must check it. If you're not vaccinated yet, you can of course participate to the event online.
 
 ## Register your project
 
@@ -37,17 +49,19 @@ If you want to have your project listed, please send the name, logo and a brief 
 
 ## Core principles
 
-The hackathon is not a competition, it’s an opportunity for open source and free software developers to work together on interesting ideas, projects or collaborations. The goal is to welcome newcomers (especially to help them get started) as well as established contributors of the various projets. Code is one aspect of the hackathon, but documentation, website presence, presentation materials and design are also important to open source and free software projects in information security.
+The hackathon is not a competition, it’s an opportunity for open source and free software developers to work together on interesting ideas, projects or collaborations. The goal is to welcome newcomers (especially to help them get started) as well as established contributors of the various projects. Code is one aspect of the hackathon, but documentation, website presence, presentation materials and design are also important to open source and free software projects in information security.
 
 ## Agenda
 
-As this is a hackathon, there is no strict agenda. This helps with avoiding interruptions to the work on specific problems or projects and ensures that the hacking on the various problems and ideas progresses smoothly. Nevertheless a global etherpad will be provided to keep track of all the activities and projects ongoing during these two days.
+As this is a hackathon, there is no strict agenda. This helps with avoiding interruptions to the work on specific problems or projects and ensures that the hacking on the various problems and ideas progresses smoothly. Nevertheless a [global etherpad](https://hdoc.csirt-tooling.org/G-IuJ1aeR7adY0eWNpLyjg) is provided to keep track of all the activities and projects ongoing during these two days. The [pad can be updated](https://hdoc.csirt-tooling.org/G-IuJ1aeR7adY0eWNpLyjg) before the hackathon with ideas and proposals.
 
 ## Participating Organisations
 
 ## Supporting Organisations
 
 Security orchestration hackathon is supported by the EC under “Connecting Europe Facility – Cybersecurity Digital Service Infrastructure Maintenance and Evolution of Core Service Platform Cooperation Mechanism for CSIRTs – MeliCERTes Facility” ([SMART 2018/1024](https://digital-strategy.ec.europa.eu/en/news/open-platforms-collaborate-cyber-threats)).
+
+The location for the in-person hackathon taking place in New York City is supported by [Unfinished](https://unfinished.com/).
 
 ## Participating Projects
 
@@ -66,3 +80,6 @@ The projects listed are merely examples and you’re more than welcome to propos
 [![Lookyloo icon](https://github.com/Lookyloo/lookyloo/raw/main/website/web/static/lookyloo.jpeg){: width="250" }](https://www.lookyloo.eu/)
 [![IntelMQ Logo](https://raw.githubusercontent.com/certtools/intelmq/develop/docs/_static/Logo_Intel_MQ.png){: width="250" }](https://github.com/certtools/intelmq)
 [![WHIDS Logo](https://raw.githubusercontent.com/0xrawsec/whids/master/doc/img/logo.png){: width="250"}](https://github.com/0xrawsec/whids)
+[![MONARC](https://raw.githubusercontent.com/monarc-project/monarc-training/master/common_pictures/logo-monarc.png)](https://www.monarc.lu)
+[![MOSP](https://raw.githubusercontent.com/CASES-LU/MOSP/master/mosp/static/img/logo-large.png){: width="250"}](https://github.com/CASES-LU/MOSP)
+[![MWDB Core](https://raw.githubusercontent.com/CERT-Polska/mwdb-core/master/mwdb/web/src/assets/logo.png){: width="250"}](https://github.com/CERT-Polska/mwdb-core)
