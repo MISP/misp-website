@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-v2.4.152 (2021-12-21)
+v2.4.152 (2021-12-22)
 ---------------------
 
 New
@@ -21,6 +21,10 @@ New
 
 Changes
 ~~~~~~~
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [security audit] fixed failures on kernel compilation time. [iglocska]
+
+  - currently the check makes a lot of invalid assumptions, made it more lax to fail gracefully
 - [version] bump. [iglocska]
 - [Python] Use pymisp from pypi. [Raphaël Vinot]
 - [internal] Make JSONConverterTool method static. [Jakub Onderka]
@@ -124,6 +128,10 @@ Changes
 
 Fix
 ~~~
+- [event:uploadEventSightingsToServersRouter] use Event model for
+  Sighting context. [Richard van den Berg]
+- [event:uploadEventSightingsToServersRouter] allow sightings to be
+  pushed upstream. [Richard van den Berg]
 - [server:add] Pass the correct variables to the view. [Sami Mokaddem]
 - [event:push] Unset attribute before processing it and nesting typo.
   [Sami Mokaddem]
@@ -239,6 +247,17 @@ Fix
 
 Other
 ~~~~~
+- Merge pull request #8046 from RichieB2B/ncsc-nl/sightings-dist.
+  [Andras Iklody]
+
+  Use Event model for Sighting context
+- Merge pull request #8045 from RichieB2B/ncsc-nl/sightings-dist.
+  [Andras Iklody]
+
+  Allow sightings to be pushed upstream
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
 - Merge branch 'develop' into 2.4. [iglocska]
 - Merge branch '2.4' into develop. [iglocska]
 - Merge branch 'develop' into 2.4. [iglocska]
