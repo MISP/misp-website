@@ -10,3 +10,5 @@ cd ../misp-modules
 gitchangelog >../misp-website/Changelog-misp-modules.txt
 cd ../PyMISP
 gitchangelog >../misp-website/Changelog-PyMISP.txt
+cd ../MISP
+gitchangelog >../misp-website/Changelog
