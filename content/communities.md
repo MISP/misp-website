@@ -17,7 +17,7 @@ Each community might have specific rules to join them. Below is a brief overview
 
 [CIRCL](https://www.circl.lu) operates a fairly large MISP community (more than 800 organizations are members) mainly targeting private organizations, companies, financial organizations or IT security companies. [For more information](https://www.circl.lu/services/misp-malware-information-sharing-platform) and how to join this community.
 
-CIRCL also operates the [![X-ISAC logo](/assets/images/x-isac-logo-small.png)](https://www.x-isac.org/) where MISP is used as core standard software to support ISACs information exchange.
+CIRCL also operates the [![X-ISAC logo](/img/x-isac-logo-small.png)](https://www.x-isac.org/) where MISP is used as core standard software to support ISACs information exchange.
 
 ### CiviCERT MISP Community
 
