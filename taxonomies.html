@@ -485,6 +485,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_dcso_sharing">dcso-sharing</a></li>
 <li><a href="#_ddos_2">ddos</a></li>
 <li><a href="#_de_vs">de-vs</a></li>
+<li><a href="#_deception">deception</a></li>
 <li><a href="#_dhs_ciip_sectors">dhs-ciip-sectors</a></li>
 <li><a href="#_diamond_model">diamond-model</a></li>
 <li><a href="#_dni_ism">dni-ism</a></li>
@@ -553,6 +554,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_passivetotal">passivetotal</a></li>
 <li><a href="#_pentest">pentest</a></li>
 <li><a href="#_phishing_2">phishing</a></li>
+<li><a href="#_political_spectrum">political-spectrum</a></li>
 <li><a href="#_priority_level">priority-level</a></li>
 <li><a href="#_ransomware">ransomware</a></li>
 <li><a href="#_retention">retention</a></li>
@@ -573,6 +575,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_tor">tor</a></li>
 <li><a href="#_trust">trust</a></li>
 <li><a href="#_type_7">type</a></li>
+<li><a href="#_unified_kill_chain">unified-kill-chain</a></li>
 <li><a href="#_use_case_applicability">use-case-applicability</a></li>
 <li><a href="#_veris">veris</a></li>
 <li><a href="#_vmray">vmray</a></li>
@@ -11386,6 +11389,356 @@ de-vs namespace available in JSON format at <a href="https://github.com/MISP/mis
 </div>
 </div>
 <div class="sect1">
+<h2 id="_deception">deception</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+deception namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/deception/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Deception is an important component of information operations, valuable for both offense and defense.</p>
+</div>
+<div class="sect2">
+<h3 id="_space">space</h3>
+<div class="paragraph">
+<p>Actions have associated locations, and deception can apply to those references.</p>
+</div>
+<div class="sect3">
+<h4 id="_deceptionspacedirection">deception:space="direction"</h4>
+<div class="paragraph">
+<p>Direction</p>
+</div>
+<div class="paragraph">
+<p>direction of the action. Direction cases can arise with some actions that are supposedly one-way like file transfers.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionspacelocation_at">deception:space="location-at"</h4>
+<div class="paragraph">
+<p>Location at</p>
+</div>
+<div class="paragraph">
+<p>Location where something occured</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionspacelocation_from">deception:space="location-from"</h4>
+<div class="paragraph">
+<p>Location from</p>
+</div>
+<div class="paragraph">
+<p>Location where something started</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionspacelocation_to">deception:space="location-to"</h4>
+<div class="paragraph">
+<p>Location to</p>
+</div>
+<div class="paragraph">
+<p>Location where something finished</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionspacelocation_through">deception:space="location-through"</h4>
+<div class="paragraph">
+<p>Location through</p>
+</div>
+<div class="paragraph">
+<p>Location where some action passed through</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionspaceorientation">deception:space="orientation"</h4>
+<div class="paragraph">
+<p>Orientation</p>
+</div>
+<div class="paragraph">
+<p>Orientation (in some space). Orientation cases can arise with some actions that are supposedly one-way like file transfers.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_time">time</h3>
+<div class="paragraph">
+<p>Many actions on computer are timestamped, and attackers and defenders can deceive in regard to those times. An attacker could change the times of events recorded in a log file or the directory information about files to conceal records of their activities.</p>
+</div>
+<div class="sect3">
+<h4 id="_deceptiontimefrequency">deception:time="frequency"</h4>
+<div class="paragraph">
+<p>Frequency</p>
+</div>
+<div class="paragraph">
+<p>Frequency of occurrence of a repeated action. Frequency is an excellent case for deception, as in denial-of-service attacks that greatly increase the frequency of requests or transactions to tie up computer resources.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptiontimetime_at">deception:time="time-at"</h4>
+<div class="paragraph">
+<p>Time at</p>
+</div>
+<div class="paragraph">
+<p>Time at which something occurred</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptiontimetime_from">deception:time="time-from"</h4>
+<div class="paragraph">
+<p>Time from</p>
+</div>
+<div class="paragraph">
+<p>Time at which something started</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptiontimetime_to">deception:time="time-to"</h4>
+<div class="paragraph">
+<p>Time to</p>
+</div>
+<div class="paragraph">
+<p>Time at which something ended</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptiontimetime_through">deception:time="time-through"</h4>
+<div class="paragraph">
+<p>Time through</p>
+</div>
+<div class="paragraph">
+<p>Time through which something occurred</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_participant">participant</h3>
+<div class="paragraph">
+<p>Actions have associated participants and the tools or objects by actions are accomplished.</p>
+</div>
+<div class="sect3">
+<h4 id="_deceptionparticipantagent">deception:participant="agent"</h4>
+<div class="paragraph">
+<p>Agent</p>
+</div>
+<div class="paragraph">
+<p>Who initiates the action.Identification of participants responsible for actions ("agents") is a key problem in cyberspace, and is an easy target for deception.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionparticipantbeneficiary">deception:participant="beneficiary"</h4>
+<div class="paragraph">
+<p>Beneficiary</p>
+</div>
+<div class="paragraph">
+<p>Who benefits. Deceptions involving the beneficiary of an action occur with phishing and other email scams.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionparticipantexperiencer">deception:participant="experiencer"</h4>
+<div class="paragraph">
+<p>Experiencer</p>
+</div>
+<div class="paragraph">
+<p>Who senses, experiences the action. Deception in the "experiencer" case occurs with secret monitoring of adversary activities.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionparticipantinstrument">deception:participant="instrument"</h4>
+<div class="paragraph">
+<p>Instrument</p>
+</div>
+<div class="paragraph">
+<p>What helps accomplish the action. Deception is easy with the instrument case because details of how software accomplishes things are often hidden in cyberspace.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionparticipantobject">deception:participant="object"</h4>
+<div class="paragraph">
+<p>Object</p>
+</div>
+<div class="paragraph">
+<p>What the action is done for. Deception in objects of the action is easy: Honeypots deceive as to the hardware and software objects of an attack, and "bait" data such as credit-card numbers can also be deceptive objects.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionparticipantrecipient">deception:participant="recipient"</h4>
+<div class="paragraph">
+<p>Recipient</p>
+</div>
+<div class="paragraph">
+<p>Who receives the action. The recipient of an action in cyberspace is usually the object.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_causality">causality</h3>
+<div class="paragraph">
+<p>Deception in cause, purpose, and effect is important in many kinds of social-engineering attacks where false reasons like "I have a deadline" or "It didn&#8217;t work" are given for requests for actions or information that aid the adversary. Deception in a contradiction action is not possible in cyberspace because commands do not generally relate actions.</p>
+</div>
+<div class="sect3">
+<h4 id="_deceptioncausalitycause">deception:causality="cause"</h4>
+<div class="paragraph">
+<p>Cause</p>
+</div>
+<div class="paragraph">
+<p>Cause of the action</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptioncausalitycontradiction">deception:causality="contradiction"</h4>
+<div class="paragraph">
+<p>Contradiction</p>
+</div>
+<div class="paragraph">
+<p>What this action opposes if anything</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptioncausalityeffect">deception:causality="effect"</h4>
+<div class="paragraph">
+<p>Effect</p>
+</div>
+<div class="paragraph">
+<p>Effect of the action</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptioncausalitypurpose">deception:causality="purpose"</h4>
+<div class="paragraph">
+<p>Purpose</p>
+</div>
+<div class="paragraph">
+<p>Purpose of the action</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_quality">quality</h3>
+<div class="paragraph">
+<p>The "quality" semantic cases cover the manner in which actions are performed.</p>
+</div>
+<div class="sect3">
+<h4 id="_deceptionqualityaccompaniment">deception:quality="accompaniment"</h4>
+<div class="paragraph">
+<p>Accompaniment</p>
+</div>
+<div class="paragraph">
+<p>An additionnal object associated with the action</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionqualitycontent">deception:quality="content"</h4>
+<div class="paragraph">
+<p>Content</p>
+</div>
+<div class="paragraph">
+<p>What is contained by th eaction object</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionqualitymanner">deception:quality="manner"</h4>
+<div class="paragraph">
+<p>Manner</p>
+</div>
+<div class="paragraph">
+<p>The way in which action is done. (Deception in manner does not generally apply because the manner in which a command is issued or executed should not affect the outcome.)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionqualitymaterial">deception:quality="material"</h4>
+<div class="paragraph">
+<p>Material</p>
+</div>
+<div class="paragraph">
+<p>The atomic units out of which the action is composed. Deception in material does not apply much because everything is represented as bits in cyberspace, though defenders can deceive this way by simulating commands rather than executing them.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionqualitymeasure">deception:quality="measure"</h4>
+<div class="paragraph">
+<p>Measure</p>
+</div>
+<div class="paragraph">
+<p>The mesurement associated with the action. Deception in measure (the amount of data) is important in denial-of-service attacks and can also done defensively by swamping the attacker with data.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionqualityorder">deception:quality="order"</h4>
+<div class="paragraph">
+<p>Order</p>
+</div>
+<div class="paragraph">
+<p>With respect to other actions</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionqualityvalue">deception:quality="value"</h4>
+<div class="paragraph">
+<p>Value</p>
+</div>
+<div class="paragraph">
+<p>The data transmitted by the action (the software sense of the term). Deception in value (or subroutine "argument") can occur defensively as in a ploy of misunderstanding attacker commands.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_essence">essence</h3>
+<div class="paragraph">
+<p>Deception can occur in the ontological features of an action, its type and the context to which is belongs.</p>
+</div>
+<div class="sect3">
+<h4 id="_deceptionessencesupertype">deception:essence="supertype"</h4>
+<div class="paragraph">
+<p>Supertype</p>
+</div>
+<div class="paragraph">
+<p>a generalization of the action type. Phishing email is an example of deception in supertype.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionessencewhole">deception:essence="whole"</h4>
+<div class="paragraph">
+<p>Whole</p>
+</div>
+<div class="paragraph">
+<p>of which the action is a part</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_speech_act_theory">speech-act-theory</h3>
+<div class="paragraph">
+<p>Deception can involve semantic cases related to communication. Both internal and external preconditions provide useful deceptions by defenders since it is often hard to confirm deception in such conditions in cyberspace.</p>
+</div>
+<div class="sect3">
+<h4 id="_deceptionspeech_act_theoryexternal_precondition">deception:speech-act-theory="external-precondition"</h4>
+<div class="paragraph">
+<p>External precondition</p>
+</div>
+<div class="paragraph">
+<p>external precondition on the action. External preconditions are on the rest of the world such as the ability of a site to accept a particular user-supplied password.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionspeech_act_theoryinternal_precondition">deception:speech-act-theory="internal-precondition"</h4>
+<div class="paragraph">
+<p>Internal precondition</p>
+</div>
+<div class="paragraph">
+<p>internal precondition, on the ability of the agent to perform the action. Internal preconditions are on the agent of the action, such as ability of a user to change their password.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_dhs_ciip_sectors">dhs-ciip-sectors</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -17843,6 +18196,15 @@ exercise namespace available in JSON format at <a href="https://github.com/MISP/
 <p>ENISA manages the programme of pan-European exercises CE2018 logonamed Cyber Europe. This is a series of EU-level cyber incident and crisis management exercises for both the public and private sectors from the EU and EFTA Member States. The Cyber Europe exercises are simulations of large-scale cybersecurity incidents that escalate to become cyber crises. The exercises offer opportunities to analyse advanced technical cybersecurity incidents but also to deal with complex business continuity and crisis management situations.</p>
 </div>
 <div class="sect3">
+<h4 id="_exercisecyber_europe2022">exercise:cyber-europe="2022"</h4>
+<div class="paragraph">
+<p>2022</p>
+</div>
+<div class="paragraph">
+<p>6th pan European cyber crisis exercise: Cyber Europe 2022 (CE2022)</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_exercisecyber_europe2018">exercise:cyber-europe="2018"</h4>
 <div class="paragraph">
 <p>2018</p>
@@ -19609,9 +19971,9 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 </div>
 <div class="sect3">
-<h4 id="_fr_classifnon_classifieesnon_classifiees">fr-classif:non-classifiees="NON-CLASSIFIEES"</h4>
+<h4 id="_fr_classifnon_classifieesnon_protege">fr-classif:non-classifiees="NON-PROTEGE"</h4>
 <div class="paragraph">
-<p>NON CLASSIFIEES</p>
+<p>NON PROTEGE</p>
 </div>
 </div>
 </div>
@@ -39431,6 +39793,236 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 </div>
 <div class="sect1">
+<h2 id="_political_spectrum">political-spectrum</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+political-spectrum namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/political-spectrum/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A political spectrum is a system to characterize and classify different political positions in relation to one another.</p>
+</div>
+<div class="sect2">
+<h3 id="_ideology">ideology</h3>
+<div class="paragraph">
+<p>Political ideologies are one of the major organizing features of political parties, and parties often officially align themselves with specific ideologies.</p>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologyagrarianism">political-spectrum:ideology="agrarianism"</h4>
+<div class="paragraph">
+<p>Agrarianism</p>
+</div>
+<div class="paragraph">
+<p>political and social philosophy that has promoted subsistence agriculture, smallholdings, egalitarianism, with agrarian political parties normally supporting the rights and sustainability of small farmers and poor peasants against the wealthy in society.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologyanarchism">political-spectrum:ideology="anarchism"</h4>
+<div class="paragraph">
+<p>Anarchism</p>
+</div>
+<div class="paragraph">
+<p>Anarchism is a political philosophy and movement that is sceptical of authority and rejects all involuntary, coercive forms of hierarchy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologycentrism">political-spectrum:ideology="centrism"</h4>
+<div class="paragraph">
+<p>Centrism</p>
+</div>
+<div class="paragraph">
+<p>Centrism is a political outlook or position that involves acceptance and/or support of a balance of social equality and a degree of social hierarchy, while opposing political changes which would result in a significant shift of society strongly to either the left or the right.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologychristian_democracy">political-spectrum:ideology="christian-democracy"</h4>
+<div class="paragraph">
+<p>Christian Democracy</p>
+</div>
+<div class="paragraph">
+<p>combination of modern democratic ideas and traditional Christian values, incorporating social justice as well as the social teachings espoused by the Catholic, Lutheran, Reformed, Pentecostal and other denominational traditions of Christianity in various parts of the world. After World War II, Catholic and Protestant movements of neo-scholasticism and the Social Gospel, respectively, played a role in shaping Christian democracy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologycommunism">political-spectrum:ideology="communism"</h4>
+<div class="paragraph">
+<p>Communism</p>
+</div>
+<div class="paragraph">
+<p>Communism is a philosophical, social, political, and economic ideology and movement whose goal is the establishment of a communist society, namely a socioeconomic order structured upon the ideas of common ownership of the means of production and the absence of social classes, money, and the state.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologyconservatism">political-spectrum:ideology="conservatism"</h4>
+<div class="paragraph">
+<p>Conservatism</p>
+</div>
+<div class="paragraph">
+<p>Conservatism is an aesthetic, cultural, social, and political philosophy, which seeks to promote and to preserve traditional social institutions. The central tenets of conservatism may vary in relation to the traditional values or practices of the culture and civilization in which it appears. In Western culture, conservatives seek to preserve a range of institutions such as organized religion, parliamentary government, and property rights. Adherents of conservatism often oppose modernism and seek a return to traditional values.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologydemocratic_socialism">political-spectrum:ideology="democratic-socialism"</h4>
+<div class="paragraph">
+<p>Democratic socialism</p>
+</div>
+<div class="paragraph">
+<p>Democratic socialism is a political philosophy that supports political democracy within a socially owned economy, with a particular emphasis on economic democracy, workplace democracy, and workers' self-management within a market socialist economy, or an alternative form of decentralised planned socialist economy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologyfascism">political-spectrum:ideology="fascism"</h4>
+<div class="paragraph">
+<p>Fascism</p>
+</div>
+<div class="paragraph">
+<p>Fascism is a form of far-right, authoritarian ultranationalism characterized by dictatorial power, forcible suppression of opposition, and strong regimentation of society and of the economy, which came to prominence in early 20th-century Europe.Fascists believe that liberal democracy is obsolete. They regard the complete mobilization of society under a totalitarian one-party state as necessary to prepare a nation for armed conflict and to respond effectively to economic difficulties.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologyfeminism">political-spectrum:ideology="feminism"</h4>
+<div class="paragraph">
+<p>Feminism</p>
+</div>
+<div class="paragraph">
+<p>Feminism is a range of social movements and ideologies that aim to define and establish the political, economic, personal, and social equality of the sexes. Feminism incorporates the position that societies prioritize the male point of view, and that women are treated unjustly within those societies. Efforts to change that include fighting against gender stereotypes and establishing educational, professional, and interpersonal opportunities and outcomes for women that are equal to those for men.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologygreen_politics">political-spectrum:ideology="green-politics"</h4>
+<div class="paragraph">
+<p>Green politics</p>
+</div>
+<div class="paragraph">
+<p>Green politics, or ecopolitics, is a political ideology that aims to foster an ecologically sustainable society often, but not always, rooted in environmentalism, nonviolence, social justice and grassroots democracy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologyislamism">political-spectrum:ideology="islamism"</h4>
+<div class="paragraph">
+<p>Islamism</p>
+</div>
+<div class="paragraph">
+<p>Islamism (also often called political Islam or Islamic fundamentalism) is a political ideology which posits that modern states and regions should be reconstituted in constitutional, economic and judicial terms, in accordance with what is conceived as a revival or a return to authentic Islamic practice in its totality.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologyliberalism">political-spectrum:ideology="liberalism"</h4>
+<div class="paragraph">
+<p>Liberalism</p>
+</div>
+<div class="paragraph">
+<p>Liberalism is a political and moral philosophy based on liberty, consent of the governed and equality before the law. Liberals espouse a wide array of views depending on their understanding of these principles, but they generally support individual rights (including civil rights and human rights), democracy, secularism, freedom of speech, freedom of the press, freedom of religion and a market economy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologylibertarianism">political-spectrum:ideology="libertarianism"</h4>
+<div class="paragraph">
+<p>Libertarianism</p>
+</div>
+<div class="paragraph">
+<p>Libertarianism is a political philosophy that upholds liberty as a core principle. Libertarians seek to maximize autonomy and political freedom, emphasizing free association, freedom of choice, individualism and voluntary association. Libertarians share a skepticism of authority and state power, but some libertarians diverge on the scope of their opposition to existing economic and political systems.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologymonarchism">political-spectrum:ideology="monarchism"</h4>
+<div class="paragraph">
+<p>Monarchism</p>
+</div>
+<div class="paragraph">
+<p>Monarchism is the advocacy of the system of monarchy or monarchical rule.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologypacifism">political-spectrum:ideology="pacifism"</h4>
+<div class="paragraph">
+<p>Pacifism</p>
+</div>
+<div class="paragraph">
+<p>Pacifism covers a spectrum of views, including the belief that international disputes can and should be peacefully resolved, calls for the abolition of the institutions of the military and war, opposition to any organization of society through governmental force (anarchist or libertarian pacifism), rejection of the use of physical violence to obtain political, economic or social goals, the obliteration of force, and opposition to violence under any circumstance, even defence of self and others.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologysocial_democracy">political-spectrum:ideology="social-democracy"</h4>
+<div class="paragraph">
+<p>Social democracy</p>
+</div>
+<div class="paragraph">
+<p>Social democracy is a political, social, and economic philosophy within socialism that supports political and economic democracy. As a policy regime, it is described by academics as advocating economic and social interventions to promote social justice within the framework of a liberal-democratic polity and a capitalist-oriented mixed economy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologysocialism">political-spectrum:ideology="socialism"</h4>
+<div class="paragraph">
+<p>Socialism</p>
+</div>
+<div class="paragraph">
+<p>Socialism is a political, social, and economic philosophy encompassing a range of economic and social systems characterised by social ownership of the means of production. It includes the political theories and movements associated with such systems. Social ownership can be public, collective, cooperative, or of equity. While no single definition encapsulates the many types of socialism, social ownership is the one common element.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_left_right_spectrum">left-right-spectrum</h3>
+<div class="paragraph">
+<p>The left–right political spectrum is a system of classifying political positions characteristic of left-right politics, ideologies and parties with emphasis placed on issues of social equality and social hierarchy.</p>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumleft_right_spectrumfar_left">political-spectrum:left-right-spectrum="far-left"</h4>
+<div class="paragraph">
+<p>Far-left</p>
+</div>
+<div class="paragraph">
+<p>There are different definitions of the far-left. It could represent the left of social democraty, or also limited to the left of communist parties. Sometimes it is also associated with some forms of anarchism and communims, or groupsthat advocate for revolutionary anti-capitalism and anti-globalization.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumleft_right_spectrumcentre_left">political-spectrum:left-right-spectrum="centre-left"</h4>
+<div class="paragraph">
+<p>Centre-left</p>
+</div>
+<div class="paragraph">
+<p>Also refered as moderate-left politics. Believes in working within the established systems to improve social justice. Promotes a degree of social equality that it believes is achievable through promoting equal opportunity. Emphasizes that the achievement of equality requires personal responsibility in areas in control by the individual person through their abilities and talents as well as social responsibility in areas outside control by the person in their abilities or talents.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumleft_right_spectrumradical_centre">political-spectrum:left-right-spectrum="radical-centre"</h4>
+<div class="paragraph">
+<p>Radical centre</p>
+</div>
+<div class="paragraph">
+<p>The radical in the term refers to a willingness on the part of most radical centrists to call for fundamental reform of institutions.[ The centrism refers to a belief that genuine solutions require realism and pragmatism, not just idealism and emotion. Radical centrists borrow ideas from the left and the right, often melding them together.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumleft_right_spectrumcentre_right">political-spectrum:left-right-spectrum="centre-right"</h4>
+<div class="paragraph">
+<p>Centre-right</p>
+</div>
+<div class="paragraph">
+<p>Also referred to as moderate-right politics. Ideologies characterised as centre-right include liberal conservatism and some variants of liberalism and Christian democracy, among others.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumleft_right_spectrumfar_right">political-spectrum:left-right-spectrum="far-right"</h4>
+<div class="paragraph">
+<p>Far-right</p>
+</div>
+<div class="paragraph">
+<p>Referred to as the extreme right or right-wing extremism. Are usually described as anti-communist, authoritarian, ultranationalist, and having nativist ideologies and tendencies. Today far-right politics include neo-fascism, neo-Nazism, the Third Position, the alt-right, racial supremacism, and other ideologies or organizations that feature aspects of ultranationalist, chauvinist, xenophobic, theocratic, racist, homophobic, transphobic, or reactionary views.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_priority_level">priority-level</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -43599,6 +44191,149 @@ type namespace available in JSON format at <a href="https://github.com/MISP/misp
 </div>
 <div class="paragraph">
 <p>gathered from analysis of monetary or financial transactions</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_unified_kill_chain">unified-kill-chain</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+unified-kill-chain namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/unified-kill-chain/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The Unified Kill Chain is a refinement to the Kill Chain.</p>
+</div>
+<div class="sect2">
+<h3 id="_initial_foothold">Initial Foothold</h3>
+<div class="sect3">
+<h4 id="_unified_kill_chaininitial_footholdreconnaissance">unified-kill-chain:Initial Foothold="reconnaissance"</h4>
+<div class="paragraph">
+<p>Reconnaissance</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chaininitial_footholdweaponization">unified-kill-chain:Initial Foothold="weaponization"</h4>
+<div class="paragraph">
+<p>Weaponization</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chaininitial_footholddelivery">unified-kill-chain:Initial Foothold="delivery"</h4>
+<div class="paragraph">
+<p>Delivery</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chaininitial_footholdsocial_engineering">unified-kill-chain:Initial Foothold="social-engineering"</h4>
+<div class="paragraph">
+<p>Social Engineering</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chaininitial_footholdexploitation">unified-kill-chain:Initial Foothold="exploitation"</h4>
+<div class="paragraph">
+<p>Exploitation</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chaininitial_footholdpersistence">unified-kill-chain:Initial Foothold="persistence"</h4>
+<div class="paragraph">
+<p>Persistence</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chaininitial_footholddefense_evasion">unified-kill-chain:Initial Foothold="defense-evasion"</h4>
+<div class="paragraph">
+<p>Defense Evasion</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chaininitial_footholdcommand_control">unified-kill-chain:Initial Foothold="command-control"</h4>
+<div class="paragraph">
+<p>Command &amp; Control</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_network_propagation">Network Propagation</h3>
+<div class="sect3">
+<h4 id="_unified_kill_chainnetwork_propagationpivoting">unified-kill-chain:Network Propagation="pivoting"</h4>
+<div class="paragraph">
+<p>Pivoting</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainnetwork_propagationdiscovery">unified-kill-chain:Network Propagation="discovery"</h4>
+<div class="paragraph">
+<p>Discovery</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainnetwork_propagationprivilege_escalation">unified-kill-chain:Network Propagation="privilege-escalation"</h4>
+<div class="paragraph">
+<p>Privilege Escalation</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainnetwork_propagationexecution">unified-kill-chain:Network Propagation="execution"</h4>
+<div class="paragraph">
+<p>Execution</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainnetwork_propagationcredential_access">unified-kill-chain:Network Propagation="credential-access"</h4>
+<div class="paragraph">
+<p>Credential Access</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainnetwork_propagationlateral_movement">unified-kill-chain:Network Propagation="lateral-movement"</h4>
+<div class="paragraph">
+<p>Lateral Movement</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_action_on_objectives">Action on Objectives</h3>
+<div class="sect3">
+<h4 id="_unified_kill_chainaction_on_objectivesaccess">unified-kill-chain:Action on Objectives="access"</h4>
+<div class="paragraph">
+<p>Access</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainaction_on_objectivescollection">unified-kill-chain:Action on Objectives="collection"</h4>
+<div class="paragraph">
+<p>Collection</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainaction_on_objectivesexfiltration">unified-kill-chain:Action on Objectives="exfiltration"</h4>
+<div class="paragraph">
+<p>Exfiltration</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainaction_on_objectivesimpact">unified-kill-chain:Action on Objectives="impact"</h4>
+<div class="paragraph">
+<p>Impact</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainaction_on_objectivesobjectives">unified-kill-chain:Action on Objectives="objectives"</h4>
+<div class="paragraph">
+<p>Objectives</p>
 </div>
 </div>
 </div>
@@ -56914,7 +57649,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-11-16 19:55:31 +0100
+Last updated 2021-12-23 16:18:10 +0100
 </div>
 </div>
 </body>
