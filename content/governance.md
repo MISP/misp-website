@@ -11,7 +11,7 @@ MISP project is a large open source project with the goal to make viable tools a
 In order to achieve our goals, the MISP project gathers feature requests, feedback and bug reports from different sources. As described in the graph below,
 we have various sources that we use, including MISP user-groups, direct community feedback via GitHub, MISP trainings and the yearly MISP summit.
 
-![MISP governance overview](/assets/images/governance.png){:class="img-responsive"}
+![MISP governance overview](/img/governance.png "img-responsive")
 
 ## Features and Roadmap
 
@@ -34,11 +34,11 @@ the creation or enhancement of existing classifications schemes ([misp-galaxy](h
 
 The MISP project is financially and resource supported by [CIRCL - Computer Incident Response Center Luxembourg](https://www.circl.lu/).
 
-![](/assets/images/logo.png){:class="img-responsive"}
+![](/img/circl.png "img-responsive")
 
 A CEF (Connecting Europe Facility) funding under CEF-TC-2016-3 - Cyber Security has been granted from 1st September 2017 until 31th August 2019 as ***Improving MISP as building blocks for next-generation information sharing***.
 
-![](/assets/images/en_cef.png){:class="img-responsive"}
+![](/img/cef.png "img-responsive")
 
 If you are interested to co-fund projects around MISP, feel free to get in touch with us.
 

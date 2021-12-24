@@ -89,4 +89,4 @@ chown www-data:www-data /var/www/MISP/app/webroot/public/covid_misp_filtered_ioc
 
 ## Dashboards available in COVID-19 MISP
 
-![](/assets/images/misp/covid-dash.png){:class="img-responsive"}
+![COVID-19 MISP Dashboard](/img/covid-dash.png)
