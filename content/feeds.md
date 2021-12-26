@@ -93,7 +93,7 @@ To enable a feed for caching, you just need to check the enabled field to benefi
 
 ## Feed overlap analysis matrix
 
-![feed overlap analysis matrix](/img/blog/feed-overlap-analys-matrix.png "img-responsive")
+![feed overlap analysis matrix](/img/blog/feed-overlap-analys-matrix.png)
 
 ## How to have my feed published in the default MISP OSINT feed
 
