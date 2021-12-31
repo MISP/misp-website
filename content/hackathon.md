@@ -8,7 +8,8 @@ featured: /img/stack.jpg
 
 # Open Source Security hackathon - Monday 25th October 2021 and Tuesday 26th October 2021
 
-![](/img/stack.jpg)
+![stack](/img/stack.jpg "{class='img-responsive'}")
+
 
 [CIRCL](https://www.circl.lu/) in collaboration with the [MISP Project](https://www.misp-project.org/) is organising the 5th Open Source Security Software Hackathon, which will take place over two days, on Monday 25th October 2021 and Tuesday 26th October 2021.
 
@@ -70,16 +71,16 @@ The location for the in-person hackathon taking place in New York City is suppor
 The projects listed are merely examples and you’re more than welcome to propose other open source projects you would like to work on.
 
 
-[![MISP](/img/misp-small.png)](https://www.misp-project.org/)
+[![MISP](/img/misp-small.png)](https://www.misp-project.org/ )
 [![D4 Project](https://www.d4-project.org/assets/images/logo.png)](https://www.d4-project.org/)
 [![cve-search](https://www.cve-search.org/images/cve-search.png)](https://www.cve-search.org)
-[![AIL](https://www.ail-project.org/assets/img/logonav.png)](https://www.ail-project.org/)
-[![OWASP Zap Proxy](https://pbs.twimg.com/profile_images/935515807949434880/T8RuttbQ_400x400.jpg)](https://www.zaproxy.org/)
-[![OWASP ModSecurity Core Rule Set](https://owasp.org/www-project-modsecurity-core-rule-set/assets/images/CRS-logo-full_size-512x257.png)](https://coreruleset.org/)
+[![AIL](https://www.ail-project.org/assets/img/logonav.png "{ width='250px'}")](https://www.ail-project.org/)
+[![OWASP Zap Proxy](https://pbs.twimg.com/profile_images/935515807949434880/T8RuttbQ_400x400.jpg "{ width='250px'}")](https://www.zaproxy.org/)
+[![OWASP ModSecurity Core Rule Set](https://owasp.org/www-project-modsecurity-core-rule-set/assets/images/CRS-logo-full_size-512x257.png "{ width='250px'}")](https://coreruleset.org/)
 [![Cerebrate project](https://avatars.githubusercontent.com/u/60326167?s=200&v=4)](https://github.com/cerebrate-project/)
-[![Lookyloo icon](https://github.com/Lookyloo/lookyloo/raw/main/website/web/static/lookyloo.jpeg){: width="250" }](https://www.lookyloo.eu/)
-[![IntelMQ Logo](https://raw.githubusercontent.com/certtools/intelmq/develop/docs/_static/Logo_Intel_MQ.png){: width="250" }](https://github.com/certtools/intelmq)
-[![WHIDS Logo](https://raw.githubusercontent.com/0xrawsec/whids/master/doc/img/logo.png){: width="250"}](https://github.com/0xrawsec/whids)
+[![Lookyloo icon](https://github.com/Lookyloo/lookyloo/raw/main/website/web/static/lookyloo.jpeg "{ width='250px'}")](https://www.lookyloo.eu/)
+[![IntelMQ Logo](https://raw.githubusercontent.com/certtools/intelmq/develop/docs/_static/Logo_Intel_MQ.png "{ width='250px'}")](https://github.com/certtools/intelmq)
+[![WHIDS Logo](https://raw.githubusercontent.com/0xrawsec/whids/master/doc/img/logo.png "{ width='250px'}")](https://github.com/0xrawsec/whids)
 [![MONARC](https://raw.githubusercontent.com/monarc-project/monarc-training/master/common_pictures/logo-monarc.png)](https://www.monarc.lu)
-[![MOSP](https://raw.githubusercontent.com/CASES-LU/MOSP/master/mosp/static/img/logo-large.png){: width="250"}](https://github.com/CASES-LU/MOSP)
-[![MWDB Core](https://raw.githubusercontent.com/CERT-Polska/mwdb-core/master/mwdb/web/src/assets/logo.png){: width="250"}](https://github.com/CERT-Polska/mwdb-core)
+[![MOSP](https://raw.githubusercontent.com/CASES-LU/MOSP/master/mosp/static/img/logo-large.png "{ width='250px'}")](https://github.com/CASES-LU/MOSP)
+[![MWDB Core](https://raw.githubusercontent.com/CERT-Polska/mwdb-core/master/mwdb/web/src/assets/logo.png "{ width='250px'}")](https://github.com/CERT-Polska/mwdb-core)

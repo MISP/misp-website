@@ -1,1 +1,99 @@
-<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" class="img-responsive" />
+{{- /*
+
+Expecting:
+!["alt text"](src "figcaption{Attrs}")
+
+More info: https://discourse.gohugo.io/t/is-it-possible-to-use-attribute-lists-with-render-hooks/31374/9?u=bep
+Plus added some fixes (\w+ => [\w-]+)
+
+*/ -}}
+
+
+{{- $isLocal := false -}}
+{{- $src := .Destination -}}
+{{- $srcSize := false -}}
+{{- $placeholderSrc := false -}}
+
+{{- /*  First, Try Local, Current Page Resource  */ -}}
+{{- $res := $.Page.Resources.GetMatch .Destination -}}
+
+{{- /*  Try Local, Other page Resource  */ -}}
+{{- if and ( fileExists ( .Destination | safeURL ) ) ( not $res ) -}}
+  {{- $page := false -}}
+  {{ $path := ( split ( .Destination | safeURL ) "/" ) }}
+  {{- range $i, $p := $path -}}
+    {{- $subpath := (slice) -}}
+    {{- range seq $i -}}
+      {{ $subpath = $subpath | append ( slice ( index $path . )) -}}
+    {{- end -}}
+    {{- $subpath = delimit $subpath "/" -}}
+    {{- with $.Page.Site.GetPage ( print ( $subpath | safeURL ) ) -}}
+      {{- $page = . -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if $page -}}
+    {{- $resPath := strings.Replace .Destination ( $page.Path | path.Dir ) "" -}}
+    {{- $resPath = replaceRE `^//` `` $resPath -}}
+    {{- $res = $page.Resources.GetMatch $resPath -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /*  Try Local, Asset Resource  */ -}}
+{{- /*  TODO  */ -}}
+
+{{- with $res -}}
+  {{- $src = .Permalink -}}
+  
+  {{- if eq .ResourceType "image" -}}
+    {{- /*  Image  */ -}}
+    {{- $placeholderSrc = ( .Resize "10x" ).Permalink -}}
+    {{- $srcSize = dict "width" $res.Width "height" $res.Height -}}
+    {{- $maxWidth := "none" -}}
+    {{- $maxHeight := "none" -}}
+  {{- else if eq .ResourceType "mp4" -}}
+    {{- /*  Video  */ -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $figcaption := replaceRE `{.*}$` `` .Title -}}
+
+{{- /*  Parse attributes  */ -}}
+{{- $attrs := split ( trim ( index (findRE `{.*}` .Title ) 0 ) "{}" ) " " -}}
+{{- $attributes := (dict) -}}
+{{ range $attrs -}}
+  {{- if index (findRE `(\#)(.+)` .) 0 -}}
+    {{- /*  IDs  */ -}}
+    {{- $attributes = merge $attributes ( dict "id" (slice ( trim . "#" )) ) -}}
+  {{- else if  index (findRE `(\.)(.+)` .) 0 -}}
+    {{- /*  Classes  */ -}}
+    {{- $class := slice ( trim . "." ) -}} 
+    {{- $current := index $attributes "class" | default (slice) -}}
+    {{- $attributes = merge $attributes ( dict "class" ( append $current $class ) ) -}}
+  {{- else if  index (findRE `([\w-]+)=(['"]?[\w-]+["']?)` . ) 0 -}}
+    {{- /*  Attributes  */ -}}
+    {{- $attr := replaceRE `([\w-]+)=(['"]?[\w-]+["']?)` `$1` . -}}
+    {{- $val := split ( replaceRE `([\w-]+)=(['"]?([\w-]+)["']?)` `$3` . ) " " -}}
+    {{- $current := index $attributes $attr | default (slice) -}}
+    {{- $attributes = merge $attributes ( dict $attr ( append $current $val ) ) -}}
+  {{- else if index (findRE `([\w-]+)` . ) 0 -}}
+    {{/*  Booleans  */}}
+    {{- $attributes = merge $attributes ( dict . true ) -}}
+  {{- end -}}
+{{- end -}}
+
+<img src="{{ $src }}"
+            {{ if $srcSize }}
+            {{ print `src-size=` ( $srcSize | jsonify ) | safeHTMLAttr }}
+            {{ end }}
+            {{ if $placeholderSrc }}
+            placeholder-src="{{ $placeholderSrc }}"
+            {{ end }}
+            alt="{{ .Text }}"
+            {{- range $attr, $val := $attributes -}}
+              {{- if eq $val true -}}
+                {{ print $attr ` ` | safeHTMLAttr }}
+              {{- else -}}
+                {{ print  $attr `="` (delimit $val ` ` ) `"` | safeHTMLAttr }}
+              {{- end -}}
+            {{- end -}} />
