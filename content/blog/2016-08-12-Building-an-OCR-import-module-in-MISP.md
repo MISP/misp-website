@@ -80,9 +80,9 @@ The module is automatically integrated in MISP via the [misp-modules framework](
 
 An analyst will have access to the following MISP user-interfaces while using the OCR module. The module just work like an expansion module and the user will see all the potential indicators scanned from the document. The OCR module is included as an example in the misp-modules framework and can be directly enabled in the MISP configuration. In order to use the module, the [Tesseract OCR](http://miphol.com/muse/2013/05/install-tesseract-ocr-on-ubunt.html) have to be installed locally on your MISP instance.
 
-![MISP user interface listing the modules and showing the ocr module](/img/blog/ocr1.png){:class="img-responsive"}
+![MISP user interface listing the modules and showing the ocr module](/img/blog/ocr1.png "{class='img-responsive'}")
 
-![MISP ocr module - scan a file](/img/blog/ocr2.png){:class="img-responsive"}
+![MISP ocr module - scan a file](/img/blog/ocr2.png "{class='img-responsive'}")
 
-![MISP ocr module - import scanned results](/img/blog/ocr3.png){:class="img-responsive"}
+![MISP ocr module - import scanned results](/img/blog/ocr3.png "{class='img-responsive'}")
 

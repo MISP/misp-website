@@ -28,13 +28,13 @@ To create an extension event, simply enter the UUID or ID of the event in the "E
 
 Users viewing the original report, will now see a new field called "Extended by" as shown below:
 
-![A MISP event extended by another event](/img/blog/extended.png){:class="img-responsive"}
+![A MISP event extended by another event](/img/blog/extended.png "{class='img-responsive'}")
 
 Clicking on the atomic view / extended view toggle button will allow you to jump from the classical event view to the extended event view. The extended view will add all of the relations, tags, galaxy clusters, attributes and objects of the extender events. The attribute list in extended view also shows the event it originates from along with the creator organisation. Keep in mind that duplicates across several events are not culled.
 
 Extending an event is easy and a nifty lookup interface helps you to select the appropriate event to extend:
 
-![Extending a event when creating a new MISP event](/img/blog/extendadd.png){:class="img-responsive"}
+![Extending a event when creating a new MISP event](/img/blog/extendadd.png "{class='img-responsive'}")
 
 In the above case, OSINT information contained within an event is extended with additional threat hunting information which are limited to your organisation. The major advantage of such an approach is allowing any organisation to expand information without touching the original event.
 
