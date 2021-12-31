@@ -37,9 +37,9 @@ We still have to see how the ``base_score`` is actually computed. In the current
 
 To give the intuition of how the ``base_score`` computation works, let's look at two examples. In these examples, the two *Taxonomies* used are
 [*phishing*](https://github.com/MISP/misp-taxonomies/blob/master/phishing/machinetag.json) and [*admiralty-scale*](https://github.com/MISP/misp-taxonomies/blob/master/admiralty-scale/machinetag.json). Both of them contain *Tags* that have a ``numerical_value`` associated to them:
-- <img src="/img/blog/decaying//tag-as-A.png" alt="admiraly-scale:source-reliability = Completely reliable" width="300"/>, ``numerical_value = 100``
-- <img src="/img/blog/decaying//tag-as-D.png" alt="admiraly-scale:source-reliability = Not usually reliable" width="300"/>, ``numerical_value = 25``
-- <img src="/img/blog/decaying//tag-p-H.png" alt="phishing:psychological-acceptability = high" width="250"/>, ``numerical_value = 75``
+- <img src="/img/blog/decaying/tag-as-A.png" alt="admiraly-scale:source-reliability = Completely reliable" width="300"/>, ``numerical_value = 100``
+- <img src="/img/blog/decaying/tag-as-D.png" alt="admiraly-scale:source-reliability = Not usually reliable" width="300"/>, ``numerical_value = 25``
+- <img src="/img/blog/decaying/tag-p-H.png" alt="phishing:psychological-acceptability = high" width="250"/>, ``numerical_value = 75``
 
 So, if an *Attribute* only has a single *Tag* attached, for example ``admiralty-scale:source-reliability="Completely reliable"``, the ``base_score`` would be:
 ```
@@ -110,21 +110,15 @@ When creating a new *Decaying Model*, modifying its parameters and viewing the o
 
 ### Customising the lifetime and the decay speed parameters
 
-<video src="/img/blog/decaying/dm-tool.mp4" title="Decaying Model Fine Tuning Tool - Parameters" width="800" height="450" controls autoplay loop>
-  Your browser does not support the video tag.
-</video>
+{{<video src="/img/blog/decaying/dm-tool.mp4" title="Decaying Model Fine Tuning Tool - Parameters" >}}
 
 ### Setting the ``base_score``: Customising Taxonomies' weights
 
-<video src="/img/blog/decaying/dm-bs.mp4" type="video/mp4" title="Decaying Model Fine Tuning Tool - Base score" width="800" height="450" controls autoplay loop>
-  Your browser does not support the video tag.
-</video>
+{{<video src="/img/blog/decaying/dm-bs.mp4" type="video/mp4" title="Decaying Model Fine Tuning Tool - Base score" >}}
 
 ### Viewing scores and simulating the model
 
-<video src="/img/blog/decaying/dm-simulation.mp4" type="video/mp4" title="Decaying Model Simulation Tool" width="800" height="450" controls autoplay loop>
-  Your browser does not support the video tag.
-</video>
+{{<video src="/img/blog/decaying/dm-simulation.mp4" type="video/mp4" title="Decaying Model Simulation Tool" >}}
 
 # Developer perspective: Creating a model using a different algorithm
 

@@ -25,11 +25,7 @@ In addition to the flexible type format, we added a simple source field which co
 
 MISP 2.4.66 has been released including the improved sightings feature. As you can see below:
 
-<div class="myvideo">
-   <video  style="display:block; width:100%; height:auto;" autoplay controls loop="loop">
-        <source src="{{ site.baseurl }}/img/blog/misp/video/sighting.webm"  type="video/webm"  />
-   </video>
-</div>
+{{<video src="/img/video/sighting.webm" title="sightings" >}}
 
 In previous version of MISP, sightings used the basic counter model as described above. In addition to the classical model, MISP 2.4.66 now allows to do negative sighting to track the numbers of false-positives generated.  All the sightings are also tracked per organisation with an additional source. The source allows an organisation to track which equipments or infrastructure generated the sighting.
 
