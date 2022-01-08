@@ -23,9 +23,9 @@ The GDPR clarifies the differences in the roles and responsibilities of data con
 
 The concept of data controller and data processor in a sharing environment is not always trivial, but can be summarized in the below diagram.
 
-<img src="./misp-compliance-gdpr-peer-to-peer-pa.svg" alt="GDPR information sharing processing activities for a peer-to-peer network" style="width: 100%;"/>
+{{<figure src="/img/compliance/misp-compliance-gdpr-peer-to-peer-pa.svg" class="img-responsive" title="FIGURE 1: PROCESSING ACTIVITIES AND DATA CONTROLLER IN THE GENERAL CASE OF INFORMATION SHARING" >}}
 
-*FIGURE 1: PROCESSING ACTIVITIES AND DATA CONTROLLER IN THE GENERAL CASE OF INFORMATION SHARING*
+
 
 * **Step 1** Entity A creates or collects a piece of information, “data 1”, as part of the processing activity “Collect and store information”. There is no data processor or recipient.
 * **Step 2** Entity A shares “data 1” with entity B. In this case entity A is the data controller and entity B is a recipient, but not a data processor. Entity A holds the responsibility of selecting the entity to share with and ensuring a secure data transfer to entity B.
@@ -36,9 +36,7 @@ More generally, in a peer-to-peer network, all the peers are separate data contr
 
 Below is a use case of information sharing using the tool MISP:
 
-<img src="./misp-compliance-gdpr-misp-pa.svg" alt="GDPR information sharing processing activities for MISP" style="width: 100%;"/>
-
-*FIGURE 2: PROCESSING ACTIVITIES AND DATA CONTROLLER IN THE SPECIFIC CASE OF SHARING INFORMATION WITH MISP PLATFORM*
+{{<figure src="/img/compliance/misp-compliance-gdpr-misp-pa.svg" class="img-responsive" title="FIGURE 2: PROCESSING ACTIVITIES AND DATA CONTROLLER IN THE SPECIFIC CASE OF SHARING INFORMATION WITH MISP PLATFORM">}}
 
 * **Step 1** A MISP event “e1” is created by entity A. Entity A is the data controller, there is no data processor or recipient.
 * **Step 2** The event is shared as “community only” to the remote organisation in the local instance of MISP at entity A (Org B and C). In this case entity A is the data controller of the activity “Share information”.
@@ -66,11 +64,7 @@ This statement should however be balanced, as specific attributes can sometimes 
 
 The figure below illustrates the MISP categories of data that could be exchanged through MISP which may include personal data in some cases.
 
-<p align="center">
-  <img src="./misp-compliance-gdpr-personal-data.svg" alt="GDPR information sharing personal data in MISP per categories" style="width: 70%;"/>
-</p>
-
-*FIGURE 3: EXAMPLE OF MISP ATTRIBUTE CATEGORIES POTENTIALLY INVOLVING PERSONAL DATA (NON-EXHAUSTIVE)*
+{{<figure src="/img/compliance/misp-compliance-gdpr-personal-data.svg" class="img-responsive" title="FIGURE 3: EXAMPLE OF MISP ATTRIBUTE CATEGORIES POTENTIALLY INVOLVING PERSONAL DATA (NON-EXHAUSTIVE)">}}
 
 Currently, most of the MISP functionalities (i.e. attribute categories and types) for sharing data does not provide sharing data of special categories as defined in the GDPR (Art. 9), i.e. data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person's sex life or sexual orientation. As an exception, Passenger Name Record (PNR), which may be considered in certain cases as special category of personal data, are supported by MISP.
 
@@ -115,11 +109,7 @@ However, in the light of the purpose limitation principle, CSIRTs do not have a 
 
 Information sharing is not only key in the cybersecurity sector, but also in other sectors such as the Financial and Telecom sectors, to increase fraud detection. For example, payment service providers have the legal grounds for processing and sharing of information under the Payment Services Directive (PSD 1) and the revised Directive (PSD 2). Specifically, in recitals (49) of the PSD 1 directive, "provision should be made for the efficient exchange of data between payment service providers who should be allowed to collect, process and exchange personal data relating to persons involved in payment fraud". In the revised Payment Services Directive, Art. 94 also mentions that "Member States shall permit processing of personal data by payment systems and payment service providers when necessary to safeguard the prevention, investigation and detection of payment fraud". Even if the requirement concerning the “sharing of the information on security and operational risks” has been removed from the revised directive, payment service providers (PSPs) are still encouraged to share such information as mentioned in the European Bank Authority (EBA) guidelines on security measures for PSD 2. Specifically Art. 39 of these guidelines mention that “[..] The EBA would nevertheless encourage all PSPs to participate in any platforms enabling the exchange of information on operational and security risks and threat intelligence with other PSPs and relevant third parties such as operators of payment systems, industry associations, etc., as long as these initiatives comply with applicable EU law, such as Directive (EU) 2015/2366 and Regulation (EU) 2016/679 or, if applicable, Regulation (EC) 45/2001 [..].”
 
-<p align="center">
-  <img src="./misp-compliance-gdpr-grounds.svg" alt="GDPR grounds to process personal data" style="width: 70%;"/>
-</p>
-
-*FIGURE 4: LEGAL GROUNDS WHICH CAN ENABLE A DATA CONTROLLER OR PROCESSOR TO PROCESS PERSONAL DATA*
+{{<figure src="/img/compliance/misp-compliance-gdpr-grounds.svg" class="img-responsive" title="FIGURE 4: LEGAL GROUNDS WHICH CAN ENABLE A DATA CONTROLLER OR PROCESSOR TO PROCESS PERSONAL DATA">}}
 
 ## Conclusion
 
@@ -142,7 +132,7 @@ The GDPR provides a new data protection framework that will allow information sh
 
 This document was partially funded by CEF (Connecting Europe Facility) funding under CEF-TC-2016-3 - Cyber Security ***Improving MISP as building blocks for next-generation information sharing***.
 
-![](https://www.misp-project.org/assets/images/en_cef.png)
+![](/img/cef.png)
 
 ## Contact and Collaboration
 
