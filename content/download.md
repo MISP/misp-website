@@ -21,7 +21,7 @@ MISP can be easily installed on any standard GNU/Linux distribution. Installatio
 
 We recommend to use a recent and stable Ubuntu distribution (such as 20.04) for deploying MISP.
 
-### Virtual images
+### Virtual images for testing
 
 If you would like to test MISP and don't want to do an installation, CIRCL generates automatically VMware images and VirtualBox at each MISP core commit. Available at [https://vm.misp-project.org/](https://vm.misp-project.org/). The image is to be used for testing purposes only, production-use is considered to be dangerous as is, it contains much more than MISP alone but also misp-dashboard and viper which requires additional security review before being in production.
 

@@ -1,0 +1,28 @@
+{{ if isset .Site.Params "download" }}
+{{ if .Site.Params.download.enable }}
+<section class="bar background-image-fixed-1 no-mb color-white text-center">
+    <div class="dark-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="icon icon-lg"><i class="{{ .Site.Params.download.icon }}"></i>
+                </div>
+                <h3 class="text-uppercase">{{ .Site.Params.download.title | markdownify }}</h3>
+                <p class="lead">{{ .Site.Params.download.subtitle | markdownify }}</p>
+                <p class="text-center">
+                    {{ with .Site.Params.download.link_url }}
+                    <a href="{{ . }}" class="btn btn-template-transparent-black btn-lg">
+                    {{ end }}
+                        {{ with .Site.Params.download.link_text }}
+                        {{ . | markdownify }}
+                        {{ end }}
+                    {{ with .Site.Params.download.link_url }}
+                    </a>
+                    {{ end }}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
+{{ end }}
