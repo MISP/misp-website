@@ -7,13 +7,13 @@ toc: true
 
 ## Announcements and press releases
 
-The general purpose announcements that we publish are available on the [news page](https://www.misp-project.org/news/).
+The general purpose announcements that we publish are available on the [news page](/news/).
 Write us an email at <info@misp-project.org> if you have a press inquiry.
 You can also send press articles about MISP to this address, so we can add them to this page.
 
 ## Quick links to better understand MISP
-- More [details about the features](https://www.misp-project.org/features.html) included MISP
-- Our [data models document](https://www.misp-project.org/datamodels/) about sharing formats used with MISP software
+- More [details about the features](/features.html) included MISP
+- Our [data models document](/datamodels/) about sharing formats used with MISP software
 - Our [documentation](https://www.circl.lu/doc/misp/) explaining in detail how to use MISP
 
 
@@ -35,9 +35,9 @@ MISP is mentioned occasionally in the press. This list is not comprehensive, but
 | 2013-12-29 | NATO | [Sharing malware information to defeat cyber attacks](https://www.nato.int/cps/en/natolive/news_105485.htm) |
 
 ## Tutorials, trainings and summits
-- [Some past trainings](https://www.misp-project.org/events/#some-past-misp-trainings)
+- [Some past trainings](/events/#some-past-misp-trainings)
 - [Some MISP Training videos](https://www.youtube.com/playlist?list=PLhSWiKucshm4CfNjKm7cxxjmj8LfxRXdp)
-- [Some MISP Training presentations](https://www.misp-project.org/misp-training/)
+- [Some MISP Training presentations](/misp-training/)
 - [MISP Training materials](http://www.circle.lu/services/misp-training-materials/)
 - [MISP Tutorials](https://www.youtube.com/playlist?list=PLhSWiKucshm6Y01mAwBaF-mAPLuYKNrcc)
 - [MISP Summit 2016 playlist](https://www.youtube.com/playlist?list=PLCxOaebc_2yO6zBSAqfJtMaZh97ue_MLR)
@@ -46,7 +46,7 @@ MISP is mentioned occasionally in the press. This list is not comprehensive, but
 
 
 # Research
-- [MISP research projects](https://www.misp-project.org/research-projects/)
+- [MISP research projects](/research-projects/)
 - [MISP - The Design and Implementation of a Collaborative Threat Intelligence Sharing Platform](https://www.researchgate.net/publication/309413369_MISP_-The_Design_and_Implementation_of_a_Collaborative_Threat_Intelligence_Sharing_Platform)
 - [Taxonomy driven indicator scoring in MISP threat intelligence platforms](https://arxiv.org/abs/1902.03914)
 

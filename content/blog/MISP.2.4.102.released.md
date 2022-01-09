@@ -11,7 +11,7 @@ A new version of MISP ([2.4.102](https://github.com/MISP/MISP/tree/v2.4.102)) ha
 
 ### Anonymisation
 
-Sharing and exchanging information encompasses a lot of different models, communities or practices, with the MISP project being involved in various discussions and projects centered around building sharing and information exchange communities. A complex topic comes up regularly, namely the anonymisation of the information exchanged. Sharing anonymised information often aims to simply share the existence of knowledge about information. We introduced a new attribute type in MISP called "anonymised", which can be combined with a newly introduced object called [anonymisation](https://www.misp-project.org/objects.html#_anonymisation).
+Sharing and exchanging information encompasses a lot of different models, communities or practices, with the MISP project being involved in various discussions and projects centered around building sharing and information exchange communities. A complex topic comes up regularly, namely the anonymisation of the information exchanged. Sharing anonymised information often aims to simply share the existence of knowledge about information. We introduced a new attribute type in MISP called "anonymised", which can be combined with a newly introduced object called [anonymisation](/objects.html#_anonymisation).
 
 ![](/img/blog/anon-graph.png "{class='img-responsive'}")
 ![](/img/blog/anon2.png "{class='img-responsive'}")

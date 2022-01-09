@@ -30,7 +30,7 @@ The new Dashboard is accessible directly in MISP and fully customisable by users
 
 - The system relies on bundled and custom widgets
 - widgets work similarly to other modular parts of MISP, design your own, drop it in the MISP directory to get started
-- For instructions on how to develop a basic widget visit [The training slide repository](https://www.misp-project.org/misp-training/a.a-widget-dev.pdf)
+- For instructions on how to develop a basic widget visit [The training slide repository](/misp-training/a.a-widget-dev.pdf)
 - Under the hood it uses the user settings system, allowing for custom configurations per user
 - Dashboard templates can be saved and shared, both via MISP and via JSON configuration files
 - Widgets come with a host of support functionalities (ACL, caching, auto-reloading, configuration systems)
@@ -49,8 +49,8 @@ Due to a recently introduced bug, we had cases of correlations disappearing afte
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](https://www.misp-project.org/objects.html), [misp-taxonomies](https://www.misp-project.org/taxonomies.html) and [misp-galaxy](https://www.misp-project.org/galaxy.html).
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](/objects.html), [misp-taxonomies](/taxonomies.html) and [misp-galaxy](/galaxy.html).
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 
 

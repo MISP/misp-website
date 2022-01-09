@@ -46,12 +46,12 @@ A massive list of improvements to the usability of MISP, with a special thank yo
 
 # MISP Objects templates
 
-We received a significant number of [new object templates](https://www.misp-project.org/objects.html) to describe specific additional use cases including disinformation, media and also improved HTTP representation.
+We received a significant number of [new object templates](/objects.html) to describe specific additional use cases including disinformation, media and also improved HTTP representation.
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large.
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large.
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 
 

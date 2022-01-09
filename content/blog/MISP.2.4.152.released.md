@@ -24,22 +24,22 @@ Many internal improvements and bugs fixed.
 - New [Qintel sentry module](https://misp.github.io/misp-modules/expansion/#qintel_qsentry) added.
 - [CIRCL hashlookup expansion](https://circl.lu/services/hashlookup/) SHA-256 support added.
 
-The [MISP modules changelog is available](https://www.misp-project.org/Changelog-misp-modules.txt).
+The [MISP modules changelog is available](/Changelog-misp-modules.txt).
 
 # MISP Taxonomies
 
-- New [political spectrum taxonomy](https://www.misp-project.org/taxonomies.html#_political_spectrum) added.
+- New [political spectrum taxonomy](/taxonomies.html#_political_spectrum) added.
 - Improvement in exercise taxonomy.
-- New [deception taxonomy](https://www.misp-project.org/taxonomies.html#_deception) added.
+- New [deception taxonomy](/taxonomies.html#_deception) added.
 
-[MISP Taxonomies changelog](https://www.misp-project.org/Changelog-misp-taxonomies.txt) is available.
+[MISP Taxonomies changelog](/Changelog-misp-taxonomies.txt) is available.
 
 # MISP Galaxy
 
-- New matrix [CONCORDIA Mobile Modelling Framework - Attack Pattern](https://www.misp-project.org/galaxy.html#_concordia_mobile_modelling_framework_attack_pattern) added (thanks to [Concordia H2020 project](https://www.concordia-h2020.eu/)).
+- New matrix [CONCORDIA Mobile Modelling Framework - Attack Pattern](/galaxy.html#_concordia_mobile_modelling_framework_attack_pattern) added (thanks to [Concordia H2020 project](https://www.concordia-h2020.eu/)).
 - Many update in threat actor, RAT and tools galaxy. 
 
-[MISP Galaxy changelog](https://www.misp-project.org/Changelog-misp-galaxy.txt)
+[MISP Galaxy changelog](/Changelog-misp-galaxy.txt)
 
 # MISP Objects
 
@@ -48,12 +48,12 @@ The [MISP modules changelog is available](https://www.misp-project.org/Changelog
 - Many improvements in user, person, postal-address, email object.
 - New relationships added such as `found-in`, `works-with`, `drives`.
 
-[MISP objects changelog](https://www.misp-project.org/Changelog-misp-objects.txt)
+[MISP objects changelog](/Changelog-misp-objects.txt)
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](https://www.misp-project.org/objects.html), [misp-taxonomies](https://www.misp-project.org/taxonomies.html) and [misp-galaxy](https://www.misp-project.org/galaxy.html)
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](/objects.html), [misp-taxonomies](/taxonomies.html) and [misp-galaxy](/galaxy.html)
 .
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements in MISP core.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements in MISP core.
 

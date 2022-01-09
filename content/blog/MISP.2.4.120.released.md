@@ -39,7 +39,7 @@ MISP modules have been improved and many new modules were added in the following
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large.
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large.
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

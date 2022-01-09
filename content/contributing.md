@@ -132,7 +132,7 @@ Testing new MISP releases and updates is one of the ways that you can contribute
 However, you should only attempt to do this if you know what you’re doing. Never rely on code that is in testing for critical work!
 After your testing, we would be grateful for your feedback via GitHub issues. 
 
-If you would like to test MISP and don’t want to do an installation, you can use automatically-generated VM images. See more on our [download page](https://www.misp-project.org/download/#virtual-images). 
+If you would like to test MISP and don’t want to do an installation, you can use automatically-generated VM images. See more on our [download page](/download/#virtual-images). 
 
 ## Translating MISP
 

@@ -11,7 +11,7 @@ We have released 2.4.137, a security and bug fix release including a collection 
 
 Building tools for the security community sure has its perks - over the past week we have received two independent security test results of two separate organisations, revealing several vulnerabilities. The update to this version is therefore highly recommended.
 
-A little note on vulnerability - we [always welcome organisations helping us secure MISP](https://www.misp-project.org/security/) and our tooling in general and would hereby like to thank everyone taking part in the process!
+A little note on vulnerability - we [always welcome organisations helping us secure MISP](/security/) and our tooling in general and would hereby like to thank everyone taking part in the process!
 
 # Several vulnerabilities resolved
 
@@ -31,8 +31,8 @@ Along with many other fixes. A special thank you to @JakubOnderka for providing 
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](https://www.misp-project.org/objects.html), [misp-taxonomies](https://www.misp-project.org/taxonomies.html) and [misp-galaxy](https://www.misp-project.org/galaxy.html)
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](/objects.html), [misp-taxonomies](/taxonomies.html) and [misp-galaxy](/galaxy.html)
 .
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

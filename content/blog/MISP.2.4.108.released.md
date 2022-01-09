@@ -67,9 +67,9 @@ Many new [MISP modules](https://github.com/MISP/misp-modules) were added such as
 
 # MISP galaxy, object templates and warning-lists updated
 
-[MISP galaxy](https://www.misp-project.org/galaxy.html), [MISP object templates](https://www.misp-project.org/objects.html) and [MISP warning-lists](https://github.com/MISP/misp-warninglists/) have been updated to the latest version.
+[MISP galaxy](/galaxy.html), [MISP object templates](/objects.html) and [MISP warning-lists](https://github.com/MISP/misp-warninglists/) have been updated to the latest version.
 
-New [default feeds](https://www.misp-project.org/feeds/) were added in MISP. Don't hesitate to contact us if you have any idea for new feeds.
+New [default feeds](/feeds/) were added in MISP. Don't hesitate to contact us if you have any idea for new feeds.
 
 We would like to thank all the contributors, reporters and users who have helped us in the past months to improve MISP and information sharing at large.
 

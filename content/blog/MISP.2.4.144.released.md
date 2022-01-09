@@ -11,7 +11,7 @@ MISP 2.4.144 released including a massive update to the documentation along with
 
 # OpenAPI integration
 
-We have a new core team member at MISP Project, Luciano (@righel), who kicked off his tenure with an impressive mapping of all the most important endpoints of MISP to OpenAPI. As of this release, the API documentation is directly available in MISP, along with example payloads and responses. You can also find [this information directly on the misp-project website](https://www.misp-project.org/documentation/openapi.html). To all integrators and developers wrangling with the API, we highly recommend you take a look at the API menu in MISP and we wish you happy and headache-free hacking!
+We have a new core team member at MISP Project, Luciano (@righel), who kicked off his tenure with an impressive mapping of all the most important endpoints of MISP to OpenAPI. As of this release, the API documentation is directly available in MISP, along with example payloads and responses. You can also find [this information directly on the misp-project website](/documentation/openapi.html). To all integrators and developers wrangling with the API, we highly recommend you take a look at the API menu in MISP and we wish you happy and headache-free hacking!
 
 # New diagrams and descriptions
 
@@ -22,13 +22,13 @@ Thanks to the thorough investigations of @mokaddem, we now have the entire synch
 
 # CyCAT integration v1
 
-![MISP and CyCAT integration](https://www.misp-project.org/img/blog/cycat-misp.png)
+![MISP and CyCAT integration](/img/blog/cycat-misp.png)
 
 CyCAT is a new initiative built by a group of individuals with the aim of cataloguing all the techniques and libraries around cyber-security, mostly with the selfish desire to make their own confusing lives easier (along with all those that are in a similar situation). As of this release, you'll be able to enable a first version of the CyCAT integration in MISP directly, allowing you to directly see relations to your galaxy clusters via CyCAT's own relationship system, giving you an extra layer of background information with the clusters already in use.
 
 If you are interested in CyCAT and what it can do for you, head over to the [CyCAT website](https://cycat.org/).
 
-To enable the CyCAT integration, got to the Plugin settings ![](https://www.misp-project.org/img/blog/cycat-enabled.png) and enable the feature.
+To enable the CyCAT integration, got to the Plugin settings ![](/img/blog/cycat-enabled.png) and enable the feature.
 
 # Improvements
 
@@ -37,8 +37,8 @@ To enable the CyCAT integration, got to the Plugin settings ![](https://www.misp
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](https://www.misp-project.org/objects.html), [misp-taxonomies](https://www.misp-project.org/taxonomies.html) and [misp-galaxy](https://www.misp-project.org/galaxy.html)
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](/objects.html), [misp-taxonomies](/taxonomies.html) and [misp-galaxy](/galaxy.html)
 .
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

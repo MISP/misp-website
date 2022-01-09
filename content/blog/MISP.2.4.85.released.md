@@ -32,10 +32,10 @@ The advanced sighting view on objects is now properly working.
 
 New attribute types were introduced in MISP in order to improve the support of new or improved objects:
 
-- x509-fingerprint-sha256 - to support the updated [x509 object](https://www.misp-project.org/objects.html#_x509)
-- x509-fingerprint-md5 - to support the updated [x509 object](https://www.misp-project.org/objects.html#_x509)
-- stix2-pattern - to a new [stix2-pattern object](https://www.misp-project.org/objects.html#_stix2_pattern)
-- whois-registrant-org - to support the updated [whois object](https://www.misp-project.org/objects.html#_whois)
+- x509-fingerprint-sha256 - to support the updated [x509 object](/objects.html#_x509)
+- x509-fingerprint-md5 - to support the updated [x509 object](/objects.html#_x509)
+- stix2-pattern - to a new [stix2-pattern object](/objects.html#_stix2_pattern)
+- whois-registrant-org - to support the updated [whois object](/objects.html#_whois)
 
 The STIX 2.0 export had undergone significant improvements to support the full mapping between the MISP and STIX 2.0 standards.
 If a mapping is not supported in the STIX 2.0 standard, we also export custom objects to allow organisations to still receive

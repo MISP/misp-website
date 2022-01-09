@@ -10,7 +10,7 @@ A new version of MISP ([2.4.106](https://github.com/MISP/MISP/tree/v2.4.106)) ha
 # New features
 
 - [API] Improved API to update warning-lists, object templates, the galaxy library, taxonomies and notice lists.
-- Searching the feed caches is now possible via both the UI and the API. This allows users to rapidly find out whether a provided value exists in any of the cached sources (feeds [feeds](https://www.misp-project.org/feeds/) and MISP servers alike).
+- Searching the feed caches is now possible via both the UI and the API. This allows users to rapidly find out whether a provided value exists in any of the cached sources (feeds [feeds](/feeds/) and MISP servers alike).
 - [CLI] Worker management is now exposed via the CLI. The listing, starting, restarting and killing of workers can now be simply accomplished via the CLI.
 - [CLI] reset/set a user's API key via the CLI. Overriding a password is now also possible without the need to force a password reset on login.
 - [Auth] [LinOTP](https://www.linotp.org/) authentication module added in MISP.

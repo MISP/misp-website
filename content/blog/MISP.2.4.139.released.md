@@ -13,7 +13,7 @@ Besides that, several usability and performance issues have been resolved along 
 
 # MISP modules are now Event Report aware!
 
-The Event Reports are the hot new feature of the past few weeks and we are working on ensuring that analyst reports are becoming the standard companions of the classic event format. For anyone that hasn't played with them before, have a look at the [blog post](https://www.misp-project.org/2020/10/08/Event-Reports.html) describing how you can create rich, interlinked reports to accompany your events.
+The Event Reports are the hot new feature of the past few weeks and we are working on ensuring that analyst reports are becoming the standard companions of the classic event format. For anyone that hasn't played with them before, have a look at the [blog post](/2020/10/08/Event-Reports.html) describing how you can create rich, interlinked reports to accompany your events.
 
 The main update to the Event Report system is its inclusion in the module system as of this version, so if you are building integrations with MISP or simply want to build a convenient way to incorporate reports from your favourite information sources, this feature will make your life much easier.
 
@@ -35,8 +35,8 @@ This widget also brings a flexible reusable UI layer with itself that widget dev
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](https://www.misp-project.org/objects.html), [misp-taxonomies](https://www.misp-project.org/taxonomies.html) and [misp-galaxy](https://www.misp-project.org/galaxy.html)
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](/objects.html), [misp-taxonomies](/taxonomies.html) and [misp-galaxy](/galaxy.html)
 .
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

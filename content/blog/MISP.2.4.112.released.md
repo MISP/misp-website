@@ -31,7 +31,7 @@ A new version of MISP ([2.4.112](https://github.com/MISP/MISP/tree/v2.4.112)) ha
 
 ## Bugs fixed
 
-Many bugs fixed based on the extensive PyMISP test cases in addition to manual reviews. All fixes are documented in the [changelog](https://www.misp-project.org/Changelog.txt).
+Many bugs fixed based on the extensive PyMISP test cases in addition to manual reviews. All fixes are documented in the [changelog](/Changelog.txt).
 
 ## CVE-2019-14286 fixed
 
@@ -41,9 +41,9 @@ Many bugs fixed based on the extensive PyMISP test cases in addition to manual r
 
 [misp-modules](https://misp.github.io/misp-modules/) have been improved with new modules especially with a new advanced CVE module which includes the ability to import CVEs along with their associated weaknesses and attack techniques (as you can see in the screenshot). The documentation has been also improved (thanks to all the contributors who helped us on the documentation).
 
-[MISP galaxies](https://www.misp-project.org/galaxy.html), [MISP object templates](https://www.misp-project.org/objects.html) and [MISP warning-lists](https://github.com/MISP/misp-warninglists/) have been updated to the latest version. MISP galaxy has been updated to include the July edition of the MITRE ATT&CK model.
+[MISP galaxies](/galaxy.html), [MISP object templates](/objects.html) and [MISP warning-lists](https://github.com/MISP/misp-warninglists/) have been updated to the latest version. MISP galaxy has been updated to include the July edition of the MITRE ATT&CK model.
 
 We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large.
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

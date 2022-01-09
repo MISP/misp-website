@@ -25,7 +25,7 @@ A new version of MISP ([2.4.115](https://github.com/MISP/MISP/tree/v2.4.115)) wi
 
 ## Many fixes and error handling improvement
 
-Thanks to Jakub Onderka for the tireless review of the code and all the fixes. For a complete overview, check the [complete changelog is available](https://www.misp-project.org/Changelog.txt).
+Thanks to Jakub Onderka for the tireless review of the code and all the fixes. For a complete overview, check the [complete changelog is available](/Changelog.txt).
 
 ## CVE-2019-16202 - Vulnerability in MISP version <= 2.4.114
 
@@ -76,9 +76,9 @@ Guenaëlle De Julis and Céline Massompierre from CERT-XLM of Excellium Services
 
 We would like to reiterate the importance of continuous security testing and the reporting of findings. Without the diligent work of security professionals in our community, we would have an infinitely harder time of squashing potential vulnerabilities. Thanks again to everyone that has helped us make MISP more secure.
 
-If you have found a vulnerability in MISP and would like to get in touch with us, please read our [vulnerability disclosure notice](https://www.misp-project.org/security/).
+If you have found a vulnerability in MISP and would like to get in touch with us, please read our [vulnerability disclosure notice](/security/).
 
 We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large.
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

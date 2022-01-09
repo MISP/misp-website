@@ -7,8 +7,8 @@ toc: true
 
 # Help, Support, and Forums
 
-Help and support for MISP is available from the [documentation](https://www.circl.lu/doc/misp/), [GitHub issues](https://github.com/MISP/MISP/issues), and [Gitter rooms](https://gitter.im/orgs/MISP/rooms) which are explained below. 
-MISP Project [offers paid support services](https://www.misp-project.org/professional-services).
+Help and support for MISP is available from the [documentation](/documentation), [GitHub issues](https://github.com/MISP/MISP/issues), and [Gitter rooms](https://gitter.im/orgs/MISP/rooms) which are explained below. 
+The MISP Project [offers paid support services](/professional-services).
 
 If you’re looking for known issues or would like to file a bug report, please see the [issue tracker](https://github.com/MISP/MISP/issues). 
 These issues are constantly being updated and may contain workarounds for problems that you’re experiencing, so it’s worth searching the issue tracker as a first step.
@@ -87,4 +87,12 @@ MISP Project has a presence on [Twitter (@MISPProject)](https://twitter.com/MISP
 Generally speaking, this is not intended to be a primary support venue. 
 (Those would be [MISP/Support Gitter room]() and the issue tracker.) 
 Rather, these are primarily intended to be a way to more widely disseminate news related to MISP. 
-If you use Twitter, you may find it convenient to follow the MISP Project there as a way of receiving MISP news.
+If you use Twitter, you may find it convenient to follow the MISP Project there as a way of receiving MISP
+
+## Email
+
+Please use the previously mentioned channels if you need technical support.
+
+If you have any other enquiries or are willing to contribute or support the project, don't hesitate to contact the team at [info@misp-project.org](mailto:info@misp-project.org). 
+
+ 

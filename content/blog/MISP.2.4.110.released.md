@@ -15,12 +15,12 @@ A new version of MISP ([2.4.110](https://github.com/MISP/MISP/tree/v2.4.110)) ha
 
 [misp-modules](https://github.com/MISP/misp-modules) now support MISP objects and relationships. The revamped system is still compatible with the old modules, whilst the new modules bolster up the complete MISP standard format. New modules such as [url-haus](https://github.com/MISP/misp-modules/blob/52dadd2df32b19241fdd978e50b717f1967e264b/misp_modules/modules/expansion/urlhaus.py), [joe sandbox query](https://github.com/MISP/misp-modules/blob/be61613da4f5dc8f082a7c1a9e1ec07fdb872560/misp_modules/modules/expansion/joesandbox_query.py) and many others support the new MISP standard format. This new feature allows module developers to create more advanced modules, generating MISP objects and associated relationships from any type of expansion, import or export modules in one click.
 
-![](https://www.misp-project.org/img/blog/misp-modules-new.png)
-![](https://www.misp-project.org/img/blog/misp-modules-2.png)
+![](/img/blog/misp-modules-new.png)
+![](/img/blog/misp-modules-2.png)
 
 ## Local tags introduced
 
-![](https://www.misp-project.org/img/blog/local-tags.png)
+![](/img/blog/local-tags.png)
 
 The long awaited feature "local tags" is now finally available. You can create tags locally if you are a member of the given MISP instance's host organisation, enabling "in-place" tagging for synchronisation and export filtering. MISP events are not modified while using the local tags and are in turn always stripped before being synchronised with other MISP instances and sharing communities. Local tags allow users to avoid violating the ownership model of MISP, but still be able to tag any event or attribute for further dissemination and data contextualisation. Local tagging works for tags, tag collections, galaxies and matrix-like galaxies such as ATT&CK.
 
@@ -53,9 +53,9 @@ Thanks to the contribution from [Kortho](https://github.com/Kortho), the MISP us
 - Fixed socket extension parsing.
 - Fixed registry-key keys and values parsing for patterns.
 
-[MISP galaxy](https://www.misp-project.org/galaxy.html), [MISP object templates](https://www.misp-project.org/objects.html) and [MISP warning-lists](https://github.com/MISP/misp-warninglists/) have been updated to the latest version.
+[MISP galaxy](/galaxy.html), [MISP object templates](/objects.html) and [MISP warning-lists](https://github.com/MISP/misp-warninglists/) have been updated to the latest version.
 
 We would like to thank all the contributors, reporters and users who have helped us in the past months to improve MISP and information sharing at large.
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

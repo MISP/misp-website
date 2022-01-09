@@ -34,7 +34,7 @@ Added a new diagnostic tool that allows administrators to keep track of the data
 
 ## Taxonomies improved with the addition of an Industrial control systems and operational technology (ICS/OT) Taxonomy
 
-Industrial control systems and operational technologies (ICS/OT) are often the target of threats, intrusions and attacks. The [FIRST.org Cyber Threat Intelligence SIG](https://www.first.org/global/sigs/cti/) did a tremendous work of documenting these into a series of taxonomies. To support and actively test the use of the ICS/OT taxonomy, the [ics taxonomy](https://www.misp-project.org/taxonomies.html#_ics) is now part of the default MISP taxonomy library. We also encourage any ICS/OT operators to contribute back to the [ics taxonomy JSON file](https://github.com/MISP/misp-taxonomies/blob/master/ics/machinetag.json) in order to improve the taxonomy based on their experiences. By being a taxonomy in MISP, this allows all ICS/OT users to directly tag and contextualise information shared within MISP instances and communities to describe their domain specific incidents and reports along with the related industrial threat intelligence.
+Industrial control systems and operational technologies (ICS/OT) are often the target of threats, intrusions and attacks. The [FIRST.org Cyber Threat Intelligence SIG](https://www.first.org/global/sigs/cti/) did a tremendous work of documenting these into a series of taxonomies. To support and actively test the use of the ICS/OT taxonomy, the [ics taxonomy](/taxonomies.html#_ics) is now part of the default MISP taxonomy library. We also encourage any ICS/OT operators to contribute back to the [ics taxonomy JSON file](https://github.com/MISP/misp-taxonomies/blob/master/ics/machinetag.json) in order to improve the taxonomy based on their experiences. By being a taxonomy in MISP, this allows all ICS/OT users to directly tag and contextualise information shared within MISP instances and communities to describe their domain specific incidents and reports along with the related industrial threat intelligence.
 
 ## Fixes and improvements
 
@@ -52,5 +52,5 @@ Special shout-outs to Jakub Onderka ([@JakubOnderka](https://github.com/JakubOnd
 
 We would also like to make a special dedication to the funding support of [CIRCL](https://twitter.com/circl_lu) and [INEA](https://twitter.com/inea_eu) under the CEF Telecom [2016-LU-IA-0098 grant](https://ec.europa.eu/inea/sites/inea/files/cef_telecom_supported_actions_november_2018.pdf).
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

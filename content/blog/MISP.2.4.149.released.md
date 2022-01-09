@@ -26,7 +26,7 @@ MISP 2.4.149 released including many bugs fixed along with some new and improved
 
 - Allow the fetching of sharing group data from Cerebrate instances, our new open source tool in development aiming to solve a host of issues revolving around community management and orchestration. Our first official release of the tool is scheduled for the MISP summit coming up this month
 - To follow the cerebrate project, head over to its [github page](https://github.com/cerebrate-project/cerebrate)
-- For the MISP summit to be held on the 21st of October, don't forget to watch the [misp-summit](https://www.misp-project.org/misp-summit). You can still apply for the [Call-for-Presentation](https://cfp.hack.lu/misp-2021/cfp).
+- For the MISP summit to be held on the 21st of October, don't forget to watch the [misp-summit](/misp-summit). You can still apply for the [Call-for-Presentation](https://cfp.hack.lu/misp-2021/cfp).
 
 # mail2misp release 1.0
 
@@ -35,11 +35,11 @@ First [official release 1.0 of mail2misp](https://github.com/MISP/mail_to_misp/r
 # Various improvements
 
 - A long list of improvements, massive thanks to @JakubOnderka for the continuous stream of improvements and quality of life changes
-- Thanks to the work of @righel, our [OpenAPI documentation](https://www.misp-project.org/documentation/openapi.html) is becoming more and more complete, now covering a long list of the more exotic endpoints and options
+- Thanks to the work of @righel, our [OpenAPI documentation](/documentation/openapi.html) is becoming more and more complete, now covering a long list of the more exotic endpoints and options
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](https://www.misp-project.org/objects.html), [misp-taxonomies](https://www.misp-project.org/taxonomies.html) and [misp-galaxy](https://www.misp-project.org/galaxy.html)
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](/objects.html), [misp-taxonomies](/taxonomies.html) and [misp-galaxy](/galaxy.html)
 .
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.

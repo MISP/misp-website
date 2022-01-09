@@ -30,7 +30,7 @@ Finally, the widget styling is largely configurable. In addition to the `time_fo
 
 # New community CogSec Collab disinformation
 
-MISP includes the possibility to advertise your MISP information sharing community, don't hesitate to propose your community to gain some visibility. We added "[The Cognitive Security Collaborative operates as a sharing community dedicated to information operations](https://www.misp-project.org/2020/03/26/cogsec-collab-misp-community.html)".
+MISP includes the possibility to advertise your MISP information sharing community, don't hesitate to propose your community to gain some visibility. We added "[The Cognitive Security Collaborative operates as a sharing community dedicated to information operations](/2020/03/26/cogsec-collab-misp-community.html)".
 
 # COVID-19 MISP
 
@@ -39,12 +39,12 @@ COVID-19 MISP is a MISP instance retrofitted for a COVID-19 information sharing 
 - Medical information
 - Cyber threats related to / abusing COVID-19
 
-The information sharing community has a low barrier of entry, everyone can contribute and use the data. By default, the information is classified as TLP:WHITE for broader distribution and usefulness. [For more information and joining the COVID-19 MISP community](https://www.misp-project.org/covid-19-misp/)
+The information sharing community has a low barrier of entry, everyone can contribute and use the data. By default, the information is classified as TLP:WHITE for broader distribution and usefulness. [For more information and joining the COVID-19 MISP community](/covid-19-misp/)
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](https://www.misp-project.org/objects.html), [misp-taxonomies](https://www.misp-project.org/taxonomies.html) and [misp-galaxy](https://www.misp-project.org/galaxy.html).
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](/objects.html), [misp-taxonomies](/taxonomies.html) and [misp-galaxy](/galaxy.html).
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 
 

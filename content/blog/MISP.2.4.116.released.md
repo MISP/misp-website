@@ -11,13 +11,13 @@ A new version of MISP ([2.4.116](https://github.com/MISP/MISP/tree/v2.4.116)) ha
 
 ## Major new feature - decaying indicators
 
-After several years of gathering requirements, doing [research](https://arxiv.org/abs/1803.11052) and various implementation attempts, MISP 2.4.116 finally includes [a new extensive feature for Decaying Indicators](https://www.misp-project.org/2019/09/12/Decaying-Of-Indicators.html) using an advanced model to expire indicators based on custom and shareable models.
+After several years of gathering requirements, doing [research](https://arxiv.org/abs/1803.11052) and various implementation attempts, MISP 2.4.116 finally includes [a new extensive feature for Decaying Indicators](/2019/09/12/Decaying-Of-Indicators.html) using an advanced model to expire indicators based on custom and shareable models.
 
 The feature allows MISP users to have a simple yet customisable system to automatically (or in some cases semi-manually) mark an Indicator Of Compromise (or more generally, an Attribute) as expired. The expiration system allows for the overlaying of computed scores on all attributes in real-time, based on the configured mappings via a decay model. The feature has been designed not to change the attributes per se, but rather to extend the meta information available about the attributes. As with everything in MISP, this new feature is accessible via both the user-interface and also via the API, in order to allow for the filtering of attributes based on a decay model.
 
 <img src="/img/blog/decaying/dm-event.png" alt="Decay Model index" width="700"/>
 
-The feature is exhaustive and we highly recommend to read the [blog post and watch the video showing all aspects of the new feature](https://www.misp-project.org/2019/09/12/Decaying-Of-Indicators.html) or [the slides from the MISP training](https://www.misp-project.org/misp-training/a.5-decaying-indicators.pdf). As usual, MISP comes with a set of default decay models which can be extended locally or contributed back to the community at large.
+The feature is exhaustive and we highly recommend to read the [blog post and watch the video showing all aspects of the new feature](/2019/09/12/Decaying-Of-Indicators.html) or [the slides from the MISP training](/misp-training/a.5-decaying-indicators.pdf). As usual, MISP comes with a set of default decay models which can be extended locally or contributed back to the community at large.
 
 ## ATT&CK sighting
 
@@ -31,5 +31,5 @@ When having a lot of MISP server to sync with, you might want to prioritise the 
 
 We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large.
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

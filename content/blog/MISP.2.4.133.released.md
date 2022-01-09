@@ -18,8 +18,8 @@ However, in the current threat intelligence scene, information is often explaine
 In MISP 2.4.133, the report feature has been introduced including a complete Markdown editor to edit one or more report(s) attach to an event. The report feature including
 a complete editor to allow an interactive method to add structured information from the MISP event including attributes, objects, galaxies or tags into the report.
 
-![Editor hints](https://www.misp-project.org/img/blog/event-reports/cm-hints.gif)
-![Editor hints tags](https://www.misp-project.org/img/blog/event-reports/cm-hints-tag.gif)
+![Editor hints](/img/blog/event-reports/cm-hints.gif)
+![Editor hints tags](/img/blog/event-reports/cm-hints-tag.gif)
 
 The report editor provides features such as:
 
@@ -30,13 +30,13 @@ The report editor provides features such as:
 - Fullscreen and resizable interface
 - Time since last edit & quick save
 
-![Event editor full](https://www.misp-project.org/img/blog/event-reports/editor-full.png)
+![Event editor full](/img/blog/event-reports/editor-full.png)
 
 Event reports have all the standard properties regarding information sharing available MISP such as distribution level, sharing communities. A report can be shared to specific groups while structured information can be shared to a wider audience as an example.
 
 *Event reports* also offer a wide range of new possibilities that were not doable efficiently before. For example, Counter analysis on cases can be explained, resolution steps and recommendations can be supplied, and complete articles can be included inside an *event*.
 
-For more details, check out our blog post: [Event Report: A convenient mechanism to edit, visualize and share reports](https://www.misp-project.org/2020/10/08/Event-Reports.html).
+For more details, check out our blog post: [Event Report: A convenient mechanism to edit, visualize and share reports](/2020/10/08/Event-Reports.html).
 
 # New features
 
@@ -69,12 +69,12 @@ For more details, check out our blog post: [Event Report: A convenient mechanism
 
 # Many bugs fixed and small improvements
 
-A host of other improvements are documented in the [complete changelog is available](https://www.misp-project.org/Changelog.txt).
+A host of other improvements are documented in the [complete changelog is available](/Changelog.txt).
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](https://www.misp-project.org/objects.html), [misp-taxonomies](https://www.misp-project.org/taxonomies.html) and [misp-galaxy](https://www.misp-project.org/galaxy.html)
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](/objects.html), [misp-taxonomies](/taxonomies.html) and [misp-galaxy](/galaxy.html)
 .
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

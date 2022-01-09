@@ -23,7 +23,7 @@ Once added, you can execute the cleaning of the existing correlations, to retroa
 
 You can also comment your reason for removing an entry. In the future we plan on publishing community maintained default exclusion lists.
 
-![Correlation exclusion in MISP](https://www.misp-project.org/img/blog/correlation-exclusion.png)
+![Correlation exclusion in MISP](/img/blog/correlation-exclusion.png)
 
 ### Top correlations
 
@@ -33,7 +33,7 @@ Just hit the delete button on a correlation and it will add a rule to your corre
 
 # Server sync rule management rework
 
-![MISP server sync rule management](https://www.misp-project.org/img/blog/pull-rules.png)
+![MISP server sync rule management](/img/blog/pull-rules.png)
 
 One of the more painful aspects of managing servers has been the historically bad UI used to manage filter rules. This has now been completely revamped, both with a new look but familiar look and feel as well as some clever new tools to make it more usable.
 
@@ -43,18 +43,18 @@ For example, when creating pull filters, your instance will now attempt to conta
 
 Thanks to Jeroen Pinoy, we have some new dashboard widgets meant to give you better oversight over how your instance is being used, showing some usage statistics as well as tools to monitor the growth of the user base of the community.
 
-![](https://www.misp-project.org/img/blog/evolution-usercount.png)
+![](/img/blog/evolution-usercount.png)
 
 # A bunch of other fixes including security fixes
 
-We have also a [security](https://www.misp-project.org/security/) issue (CVE-2021-31780) causing a potential misalignment of sharing groups on synced attributes, so we highly encourage everyone to update their MISP instance.
+We have also a [security](/security/) issue (CVE-2021-31780) causing a potential misalignment of sharing groups on synced attributes, so we highly encourage everyone to update their MISP instance.
 
-Besides that we have introduced a long list of quality of life improvements as well as [many fixes](https://www.misp-project.org/Changelog.txt).
+Besides that we have introduced a long list of quality of life improvements as well as [many fixes](/Changelog.txt).
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](https://www.misp-project.org/objects.html), [misp-taxonomies](https://www.misp-project.org/taxonomies.html) and [misp-galaxy](https://www.misp-project.org/galaxy.html)
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](/objects.html), [misp-taxonomies](/taxonomies.html) and [misp-galaxy](/galaxy.html)
 . The MISP galaxy includes a major update in the Ransomware galaxy which now includes more than 1600 documented ransomware.
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

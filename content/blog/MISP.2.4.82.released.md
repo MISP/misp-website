@@ -44,7 +44,7 @@ The following columns will be returned (all columns related to objects will be p
 
 includeContext option includes the tags for the event for each line.
 
-The STIX 2.0 export has been improved to include custom objects, Person object included in Identity SDO, tool SDO now includes [exploit-kit from MISP galaxy](/galaxy.html#_exploit_kit) and all the [galaxy which can be mapped](https://www.misp-project.org/galaxy.html), course-of-action SDO added. Export code has been improved to cope with the utter complex mess of STIX patterning standard.
+The STIX 2.0 export has been improved to include custom objects, Person object included in Identity SDO, tool SDO now includes [exploit-kit from MISP galaxy](/galaxy.html#_exploit_kit) and all the [galaxy which can be mapped](/galaxy.html), course-of-action SDO added. Export code has been improved to cope with the utter complex mess of STIX patterning standard.
 
 The STIX 1.x export now includes reporter in STIX incident and producer in STIX indicator and MISP TLP Marking as STIX tlpMarking. File objects are now included in STIX 1.x export.
 

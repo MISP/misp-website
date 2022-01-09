@@ -11,7 +11,7 @@ A new version of MISP [2.4.80](https://github.com/MISP/MISP/tree/v2.4.80) has be
 
 MISP now includes support for MISP objects. This allows MISP to support complex/combined objects in a flexible way along with their [relationships](http://www.misp-project.org/objects.html#_relationships) towards other objects or even attributes.
 
-MISP objects already available by default are documented in [HTML](https://www.misp-project.org/objects.html) or [PDF](https://www.misp-project.org/objects.pdf).
+MISP objects already available by default are documented in [HTML](/objects.html) or [PDF](/objects.pdf).
 
 The object model allows MISP users to add objects in addition to standard attributes to an event. Objects are composed of one or more attributes which are defined by the object templates.
 The [object templates](https://github.com/MISP/misp-objects/tree/master/objects) are public and can be easily contributed to by everyone, allowing analysts, users and security professionals to build their own representation of various objects and share them back to their communities.

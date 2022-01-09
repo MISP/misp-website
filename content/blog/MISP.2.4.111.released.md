@@ -20,8 +20,8 @@ At the MISP project, we are big supporters of new open standards, which can help
 
 In 2.4.111, a new attribute type has thus been added, along with the following object templates already including the new attribute field:
 
-- [Netflow](https://www.misp-project.org/objects.html#_netflow)
-- [Network connection](https://www.misp-project.org/objects.html#_network_connection)
+- [Netflow](/objects.html#_netflow)
+- [Network connection](/objects.html#_network_connection)
 
 This feature allows to easily correlate network forensic flows from different tools or network equipment.
 
@@ -34,9 +34,9 @@ This feature allows to easily correlate network forensic flows from different to
 - [stix2] Import of User Account objects is now supported.
 - Issues #4864, #4861, #4847 fixed
 
-[MISP galaxy](https://www.misp-project.org/galaxy.html), [MISP object templates](https://www.misp-project.org/objects.html) and [MISP warning-lists](https://github.com/MISP/misp-warninglists/) have been updated to the latest version.
+[MISP galaxy](/galaxy.html), [MISP object templates](/objects.html) and [MISP warning-lists](https://github.com/MISP/misp-warninglists/) have been updated to the latest version.
 
 We would like to thank all the contributors, reporters and users who have helped us in the past months to improve MISP and information sharing at large.
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

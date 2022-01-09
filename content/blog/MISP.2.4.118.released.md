@@ -11,10 +11,10 @@ A new version of MISP ([2.4.118](https://github.com/MISP/MISP/tree/v2.4.118)) ha
 
 # Exclusive taxonomies
 
-![](https://www.misp-project.org/img/blog/exclusive/exclusive-example-1.png)
-![](https://www.misp-project.org/img/blog/exclusive/exclusive-example-2.png)
-![](https://www.misp-project.org/img/blog/exclusive/exclusive-example-3.png)
-![](https://www.misp-project.org/img/blog/exclusive/exclusive-example-4.png)
+![](/img/blog/exclusive/exclusive-example-1.png)
+![](/img/blog/exclusive/exclusive-example-2.png)
+![](/img/blog/exclusive/exclusive-example-3.png)
+![](/img/blog/exclusive/exclusive-example-4.png)
 
 Some time ago, we've introduced the "exclusive" field in the MISP taxonomy format, in order to define rules of exclusivity within a given taxonomy predicate. As of this release, the MISP user-interface shows and enforces inconsistencies of exclusivity between tags assigned at the event and the attribute levels.
 
@@ -67,7 +67,7 @@ The database schema model update has been improved in MISP and you can see the c
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. Special thanks to Jakub Onderka for the continuous stream of excellent improvements, Sebastien Tricaud for the joint effort in the SightingDB support, [standard](https://raw.githubusercontent.com/MISP/misp-rfc/master/sightingdb-format/raw.md.txt) and [first implementation](https://github.com/stricaud/sightingdb).
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. Special thanks to Jakub Onderka for the continuous stream of excellent improvements, Sebastien Tricaud for the joint effort in the SightingDB support, [standard](https://raw.githubusercontent.com/MISP/misp-rfc/master/sightingdb-format/raw.md.txt) and [first implementation](https://github.com/stricaud/sightingdb).
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

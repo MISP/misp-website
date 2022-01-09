@@ -88,9 +88,9 @@ A new version of MISP ([2.4.113](https://github.com/MISP/MISP/tree/v2.4.113)) wi
 
 [misp-modules](https://misp.github.io/misp-modules/) have been improved with new modules especially an improved cuckoo import module (thanks to Pierre-Jean Grenier). The documentation has been also improved (thanks to all the contributors who helped us on the documentation).
 
-[MISP galaxies](https://www.misp-project.org/galaxy.html), [MISP object templates](https://www.misp-project.org/objects.html) and [MISP warning-lists](https://github.com/MISP/misp-warninglists/) have been updated to the latest version. MISP galaxy now includes a target-location galaxy to improve classification.
+[MISP galaxies](/galaxy.html), [MISP object templates](/objects.html) and [MISP warning-lists](https://github.com/MISP/misp-warninglists/) have been updated to the latest version. MISP galaxy now includes a target-location galaxy to improve classification.
 
 We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large.
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

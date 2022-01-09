@@ -7,7 +7,7 @@ banner: /img/blog/event-reports/report-modal.png
 
 # MISP 2.4.134 released
 
-In the previous version of MISP, the new [Event Report functionality](https://www.misp-project.org/2020/10/08/Event-Reports.html) has been introduced to edit, visualise and share reports in Markdown format, which includes the ability to reference elements from within a MISP event.
+In the previous version of MISP, the new [Event Report functionality](/2020/10/08/Event-Reports.html) has been introduced to edit, visualise and share reports in Markdown format, which includes the ability to reference elements from within a MISP event.
 
 In the current version, the Event Report has been extended to support the automatic discovery of attributes, galaxies and tags from any website captured.
 
@@ -47,12 +47,12 @@ A security vulnerability [CVE-2020-28043](https://cve.circl.lu/cve/CVE-2020-2804
 - Tag index has been improved with a simple view excludes eventtags / attributetags / sightings
 - Many UI improvements (thanks to Jakub Onderka for his continuous effort and attention to details)
 
-A host of other improvements are documented in the [complete changelog is available](https://www.misp-project.org/Changelog.txt).
+A host of other improvements are documented in the [complete changelog is available](/Changelog.txt).
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](https://www.misp-project.org/objects.html), [misp-taxonomies](https://www.misp-project.org/taxonomies.html) and [misp-galaxy](https://www.misp-project.org/galaxy.html)
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](/objects.html), [misp-taxonomies](/taxonomies.html) and [misp-galaxy](/galaxy.html)
 .
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

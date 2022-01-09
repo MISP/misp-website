@@ -25,7 +25,7 @@ We'll monitor these aspects of a MISP server
 * MISP event, attribute, users and organisation statistics
 * HTTP response time
 
-Interesting to know is that MISP already also has built-in features to monitor your system resources via [widgets and dashboards](https://www.misp-project.org/misp-training/a.a-widget-dev.pdf). There are widgets for monitoring system resources, MISP statistics and sightings.
+Interesting to know is that MISP already also has built-in features to monitor your system resources via [widgets and dashboards](/misp-training/a.a-widget-dev.pdf). There are widgets for monitoring system resources, MISP statistics and sightings.
 
 ## Cacti monitoring
 

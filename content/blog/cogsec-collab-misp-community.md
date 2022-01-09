@@ -48,7 +48,7 @@ At its core MISP is an automated correlation engine.  It assists analysts in fin
 
 ![Descriptions of AMITT Techniques in the MISP Misinformation Pattern Galaxy.](/img/blog/cogsec/galaxy_list.png)
 
-Our first achievement  was the integration of the [AM!TT Framework](https://github.com/misinfosecproject/amitt_framework) as a [MISP Galaxy](https://www.misp-project.org/galaxy.html#_misinformation_pattern).  It contains the tags and definitions needed for describing the misinformation tactics and techniques present in a specific information operation.
+Our first achievement  was the integration of the [AM!TT Framework](https://github.com/misinfosecproject/amitt_framework) as a [MISP Galaxy](/galaxy.html#_misinformation_pattern).  It contains the tags and definitions needed for describing the misinformation tactics and techniques present in a specific information operation.
 
 
 ## AM!TT Navigatord

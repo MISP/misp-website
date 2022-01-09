@@ -51,5 +51,5 @@ Other improvements include a large list of general bug fixes, affecting UI and A
 
 We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. Special thanks to Jakub Onderka for the continuous stream of excellent improvements, Andreas Rammhold for making the AppController much more sane, the participants of the cyber-exchange programme for helping us improve MISP in all sorts of different ways.
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

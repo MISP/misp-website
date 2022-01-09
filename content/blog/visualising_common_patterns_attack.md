@@ -16,7 +16,7 @@ The recommended technique for coping with this limitation is to externalise the 
 In this article we will be using visualisation techniques to help us better explore cyber threat information shared through [MISP](https://github.com/MISP/MISP) and tagged with [MITRE ATT&CK](https://attack.mitre.org/) techniques, all within a visualisation tool called [Maltego](https://www.paterva.com/buy/maltego-clients/maltego.php).
 
 ## Getting started
-To get started you will need access to a MISP Threat Sharing community, or run your own instance. As a quickstart, you can use the [MISP Training VM](https://www.misp-project.org/download/#virtual-images) and download data from the [CIRCL OSINT feed](https://www.misp-project.org/feeds/#default-feeds-available-in-misp).
+To get started you will need access to a MISP Threat Sharing community, or run your own instance. As a quickstart, you can use the [MISP Training VM](/download/#virtual-images) and download data from the [CIRCL OSINT feed](/feeds/#default-feeds-available-in-misp).
 
 You will want to download the [Maltego CE](https://www.paterva.com/buy/maltego-clients/maltego-ce.php) (free, limited) or the [classic](https://www.paterva.com/buy/maltego-clients/maltego.php) (paid) edition and install the open source [MISP-Maltego](https://github.com/MISP/MISP-maltego/blob/master/doc/README.md#installation) transform.
 

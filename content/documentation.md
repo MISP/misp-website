@@ -23,7 +23,7 @@ MISP Install guides (stock install instructions for getting a base MISP system r
 
 All MISP training materials (including source code) are available at [https://github.com/MISP/misp-training](https://github.com/MISP/misp-training).
 
-MISP [training materials are available on](https://www.misp-project.org/misp-training/).
+MISP [training materials are available on](/misp-training/).
 
 ### MISP format documentation
 

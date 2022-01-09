@@ -24,7 +24,7 @@ MISP 2.4.141 released including many improvements from email notification, UI, A
 - [UI] Simplify keyboard-shortcuts.js.
 - [UI] Use Page Visibility API.
 
-and many more updates check the [changelog for details](https://www.misp-project.org/Changelog.txt).
+and many more updates check the [changelog for details](/Changelog.txt).
 
 # Email notification
 
@@ -45,8 +45,8 @@ Many improvement in the RHEL7, 7.9 and CentOS8Stream. We thank all the users rep
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](https://www.misp-project.org/objects.html), [misp-taxonomies](https://www.misp-project.org/taxonomies.html) and [misp-galaxy](https://www.misp-project.org/galaxy.html)
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](/objects.html), [misp-taxonomies](/taxonomies.html) and [misp-galaxy](/galaxy.html)
 .
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

@@ -33,7 +33,7 @@ Additionally, a new set of CLI tools is being built for developers, to ease our 
 
 # New types added in MISP
 
-New full-name, dkim and dkim-signature attribute types were added to MISP. Associated to [DKIM objects](https://www.misp-project.org/objects.html#_dkim) were included to support tools such as Farsight Security dnsdb to add DKIM information in your investigations.
+New full-name, dkim and dkim-signature attribute types were added to MISP. Associated to [DKIM objects](/objects.html#_dkim) were included to support tools such as Farsight Security dnsdb to add DKIM information in your investigations.
 
 # Security Vulnerability
 
@@ -41,8 +41,8 @@ An issue was discovered in app/Model/SharingGroupServer.php in MISP 2.4.139. In 
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](https://www.misp-project.org/objects.html), [misp-taxonomies](https://www.misp-project.org/taxonomies.html) and [misp-galaxy](https://www.misp-project.org/galaxy.html)
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](/objects.html), [misp-taxonomies](/taxonomies.html) and [misp-galaxy](/galaxy.html)
 .
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

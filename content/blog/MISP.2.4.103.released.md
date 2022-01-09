@@ -36,9 +36,9 @@ A major project is ongoing to improve the UI accessibility in MISP, UI elements 
 ## Generic matrix-like galaxies are now supported
 
 With the increased use of MITRE ATT&CK and the need of describing similar matrix-like models, generic matrix-like galaxies are now supported.
-You can create your own matrix with the associated custom kill chains. A first [new matrix-like galaxy](https://www.misp-project.org/galaxy.html#_election_guidelines) has been added to MISP called *Universal Development and Security Guidelines as Applicable to Election Technology* made by the [European Commission](https://www.ria.ee/sites/default/files/content-editors/kuberturve/cyber_security_of_election_technology.pdf) to model the attack model against election processes and technologies.
+You can create your own matrix with the associated custom kill chains. A first [new matrix-like galaxy](/galaxy.html#_election_guidelines) has been added to MISP called *Universal Development and Security Guidelines as Applicable to Election Technology* made by the [European Commission](https://www.ria.ee/sites/default/files/content-editors/kuberturve/cyber_security_of_election_technology.pdf) to model the attack model against election processes and technologies.
 
-If you want to create your own matrix-like, [a slide deck called MISP Galaxy](https://www.misp-project.org/misp-training/3.2-misp-galaxy.pdf) part of the [MISP training materials](https://github.com/MISP/misp-training#misp-training-materials) explains the basics.
+If you want to create your own matrix-like, [a slide deck called MISP Galaxy](/misp-training/3.2-misp-galaxy.pdf) part of the [MISP training materials](https://github.com/MISP/misp-training#misp-training-materials) explains the basics.
 
 # Security fix (CVE-2019-9482)
 

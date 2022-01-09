@@ -43,7 +43,7 @@ The NATO Communications and Information (NCI) Agency operates a MISP community, 
 
 ### MISP COVID-19 Community
 
-[COVID-19 MISP Information Sharing Community](https://www.misp-project.org/covid-19-misp/) is available and you can self-register to get access to it.
+[COVID-19 MISP Information Sharing Community](/covid-19-misp/) is available and you can self-register to get access to it.
 
 ## MISP Feed Communities
 

@@ -12,11 +12,11 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### MISP hackathon
 
-- [Open Source Security Hackathon](https://www.misp-project.org/hackathon/) - pen Source Security hackathon - Monday 25th October 2021 and Tuesday 26th October 2021
+- [Open Source Security Hackathon](/hackathon/) - pen Source Security hackathon - Monday 25th October 2021 and Tuesday 26th October 2021
 
 ### MISP at conferences
 
-- [Virtual MISP Summit 0x06](https://www.misp-project.org/misp-summit/) - Thursday 21st October 2021.
+- [Virtual MISP Summit 0x06](/misp-summit/) - Thursday 21st October 2021.
 
 ### Current MISP Training(s)
 

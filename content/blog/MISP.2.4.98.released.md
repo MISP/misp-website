@@ -14,8 +14,8 @@ The output of the search interface is now consistent with standard attributes vi
 
 A new experimental import functionality has been included to import SleuthKit mactime timelines from MISP directly. The user can import one or more mactime timelines in MISP, which will be included as a mactime object to describe forensic activities on an analysed file system. The import is a two-step process where the user can cherry pick the forensic events which took place and select the meaningful activity to be added in a MISP event.
 
-![SleuthKit mactime import in MISP](https://www.misp-project.org/img/blog/mactime1.png)
-![SleuthKit mactime imported in MISP as objects](https://www.misp-project.org/img/blog/mactime2.png)
+![SleuthKit mactime import in MISP](/img/blog/mactime1.png)
+![SleuthKit mactime imported in MISP as objects](/img/blog/mactime2.png)
 
 The API has been improved with many new features such as:
 

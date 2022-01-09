@@ -10,7 +10,7 @@ A new version of MISP [2.4.87](https://github.com/MISP/MISP/tree/v2.4.87) has be
 The feed system now supports the ability to add any arbitrary HTTP headers which can be used to cache and get feeds from feed providers with authentication. A basic authentication widget has been added to easily generate the appropriate
 authentication header for a feed. Feed providers are more than welcome to contact us, if they would like to have their feed metadata added to the default MISP installation.
 
-The MISP ZMQ publish-subscribe channel has been extended with a new specific channel for all activities related to [tags](https://www.misp-project.org/taxonomies.html).
+The MISP ZMQ publish-subscribe channel has been extended with a new specific channel for all activities related to [tags](/taxonomies.html).
 
 [Warning-list](https://github.com/MISP/misp-warninglists) can now support a regular expressions in addition to the string, substring, hostname and CIDR parsing algorithms. This allows the creation of a new type of versatile of warning-lists, which can be used to filter false-positives at the API level (using the `enforcewarninglist` option in the API) and to limit the export of false-positives.
 

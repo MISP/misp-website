@@ -7,17 +7,17 @@ banner: /img/blog/misp-small.png
 
 A new version of MISP ([2.4.97](https://github.com/MISP/MISP/tree/v2.4.97)) has been released with new features such as related tags, the sighting restSearch API, a new French localisation along with many improvements to the API and he import/export capabilities, such as improved support for [DHS AIS](https://www.us-cert.gov/ais) STIX 1 files.
 
-![MISP event graph to display an overview of the relationships for a malware infection](https://www.misp-project.org/img/blog/eventgraph.png)
+![MISP event graph to display an overview of the relationships for a malware infection](/img/blog/eventgraph.png)
 
 The new related tags functionality has been introduced to allow users to view the most commonly used tags for a specific attribute across all events. This can help analysts when deciding to use a specific classification based on previous analyses to reduce the time it takes to contextualise the new information.
 
-![MISP event graph to display an overview of the relationships for a malware infection](https://www.misp-project.org/img/blog/related-tags.png)
+![MISP event graph to display an overview of the relationships for a malware infection](/img/blog/related-tags.png)
 
 A new API has been introduced, allowing users to search [MISP sightings](https://www.misp.software/2017/02/16/Sighting-The-Next-Level.html) using a set of filter parameters along with a list of data formats (JSON, CSV or XML). The search is available on an event, attribute or instance level. You can easily search by time ranges (from, to or last) using the standard restSearch API syntax.
 
 At the API level, many changes were introduced such as:
 
- - [Galaxy](https://www.misp-project.org/galaxy.html) API is now exposed and can be browsed via the API.
+ - [Galaxy](/galaxy.html) API is now exposed and can be browsed via the API.
  - Event index API can now be exported in CSV format in addition to standard JSON format.
  - Log entries are now exposed via the API. The API is documented via the template system/REST client.
  - The Warning-list lookups are now exposed to the API. A value can be quickly tested against the warning-lists enabled on a MISP instance without the need to create any persistent data.

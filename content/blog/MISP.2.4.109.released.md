@@ -13,14 +13,14 @@ A new version of MISP ([2.4.109](https://github.com/MISP/MISP/tree/v2.4.109)) ha
 
 ## Encapsulate existing attributes into an object
 
-![](https://www.misp-project.org/img/blog/attribute-to-object.gif)
+![](/img/blog/attribute-to-object.gif)
 
 When an analyst inserts information into MISP, it's very common to start with a set of unstructured indicators/attributes. At a later stage, common structures emerge and combining attributes into objects start making more and more sense. However, the effort spent on the process of attribute creation would have to be repeated in prior versions via the object creation interface, something that resulted in analysts deciding to save time and effort and move on, leaving the unstructured data as is. To reduce the workload needed to bring structure to our prior work, we have now introduced a new feature, allowing users to easily select a set of attributes and automatically propose suitable object templates depending on the combination of types of the selected attributes. These in turn, can be gathered and processed into the desired object.
 
 ## Improved ATT&CK and ATT&CK-like matrix support
 
-![](https://www.misp-project.org/img/blog/attack-new.png)
-![](https://www.misp-project.org/img/blog/fraud-tactics.png)
+![](/img/blog/attack-new.png)
+![](/img/blog/fraud-tactics.png)
 
 We received exhaustive feedback during the FIRST.org CTI conference in London and the [ATT&CK EU community](https://www.attack-community.org/) workshop at Eurocontrol concerning the ATT&CK integration in MISP. The matrix visualisation has been improved by sorting and reorganising the individual techniques based on their aggregate scores. These statistics can now easily be queried based on time-ranges, organisations, tags, along with all other restSearch enabled filters to generate ATT&CK like matrix views.
 
@@ -42,17 +42,17 @@ An issue was discovered in MISP 2.4.108. Organisation admins could reset credent
 
 - A long-standing bug has been fixed when adding tags or galaxies whilst using Firefox.
 - [permissions] Fixed the default sync/user/publisher permissions to include perm_tagger and perm_tag_editor(sync only).
-- And many other [fixes](https://www.misp-project.org/Changelog.txt).
+- And many other [fixes](/Changelog.txt).
 
 # MISP galaxy, object templates and warning-lists updated
 
-[MISP galaxy](https://www.misp-project.org/galaxy.html), [MISP object templates](https://www.misp-project.org/objects.html) and [MISP warning-lists](https://github.com/MISP/misp-warninglists/) have been updated to the latest version.
+[MISP galaxy](/galaxy.html), [MISP object templates](/objects.html) and [MISP warning-lists](https://github.com/MISP/misp-warninglists/) have been updated to the latest version.
 
-New [default feeds](https://www.misp-project.org/feeds/) were added in MISP. Don't hesitate to contact us if you have any idea for new feeds.
+New [default feeds](/feeds/) were added in MISP. Don't hesitate to contact us if you have any idea for new feeds.
 
 We would like to thank all the contributors, reporters and users who have helped us in the past months to improve MISP and information sharing at large.
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 
 # Warning: Next release 2.4.110
 

@@ -38,7 +38,7 @@ MISP 2.4.151 released including a host of bug fixes and a bunch of new features
 # Various improvements
 
 - The previous version introduced a new STIX library as a replacement for the old one. This change did end up causing some update issues for some installations, the built in updater is now aware of this change and should allow you to easily update via the UI/API updater, with the new STIX library working as intended
-- A long list of improvements, thanks to all contributors! For a detailed list of changes, head over to the [changelog](https://www.misp-project.org/Changelog.txt)
+- A long list of improvements, thanks to all contributors! For a detailed list of changes, head over to the [changelog](/Changelog.txt)
 
 # MISP Modules
 
@@ -46,21 +46,21 @@ MISP 2.4.151 released including a host of bug fixes and a bunch of new features
 - Updated [Recorded Future](https://misp.github.io/misp-modules/expansion/#recordedfuture) expansion module included links and related data.
 - New [CIRCL hashlookup expansion](https://circl.lu/services/hashlookup/) module added.
 
-The [MISP modules changelog is available](https://www.misp-project.org/Changelog-misp-modules.txt).
+The [MISP modules changelog is available](/Changelog-misp-modules.txt).
 
 # MISP Taxonomies
 
-- Updated taxonomies for [Interactive Cyber Training setup and environment](https://www.misp-project.org/taxonomies.html#_interactive_cyber_training_audience).
-- Updated [fr-classification](https://www.misp-project.org/taxonomies.html#_fr_classif) to match IGI1300. 
+- Updated taxonomies for [Interactive Cyber Training setup and environment](/taxonomies.html#_interactive_cyber_training_audience).
+- Updated [fr-classification](/taxonomies.html#_fr_classif) to match IGI1300. 
 
-[MISP Taxonomies changelog](https://www.misp-project.org/Changelog-misp-taxonomies.txt) is available.
+[MISP Taxonomies changelog](/Changelog-misp-taxonomies.txt) is available.
 
 # MISP Galaxy
 
 - Updated to MITRE ATT&CK version 10.
 - Multiple updates in malpedia, threat actor galaxy and Office 365 techniques.
 
-[MISP Galaxy changelog](https://www.misp-project.org/Changelog-misp-galaxy.txt)
+[MISP Galaxy changelog](/Changelog-misp-galaxy.txt)
 
 # MISP Objects
 
@@ -72,12 +72,12 @@ The [MISP modules changelog is available](https://www.misp-project.org/Changelog
 - New hashlookup object added.
 - New edr-report object added.
 
-[MISP objects changelog](https://www.misp-project.org/Changelog-misp-objects.txt)
+[MISP objects changelog](/Changelog-misp-objects.txt)
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](https://www.misp-project.org/objects.html), [misp-taxonomies](https://www.misp-project.org/taxonomies.html) and [misp-galaxy](https://www.misp-project.org/galaxy.html)
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](/objects.html), [misp-taxonomies](/taxonomies.html) and [misp-galaxy](/galaxy.html)
 .
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 

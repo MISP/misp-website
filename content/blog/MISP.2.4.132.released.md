@@ -7,7 +7,7 @@ banner: /img/blog/d4_sshd_widget.png
 
 # MISP 2.4.132 released
 
-A new version of MISP ([2.4.132](https://github.com/MISP/MISP/tree/v2.4.132)) has been released with several bugs fixed including an important [security](https://www.misp-project.org/security/) fix [CVE-2020-25766](https://cve.circl.lu/cve/CVE-2020-25766). 
+A new version of MISP ([2.4.132](https://github.com/MISP/MISP/tree/v2.4.132)) has been released with several bugs fixed including an important [security](/security/) fix [CVE-2020-25766](https://cve.circl.lu/cve/CVE-2020-25766). 
 
 # Bugs fixed and updates
 
@@ -26,12 +26,12 @@ Version 2.4.133 will include a new diagnostic tool that highlights deletions fro
 
 # Many bugs fixed and small improvements
 
-A host of other improvements are documented in the [complete changelog is available](https://www.misp-project.org/Changelog.txt).
+A host of other improvements are documented in the [complete changelog is available](/Changelog.txt).
 
 # Acknowledgement
 
-We would like to thank all the [contributors](https://www.misp-project.org/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](https://www.misp-project.org/objects.html), [misp-taxonomies](https://www.misp-project.org/taxonomies.html) and [misp-galaxy](https://www.misp-project.org/galaxy.html).
+We would like to thank all the [contributors](/contributors), reporters and users who have helped us in the past months to improve MISP and information sharing at large. This release includes multiple updates in [misp-objects](/objects.html), [misp-taxonomies](/taxonomies.html) and [misp-galaxy](/galaxy.html).
 
-As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements.
+As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements.
 
 
