@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  <head>
+    {{ partial "headers.html" . }}
+    {{ partial "custom_headers.html" . }}
+  </head>
+
+  <body>
+
+    <div id="all">
+
+        {{ partial "nav.html" . }}
+
+        {{ partial "breadcrumbs.html" . }}
+
+        <div id="content">
+            {{ if isset .Params "id" }}
+
+              {{ partial .Params.id . }}
+
+            {{ else }}
+
+            <div class="container">
+
+                <div class="row">
+                    {{ if isset .Params "toc" }}
+                    <div class="col-md-9">
+                    {{ else }}
+                    <div class="col-md-12">
+                    {{ end }}
+
+                        <div>
+                          {{ .Content }}
+                        </div>
+
+                    </div>
+                    {{ if isset .Params "toc" }}
+                    <div class="col-md-3">
+                        <div class="panel sidebar-menu">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Table of Content</h3>
+                            </div>
+                            <div class="panel-body">
+                                {{ .TableOfContents }}
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+
+
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+
+            {{ end }}
+        </div>
+        <!-- /#content -->
+
+        {{ partial "footer.html" . }}
+
+    </div>
+    <!-- /#all -->
+
+    {{ partial "scripts.html" . }}
+
+  </body>
+</html>

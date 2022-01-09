@@ -1,6 +1,7 @@
 ---
 type: page
 title: Information sharing and cooperation enabled by GDPR
+toc: true
 ---
 
 # Information sharing and cooperation enabled by GDPR
