@@ -1,5 +1,6 @@
 ---
 title: How MISP enables stakeholders identified by the NISD to perform key activities
+type: page
 ---
 
 # How MISP enables stakeholders identified by the NISD to perform key activities

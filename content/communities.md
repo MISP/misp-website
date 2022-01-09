@@ -1,5 +1,5 @@
 ---
-layout: page
+type: page
 title: MISP Communities and MISP Feeds
 permalink: /communities/
 toc: true

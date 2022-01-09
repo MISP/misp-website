@@ -1,5 +1,6 @@
 ---
 title: MISP as supporting platform for sharing information, following ISO/IEC 27010:2015
+type: page
 ---
 
 

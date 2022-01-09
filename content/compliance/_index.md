@@ -1,7 +1,6 @@
 ---
-layout: page
+type: page
 title: MISP, legal and policy compliance
-permalink: /compliance/
 toc: true
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: page_notoc
+type: page
 title: Information sharing and cooperation enabled by GDPR
 ---
 
