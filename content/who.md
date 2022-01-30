@@ -31,9 +31,9 @@ If you have any enquiries or willing to contribute or support the project, don't
 
 ## Integrated Services and Products with MISP
 
-Many third-parties and organizations provide services or software to integrate with MISP via [misp-modules](https://github.com/MISP/misp-modules), [MISP API](https://www.circl.lu/doc/misp/automation/index.html) or [MISP data models]({{ "/datamodels" | prepend: site.baseurl | prepend: site.url }}).
+Many third-parties and organizations provide services or software to integrate with MISP via [misp-modules](https://github.com/MISP/misp-modules), [MISP API](https://www.circl.lu/doc/misp/automation/index.html) or [MISP data models](/datamodels).
 
-Check out the [tools page]({{  "/tools" | prepend: site.baseurl | prepend: site.url }}).
+Check out the [tools page](/tools).
 
 ## Research using MISP and Attribution
 

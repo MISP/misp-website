@@ -5,8 +5,6 @@ permalink: /professional-services/
 toc: true
 ---
 
-# MISP Professional Services
-
 MISP Professional Services (MPS) is a program handled by the lead developers of MISP Project, in order to offer highly
 skilled services around MISP and to support the sustainability of the MISP project.
 This initiative is meant to address the policy requirements of companies/organisations requiring commercial support contracts.
@@ -62,14 +60,14 @@ The following options are available for any holder of an active support contract
 - Development of new and/or custom features (project based, cost depending on scope)
 
 
-# Additional costs for all missions outside Luxembourg
+## Additional costs for all missions outside Luxembourg
 
 In addition to the displayed prices, we also charge for the travel and accommodation costs according to the number of trainers or support engineers required.
 
 Based on the training location and the time of travel an additional uplift of the price may be included.
 
 
-# Contact for inquiries and requests
+## Contact for inquiries and requests
 
 Please send your inquiries regarding MISP Professional Services to mps@misp-project.org
 

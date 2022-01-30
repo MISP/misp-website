@@ -5,7 +5,6 @@ permalink: /research-projects/
 toc: true
 ---
 
-# MISP Research Projects
 
 # Project (1) Pauline Bourmeau - The Social Perspective in the Intelligence Activity among Information Sharing Communities - CNAM Paris (Supervisor Philippe Baumard).
 
