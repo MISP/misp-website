@@ -135,125 +135,162 @@ disablePathToLower = "True"
 [[menu.main]]
     identifier = "menu.contact"
     name       = "Contact"
-    url        = ""
+    url        = "/img/menu-contact.png"
     weight     = 90
 
 [[menu.main]]
-    name       = "Contact"
+    identifier = "section.contact"
+    name       = "Reaching us"
+    parent     = "menu.contact"
+    weight     = 1
+    post       = 1
+
+[[menu.main]]
+    name       = "Contact Us"
     url        = "/support/"
     weight     = 1
-    parent     = "menu.contact"
-    post       = 1
+    parent     = "section.contact"
 
 [[menu.main]]
-    name       = "Press"
+    name       = "Press inquiries"
     url        = "/press/"
     weight     = 2
-    parent     = "menu.contact"
-    post       = 1
+    parent     = "section.contact"
 
-[[menu.main]]
-    name       = "Who"
-    url        = "/who/"
-    weight     = 3
-    parent     = "menu.contact"
-    post       = 1
-
-[[menu.main]]
-    name       = "Contributors"
-    url        = "/contributors/"
-    weight     = 4
-    parent     = "menu.contact"
-    post       = 1
-
-[[menu.main]]
-    name       = "Governance"
-    url        = "/governance/"
-    weight     = 6
-    parent     = "menu.contact"
-    post       = 1
 
 [[menu.main]]
     name       = "Professional Services"
     url        = "/professional-services/"
     weight     = 2
-    parent     = "menu.contact"
+    parent     = "section.contact"
     post       = 1
 
 [[menu.main]]
-    name       = "Security"
+    name       = "Security Matters"
     url        = "/security/"
     weight     = 2
-    parent     = "menu.contact"
+    parent     = "section.contact"
     post       = 1
+
+
+
+[[menu.main]]
+    identifier = "section.who"
+    name       = "Who are we?"
+    parent     = "menu.contact"
+    weight     = 1
+    post       = 2
+
+[[menu.main]]
+    name       = "Who"
+    url        = "/who/"
+    weight     = 3
+    parent     = "section.who"
+
+[[menu.main]]
+    name       = "Contributors"
+    url        = "/contributors/"
+    weight     = 4
+    parent     = "section.who"
+
+[[menu.main]]
+    name       = "Governance"
+    url        = "/governance/"
+    weight     = 6
+    parent     = "section.who"
 
 
 
 [[menu.main]]
     identifier = "menu.documentation"
     name       = "Documentation"
-    url        = ""
+    url        = "/img/menu-book.png"
     weight     = 40
 
 
 [[menu.main]]
     name       = "Documentation"
+    identifier = "section.documentation"
+    parent     = "menu.documentation"
+    weight     = 1
+    post       = 1
+
+[[menu.main]]
+    name       = "Documentation"
     url        = "/documentation/"
     weight     = 1
-    parent     = "menu.documentation"
+    parent     = "section.documentation"
     post       = 1
+
+[[menu.main]]
+    name       = "OpenAPI"
+    url        = "/documentation/openapi.html"
+    weight     = 2
+    parent     = "section.documentation"
 
 [[menu.main]]
     name       = "Tools"
     url        = "/tools/"
-    weight     = 2
-    parent     = "menu.documentation"
-    post       = 1
+    weight     = 3
+    parent     = "section.documentation"
 
 [[menu.main]]
     name       = "Support"
     url        = "/support/"
-    weight     = 3
-    parent     = "menu.documentation"
-    post       = 1
-
-
-[[menu.main]]
-    name       = "Legal and policy"
-    url        = "/compliance/"
     weight     = 4
-    parent     = "menu.documentation"
-    post       = 1
-
-[[menu.main]]
-    name       = "License"
-    url        = "/license/"
-    weight     = 5
-    parent     = "menu.documentation"
-    post       = 1
+    parent     = "section.documentation"
 
 [[menu.main]]
     name       = "Contributing"
+    identifier = "section.contributing"
     url        = "/contributing/"
-    weight     = 6
-    parent     = "menu.documentation"
-    post       = 1
-
+    weight     = 5
+    parent     = "section.documentation"
 
 [[menu.main]]
     name       = "Research projects"
     url        = "/research-projects/"
-    weight     = 7
-    parent     = "menu.documentation"
-    post       = 1
-
+    weight     = 6
+    parent     = "section.documentation"
 
 [[menu.main]]
-    name       = "OpenAPI spec"
-    url        = "/documentation/openapi.html"
-    weight     = 8
+    name       = "Legal"    
+    identifier = "section.legal"
+    url        = ""
+    weight     = 5
     parent     = "menu.documentation"
-    post       = 1
+    post       = 2
+
+[[menu.main]]
+    name       = "License"
+    url        = "/license/"
+    weight     = 1
+    parent     = "section.legal"
+
+[[menu.main]]
+    name       = "Legal and policy"
+    url        = "/compliance/"
+    weight     = 11
+    parent     = "section.legal"
+
+[[menu.main]]
+    name       = "GDPR"
+    url        = "/compliance/GDPR"
+    weight     = 12
+    parent     = "section.legal"
+
+[[menu.main]]
+    name       = "ISO/IEC 27010:2015"
+    url        = "/compliance/ISO-IEC-27010/"
+    weight     = 13
+    parent     = "section.legal"
+
+[[menu.main]]
+    name       = "NISD"
+    url        = "/compliance/NISD"
+    weight     = 14
+    parent     = "section.legal"
+
 
 
 
@@ -292,7 +329,7 @@ disablePathToLower = "True"
 [[menu.topbar]]
     weight = 6
     name = "RSS Feed"
-    url = "index.xml"
+    url = "/index.xml"
     pre = "<i class='fas fa-2x fa-rss'></i>"
 
 [params]
@@ -445,7 +482,7 @@ disablePathToLower = "True"
 [params.recent_posts]
     enable = true
     title = "From our blog"
-    subtitle = "TODO blabla, blog, press, ...Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo."
+    subtitle = "In addition to the [news](/blog/) stories below, check out the [press](/press), [events](/events), [hackathon](hackathon), [MISP Summit](misp-summit) pages and full [news archive](/blog)."
     hide_summary = false
 
 [params.footer.recent_posts]

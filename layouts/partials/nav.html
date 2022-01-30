@@ -64,13 +64,15 @@
                                 {{ range .Children.ByWeight }}
                                     {{ $column := printf "%s" .Post }}
                                     {{ if eq $column "1" }}
-                                    <li><a href="{{ .URL}}">{{ .Name }}</a></li>
                                     {{ if .HasChildren }}
+                                    <h5>{{ .Name }}</h5>
                                     <ul>
                                     {{ range .Children.ByWeight }}
                                     <li><a href="{{ .URL }}">{{ .Name }}</a></li>                                
                                     {{- end }}
                                     </ul>
+                                    {{ else }}
+                                    <li><a href="{{ .URL}}">{{ .Name }}</a></li>
                                     {{ end }}
                                     {{ end }}
                                 {{ end }}
@@ -81,13 +83,15 @@
                                 {{ range .Children.ByWeight }}
                                     {{ $column := printf "%s" .Post }}
                                     {{ if eq $column "2" }}
-                                    <li><a href="{{ .URL}}">{{ .Name }}</a></li>
                                     {{ if .HasChildren }}
+                                    <h5>{{ .Name }}</h5>
                                     <ul>
                                     {{ range .Children.ByWeight }}
                                     <li><a href="{{ .URL }}">{{ .Name }}</a></li>                                
                                     {{ end }}
                                     </ul>
+                                    {{ else }}
+                                    <li><a href="{{ .URL}}">{{ .Name }}</a></li>
                                     {{ end }}
                                     {{ end }}
                                 {{ end }}
@@ -99,13 +103,15 @@
                                 {{ range .Children }}
                                     {{ $column := printf "%s" .Post }}
                                     {{ if eq $column "3" }}
-                                    <li><a href="{{ .URL}}">{{ .Name }}</a></li>
                                     {{ if .HasChildren }}
+                                    <h5>{{ .Name }}</h5>
                                     <ul>
                                     {{ range .Children.ByWeight }}
                                     <li><a href="{{ .URL }}">{{ .Name }}</a></li>                                
                                     {{ end }}
                                     </ul>
+                                    {{ else }}
+                                    <li><a href="{{ .URL}}">{{ .Name }}</a></li>
                                     {{ end }}
                                     {{ end }}
                                 {{ end }}
@@ -116,13 +122,15 @@
                                 {{ range .Children }}
                                     {{ $column := printf "%s" .Post }}
                                     {{ if eq $column "4" }}
-                                    <li><a href="{{ .URL}}">{{ .Name }}</a></li>
                                     {{ if .HasChildren }}
+                                    <h5>{{ .Name }}</h5>
                                     <ul>
                                     {{ range .Children.ByWeight }}
                                     <li><a href="{{ .URL }}">{{ .Name }}</a></li>                                
                                     {{ end }}
                                     </ul>
+                                    {{ else }}
+                                    <li><a href="{{ .URL}}">{{ .Name }}</a></li>
                                     {{ end }}
                                     {{ end }}
                                 {{ end }}

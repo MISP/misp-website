@@ -33,5 +33,4 @@ To compile a local version of the website, run the following commands in a termi
 
 ## How to deploy the MISP website
 
-TODO figure this out
 
