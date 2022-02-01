@@ -51,8 +51,9 @@ sudo systemctl restart apache2
 ### Docker containers
 
 - A [docker container for MISP](https://github.com/misp/misp-docker) is maintained by Xavier Mertens.
-- Another [MISP docker container](https://github.com/misp/docker-misp) is maintained by Ventz Petkov.
 - [A (nearly) production ready Dockered MISP](https://github.com/coolacid/docker-misp) is maintained by Jason Kendall (Coolacid).
+- [Docker image focused on high performance and security based on CentOS Stream 8](https://github.com/NUKIB/misp) is maintained by National Cyber and Information Security Agency of the Czech Republic.
+
 
 We invite you to read the GitHub README page of each version to understand what better fits your needs.
 
