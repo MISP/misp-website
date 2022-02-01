@@ -7,7 +7,7 @@ toc: true
 
 ## Announcements and press releases
 
-The general purpose announcements that we publish are available on the [news page](/news/).
+The general purpose announcements that we publish are available on the [news page](/blog/).
 Write us an email at <info@misp-project.org> if you have a press inquiry.
 You can also send press articles about MISP to this address, so we can add them to this page.
 
