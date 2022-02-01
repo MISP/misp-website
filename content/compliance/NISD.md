@@ -180,7 +180,7 @@ MISP can support CSIRTs participating in the CSIRTs network mainly with the task
 
 This document was partially funded by CEF (Connecting Europe Facility) funding under CEF-TC-2016-3 - Cyber Security ***Improving MISP as building blocks for next-generation information sharing***.
 
-![](/assets/images/cef.png)
+![](/img/cef.png "{class='img-responsive'}")
 
 ## Contact and Collaboration
 

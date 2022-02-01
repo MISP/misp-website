@@ -165,7 +165,7 @@ As demonstrated in this article, MISP is a flexible platform that thanks to an e
 
 This document was partially funded by CEF (Connecting Europe Facility) funding under CEF-TC-2016-3 - Cyber Security ***Improving MISP as building blocks for next-generation information sharing***.
 
-![](/img/cef.png)
+![](/img/cef.png "{class='img-responsive'}")
 
 ## Contact and Collaboration
 
