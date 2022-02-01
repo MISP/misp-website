@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.16">
+<meta name="generator" content="Asciidoctor 2.0.17">
 <title>MISP taxonomies and classification as machine tags</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -193,7 +193,8 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
 details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
 details{margin-left:1.25rem}
-details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;-webkit-tap-highlight-color:transparent}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
 details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
 details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
 details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
@@ -235,9 +236,8 @@ pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
 table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
 table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
 table.linenotable td.code{padding-left:.75em}
-table.linenotable td.linenos{border-right:1px solid;opacity:.35;padding-right:.5em}
-pre.pygments .lineno{border-right:1px solid;opacity:.35;display:inline-block;margin-right:.75em}
-pre.pygments .lineno::before{content:"";margin-right:-.125em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
 .quoteblock{margin:0 1em 1.25em 1.5em;display:table}
 .quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
 .quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
@@ -274,7 +274,7 @@ table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-c
 table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
 table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
 table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
-table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
 th.halign-left,td.halign-left{text-align:left}
 th.halign-right,td.halign-right{text-align:right}
 th.halign-center,td.halign-center{text-align:center}
@@ -290,10 +290,11 @@ ol{margin-left:1.75em}
 ul li ol{margin-left:1.5em}
 dl dd{margin-left:1.125em}
 dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
-ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
 ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
 ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
 ul.checklist>li>p:first-child{margin-left:-1em}
 ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
 ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
@@ -336,8 +337,6 @@ sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
 #footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
 #footnotes .footnote:last-of-type{margin-bottom:0}
 #content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
-.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
-.gist .file-data>table td.line-data{width:99%}
 div.unbreakable{page-break-inside:avoid}
 .big{font-size:larger}
 .small{font-size:smaller}
@@ -485,6 +484,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_dcso_sharing">dcso-sharing</a></li>
 <li><a href="#_ddos_2">ddos</a></li>
 <li><a href="#_de_vs">de-vs</a></li>
+<li><a href="#_deception">deception</a></li>
 <li><a href="#_dhs_ciip_sectors">dhs-ciip-sectors</a></li>
 <li><a href="#_diamond_model">diamond-model</a></li>
 <li><a href="#_dni_ism">dni-ism</a></li>
@@ -553,6 +553,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_passivetotal">passivetotal</a></li>
 <li><a href="#_pentest">pentest</a></li>
 <li><a href="#_phishing_2">phishing</a></li>
+<li><a href="#_political_spectrum">political-spectrum</a></li>
 <li><a href="#_priority_level">priority-level</a></li>
 <li><a href="#_ransomware">ransomware</a></li>
 <li><a href="#_retention">retention</a></li>
@@ -563,6 +564,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_scrippsco2_fgi">scrippsco2-fgi</a></li>
 <li><a href="#_scrippsco2_sampling_stations">scrippsco2-sampling-stations</a></li>
 <li><a href="#_smart_airports_threats">smart-airports-threats</a></li>
+<li><a href="#_state_responsibility">state-responsibility</a></li>
 <li><a href="#_stealth_malware">stealth_malware</a></li>
 <li><a href="#_stix_ttp">stix-ttp</a></li>
 <li><a href="#_targeted_threat_index">targeted-threat-index</a></li>
@@ -573,6 +575,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_tor">tor</a></li>
 <li><a href="#_trust">trust</a></li>
 <li><a href="#_type_7">type</a></li>
+<li><a href="#_unified_kill_chain">unified-kill-chain</a></li>
 <li><a href="#_use_case_applicability">use-case-applicability</a></li>
 <li><a href="#_veris">veris</a></li>
 <li><a href="#_vmray">vmray</a></li>
@@ -606,13 +609,13 @@ The following document is generated from the machine-readable JSON describing th
 <p>The MISP project is financially and resource supported by <a href="https://www.circl.lu/">CIRCL Computer Incident Response Center Luxembourg </a>.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="/img/circl.png" alt="CIRCL logo"></span></p>
+<p><span class="image"><img src="https://www.misp-project.org/assets/images/logo.png" alt="CIRCL logo"></span></p>
 </div>
 <div class="paragraph">
 <p>A CEF (Connecting Europe Facility) funding under CEF-TC-2016-3 - Cyber Security has been granted from 1st September 2017 until 31th August 2019 as <strong><strong>Improving MISP as building blocks for next-generation information sharing</strong></strong>.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="img/cef.png" alt="CEF funding"></span></p>
+<p><span class="image"><img src="https://www.misp-project.org/assets/images/en_cef.png" alt="CEF funding"></span></p>
 </div>
 <div class="paragraph">
 <p>If you are interested to co-fund projects around MISP, feel free to get in touch with us.</p>
@@ -11386,6 +11389,356 @@ de-vs namespace available in JSON format at <a href="https://github.com/MISP/mis
 </div>
 </div>
 <div class="sect1">
+<h2 id="_deception">deception</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+deception namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/deception/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Deception is an important component of information operations, valuable for both offense and defense.</p>
+</div>
+<div class="sect2">
+<h3 id="_space">space</h3>
+<div class="paragraph">
+<p>Actions have associated locations, and deception can apply to those references.</p>
+</div>
+<div class="sect3">
+<h4 id="_deceptionspacedirection">deception:space="direction"</h4>
+<div class="paragraph">
+<p>Direction</p>
+</div>
+<div class="paragraph">
+<p>direction of the action. Direction cases can arise with some actions that are supposedly one-way like file transfers.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionspacelocation_at">deception:space="location-at"</h4>
+<div class="paragraph">
+<p>Location at</p>
+</div>
+<div class="paragraph">
+<p>Location where something occured</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionspacelocation_from">deception:space="location-from"</h4>
+<div class="paragraph">
+<p>Location from</p>
+</div>
+<div class="paragraph">
+<p>Location where something started</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionspacelocation_to">deception:space="location-to"</h4>
+<div class="paragraph">
+<p>Location to</p>
+</div>
+<div class="paragraph">
+<p>Location where something finished</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionspacelocation_through">deception:space="location-through"</h4>
+<div class="paragraph">
+<p>Location through</p>
+</div>
+<div class="paragraph">
+<p>Location where some action passed through</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionspaceorientation">deception:space="orientation"</h4>
+<div class="paragraph">
+<p>Orientation</p>
+</div>
+<div class="paragraph">
+<p>Orientation (in some space). Orientation cases can arise with some actions that are supposedly one-way like file transfers.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_time">time</h3>
+<div class="paragraph">
+<p>Many actions on computer are timestamped, and attackers and defenders can deceive in regard to those times. An attacker could change the times of events recorded in a log file or the directory information about files to conceal records of their activities.</p>
+</div>
+<div class="sect3">
+<h4 id="_deceptiontimefrequency">deception:time="frequency"</h4>
+<div class="paragraph">
+<p>Frequency</p>
+</div>
+<div class="paragraph">
+<p>Frequency of occurrence of a repeated action. Frequency is an excellent case for deception, as in denial-of-service attacks that greatly increase the frequency of requests or transactions to tie up computer resources.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptiontimetime_at">deception:time="time-at"</h4>
+<div class="paragraph">
+<p>Time at</p>
+</div>
+<div class="paragraph">
+<p>Time at which something occurred</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptiontimetime_from">deception:time="time-from"</h4>
+<div class="paragraph">
+<p>Time from</p>
+</div>
+<div class="paragraph">
+<p>Time at which something started</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptiontimetime_to">deception:time="time-to"</h4>
+<div class="paragraph">
+<p>Time to</p>
+</div>
+<div class="paragraph">
+<p>Time at which something ended</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptiontimetime_through">deception:time="time-through"</h4>
+<div class="paragraph">
+<p>Time through</p>
+</div>
+<div class="paragraph">
+<p>Time through which something occurred</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_participant">participant</h3>
+<div class="paragraph">
+<p>Actions have associated participants and the tools or objects by actions are accomplished.</p>
+</div>
+<div class="sect3">
+<h4 id="_deceptionparticipantagent">deception:participant="agent"</h4>
+<div class="paragraph">
+<p>Agent</p>
+</div>
+<div class="paragraph">
+<p>Who initiates the action.Identification of participants responsible for actions ("agents") is a key problem in cyberspace, and is an easy target for deception.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionparticipantbeneficiary">deception:participant="beneficiary"</h4>
+<div class="paragraph">
+<p>Beneficiary</p>
+</div>
+<div class="paragraph">
+<p>Who benefits. Deceptions involving the beneficiary of an action occur with phishing and other email scams.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionparticipantexperiencer">deception:participant="experiencer"</h4>
+<div class="paragraph">
+<p>Experiencer</p>
+</div>
+<div class="paragraph">
+<p>Who senses, experiences the action. Deception in the "experiencer" case occurs with secret monitoring of adversary activities.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionparticipantinstrument">deception:participant="instrument"</h4>
+<div class="paragraph">
+<p>Instrument</p>
+</div>
+<div class="paragraph">
+<p>What helps accomplish the action. Deception is easy with the instrument case because details of how software accomplishes things are often hidden in cyberspace.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionparticipantobject">deception:participant="object"</h4>
+<div class="paragraph">
+<p>Object</p>
+</div>
+<div class="paragraph">
+<p>What the action is done for. Deception in objects of the action is easy: Honeypots deceive as to the hardware and software objects of an attack, and "bait" data such as credit-card numbers can also be deceptive objects.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionparticipantrecipient">deception:participant="recipient"</h4>
+<div class="paragraph">
+<p>Recipient</p>
+</div>
+<div class="paragraph">
+<p>Who receives the action. The recipient of an action in cyberspace is usually the object.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_causality">causality</h3>
+<div class="paragraph">
+<p>Deception in cause, purpose, and effect is important in many kinds of social-engineering attacks where false reasons like "I have a deadline" or "It didn&#8217;t work" are given for requests for actions or information that aid the adversary. Deception in a contradiction action is not possible in cyberspace because commands do not generally relate actions.</p>
+</div>
+<div class="sect3">
+<h4 id="_deceptioncausalitycause">deception:causality="cause"</h4>
+<div class="paragraph">
+<p>Cause</p>
+</div>
+<div class="paragraph">
+<p>Cause of the action</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptioncausalitycontradiction">deception:causality="contradiction"</h4>
+<div class="paragraph">
+<p>Contradiction</p>
+</div>
+<div class="paragraph">
+<p>What this action opposes if anything</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptioncausalityeffect">deception:causality="effect"</h4>
+<div class="paragraph">
+<p>Effect</p>
+</div>
+<div class="paragraph">
+<p>Effect of the action</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptioncausalitypurpose">deception:causality="purpose"</h4>
+<div class="paragraph">
+<p>Purpose</p>
+</div>
+<div class="paragraph">
+<p>Purpose of the action</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_quality">quality</h3>
+<div class="paragraph">
+<p>The "quality" semantic cases cover the manner in which actions are performed.</p>
+</div>
+<div class="sect3">
+<h4 id="_deceptionqualityaccompaniment">deception:quality="accompaniment"</h4>
+<div class="paragraph">
+<p>Accompaniment</p>
+</div>
+<div class="paragraph">
+<p>An additionnal object associated with the action</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionqualitycontent">deception:quality="content"</h4>
+<div class="paragraph">
+<p>Content</p>
+</div>
+<div class="paragraph">
+<p>What is contained by th eaction object</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionqualitymanner">deception:quality="manner"</h4>
+<div class="paragraph">
+<p>Manner</p>
+</div>
+<div class="paragraph">
+<p>The way in which action is done. (Deception in manner does not generally apply because the manner in which a command is issued or executed should not affect the outcome.)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionqualitymaterial">deception:quality="material"</h4>
+<div class="paragraph">
+<p>Material</p>
+</div>
+<div class="paragraph">
+<p>The atomic units out of which the action is composed. Deception in material does not apply much because everything is represented as bits in cyberspace, though defenders can deceive this way by simulating commands rather than executing them.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionqualitymeasure">deception:quality="measure"</h4>
+<div class="paragraph">
+<p>Measure</p>
+</div>
+<div class="paragraph">
+<p>The mesurement associated with the action. Deception in measure (the amount of data) is important in denial-of-service attacks and can also done defensively by swamping the attacker with data.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionqualityorder">deception:quality="order"</h4>
+<div class="paragraph">
+<p>Order</p>
+</div>
+<div class="paragraph">
+<p>With respect to other actions</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionqualityvalue">deception:quality="value"</h4>
+<div class="paragraph">
+<p>Value</p>
+</div>
+<div class="paragraph">
+<p>The data transmitted by the action (the software sense of the term). Deception in value (or subroutine "argument") can occur defensively as in a ploy of misunderstanding attacker commands.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_essence">essence</h3>
+<div class="paragraph">
+<p>Deception can occur in the ontological features of an action, its type and the context to which is belongs.</p>
+</div>
+<div class="sect3">
+<h4 id="_deceptionessencesupertype">deception:essence="supertype"</h4>
+<div class="paragraph">
+<p>Supertype</p>
+</div>
+<div class="paragraph">
+<p>a generalization of the action type. Phishing email is an example of deception in supertype.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionessencewhole">deception:essence="whole"</h4>
+<div class="paragraph">
+<p>Whole</p>
+</div>
+<div class="paragraph">
+<p>of which the action is a part</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_speech_act_theory">speech-act-theory</h3>
+<div class="paragraph">
+<p>Deception can involve semantic cases related to communication. Both internal and external preconditions provide useful deceptions by defenders since it is often hard to confirm deception in such conditions in cyberspace.</p>
+</div>
+<div class="sect3">
+<h4 id="_deceptionspeech_act_theoryexternal_precondition">deception:speech-act-theory="external-precondition"</h4>
+<div class="paragraph">
+<p>External precondition</p>
+</div>
+<div class="paragraph">
+<p>external precondition on the action. External preconditions are on the rest of the world such as the ability of a site to accept a particular user-supplied password.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deceptionspeech_act_theoryinternal_precondition">deception:speech-act-theory="internal-precondition"</h4>
+<div class="paragraph">
+<p>Internal precondition</p>
+</div>
+<div class="paragraph">
+<p>internal precondition, on the ability of the agent to perform the action. Internal preconditions are on the agent of the action, such as ability of a user to change their password.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_dhs_ciip_sectors">dhs-ciip-sectors</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -17843,6 +18196,15 @@ exercise namespace available in JSON format at <a href="https://github.com/MISP/
 <p>ENISA manages the programme of pan-European exercises CE2018 logonamed Cyber Europe. This is a series of EU-level cyber incident and crisis management exercises for both the public and private sectors from the EU and EFTA Member States. The Cyber Europe exercises are simulations of large-scale cybersecurity incidents that escalate to become cyber crises. The exercises offer opportunities to analyse advanced technical cybersecurity incidents but also to deal with complex business continuity and crisis management situations.</p>
 </div>
 <div class="sect3">
+<h4 id="_exercisecyber_europe2022">exercise:cyber-europe="2022"</h4>
+<div class="paragraph">
+<p>2022</p>
+</div>
+<div class="paragraph">
+<p>6th pan European cyber crisis exercise: Cyber Europe 2022 (CE2022)</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_exercisecyber_europe2018">exercise:cyber-europe="2018"</h4>
 <div class="paragraph">
 <p>2018</p>
@@ -19609,9 +19971,9 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 </div>
 <div class="sect3">
-<h4 id="_fr_classifnon_classifieesnon_classifiees">fr-classif:non-classifiees="NON-CLASSIFIEES"</h4>
+<h4 id="_fr_classifnon_classifieesnon_protege">fr-classif:non-classifiees="NON-PROTEGE"</h4>
 <div class="paragraph">
-<p>NON CLASSIFIEES</p>
+<p>NON PROTEGE</p>
 </div>
 </div>
 </div>
@@ -39431,6 +39793,236 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 </div>
 <div class="sect1">
+<h2 id="_political_spectrum">political-spectrum</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+political-spectrum namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/political-spectrum/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A political spectrum is a system to characterize and classify different political positions in relation to one another.</p>
+</div>
+<div class="sect2">
+<h3 id="_ideology">ideology</h3>
+<div class="paragraph">
+<p>Political ideologies are one of the major organizing features of political parties, and parties often officially align themselves with specific ideologies.</p>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologyagrarianism">political-spectrum:ideology="agrarianism"</h4>
+<div class="paragraph">
+<p>Agrarianism</p>
+</div>
+<div class="paragraph">
+<p>political and social philosophy that has promoted subsistence agriculture, smallholdings, egalitarianism, with agrarian political parties normally supporting the rights and sustainability of small farmers and poor peasants against the wealthy in society.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologyanarchism">political-spectrum:ideology="anarchism"</h4>
+<div class="paragraph">
+<p>Anarchism</p>
+</div>
+<div class="paragraph">
+<p>Anarchism is a political philosophy and movement that is sceptical of authority and rejects all involuntary, coercive forms of hierarchy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologycentrism">political-spectrum:ideology="centrism"</h4>
+<div class="paragraph">
+<p>Centrism</p>
+</div>
+<div class="paragraph">
+<p>Centrism is a political outlook or position that involves acceptance and/or support of a balance of social equality and a degree of social hierarchy, while opposing political changes which would result in a significant shift of society strongly to either the left or the right.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologychristian_democracy">political-spectrum:ideology="christian-democracy"</h4>
+<div class="paragraph">
+<p>Christian Democracy</p>
+</div>
+<div class="paragraph">
+<p>combination of modern democratic ideas and traditional Christian values, incorporating social justice as well as the social teachings espoused by the Catholic, Lutheran, Reformed, Pentecostal and other denominational traditions of Christianity in various parts of the world. After World War II, Catholic and Protestant movements of neo-scholasticism and the Social Gospel, respectively, played a role in shaping Christian democracy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologycommunism">political-spectrum:ideology="communism"</h4>
+<div class="paragraph">
+<p>Communism</p>
+</div>
+<div class="paragraph">
+<p>Communism is a philosophical, social, political, and economic ideology and movement whose goal is the establishment of a communist society, namely a socioeconomic order structured upon the ideas of common ownership of the means of production and the absence of social classes, money, and the state.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologyconservatism">political-spectrum:ideology="conservatism"</h4>
+<div class="paragraph">
+<p>Conservatism</p>
+</div>
+<div class="paragraph">
+<p>Conservatism is an aesthetic, cultural, social, and political philosophy, which seeks to promote and to preserve traditional social institutions. The central tenets of conservatism may vary in relation to the traditional values or practices of the culture and civilization in which it appears. In Western culture, conservatives seek to preserve a range of institutions such as organized religion, parliamentary government, and property rights. Adherents of conservatism often oppose modernism and seek a return to traditional values.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologydemocratic_socialism">political-spectrum:ideology="democratic-socialism"</h4>
+<div class="paragraph">
+<p>Democratic socialism</p>
+</div>
+<div class="paragraph">
+<p>Democratic socialism is a political philosophy that supports political democracy within a socially owned economy, with a particular emphasis on economic democracy, workplace democracy, and workers' self-management within a market socialist economy, or an alternative form of decentralised planned socialist economy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologyfascism">political-spectrum:ideology="fascism"</h4>
+<div class="paragraph">
+<p>Fascism</p>
+</div>
+<div class="paragraph">
+<p>Fascism is a form of far-right, authoritarian ultranationalism characterized by dictatorial power, forcible suppression of opposition, and strong regimentation of society and of the economy, which came to prominence in early 20th-century Europe.Fascists believe that liberal democracy is obsolete. They regard the complete mobilization of society under a totalitarian one-party state as necessary to prepare a nation for armed conflict and to respond effectively to economic difficulties.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologyfeminism">political-spectrum:ideology="feminism"</h4>
+<div class="paragraph">
+<p>Feminism</p>
+</div>
+<div class="paragraph">
+<p>Feminism is a range of social movements and ideologies that aim to define and establish the political, economic, personal, and social equality of the sexes. Feminism incorporates the position that societies prioritize the male point of view, and that women are treated unjustly within those societies. Efforts to change that include fighting against gender stereotypes and establishing educational, professional, and interpersonal opportunities and outcomes for women that are equal to those for men.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologygreen_politics">political-spectrum:ideology="green-politics"</h4>
+<div class="paragraph">
+<p>Green politics</p>
+</div>
+<div class="paragraph">
+<p>Green politics, or ecopolitics, is a political ideology that aims to foster an ecologically sustainable society often, but not always, rooted in environmentalism, nonviolence, social justice and grassroots democracy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologyislamism">political-spectrum:ideology="islamism"</h4>
+<div class="paragraph">
+<p>Islamism</p>
+</div>
+<div class="paragraph">
+<p>Islamism (also often called political Islam or Islamic fundamentalism) is a political ideology which posits that modern states and regions should be reconstituted in constitutional, economic and judicial terms, in accordance with what is conceived as a revival or a return to authentic Islamic practice in its totality.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologyliberalism">political-spectrum:ideology="liberalism"</h4>
+<div class="paragraph">
+<p>Liberalism</p>
+</div>
+<div class="paragraph">
+<p>Liberalism is a political and moral philosophy based on liberty, consent of the governed and equality before the law. Liberals espouse a wide array of views depending on their understanding of these principles, but they generally support individual rights (including civil rights and human rights), democracy, secularism, freedom of speech, freedom of the press, freedom of religion and a market economy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologylibertarianism">political-spectrum:ideology="libertarianism"</h4>
+<div class="paragraph">
+<p>Libertarianism</p>
+</div>
+<div class="paragraph">
+<p>Libertarianism is a political philosophy that upholds liberty as a core principle. Libertarians seek to maximize autonomy and political freedom, emphasizing free association, freedom of choice, individualism and voluntary association. Libertarians share a skepticism of authority and state power, but some libertarians diverge on the scope of their opposition to existing economic and political systems.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologymonarchism">political-spectrum:ideology="monarchism"</h4>
+<div class="paragraph">
+<p>Monarchism</p>
+</div>
+<div class="paragraph">
+<p>Monarchism is the advocacy of the system of monarchy or monarchical rule.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologypacifism">political-spectrum:ideology="pacifism"</h4>
+<div class="paragraph">
+<p>Pacifism</p>
+</div>
+<div class="paragraph">
+<p>Pacifism covers a spectrum of views, including the belief that international disputes can and should be peacefully resolved, calls for the abolition of the institutions of the military and war, opposition to any organization of society through governmental force (anarchist or libertarian pacifism), rejection of the use of physical violence to obtain political, economic or social goals, the obliteration of force, and opposition to violence under any circumstance, even defence of self and others.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologysocial_democracy">political-spectrum:ideology="social-democracy"</h4>
+<div class="paragraph">
+<p>Social democracy</p>
+</div>
+<div class="paragraph">
+<p>Social democracy is a political, social, and economic philosophy within socialism that supports political and economic democracy. As a policy regime, it is described by academics as advocating economic and social interventions to promote social justice within the framework of a liberal-democratic polity and a capitalist-oriented mixed economy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumideologysocialism">political-spectrum:ideology="socialism"</h4>
+<div class="paragraph">
+<p>Socialism</p>
+</div>
+<div class="paragraph">
+<p>Socialism is a political, social, and economic philosophy encompassing a range of economic and social systems characterised by social ownership of the means of production. It includes the political theories and movements associated with such systems. Social ownership can be public, collective, cooperative, or of equity. While no single definition encapsulates the many types of socialism, social ownership is the one common element.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_left_right_spectrum">left-right-spectrum</h3>
+<div class="paragraph">
+<p>The left–right political spectrum is a system of classifying political positions characteristic of left-right politics, ideologies and parties with emphasis placed on issues of social equality and social hierarchy.</p>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumleft_right_spectrumfar_left">political-spectrum:left-right-spectrum="far-left"</h4>
+<div class="paragraph">
+<p>Far-left</p>
+</div>
+<div class="paragraph">
+<p>There are different definitions of the far-left. It could represent the left of social democraty, or also limited to the left of communist parties. Sometimes it is also associated with some forms of anarchism and communims, or groupsthat advocate for revolutionary anti-capitalism and anti-globalization.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumleft_right_spectrumcentre_left">political-spectrum:left-right-spectrum="centre-left"</h4>
+<div class="paragraph">
+<p>Centre-left</p>
+</div>
+<div class="paragraph">
+<p>Also refered as moderate-left politics. Believes in working within the established systems to improve social justice. Promotes a degree of social equality that it believes is achievable through promoting equal opportunity. Emphasizes that the achievement of equality requires personal responsibility in areas in control by the individual person through their abilities and talents as well as social responsibility in areas outside control by the person in their abilities or talents.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumleft_right_spectrumradical_centre">political-spectrum:left-right-spectrum="radical-centre"</h4>
+<div class="paragraph">
+<p>Radical centre</p>
+</div>
+<div class="paragraph">
+<p>The radical in the term refers to a willingness on the part of most radical centrists to call for fundamental reform of institutions.[ The centrism refers to a belief that genuine solutions require realism and pragmatism, not just idealism and emotion. Radical centrists borrow ideas from the left and the right, often melding them together.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumleft_right_spectrumcentre_right">political-spectrum:left-right-spectrum="centre-right"</h4>
+<div class="paragraph">
+<p>Centre-right</p>
+</div>
+<div class="paragraph">
+<p>Also referred to as moderate-right politics. Ideologies characterised as centre-right include liberal conservatism and some variants of liberalism and Christian democracy, among others.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_political_spectrumleft_right_spectrumfar_right">political-spectrum:left-right-spectrum="far-right"</h4>
+<div class="paragraph">
+<p>Far-right</p>
+</div>
+<div class="paragraph">
+<p>Referred to as the extreme right or right-wing extremism. Are usually described as anti-communist, authoritarian, ultranationalist, and having nativist ideologies and tendencies. Today far-right politics include neo-fascism, neo-Nazism, the Third Position, the alt-right, racial supremacism, and other ideologies or organizations that feature aspects of ultranationalist, chauvinist, xenophobic, theocratic, racist, homophobic, transphobic, or reactionary views.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_priority_level">priority-level</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -40661,7 +41253,7 @@ runtime-packer namespace available in JSON format at <a href="https://github.com
 </table>
 </div>
 <div class="paragraph">
-<p>Runtime or software packer used to combine compressed data with the decompression code. The decompression code can add additional obfuscations mechanisms including polymorphic-packer or other obfuscation techniques. This taxonomy lists all the known or official packer used for legitimate use or for packing malicious binaries.</p>
+<p>Runtime or software packer used to combine compressed or encrypted data with the decompression or decryption code. This code can add additional obfuscations mechanisms including polymorphic-packer or other obfuscation techniques. This taxonomy lists all the known or official packer used for legitimate use or for packing malicious binaries.</p>
 </div>
 <div class="sect2">
 <h3 id="_portable_executable">portable-executable</h3>
@@ -40670,9 +41262,27 @@ runtime-packer namespace available in JSON format at <a href="https://github.com
 
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablearmadillo">runtime-packer:portable-executable="armadillo"</h4>
+<h4 id="_runtime_packerportable_executablealienyze">runtime-packer:portable-executable="alienyze"</h4>
 <div class="paragraph">
 <div class="title">netshrink</div>
+<p>Alienyze</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerportable_executableapack">runtime-packer:portable-executable="apack"</h4>
+<div class="paragraph">
+<p>aPack</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerportable_executableapk_protect">runtime-packer:portable-executable="apk-protect"</h4>
+<div class="paragraph">
+<p>APK Protect</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerportable_executablearmadillo">runtime-packer:portable-executable="armadillo"</h4>
+<div class="paragraph">
 <p>Armadillo</p>
 </div>
 </div>
@@ -40689,6 +41299,18 @@ runtime-packer namespace available in JSON format at <a href="https://github.com
 </div>
 </div>
 <div class="sect3">
+<h4 id="_runtime_packerportable_executableautoit">runtime-packer:portable-executable="autoit"</h4>
+<div class="paragraph">
+<p>AutoIT</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerportable_executablebero">runtime-packer:portable-executable="bero"</h4>
+<div class="paragraph">
+<p>BeRo EXE Packer</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_runtime_packerportable_executableboxedapp_packer">runtime-packer:portable-executable="boxedapp-packer"</h4>
 <div class="paragraph">
 <p>BoxedApp Packer</p>
@@ -40698,6 +41320,24 @@ runtime-packer namespace available in JSON format at <a href="https://github.com
 <h4 id="_runtime_packerportable_executablecexe">runtime-packer:portable-executable="cexe"</h4>
 <div class="paragraph">
 <p>CExe</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerportable_executablecode_virtualizer">runtime-packer:portable-executable="code-virtualizer"</h4>
+<div class="paragraph">
+<p>Code Virtualizer</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerportable_executabledexguard">runtime-packer:portable-executable="dexguard"</h4>
+<div class="paragraph">
+<p>DexGuard</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerportable_executabledexprotector">runtime-packer:portable-executable="dexprotector"</h4>
+<div class="paragraph">
+<p>DexProtector</p>
 </div>
 </div>
 <div class="sect3">
@@ -40737,9 +41377,21 @@ runtime-packer namespace available in JSON format at <a href="https://github.com
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablekkrunchy_src">runtime-packer:portable-executable="kkrunchy-src"</h4>
+<h4 id="_runtime_packerportable_executablegzexe">runtime-packer:portable-executable="gzexe"</h4>
 <div class="paragraph">
-<p>kkrunchy src</p>
+<p>GzExe</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerportable_executablekkrunchy">runtime-packer:portable-executable="kkrunchy"</h4>
+<div class="paragraph">
+<p>Kkrunchy</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerportable_executableliapp">runtime-packer:portable-executable="liapp"</h4>
+<div class="paragraph">
+<p>LIAPP</p>
 </div>
 </div>
 <div class="sect3">
@@ -40755,15 +41407,33 @@ runtime-packer namespace available in JSON format at <a href="https://github.com
 </div>
 </div>
 <div class="sect3">
+<h4 id="_runtime_packerportable_executablenspack">runtime-packer:portable-executable="nspack"</h4>
+<div class="paragraph">
+<p>NSPack</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_runtime_packerportable_executableobsidium">runtime-packer:portable-executable="obsidium"</h4>
 <div class="paragraph">
 <p>Obsidium</p>
 </div>
 </div>
 <div class="sect3">
+<h4 id="_runtime_packerportable_executablepecompact">runtime-packer:portable-executable="pecompact"</h4>
+<div class="paragraph">
+<p>PECompact</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_runtime_packerportable_executablepelock">runtime-packer:portable-executable="pelock"</h4>
 <div class="paragraph">
 <p>PELock</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerportable_executablepeshield">runtime-packer:portable-executable="peshield"</h4>
+<div class="paragraph">
+<p>PEShield</p>
 </div>
 </div>
 <div class="sect3">
@@ -40775,7 +41445,7 @@ runtime-packer namespace available in JSON format at <a href="https://github.com
 <div class="sect3">
 <h4 id="_runtime_packerportable_executablepetite">runtime-packer:portable-executable="petite"</h4>
 <div class="paragraph">
-<p>Petite</p>
+<p>PEtite</p>
 </div>
 </div>
 <div class="sect3">
@@ -40797,6 +41467,12 @@ runtime-packer namespace available in JSON format at <a href="https://github.com
 </div>
 </div>
 <div class="sect3">
+<h4 id="_runtime_packerportable_executableupack">runtime-packer:portable-executable="upack"</h4>
+<div class="paragraph">
+<p>UPack</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_runtime_packerportable_executableupx">runtime-packer:portable-executable="upx"</h4>
 <div class="paragraph">
 <p>UPX</p>
@@ -40814,9 +41490,35 @@ runtime-packer namespace available in JSON format at <a href="https://github.com
 <p>XComp/XPack</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_runtime_packerportable_executableyoda_crypter">runtime-packer:portable-executable="yoda-crypter"</h4>
+<div class="paragraph">
+<p>Yoda&#8217;s Crypter</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerportable_executableyoda_protector">runtime-packer:portable-executable="yoda-protector"</h4>
+<div class="paragraph">
+<p>Yoda&#8217;s Protector</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerportable_executablezprotect">runtime-packer:portable-executable="zprotect"</h4>
+<div class="paragraph">
+<p>ZProtect</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dex">dex</h3>
+
 </div>
 <div class="sect2">
 <h3 id="_elf">elf</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_mach_o">mach-o</h3>
 
 </div>
 <div class="sect2">
@@ -41725,6 +42427,176 @@ smart-airports-threats namespace available in JSON format at <a href="https://gi
 <h4 id="_smart_airports_threatsmalicious_actionsphysical_attacks_on_airport_assets_malicious_tampering">smart-airports-threats:malicious-actions="physical-attacks-on-airport-assets-malicious-tampering"</h4>
 <div class="paragraph">
 <p>Physical attacks on airport assets - malicious tampering or control of assets resulting in damage</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_state_responsibility">state-responsibility</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+state-responsibility namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/state-responsibility/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A spectrum of state responsibility to more directly tie the goals of attribution to the needs of policymakers.</p>
+</div>
+<div class="sect2">
+<h3 id="_state_prohibited">state-prohibited.</h3>
+<div class="paragraph">
+<p>The national government will help stop the third-party attack, which may originate from its territory or merely be transiting through its networks. This responsibility is the most passive on the scale: though the government is cooperating, it still has some small share of responsibility for the insecure systems involved in the attack. In reality, nations cannot ensure the proper behavior of the tens or hundreds of millions of computers in their borders at all times.</p>
+</div>
+<div class="sect3">
+<h4 id="_state_responsibilitystate_prohibited">state-responsibility:state-prohibited.</h4>
+<div class="paragraph">
+<p>State-prohibited.</p>
+</div>
+<div class="paragraph">
+<p>The national government will help stop the third-party attack, which may originate from its territory or merely be transiting through its networks. This responsibility is the most passive on the scale: though the government is cooperating, it still has some small share of responsibility for the insecure systems involved in the attack. In reality, nations cannot ensure the proper behavior of the tens or hundreds of millions of computers in their borders at all times.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_state_prohibited_but_inadequate">state-prohibited-but-inadequate.</h3>
+<div class="paragraph">
+<p>The national government is cooperative and would stop the third-party attack but is unable to do so. The country might lack the proper laws, procedures, technical tools, or political will to use them. Though the nation could itself be a victim, it bears some passive responsibility for the attack, both for being unable to stop it and for having insecure systems in the first place.</p>
+</div>
+<div class="sect3">
+<h4 id="_state_responsibilitystate_prohibited_but_inadequate">state-responsibility:state-prohibited-but-inadequate.</h4>
+<div class="paragraph">
+<p>State-prohibited-but-inadequate</p>
+</div>
+<div class="paragraph">
+<p>The national government is cooperative and would stop the third-party attack but is unable to do so. The country might lack the proper laws, procedures, technical tools, or political will to use them. Though the nation could itself be a victim, it bears some passive responsibility for the attack, both for being unable to stop it and for having insecure systems in the first place.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_state_ignored">state-ignored</h3>
+<div class="paragraph">
+<p>The national government knows about the third-party attacks but, as a matter of policy, is unwilling to take any official action. A government may even agree with the goals and results of the attackers and tip them off to avoid being detected.</p>
+</div>
+<div class="sect3">
+<h4 id="_state_responsibilitystate_ignored">state-responsibility:state-ignored</h4>
+<div class="paragraph">
+<p>State-ignored</p>
+</div>
+<div class="paragraph">
+<p>The national government knows about the third-party attacks but, as a matter of policy, is unwilling to take any official action. A government may even agree with the goals and results of the attackers and tip them off to avoid being detected.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_state_encouraged">state-encouraged</h3>
+<div class="paragraph">
+<p>Third parties control and conduct the attack, but the national government encourages them to continue as a matter of policy. This encouragement could include editorials in state-run press or leadership publicly agreeing with the goals of the attacks; members of government cyber offensive or intelligence organizations may be encouraged to undertake supportive recreational hacking while off duty. The nation is unlikely to be cooperative in any investigation and is likely to tip off the attackers</p>
+</div>
+<div class="sect3">
+<h4 id="_state_responsibilitystate_encouraged">state-responsibility:state-encouraged</h4>
+<div class="paragraph">
+<p>State-encouraged</p>
+</div>
+<div class="paragraph">
+<p>Third parties control and conduct the attack, but the national government encourages them to continue as a matter of policy. This encouragement could include editorials in state-run press or leadership publicly agreeing with the goals of the attacks; members of government cyber offensive or intelligence organizations may be encouraged to undertake supportive recreational hacking while off duty. The nation is unlikely to be cooperative in any investigation and is likely to tip off the attackers</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_state_shaped">state-shaped</h3>
+<div class="paragraph">
+<p>Third parties control and conduct the attack, but the state provides some support, such as informal coordination between like-minded individuals in the government and the attacking group. To further their policy while retaining plausible deniability, the government may  encourage members of their cyber forces to undertake 'recreational hacking' while off duty.</p>
+</div>
+<div class="sect3">
+<h4 id="_state_responsibilitystate_shaped">state-responsibility:state-shaped</h4>
+<div class="paragraph">
+<p>State-shaped</p>
+</div>
+<div class="paragraph">
+<p>Third parties control and conduct the attack, but the state provides some support, such as informal coordination between like-minded individuals in the government and the attacking group. To further their policy while retaining plausible deniability, the government may  encourage members of their cyber forces to undertake 'recreational hacking' while off duty.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_state_coordinated">state-coordinated</h3>
+<div class="paragraph">
+<p>The national government coordinates the third-party attackers—usually out of public view—by 'suggesting' targets, timing, or other operational details. The government may also provide technical or tactical assistance. Similar to state-shaped attacks, the government may encourage its cyber forces to engage in recreational hacking during off hours</p>
+</div>
+<div class="sect3">
+<h4 id="_state_responsibilitystate_coordinated">state-responsibility:state-coordinated</h4>
+<div class="paragraph">
+<p>State-coordinated</p>
+</div>
+<div class="paragraph">
+<p>The national government coordinates the third-party attackers—usually out of public view—by 'suggesting' targets, timing, or other operational details. The government may also provide technical or tactical assistance. Similar to state-shaped attacks, the government may encourage its cyber forces to engage in recreational hacking during off hours</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_state_ordered">state-ordered</h3>
+<div class="paragraph">
+<p>The national government, as a matter of policy, directs third-party proxies to conduct the attack on its behalf. This is as “state-sponsored” as an attack can be, without direct attack from government cyber forces. Any attackers that are under state control could be considered to be de facto agents of the state under international law.</p>
+</div>
+<div class="sect3">
+<h4 id="_state_responsibilitystate_ordered">state-responsibility:state-ordered</h4>
+<div class="paragraph">
+<p>State-ordered</p>
+</div>
+<div class="paragraph">
+<p>The national government, as a matter of policy, directs third-party proxies to conduct the attack on its behalf. This is as “state-sponsored” as an attack can be, without direct attack from government cyber forces. Any attackers that are under state control could be considered to be de facto agents of the state under international law.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_state_rogue_conducted">state-rogue-conducted</h3>
+<div class="paragraph">
+<p>Elements of cyber forces of the national government conduct the attack. In this case, however, they carry out attacks without the knowledge, or approval, of the national leadership, which may act to stop the attacks should they learn of them. For example, local units or junior officers could be taking the initiative to counterattack out of the senior officers sight. More worrisome, this category could include sophisticated and persistent attacks from large bureaucracies conducting attacks that are at odds with the national leadership. Based on current precedence, a state could likely be held responsible by international courts for such rogue attacks.</p>
+</div>
+<div class="sect3">
+<h4 id="_state_responsibilitystate_rogue_conducted">state-responsibility:state-rogue-conducted</h4>
+<div class="paragraph">
+<p>State-rogue-conducted.</p>
+</div>
+<div class="paragraph">
+<p>Elements of cyber forces of the national government conduct the attack. In this case, however, they carry out attacks without the knowledge, or approval, of the national leadership, which may act to stop the attacks should they learn of them. For example, local units or junior officers could be taking the initiative to counterattack out of the senior officers sight. More worrisome, this category could include sophisticated and persistent attacks from large bureaucracies conducting attacks that are at odds with the national leadership. Based on current precedence, a state could likely be held responsible by international courts for such rogue attacks.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_state_executed">state-executed</h3>
+<div class="paragraph">
+<p>The national government, as a matter of policy, directly controls and conducts the attack using its own cyber forces</p>
+</div>
+<div class="sect3">
+<h4 id="_state_responsibilitystate_executed">state-responsibility:state-executed</h4>
+<div class="paragraph">
+<p>State-executed</p>
+</div>
+<div class="paragraph">
+<p>The national government, as a matter of policy, directly controls and conducts the attack using its own cyber forces</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_state_integrated">state-integrated</h3>
+<div class="paragraph">
+<p>The national government integrates third-party attackers and government cyber forces, with common command and control. Orders and coordination may be formal or informal, but the government is in control of selecting targets, timing, and tempo. The attackers are de facto agents of the state</p>
+</div>
+<div class="sect3">
+<h4 id="_state_responsibilitystate_integrated">state-responsibility:state-integrated</h4>
+<div class="paragraph">
+<p>State-integrated</p>
+</div>
+<div class="paragraph">
+<p>The national government integrates third-party attackers and government cyber forces, with common command and control. Orders and coordination may be formal or informal, but the government is in control of selecting targets, timing, and tempo. The attackers are de facto agents of the state</p>
 </div>
 </div>
 </div>
@@ -43599,6 +44471,149 @@ type namespace available in JSON format at <a href="https://github.com/MISP/misp
 </div>
 <div class="paragraph">
 <p>gathered from analysis of monetary or financial transactions</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_unified_kill_chain">unified-kill-chain</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+unified-kill-chain namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/unified-kill-chain/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The Unified Kill Chain is a refinement to the Kill Chain.</p>
+</div>
+<div class="sect2">
+<h3 id="_initial_foothold">Initial Foothold</h3>
+<div class="sect3">
+<h4 id="_unified_kill_chaininitial_footholdreconnaissance">unified-kill-chain:Initial Foothold="reconnaissance"</h4>
+<div class="paragraph">
+<p>Reconnaissance</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chaininitial_footholdweaponization">unified-kill-chain:Initial Foothold="weaponization"</h4>
+<div class="paragraph">
+<p>Weaponization</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chaininitial_footholddelivery">unified-kill-chain:Initial Foothold="delivery"</h4>
+<div class="paragraph">
+<p>Delivery</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chaininitial_footholdsocial_engineering">unified-kill-chain:Initial Foothold="social-engineering"</h4>
+<div class="paragraph">
+<p>Social Engineering</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chaininitial_footholdexploitation">unified-kill-chain:Initial Foothold="exploitation"</h4>
+<div class="paragraph">
+<p>Exploitation</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chaininitial_footholdpersistence">unified-kill-chain:Initial Foothold="persistence"</h4>
+<div class="paragraph">
+<p>Persistence</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chaininitial_footholddefense_evasion">unified-kill-chain:Initial Foothold="defense-evasion"</h4>
+<div class="paragraph">
+<p>Defense Evasion</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chaininitial_footholdcommand_control">unified-kill-chain:Initial Foothold="command-control"</h4>
+<div class="paragraph">
+<p>Command &amp; Control</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_network_propagation">Network Propagation</h3>
+<div class="sect3">
+<h4 id="_unified_kill_chainnetwork_propagationpivoting">unified-kill-chain:Network Propagation="pivoting"</h4>
+<div class="paragraph">
+<p>Pivoting</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainnetwork_propagationdiscovery">unified-kill-chain:Network Propagation="discovery"</h4>
+<div class="paragraph">
+<p>Discovery</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainnetwork_propagationprivilege_escalation">unified-kill-chain:Network Propagation="privilege-escalation"</h4>
+<div class="paragraph">
+<p>Privilege Escalation</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainnetwork_propagationexecution">unified-kill-chain:Network Propagation="execution"</h4>
+<div class="paragraph">
+<p>Execution</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainnetwork_propagationcredential_access">unified-kill-chain:Network Propagation="credential-access"</h4>
+<div class="paragraph">
+<p>Credential Access</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainnetwork_propagationlateral_movement">unified-kill-chain:Network Propagation="lateral-movement"</h4>
+<div class="paragraph">
+<p>Lateral Movement</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_action_on_objectives">Action on Objectives</h3>
+<div class="sect3">
+<h4 id="_unified_kill_chainaction_on_objectivesaccess">unified-kill-chain:Action on Objectives="access"</h4>
+<div class="paragraph">
+<p>Access</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainaction_on_objectivescollection">unified-kill-chain:Action on Objectives="collection"</h4>
+<div class="paragraph">
+<p>Collection</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainaction_on_objectivesexfiltration">unified-kill-chain:Action on Objectives="exfiltration"</h4>
+<div class="paragraph">
+<p>Exfiltration</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainaction_on_objectivesimpact">unified-kill-chain:Action on Objectives="impact"</h4>
+<div class="paragraph">
+<p>Impact</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unified_kill_chainaction_on_objectivesobjectives">unified-kill-chain:Action on Objectives="objectives"</h4>
+<div class="paragraph">
+<p>Objectives</p>
 </div>
 </div>
 </div>
@@ -56249,25 +57264,31 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <div class="sect3">
 <h4 id="_workflowstateincomplete">workflow:state="incomplete"</h4>
 <div class="paragraph">
-<p>Incomplete means that the information tagged is incomplete and has potential to be completed by other analysts, technical processes or the current analysts performing the analysis</p>
+<p>Incomplete means that the information tagged is incomplete and has potential to be completed by other analysts, technical processes or the current analysts performing the analysis.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_workflowstatecomplete">workflow:state="complete"</h4>
 <div class="paragraph">
-<p>Complete means that the information tagged reach a state of completeness with the current capabilities of the analyst</p>
+<p>Complete means that the information tagged reach a state of completeness with the current capabilities of the analyst.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_workflowstatedraft">workflow:state="draft"</h4>
 <div class="paragraph">
-<p>Draft means the information tagged can be released as a preliminary version or outline</p>
+<p>Draft means the information tagged can be released as a preliminary version or outline.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_workflowstateongoing">workflow:state="ongoing"</h4>
 <div class="paragraph">
 <p>Analyst is currently working on this analysis. To remove when there is no more work to be done by the analyst.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflowstaterejected">workflow:state="rejected"</h4>
+<div class="paragraph">
+<p>Analyst rejected the process. The object will not reach state of completeness.</p>
 </div>
 </div>
 </div>
@@ -56914,7 +57935,11 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-11-16 19:55:31 +0100
+<<<<<<< HEAD
+Last updated 2022-01-29 12:11:29 +0100
+=======
+Last updated 2022-01-22 18:22:56 +0100
+>>>>>>> 8602637883151a6aa0bac81666a4fd64eaf0df99
 </div>
 </div>
 </body>
