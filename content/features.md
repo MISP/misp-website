@@ -1,6 +1,8 @@
 
 ---
 title: MISP features and functionalities
+aliases:
+    - /features.html
 ---
 ## Features of MISP, the open source threat sharing platform. 
 A threat intelligence platform for sharing, storing and correlating Indicators of Compromise of targeted attacks, threat intelligence, financial fraud information, vulnerability information or even counter-terrorism information. Discover how MISP is used today in multiple organisations. Not only to store, share, collaborate on cyber security indicators, malware analysis, but also to use the IoCs and information to detect and prevent attacks, frauds or threats against ICT infrastructures, organisations or people.</header>
