@@ -2,6 +2,321 @@ Changelog
 =========
 
 
+v2.4.153 (2022-02-04)
+---------------------
+
+New
+~~~
+- [UI] Show TLS version for server test. [Jakub Onderka]
+- [security] Check TLSv1.3 connection. [Jakub Onderka]
+- [oidc] Add new option: OidcAuth.authentication_method. [Jakub Onderka]
+- [oidc] Add support for jakub-onderka/openid-connect-php OIDC fork.
+  [Jakub Onderka]
+- [CLI] admin configLint. [Jakub Onderka]
+- [security] Allow to specify min_tls_version. [Jakub Onderka]
+- [security] securityAuditTls. [Jakub Onderka]
+- [CLI] Security audit. [Jakub Onderka]
+- [form factory] added a div field type. [iglocska]
+
+  - allows to create parametrised divs for additional placeholders
+  - parameters are id, class, style, to be extended when needed
+- [test] New audit. [Jakub Onderka]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- Fix findoriginaluuid typo. [Jeroen Pinoy]
+- [oidc] Store user sid in session. [Jakub Onderka]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [internal] Add debugging for problematic push. [Jakub Onderka]
+- [tools] communities.md generator works with new website. [Christophe
+  Vandeplas]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [setting] Check if value is from options. [Jakub Onderka]
+- [UI] Use number input for numeric setting. [Jakub Onderka]
+- [internal] Do not call __evaluateLeaf for branch. [Jakub Onderka]
+- [internal] Recommend to install pydeep2. [Jakub Onderka]
+- [connection] Allow to define onConnect callback. [Jakub Onderka]
+- [js:markdown-it] Update markdown-it library from version 11.0.0 to
+  version 12.3.2. [Sami Mokaddem]
+- [test] Use new link to install poetry. [Jakub Onderka]
+- [test] Remove libfuzzy-dev package. [Jakub Onderka]
+- [internal] Bump PyMISP to use pydeep2. [Jakub Onderka]
+- [internal] Use pydeep2. [Jakub Onderka]
+- [internal] Event report name is required. [Jakub Onderka]
+- [security] Warn about unsupported OS. [Jakub Onderka]
+- [internal] Fix session closing for dashboard widget. [Jakub Onderka]
+- [internal] Remove useless session closing. [Jakub Onderka]
+- [security] Avoid timing attacks for post validating. [Jakub Onderka]
+- [internal] Remove random_compat. [Jakub Onderka]
+- [internal] Do not modify session when not necessary. [Jakub Onderka]
+- [cli] Deprecate `cake baseurl` command. [Jakub Onderka]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [CI] fixed installation. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [i18n] Updated Thai (21%) [Steve Clement]
+- [doc] Added php-curl to speed up composer. [Steve Clement]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [i18n] default.pot update. [Steve Clement]
+- [i18n] Renamed Thai directory. [Steve Clement]
+- [i18n] Added Thai, updated active language files. [Steve Clement]
+- [i18n] Update pot files. [Steve Clement]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [installer] Updated to latest, considering rhel8.4/8.5. [Steve
+  Clement]
+- [doc] Remove centos ref. [Steve Clement]
+- [doc] Added rhel8.4 and rhel8.5. [Steve Clement]
+- [installer] Latest installer to reflect doc changes. [Steve Clement]
+- [installer] Latest installer to reflect doc changes. [Steve Clement]
+- [doc] Removed CentOS ref. [Steve Clement]
+- [doc] Updated docs and removed obsolete refs. [Steve Clement]
+- [doc] Various CentOS9 references. [Steve Clement]
+
+Fix
+~~~
+- [language] fix (exception text) [iglocska]
+- [internal] Array to string conversion. [Jakub Onderka]
+- [misp-stix] Same errors handling for STIX1 as it recently has been
+  pushed for STIX2. [chrisr3d]
+- [API key] shown on automation page when using classic keys. [iglocska]
+- [misp-stix] Bumped latest version with enhanced parsing of objects
+  which encountered parsing errors. [chrisr3d]
+
+  - Instead of simply storing the error message, we
+    also convert those objects as STIX Custom objects
+- [misp-stix] Bumped latest version with a better exceptions handling
+  for file, pe & pe-section objects converted to STIX2 file objects with
+  a pebinary extension. [chrisr3d]
+- [stix export] Fixed wrong indentation causing variable name errors.
+  [chrisr3d]
+- [misp-stix] Bumped latest version with a quick fix on Tags handling as
+  STIX2 markings. [chrisr3d]
+- [misp-stix] Bumped latest version with some fixes on the tags parsing.
+  [chrisr3d]
+- [internal] testForCABundle should return true. [Jakub Onderka]
+- [stix] STIX test. [Jakub Onderka]
+- [internal] Syntax error in PHP 7.2. [Jakub Onderka]
+- [test] Do not force libpcre2 installation. [Jakub Onderka]
+- [setting] Default value for MISP.require_password_confirmation is
+  false. [Jakub Onderka]
+- [appController:loginByAuthkey] Skip authentication with basic
+  authorization. [Sami Mokaddem]
+
+  Fix #7576.
+  Basic Auth might happen for some setup where the authentication is performed by another component such as LDAP.
+  For these cases, the Authorization header is present and contains the Basic Auth data used by the authentication plugin. Before this patch, MISP failed to resolve the API key to a user and threw a 403. This was because MISP detected the presence of the Authorization header which triggered an authentication by Authkey that would always fail as the content is not a valid API key.
+- [event add] resolved notice error when viewing the event add form.
+  [iglocska]
+
+  - converted the html div added as a field to a proper factory field
+- [audit] Send IP address to ZMQ in full form. [Jakub Onderka]
+- Supervisord_status showing as a worker when its not. [Luciano
+  Righetti]
+- [CLI] Authkey valid - reconnect in case of failure. [Jakub Onderka]
+- Fix: add flag to update deps as suggested by @hlijan. [Luciano
+  Righetti]
+- Bug defaulting source_format instead of fixed_event on /feeds/add
+  endpoint. [Luciano Righetti]
+- [UI] Fix authkey field type. [Jakub Onderka]
+- [internal] Closing session for statistics. [Jakub Onderka]
+- Fix: unix timestamps should have a @ prefix. [Luciano Righetti]
+- Make SimpleBackgroundJobs work on RHEL 7 with
+  supervisorphp/supervisor:^3.0. [Richard van den Berg]
+- Change simple bg jobs settings to critical, fix notice in server
+  shell. [Luciano Righetti]
+- [stix1 export] Removed unused imports. [chrisr3d]
+- [stix2 import] Fixed wrong variable name. [chrisr3d]
+- [misp-stix] Bumped latest fixed version of the library. [chrisr3d]
+
+  - Includes fixes on the usage of orgnames during
+    a STIX 1 export:
+    - The orgname used to define the information
+      source and the reporter identity remains
+      the same
+    - The orgname used to define every STIX object
+      id is sanitized to comply with the STIX
+      validation process
+- [CI] libpcre2 issue. [Alexandre Dulaunoy]
+- Error later on when json enconding a binary repr ipv6. [Luciano
+  Righetti]
+- [i18n] Typo. [Steve Clement]
+- [typo] check - not chech. [Steve Clement]
+- [galaxyclusters] view by uuid fixed. [iglocska]
+- [typo] tagID. [Steve Clement]
+- Fix: unix timestamps should have a @ prefix. [Luciano Righetti]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge pull request #8129 from Wachizungu/fix-findoriginaluuid-typo.
+  [Alexandre Dulaunoy]
+
+  chg: fix findoriginaluuid typo
+- Merge pull request #8118 from JakubOnderka/new-oidc. [Jakub Onderka]
+
+  chg: [oidc] Store user sid in session
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #8123 from JakubOnderka/event-push-debug. [Jakub
+  Onderka]
+
+  fix: [internal] Array to string conversion
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch 'develop' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #8120 from JakubOnderka/event-push-debug. [Jakub
+  Onderka]
+
+  chg: [internal] Add debugging for problematic push
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #8109 from JakubOnderka/tls-debug. [Jakub Onderka]
+
+  TLS connection debug
+- Merge pull request #8117 from JakubOnderka/new-oidc. [Jakub Onderka]
+
+  new: [oidc] Add support for jakub-onderka/openid-connect-php OIDC fork
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch 'develop' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [chrisr3d]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [chrisr3d]
+- Merge pull request #8107 from JakubOnderka/settings-lint. [Jakub
+  Onderka]
+
+  Settings lint
+- Merge pull request #8106 from JakubOnderka/stix-test. [Jakub Onderka]
+
+  Stix test
+- Merge pull request #8105 from JakubOnderka/min_tls_version. [Jakub
+  Onderka]
+
+  new: [security] Allow to specify min_tls_version
+- Merge pull request #8089 from JakubOnderka/security-audit-cli. [Jakub
+  Onderka]
+
+  new: [CLI] Security audit
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #8100 from JakubOnderka/pydeep2. [Jakub Onderka]
+
+  chg: [internal] Bump PyMISP to use pydeep2
+- Merge pull request #8098 from JakubOnderka/zmq-audit-ip-address.
+  [Jakub Onderka]
+
+  fix: [audit] Send IP address to ZMQ in full form
+- Merge pull request #8099 from JakubOnderka/pydeep2. [Jakub Onderka]
+
+  chg: [internal] Use pydeep2
+- Merge branch '2.4' into develop. [Luciano Righetti]
+- Merge pull request #8065 from fandigunawan/2.4. [Jakub Onderka]
+
+  fix: Removes debug print in AWS S3 Client
+- Removes debug print. [Fandi Gunawan]
+- Merge pull request #8067 from righel/issue-8064. [Andras Iklody]
+
+  fix: supervisord_status showing as a worker when its not
+- Merge pull request #8086 from JakubOnderka/event-report-name-required.
+  [Jakub Onderka]
+
+  chg: [internal] Event report name is required
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [Steve Clement]
+- Merge pull request #8072 from JakubOnderka/fix-authkeys-valid. [Jakub
+  Onderka]
+
+  fix: [CLI] Authkey valid - reconnect in case of failure
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #8069 from JakubOnderka/security-audit-old-os.
+  [Jakub Onderka]
+
+  chg: [security] Warn about unsupported OS
+- Merge pull request #8061 from JakubOnderka/authkey-input. [Jakub
+  Onderka]
+
+  fix: [UI] Fix authkey field type
+- Merge pull request #7986 from JakubOnderka/better-security. [Jakub
+  Onderka]
+
+  chg: [internal] Do not modify session when not necessary
+- Merge branch '2.4' into develop. [Steve Clement]
+- Merge pull request #8052 from RichieB2B/ncsc-nl/supervisor. [Luciano
+  Righetti]
+
+  Make supervisor connector work with supervisorphp/supervisor 3
+- Merge pull request #8053 from righel/improve-simple-bg-jobs-settings.
+  [Luciano Righetti]
+
+  Improve SimpleBackgroundJobs settings
+- Add: add migration guide to docs. [Luciano Righetti]
+- Merge pull request #8039 from JakubOnderka/cake-baseurl-deprecated.
+  [Jakub Onderka]
+
+  chg: [cli] Deprecate `cake baseurl` command
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge pull request #8092 from DCSO/fix/linotp-throw2. [Alexandre
+  Dulaunoy]
+
+  LinOTP minor fixes
+- [chg] LinOTP default baseURL. [Hendrik Baecker]
+- [chg] Make LinOTP configurable via webui and cli. [Hendrik Baecker]
+- [chg] Add link to LinOTP selfservice. [Hendrik Baecker]
+- [chg] Improved LinOTP error handling. [Hendrik Baecker]
+
+  Matches if ssl verify fails for example
+- Merge pull request #8096 from righel/fix-issue-8093. [Luciano
+  Righetti]
+
+  fix: error later on when json enconding a binary repr ipv6
+- Merge pull request #8091 from SteveClement/i18n. [Steve Clement]
+- Merge pull request #8084 from SteveClement/i18n. [Steve Clement]
+- Merge pull request #8083 from SteveClement/guides. [Steve Clement]
+- Merge remote-tracking branch 'origin' into guides. [Steve Clement]
+- Merge branch 'MISP:2.4' into 2.4. [Steve Clement]
+- Merge branch 'MISP:2.4' into 2.4. [Steve Clement]
+- Merge pull request #5 from SteveClement/guides. [Steve Clement]
+- Merge pull request #8082 from SteveClement/i18n. [Steve Clement]
+- Merge pull request #8080 from SteveClement/i18n. [Steve Clement]
+- Merge pull request #8079 from SteveClement/i18n. [Steve Clement]
+- Merge pull request #8075 from SteveClement/i18n. [Steve Clement]
+- Merge pull request #8074 from SteveClement/i18n. [Steve Clement]
+- Merge pull request #8068 from StefanKelm/2.4. [Luciano Righetti]
+
+  fix wording
+- Update Server.php. [StefanKelm]
+
+  fix wording
+- Merge pull request #8059 from SteveClement/guides. [Steve Clement]
+- Merge pull request #8058 from SteveClement/guides. [Steve Clement]
+- Merge pull request #8056 from SteveClement/guides. [Steve Clement]
+- Add: add migration guide to docs. [Luciano Righetti]
+
+
 v2.4.152 (2021-12-22)
 ---------------------
 
@@ -21,10 +336,11 @@ New
 
 Changes
 ~~~~~~~
-- [PyMISP] Bump version. [Raphaël Vinot]
+- [misp-stix] Bumped latest version of the library. [chrisr3d]
 - [security audit] fixed failures on kernel compilation time. [iglocska]
 
   - currently the check makes a lot of invalid assumptions, made it more lax to fail gracefully
+- [PyMISP] Bump version. [Raphaël Vinot]
 - [version] bump. [iglocska]
 - [Python] Use pymisp from pypi. [Raphaël Vinot]
 - [internal] Make JSONConverterTool method static. [Jakub Onderka]
@@ -128,6 +444,13 @@ Changes
 
 Fix
 ~~~
+- [stix1 export] Ordering object types to avoid validation issues.
+  [chrisr3d]
+
+  - STIX validator seems to dislike `Observables`
+    objects coming after `Indicators`, so we put
+    the object types in the order they are presented
+    in the documentation
 - [event:checkDistributionForPush] typos. [Richard van den Berg]
 - [event:uploadEventSightingsToServersRouter] use Event model for
   Sighting context. [Richard van den Berg]
@@ -248,6 +571,16 @@ Fix
 
 Other
 ~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'misp-stix' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
 - Merge pull request #8047 from RichieB2B/ncsc-nl/sightings-dist.
   [Alexandre Dulaunoy]
 
@@ -263,6 +596,8 @@ Other
 - Merge branch 'develop' into 2.4. [iglocska]
 - Merge branch 'develop' of github.com:MISP/MISP into develop.
   [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
 - Merge branch 'develop' into 2.4. [iglocska]
 - Merge branch '2.4' into develop. [iglocska]
 - Merge branch 'develop' into 2.4. [iglocska]
