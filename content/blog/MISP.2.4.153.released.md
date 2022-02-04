@@ -8,14 +8,14 @@ banner: /img/blog/timeline-improvement.png
 # MISP 2.4.153 released
 
 - MISP UI translation in Thai added.
-- Improved debugging in synchronisation including more meaning messages in debug logs.
-- Significant improvements in the [misp-stix library](https://github.com/MISP/misp-stix) to support additional import of files and improved STIX exports.
-- Improved debugging in TLS handshake for synchronisation.
-- Additional CLI test for security.
-- Markdown-IT library updated to the latest version including security fixes to version 12.3.2.
-- Improvement in the various MISP install scripts.
+- Improved the debugging of the synchronisation, including more meaningful messages in debug logs.
+- Significant improvements in the [misp-stix library](https://github.com/MISP/misp-stix), to support additional import coverage of files along with improvements to the STIX export.
+- Improved debugging in the TLS handshake for synchronisation.
+- Additional CLI tests for security.
+- Markdown-IT library updated to the latest version, including security fixes to version 12.3.2.
+- Improvements in the various MISP install scripts.
 
-Many internal improvements and bugs fixed.
+Many internal improvements and bug fixes.
 
 As always, a detailed and [complete changelog is available](/Changelog.txt) with all the fixes, changes and improvements in MISP core.
 
