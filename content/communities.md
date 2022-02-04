@@ -57,6 +57,6 @@ MISP URL location is [https://www.circl.lu/doc/misp/feed-osint](https://www.circ
 
 ### Botvrij.eu OSINT feed
 
-[Botvrij.eu](https://www.botvrij.eu/) provides a MISP OSINT feed out of public report.
+[Botvrij.eu](https://www.botvrij.eu/) provides a MISP OSINT feed out of public reports. All information is TLP:WHITE.
 
-MISP URL location is [http://www.botvrij.eu/data/feed-osint](http://www.botvrij.eu/data/feed-osint).
+MISP URL location is [https://www.botvrij.eu/data/feed-osint](https://www.botvrij.eu/data/feed-osint).
