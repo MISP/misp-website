@@ -7379,7 +7379,7 @@ device is a MISP object available in JSON format at <a href="https://github.com/
 <h2 id="_diameter_attack"><a class="anchor" href="#_diameter_attack"></a><a class="link" href="#_diameter_attack">diameter-attack</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Attack as seen on diameter authentication against a GSM, UMTS or LTE network.</p>
+<p>Attack as seen on the diameter signaling protocol supporting LTE networks.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -36664,7 +36664,7 @@ gitlab-user is a MISP object available in JSON format at <a href="https://github
 <h2 id="_gtp_attack"><a class="anchor" href="#_gtp_attack"></a><a class="link" href="#_gtp_attack">gtp-attack</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>GTP attack object as seen on a GSM, UMTS or LTE network.</p>
+<p>GTP attack object as attack as seen on the GTP signaling protocol supporting GPRS/LTE networks.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -38373,7 +38373,7 @@ instant-message is a MISP object available in JSON format at <a href="https://gi
 <td class="tableblock halign-left valign-top"><p class="tableblock">app-used</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The IM application used to send the message. ['WhatsApp', 'Google Hangouts', 'Facebook Messenger', 'Telegram', 'Signal', 'WeChat', 'BlackBerry Messenger', 'TeamSpeak', 'TorChat', 'Tox', 'RetroShare', 'Slack']</p>
+<p>The IM application used to send the message. ['WhatsApp', 'Google Hangouts', 'Facebook Messenger', 'Telegram', 'Signal', 'WeChat', 'BlackBerry Messenger', 'TeamSpeak', 'TorChat', 'Tox', 'RetroShare', 'Slack', 'Wire', 'Threema', 'Discord', 'Mumble']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -49181,6 +49181,19 @@ person is a MISP object available in JSON format at <a href="https://github.com/
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">instant-messaging-used</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The IM application used by this person. ['WhatsApp', 'Google Hangouts', 'Facebook Messenger', 'Telegram', 'Signal', 'WeChat', 'BlackBerry Messenger', 'TeamSpeak', 'TorChat', 'Tox', 'RetroShare', 'Slack', 'Wire', 'Threema', 'Discord', 'Mumble']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">last-name</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">last-name</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -58598,7 +58611,7 @@ splunk is a MISP object available in JSON format at <a href="https://github.com/
 <h2 id="_ss7_attack"><a class="anchor" href="#_ss7_attack"></a><a class="link" href="#_ss7_attack">ss7-attack</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>SS7 object of an attack seen on a GSM, UMTS or LTE network via SS7 logging.</p>
+<p>SS7 object of an attack as seen on the SS7 signaling protocol supporting GSM/GPRS/UMTS networks.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -67344,6 +67357,46 @@ youtube-video is a MISP object available in JSON format at <a href="https://gith
 <td class="tableblock halign-left valign-top"><p class="tableblock">The referenced source object drives the target described (often a vehicule).</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">friend-of</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The referenced source object is a friend of the target object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['foaf']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">acquaintance-of</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The referenced source object is an acquaintance of the target object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['foaf']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sibling-of</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The referenced source object is a sibling of the target object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['foaf']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">grandchild-of</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The referenced source object is a grandchild of the target object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['foaf']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">spouse-of</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The referenced source object is a spouse of the target object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['foaf']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ennemy-of</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The referenced source object is an ennemy of the target object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['foaf']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">antagonist-of</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The referenced source object is an antagonist of the target object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['foaf']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ambivalient-of</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The referenced source object is an ambivalent of the target object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['foaf']</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -67351,7 +67404,7 @@ youtube-video is a MISP object available in JSON format at <a href="https://gith
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-02-03 17:33:10 +0100
+Last updated 2022-02-05 11:08:15 +0100
 </div>
 </div>
 </body>
