@@ -6,7 +6,7 @@ permalink: /commercial-support/
 
 MISP Commercial Support is an overview of trusted commercial partners providing support for MISP. 
 
-MISP project also provides [MISP Professional Services (MSP)](/professional-services/) if you want to directly support the MISP projet and ensure its sustainability.
+MISP project also provides [MISP Professional Services (MSP)](/professional-services/) if you want to directly support the MISP project and ensure its sustainability.
 
 In complement, the following MISP Commercial Support is available from external trusted commercial partners:
 
