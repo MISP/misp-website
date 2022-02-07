@@ -16,6 +16,8 @@ In complement, the following MISP Commercial Support is available from external 
 |---|---|---|---|
 | **cudeso.be**  | Remote and on-site | [https://www.cudeso.be/misp.html](https://www.cudeso.be/misp.html) | Europe |
 |            | - Hosting, installation and configuration <br /> - Development and integration in your IT environment <br /> - Threat feed integrations <br /> - Best practices threat intelligence <br /> - Training and consultancy |   | |
+| **xameco.be** | Remote and on-site | [https://xameco.be/](https://xameco.be/) | Europe |
+|               | - Architecture <br />- Installation, maintenance<br />- Integration/automation<br />- Training | | |
 
 <br />
 
