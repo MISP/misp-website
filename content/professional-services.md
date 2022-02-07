@@ -54,7 +54,7 @@ Fast-tracking a new/custom feature is usually project based and not included in 
 
 The following options are available for any holder of an active support contract:
 
-- Training, virtual (EUR 3.000 per training day if you are not holder an active support contract: EUR 3,500)
+- Training, virtual (EUR 3.000 per training day if you have an active support contract, otherwise EUR 3,500)
 - Installation support on-site or remotely (EUR 1.500 per day)
 - Integration support on-site or remotely (EUR 1.500 per day)
 - Development of new and/or custom features (project based, cost depending on scope)
