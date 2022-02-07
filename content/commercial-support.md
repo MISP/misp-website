@@ -19,5 +19,5 @@ In complement, the following MISP Commercial Support is available from external 
 
 <br />
 
-Don't hesitate to [reach us](/contact) if you want to be reviewed and added to the list. The selection criterias include existing open source contributions to MISP project.
+Don't hesitate to [reach us](/support) if you want to be reviewed and added to the list. The selection criterias include existing open source contributions to MISP project.
 
