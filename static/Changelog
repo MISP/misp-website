@@ -1,6 +1,209 @@
 Changelog
 =========
 
+v2.4.154 (2022-03-02)
+---------------------
+
+New
+~~~
+- [bgjobs] Allow to set Redis read timeout. [Jakub Onderka]
+- [test] Creating custom warninglist. [Jakub Onderka]
+- [sharing group blueprints] [iglocska]
+
+  - create a rule based blueprint that is used to create and update a sharing group
+  - nest sharing groups
+  - filter organisations by metadata fields
+  - nested via boolean operators
+  - CLI exposed
+  - API exposed
+  - Lightweight ownership model (only blueprint owner can see and edit the blueprint)
+- [json field] added to single view factory. [iglocska]
+- [test] Search index by eventid. [Jakub Onderka]
+- [test] CSP report. [Jakub Onderka]
+- [oidc] Check user validity. [Jakub Onderka]
+- [event warnings] include them in the event view. [iglocska]
+- [behaviour] event warning behaviour added. [iglocska]
+
+  - inspects an event in MISP's internal raw format for discrepencies
+  - creates a list of warnings
+- [populate event view] added. [iglocska]
+
+  - paste a JSON with misp data (objects, attributes, galaxies, tags, eventreports) and it will edit the elements into the event
+- [event population] added. [iglocska]
+- [oidc] Support for setting code challenge method. [Jakub Onderka]
+
+Changes
+~~~~~~~
+- [composer] Crypt_GPG updated. [Alexandre Dulaunoy]
+- [VERSION] bump. [iglocska]
+- [oidc] Do not log changes for OIDC user setting. [Jakub Onderka]
+- [internal] Simplify logging when pulling events. [Jakub Onderka]
+- [bgjobs] Add command name to logs. [Jakub Onderka]
+- [internal] Simplify code for deleting multiple attributes. [Jakub
+  Onderka]
+- [test] Better custom warninglist test. [Jakub Onderka]
+- [internal] Use FileAccessTool. [Jakub Onderka]
+- [composer] Crypt_GPG updated. [Alexandre Dulaunoy]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [ACL] updated. [iglocska]
+- [internal] Limit size of CSP report. [Jakub Onderka]
+- [doc] changelog replaced with the official one. [Alexandre Dulaunoy]
+- [changelog] replaced with the official one. [Alexandre Dulaunoy]
+- [warninglists] updated to the latest version. [Alexandre Dulaunoy]
+- [menu] added the MISP event JSON population to the populate from...
+  menu. [iglocska]
+- [cli] Use more entropy when generating new encryption key. [Jakub
+  Onderka]
+- [UI] Fix setting placeholder for user setting. [Jakub Onderka]
+- [user_setting] Switch OIDC to internal setting. [Jakub Onderka]
+- [oidc] Move OIDC to different class. [Jakub Onderka]
+- [oidc] Check user org when checking if user is valid. [Jakub Onderka]
+- [oidc] Remove support for Jumbojett\OpenIDConnectClient. [Jakub
+  Onderka]
+- [oidc] Check user role when checking if user is valid. [Jakub Onderka]
+- [internal] Speedup when no events found. [Jakub Onderka]
+- [menu] added the MISP event JSON population to the populate from...
+  menu. [iglocska]
+- [event warnings] load the new behaviour and set the view variable with
+  the contents. [iglocska]
+- [proposal alert] emails now include the event uuid. [iglocska]
+
+  - for easier lookup on your own instance, rather than the remote.
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [community-metadata] adding missing communities. [Christophe
+  Vandeplas]
+- [community-metadata] adding missing communities. [Christophe
+  Vandeplas]
+
+Fix
+~~~
+- [internal] Append variable just when not null. [Jakub Onderka]
+- [bgjobs] Try to avoid deadlock. [Jakub Onderka]
+- [bgjobs] First read STDERR, then STDOUT. [Jakub Onderka]
+- [bgjobs] Try to close pipes before proc_close. [Jakub Onderka]
+- [warnignlist] Update cache after warninglist edit. [Jakub Onderka]
+- [security] Do not allow to fetch value of redacted setting. [Jakub
+  Onderka]
+- [JSON field] fixes. [iglocska]
+
+  - do not sanitise data that is to be json encoded
+  - decode json if a simple string is used
+- [sharing group] authorise sharing group if the user's organisation is
+  not contained in the sharing group but is rather the creator
+  organisation. [iglocska]
+- [singleview factory] modelField element now handles empty data fields
+  gracefully. [iglocska]
+- [internal] Event ID translator. [Jakub Onderka]
+- [security] Do not allow to fetch value of redacted setting. [Jakub
+  Onderka]
+- [UI] Event warning - distribution can be string. [Jakub Onderka]
+- [internal] CIDR validation. [Jakub Onderka]
+- [ACL] added events/populate. [iglocska]
+- [UI] Homepage icon link. [Jakub Onderka]
+- [internal] Do not convert to JSON. [Jakub Onderka]
+- [UI] User setting view is not implemented. [Jakub Onderka]
+- [sync] fixed several issues with the sync attribute filters causing
+  issues. [iglocska]
+
+  - if no negative sync filters defined, errors thrown due to check against null
+- [stix2 import] Fixed description fields from STIX objects parsing as
+  comment field for external STIX data. [chrisr3d]
+- [ACL] added events/populate. [iglocska]
+- [forms] larger text input  # Please enter the commit message for your
+  changes. Lines starting. [iglocska]
+- [user:getClientIp] Typo in variable name. [Sami Mokaddem]
+- [stix2 import] Importing description field of STIX objects as comment
+  field in the converted MISP attribute or object. [chrisr3d]
+- [tmpdir] default value change missing. [iglocska]
+
+  - Thanks @Wachizungu for spotting my fail
+- [tmpdir] default reverted to MISP/app/tmp. [iglocska]
+
+  - too many access errors for users with /tmp as the default
+- [tool] update gen_website_communities script. [Christophe Vandeplas]
+- [tool] update gen_website_communities script. [Christophe Vandeplas]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #8178 from JakubOnderka/oidc_log_change. [Jakub
+  Onderka]
+
+  chg: [oidc] Do not log changes for OIDC user setting
+- Merge pull request #8155 from JakubOnderka/bg-jobs-read-timeout.
+  [Jakub Onderka]
+
+  new: [bgjobs] Allow to set Redis read timeout
+- Merge pull request #8165 from JakubOnderka/delete-selected. [Jakub
+  Onderka]
+
+  chg: [internal] Simplify code for deleting multiple attributes
+- Merge pull request #8177 from JakubOnderka/test_custom_warninglist-
+  vol2. [Jakub Onderka]
+
+  chg: [test] Better custom warninglist test
+- Merge pull request #8176 from JakubOnderka/test_custom_warninglist.
+  [Jakub Onderka]
+
+  Test custom warninglist
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #8174 from JakubOnderka/fetch-redacted-setting.
+  [Jakub Onderka]
+
+  fix: [security] Do not allow to fetch value of redacted setting
+- Merge pull request #8173 from JakubOnderka/fix-id-translator. [Jakub
+  Onderka]
+
+  fix: [internal] Event ID translator
+- Merge pull request #8163 from MISP/2.4. [Jakub Onderka]
+
+  Merge 2.4 into develop
+- Merge pull request #8162 from JakubOnderka/csp-report-limit. [Jakub
+  Onderka]
+
+  chg: [internal] Limit size of CSP report
+- Merge pull request #8141 from folbricht-stripe/preserve-session-
+  config. [Andras Iklody]
+
+  Preserve Session.* configuration in serverSettingsSaveValue
+- Preserve Session.* configuration in serverSettingsSaveValue. [Frank
+  Olbricht]
+- Merge pull request #8152 from JakubOnderka/fix-event-warning. [Jakub
+  Onderka]
+
+  fix: [UI] Event warning - distribution can be string
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #8153 from JakubOnderka/more-entropy. [Jakub
+  Onderka]
+
+  chg: [cli] Use more entropy when generating new encryption key
+- Merge pull request #8144 from JakubOnderka/oidc-check-validity. [Jakub
+  Onderka]
+
+  new: [oidc] Check user validity
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [chrisr3d]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #8132 from JakubOnderka/oidc-ccm. [Jakub Onderka]
+
+  new: [oidc] Support for setting code challenge method
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+
 
 v2.4.153 (2022-02-04)
 ---------------------
