@@ -1,6 +1,6 @@
 ---
 title: MISP 2.4.154 released including tools for managing rapidly changing communities
-date: 2022-04-02
+date: 2022-03-02
 layout: post
 banner: /img/sharing-group-blueprints.png
 ---
