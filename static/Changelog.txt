@@ -2,6 +2,400 @@ Changelog
 =========
 
 
+v2.4.156 (2022-03-18)
+---------------------
+
+New
+~~~
+- [instance key ingestion] added caching. [iglocska]
+
+  - cache the fingerprint of the instance for 5 minutes
+  - avoid an unnecesary overhead by caching the value for 5 minutes
+- [single view factory] added key_info constructor key for meta fields.
+  [iglocska]
+
+  - will display a font awesome info icon with a configurable title text
+- [protected event field] in the event view. [iglocska]
+
+  - added tooltips with explanations
+  - added a warning if the instance's signing key is not included
+- [admin API] /servers/ipUser added. [iglocska]
+
+  - requires user IP logging to be enabled
+  - search for a user behind an IP via /servers/ipUser, post a JSON containing the user's IP such as this:
+
+  {
+     "ip": "8.8.8.8"
+  }
+- [event warnings] made modular. [iglocska]
+
+  - app/Lib/EventWarning contains default warnings
+  - app/Lib/EventWarning/Custom can be used to just drop event warnings
+  - use app/Lib/EventWarning/DefaultWarning as a template
+- [pull] added protected mode checks and calling the validation
+  functions if a protected event is found. [iglocska]
+
+  - also removed leftover breakpoints
+- [CRUD] delete - added the beforeDelete hook. [iglocska]
+- [events] index and view signing checks added. [iglocska]
+
+  - exclude events that can't be signed with a valid key as required by the event from the index for automaticTools (MISP + PyMISP)
+  - sign the data only for automaticTools (MISP + PyMISP)
+- [cryptographic key] capture mechanism added. [iglocska]
+
+  - capture new keys
+  - remove keys no longer in the data set
+  - revoke keys if needed
+- [generic template] for simple displaying of information added.
+  [iglocska]
+- [cryptographic keys] views added. [iglocska]
+- [event signing] sign events function added. [iglocska]
+- [protected mode] functionalities added to the events controller.
+  [iglocska]
+
+  - protect/unprotect events
+  - include pgp signature in event on load when applicable
+- [cryptographic keys] model and controllers added. [iglocska]
+
+  - sets MISP up for information signing
+  - sign data during synchronisation
+- [protected event mode] view elements added. [iglocska]
+- [events:index] Multi-select export of events. [Sami Mokaddem]
+- [UI] Site admin can create SG with specific UUID. [Jakub Onderka]
+- [events:restSearch] Added `context` export format. [Sami Mokaddem]
+
+  The `context` export format includes:
+  - List of used taxonomies
+  - List of used galaxy cluster
+  - List of custom tags
+  - Mitre Att&ck matrix
+
+Changes
+~~~~~~~
+- [queryversion] bumped. [iglocska]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [cryptographicKeys] Indexed more column and bumped db_schema. [Sami
+  Mokaddem]
+- [events:view] Removed duplicated lockpad icon. [Sami Mokaddem]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [events:index] Check for not empty instead. [Sami Mokaddem]
+- [events] Typo in protected description. [Sami Mokaddem]
+- [CI] make the tests happy. [iglocska]
+
+  - trailing comma after the last parameter in a function is not allowed in some PHP versions
+- [signing validation] re-added to the new ServerSyncTool. [iglocska]
+- [unused endpoint] removed. [iglocska]
+- [signing validation] fixes. [iglocska]
+
+  - correctly handle edits in regards to tamper proofing events
+  - handle an edge case of missing organisation data loaded for displaying if an event is removed by failing the validation
+- [event view] added more information about the protected event status.
+  [iglocska]
+- [event index] include a lock sign for protected events. [iglocska]
+- [ipUser] API now accepts lists of IPs. [iglocska]
+
+  {
+      "ip": ["8.8.8.8", "1.1.1.1"]
+  }
+- [PyMISP] bump. [Alexandre Dulaunoy]
+- [doc] Added username requirement. [Steve Clement]
+- [installer] Bump to latest version. [Steve Clement]
+- [installer] Removed python2, fixed kali redis botch. [Steve Clement]
+- [cryptographicKey] - load and initialise gpg on class construction.
+  [iglocska]
+- [gpgtool] validateGpgKey now also imports the key. [iglocska]
+- [ACL] added the cryptographicKeys functions. [iglocska]
+- [pull] signing validation WiP. [iglocska]
+- [version] bump. [iglocska]
+- [tmpfiletool] allow reading into string without closing the file.
+  [iglocska]
+- [signing] sign contents on restresponse if applicable. [iglocska]
+- [cryptographic key] move capture function to a bulk delta function.
+  [iglocska]
+- [cryptographickey] capturing. [iglocska]
+
+  - add summary to logs
+- [event edit] execute validation for signing keys if applicable.
+  [iglocska]
+- [cryptographickey] execute key update on add() [iglocska]
+- [JSONconvertertool] include cryptographic key. [iglocska]
+- [logo] new logo added. [iglocska]
+- [event view] missing changes added. [iglocska]
+
+  - fixed event view main header
+  - added padlock sign for locked events
+- [logo] update. [iglocska]
+- [check remote MISP version] added flag for protectedMode awareness.
+  [iglocska]
+- [event view] rework. [iglocska]
+
+  - use the factories
+  - a host of new elements added
+  - new side panels
+  - changed the behaviour of several existing functionalities
+  - various other small improvements
+- [sync] Use ServerSyncTool for pushing events. [Jakub Onderka]
+- [internal] Simplify code for pushing events. [Jakub Onderka]
+- [sync] Simplify code for sighting pushing. [Jakub Onderka]
+- [events:index] Simplified endpoint. [Sami Mokaddem]
+- [events:restSearch] Added `context-markdown` export format. [Sami
+  Mokaddem]
+- [internal] Bump PyMISP. [Jakub Onderka]
+- Add decomission step for systemctl workers service. [Luciano Righetti]
+- [internal] Cosmetic code changes. [Jakub Onderka]
+- [authkeys] add accepts the user_id via URL params and posted JSON
+  body. [iglocska]
+
+Fix
+~~~
+- [signing] fail gracefully if pgp not configured on event index.
+  [iglocska]
+
+  - return the index, but set fingerprint as null rather than throwing an exception
+- [security] restrict setting to cli only. enabling this setting could
+  allow potential ssrf attacks, as reported by Ianis BERNARD - NATO
+  Cyber Security Centre. [Luciano Righetti]
+- [security] lfi via custom terms file setting, as reported by Ianis
+  BERNARD - NATO Cyber Security Centre. [Luciano Righetti]
+- [cryptographic key view] fixed. [iglocska]
+
+  - was just grabbing the first key
+- [event index] minimal mode fixed for signed events. [iglocska]
+- [signing] removed colour coding of protected/unprotected events.
+  [iglocska]
+
+  - gave the idea that one is "right" and one is "wrong", whilst they're just for different use-cases
+- [event view] distribution field fixed. [iglocska]
+
+  - didn't display the sharing groups
+- [signing] add try/catch around the gpg initialisation. [iglocska]
+
+  - otherwise instances without gpg set up will fail when viewing events
+- [security] stored XSS in the user add/edit forms. [iglocska]
+
+  - a malicious site administrator could store an XSS payload in the custom auth name which would be executed each time the administrator modifies a user
+
+  - as reported by Ianis BERNARD - NATO Cyber Security Centre
+- [events:edit] Correctly collects saved cryptographic keys when pushing
+  an edit. [Sami Mokaddem]
+- [oidc] Undefined index. [Jakub Onderka]
+- [gpg key] handle the lack of an instance key more gracefully.
+  [iglocska]
+- [cryptograhicKey] instance key fingreprint caching fixed. [iglocska]
+- [signing validation] use the existing event rather than the incoming
+  event for edits. [iglocska]
+
+  - the ground truth for allowing edits is in the LOCAL version of the event
+  - prevents tampering attempts
+
+  - also cleanup of repetive file upload code
+- [sync] removed newly added locked field as a sanitized sync field.
+  [iglocska]
+
+  - ends up creating unlocked events on the remote, preventing future edits
+- [warning] merge fixes. [iglocska]
+- [eventwarning] path fixed. [iglocska]
+
+  - as spotted by @chrisr3d
+- Add default supervisor user to default settings. [Luciano Righetti]
+- [installer] typo, use legacy composer74 function on Kali. [Steve
+  Clement]
+- [installer] Take into account misp-stix. [Steve Clement]
+- [ACL] event protect/unprotect received ACL checks. [iglocska]
+- [ACL] Cryptokey add / delete key from parent received ACL checks.
+  [iglocska]
+- [internal] event rearranging before push fixed. [iglocska]
+
+  - some elements were at a misaligned level in the array
+- [event] include the protected field in the saving to allow syncing of
+  protected events. [iglocska]
+- [cryptographicKey] various fixes. [iglocska]
+
+  - typoes fixed
+  - take parent ID from the local ID rather than the synced one
+- [signing] canonisation support by culling whitespaces. [iglocska]
+- [sync] version comparison fixes. [iglocska]
+
+  - for determining the right version to compare to when deciding if protected events can be synced
+- [log] added 2 new actions for the signing system. [iglocska]
+- [event model] fixes. [iglocska]
+
+  - fixed class name typo
+  - removed placeholder exception / breakpoint
+- [cryptographickey model] internal fixes. [iglocska]
+
+  - incorrect variable names fixed
+  - logging target fixes
+  - error messages were lacking the actual message
+- [signing] generating event signature fixes. [iglocska]
+- [side panel] relatedFeed panel fixed. [iglocska]
+- [oidc] Specify correct column for user fetch. [Jakub Onderka]
+- [php] Support for PHP 7.2. [Jakub Onderka]
+- [oidc] Throw exception if user email is empty. [Jakub Onderka]
+- [internal] Class 'Folder' not found. [Jakub Onderka]
+- [exports:context] Removed spaces. [Sami Mokaddem]
+- Add default supervisor user to default settings. [Luciano Righetti]
+- [sharing group blueprint] fixed. [iglocska]
+- [db schema] fixed. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #8216 from 3c7/patch-1. [Alexandre Dulaunoy]
+
+  Update OidcAuth readme
+- Update OidcAuth readme. [Nils Kuhnert]
+
+  Replaced required dependency.
+- Merge pull request #8217 from DCSO/linotp_errormessages. [Alexandre
+  Dulaunoy]
+
+  [chg] LinOTP error exceptions up to the ui
+- [chg] LinOTP error exceptions up to the ui. [Hendrik Baecker]
+- Merge pull request #8219 from DCSO/linotp_on_off_config. [Andras
+  Iklody]
+
+  [chg] LinOTP now with enable/disable as config feature
+- [chg] LinOTP now with enable/disable as config feature. [Hendrik
+  Baecker]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #8213 from JakubOnderka/oidc_undefined_index.
+  [Jakub Onderka]
+
+  fix: [oidc] Undefined index
+- Merge branch 'feature/protected_mode' into develop. [iglocska]
+- Merge branch 'feature/protected_mode' of github.com:MISP/MISP into
+  feature/protected_mode. [iglocska]
+- Merge branch '2.4' into feature/protected_mode. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #8199 from SteveClement/guides. [Steve Clement]
+- Merge pull request #8196 from SteveClement/tools. [Steve Clement]
+- Merge pull request #8194 from SteveClement/tools. [Steve Clement]
+- Merge branch 'feature/protected_mode' of github.com:MISP/MISP into
+  feature/protected_mode. [iglocska]
+- Merge pull request #8208 from JakubOnderka/oidc-empty-email. [Jakub
+  Onderka]
+
+  fix: [oidc] Throw exception if user email is empty
+- Merge pull request #8154 from JakubOnderka/server-sync-push. [Jakub
+  Onderka]
+
+  chg: [sync] Use ServerSyncTool for pushing events
+- Merge pull request #8164 from JakubOnderka/fix-folder-not-found.
+  [Jakub Onderka]
+
+  fix: [internal] Class 'Folder' not found
+- Merge pull request #8179 from JakubOnderka/upload-event-cleanup.
+  [Jakub Onderka]
+
+  chg: [internal] Simplify code for pushing events
+- Merge pull request #8197 from JakubOnderka/push-sightings-refactor.
+  [Jakub Onderka]
+
+  chg: [sync] Simplify code for sighting pushing
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8193 from JakubOnderka/set-sg-uuid. [Jakub
+  Onderka]
+
+  new: [UI] Site admin can create SG with specific UUID
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #8188 from JakubOnderka/code-style. [Jakub Onderka]
+
+  chg: [internal] Cosmetic code changes
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+
+
+v2.4.155 (2022-03-03)
+---------------------
+
+New
+~~~
+- [CLI] Filter user by ID or e-mail. [Jakub Onderka]
+
+Changes
+~~~~~~~
+- [PyMISP] bump. [iglocska]
+- [sharing group blueprint] default to active sharing groups. [iglocska]
+
+  - was confusing
+- [PyMISP] BUmp version. [Raphaël Vinot]
+- [version] bump. [iglocska]
+- [CLI] Simplify Admin::dumpCurrentDatabaseSchema. [Jakub Onderka]
+- [installer] Updated to latest version. [Steve Clement]
+- [doc] Added --no-cache to always have the freshest installer. [Steve
+  Clement]
+- [authkeys add] accept "me" as a valid parameter. [iglocska]
+- [installer] Update to latest. [Steve Clement]
+- [tpl] Update base template to take latest Kali into account. [Steve
+  Clement]
+
+Fix
+~~~
+- [db_schema] updated. [iglocska]
+- [db] Update database schema to 80. [Jakub Onderka]
+- [installer] Fixed Kali Linux installer. [Steve Clement]
+- [sync] automatic sync data creation was lacking authkey. [iglocska]
+
+  - fixed for both old style and advanced authkeys
+- [organisations] made meta fields default to '' and not allow null
+  values. [iglocska]
+
+  - fixes a filtering issue with sharing group blueprints leading to sharing groups that are more restrictive than expected
+- [blueprints] appease older php versions. [iglocska]
+
+  trailing comma on last function call element removed
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #8183 from JakubOnderka/cli-list-filter. [Jakub
+  Onderka]
+
+  new: [CLI] Filter user by ID or e-mail
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #8187 from SteveClement/tools. [Steve Clement]
+
+  fix: [installer] Fixed Kali Linux installer
+- Merge pull request #8186 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] Added --no-cache to always have the freshest installer
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #8182 from SteveClement/tools. [Steve Clement]
+- Merge branch '2.4' into develop. [iglocska]
+
+
 v2.4.154 (2022-03-02)
 ---------------------
 
