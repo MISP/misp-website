@@ -74,7 +74,10 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2021-37743](https://cvepremium.circl.lu/cve/CVE-2021-37743) <= MISP 2.4.147 - app/View/GalaxyElements/ajax/index.ctp in MISP 2.4.147 allows Stored XSS when viewing galaxy cluster elements in JSON format.
 - [CVE-2021-39302](https://cvepremium.circl.lu/cve/CVE-2021-39302) <= MISP 2.4.148 - MISP in certain configurations, when used with PostgreSQL (which is not a default configuration), allows SQL injection via the app/Model/Log.php $conditions['org'] value.
 - [CVE-2021-41326](https://cvepremium.circl.lu/cve/CVE-2021-41326) < MISP 2.4.148 -  app/Lib/Export/OpendataExport.php mishandles parameter data that is used in a shell_exec call.
-
+- CVE-2022-27245 
+- CVE-2022-27243
+- CVE-2022-27246
+- CVE-2022-27244 
 
 ## PGP Key
 
