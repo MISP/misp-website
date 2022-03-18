@@ -69,11 +69,12 @@ We would like to thank Ianis BERNARD of NATO Cyber Security Centre. Based on the
 
 ## Security fixes resolved
 
-Two critical security vulnerabilities were fixed in this release. We strongly recommend everyone to install this version as soon as possible.
+Four security vulnerabilities were fixed in this release. We strongly recommend everyone to install this version as soon as possible.
 
-- [Potential SSRF attacks fixed](https://github.com/MISP/MISP/commit/8dcf414340c5ddedfebbc972601646d38e1d0717) on generateServerSettings(), the interface is now restricted to the cli interface only.
-- [Potential LFI attack fixed](https://github.com/MISP/MISP/commit/8cc93687dcd68e1774b55a5c4e8125c0c8ddc288) via custom file setting.
-- [Restrict SVG logo](https://github.com/MISP/MISP/commit/08a07a38ae81f3b55d81cfcd4501ac1eb1c9c4dc) upload for organisation by default and make it optional to limit potential risk of SVG with active payload.
+- CVE-2022-27245 - [Potential SSRF attacks fixed](https://github.com/MISP/MISP/commit/8dcf414340c5ddedfebbc972601646d38e1d0717) on generateServerSettings(), the interface is now restricted to the cli interface only.
+- CVE-2022-27243 - [Potential LFI attack fixed](https://github.com/MISP/MISP/commit/8cc93687dcd68e1774b55a5c4e8125c0c8ddc288) via custom file setting.
+- CVE-2022-27246 - [Restrict SVG logo](https://github.com/MISP/MISP/commit/08a07a38ae81f3b55d81cfcd4501ac1eb1c9c4dc) upload for organisation by default and make it optional to limit potential risk of SVG with active payload.
+- CVE-2022-27244 - [Stored XSS in the user add/edit forms fixed](https://github.com/MISP/MISP/commit/61d4d3670593b78e4dab7a11eb620b7a372f30e6) in custom auth name with a potential malicious administrator.
 
 # LinOTP auth improvements
 
