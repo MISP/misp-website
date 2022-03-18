@@ -2,7 +2,7 @@
 title: MISP 2.4.156 released including a new synchronisation event signing mechanism and many new features
 date: 2022-03-18
 layout: post
-banner: /img/sharing-group-blueprints.png
+banner: /img/signed-sync.png
 ---
 
 We are pleased to announce the immediate availability of MISP v2.4.156 - a release bringing several new features and fixes two critical vulnerabilities. **We highly encourage everyone to update to this version as soon as possible**.
