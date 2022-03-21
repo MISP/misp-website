@@ -73,11 +73,11 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2021-37742](https://cvepremium.circl.lu/cve/CVE-2021-37742) <= MISP 2.4.147 - app/View/Elements/GalaxyClusters/view_relation_tree.ctp in MISP 2.4.147 allows Stored XSS when viewing galaxy cluster relationships.
 - [CVE-2021-37743](https://cvepremium.circl.lu/cve/CVE-2021-37743) <= MISP 2.4.147 - app/View/GalaxyElements/ajax/index.ctp in MISP 2.4.147 allows Stored XSS when viewing galaxy cluster elements in JSON format.
 - [CVE-2021-39302](https://cvepremium.circl.lu/cve/CVE-2021-39302) <= MISP 2.4.148 - MISP in certain configurations, when used with PostgreSQL (which is not a default configuration), allows SQL injection via the app/Model/Log.php $conditions['org'] value.
-- [CVE-2021-41326](https://cvepremium.circl.lu/cve/CVE-2021-41326) < MISP 2.4.148 -  app/Lib/Export/OpendataExport.php mishandles parameter data that is used in a shell_exec call.
-- CVE-2022-27245 
-- CVE-2022-27243
-- CVE-2022-27246
-- CVE-2022-27244 
+- [CVE-2021-41326](https://cvepremium.circl.lu/cve/CVE-2021-41326) < MISP 2.4.148 - app/Lib/Export/OpendataExport.php mishandles parameter data that is used in a shell_exec call.
+- [CVE-2022-27245](https://cvepremium.circl.lu/cve/CVE-2022-27245) <= MISP 2.4.155 - An issue was discovered in MISP before 2.4.156. app/Model/Server.php does not restrict generateServerSettings to the CLI. This could lead to SSRF.  
+- [CVE-2022-27243](https://cvepremium.circl.lu/cve/CVE-2022-27243) <= MISP 2.4.155 - An issue was discovered in MISP before 2.4.156. app/View/Users/terms.ctp allows Local File Inclusion via the custom terms file setting. 
+- [CVE-2022-27246](https://cvepremium.circl.lu/cve/CVE-2022-27246) <= MISP 2.4.155 - An issue was discovered in MISP before 2.4.156. An SVG org logo (which may contain JavaScript) is not forbidden by default. 
+- [CVE-2022-27244](https://cvepremium.circl.lu/cve/CVE-2022-27244) <= MISP 2.4.155 - An issue was discovered in MISP before 2.4.156. A malicious site administrator could store an XSS payload in the custom auth name. This would be executed each time the administrator modifies a user.   
 
 ## PGP Key
 
