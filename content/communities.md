@@ -510,7 +510,7 @@ FIRST MISP instance allows FIRST members to efficiently share and store technica
 - Nationality: International
 
 
-The ultimate goal of the project is to develop a NATO capability, available to all NATO nations, through which nations commit to sharing their information. 
+The ultimate goal of the project is to develop a NATO capability, available to all NATO nations, through which nations commit to sharing their information. This community is only open for official government entities, sponsored by their nation representative in the NATO Multinational MISP Steering Board.
 - Contact: mispsupport@ncia.nato.int
 
 ### PISAX -  pan-European Information Sharing and Analysis Center (ISAC) to IXPs and GRXs <i class="far fa-check-circle" style="color:green; "></i>
