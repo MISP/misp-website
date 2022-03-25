@@ -2,11 +2,109 @@ Changelog
 =========
 
 
+v2.4.157 (2022-03-25)
+---------------------
+
+New
+~~~
+- [event locks] have an option to disable them. [iglocska]
+
+  - it's annoying and causes headaches
+  - as discussed in #8204
+
+Changes
+~~~~~~~
+- [VERSION] bump. [iglocska]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [server sync] update to the previous fix to include the recursive
+  condition. [iglocska]
+
+  - instead of just replacing the condition with the contain list, include both to get the performance gains back
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [server sync] update to the previous fix to include the recursive
+  condition. [iglocska]
+
+  - instead of just replacing the condition with the contain list, include both to get the performance gains back
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [UI] Update jQuery to 3.6.0. [Jakub Onderka]
+- [UI] Open modal without onclick vol. 2. [Jakub Onderka]
+- [UI] Open modal without onclick. [Jakub Onderka]
+- [internal] Throw exception if Redis class not found. [Jakub Onderka]
+
+Fix
+~~~
+- [notice error] in the event view fixed. [iglocska]
+- [authkeys] tighter controls over adding authkeys. [iglocska]
+
+  - only allow to add authkeys to your own user and any user in your own organisation that is not org admin / site admin
+  - correctly filter the authkey add dialogue for the requested user if going through a user profile
+
+  - as reported by @oivindoh
+- [sync] publishing sharing group events fail to sync - fixed.
+  [iglocska]
+
+  - code cleanup removed related models, including remote org which is needed to check if the remote is to receive an event
+
+  - as reported by @treyka
+- [publish] button missing for users, fixes #8233. [iglocska]
+- [UI] Do not log exception for invalid key. [Jakub Onderka]
+- [UI] Undefined variable debugMode. [Jakub Onderka]
+- [internal] Code style. [Jakub Onderka]
+- [api] Validate attribute type to avoid warnings. [Jakub Onderka]
+- [UI] Undefined variable. [Jakub Onderka]
+- [cryptographic signing] added more graceful failures when GPG isn't
+  configured. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #8231 from JakubOnderka/fix-undefined-variable.
+  [Jakub Onderka]
+
+  chg: [UI] Open modal without onclick
+- Merge pull request #8228 from JakubOnderka/validate-attribute-type.
+  [Jakub Onderka]
+
+  fix: [api] Validate attribute type to avoid warnings
+- Merge pull request #8227 from JakubOnderka/redis-exception. [Jakub
+  Onderka]
+
+  chg: [internal] Throw exception if Redis class not found
+- Merge pull request #8230 from JakubOnderka/fix-undefined-variable.
+  [Jakub Onderka]
+
+  fix: [UI] Undefined variable
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+
+
 v2.4.156 (2022-03-18)
 ---------------------
 
 New
 ~~~
+- Add setting for allowing svg org logos. [Luciano Righetti]
 - [instance key ingestion] added caching. [iglocska]
 
   - cache the fingerprint of the instance for 5 minutes
@@ -72,6 +170,9 @@ New
 
 Changes
 ~~~~~~~
+- [cryptograhicKey] Simplified code for event pushing. [Jakub Onderka]
+- [events:restSearchExport] Format export based on the responseType.
+  [Sami Mokaddem]
 - [queryversion] bumped. [iglocska]
 - [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
 - [misp-galaxy] updated. [Alexandre Dulaunoy]
@@ -150,6 +251,14 @@ Changes
 
 Fix
 ~~~
+- [event view] make having a valid PGP setup optional for viewing
+  events. [iglocska]
+
+  - don't throw an exception, rather set an empty key
+- [security] a malicious site administrator could store an XSS payload
+  in a svg org logo which would be executed if someone opens the direct
+  link to the image, as reported by Ianis BERNARD - NATO Cyber Security
+  Centre. [Luciano Righetti]
 - [signing] fail gracefully if pgp not configured on event index.
   [iglocska]
 
@@ -242,6 +351,21 @@ Fix
 
 Other
 ~~~~~
+- Merge pull request #8218 from righel/org-svg-logo-setting. [Alexandre
+  Dulaunoy]
+
+  new: add setting for allowing svg org logos
+- Merge branch 'org-svg-logo-setting' of github.com:righel/MISP into
+  org-svg-logo-setting. [Luciano Righetti]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8215 from JakubOnderka/pgp-signature-optim. [Jakub
+  Onderka]
+
+  chg: [cryptograhicKey] Simplified code for event pushing
+- Merge branch '2.4' into develop. [iglocska]
 - Merge branch 'develop' into 2.4. [iglocska]
 - Merge branch 'develop' of github.com:MISP/MISP into develop.
   [iglocska]
