@@ -25,7 +25,7 @@ Several security issues have been resolved, head over to [the security page](htt
 
 ## Announcement of a silent fix of phar deserialisation RCE in a previous release (v2.4.156)
 
-As of the previous security release (v2.4.156), based on the pentest conducted by Ianis BERNARD of the NATO Cyber Security Centre, a high criticality vulnerability was also identiefied. We have opted for a silent fix to the critical vulnerability whilst upgrading the announced criticality of the other security fixes included in the release.
+As of the previous security release (v2.4.156), based on the pentest conducted by Ianis BERNARD of the NATO Cyber Security Centre, a high criticality vulnerability was also identified. We have opted for a silent fix to the critical vulnerability whilst upgrading the announced criticality of the other security fixes included in the release.
 
 This is an extreme measure that we take whenever we want to ensure that the community is both aware that they do need to update as soon as possible whilst not drawing attention to the actual critical vulnerability. If you have followed our guidance over the past month to update you are already safe - if you are running a MISP instance below 2.4.156 **we highly encourage you to update to the latest version as soon as possible**. 
 
