@@ -2,7 +2,7 @@
 title: MISP 2.4.158 security fix and general improvement release
 date: 2022-04-20
 layout: post
-banner: /img/signed-sync.png
+banner: /img/blog/graph-syria.png 
 ---
 
 We are pleased to announce the immediate availability of MISP v2.4.158. This release includes a series of security fixes and as such **we highly encourage everyone to update to this version as soon as possible**.
