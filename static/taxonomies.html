@@ -488,6 +488,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_ddos_2">ddos</a></li>
 <li><a href="#_de_vs">de-vs</a></li>
 <li><a href="#_deception_2">deception</a></li>
+<li><a href="#_dga">dga</a></li>
 <li><a href="#_dhs_ciip_sectors">dhs-ciip-sectors</a></li>
 <li><a href="#_diamond_model">diamond-model</a></li>
 <li><a href="#_dni_ism">dni-ism</a></li>
@@ -31835,7 +31836,7 @@ cnsd namespace available in JSON format at <a href="https://github.com/MISP/misp
 </table>
 </div>
 <div class="paragraph">
-<p>La presente taxonomia es la primera versión disponible para el Centro Nacional de Seguridad Digital.</p>
+<p>La presente taxonomia es la primera versión disponible para el Centro Nacional de Seguridad Digital del Perú.</p>
 </div>
 <div class="sect2">
 <h3 id="_contenido_abusivo">Contenido abusivo</h3>
@@ -35412,6 +35413,94 @@ deception namespace available in JSON format at <a href="https://github.com/MISP
 </div>
 <div class="paragraph">
 <p>internal precondition, on the ability of the agent to perform the action. Internal preconditions are on the agent of the action, such as ability of a user to change their password.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dga">dga</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+dga namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/dga/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A taxonomy to describe domain-generation algorithms often called DGA. Ref: A Comprehensive Measurement Study of Domain Generating Malware Daniel Plohmann and others.</p>
+</div>
+<div class="sect2">
+<h3 id="_generation_scheme">generation-scheme</h3>
+<div class="sect3">
+<h4 id="_dgageneration_schemearithmetic">dga:generation-scheme="arithmetic"</h4>
+<div class="paragraph">
+<p>Arithmetic</p>
+</div>
+<div class="paragraph">
+<p>Calculate a sequence of values that either have a direct ASCII representation usable for a domain name or designate an offset in one or more hard- coded arrays, constituting the alphabet of the DGA.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dgageneration_schemehash">dga:generation-scheme="hash"</h4>
+<div class="paragraph">
+<p>Hash</p>
+</div>
+<div class="paragraph">
+<p>Use the hexdigest representation of a hash to produce the domain.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dgageneration_schemewordlist">dga:generation-scheme="wordlist"</h4>
+<div class="paragraph">
+<p>Wordlist</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Concatenate a sequence of words from one or more wordlists, resulting in less randomly appealing and thus more camouflaging domains</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dgageneration_schemepermutation">dga:generation-scheme="permutation"</h4>
+<div class="paragraph">
+<p>Permutation</p>
+</div>
+<div class="paragraph">
+<p>derive all possible AGDs (Algorithmically-Generated Domain) through permutation of an initial domain name.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_seeding">seeding</h3>
+<div class="sect3">
+<h4 id="_dgaseedingtime_dependent">dga:seeding="time-dependent"</h4>
+<div class="paragraph">
+<p>The DGA uses temporal information in the seeding for its domain generation, resulting in sets of domains with certain validity time spans.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dgaseedingtime_independent">dga:seeding="time-independent"</h4>
+<div class="paragraph">
+<p>The DGA does not rely on temporal information in the seeding for its domain generation, resulting in a single set of domains.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dgaseedingdeterministic">dga:seeding="deterministic"</h4>
+<div class="paragraph">
+<p>Given the implementation of the DGA and a seed, its full set of possible domains can be calculated at any point in time.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dgaseedingnon_deterministic">dga:seeding="non-deterministic"</h4>
+<div class="paragraph">
+<p>Domains depend on unpredictable seed input, e.g. on external dynamic information that can be published at a later time (e.g. via posting on social media), on data specific to the system it is executed on, or on arbitrary non-predictable PRNG output.</p>
 </div>
 </div>
 </div>
@@ -81879,7 +81968,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-05-05 19:01:51 +0200
+Last updated 2022-05-13 09:33:34 +0200
 </div>
 </div>
 </body>
