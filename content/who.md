@@ -18,6 +18,7 @@ practical open source tools, open format and practises. The current team is comp
 * David Andre [@elhoim](https://twitter.com/elhoim)
 * Deborah Servili [@deltalimasierra](https://twitter.com/deltalimasierra)
 * Gerard Wagener
+* Luciano Righetti [@righelx](https://twitter.com/righelx)
 * Raphaël Vinot [@rafi0t](https://twitter.com/rafi0t)
 * Sami Mokaddem [@mokaddem_sami](https://twitter.com/mokaddem_sami)
 * Sascha Rommelfangen [@rommelfs](https://twitter.com/rommelfs)
