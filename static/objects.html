@@ -59195,7 +59195,7 @@ script is a MISP object available in JSON format at <a href="https://github.com/
 <h2 id="_security_playbook"><a class="anchor" href="#_security_playbook"></a><a class="link" href="#_security_playbook">security-playbook</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>An object to manage, represent, and share course of action playbooks (security playbooks) for cyberspace defense.</p>
+<p>The security-playbook object provides meta-information and allows managing, storing, and sharing cybersecurity playbooks and orchestration workflows.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -59228,36 +59228,10 @@ security-playbook is a MISP object available in JSON format at <a href="https://
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">created</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The time at which the playbook was originally created.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-check"></i></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">creator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The entity that created this playbook. It can be a natural person or an organization. It may be represented using an id that identifies the creator.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-check"></i></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
-</div></div></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>More details, context, and possibly an explanation about what this playbook does and tries to accomplish.</p>
+<p>An explanation, details, and more context about what this playbook does and tries to accomplish.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -59267,62 +59241,36 @@ security-playbook is a MISP object available in JSON format at <a href="https://
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">labels</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>A value that uniquely identifies the playbook.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">impact</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">counter</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>An integer that represents the impact the playbook has on the organization from 0 to 100. A value of 0 means specifically undefined. Values range from 1, the lowest impact, to a value of 100, the highest. For example, a purely investigative playbook that is non-invasive would have a low impact value of 1, whereas a playbook that performs changes such as adding rules into a firewall would have a higher impact value.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-check"></i></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>An optional set of terms, labels or tags associated with this playbook (e.g., aliases of adversary groups or operations that this playbook is related to).</p>
+<p>Labels for this playbook (e.g., adversary persona names, associated groups, malware family/variant/name that this playbook is related to). Another option is to use MISP tags, taxonomies, and galaxies.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">modified</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The time that this particular version of the playbook was last modified.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-check"></i></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">organization-type</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Type of an organization, that the playbook is intended for. This can be an industry sector.</p>
+<p>The type of organization that the playbook is intended for. This can be an industry sector. Another option is to use MISP tags, taxonomies, and galaxies.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">playbook-abstraction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The playbook’s level of abstraction (with regards to consumption). ['template', 'executable']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -59332,10 +59280,10 @@ security-playbook is a MISP object available in JSON format at <a href="https://
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">playbook</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">attachment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">playbook-base64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The whole playbook in its native format (e.g., CACAO JSON). Producers and consumers of playbooks use this property to share and retrieve playbooks.</p>
+<p>The entire playbook file/document encoded in base64.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -59345,10 +59293,101 @@ security-playbook is a MISP object available in JSON format at <a href="https://
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">playbook-abstraction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">playbook-creation-time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The date and time at which the playbook was originally created.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">playbook-creator</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Identifies the level of completeness of the playbook. ['guideline', 'playbook template', 'playbook', 'partial workflow', 'full workflow', 'fully scripted']</p>
+<p>The entity that created the playbook. It can be a natural person or an organization. It may be represented using a unique identifier that identifies the creator.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">playbook-file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">attachment</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The entire playbook file/document in its native format (e.g., CACAO JSON or BPMN).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">playbook-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A value that uniquely identifies the playbook. If the playbook itself embeds an identifier then the playbook-id SHOULD use the same identifier (value). If not, the producer MAY generate a unique identifier for the playbook.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">playbook-impact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>From 0 to 100, a value representing the impact the playbook has on the organization. A value of 0 means specifically undefined. Impact values range from 1, the lowest impact, to a value of 100, the highest. For example, a purely investigative playbook that is non-invasive could have a low impact value of 1. In contrast, a playbook that performs changes such as adding rules into a firewall should have a higher impact value.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">playbook-modification-time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The date and time at which the playbook was last modified.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">playbook-priority</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>From 0 to 100, a value representing the priority of this playbook relative to other defined playbooks. A value of 0 means specifically undefined. Priority values range from 1, the highest priority, to a value of 100, the lowest.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">playbook-severity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>From 0 to 100, a value representing the seriousness of the conditions that this playbook addresses. A value of 0 means specifically undefined. Severity values range from 1, the lowest severity, to a value of 100, the highest.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -59361,7 +59400,7 @@ security-playbook is a MISP object available in JSON format at <a href="https://
 <td class="tableblock halign-left valign-top"><p class="tableblock">playbook-standard</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Identification of the playbook standard.</p>
+<p>The standard/format/notation the playbook conforms to (e.g., CACAO, BPMN).</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -59374,7 +59413,7 @@ security-playbook is a MISP object available in JSON format at <a href="https://
 <td class="tableblock halign-left valign-top"><p class="tableblock">playbook-type</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The security operational functions the playbook addresses. A playbook may account for multiple types (e.g., detection, investigation). ['notification playbook', 'detection playbook', 'investigation playbook', 'prevention playbook', 'mitigation playbook', 'remediation playbook', 'attack playbook']</p>
+<p>The security-related functions the playbook supports. A playbook may account for multiple types (e.g., detection and investigation). The listed options are based on the CACAO standard and NIST SP 800-61 rev2. Another option is to use MISP tags, taxonomies, and galaxies. ['notification', 'detection', 'investigation', 'prevention', 'mitigation', 'remediation', 'analysis', 'containment', 'eradication', 'recovery', 'attack']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -59384,10 +59423,23 @@ security-playbook is a MISP object available in JSON format at <a href="https://
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">priority</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">counter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">playbook-valid-from</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>An integer that represents the priority of this playbook relative to other defined playbooks. A value of 0 means specifically undefined. Values range from 1, the highest priority, to a value of 100, the lowest.</p>
+<p>The date and time from which the playbook is considered valid and the steps that it contains can be executed.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">playbook-valid-until</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The date and time from which the playbook should no longer be considered a valid playbook to be executed.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -59400,46 +59452,7 @@ security-playbook is a MISP object available in JSON format at <a href="https://
 <td class="tableblock halign-left valign-top"><p class="tableblock">revoked</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>A boolean that identifies if the playbook creator deems that this playbook is no longer valid. ['True', 'False']</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-check"></i></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">severity</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">counter</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>A positive integer that represents the seriousness of the conditions that this playbook addresses. A value of 0 means specifically undefined. Values range from 1, the lowest severity, to a value of 100, the highest.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-check"></i></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">valid-from</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The time from which the playbook is considered valid and the steps that it contains can be executed.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-check"></i></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">valid-until</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The time at which this playbook should no longer be considered a valid playbook to be executed.</p>
+<p>A boolean that identifies if the playbook is no longer valid (revoked). ['True', 'False']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -69598,7 +69611,7 @@ youtube-video is a MISP object available in JSON format at <a href="https://gith
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-05-13 13:23:25 +0200
+Last updated 2022-05-18 22:05:05 +0200
 </div>
 </div>
 </body>
