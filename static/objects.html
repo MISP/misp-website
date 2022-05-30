@@ -687,6 +687,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_shortened_link">shortened-link</a></li>
 <li><a href="#_social_media_group">social-media-group</a></li>
 <li><a href="#_software">software</a></li>
+<li><a href="#_spearphishing_attachment">spearphishing-attachment</a></li>
+<li><a href="#_spearphishing_link">spearphishing-link</a></li>
 <li><a href="#_splunk">splunk</a></li>
 <li><a href="#_ss7_attack">ss7-attack</a></li>
 <li><a href="#_ssh_authorized_keys">ssh-authorized-keys</a></li>
@@ -53253,6 +53255,45 @@ ransom-negotiation is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">chatsite</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Chatsite where the negotiations take place</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">chatsite_id_private</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Second, private, chat ID given by actor</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">chatsite_id_public</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Initial chat ID given by actor</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">currency</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -53353,7 +53394,7 @@ ransom-negotiation is a MISP object available in JSON format at <a href="https:/
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60294,6 +60335,424 @@ software is a MISP object available in JSON format at <a href="https://github.co
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_spearphishing_attachment"><a class="anchor" href="#_spearphishing_attachment"></a><a class="link" href="#_spearphishing_attachment">spearphishing-attachment</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Spearphishing Attachment.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+spearphishing-attachment is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/spearphishing-attachment/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">artifact-dropped-md5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">md5</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The MD5 of an additional file that was either extracted from or downloaded by the attachment.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">artifact-dropped-name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filename</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of an additional file that was either extracted from or downloaded by the attachment.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">artifact-dropped-sha1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sha1</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The SHA1 of an additional file that was either extracted from or downloaded by the attachment.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">artifact-dropped-sha256</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sha256</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The SHA256 of an additional file that was either extracted from or downloaded by the attachment.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">attachment-md5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">md5</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The MD5 of the file that was attached to the e-mail itself.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">attachment-name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filename</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The name of the file that was attached to the e-mail itself.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">attachment-sha1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sha1</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The SHA1 of the file that was attached to the e-mail itself.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">attachment-sha256</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sha256</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The SHA256 of the file that was attached to the e-mail itself.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c2-domain</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">domain</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Command and control domain detected during analysis.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c2-ip</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ip-dst</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Command and control IP address detected during analysis.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c2-url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Command and control URL detected during analysis.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Date and time the e-mail was sent.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">email-sender</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">email-src</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The source address from which the e-mail was sent.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">malicious-url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Malicious URL that downloaded additional malware.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">research-links</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A link to an external analysis (VirusTotal, urlscan, etc.).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sender-ip</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ip-src</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The source IP from which the e-mail was sent.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">email-subject</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The subject line of the e-mail.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">supporting-evidence</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Description of the spearphish e-mail.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_spearphishing_link"><a class="anchor" href="#_spearphishing_link"></a><a class="link" href="#_spearphishing_link">spearphishing-link</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Spearphishing Link.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+spearphishing-link is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/spearphishing-link/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Date and time e-mail was sent.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">email-sender</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">email-src</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The source address from which the e-mail was sent.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">embedded-link</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The malicious URL in the e-mail body.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">redirect-url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The redirect URL, if any, from the malicious embedded link.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">research-links</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A link to an external analysis (VirusTotal, urlscan, etc.).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sender-ip</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ip-src</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The source IP from which the e-mail was sent.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">email-subject</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The subject line of the e-mail.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">supporting-evidence</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Description of the spearphish e-mail.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -69611,7 +70070,7 @@ youtube-video is a MISP object available in JSON format at <a href="https://gith
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-05-18 22:05:05 +0200
+Last updated 2022-05-21 15:15:00 +0200
 </div>
 </div>
 </body>
