@@ -5,7 +5,7 @@ layout: post
 banner: /img/blog/graph-syria.png 
 ---
 
-We are pleased to announce the immediate availability of MISP v2.4.159.  This releases includes many improvements, bugs fixing and improvement concerning performance on large dataset.
+We are pleased to announce the immediate availability of MISP v2.4.159.  This releases includes many improvements, bug fixes and improvements concerning performance on large datasets.
 
 # Performance Improvements
 
