@@ -9,19 +9,18 @@ toc: true
 
 Want to join us at an event, discuss opportunities or projects around the MISP project, share your experience about threat intelligence or discuss how MISP could be improved to support security professionals?
 
-
 ### MISP hackathon
 
-- [Open Source Security Hackathon](/hackathon/) - pen Source Security hackathon - Monday 25th October 2021 and Tuesday 26th October 2021
 
 ### MISP at conferences
 
-- [Virtual MISP Summit 0x06](/misp-summit/) - Thursday 21st October 2021.
+- [Cyber and Threat Intelligence Summit (CTIS-2022)](https://cti-summit.org) - October 19th - 20th 2022 in Luxembourg
 
 ### Current MISP Training(s)
 
 ### (some) Past MISP Training(s)
 
+- [Open Source Security Hackathon](/hackathon/) - pen Source Security hackathon - Monday 25th October 2021 and Tuesday 26th October 2021
 - (FULL) Thursday 25th February 2021 - Online MISP Training - Introduction to CTI (French) - [Registration](https://www.xing-events.com/TFHIOJQ)
 - Tuesday 2nd March 2021 - Online MISP Training - MISP - Threat Intelligence Introduction for Analysts - [Registration](https://www.xing.com/events/misp-threat-intelligence-introduction-analysts-3315431)
 - Wednesday 3rd March 2021 - Online MISP Training - MISP - Threat Intelligence for Administrators and Building Information Sharing Communities - [Registration](https://www.xing-events.com/WZGDMOP)
