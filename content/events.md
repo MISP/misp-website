@@ -18,6 +18,10 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### Current MISP Training(s)
 
+- MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals - 13th September 2022 - Remote
+- MISP Training - Administration and Deployment of MISP software - 14th September 2022 - Remote
+- MISP Training - Advanced Developer session from API to MISP internals -15th September 2022 - Remote
+
 ### (some) Past MISP Training(s)
 
 - [Open Source Security Hackathon](/hackathon/) - pen Source Security hackathon - Monday 25th October 2021 and Tuesday 26th October 2021
