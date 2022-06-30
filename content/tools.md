@@ -106,6 +106,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [misp-bulk-tag](https://github.com/morallo/misp-bulk-tag) - this script performs bulk tagging operations over MISP.
 * [misp42splunk](https://github.com/remg427/misp42splunk) - A Splunk app to use one or more MISP in background. misp42splunk is also [available in splunkbase](https://splunkbase.splunk.com/app/4335/#/details).
 * [MISP-IOC-Validator](https://github.com/tom8941/MISP-IOC-Validator/) validates the format of the different IOC from MISP and to remove false positive by comparing these IOC to existing known false positive.
+* [eCrimeLabs MISP Purge Events tool](https://github.com/eCrimeLabs/MISP-PurgeEvents) A python script to perform cleanup of old or unwanted events, including Blacklisted Events.
 * [misp-takedown](https://github.com/rommelfs/misp-takedown) - A curses-style interface for automatic takedown notification based on MISP events.
 * [OpenDXL-ATD-MISP](https://github.com/mohl1/OpenDXL-ATD-MISP) - Automated threat intelligence collection with McAfee ATD, OpenDXL and MISP.
 * [OpenDXL-MISP-IntelMQ-Output](https://github.com/mohl1/OpenDXL-MISP-IntelMQ-Output) - This use case is focusing on the automated real-time threat sharing with MISP (Malware Intelligence Sharing Platform), orchestration tool (IntelMQ) and OpenDXL. IntelMQ is used to collect data from the Malware Intelligence Sharing Platform (MISP), to parse and push intelligence via OpenDXL.
