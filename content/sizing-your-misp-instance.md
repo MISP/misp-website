@@ -7,10 +7,9 @@ toc: true
 
 # Sizing your MISP instance
 
-Sizing a MISP instance highly depends on how the instance will be used. The number of users, data ingested, data points used, number of events, number of correlations, API usage are parameters
-which should be considered while sizing your instance.
+Sizing a MISP instance highly depends on how the instance will be used. The number of users, data ingested, data points used, number of events, number of correlations and API usage are all parameters which should be considered while sizing your instance.
 
-From a hardware perspective, MISP's requirements are quite humble, a web server with 2+ cores and 8-16 GB of memory should be plenty, though more is always better of course. A lot of it depends on the data set and the number of users you are dealing with.
+From a hardware perspective, MISP's requirements are quite humble, a web server with 2+ cores and 8-16 GB of memory should be plenty, though more is always better, of course. A lot of it depends on the data set and the number of users you are dealing with.
 
 Some considerations for what might affect your requirements:
 
@@ -22,10 +21,10 @@ Some considerations for what might affect your requirements:
 
 To give some indications of some of the operational servers:
 
-- 16GB memory and 2 vcpus are quite common for smaller sharing hub and end-point MISPs;
+- 16GB memory and 2 vcpus are quite common for smaller sharing hubs and end-point MISPs;
 - large sharing communities (such as the CIRCL private sector community) use 128 GB of memory with 32 physical CPU cores on modern Xeon CPUs;
 - The COVID misp community (https://covid-19.iglocska.eu) runs on 8GB of memory with 4 vcpus and serves over a thousand users;
-- The training instances we use run on a meager 2GB of memory and a single vcpu (though we would not recommend using this for anything besides trainings / experimentation);
+- The training instances we use, run on a meager 2GB of memory and a single vcpu (though we would not recommend using this for anything besides trainings / experimentation);
 
 ## Database
 
