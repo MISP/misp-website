@@ -643,6 +643,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_process">process</a></li>
 <li><a href="#_publication">publication</a></li>
 <li><a href="#_python_etvx_event_log">python-etvx-event-log</a></li>
+<li><a href="#_query">query</a></li>
 <li><a href="#_r2graphity">r2graphity</a></li>
 <li><a href="#_ransom_negotiation">ransom-negotiation</a></li>
 <li><a href="#_reddit_account">reddit-account</a></li>
@@ -693,6 +694,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_ss7_attack">ss7-attack</a></li>
 <li><a href="#_ssh_authorized_keys">ssh-authorized-keys</a></li>
 <li><a href="#_stix2_pattern">stix2-pattern</a></li>
+<li><a href="#_stock">stock</a></li>
 <li><a href="#_submarine">submarine</a></li>
 <li><a href="#_suricata">suricata</a></li>
 <li><a href="#_target_system">target-system</a></li>
@@ -8727,7 +8729,7 @@ domain-ip is a MISP object available in JSON format at <a href="https://github.c
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -45983,6 +45985,19 @@ network-connection is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">count</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">counter</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Number of similar network connections seen</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dst-port</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">port</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -52867,6 +52882,111 @@ python-etvx-event-log is a MISP object available in JSON format at <a href="http
 </div>
 </div>
 <div class="sect1">
+<h2 id="_query"><a class="anchor" href="#_query"></a><a class="link" href="#_query">query</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An object describing a query, along with its format.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+query is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/query/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">author</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Author of the query</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A description of the query rule.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Format of the query. ['event query language (eql)', 'keyword query language (kql)', 'Query DSL', 'Query (Elastic Search)', 'Sigma', 'Lucene query', 'Google search query', 'Ariel Query Language (qradar)', 'Grep', 'Devo LINQ']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">query</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Query rule in the format specified in the format field.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">query-rule-name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Query rule name.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_r2graphity"><a class="anchor" href="#_r2graphity"></a><a class="link" href="#_r2graphity">r2graphity</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -57438,7 +57558,7 @@ report is a MISP object available in JSON format at <a href="https://github.com/
 <td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Type of report ['Report', 'Alert', 'Incident', 'Operation', 'Press Article', 'Press Release', 'Online Article', 'Blog post']</p>
+<p>Type of report ['Alert', 'Artwork', 'Attachment', 'Audio', 'Bill', 'Blog', 'Book', 'Case', 'Conference', 'Dictionary', 'Document', 'Email', 'Encyclopedia', 'Film', 'Forum', 'Hearing', 'Incident', 'Instant', 'Interview', 'Journal', 'Letter', 'Magazine', 'Manuscript', 'Map', 'Newspaper', 'Note', 'Online', 'Operation', 'Patent', 'Podcast', 'Presentation', 'Press', 'Radio', 'Report', 'Software', 'Statute', 'Thesis', 'TV', 'Video', 'Webpage']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -61641,6 +61761,150 @@ stix2-pattern is a MISP object available in JSON format at <a href="https://gith
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_stock"><a class="anchor" href="#_stock"></a><a class="link" href="#_stock">stock</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Object to describe stock market.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+stock is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/stock/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bloomberg-exchange-code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Bloomberg Exchange Code ['AB', 'AF', 'AO', 'AT', 'AV', 'BB', 'BC', 'BD', 'BI', 'BQ', 'BS', 'CC', 'CF', 'CG', 'CK', 'CS', 'CT', 'CV', 'CX', 'CY', 'DB', 'DC', 'DH', 'DU', 'EB', 'EC', 'FH', 'FP', 'GA', 'GB', 'GD', 'GF', 'GH', 'GI', 'GM', 'GS', 'GY', 'HB', 'HK', 'IB', 'ID', 'IJ', 'IM', 'IS', 'IT', 'IX', 'JR', 'JT', 'KK', 'KN', 'KP', 'KQ', 'LI', 'LN', 'LX', 'MC', 'MK', 'MM', 'MT', 'NA', 'NG', 'NL', 'NO', 'NS', 'NZ', 'OM', 'PE', 'PK', 'PL', 'PM', 'PO', 'PW', 'QD', 'QF', 'QT', 'RE', 'RF', 'RX', 'SE', 'SJ', 'SL', 'SM', 'SP', 'SS', 'SV', 'SY', 'TB', 'TG', 'TI', 'TQ', 'TT', 'UA', 'UF', 'UN', 'UP', 'UQ', 'UR', 'UV', 'UW', 'VH', 'VM', 'VX', 'XB', 'ZA']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">country</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Country</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">currency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Currency</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exchange</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Exchange where the stock is traded (Google code) ['AMS', 'ASX', 'ATH', 'BAK', 'BATS', 'BDP', 'BIT', 'BME', 'BMV', 'BOM', 'BVMF', 'CAI', 'CPH', 'DFM', 'EBR', 'ELI', 'EPA', 'ETR', 'FRA', 'HEL', 'HKG', 'IRE', 'IST', 'JAK', 'JNB', 'KAR', 'KOSDAQ', 'KRX', 'KUL', 'LON', 'MCX', 'NASDAQ', 'NSE', 'NYSE', 'NYSEAMERICAN', 'NYSEARCA', 'NZE', 'OTCMKTS', 'PRG', 'PSE', 'SGX', 'SHA', 'SHE', 'STO', 'SWX', 'TLV', 'TPE', 'TSE', 'TYO', 'VIE', 'VTX', 'WSE']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">high-price</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Highest price seen</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">iso-mic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ISO MIC ['ARCX', 'BATE', 'BATS', 'BOAT', 'BVMF', 'CHIX', 'DIFX', 'DSMD', 'HSTC', 'MISX', 'MTAA', 'NEOE', 'NOTC', 'OOTC', 'ROCO', 'TOMX', 'TRQX', 'XADS', 'XAMM', 'XAMS', 'XASE', 'XASX', 'XATH', 'XBAH', 'XBER', 'XBKK', 'XBOG', 'XBOM', 'XBRU', 'XBRV', 'XBSE', 'XBUD', 'XBUE', 'XCAI', 'XCAS', 'XCNQ', 'XCOL', 'XCSE', 'XCYS', 'XDFM', 'XDHA', 'XDSE', 'XDUB', 'XDUS', 'XEQT', 'XETR', 'XFRA', 'XHAM', 'XHAN', 'XHEL', 'XHKG', 'XICE', 'XIDX', 'XIST', 'XJSE', 'XKAR', 'XKLS', 'XKOS', 'XKRX', 'XKUW', 'XLIM', 'XLIS', 'XLJU', 'XLON', 'XLUX', 'XMAD', 'XMEX', 'XMUN', 'XMUS', 'XNAI', 'XNCM', 'XNEC', 'XNGM', 'XNGS', 'XNMS', 'XNSA', 'XNSE', 'XNYS', 'XNZE', 'XOSL', 'XPAR', 'XPHS', 'XPOS', 'XPRA', 'XQTX', 'XSAU', 'XSES', 'XSGO', 'XSHE', 'XSHG', 'XSTC', 'XSTO', 'XSTU', 'XSWX', 'XTAE', 'XTAI', 'XTKS', 'XTSE', 'XTSX', 'XVTX', 'XWAR', 'XWBO', 'XZAG']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">low-price</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Lowest price seen</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">symbol</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Symbol of the stock</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -70070,7 +70334,7 @@ youtube-video is a MISP object available in JSON format at <a href="https://gith
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-05-21 15:15:00 +0200
+Last updated 2022-06-25 11:45:12 +0200
 </div>
 </div>
 </body>
