@@ -13,12 +13,12 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 The date of the next hackathon will be shared soon.
 
-### MISP at conferences
+### Conferences featuring MISP core members talking about MISP and/or threat intelligence 
 
 - [Cyber and Threat Intelligence Summit (CTIS-2022)](https://cti-summit.org) - October 19th - 20th 2022 in Luxembourg
 - [2022 FIRST Cyber Threat Intelligence Symposium | #FIRSTCTI22](https://www.first.org/events/symposium/berlin2022/program) - November 1st - 3rd 2022 in Berlin
 
-### Current MISP Training(s)
+### Upcoming public MISP trainings 
 
 A participation of 10 EUR is asked per remote training session. 
 
@@ -34,7 +34,7 @@ A participation of 10 EUR is asked per remote training session.
 
 <script type="text/javascript" src="https://www.xing-events.com/resources/js/amiandoExport.js"></script><iframe title="Ticket shop" src="https://IMGQRQQ.xing-events.com/IMGQRQQ.html?viewType=iframe&distributionChannel=CHANNEL_IFRAME&language=en&resizeIFrame=true" frameborder="0" width="650px" id="_amiandoIFrame5078480"><p>This page requires frame support. Please use a frame compatible browser to see the ticket sales module.</p></iframe>
 
-### (some) Past MISP Training(s)
+### (some) Past MISP Trainings
 
 - [Open Source Security Hackathon](/hackathon/) - pen Source Security hackathon - Monday 25th October 2021 and Tuesday 26th October 2021
 - (FULL) Thursday 25th February 2021 - Online MISP Training - Introduction to CTI (French) - [Registration](https://www.xing-events.com/TFHIOJQ)
@@ -68,4 +68,11 @@ A participation of 10 EUR is asked per remote training session.
 
 ### Conferences featuring MISP core members talking about MISP and/or threat intelligence
 
-
+- [Fundamentals MISP given FIRSTdotOrg 2021 Virtual Symposium African and Arab regions](https://www.youtube.com/watch?v=00jq7Gbqdz8) - 18th December 2021
+- [MISP General Usage Training - Part 1 of 2](https://www.youtube.com/watch?v=-NuODyh1YJE)
+- [MISP General Usage Training - Part 2 of 2](https://www.youtube.com/watch?v=LlKnh5b0bgw)
+- [MISP Training Usage - Training given the 2nd March 2021 - 2h50 min](https://cra.circl.lu/videos/MISP-Usage-Training-20210302.mp4)
+- [MISP Training Administration and Building Communities- Training given the 3rd March 2021 - 2h56min](https://cra.circl.lu/videos/MISP-Administration-and-Building-Communities-20210303.mp4)
+- [MISP Training Module 1 - An Introduction to Cybersecurity Information Sharing](https://www.youtube.com/watch?v=aM7czPsQyaI)
+- [MISP Training Module 2 - General usage of MISP](https://www.youtube.com/watch?v=Jqp8CVHtNVk)
+- [MISP covid-19 sharing community - introduction](https://peertube.opencloud.lu/videos/watch/4f7acd4c-a909-4315-87aa-38ba95cceaf2)
