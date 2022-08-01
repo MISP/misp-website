@@ -11,16 +11,28 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### MISP hackathon
 
+The date of the next hackathon will be shared soon.
 
 ### MISP at conferences
 
 - [Cyber and Threat Intelligence Summit (CTIS-2022)](https://cti-summit.org) - October 19th - 20th 2022 in Luxembourg
+- [2022 FIRST Cyber Threat Intelligence Symposium | #FIRSTCTI22](https://www.first.org/events/symposium/berlin2022/program) - November 1st - 3rd 2022 in Berlin
 
 ### Current MISP Training(s)
 
-- MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals - 13th September 2022 - Remote
-- MISP Training - Administration and Deployment of MISP software - 14th September 2022 - Remote
-- MISP Training - Advanced Developer session from API to MISP internals -15th September 2022 - Remote
+A participation of 10 EUR is asked per remote training session. 
+
+#### MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals - 13th September 2022 14:00-17:00 - Remote
+
+<script type="text/javascript" src="https://www.xing-events.com/resources/js/amiandoExport.js"></script><iframe title="Ticket shop" src="https://IMKNUTR.xing-events.com/IMKNUTR.html?viewType=iframe&distributionChannel=CHANNEL_IFRAME&language=en&resizeIFrame=true" frameborder="0" width="650px" id="_amiandoIFrame5078466"><p>This page requires frame support. Please use a frame compatible browser to see the ticket sales module.</p></iframe>
+
+#### MISP Training - Administration and Deployment of MISP software - 14th September 2022 14:00-17:00 - Remote
+
+<script type="text/javascript" src="https://www.xing-events.com/resources/js/amiandoExport.js"></script><iframe title="Ticket shop" src="https://BVJBEEU.xing-events.com/BVJBEEU.html?viewType=iframe&distributionChannel=CHANNEL_IFRAME&language=en&resizeIFrame=true" frameborder="0" width="650px" id="_amiandoIFrame5078473"><p>This page requires frame support. Please use a frame compatible browser to see the ticket sales module.</p></iframe>
+
+#### MISP Training - Advanced Developer session from API to MISP internals -15th September 2022 14:00-17:00 - Remote
+
+<script type="text/javascript" src="https://www.xing-events.com/resources/js/amiandoExport.js"></script><iframe title="Ticket shop" src="https://IMGQRQQ.xing-events.com/IMGQRQQ.html?viewType=iframe&distributionChannel=CHANNEL_IFRAME&language=en&resizeIFrame=true" frameborder="0" width="650px" id="_amiandoIFrame5078480"><p>This page requires frame support. Please use a frame compatible browser to see the ticket sales module.</p></iframe>
 
 ### (some) Past MISP Training(s)
 
