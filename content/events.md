@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Events around MISP
+title: MISP-related events
 permalink: /events/
 toc: true
 ---
@@ -9,70 +9,76 @@ toc: true
 
 Want to join us at an event, discuss opportunities or projects around the MISP project, share your experience about threat intelligence or discuss how MISP could be improved to support security professionals?
 
-### MISP hackathon
+### MISP Hackathon
 
-The date of the next hackathon will be shared soon.
+The previous Hackaton was in October 2021: [Open Source Security Hackathon](/hackathon/)
 
-### Conferences featuring MISP core members talking about MISP and/or threat intelligence 
+*The date of the next hackathon will be shared soon.*
 
-- [Cyber and Threat Intelligence Summit (CTIS-2022)](https://cti-summit.org) - October 19th - 20th 2022 in Luxembourg
-- [2022 FIRST Cyber Threat Intelligence Symposium | #FIRSTCTI22](https://www.first.org/events/symposium/berlin2022/program) - November 1st - 3rd 2022 in Berlin
+### Conferences 
+Conferences featuring MISP core members talking about MISP and/or threat intelligence
 
-### Upcoming public MISP trainings 
+- #### Cyber and Threat Intelligence Summit (CTIS-2022)
+  
+  *When:* October 19th - 20th 2022
 
-A participation of 10 EUR is asked per remote training session. 
+  *Where:* Luxembourg
 
-#### MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals - 13th September 2022 14:00-17:00 - Remote
+  *Event link:* [Cyber and Threat Intelligence Summit (CTIS-2022)](https://cti-summit.org)
 
-<script type="text/javascript" src="https://www.xing-events.com/resources/js/amiandoExport.js"></script><iframe title="Ticket shop" src="https://IMKNUTR.xing-events.com/IMKNUTR.html?viewType=iframe&distributionChannel=CHANNEL_IFRAME&language=en&resizeIFrame=true" frameborder="0" width="650px" id="_amiandoIFrame5078466"><p>This page requires frame support. Please use a frame compatible browser to see the ticket sales module.</p></iframe>
+- #### 2022 FIRST Cyber Threat Intelligence Symposium
 
-#### MISP Training - Administration and Deployment of MISP software - 14th September 2022 14:00-17:00 - Remote
+  *When:* November 1st - 3rd 2022
 
-<script type="text/javascript" src="https://www.xing-events.com/resources/js/amiandoExport.js"></script><iframe title="Ticket shop" src="https://BVJBEEU.xing-events.com/BVJBEEU.html?viewType=iframe&distributionChannel=CHANNEL_IFRAME&language=en&resizeIFrame=true" frameborder="0" width="650px" id="_amiandoIFrame5078473"><p>This page requires frame support. Please use a frame compatible browser to see the ticket sales module.</p></iframe>
+  *Where:* Berlin
 
-#### MISP Training - Advanced Developer session from API to MISP internals -15th September 2022 14:00-17:00 - Remote
+  *Event link:* [2022 FIRST Cyber Threat Intelligence Symposium | #FIRSTCTI22](https://www.first.org/events/symposium/berlin2022/program)
 
-<script type="text/javascript" src="https://www.xing-events.com/resources/js/amiandoExport.js"></script><iframe title="Ticket shop" src="https://IMGQRQQ.xing-events.com/IMGQRQQ.html?viewType=iframe&distributionChannel=CHANNEL_IFRAME&language=en&resizeIFrame=true" frameborder="0" width="650px" id="_amiandoIFrame5078480"><p>This page requires frame support. Please use a frame compatible browser to see the ticket sales module.</p></iframe>
+### Public MISP trainings 
 
-### (some) Past MISP Trainings
+- #### MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals
+  *When:* 13th September 2022 14:00-17:00 UTC
 
-- [Open Source Security Hackathon](/hackathon/) - pen Source Security hackathon - Monday 25th October 2021 and Tuesday 26th October 2021
-- (FULL) Thursday 25th February 2021 - Online MISP Training - Introduction to CTI (French) - [Registration](https://www.xing-events.com/TFHIOJQ)
-- Tuesday 2nd March 2021 - Online MISP Training - MISP - Threat Intelligence Introduction for Analysts - [Registration](https://www.xing.com/events/misp-threat-intelligence-introduction-analysts-3315431)
-- Wednesday 3rd March 2021 - Online MISP Training - MISP - Threat Intelligence for Administrators and Building Information Sharing Communities - [Registration](https://www.xing-events.com/WZGDMOP)
-- [MISP Covid training](https://bbb.secin.lu/b/ale-q6v-ecn) Remote on how to use MISP in the scope of sharing information about COVID-19 - 27 March 2020 at 14:00 CET (2 hours)
-- [MISP Training - Hands-on workshop for analysts and MISP users](https://www.xing-events.com/DLCMDJY.html) in Luxembourg, February 19, 2020
-- [MISP Training - Threat Intelligence Introduction for Analysts and Administrators](https://www.xing-events.com/UXMOBFA.html) in Luxembourg, February 18, 2020
-- [MISP Training (Slovenia)](https://www.first.org/events/colloquia/ljubljana2019/program) in Ljubljana 2019 FIRST Technical Colloquium, November 13–14, 2019
-- [MISP Training - Threat Intelligence Introduction for Analysts and Administrators](https://en.xing-events.com/AOMYCCV.html) in Luxembourg, December 03, 2019
-- [MISP Training - Hands-on workshop for analysts and MISP users](https://en.xing-events.com/JSUSQIV.html) in Luxembourg, December 04, 2019
-- [MISP Training - Advanced developers session, including MISP core](https://en.xing-events.com/WBFKUVK.html) in Luxembourg, December 05, 2019
-- [MISP Training (Norway)](https://www.first.org/events/colloquia/oslo2019/) in Oslo, October 15-17th 2019
-- [MISP Training (Slovenia)](https://www.first.org/events/colloquia/ljubljana2019/program) in Ljubljana 2019 FIRST Technical Colloquium, November 13–14, 2019
-- [MISP Training - Threat Intelligence Introduction for Analysts and Administrators](https://en.xing-events.com/AOMYCCV.html) in Luxembourg, December 03, 2019
-- [MISP Training - Hands-on workshop for analysts and MISP users](https://en.xing-events.com/JSUSQIV.html) in Luxembourg, December 04, 2019
-- [MISP Training - Advanced developers session, including MISP core](https://en.xing-events.com/WBFKUVK.html) in Luxembourg, December 05, 2019
-- [MISP Training (Prague) - Threat Intelligence Analyst and Administrators](https://en.xing-events.com/XDMSLUO) - in Prague - 17th September 2019
-- [MISP Training (Prague) - Developers session - API and Extensions](https://en.xing-events.com/ULBAHVN) - in Prague - 18th September 2019
-- [MISP Training - Threat Intelligence Analyst and Administrators](https://en.xing-events.com/EJKDRZP) - at CIRCL Luxembourg - 24th September 2019
-- [MISP Training - MISP Training - Hands-on workshop](https://en.xing-events.com/UEXXGRO) - at CIRCL Luxembourg - 25th September 2019
-- [MISP Training - MISP Training - Advanced developers session, including MISP core](https://en.xing-events.com/CQYGYJQ) - at CIRCL Luxembourg - 26th September 2019
-- [MISP Training (Luxembourg) - Threat Intelligence for Analyst and Administrators](https://en.xing-events.com/QPILZTS.html) - at CIRCL Luxembourg - 25th March 2019
-- [MISP Training (Luxembourg) - Threat Intelligence for Analyst and Administrators](https://en.xing-events.com/YXNNPWD) - at CIRCL Luxembourg - 26th March 2019
-- [MISP Training (Luxembourg) - Developers session - API and Extensions](https://en.xing-events.com/IHSBNTB) - at CIRCL Luxembourg - 27th March 2019
-- [MISP Training (CERN) - Threat Intelligence for Analyst and Administrators (with a focus on NIDS such as Bro/Zeek](https://indico.cern.ch/event/787173/) - at CERN - 11-12 April 2019
-- [MISP Training (SIGS/Zurich) - Threat Intelligence for Analyst and Administrators](https://www.sig-switzerland.ch/misp_training/) - at SWITCH (Zurich) - 2nd May 2019
-- [MISP Training (SIGS/Zurich) - Threat Intelligence for Analyst and Administrators](https://www.sig-switzerland.ch/misp_training/) - at SWITCH (Zurich) - 3rd May 2019
-- [MISP Training (Prague) - Threat Intelligence Analyst and Administrators ](https://en.xing-events.com/XDMSLUO.html) - at SPCSS Prague, Conference center GreenPoint, s. r. o.  - 17 Sep 2019
-- [MISP Training (Prague) - Developers session](https://en.xing-events.com/ULBAHVN.html) - at SPCSS Prague, Conference center GreenPoint, s. r. o.  - 18 Sep 2019
+  *Where:* Remote (Zoom and online MISP traning instance)
 
-### Conferences featuring MISP core members talking about MISP and/or threat intelligence
+  *Price:* A participation fee of 10 EUR is asked per remote training session 
 
-- [Fundamentals MISP given FIRSTdotOrg 2021 Virtual Symposium African and Arab regions](https://www.youtube.com/watch?v=00jq7Gbqdz8) - 18th December 2021
-- [MISP General Usage Training - Part 1 of 2](https://www.youtube.com/watch?v=-NuODyh1YJE)
-- [MISP General Usage Training - Part 2 of 2](https://www.youtube.com/watch?v=LlKnh5b0bgw)
-- [MISP Training Usage - Training given the 2nd March 2021 - 2h50 min](https://cra.circl.lu/videos/MISP-Usage-Training-20210302.mp4)
-- [MISP Training Administration and Building Communities- Training given the 3rd March 2021 - 2h56min](https://cra.circl.lu/videos/MISP-Administration-and-Building-Communities-20210303.mp4)
-- [MISP Training Module 1 - An Introduction to Cybersecurity Information Sharing](https://www.youtube.com/watch?v=aM7czPsQyaI)
-- [MISP Training Module 2 - General usage of MISP](https://www.youtube.com/watch?v=Jqp8CVHtNVk)
-- [MISP covid-19 sharing community - introduction](https://peertube.opencloud.lu/videos/watch/4f7acd4c-a909-4315-87aa-38ba95cceaf2)
+  *Summary agenda:*
+    - General usage
+    - Encoding a report
+    - Making use of the various tools in MISP from an analyst perspective
+
+  *Event link:* [Register for this event](https://IMKNUTR.xing-events.com/IMKNUTR.html?viewType=iframe&distributionChannel=CHANNEL_IFRAME&language=en&resizeIFrame=true)
+
+- #### MISP Training - Administration and Deployment of MISP software
+  *When:* 14th September 2022 14:00-17:00 UTC
+
+  *Where:* Remote (Zoom and online MISP traning instance)
+
+  *Price:* A participation fee of 10 EUR is asked per remote training session 
+
+  *Summary agenda:*
+    - Deploying / running your MISP, i.e.
+      - Configuration
+      - Installation
+      - Community management
+
+  *Event link:* [Register for this event](https://BVJBEEU.xing-events.com/BVJBEEU.html?viewType=iframe&distributionChannel=CHANNEL_IFRAME&language=en&resizeIFrame=true)
+
+- #### MISP Training - Advanced Developer session from API to MISP internals
+  *When:* 15th September 2022 14:00-17:00 UTC
+
+  *Where:* Remote (Zoom and online MISP traning instance)
+
+  *Price:* A participation fee of 10 EUR is asked per remote training session 
+
+  *Summary agenda:*
+    - Intro to API usage
+    - Supporting dev libraries
+    - Session on development of MISP internals
+
+  *Event link:* [Register for this event](https://IMGQRQQ.xing-events.com/IMGQRQQ.html?viewType=iframe&distributionChannel=CHANNEL_IFRAME&language=en&resizeIFrame=true)
+
+### Past events
+
+You can find past events [here](/past-events/).
