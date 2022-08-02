@@ -1,0 +1,18 @@
+{{/*
+  Parameters:
+   Parameter 0: Will be used to render "Register for <0>"
+   Parameter 1: Will replace the link text "Register for this event"
+   Parameter 2: Will replace the whole "Register for " header. Parameter 0 is thus void.
+  Example usage: 
+
+  {{< collapse-event `MISP Training - Advanced Developer session from API to MISP internals` >}}
+    < insert xing iframe code here >
+  {{< /collapse-event >}}
+
+*/}}{{ $collapse_id := md5 .Inner }}<a data-toggle="collapse" href="#collapse{{ $collapse_id }}" role="button" aria-expanded="false" aria-controls="collapse{{ $collapse_id }}">{{ if (len (.Get 1)) }}{{ .Get 1 }}{{ else }}Register for this event{{ end }}</a>
+<div class="collapse border" id="collapse{{ $collapse_id }}">
+  <div class="card card-body border">
+	  <b>{{ if (len (.Get 2)) }}{{ .Get 2 }}{{ else }}Register for {{ .Get 0 }}{{ end }}</b>
+	{{ .Inner }}
+  </div>
+</div>
