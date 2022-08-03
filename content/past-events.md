@@ -6,44 +6,46 @@ toc: true
 ---
 
 ## Past conferences
-Past conferences featuring MISP core members talking about MISP and/or threat intelligence
+
+Past conferences featuring MISP core members talking about MISP and/or threat intelligence. Some links include video recordings.
 
 ### 2021
-- [MISP Fundamentals](https://www.youtube.com/watch?v=00jq7Gbqdz8)
+
+- Video: [MISP Fundamentals](https://www.youtube.com/watch?v=00jq7Gbqdz8)
   
   *When:* 18th December 2021 (3h43m)
 
   *Event:* FIRSTdotOrg 2021 Virtual Symposium African and Arab regions
 
-- [MISP General Usage Training - Part 1 of 2](https://www.youtube.com/watch?v=-NuODyh1YJE)
+- Video: [MISP General Usage Training - Part 1 of 2](https://www.youtube.com/watch?v=-NuODyh1YJE)
   
   *When:* 12th April 2021 (3h42m)
 
-- [MISP General Usage Training - Part 2 of 2](https://www.youtube.com/watch?v=LlKnh5b0bgw)
+- Video: [MISP General Usage Training - Part 2 of 2](https://www.youtube.com/watch?v=LlKnh5b0bgw)
   
   *When:* 12th April 2021 (3h40m)
 
-- [MISP Training Usage](https://cra.circl.lu/videos/MISP-Usage-Training-20210302.mp4)
+- Video: [MISP Training Usage](https://cra.circl.lu/videos/MISP-Usage-Training-20210302.mp4)
 
   *When:* 2nd March 2021 (2h50m)
 
-- [MISP Training Administration and Building Communities](https://cra.circl.lu/videos/MISP-Administration-and-Building-Communities-20210303.mp4)
+- Video: [MISP Training Administration and Building Communities](https://cra.circl.lu/videos/MISP-Administration-and-Building-Communities-20210303.mp4)
 
   *When:* 3rd March 2021 (2h56m)
 
 ### 2020
 
-- [MISP covid-19 sharing community - introduction](https://peertube.opencloud.lu/videos/watch/4f7acd4c-a909-4315-87aa-38ba95cceaf2)
+- Video: [MISP covid-19 sharing community - introduction](https://peertube.opencloud.lu/videos/watch/4f7acd4c-a909-4315-87aa-38ba95cceaf2)
 
   *When:* 28th March 2020 (1h40m)
 
 ### 2018
 
-- [MISP Training Module 1 - An Introduction to Cybersecurity Information Sharing](https://www.youtube.com/watch?v=aM7czPsQyaI)
+- Video: [MISP Training Module 1 - An Introduction to Cybersecurity Information Sharing](https://www.youtube.com/watch?v=aM7czPsQyaI)
 
   *When:* 6th November 2018 (1h6m)
 
-- [MISP Training Module 2 - General usage of MISP](https://www.youtube.com/watch?v=Jqp8CVHtNVk)
+- Video: [MISP Training Module 2 - General usage of MISP](https://www.youtube.com/watch?v=Jqp8CVHtNVk)
 
   *When:* 6th November 2018 (1h8m)
 
