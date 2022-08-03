@@ -1,0 +1,19 @@
+{{/*
+  Parameters:
+   Parameter 0: XING Event code
+   Parameter 1: Event title
+   Parameter 2: (optional) Will replace the link text "Register for this event"
+   Parameter 3: (Optional) Will replace the whole "Register for <param 1>" header. Parameter 1 is thus void.
+  Example usage:
+
+  {{< collapse-event `IMKNUTR` `MISP Training - Advanced Developer session from API to MISP internals` >}}
+
+*/}}{{ $collapse_id := .Get 0 }}<a data-toggle="collapse" href="#collapse{{ $collapse_id }}" role="button" aria-expanded="false" aria-controls="collapse{{ $collapse_id }}">{{ if (len (.Get 2)) }}{{ .Get 2 }}{{ else }}Register for this event{{ end }}</a>
+<div class="collapse border" id="collapse{{ $collapse_id }}">
+  <div class="card card-body border">
+    <b>{{ if (len (.Get 3)) }}{{ .Get 3 }}{{ else }}Register for {{ .Get 1 }}{{ end }}</b>
+    <iframe title="Ticket shop" src="https://{{ .Get 0 }}.xing-events.com/{{ .Get 0 }}.html?viewType=iframe&distributionChannel=CHANNEL_IFRAME&language=en&resizeIFrame=true" frameborder="1" width="650px" id="_amiandoIFrame{{ $collapse_id }}">
+      <p>Please use <a href="https://{{ .Get 0 }}.xing-events.com/{{ .Get 0 }}.html?viewType=iframe&distributionChannel=CHANNEL_IFRAME&language=en&resizeIFrame=true" target="_blank">this link</a> to register.</p>
+    </iframe>
+  </div>
+</div>

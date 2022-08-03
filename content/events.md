@@ -39,7 +39,7 @@ Conferences featuring MISP core members talking about MISP and/or threat intelli
 
 - #### MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals
 
-  *When:* {{< time-and-date-event `13th September 2022 14:00-17:00 UTC` `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` `20220913T14` `3` >}}</a>
+  *When:* {{< fixedtime `13th September 2022 14:00-17:00 UTC` `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` `20220913T14` `3` >}}</a>
 
   *Where:* Remote (Zoom and online MISP traning instance)
 
@@ -50,13 +50,10 @@ Conferences featuring MISP core members talking about MISP and/or threat intelli
     - Encoding a report
     - Making use of the various tools in MISP from an analyst perspective
 
-  *Event link:* {{< collapse-event `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` >}}
-      <iframe title="Ticket shop" src="https://IMKNUTR.xing-events.com/IMKNUTR.html?viewType=iframe&distributionChannel=CHANNEL_IFRAME&language=en&resizeIFrame=true" frameborder="1" width="650px" id="_amiandoIFrame5078466">
-      <p>This page requires frame support. Please use a frame compatible browser to see the ticket sales module.</p></iframe>
-  {{< /collapse-event >}}
+  *Event link:* {{< xing-collapse-iframe `IMKNUTR` `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` >}}
 
 - #### MISP Training - Administration and Deployment of MISP software
-  *When:* {{< time-and-date-event `14th September 2022 14:00-17:00 UTC` `MISP Training - Administration and Deployment of MISP software` `20220914T14` `3` >}}</a>
+  *When:* {{< fixedtime `14th September 2022 14:00-17:00 UTC` `MISP Training - Administration and Deployment of MISP software` `20220914T14` `3` >}}</a>
 
   *Where:* Remote (Zoom and online MISP traning instance)
 
@@ -68,12 +65,10 @@ Conferences featuring MISP core members talking about MISP and/or threat intelli
       - Installation
       - <span class="border border-success">Community management</span>
 
-  *Event link:* {{< collapse-event `MISP Training - Administration and Deployment of MISP software` >}}
-      <iframe title="Ticket shop" src="https://BVJBEEU.xing-events.com/BVJBEEU.html?viewType=iframe&distributionChannel=CHANNEL_IFRAME&language=en&resizeIFrame=true" width="650px" id="_amiandoIFrame5078473"><p>This page requires frame support. Please use a frame compatible browser to see the ticket sales module.</p></iframe>
-  {{< /collapse-event >}}
+  *Event link:* {{< xing-collapse-iframe `BVJBEEU` `MISP Training - Administration and Deployment of MISP software` >}}
 
 - #### MISP Training - Advanced Developer session from API to MISP internals
-  *When:* {{< time-and-date-event `15th September 2022 14:00-17:00 UTC` `MISP Training - Advanced Developer session from API to MISP internals` `20220915T14` `3` >}}
+  *When:* {{< fixedtime `15th September 2022 14:00-17:00 UTC` `MISP Training - Advanced Developer session from API to MISP internals` `20220915T14` `3` >}}
 
   *Where:* Remote (Zoom and online MISP traning instance)
 
@@ -84,9 +79,7 @@ Conferences featuring MISP core members talking about MISP and/or threat intelli
     - Supporting dev libraries
     - Session on development of MISP internals
 
-  *Event link:* {{< collapse-event `MISP Training - Advanced Developer session from API to MISP internals` >}}
-      <iframe title="Ticket shop" src="https://IMGQRQQ.xing-events.com/IMGQRQQ.html?viewType=iframe&distributionChannel=CHANNEL_IFRAME&language=en&resizeIFrame=true" width="650px" id="_amiandoIFrame5078480"><p>This page requires frame support. Please use a frame compatible browser to see the ticket sales module.</p></iframe>
-    {{< /collapse-event >}}
+  *Event link:* {{< xing-collapse-iframe `IMGQRQQ` `MISP Training - Advanced Developer session from API to MISP internals` >}}
 
 ### Past events
 
