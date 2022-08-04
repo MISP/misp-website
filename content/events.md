@@ -41,7 +41,7 @@ Conferences featuring MISP core members talking about MISP and/or threat intelli
 
   *When:* {{< fixedtime `13th September 2022 14:00-17:00 UTC` `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` `20220913T14` `3` >}}</a>
 
-  *Where:* Remote (Zoom and online MISP traning instance)
+  *Where:* Remote (Zoom and online MISP training instance)
 
   *Price:* A participation fee of 10 EUR is asked per remote training session 
 
@@ -55,7 +55,7 @@ Conferences featuring MISP core members talking about MISP and/or threat intelli
 - #### MISP Training - Administration and Deployment of MISP software
   *When:* {{< fixedtime `14th September 2022 14:00-17:00 UTC` `MISP Training - Administration and Deployment of MISP software` `20220914T14` `3` >}}</a>
 
-  *Where:* Remote (Zoom and online MISP traning instance)
+  *Where:* Remote (Zoom and online MISP training instance)
 
   *Price:* A participation fee of 10 EUR is asked per remote training session 
 
@@ -70,7 +70,7 @@ Conferences featuring MISP core members talking about MISP and/or threat intelli
 - #### MISP Training - Advanced Developer session from API to MISP internals
   *When:* {{< fixedtime `15th September 2022 14:00-17:00 UTC` `MISP Training - Advanced Developer session from API to MISP internals` `20220915T14` `3` >}}
 
-  *Where:* Remote (Zoom and online MISP traning instance)
+  *Where:* Remote (Zoom and online MISP training instance)
 
   *Price:* A participation fee of 10 EUR is asked per remote training session 
 
