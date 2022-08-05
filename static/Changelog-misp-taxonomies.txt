@@ -1,6 +1,90 @@
 # Changelog
 
 
+## v2.4.160 (2022-08-04)
+
+### New
+
+* [diamond-model-for-influence-operations] "The Diamond Model for Influence Operations Analysis" taxonomy added. [Alexandre Dulaunoy]
+
+* [nis2] NIS2 proposal taxonomy. [Alexandre Dulaunoy]
+
+  The taxonomy is meant for large scale cybersecurity incidents, as mentioned in the Commission Recommendation of 13 May 2022, also known as the provisional agreement.
+  This proposal is based on the original NIS (machinetag) JSON file with the reflection of NIS2 proposal including changes as:
+  - changes in sectors,
+  - adding subsectors with detailed description,
+  - adding taxonomies for important entities
+  - adding subsectors for important entities.
+  Work done as part of contribution to EnCaViBS project https://encavibs.uni.lu
+  [machinetag2.txt](https://github.com/MISP/misp-taxonomies/files/8948834/machinetag2.txt)
+
+  Contribution from @AMEXTT
+
+### Changes
+
+* [MANIFEST] updated. [Alexandre Dulaunoy]
+
+* [tlp] updating the new version of the traffic light protocol published by FIRST.org. [Alexandre Dulaunoy]
+
+  Some notes concerning the version 2.0 of the tlp taxonomy:
+
+  - A new tag is introduced `TLP:AMBER+STRICT` to clarify the restriction to
+  share only with your organisation.
+  - A new tag is introduced called `TLP:CLEAR` which seems to replace
+  `TLP:WHITE` as it disappears from the version 2.0 of the official TLP
+  document.
+  - The old tag `TLP:WHITE` is preserved in the taxonomy. As we don't have
+  any official reference in the version 2.0 about the compatibility with
+  `TLP:CLEAR`, we *assume* it's a synomym from the original `TLP:WHITE`.
+  - The old tag `TLP:EX:CHR` is also preserved in the taxonomy for
+  backward compatibility.
+
+  We strongly recommend any users using the tlp taxonomy in their tools to review
+  workflows and ensure that the new version 2.0 is taken into consideration.
+
+* [nis2] various fixes. [Alexandre Dulaunoy]
+
+* [github action] YAML parsing is just a piece-of-crap(tm) [Alexandre Dulaunoy]
+
+* [gh] Python 3.10 added. [Alexandre Dulaunoy]
+
+* [pyoti] refs are array. [Alexandre Dulaunoy]
+
+* [pyoti] clean-up JSON. [Alexandre Dulaunoy]
+
+### Fix
+
+* [tlp] description of the TLP taxonomy updated to clarify the aspect of four labels mentioned in the standard even if there are five labels and some more in this taxonomy for backward compatibility. [Alexandre Dulaunoy]
+
+### Other
+
+* Merge branch 'main' of github.com:MISP/misp-taxonomies into main. [Alexandre Dulaunoy]
+
+* Merge pull request #248 from goodlandsecurity/pyoti-v3. [Alexandre Dulaunoy]
+
+  Pyoti v3
+
+* Forgot jq_all_the_things.sh. [goodlandsecurity]
+
+* Bump pyoti version. [goodlandsecurity]
+
+* Remove predicate description so entry description shows on hover, added virustotal entry. [goodlandsecurity]
+
+* Merge pull request #247 from goodlandsecurity/pyoti-v2. [Alexandre Dulaunoy]
+
+  Pyoti taxonomy v2
+
+* Merge remote-tracking branch 'upstream/main' into pyoti-v2 fetch upstream and merge. [goodlandsecurity]
+
+* Added entries for domain-based reputation block lists. [goodlandsecurity]
+
+* Bump pyoti version. [goodlandsecurity]
+
+* Merge branch 'goodlandsecurity-pyoti-enrichment-taxonomy' into main. [Alexandre Dulaunoy]
+
+* Adding pyoti enrichment taxonomy. [goodlandsecurity]
+
+
 ## v2.4.159 (2022-05-30)
 
 ### New

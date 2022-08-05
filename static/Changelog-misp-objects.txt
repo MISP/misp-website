@@ -1,6 +1,100 @@
 # Changelog
 
 
+## v2.4.160 (2022-08-04)
+
+### New
+
+* [sigma] a sigma attribute exists in MISP but the object was missing to add some additional meta information. [Alexandre Dulaunoy]
+
+* [query] query object to describe search queries on SIEM and other tools. [Alexandre Dulaunoy]
+
+  MISP object template designed following requests and especially this twitter thread:
+
+  https://twitter.com/castello_johnny/status/1540610057263628289
+
+  I added a list of sane default based on the ones I have seen being used:
+
+        "sane_default": [
+          "event query language (eql)",
+          "keyword query language (kql)",
+          "Query DSL",
+          "Query (Elastic Search)",
+          "Sigma",
+          "Lucene query",
+          "Google search query",
+          "Ariel Query Language (qradar)",
+          "Grep",
+          "Devo LINQ"
+        ],
+
+  Thanks to Gianni Castaldi and others for ideas.
+
+  The object can be expanded and improved over the time and the needs
+  to share new queries.
+
+* [stock] a first version of a stock market object to describe stock in MISP. [Alexandre Dulaunoy]
+
+### Changes
+
+* [doc] list of MISP object template updated. [Alexandre Dulaunoy]
+
+* [scheduled-task] disable_correlation + clarification. [Alexandre Dulaunoy]
+
+* Fixed typo in disable_correlation. [matthijsvp]
+
+* [ftm-Call] fixed missing description. [Alexandre Dulaunoy]
+
+* [query] add Kusto Query Language (KQL) [Alexandre Dulaunoy]
+
+* [query] add missing SPL language (Splunk) format. [Alexandre Dulaunoy]
+
+  Thanks to https://twitter.com/nbareil/status/1540633706959863813 @nbareil
+
+* [doc] list of objects updated. [Alexandre Dulaunoy]
+
+* [stock] newline fixed. [Alexandre Dulaunoy]
+
+* [stock] UUID fixed. [Alexandre Dulaunoy]
+
+* [report] add Zotero item types in addition to the default type. [Alexandre Dulaunoy]
+
+* [domain-ip] added the multiple flag back to ports. [iglocska]
+
+  - as discussed with @righel, if we allow multiple IPs we should also allow multiple ports
+  - we might revise this in the future if it causes issues, however, then we should also restrict the use of multiple IP addresses
+
+* Chg: [network-connection] add a counter following discussion with @chrisr3d. [Alexandre Dulaunoy]
+
+### Fix
+
+* [yara] add a reference link to the YARA object template. [Alexandre Dulaunoy]
+
+* [ftm-*] Fixing missing description - #363. [Alexandre Dulaunoy]
+
+* [ftm] missing description fix #363. [Alexandre Dulaunoy]
+
+### Other
+
+* Merge branch 'main' of github.com:MISP/misp-objects into main. [Alexandre Dulaunoy]
+
+* Best practices when creating MISP object templates. [Alexandre Dulaunoy]
+
+* Windows Scheduled Task Object - First draft. [Delta-Sierra]
+
+* Merge pull request #364 from matthijsvp/main. [Alexandre Dulaunoy]
+
+  New attack-step object.
+
+* Merge from master. [matthijsvp]
+
+* Merge branch 'MISP:main' into main. [Matthijs van P]
+
+* Initial commit. [matthijsvp]
+
+* Merge branch 'main' of github.com:MISP/misp-objects into main. [Alexandre Dulaunoy]
+
+
 ## v2.4.159 (2022-05-30)
 
 ### Changes

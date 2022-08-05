@@ -2,6 +2,984 @@ Changelog
 =========
 
 
+v2.4.160 (2022-08-05)
+---------------------
+
+New
+~~~
+- [workflow:tag_operation] New module to perform tag operations. [Sami
+  Mokaddem]
+- [correlation rework] round 2. [iglocska]
+
+  - long list of fixes
+  - update scripts
+  - correlation engine management interface
+  - recorrelation/truncation tools
+  - various performance tunings and bug fixes
+- [workflow:debugging] Added debugging capability by POSTing workflow
+  exec to an URL. [Sami Mokaddem]
+- [correlation] engine rewrite. [iglocska]
+
+  - allow for multiple concurrent engines
+    - default: similar behaviour as before, ACL enforced
+    - No ACL: for endpoint misps, disable the enforcement of ACL for correlations altogether
+
+  - rework:
+    - correlation entries are fully indexed reference tables
+    - values are now stored separately
+    - built in protection against overcorrelating values (defaults to 20 max)
+    - 1 way correlations to cut the size in half
+    - unsigned IDs to double the ID space
+    - loads of performance improvements
+    - fix to the broken event index with correlation counts enabled
+
+  - UI improvements
+    - search for values from the correlation column directly (in case there are non-correlating versions of the same value)
+    - added correlations to the attribute search/index
+
+  - TODO:
+    - upgrade scripts
+- [trigger:post_after_save] Added support of post_after_save trigger.
+  [Sami Mokaddem]
+
+  Data passed include the Post's Thread as well as the Event it belongs to if applicable
+- [workflow:trigger_event_after_save] New trigger Event.afterSave. [Sami
+  Mokaddem]
+- [workflow] Added support of estimated overhead for triggers. [Sami
+  Mokaddem]
+- [workflows:editor] Allow to edit blueprints and fixed add/edit modal
+  behavior. [Sami Mokaddem]
+- Add LightPaginator when total page count is not needed/to expensive.
+  [Luciano Righetti]
+- Mysql db tuning recommendations in server diagnostics. [Luciano
+  Righetti]
+- [workflow:published_if] New module. [Sami Mokaddem]
+- [workflow:organisation_if] New module. [Sami Mokaddem]
+- [workflow:distribution_if] module. [Sami Mokaddem]
+- [workflow] Added simplistic webhoob listener in tools/ [Sami Mokaddem]
+- [event-report] Added support of mermaid. [Sami Mokaddem]
+- [workflow:mermaid] New tool to convert graph into mermaid notation.
+  [Sami Mokaddem]
+- [GraphvizDot] New tool to convert workflow graph into dot notation.
+  [Sami Mokaddem]
+- [taxonomy:normalizeCustomTags] Normalize custome tags to their
+  taxonomy format. [Sami Mokaddem]
+
+  New feature accessible on the administrator on-demand action page
+- [CLI] Allow to send real email by testEventNotificationEmail call.
+  [Jakub Onderka]
+- [email] Unsubscribe. [Jakub Onderka]
+- Update to handle network connection objects. [Marco Caselli]
+- [workflow_module:webhook] Added new webhook module. [Sami Mokaddem]
+- [workflowPart] Started integration of workflow parts. [Sami Mokaddem]
+- [workflow] Added toggling module state. [Sami Mokaddem]
+- [workflow:editor] Added translate to and fit canvas methods. [Sami
+  Mokaddem]
+- [action module] added background processing. [iglocska]
+- [background jobs tool] added new shell package. [iglocska]
+- [modules] action module type added. [iglocska]
+
+  - hooking function type
+  - add a hooking point via `$this->Module->executeActions($hook_name, $user, $input, $logging_options, $error)`
+  - will execute the enabled modules for the hook name and depending on the module's type (blocking/not blocking) allow for breaking the execution when false is returned.
+  - For a sample skeleton, see the misp-modules project
+- [workflow:editor] Added UI elements to show blocking and non-blocking
+  execution paths. [Sami Mokaddem]
+- [workflow:editor]  Possibility to delete node from its configuration
+  modal. [Sami Mokaddem]
+- [workflow:editor] Initial work on the workflow editor. [Sami Mokaddem]
+
+Changes
+~~~~~~~
+- [VERSION] bump. [iglocska]
+- [misp-stix] Bumped latest library version. [chrisr3d]
+- Update moment.js to v2.29.4. [Luciano Righetti]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [git] Bumped blueprint library. [Sami Mokaddem]
+- [misp-workflow-blueprints] Track repo. [Sami Mokaddem]
+- [tests] added another sleep to wait for a publish. [iglocska]
+- [workflow:tag_operation] Make module not blocking. [Sami Mokaddem]
+- [tests] added sleep to publishing. [iglocska]
+- [publishing] reverted the speculative fix. [iglocska]
+- [Tag] Helper function to attach/detach tags and bump timestamps. [Sami
+  Mokaddem]
+- [workflow:event_after_save] Changed trigger overhead to high. [Sami
+  Mokaddem]
+- [workflow:baseModule] New helper function and better usage of the
+  `equals` filter operator. [Sami Mokaddem]
+- [PyMISP] Bump to v2.4.160. [Raphaël Vinot]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [event:publish] Only fetch full event if needed + added site_admin
+  perms for the user. [Sami Mokaddem]
+- [correlation:getRelatedAttributes] Updated documentation to reflect
+  returned type. [Sami Mokaddem]
+- [db_schema] Updated to reflect current version. [Sami Mokaddem]
+- [correlations] value field changed to varchar. [iglocska]
+- [serversSettings:correlations] Added translation. [Sami Mokaddem]
+- [workflow:module_zmq] renamed parameter. [Sami Mokaddem]
+- [menus] Added `new` badge for over-correlating values. [Sami Mokaddem]
+- [workflows:index] Added description column. [Sami Mokaddem]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [warninglist] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [grammar] minor fix. [iglocska]
+
+  - fat finger induced typo
+- [correlation] refined explanation why attribute isn't correlating.
+  [iglocska]
+
+  - over-correlations and correlation exclusions now provide a distinct message on the attribute index / event view
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [workflows] Allow running workflows via the editor interface. [Sami
+  Mokaddem]
+- [workflowBlueprint:update] Small refacto. [Sami Mokaddem]
+- [workflowBlueprint] Usage of FileAccessTool. [Sami Mokaddem]
+- [workflow] Refactoring and allow running workflow by ID. [Sami
+  Mokaddem]
+- [workflows:infoModal] Added entry for debugging via debug mode. [Sami
+  Mokaddem]
+- [workflows:triggers] Small UI improvements. [Sami Mokaddem]
+- [workflow:walkGraph] Simplified condition and logging. [Sami Mokaddem]
+- [workflow:executeNode] Improved logging and error catching. [Sami
+  Mokaddem]
+- [workflows:editor] Added link to execution logs. [Sami Mokaddem]
+- [worfklows:editor] UI Improvements on labels. [Sami Mokaddem]
+- Update moment.js to v2.29.4. [Luciano Righetti]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [workflow] Changed the format of the graph. [Sami Mokaddem]
+- [workflow] Changed the format of the graph WiP. [Sami Mokaddem]
+
+  Made a clear separation between node data and module data
+- [workflow] Added an `id` in all module instead of relying on the
+  label. [Sami Mokaddem]
+- [global_menu] Changed workflow beta tag into new. [Sami Mokaddem]
+- [i18n] Added updated default.pot. [Steve Clement]
+- [i18n] Minor __() fix. [Steve Clement]
+- [i18n] Updated Languages, added: Romanian and Sinhala. [Steve Clement]
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [workflow:executeWorkflowForTrigger] Log execution outcome. [Sami
+  Mokaddem]
+- [workflows:if] Usage of Hash::get instead of extract for non-
+  containable operators. [Sami Mokaddem]
+- [workflow] Simplified call to executeTrigger. [Sami Mokaddem]
+- [workflows:editor] Small UI adjustements. [Sami Mokaddem]
+- [workflow:module_email_before_send] Removed useless module. [Sami
+  Mokaddem]
+- [workflows] Improved pagination and added trigger scope. [Sami
+  Mokaddem]
+- [workflow:module_webhook] Added description. [Sami Mokaddem]
+- [workflows:editor] Continued replacing `block` into `node` [Sami
+  Mokaddem]
+- [workflows:editor] Renamed block into node. [Sami Mokaddem]
+- [workflows:editor] Continued renaming block to module. [Sami Mokaddem]
+- [workflows:editor] Added duplicate shortcut. [Sami Mokaddem]
+- [workflows:editor] Continued renaming `block` into `node` [Sami
+  Mokaddem]
+- [workflows:editor] Better error handling while trying to get selected
+  nodes. [Sami Mokaddem]
+- Improve logging, use HttpSocket instead of file_get_contents() for
+  http requests, update docs. [Luciano Righetti]
+- [workflow] Started renaming `block` into `module` [Sami Mokaddem]
+- [workflow] Enable some module by default when updating. [Sami
+  Mokaddem]
+- [workflows:module_index] Added support of mass enable/disable. [Sami
+  Mokaddem]
+- [workflows:editor] Added support of codemirror for textarea. [Sami
+  Mokaddem]
+- [tools:webhook-listener] Slightly clever printing. [Sami Mokaddem]
+- [workflows:misp_module] Reorganised the config in misp-module. [Sami
+  Mokaddem]
+- [workflow:zmq_module] Simplified usage. [Sami Mokaddem]
+- [workflowBlueprint] Clean-up and new method export formats. [Sami
+  Mokaddem]
+- [workflows:editor] Fetch workflow from database after creation. [Sami
+  Mokaddem]
+- [workflow] added `addWorkflow` function in model. [Sami Mokaddem]
+- [workflows:infoModal] Added debugging section. [Sami Mokaddem]
+- [workflows:infoModal] Separated info modal in its own element. [Sami
+  Mokaddem]
+- [workflows:editor] Include trigger-id as a suggestion in the blueprint
+  description. [Sami Mokaddem]
+- [workflow:editor] Show warning for path leading to blocking nodes from
+  non-blocking context. [Sami Mokaddem]
+- [Tool:WorkflowGraph] Option to walk a graph without skipping logic
+  nodes. [Sami Mokaddem]
+- [workflow:attachNotification] Added warning about using a blocking
+  module in a non-blocking trigger. [Sami Mokaddem]
+- [user:afterSave] Do not execute trigger for login and logout actions.
+  [Sami Mokaddem]
+- [workflows:modules] Renamed parallel tasks into concurrent tasks.
+  [Sami Mokaddem]
+- [workflows:editor] Sort modules in the sidebar by their name. [Sami
+  Mokaddem]
+- [workflow:editor] Small UI improvement. [Sami Mokaddem]
+- Refactor so can be re-used. [Luciano Righetti]
+- [webroot] Updated jquery-ui from 1.13.1 to 1.13.2. [Sami Mokaddem]
+- [workflow] Usage of format converter tool to convert passed data into
+  MISP core format. [Sami Mokaddem]
+- [workflow] Made sure data is correctly converted before calling the
+  trigger. [Sami Mokaddem]
+- [workflow:baseModule] Automatically convert into MISP core format if
+  `misp_core_format` is set. [Sami Mokaddem]
+- [workflow] Simplified extraction of trigger from workflows. [Sami
+  Mokaddem]
+- [workflow:distribution_if] Added `event` scope to be used. [Sami
+  Mokaddem]
+- [workflow:webhook] Renamed parameter. [Sami Mokaddem]
+- [workflow] Added support of misp_core_format in triggers and modules.
+  [Sami Mokaddem]
+
+  Allow trigger to specify if their passed data is compliant with the MISP core format from the RFC. As for module, they can specify if they expect data under the MISP core format to be working properly.
+- [workflow] Made action modules inherit the `WorkflowBaseActionModule`
+  class. [Sami Mokaddem]
+- [workflowBlueprint] Added support of misp-workflow-blueprints
+  repository. [Sami Mokaddem]
+- [workflowBlueprint] Added new column `default` to recognize default
+  BP. [Sami Mokaddem]
+- [workflows:editor] prevent disabled module to appear in the module
+  select picker. [Sami Mokaddem]
+- [workflows:editor] Added notice if no modules are enabled. [Sami
+  Mokaddem]
+- [workflows:module_index] Improved notice. [Sami Mokaddem]
+- [workflow] Removed duplicated module parameter related to blocking and
+  added notice in editor. [Sami Mokaddem]
+- [workflow:generic_if] Renamed module for consistency. [Sami Mokaddem]
+- [workflow:module_index] Added notice for modules that failed to load.
+  [Sami Mokaddem]
+- [workflow] Convert to MISP Core format before passing data to the
+  workflow. [Sami Mokaddem]
+- [workflow:executeNode] Renamed function. [Sami Mokaddem]
+- [workflow:tag_if] Added support of `event_attribute` scope and
+  improved integration with queryModuleServer. [Sami Mokaddem]
+- [workflow] Various fixes, improved enrichment support and new logic
+  module. [Sami Mokaddem]
+- [workflow] Added option to globally stop workflow execution. [Sami
+  Mokaddem]
+
+  Not sure if it's relevant since an output can only have one connection
+- [workflow] Prevent and notify multiple connection for the same output.
+  [Sami Mokaddem]
+- [workflowBlueprint] Added mermaid support. [Sami Mokaddem]
+
+  Created new generic field for markdown
+- [appController] Bump query version. [Sami Mokaddem]
+- [js] upgrade moment.js to v2.29.4. [Sami Mokaddem]
+- [sync] Simplify galaxy cluster pushing. [Jakub Onderka]
+- [sync] Reuse ServerSyncTool for pushing sightings. [Jakub Onderka]
+- [sync] Use ServerSyncTool for pushing events. [Jakub Onderka]
+- [sync] Optimise event filtering for push. [Jakub Onderka]
+- [sync] Optimise galaxy cluster pulling. [Jakub Onderka]
+- [sync] Remove duplicate blocklist checking. [Jakub Onderka]
+- [sync] Optimise checking block rule. [Jakub Onderka]
+- [sync] Optimise removing old evens when pulling. [Jakub Onderka]
+- [sync] Optimise event attribute filtering. [Jakub Onderka]
+- [internal] More clear error message in process tool. [Jakub Onderka]
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [LS22] shell updated with the final version used for the exercise.
+  [iglocska]
+- [sidemenu:workflow_blueprint] Re-organised and added divider. [Sami
+  Mokaddem]
+- [workflows:module_view] Added listening workflows in trigger module
+  view. [Sami Mokaddem]
+- [internal] restSearch cleanup. [Jakub Onderka]
+- [internal] Include more types in hash export. [Jakub Onderka]
+- [UI] Event export description. [Jakub Onderka]
+- [internal] JsonExport cleanup. [Jakub Onderka]
+- [internal] Use `BetterCakeEventManager` for AppController. [Jakub
+  Onderka]
+- [internal] Use SORT_REGULAR for array_unique. [Jakub Onderka]
+- [internal] Throw exception if date spec is invalid. [Jakub Onderka]
+- [internal] Convert to const. [Jakub Onderka]
+- [internal] Unsubscribe code. [Jakub Onderka]
+- [doc] Fixes various typos and spelling mistakes. [Graham Williamson]
+- [doc] Fixes broken link to OpenAPI spec. [Graham Williamson]
+- [workflow] Moved directory of custom modules in `Lib` folder. [Sami
+  Mokaddem]
+- [workflpw:editor] Added link to github issue and workflow ID column.
+  [Sami Mokaddem]
+- [workflow:editor] Improved fitCanvas and removed more html when saving
+  workflows. [Sami Mokaddem]
+- [workflow:logging] Added logging to file in addition to DB logging.
+  [Sami Mokaddem]
+
+  This is used to mitigate a bug that prevent log entries to be saved in the log table if they are inserted in a `beforeSave` context. The bug append because cakephp rolls back any pending entry in the transaction.
+- [tools:FileAccessTool] Added support of append in writeToFile. [Sami
+  Mokaddem]
+- [workflow:editor] Added draft of info modal. [Sami Mokaddem]
+- [workflow:editor] Added additional save blueprint button. [Sami
+  Mokaddem]
+- [workflow] Renaming and UI Improvements. [Sami Mokaddem]
+- [workflow:editor] Strip HTML when saving workflow and exporting
+  blueprints. [Sami Mokaddem]
+- [workflow] Various improvement and fixes for misp-modules. [Sami
+  Mokaddem]
+- [workflow] Various improvement and added support of
+  `enrichment_before_query` trigger. [Sami Mokaddem]
+- [global_menu] Added beta label next to workflow. [Sami Mokaddem]
+- [workflows] UI Tweaks. [Sami Mokaddem]
+- [workflow:misp_module] Added support of blocking module. [Sami
+  Mokaddem]
+- [workflow:editor] Added support of chosen for blueprints. [Sami
+  Mokaddem]
+- [workflow:editor] Allow drag&drop for blueprint. [Sami Mokaddem]
+- [WorkflowBlueprint] Renamed WorkflowPart into WorkflowBlueprint. [Sami
+  Mokaddem]
+- [workflow:editor] Started better integration of workflow parts. [Sami
+  Mokaddem]
+- [workflows:beforeFilter] Prevent access if setting is disabled. [Sami
+  Mokaddem]
+- [workflow] Added attribute and object afterSave trigger. [Sami
+  Mokaddem]
+- [workflows:index] UI tweak. [Sami Mokaddem]
+- [workflow] Improved integration with settings + added global setting
+  to enable/disable workflow feature. [Sami Mokaddem]
+- [workflow] non-blocking workflows are run by background workers. [Sami
+  Mokaddem]
+- [workflows:index] Link to view workflow execution results. [Sami
+  Mokaddem]
+- [user:saveCallbacks] Added support of trigger in beforeSave and
+  afterSave. [Sami Mokaddem]
+
+  Triggers are named respectively `user-before-save` and `user-after-save`
+- [workflow] Improved logging capabilities and stop aborting execution
+  if non-blocking module return false. [Sami Mokaddem]
+- [workflow] Added WorkflowBaseTriggerModule class to be extended by
+  triggers. [Sami Mokaddem]
+- [sidemenu] Added more link for workflowParts controller. [Sami
+  Mokaddem]
+- [workflow:editor] Added possibility to include workflow parts +
+  various fixes. [Sami Mokaddem]
+- [workflow:moduleIndex] Added more filtering options. [Sami Mokaddem]
+- [workflows:index] Added module icons in index and view. [Sami
+  Mokaddem]
+- [workflow:editor] Improved selection behavior and UI. [Sami Mokaddem]
+- [workflow:editor] General UI improvements. [Sami Mokaddem]
+- [workflow] Added toggling trigger state from the index. [Sami
+  Mokaddem]
+- [workflow] Small UI tweaks. [Sami Mokaddem]
+- [workflow:index_module] Added column for blocking modules. [Sami
+  Mokaddem]
+- [workflow:editor] Mainly improved UI. [Sami Mokaddem]
+- [workflow:editor] Added support of node multi-selection. [Sami
+  Mokaddem]
+- [workflow:editor] Save current state with CTRL+S. [Sami Mokaddem]
+- [workflow] Added more logging while executing WF. [Sami Mokaddem]
+- [workflow] Increment workflow counter each time a trigger is called.
+  [Sami Mokaddem]
+- [workflow:editor] Slightly improved center canvas method. [Sami
+  Mokaddem]
+- [workflow:editor] Improved styling for trigger nodes. [Sami Mokaddem]
+- [workflow:editor] Slightly changed zoom behavior. [Sami Mokaddem]
+- [workflow] restored execution path support to allow parallel tasks.
+  [Sami Mokaddem]
+- [workflows] Ability to run a workflow from any node and added
+  background job support for parallel tasks. [Sami Mokaddem]
+- [workflow] Added support of module filtering, improved system and
+  small clean-up. [Sami Mokaddem]
+- [workflow] Improved if module and UI. [Sami Mokaddem]
+- [workflow] Fixed to allow running workflows again. [Sami Mokaddem]
+- [workflows:editor] Improved if block and UI. [Sami Mokaddem]
+- [workflow] Small improvements and refactored behavior of if blocks.
+  [Sami Mokaddem]
+- [workflow] Bit of clean up. [Sami Mokaddem]
+- [workflow] Removed workflow's `enabled` feature. [Sami Mokaddem]
+- [workflow] Continued deleting unused code and improved UI 2. [Sami
+  Mokaddem]
+- [workflow] Continued deleting unused code and improved UI. [Sami
+  Mokaddem]
+- [worflow] Started removing feature from initial design - Multiple
+  workflows per trigger - Custom Workflow per user - Workflow
+  import/export - Blocking & Parallel path from triggers. [Sami
+  Mokaddem]
+- [workflow] Added stop-execution module. [Sami Mokaddem]
+- [workflows:module_index] Added notice if misp-module service is not
+  reachable. [Sami Mokaddem]
+- [workflow] Better error handling if module service not available.
+  [Sami Mokaddem]
+- [Event:enrichment] Allow specifying alist of attribute UUIDs to be
+  enriched. [Sami Mokaddem]
+- [workflow] Better integration with misp-module + few fixes. [Sami
+  Mokaddem]
+- [workflow] Renamed triggerIndex and triggerView into moduleIndex and
+  moduleView. [Sami Mokaddem]
+- [workflow] Improved login and `walkGraph` execution logic. [Sami
+  Mokaddem]
+- [event:publish] Publishing execute `publish` trigger. [Sami Mokaddem]
+- [workflow:test] Commented test endpoint. [Sami Mokaddem]
+- [workflow] Better module loading and execution errors get propagated
+  to the caller for blocking path. [Sami Mokaddem]
+- [workflow] Only allow `action` module type for misp-module. [Sami
+  Mokaddem]
+- [workflow] Added fixme note. [Sami Mokaddem]
+- [workflow] Do not try to load custom module for type trigger. [Sami
+  Mokaddem]
+- [workflows:export] Added endpoint. [Sami Mokaddem]
+- [workflows:import] Added import endpoint. [Sami Mokaddem]
+- [workflow:editor] Removed delete button. [Sami Mokaddem]
+- [workflow:editor] Clean-up and full reload upon save. [Sami Mokaddem]
+- [workflow] Renamed validation function `MoreThanOneTriggerInstance`
+  [Sami Mokaddem]
+- [workflow:editor] Prevent select to add disabled modules. [Sami
+  Mokaddem]
+- [workflow] Make sure one instance per trigger is allowed when saving
+  workflows. [Sami Mokaddem]
+- [workflow] Better arg parsing and if modules support attribute
+  filters. [Sami Mokaddem]
+- [tool:pubsub] Allow pushing on workflow topic with additional
+  namespace. [Sami Mokaddem]
+- [workflow] Allow passing data between modules. [Sami Mokaddem]
+- [workflow] Small refactoring and allow GraphWalker to execute logic
+  nodes. [Sami Mokaddem]
+- [workflow] Allow starting walk in graph by specific node id and
+  specific path type. [Sami Mokaddem]
+- [workflow:editor] Show warning if some module's parameters have been
+  saved and are unkwown to the associated module. [Sami Mokaddem]
+
+  - This could also be added a a node notification
+- [workflow] Added `executeWorkflowsForTrigger` - WiP. [Sami Mokaddem]
+- [workflows] Fixes for misp-modules integration and allowed all modules
+  to publish to zmq. [Sami Mokaddem]
+- [workflows] No need for redis variable. [Sami Mokaddem]
+- [workflow] Renamed GraphNavigator into GraphWalker. [Sami Mokaddem]
+- [workflow] Added loading actionmodule from misp-module and small
+  refacto. [Sami Mokaddem]
+- [workflow:loading] Allow loading modules from a user managed custom
+  folder. [Sami Mokaddem]
+- [workflow] Refactored module system to load modules from directory
+  rather than hardcoded in a main class. [Sami Mokaddem]
+- [workflow] Moved modules out of workflow model. [Sami Mokaddem]
+- [workflowGraphTool:navigator] Added helper to navigate the graph based
+  on control modules. [Sami Mokaddem]
+- [workflow] Added new logic module `parallel task` [Sami Mokaddem]
+- [workflow:editor] Throttle pooler if user logged out and bit of
+  cleanup in workflowGraphTool. [Sami Mokaddem]
+- [workflow:editor] Better module notifications handling and added
+  support of modal in the editor. [Sami Mokaddem]
+- [workflow:editor] Integrated notification in the UI. [Sami Mokaddem]
+- [worfklow:editor] Added notifications in the UI. [Sami Mokaddem]
+- [workflow:editor] Added block notifications in sidebar. [Sami
+  Mokaddem]
+- [workflow] Fixed inconsistent state in redis and prevent saving cyclic
+  graphs. [Sami Mokaddem]
+- [workflow] Small refacto and added helper functions. [Sami Mokaddem]
+- [workflows:trigger] Added support of execution order for blocking
+  triggers. [Sami Mokaddem]
+- [workflow:triggers] Better support of enabled state. [Sami Mokaddem]
+- [workflow:trigger_view] Added endpoint and small UI improvements.
+  [Sami Mokaddem]
+- [workflow] Save state in redis and continued integration in the UI -
+  WiP. [Sami Mokaddem]
+- [workflow:trigger_list] UI adjustement. [Sami Mokaddem]
+- [workflow] Started working on priority_level and trigger list - WiP.
+  [Sami Mokaddem]
+- [workflow:editor] Small loading performance improvements. [Sami
+  Mokaddem]
+- [workflow:editor] Only allow once instance of trigger per workflow.
+  [Sami Mokaddem]
+- [workflow:editor] Added link pointing to the index. [Sami Mokaddem]
+- [workflow:editor] Renamed conditions to logic in sidebar. [Sami
+  Mokaddem]
+- [workflows] Added enabled state. [Sami Mokaddem]
+- [workflow:view] Improved version of the execution path preview. [Sami
+  Mokaddem]
+- [workflow:editor] Added icons in important blocks. [Sami Mokaddem]
+- [workflow:editor] Added support of textarea. [Sami Mokaddem]
+- [workflow:editor] Simplified sidebar UI. [Sami Mokaddem]
+- [workflow:editor] Harmonized UI. [Sami Mokaddem]
+- [workflow:editor] Added support of checkboxes and radio buttons. [Sami
+  Mokaddem]
+- [workflow:editor] Added support of keyed select value. [Sami Mokaddem]
+- [workflow:editor] Added support of select in the modal. [Sami
+  Mokaddem]
+- [workflow:editor] Added support of modal while browsing node. [Sami
+  Mokaddem]
+- [workflow:editor] Reflect editing of inputs in the editor state. [Sami
+  Mokaddem]
+- [workflow:editor] Small UI improvement. [Sami Mokaddem]
+- [workflow:editor] Added more resilience on import/export. [Sami
+  Mokaddem]
+- [js:drawflow] bumped to version 0.0.58. [Sami Mokaddem]
+- [workflow:editor] Added support of brand icons. [Sami Mokaddem]
+- [workflows] Improved UI. [Sami Mokaddem]
+- [workflow] Fixed some bugs and added execution path in workflow/view.
+  [Sami Mokaddem]
+- [workflows] Renamed executionFlow to executionPath. [Sami Mokaddem]
+- [workflow] Added helper function to compute the execution path. [Sami
+  Mokaddem]
+- [workflow:editor] Small UI improvements. [Sami Mokaddem]
+- [workflow:editor] Better handling of save / loading of workflows.
+  [Sami Mokaddem]
+- [workflows] Added view and editor links. [Sami Mokaddem]
+- [workflows] Added more endpoints for CRUD. [Sami Mokaddem]
+- [side_menu:workflows] Added workflow quick links. [Sami Mokaddem]
+- [workflow] Started CRUD. [Sami Mokaddem]
+- [workflow:editor] Added TODO. [Sami Mokaddem]
+- [workflow] Added database migration. [Sami Mokaddem]
+- [ui:main] Fixed overflowing UI creating a useless X scrollbar. [Sami
+  Mokaddem]
+
+Fix
+~~~
+- [time] missing in the test suite....... [iglocska]
+
+  ...AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARGH
+- [workflows:editor] Fixed node duplication not using params. [Sami
+  Mokaddem]
+- [sleep] command fixed. [iglocska]
+
+  - monkey dev is a monkey
+- [speculative] fix for the event publishing timing issues. [iglocska]
+- [workflows:editor] Correctly pick up saved_filters. [Sami Mokaddem]
+- [speculative fix] for event publishing timing issues. [iglocska]
+- [remove tag] no longer breaks after the first tag removal. [iglocska]
+- [publishing] with alert fixed (no more weird response message.
+  [iglocska]
+- [proposal] correlations are deprecated. [iglocska]
+- [typo] causing the object saving to fail. [iglocska]
+- [php 7.2] compatibility. [iglocska]
+- [objects] only check for soft deleted attributes when appropriate.
+  [iglocska]
+
+  - when it's an edit
+  - when the soft delete flag is set
+- [ACL] entries updated. [iglocska]
+- [worflow:walkGraph] Correct usage of oganisation key. [Sami Mokaddem]
+- [workflows:editor] Fixed comma for older PHP versions. [Sami Mokaddem]
+- [revert] previous commit for the attribute index. [iglocska]
+- [correlation:getRelatedAttribute] Always return an array. [Sami
+  Mokaddem]
+- [attribute index] fix. [iglocska]
+- [compatibility] with 7.2. [iglocska]
+- [php < 7.4] fix. [iglocska]
+- [serverSettings:correlations] PHP version. [Sami Mokaddem]
+- [correlation] value truncation for the correlation value table.
+  [iglocska]
+- [workflows:editor] Nowarp on notifications. [Sami Mokaddem]
+- [workflow] description field default set. [iglocska]
+- [undefined variable] in the workflow index. [iglocska]
+- [UI] small fix for the workflow trigger checkbox. [iglocska]
+- [appModel:update] Fixed forgotten schema update for workflows. [Sami
+  Mokaddem]
+- [appModel:update] Set update success to true for case 89 and 90. [Sami
+  Mokaddem]
+- [adminShell:correlationTruncate] Correctly update the job. [Sami
+  Mokaddem]
+- [correlation:defaultCorrelation] Ignore ACL check for site_admins.
+  [Sami Mokaddem]
+- [adminShell:correlationTruncate] Correctly update the job. [Sami
+  Mokaddem]
+- [correlation:defaultCorrelation] Ignore ACL check for site_admins.
+  [Sami Mokaddem]
+- [Objects] cascade deletes when capturing already soft-deleted objects.
+  [iglocska]
+- [correlations] added missing templates. [iglocska]
+- [workflow:module_concurrent_task] Use correct class for constant.
+  [Sami Mokaddem]
+- [workflow:executeForTrigger] Differentiate between error and blocked
+  outcome. [Sami Mokaddem]
+- [workflow:executeNode] Make disabled node fails. [Sami Mokaddem]
+- [over correlation] pagination fixed. [iglocska]
+
+  - was still using stupid_correlations
+- [correlation engines] added additional event fields to the retrieved
+  event metadata to match the old behaviour. [iglocska]
+- [ACL] added overcorrelations. [iglocska]
+- [attribute search] regression fixed. [iglocska]
+- [workflows:editor] UI improvement in trigger node. [Sami Mokaddem]
+- [workflow:tag_if] Use flattened attributes and extract tags from all
+  attributes. [Sami Mokaddem]
+- [workflows:moduleIndex] Fixed filtering button not highlighting
+  correctly. [Sami Mokaddem]
+- [appmodel] Fixed merged conflict and typo in sql query. [Sami
+  Mokaddem]
+- [correlation] fixed missing passed sharing group ID array. [iglocska]
+- [workflows] Typos in some views. [Sami Mokaddem]
+- [workflows:editor] UI fix and improvement. [Sami Mokaddem]
+- [workflow:validation] Make sure a workflow has one and only one
+  trigger. [Sami Mokaddem]
+- [event:publish] Call correct trigger. [Sami Mokaddem]
+- [workflows:editor] Correctly draw parameters in the specified order.
+  [Sami Mokaddem]
+- [workflow] Fixed in walkGraph. [Sami Mokaddem]
+- [workflows:editor] Correctly remove invalid parameters when saving
+  workflows. [Sami Mokaddem]
+- [genericElement:boolean] Correctly encode sync rules for popover
+  usage. [Sami Mokaddem]
+- [i18n] Variables cannot be translated. [Steve Clement]
+- [workflows:editor] Improved node filtering UI and behavior. [Sami
+  Mokaddem]
+- [tools:securityAudit] Do not fail if `tls` key does not exist. [Sami
+  Mokaddem]
+- Handle casing diff in db response. [Luciano Righetti]
+- Use session variables instead of global_variables table as its not
+  available in some installations. [Luciano Righetti]
+- [workflows:editor] Changed phrasing. [Sami Mokaddem]
+- [sidebar:workflows] Additional separator. [Sami Mokaddem]
+- [workflows:editor] Various i18n and some UI improvements. [Sami
+  Mokaddem]
+- [workflows:editor] Fixed bug where param_id was missing thus
+  preventing new param to be saved. [Sami Mokaddem]
+- [scripts:mispzmq] Removed unused zmq topic. [Sami Mokaddem]
+- [workflows] Removed unused views and fix end of files. [Sami Mokaddem]
+- [workflows] Clean up and removed unused code. [Sami Mokaddem]
+- [tool:workflowFormatConverter] Fix typo. [Sami Mokaddem]
+- [workflow] Remove leftovers from previous design with [non]blocking
+  paths from triggers. [Sami Mokaddem]
+- [workflows:editor] Fixed zoom when there is only one node in the
+  graph. [Sami Mokaddem]
+- [acl] Added missing entry. [Sami Mokaddem]
+- [workflows] Changed stupid_pagination to light_paginator. [Sami
+  Mokaddem]
+- [workflows:editor] Improved handling of node parameters. [Sami
+  Mokaddem]
+- [workflows:editor] Correctly position nodes from blueprint upon
+  insertion. [Sami Mokaddem]
+- [workflows:editor] Improved handling of node deletion from different
+  context. [Sami Mokaddem]
+- [workflow:editor] Deleting nodes from blueprint right after including
+  them in the graph. [Sami Mokaddem]
+- Light pagination not needed here. [Luciano Righetti]
+- Missing ACL. [Luciano Righetti]
+- [internal] Response signing. [Jakub Onderka]
+- [diag] Correctly set DB session errorCode. [Bradley Logan]
+- [internal] Undefined variable $mayModify. [Jakub Onderka]
+- [decaying:decaying_tool] Fixed page failing to load due to missing
+  jquery-ui. [Sami Mokaddem]
+- [workflows:editor] Usage of minified version of jquery-ui. [Sami
+  Mokaddem]
+- [workflow:editor] Path not being attach to node's handle for nodes
+  having chosen. [Sami Mokaddem]
+- [workflow] Log error message on the disk as well upon module execution
+  error. [Sami Mokaddem]
+
+  This is needed as currently log entries are rollbacked if the trigger was called from the beforeSave context
+- [sidemenu:workflow] Link correctly redirects to workflow history.
+  [Sami Mokaddem]
+- [workflows:editor] Add error node if the module from a blueprint is
+  not known. [Sami Mokaddem]
+- [workflows:editor] Multi-deletion with <delete> key. [Sami Mokaddem]
+- [workflow:editor] Foxed disabled state of the save button after
+  saving. [Sami Mokaddem]
+- [workflow:BaseModule] Always fetch event if it's missing. [Sami
+  Mokaddem]
+- [workflow:editor] Make sure to update node's param_id configuration.
+  [Sami Mokaddem]
+- [workflows:editor] Make sure to override block setting by module's
+  configuration. [Sami Mokaddem]
+- [workflow] Create table sql statement updated. [Sami Mokaddem]
+- [tools:workflowGraphTool] Fixed detection of edges making the graph
+  cyclic. [Sami Mokaddem]
+- [Module:execute_workflow] Saving log in DB no longer fails anymore.
+  [Sami Mokaddem]
+- [internal] Call to a member function fetchEvent() on null. [Jakub
+  Onderka]
+- [internal] Properly handle zmq exception. [Jakub Onderka]
+- [internal] Faster changing IDS flag for CIDR. [Jakub Onderka]
+- [elements:workflow_execution_path] Support of different icon types and
+  fixed missing template. [Sami Mokaddem]
+- [UI] Destroy popovers. [Jakub Onderka]
+- [internal] RestSearchExport: fetch published and unpublished events.
+  [Jakub Onderka]
+- [internal] Faster attaching event tags to attributes. [Jakub Onderka]
+- [internal] PHP memory leak. [Jakub Onderka]
+- [internal] Trying to access array offset on value of type int. [Jakub
+  Onderka]
+- [security] Use random salt for password and authkey hashes. [Jakub
+  Onderka]
+- [internal] DB changes array. [Jakub Onderka]
+- [log] Do not user changes to old log when new log is enabled. [Jakub
+  Onderka]
+- [stix2 import] Fixed issue when marking refs were pointing to a
+  unexisting (in the Bundle) Marking Definition object. [chrisr3d]
+- [stix2 import] Fixed STIX 2.0 Observable objects mapping as MISP
+  attributes. [chrisr3d]
+- [stix2 import] Removed `index` parameter for some observable objects
+  parsing functions to avoid issues while selecting the right
+  observable. [chrisr3d]
+
+  - Should fix #8447
+- [workflow:editor] Fixed canvas centering. [Sami Mokaddem]
+- [workflow:editor] Prevent blueprint crashing if module output changed.
+  [Sami Mokaddem]
+- [elements:global_menu_single] Correctly respect specification about
+  html. [Sami Mokaddem]
+- [Workflow:UserBeforeSave] Ignore workflow execution for logins and
+  logouts. [Sami Mokaddem]
+- [workflowPart:edit] Convert part data to string before passing to the
+  view. [Sami Mokaddem]
+- [workflow:editor] Fixed checking cyclic state for large graph +
+  Improved UI. [Sami Mokaddem]
+- [workflows] Fix url of forgotten endoints. [Sami Mokaddem]
+- [workflows:view] Init `is_misp_module` variable. [Sami Mokaddem]
+- [workflow] Module if. Also changed how condition data is passed along.
+  [Sami Mokaddem]
+- [workflow:editor] Correctly restore saved select value. [Sami
+  Mokaddem]
+- [workflows:index] Flip button play and stop to match the state. [Sami
+  Mokaddem]
+- [worklfows:delete] Clean-up data in redis when deleting workflows.
+  [Sami Mokaddem]
+- [workflow:editor] Only allow once instance of trigger per workflow.
+  [Sami Mokaddem]
+- [workflow:editor] Dropped nodes take into account panned editor view
+  and zoom level. [Sami Mokaddem]
+- [workflow:editor] Correctly load data saved in textarea parameters.
+  [Sami Mokaddem]
+- [js:taskScheduler] No fail if not UI element passed and added a
+  function to run the job on demand. [Sami Mokaddem]
+- [workflow:edit] Encode data field before passing it to the view. [Sami
+  Mokaddem]
+- [editor:workflow] Make sure to re-use saved IDs when importing a
+  workflow. [Sami Mokaddem]
+- [workflow:editor] Fixed state inconsistencies for checkboxes and radio
+  buttons while editing in the modal. [Sami Mokaddem]
+- [workflow:editor] Changed how data gets imported. Recreate all nodes
+  instead of using the built-in `import` function - We do it in order to
+  keep the node content (such as inputs) in sync with their actual value
+  - That is because the default `import` function do not update the HTML
+  of each node when they change - It also somewhat mitigate in case a
+  user provide bogus or rogue HTML in the nodes. [Sami Mokaddem]
+- [worflow:editor] Fix loading of saved state. - Save internal
+  representing with node indexed by their IDs. [Sami Mokaddem]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into feature-
+  workflows-2. [Sami Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into feature-
+  workflows-2. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-
+  workflows-2. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-
+  workflows-2. [Sami Mokaddem]
+- Merge branch 'new_correlations' into develop. [iglocska]
+- Merge branch 'develop' into new_correlations. [iglocska]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #8515 from cudeso/patch-1. [Alexandre Dulaunoy]
+
+  Update AttributeValidationTool.php
+- Update AttributeValidationTool.php. [Koen Van Impe]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-
+  workflows-2. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-
+  workflows-2. [Sami Mokaddem]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #8509 from SteveClement/i18n. [Steve Clement]
+
+  chg: [i18n] Added updated default.pot
+- Merge pull request #8508 from SteveClement/i18n. [Steve Clement]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-
+  workflows-2. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-
+  workflows-2. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-
+  workflows-2. [Sami Mokaddem]
+- Merge pull request #8478 from righel/improve-aad-auth-logging.
+  [Luciano Righetti]
+
+  chg: improve logging, use HttpSocket instead of file_get_contents() f…
+- Merge branch 'develop' of github.com:MISP/MISP into feature-
+  workflows-2. [Sami Mokaddem]
+- Merge pull request #8502 from righel/change-logs-pagination. [Andras
+  Iklody]
+
+  new: add LightPaginator when total page count is not needed/to expensive
+- Merge pull request #8500 from righel/mysql-config-diagnostics.
+  [Luciano Righetti]
+
+  new: mysql db tuning recommendations in server diagnostics
+- Merge pull request #8488 from JakubOnderka/response-signing. [Jakub
+  Onderka]
+
+  fix: [internal] Response signing
+- Merge pull request #8497 from brlogan/patch-1. [Luciano Righetti]
+
+  fix: [diag] Correctly set DB session errorCode
+- Merge pull request #8491 from JakubOnderka/fix-undefined-variable-
+  vol2. [Jakub Onderka]
+
+  fix: [internal] Undefined variable $mayModify
+- Merge remote-tracking branch 'origin/develop' into feature-
+  workflows-2. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8490 from JakubOnderka/fix-audit-log-controller.
+  [Jakub Onderka]
+
+  fix: [internal] Call to a member function fetchEvent() on null
+- Merge branch 'develop' of github.com:MISP/MISP into feature-
+  workflows-2. [Sami Mokaddem]
+- Merge pull request #8205 from JakubOnderka/pull-optim. [Jakub Onderka]
+
+  Pull optim
+- Merge pull request #8470 from JakubOnderka/process-error. [Jakub
+  Onderka]
+
+  chg: [internal] More clear error message in process tool
+- Merge pull request #8480 from JakubOnderka/handle-zmq-exception.
+  [Jakub Onderka]
+
+  fix: [internal] Properly handle zmq exception
+- Merge pull request #8481 from JakubOnderka/attribute-to-ids-faster.
+  [Jakub Onderka]
+
+  fix: [internal] Faster changing IDS flag for CIDR
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge remote-tracking branch 'origin/develop' into feature-
+  workflows-2. [Sami Mokaddem]
+- Merge pull request #8472 from JakubOnderka/destroy-popovers. [Jakub
+  Onderka]
+
+  fix: [UI] Destroy popovers
+- Merge pull request #8467 from JakubOnderka/rest-search. [Jakub
+  Onderka]
+
+  chg: [internal] restSearch cleanup
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch 'develop' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge pull request #8452 from JakubOnderka/restSearchExport-
+  description. [Jakub Onderka]
+
+  chg: [UI] Event export description
+- Merge pull request #8442 from JakubOnderka/json-export-cleanup. [Jakub
+  Onderka]
+
+  chg: [internal] JsonExport cleanup
+- Merge branch 'emmekappa86-feature-snort-rule-from-network-connection'
+  into develop. [Sami Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into
+  emmekappa86-feature-snort-rule-from-network-connection. [Sami
+  Mokaddem]
+- Merge pull request #8358 from JakubOnderka/memory-leak-fix. [Jakub
+  Onderka]
+
+  fix: [internal] PHP memory leak
+- Merge pull request #8453 from JakubOnderka/invalid-date-error. [Jakub
+  Onderka]
+
+  chg: [internal] Throw exception if date spec is invalid
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch 'develop' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge pull request #8448 from JakubOnderka/fix-array-access. [Jakub
+  Onderka]
+
+  fix: [internal] Trying to access array offset on value of type int
+- Merge pull request #8435 from JakubOnderka/blowfish-update. [Jakub
+  Onderka]
+
+  fix: [security] Use random salt for password and authkey hashes
+- Merge pull request #8432 from JakubOnderka/alertemail-unsubscribe.
+  [Jakub Onderka]
+
+  new: [email] Unsubscribe
+- Merge branch '2.4' into develop. [iglocska]
+- Fixed indentation. [Marco Caselli]
+- Fixing mistake ("data" -> "event") [Marco Caselli]
+- Code polishing. [Marco Caselli]
+- Fixes + ddos object handling. [Marco Caselli]
+- Merge branch 'MISP:2.4' into feature-snort-rule-from-network-
+  connection. [Marco Caselli]
+- Merge remote-tracking branch 'origin/2.4' into feature-workflows-2.
+  [Sami Mokaddem]
+- Merge pull request #8474 from 00willo/fixes-for-automation-page.
+  [Alexandre Dulaunoy]
+
+  Fixes for automation page
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge pull request #8433 from baderj/issue-6379. [Jakub Onderka]
+
+  fix: [export] Create unique SIDs for email attributes in NIDS export
+- Fixes issue #6379. [Johannes Bader]
+
+  The NIDS export creates two rules for attributes with type 'email' (a
+  src and dst rule). However, the same SID was used for both rules. Since
+  SIDs must be unique for a ruleset, this will be logged as an error by
+  Suricata and the rule is not loaded (see issue #6379).
+
+  This fixes the issue by incrementing the SID before creating the second
+  email rule.
+- Merge pull request #8423 from obert01/fix-taxonomies-accessibility.
+  [Andras Iklody]
+- Accessibility: added missing 'title' attributes in the Galaxies index
+  page. [Olivier BERT]
+- Merge pull request #8422 from obert01/fix-tag-quickedit. [Alexandre
+  Dulaunoy]
+
+  Fixed a logic error in Tag::quickEdit()
+- Tag::quickEdit(): Fixed a logic error in this method that was causing
+  the tag to always be set to "local_only", wherever not intended.
+  [Olivier BERT]
+
+  I found this issue because after calling pymisp.enable_taxonomy_tags(), all my tags were systematically changed to local_only.
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-workflows.
+  [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-workflows.
+  [Sami Mokaddem]
+- Merge branch 'webhook' of github.com:MISP/MISP into feature-workflows.
+  [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-workflows.
+  [Sami Mokaddem]
+
+
 v2.4.159 (2022-05-30)
 ---------------------
 
