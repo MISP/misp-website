@@ -5,7 +5,7 @@ layout: post
 banner: /img/blog/workflow.png 
 ---
 
-We are pleased to announce the immediate availability of MISP v2.4.160. With the August summer-holiday season kicking into high gear, we have a very special release for you all, containing a long list of major new features, improvements and general quality of life improvements.
+We are pleased to announce the immediate availability of [MISP v2.4.160](https://github.com/MISP/MISP/releases/tag/v2.4.160). With the August summer-holiday season kicking into high gear, we have a very special release for you all, containing a long list of major new features, improvements and general quality of life improvements.
 
 Unlike we do normally, this time around we're preparing separate blog posts for some of those major features, so follow the links below to read up on in-depth descriptions of each.
 
