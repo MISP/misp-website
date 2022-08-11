@@ -12,8 +12,8 @@ We are pleased to announce the immediate availability of [MISP v2.4.161](https:/
 - A new option added to log the last API request of an API key. (Thanks to Tom King for the contribution)
 - Overcorrelation features have some new improvements such as:
   - A new tool to generate occurrence counts (real numbers this time)
-  - A hook to truncate over correlating value table on recorrelation
-  - We don't longer store the partial counts as occurrences when generating correlations
+  - A hook to truncate the over-correlating value table on recorrelation
+  - We no longer store the partial counts as occurrences when generating correlations
 - Performance improvements in event fetching
 - Various performance tuning in the new correlation engine including the full recorrelation
 
