@@ -24,3 +24,4 @@ We are pleased to announce the immediate availability of [MISP v2.4.161](https:/
 
 Thanks to all the contributors and users reporting bugs to make the software better.
 
+As always, a detailed and [complete changelog is available](https://www.misp-project.org/Changelog.txt) with all the fixes, changes and improvements in MISP core. 
