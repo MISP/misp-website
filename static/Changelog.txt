@@ -2,6 +2,104 @@ Changelog
 =========
 
 
+v2.4.161 (2022-08-11)
+---------------------
+
+New
+~~~
+- [internal] Add option to log last API request. [Tom King]
+- [overcorrelations] quality of life improvements. [iglocska]
+
+  - Added new tool to generate occurrence counts (real numbers this time)
+  - Added hook to truncate over correlating value table on recorrelation
+  - No longer store the partial counts as occurrences when generating correlations
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- Allow to restsearch attributes by value1 and value2. [Luciano
+  Righetti]
+- [internal] Order columns by name when generating db_schema.json.
+  [Jakub Onderka]
+- [internal] Code cleanup. [Jakub Onderka]
+- [internal] Use less SQL queries for event fetching. [Jakub Onderka]
+- [internal] Drop unnecessary indexes from default_correlations table.
+  [Jakub Onderka]
+- [internal] Cleanup code for new correlation engine. [Jakub Onderka]
+- [db_schema] version bump. [iglocska]
+- [correlations] performance tuning. [iglocska]
+
+  - added a new constraint to check for correlation uniqueness (a_id, 1_a_id, value_id)
+  - stopped dropping correlations on a full recorrelation
+  - only correlate "upwards" towards higher IDs
+- [compatibility] for PHP < 7.2 for an organisation that shall go
+  unnamed. [iglocska]
+- [docs] correlation rework article added. [iglocska]
+
+Fix
+~~~
+- [warnings] added tlp:clear and tlp:amber+strict to the valid tlp tags.
+  [iglocska]
+
+  - Clearly, the new tags should be accomodated...
+  - ... though these ones do not spark joy.
+- [modules] only run the workflow if it's enabled, fixes #8531.
+  [iglocska]
+
+  - blocked event report fetches from URL
+- Remove debug print. [Luciano Righetti]
+- Attr restsearch test. [Luciano Righetti]
+- Fix new test. [Luciano Righetti]
+- [db_schema]: Order column names. [Jakub Onderka]
+- [internal] Advanced correlations. [Jakub Onderka]
+- [internal] Attribute model, initialise variable. [iglocska]
+- [emailing] speculative fix for #8523. [iglocska]
+- [acl] added generateOccurrences to the ACL list. [iglocska]
+- Rollback change to DB upgrade 86. [Tom King]
+- Use correct field for altering table to include last_api_access. [Tom
+  King]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [stix2 import] Better `external_references` parsing for attack
+  patterns objects. [chrisr3d]
+- [pubsub] gracefully handle events with attribute-less objects.
+  [iglocska]
+- [compatibility] removed function return types from correlations.
+  [iglocska]
+- [compatibility] Support for php < 7.2 for an organisation that shall
+  go unnamed. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'value1' into develop. [iglocska]
+- Add: add tests, update api docs. [Luciano Righetti]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #8524 from JakubOnderka/default-correlation-
+  cleanup. [Jakub Onderka]
+
+  Default correlation cleanup
+- Merge branch 'log_last_api' into develop. [iglocska]
+- Merge remote-tracking branch 'upstream/2.4' into
+  feature/api_last_access_time. [Tom King]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch 'develop' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch 'develop' of https://github.com/MISP/MISP into develop.
+  [chrisr3d]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into 2.4.
+  [chrisr3d]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+
+
 v2.4.160 (2022-08-05)
 ---------------------
 
