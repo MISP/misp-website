@@ -22,5 +22,6 @@ In complement, the following MISP Commercial Support is available from external 
 |               | - Fully Managed and Hosted MISP<br />- SOAR implementation Architecture <br />- Integration/automation<br />- Consulting | | |
 | **Cosive CloudMISP** | Remote | [https://www.cosive.com/cloud-misp](https://www.cosive.com/cloud-misp) | Australia / NZ / Asia Pacific |
 |               | - Fully managed and hosted MISP<br/>- MISP configuration support<br/>- Multi-instance deployments<br/>- Customised builds and integrations<br/>- Professional services / Training | | |
+<br/>
 
 Don't hesitate to [reach us](/support) if you want to be reviewed and added to the list. The selection criterias include existing open source contributions to MISP project.
