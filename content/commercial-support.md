@@ -20,6 +20,7 @@ In complement, the following MISP Commercial Support is available from external 
 |               | - Architecture <br />- Installation, maintenance<br />- Integration/automation<br />- Training | | |
 | **eCrimeLabs ApS** | Remote | [https://www.ecrimelabs.com/hosted-and-managed-misp](https://www.ecrimelabs.com/hosted-and-managed-misp) | Europe |
 |               | - Fully Managed and Hosted MISP<br />- SOAR implementation Architecture <br />- Integration/automation<br />- Consulting | | |
-<br />
+| **Cosive CloudMISP** | Remote | [https://www.cosive.com/cloud-misp](https://www.cosive.com/cloud-misp) | Australia / NZ / Asia Pacific |
+|               | - Fully managed and hosted MISP<br/>- MISP configuration support<br/>- Multi-instance deployments<br/>- Customised builds and integrations<br/>- Professional services / Training | | |
 
 Don't hesitate to [reach us](/support) if you want to be reviewed and added to the list. The selection criterias include existing open source contributions to MISP project.
