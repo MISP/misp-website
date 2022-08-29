@@ -8,6 +8,11 @@ MISP Commercial Support is an overview of entities providing support for MISP.
 
 ## MISP Professional Services (MSP)
 MISP project also provides [MISP Professional Services (MSP)](/professional-services/) if you want to directly support the MISP project and ensure its sustainability.
+| Name   | Type of support | Further details  | Region |
+|---|---|---|---|
+| **MISP Project**  | Remote | [https://www.misp-project.org/professional-services/](https://www.misp-project.org/professional-services/) | Worldwide |
+|            | - Training, virtual<br />- Support Contract <br />- Fast track resolution of issues<br />- Advisory, installation or integration support<br />- Development of new and/or custom features<br />- Hosting, installation and configuration |   | |
+
 
 ## Trusted 3rd party providers
 In complement, the following MISP Commercial Support is available from external trusted commercial partners:
