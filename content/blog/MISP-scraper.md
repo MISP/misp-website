@@ -70,8 +70,8 @@ To install the scraper, clone the repository from GitHub, setup and activate a P
 git clone https://github.com/cudeso/misp-scraper
 cd misp-scraper
 virtualenv scraper
-source scraper/bin/active
-pip install -r requirements
+source scraper/bin/activate
+pip install -r requirements.txt
 cp scraper.py.default scraper.py
 ```
 
