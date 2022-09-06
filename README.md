@@ -14,15 +14,15 @@ To compile a local version of the website, run the following commands in a termi
     ```
     git clone https://github.com/MISP/misp-website.git
     ````
-3. Init submodules
+3. Change into your new directory
+    ```
+    cd misp-website
+    ```
+4. Init submodules
    ```
    git submodule init
    git submodule update
    ```
-4. Change into your new directory
-    ```
-    cd misp-website
-    ```
 5. Build the site and make it available on a local server.
     ```
     hugo server
