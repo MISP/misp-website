@@ -39,7 +39,7 @@ Conferences featuring MISP core members talking about MISP and/or threat intelli
 
 - #### MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals
 
-  *When:* {{< fixedtime `13th September 2022 14:00-17:00 CEST` `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` `20220913T14` `3` >}}</a>
+  *When:* {{< fixedtime `13th September 2022 14:00-17:00 CEST` `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` `20220913T12` `3` >}}</a>
 
   *Where:* Remote (Zoom and online MISP training instance)
 
@@ -53,7 +53,7 @@ Conferences featuring MISP core members talking about MISP and/or threat intelli
   *Event link:* {{< xing-collapse-iframe `IMKNUTR` `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` >}}
 
 - #### MISP Training - Administration and Deployment of MISP software
-  *When:* {{< fixedtime `14th September 2022 14:00-17:00 CEST` `MISP Training - Administration and Deployment of MISP software` `20220914T14` `3` >}}</a>
+  *When:* {{< fixedtime `14th September 2022 14:00-17:00 CEST` `MISP Training - Administration and Deployment of MISP software` `20220914T12` `3` >}}</a>
 
   *Where:* Remote (Zoom and online MISP training instance)
 
@@ -68,7 +68,7 @@ Conferences featuring MISP core members talking about MISP and/or threat intelli
   *Event link:* {{< xing-collapse-iframe `BVJBEEU` `MISP Training - Administration and Deployment of MISP software` >}}
 
 - #### MISP Training - Advanced Developer session from API to MISP internals
-  *When:* {{< fixedtime `15th September 2022 14:00-17:00 CEST` `MISP Training - Advanced Developer session from API to MISP internals` `20220915T14` `3` >}}
+  *When:* {{< fixedtime `15th September 2022 14:00-17:00 CEST` `MISP Training - Advanced Developer session from API to MISP internals` `20220915T12` `3` >}}
 
   *Where:* Remote (Zoom and online MISP training instance)
 
