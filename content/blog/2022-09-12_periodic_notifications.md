@@ -7,9 +7,9 @@ banner: /img/blog/periodic-summary/periodic-summary-1.png
 
 # Periodic summaries - Visualize summaries of MISP data
 
-As of version 2.4.162, MISP includes a **periodic summary** feature allowing users to consult a summary based on a requested timeframe for data the user has access to.
+As of version 2.4.162, MISP includes a **periodic summary** feature allowing users to consult a summary based on a requested time-frame for data the user has access to.
 
-Currently, the summaries can be generated for 3 differents perdiods: `daily`, `weekly` and `monthly` and then sent to all users that subscribed one of these periods.
+Currently, the summaries can be generated for 3 different periods: `daily`, `weekly` and `monthly` and then sent to all users that subscribed one of these periods.
 
 In addition to choose which period users want to subscribed to, they can also specify filtering options such as tags or distribution level to be used to generate the summary.
 
