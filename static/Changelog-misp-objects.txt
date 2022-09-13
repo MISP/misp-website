@@ -1,6 +1,39 @@
 # Changelog
 
 
+## v2.4.162 (2022-09-09)
+
+### New
+
+* [facebook-reaction] new object to link reaction with facebook posts or alike. [Alexandre Dulaunoy]
+
+### Changes
+
+* [security-playbook] JSON fixed. [Alexandre Dulaunoy]
+
+### Fix
+
+* [facebook-group] add an optional ID reference to the facebook id. [Alexandre Dulaunoy]
+
+### Other
+
+* Merge branch 'main' of github.com:MISP/misp-objects into main. [Alexandre Dulaunoy]
+
+* Merge pull request #370 from goodlandsecurity/spearphishing-objects-v2. [Alexandre Dulaunoy]
+
+  spearphishing-objects-v2
+
+* Jq_all_the_things. [goodlandsecurity]
+
+* Allow multiple of certain types. bump version. [goodlandsecurity]
+
+* Merge branch 'Vasileios-Mavroeidis-patch-4' into main. [Alexandre Dulaunoy]
+
+* Update definition.json. [Vasileios Mavroeidis]
+
+  Found the issue and updated the playbook-id attribute. It is not required anymore. We should not dictate producers generating this property since it can be used to correlate playbooks. The use case is: If we have a cacao playbook attached then we could have the UUIDV4 extracted from the "attachment" and put at the MISP security-playbook object attribute "playbook-id". Correlation is enabled if another security playbook object follows the same process while attaching the same CACAO playbook. If the attached playbook is a png then there is no way to associate it again with another security playbook object that has the same png as an attachment as we cannot know that. That would be possible only if the attachment had a machine-readable identifier. Another use case is to generate a hash and attach it to a property, but let's leave that for the future and if it is never needed or appears as a use case. Long story short the pull request improves the semantics of the object and correlations of different security playbook objects :)
+
+
 ## v2.4.160 (2022-08-04)
 
 ### New

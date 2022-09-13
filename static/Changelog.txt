@@ -2,6 +2,380 @@ Changelog
 =========
 
 
+%%version%% (unreleased)
+------------------------
+
+Changes
+~~~~~~~
+- [peridioc_notification] Small UI improvement for email rendering.
+  [Sami Mokaddem]
+- [periodic_notification] Only show top 10 mitre attack techniques.
+  [Sami Mokaddem]
+- [periodic_notification] Small UI improvements. [Sami Mokaddem]
+- [period_notification] Improved layout and limit number of events
+  displayed. [Sami Mokaddem]
+- [periodic_notification] Improved layout and added heatbar. [Sami
+  Mokaddem]
+- [periodic_summary] Only show data in chart for tags having changes
+  over time. [Sami Mokaddem]
+- [peridioc_notification] Compute event score instead of event
+  base_score taking into account publish_timestamp. [Sami Mokaddem]
+- [periodic_notification] Generate tag trendings for mitre ATTACK if
+  none are provided. [Sami Mokaddem]
+
+Fix
+~~~
+- [serverShell:sendPeriodicSummaryToUsers] Typo in periods. [Sami
+  Mokaddem]
+- [user:extractPeriodicSummary] Fallback default values for periodic
+  settings. [Sami Mokaddem]
+
+
+v2.4.162 (2022-09-09)
+---------------------
+
+New
+~~~
+- [workflow:baseModule] Added diagnostic support and support of
+  arbitrary URL for webhook module. [Sami Mokaddem]
+- [workflows:execute_module] Added stateless node execution. [Sami
+  Mokaddem]
+- [event:trendsForTags] Added feature to generate trends based on tags
+  for the provided event filters. [Sami Mokaddem]
+- [decayingModel] Added possibility to attach base scores to events.
+  [Sami Mokaddem]
+- [user:periodicNotification] Started development of system allowing
+  users to receive period notifications by email. [Sami Mokaddem]
+- [internal] Experimental MysqlExtended driver. [Jakub Onderka]
+- [workflow-module:ms_teams_webhook] Added new MS teams module based on
+  the webhook module. [Sami Mokaddem]
+- [workflowModule:send_email] To allow sending an email to a list of
+  users. [Sami Mokaddem]
+
+  The module requires the `jinja_template_rendering` module in misp-module to work correctly
+- [workflowBaseModule] Allow jinja template rendering using misp-module.
+  [Sami Mokaddem]
+- [sync] Allow option to delete tags on event sync prior to soft-delete
+  tag implementation. [Tom King]
+
+Changes
+~~~~~~~
+- [PyMISP] Bump & fix test. [Raphaël Vinot]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [version] bump. [iglocska]
+- [PyMISP] Bump, take 2. [Raphaël Vinot]
+- [users:edit] Added support of notification_* [Sami Mokaddem]
+- [workflowModules:distribution_if] Added support of sharing_group.
+  [Sami Mokaddem]
+- [workflows:index] Small UI improvements. [Sami Mokaddem]
+- [genericElements:genericForm] Added option `no_submit` to not display
+  a submit button. [Sami Mokaddem]
+- [workflows:editor] Added possibility to show/hide node parameters
+  based on the value of others. [Sami Mokaddem]
+- [periodic_notification] Always show event meta and include tags if
+  applicable. [Sami Mokaddem]
+- [periodic_notification] Removed useless title. [Sami Mokaddem]
+- [module_view:context+markdown_context] Skip tags not belonging in a
+  taxonomy. [Sami Mokaddem]
+- [user:periodicSummary] Pass more options to event fetcher. [Sami
+  Mokaddem]
+- [periodic_notification] Improved layout. [Sami Mokaddem]
+- [periodic_notification] Improved trending chart layout. [Sami
+  Mokaddem]
+- Bumped db_schema. [Sami Mokaddem]
+- [periodic_notification] Added css rule. [Sami Mokaddem]
+- [user:generatePeriodicSummary] Do not fetch event to compute trending
+  twice. [Sami Mokaddem]
+- [periodic_notification] Improved report and parametrized tags for
+  trending. [Sami Mokaddem]
+- [event:getTrendsForTags] Created TrendingTool to help generating
+  trends. [Sami Mokaddem]
+- [periodic_notification:trending_summary] Improved layout and added
+  linechart. [Sami Mokaddem]
+- [periodic_notification:common] Improved layout. [Sami Mokaddem]
+- [user:periodic_summary] Included trending based on tags. [Sami
+  Mokaddem]
+- [user:saveNotificationSettings] Save tags setting as empty array if
+  not provided. [Sami Mokaddem]
+- [module_views:context_view] Only display sections having data. [Sami
+  Mokaddem]
+- [user:periodic_notification] Removed support of published events.
+  [Sami Mokaddem]
+- [periodic_notification] Added support of base_score on events. [Sami
+  Mokaddem]
+- [user:saveNotificationSettings] Make sure tags filter is a valid json.
+  [Sami Mokaddem]
+- [side_menu] Added entry for periodic summary settings. [Sami Mokaddem]
+- [db_schema] Bumped schema db version. [Sami Mokaddem]
+- [db_schema] Bumped to include periodic notifications. [Sami Mokaddem]
+- [emails:periodic_notification_common] Added Creator org in the event
+  list. [Sami Mokaddem]
+- [user:periodic_notification] Added support of multiple orgs and
+  sharing groups. [Sami Mokaddem]
+- [genericForm:dropdown] Added support of chosen picker. [Sami Mokaddem]
+- [openapi] Added entry for `event_tags` parameter. [Sami Mokaddem]
+- [users] Removed useless constant. [Sami Mokaddem]
+- [automation] Added doc about setting up periodic notifications. [Sami
+  Mokaddem]
+- [Event:restSearch] Added option `event_tags` to filter for eventTag
+  only. [Sami Mokaddem]
+
+  Previously, only the option `tag` was available forcing the filtering process to take into account attribute tags.
+- [periodic_notification] Improved event list display and flexibility.
+  [Sami Mokaddem]
+- [user:periodic_notification] General improvements and added CLI
+  support. [Sami Mokaddem]
+- [element:galaxy_matrix] Removed number of element in header. [Sami
+  Mokaddem]
+- [export:context] Added support of `static` parameter to produce a
+  static HTML output. [Sami Mokaddem]
+- [users:edit] Allow admins to edit periodic notification subscriptions.
+  [Sami Mokaddem]
+- [user:periodic_notification] Added templates, basic statistics and UI
+  integration. [Sami Mokaddem]
+- [user:periodicNotification] Dev cont. [Sami Mokaddem]
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [misp-warninglists] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- Bumped db_schema. [Sami Mokaddem]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [internal] Escape table and column name. [Jakub Onderka]
+- [internal] Delete event in transaction. [Jakub Onderka]
+- [internal] Optimise MysqlExtended. [Jakub Onderka]
+- [internal] Remove QueryTool. [Jakub Onderka]
+- [appModel:removeDuplicateAttributes] Provide additional log info if
+  needed. [Sami Mokaddem]
+- [appModel:removeDuplicateUUID] Added support of sort_by. [Sami
+  Mokaddem]
+- [appModel] Usage of `update` worker instead of `prio` [Sami Mokaddem]
+- [appModel] Removed unused functions. [Sami Mokaddem]
+- [servers:edit] Added `not recommended` in the `remove_missing_tag`
+  label. [Sami Mokaddem]
+- [server:edit] Added more precision for `remove_missing_tags` option.
+  [Sami Mokaddem]
+- [feeds:add] Default orgc to $me->org_id and select fixed_event by
+  default. [Sami Mokaddem]
+- [workflowModule:send_email] Removed unused import. [Sami Mokaddem]
+- [module:queryModuleServer] Allow skipping trigger execution. [Sami
+  Mokaddem]
+- [workflow:editor] Added min-width for sidebar block icon. [Sami
+  Mokaddem]
+- [workflowBlueprints] Changed export filename generation. [Sami
+  Mokaddem]
+- [appController] Bumped queryversion. [Sami Mokaddem]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [syslog] include change field if no custom log message was generated.
+  [iglocska]
+
+  - for certain log entries vital information was omitted by the syslog. If no custom message is specifically set for the log entry, the change field is included
+- [galaxies] slightly saner lookup. [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [warninglists] updated to the latest version. [Alexandre Dulaunoy]
+- [workflow:Action_tag_*] Usage of tag name instead of tag ID. [Sami
+  Mokaddem]
+
+  Using IDs was a bad choice as it prevent to correctly share blueprints since IDs will be different from instance to instance
+- [workflowBlueprint] Don't attach module_data in blueprint by default.
+  [Sami Mokaddem]
+- Merge from develop. [Tom King]
+- Update from upstream develop. [Tom King]
+- Update new tag deletion sync setting to be more explicit. [Tom King]
+- [db_schema] Bumped db_version. [mokaddem]
+- [appModel] Create UUID unique index for other tables. [mokaddem]
+- [appModel] Delete duplicated sightings uuid. [mokaddem]
+- [db_schema] Attribute and object UUID should have unique index.
+  [mokaddem]
+- [appModel] Optimized deduplication, log removed elements and
+  regenerate unique indexes on update. [mokaddem]
+- [db_schema] Add constraint on UUID for Attribute, Object and Event
+  tables. [mokaddem]
+- [serverscontroller] createnewkey aligned with new parameter.
+  [iglocska]
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [overCorrelatingValue] Truncated the `value` column. [Sami Mokaddem]
+
+  - We keep the unique constraint on the table
+  - Correlating values over the max. allowed size are truncated to fit the size requirement. That means large correlating values might be marked as over-correlating despite the fact they are not (as only the starting portion of the value is evaluated).
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [periodic_notification] Syntax error. [Sami Mokaddem]
+- [periodic_notification] Fixed sad widths. [Sami Mokaddem]
+- [workflowModules:webhook] Do not perform the request if
+  `rest_client_enable_arbitrary_urls` is turned off. [Sami Mokaddem]
+- [workflow-module:webhook] Module parameters type and label. [Sami
+  Mokaddem]
+- [users:notification_settings] Do not default to org_only if no
+  distribution is set. [Sami Mokaddem]
+- [periodic_notification] Correctly pass period filter to event fetcher.
+  [Sami Mokaddem]
+- [periodic_notification] Syntax error. [Sami Mokaddem]
+- [periodic_notification:common] Only one instance of tag per event.
+  [Sami Mokaddem]
+- [user:generatePeriodicSummary] Usage of correct URL. [Sami Mokaddem]
+- [export:contextExport] Save passed option in the correct function.
+  [Sami Mokaddem]
+- [events:automation] Fixed typo. [Sami Mokaddem]
+- [component:restResponse] Added `event_tags` parameter in the correct
+  scope. [Sami Mokaddem]
+- [user:periodic_notification] Perform filtering on event tags only for
+  aggregated context. [Sami Mokaddem]
+
+  This is for restSearch to stay consistent with how events are fetched by the default fetcher
+- [correlation-graph] Only bind keydown event on the graph container.
+  [Sami Mokaddem]
+- [db_schema] Update db_version to 95. [Jakub Onderka]
+- [internal] Throw exception if BackgroundJobsTool is not properly
+  configured. [Jakub Onderka]
+- Traverse paginated Aad Roles. [Antoine Colson-Ratelle]
+
+  Only the first 100 Roles appear on the first page of Roles given by Microsoft. Roles beyond 100th were missed as seen in issue #8516
+- Bump db version and fix schema. [Luciano Righetti]
+- [eventReport:downloadMarkdownFromURL] Added support of trigger for
+  that function. [Sami Mokaddem]
+- Event block rules not working with tags filters, see issue #8551.
+  [Luciano Righetti]
+- [feeds] - tagging a feed would cause the pull to fail. [iglocska]
+
+  - tag metadata not correctly retrieved
+- [workflow:editor] Correctly purge nodes saved_filter. [Sami Mokaddem]
+- [workflows:editor] Correctly apply margin when debug mode is off.
+  [Sami Mokaddem]
+- Ensure parameter is set before checking remove_missing_tags without
+  coalescing op. [Tom King]
+- Ensure parameter is set before checking remove_missing_tags. [Tom
+  King]
+- [attributes:edit] Make sure object_id and attribute UUID are frozen.
+  [Sami Mokaddem]
+- [attribute tags] removal broken, fixes #8567. [Andras Iklody]
+
+  - fat finger typo committed by code
+  monkey
+- Removes unnecessary escape character. [Graham Williamson]
+
+  Fixes a validation error - found unknown escape character
+- Schema inconsistency. [Luciano Righetti]
+- Bump db version and fix schema. [Luciano Righetti]
+- [update-91] Remove duplicates before creating the constraint. [Sami
+  Mokaddem]
+- Undefined index: Tag in Feed.php #8547. [Benni0]
+- Class 'Folder' not found #8544. [Benni0]
+- Event block rules not working with tags filters, see issue #8551.
+  [Luciano Righetti]
+- [correlations] save the distribution state of the event before/after
+  saving it, fixes #8528. [iglocska]
+
+  - only trigger a correlation update with the new distribution if it actually changed
+  - should remove a massive additional load on the table
+
+  - thanks to @github-germ for noticing this!
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'feature-workflow-improvement1' into develop. [Sami
+  Mokaddem]
+- Merge branch 'feature-periodic-notification' into feature-workflow-
+  improvement1. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-workflow-
+  improvement1. [Sami Mokaddem]
+- Merge branch 'feature-periodic-notification' into develop. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into feature-periodic-
+  notification. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-periodic-
+  notification. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-periodic-
+  notification. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-periodic-
+  notification. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature-periodic-
+  notification. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- ChgL [PyMISP] Bump. [Raphaël Vinot]
+- Merge branch 'auth_key_reset' into develop. [iglocska]
+- Merge branch 'develop' into auth_key_reset. [iglocska]
+- Merge pull request #8576 from mokaddem/fix-duplicated-uuids. [Andras
+  Iklody]
+
+  [fix] Cleans-up UUID duplicates and add unique constraints
+- Merge remote-tracking branch 'origin/develop' into fix-duplicated-
+  uuids. [Sami Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8373 from JakubOnderka/mysql-extended. [Jakub
+  Onderka]
+
+  new: [internal] Experimental MysqlExtended driver
+- Merge pull request #8568 from JakubOnderka/code-cleanup. [Jakub
+  Onderka]
+
+  fix: [internal] Throw exception if BackgroundJobsTool is not properly…
+- Merge branch 'develop' into fix-duplicated-uuids. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into fix-duplicated-
+  uuids. [Sami Mokaddem]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #8552 from ntnco/develop. [Alexandre Dulaunoy]
+
+  fix: traverse paginated Aad Roles
+- Merge branch 'tomking2_feature/propagate_tag_deletion' into develop.
+  [Sami Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into
+  tomking2_feature/propagate_tag_deletion. [Sami Mokaddem]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+
+  Following discussion with Luciano and the finding of a logic for
+  the format string. We decided to go for Unicode ;-)
+- Merge branch 'feature-workflow-module-msteams' into develop. [Sami
+  Mokaddem]
+- Merge branch 'Benni0_2.4' into develop. [Sami Mokaddem]
+- Merge branch 'Benni0_patch-1' into develop. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge remote-tracking branch 'upstream/develop' into
+  feature/propagate_tag_deletion. [Tom King]
+- Merge remote-tracking branch 'upstream/develop' into
+  feature/propagate_tag_deletion. [Tom King]
+- Merge remote-tracking branch 'upstream/2.4' into
+  feature/propagate_tag_deletion. [Tom King]
+- Merge branch '2.4' of github.com:MISP/MISP into fix-duplicated-uuids.
+  [mokaddem]
+- Merge branch '2.4' into fix-duplicated-uuids. [mokaddem]
+- Allow new authentication keys to be replaced. [Stefano Ortolani]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge pull request #8560 from 00willo/fix-openapispec-yaml-validation.
+  [Alexandre Dulaunoy]
+
+  fix: Removes unnecessary escape character
+- Merge branch 'fix-truncate-overcorrelating-value' into 2.4. [Sami
+  Mokaddem]
+- Merge branch 'Benni0_2.4' into 2.4. [Sami Mokaddem]
+- Merge branch 'Benni0_patch-1' into 2.4. [Sami Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #8538 from baderj/issue-6379-attempt-2. [Alexandre
+  Dulaunoy]
+
+  Create unique SIDs for email attributes in NIDS export - Second Attempt
+- Fixes issue 6379. [Johannes Bader]
+
+
 v2.4.161 (2022-08-11)
 ---------------------
 

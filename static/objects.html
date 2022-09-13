@@ -460,6 +460,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_artifact">artifact</a></li>
 <li><a href="#_asn">asn</a></li>
 <li><a href="#_attack_pattern">attack-pattern</a></li>
+<li><a href="#_attack_step">attack-step</a></li>
 <li><a href="#_authentication_failure_report">authentication-failure-report</a></li>
 <li><a href="#_authenticode_signerinfo">authenticode-signerinfo</a></li>
 <li><a href="#_av_signature">av-signature</a></li>
@@ -511,6 +512,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_facebook_group">facebook-group</a></li>
 <li><a href="#_facebook_page">facebook-page</a></li>
 <li><a href="#_facebook_post">facebook-post</a></li>
+<li><a href="#_facebook_reaction">facebook-reaction</a></li>
 <li><a href="#_facial_composite">facial-composite</a></li>
 <li><a href="#_fail2ban">fail2ban</a></li>
 <li><a href="#_favicon">favicon</a></li>
@@ -674,6 +676,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_sandbox_report">sandbox-report</a></li>
 <li><a href="#_sb_signature">sb-signature</a></li>
 <li><a href="#_scheduled_event">scheduled-event</a></li>
+<li><a href="#_scheduled_task">scheduled-task</a></li>
 <li><a href="#_scrippsco2_c13_daily">scrippsco2-c13-daily</a></li>
 <li><a href="#_scrippsco2_c13_monthly">scrippsco2-c13-monthly</a></li>
 <li><a href="#_scrippsco2_co2_daily">scrippsco2-co2-daily</a></li>
@@ -686,6 +689,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_shodan_report">shodan-report</a></li>
 <li><a href="#_short_message_service">short-message-service</a></li>
 <li><a href="#_shortened_link">shortened-link</a></li>
+<li><a href="#_sigma">sigma</a></li>
 <li><a href="#_social_media_group">social-media-group</a></li>
 <li><a href="#_software">software</a></li>
 <li><a href="#_spearphishing_attachment">spearphishing-attachment</a></li>
@@ -2301,6 +2305,202 @@ attack-pattern is a MISP object available in JSON format at <a href="https://git
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Summary description of the attack pattern.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_attack_step"><a class="anchor" href="#_attack_step"></a><a class="link" href="#_attack_step">attack-step</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An object defining a singular attack-step. Especially useful for red/purple teaming, but can also be used for actual attacks.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+attack-step is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/attack-step/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">command-line</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Command line used to execute attack step, if any.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Description of the attack step</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">detections</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Detections by the victim&#8217;s monitoring capabilities.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dst-domain</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">domain</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Domain destination of the attack step, if any.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dst-ip</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ip-dst</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>IP destination of the attack step, if any.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dst-misc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Other type of source of the attack step, if any. This can be e.g. localhost.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">expected-response</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Response or detection expected (in case of purple teaming)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">key-step</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Was this attack step object a key step within the context of the incident/event? ['True', 'False']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source-domain</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">domain</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Domain source of the attack step, if any.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source-ip</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ip-src</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>IP source of the attack step, if any.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source-misc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Other type of source of the attack step, if any. This can be e.g. rotating ip from cloud providers such as AWS, or localhost.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">succesful</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Was this attack step succesful? ['True', 'False']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -10380,6 +10580,19 @@ facebook-group is a MISP object available in JSON format at <a href="https://git
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Unique identified of the group.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -10977,6 +11190,85 @@ facebook-post is a MISP object available in JSON format at <a href="https://gith
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_facebook_reaction"><a class="anchor" href="#_facebook_reaction"></a><a class="link" href="#_facebook_reaction">facebook-reaction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Reaction to facebook posts.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+facebook-reaction is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/facebook-reaction/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Link to the user account which did the reaction.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The name of A user account which did the reaction.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type of reaction. ['like', 'love', 'sad', 'haha', 'wow', 'care']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -12190,7 +12482,7 @@ forged-document is a MISP object available in JSON format at <a href="https://gi
 <h2 id="_ftm_airplane"><a class="anchor" href="#_ftm_airplane"></a><a class="link" href="#_ftm_airplane">ftm-Airplane</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>An airplane, helicopter or other flying vehicle.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -12672,7 +12964,7 @@ ftm-Airplane is a MISP object available in JSON format at <a href="https://githu
 <h2 id="_ftm_assessment"><a class="anchor" href="#_ftm_assessment"></a><a class="link" href="#_ftm_assessment">ftm-Assessment</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Assessment with meta-data.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -13024,7 +13316,7 @@ ftm-Assessment is a MISP object available in JSON format at <a href="https://git
 <h2 id="_ftm_asset"><a class="anchor" href="#_ftm_asset"></a><a class="link" href="#_ftm_asset">ftm-Asset</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>A piece of property which can be owned and assigned a monetary value.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -13624,7 +13916,7 @@ ftm-Associate is a MISP object available in JSON format at <a href="https://gith
 <h2 id="_ftm_audio"><a class="anchor" href="#_ftm_audio"></a><a class="link" href="#_ftm_audio">ftm-Audio</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Audio with meta-data.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -14327,7 +14619,7 @@ ftm-Audio is a MISP object available in JSON format at <a href="https://github.c
 <h2 id="_ftm_bankaccount"><a class="anchor" href="#_ftm_bankaccount"></a><a class="link" href="#_ftm_bankaccount">ftm-BankAccount</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>An account held at a bank and controlled by an owner. This may also be used to describe more complex arrangements like correspondent bank settlement accounts.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -14796,7 +15088,7 @@ ftm-BankAccount is a MISP object available in JSON format at <a href="https://gi
 <h2 id="_ftm_call"><a class="anchor" href="#_ftm_call"></a><a class="link" href="#_ftm_call">ftm-Call</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Phone call object template including the call and all associated meta-data.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -16894,7 +17186,7 @@ ftm-ContractAward is a MISP object available in JSON format at <a href="https://
 <h2 id="_ftm_courtcase"><a class="anchor" href="#_ftm_courtcase"></a><a class="link" href="#_ftm_courtcase">ftm-CourtCase</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Court case.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -17311,7 +17603,7 @@ ftm-CourtCase is a MISP object available in JSON format at <a href="https://gith
 <h2 id="_ftm_courtcaseparty"><a class="anchor" href="#_ftm_courtcaseparty"></a><a class="link" href="#_ftm_courtcaseparty">ftm-CourtCaseParty</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Court Case Party.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -17807,7 +18099,7 @@ ftm-Debt is a MISP object available in JSON format at <a href="https://github.co
 <h2 id="_ftm_directorship"><a class="anchor" href="#_ftm_directorship"></a><a class="link" href="#_ftm_directorship">ftm-Directorship</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Directorship.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -18055,7 +18347,7 @@ ftm-Directorship is a MISP object available in JSON format at <a href="https://g
 <h2 id="_ftm_document"><a class="anchor" href="#_ftm_document"></a><a class="link" href="#_ftm_document">ftm-Document</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Document.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -18732,7 +19024,7 @@ ftm-Document is a MISP object available in JSON format at <a href="https://githu
 <h2 id="_ftm_documentation"><a class="anchor" href="#_ftm_documentation"></a><a class="link" href="#_ftm_documentation">ftm-Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Documentation.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -19358,7 +19650,7 @@ ftm-EconomicActivity is a MISP object available in JSON format at <a href="https
 <h2 id="_ftm_email"><a class="anchor" href="#_ftm_email"></a><a class="link" href="#_ftm_email">ftm-Email</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Email.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -20178,7 +20470,7 @@ ftm-Email is a MISP object available in JSON format at <a href="https://github.c
 <h2 id="_ftm_event"><a class="anchor" href="#_ftm_event"></a><a class="link" href="#_ftm_event">ftm-Event</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Event.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -20934,7 +21226,7 @@ ftm-Family is a MISP object available in JSON format at <a href="https://github.
 <h2 id="_ftm_folder"><a class="anchor" href="#_ftm_folder"></a><a class="link" href="#_ftm_folder">ftm-Folder</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Folder.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -21611,7 +21903,7 @@ ftm-Folder is a MISP object available in JSON format at <a href="https://github.
 <h2 id="_ftm_hypertext"><a class="anchor" href="#_ftm_hypertext"></a><a class="link" href="#_ftm_hypertext">ftm-HyperText</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>HyperText.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -22314,7 +22606,7 @@ ftm-HyperText is a MISP object available in JSON format at <a href="https://gith
 <h2 id="_ftm_image"><a class="anchor" href="#_ftm_image"></a><a class="link" href="#_ftm_image">ftm-Image</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Image.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -23004,7 +23296,7 @@ ftm-Image is a MISP object available in JSON format at <a href="https://github.c
 <h2 id="_ftm_land"><a class="anchor" href="#_ftm_land"></a><a class="link" href="#_ftm_land">ftm-Land</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Land.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -24749,7 +25041,7 @@ ftm-License is a MISP object available in JSON format at <a href="https://github
 <h2 id="_ftm_membership"><a class="anchor" href="#_ftm_membership"></a><a class="link" href="#_ftm_membership">ftm-Membership</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Membership.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -24984,7 +25276,7 @@ ftm-Membership is a MISP object available in JSON format at <a href="https://git
 <h2 id="_ftm_message"><a class="anchor" href="#_ftm_message"></a><a class="link" href="#_ftm_message">ftm-Message</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Message.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -25778,7 +26070,7 @@ ftm-Message is a MISP object available in JSON format at <a href="https://github
 <h2 id="_ftm_organization"><a class="anchor" href="#_ftm_organization"></a><a class="link" href="#_ftm_organization">ftm-Organization</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Organization.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -26403,7 +26695,7 @@ ftm-Organization is a MISP object available in JSON format at <a href="https://g
 <h2 id="_ftm_ownership"><a class="anchor" href="#_ftm_ownership"></a><a class="link" href="#_ftm_ownership">ftm-Ownership</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Ownership.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -26729,7 +27021,7 @@ ftm-Ownership is a MISP object available in JSON format at <a href="https://gith
 <h2 id="_ftm_package"><a class="anchor" href="#_ftm_package"></a><a class="link" href="#_ftm_package">ftm-Package</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Package.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -27406,7 +27698,7 @@ ftm-Package is a MISP object available in JSON format at <a href="https://github
 <h2 id="_ftm_page"><a class="anchor" href="#_ftm_page"></a><a class="link" href="#_ftm_page">ftm-Page</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Page.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -27498,7 +27790,7 @@ ftm-Page is a MISP object available in JSON format at <a href="https://github.co
 <h2 id="_ftm_pages"><a class="anchor" href="#_ftm_pages"></a><a class="link" href="#_ftm_pages">ftm-Pages</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Pages.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -29647,7 +29939,7 @@ ftm-Person is a MISP object available in JSON format at <a href="https://github.
 <h2 id="_ftm_plaintext"><a class="anchor" href="#_ftm_plaintext"></a><a class="link" href="#_ftm_plaintext">ftm-PlainText</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Plaintext.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -31731,7 +32023,7 @@ ftm-Representation is a MISP object available in JSON format at <a href="https:/
 <h2 id="_ftm_row"><a class="anchor" href="#_ftm_row"></a><a class="link" href="#_ftm_row">ftm-Row</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Row.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -32332,7 +32624,7 @@ ftm-Succession is a MISP object available in JSON format at <a href="https://git
 <h2 id="_ftm_table"><a class="anchor" href="#_ftm_table"></a><a class="link" href="#_ftm_table">ftm-Table</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Table.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -33348,7 +33640,7 @@ ftm-TaxRoll is a MISP object available in JSON format at <a href="https://github
 <h2 id="_ftm_unknownlink"><a class="anchor" href="#_ftm_unknownlink"></a><a class="link" href="#_ftm_unknownlink">ftm-UnknownLink</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Unknown Link.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -33583,7 +33875,7 @@ ftm-UnknownLink is a MISP object available in JSON format at <a href="https://gi
 <h2 id="_ftm_useraccount"><a class="anchor" href="#_ftm_useraccount"></a><a class="link" href="#_ftm_useraccount">ftm-UserAccount</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>User Account.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -33974,7 +34266,7 @@ ftm-UserAccount is a MISP object available in JSON format at <a href="https://gi
 <h2 id="_ftm_vehicle"><a class="anchor" href="#_ftm_vehicle"></a><a class="link" href="#_ftm_vehicle">ftm-Vehicle</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Vehicle.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -35029,7 +35321,7 @@ ftm-Vessel is a MISP object available in JSON format at <a href="https://github.
 <h2 id="_ftm_video"><a class="anchor" href="#_ftm_video"></a><a class="link" href="#_ftm_video">ftm-Video</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Video.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -35719,7 +36011,7 @@ ftm-Video is a MISP object available in JSON format at <a href="https://github.c
 <h2 id="_ftm_workbook"><a class="anchor" href="#_ftm_workbook"></a><a class="link" href="#_ftm_workbook">ftm-Workbook</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>.</p>
+<p>Workbook.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -52947,7 +53239,7 @@ query is a MISP object available in JSON format at <a href="https://github.com/M
 <td class="tableblock halign-left valign-top"><p class="tableblock">format</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Format of the query. ['event query language (eql)', 'keyword query language (kql)', 'Query DSL', 'Query (Elastic Search)', 'Sigma', 'Lucene query', 'Google search query', 'Ariel Query Language (qradar)', 'Grep', 'Devo LINQ']</p>
+<p>Format of the query. ['event query language (eql)', 'keyword query language (kql)', 'Kusto Query Language', 'Query DSL', 'Query (Elastic Search)', 'Search Processing Language - SPL (Splunk)', 'Sigma', 'Lucene query', 'Google search query', 'Ariel Query Language (qradar)', 'Grep', 'Devo LINQ']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -58488,6 +58780,189 @@ scheduled-event is a MISP object available in JSON format at <a href="https://gi
 </div>
 </div>
 <div class="sect1">
+<h2 id="_scheduled_task"><a class="anchor" href="#_scheduled_task"></a><a class="link" href="#_scheduled_task">scheduled-task</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Windows scheduled task description.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+scheduled-task is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/scheduled-task/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start-time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Time when the task is triggered</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">author</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Who created the task</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Description of the task</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">highest-privileges</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Should the task run with the highest privileges</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Location (Path including filename) of the scheduled task on the computer</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of the scheduled task</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">password-stored</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Should the password be stored (Only if log on is not mandatory)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">repeat</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>condition to repeat the task</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">run-when-user-logged-on-only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Should the task run if the user is logged on only</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">running-account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>User account used when running the task</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">trigger</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>when should the task being triggered ['On a schedule', 'At log on', 'At startup', 'On idle', 'On an event', 'At task creation/modification', 'On connection to user session', 'On disconnect from user session', 'On workstation lock', 'On workstation unlock']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_scrippsco2_c13_daily"><a class="anchor" href="#_scrippsco2_c13_daily"></a><a class="link" href="#_scrippsco2_c13_daily">scrippsco2-c13-daily</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -59496,7 +59971,7 @@ security-playbook is a MISP object available in JSON format at <a href="https://
 <td class="tableblock halign-left valign-top"><p class="tableblock">playbook-id</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>A value that uniquely identifies the playbook. If the playbook itself embeds an identifier then the playbook-id SHOULD use the same identifier (value). If not, the producer MAY generate a unique identifier for the playbook.</p>
+<p>A value that (uniquely) identifies the playbook. If the playbook itself embeds an identifier then the playbook-id SHOULD use the same identifier (value) for correlation purposes.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -60125,6 +60600,111 @@ shortened-link is a MISP object available in JSON format at <a href="https://git
 </div>
 </div>
 <div class="sect1">
+<h2 id="_sigma"><a class="anchor" href="#_sigma"></a><a class="link" href="#_sigma">sigma</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An object describing a Sigma rule (or a Sigma rule name).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+sigma is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/sigma/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A description of the Sigma rule.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Context where the Sigma rule can be applied ['all', 'disk', 'memory', 'network', 'dns']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference/origin of the Sigma rule.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sigma</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sigma</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sigma rule.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sigma-rule-name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sigma rule name.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_social_media_group"><a class="anchor" href="#_social_media_group"></a><a class="link" href="#_social_media_group">social-media-group</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -60510,7 +61090,7 @@ spearphishing-attachment is a MISP object available in JSON format at <a href="h
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60523,7 +61103,7 @@ spearphishing-attachment is a MISP object available in JSON format at <a href="h
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60536,7 +61116,7 @@ spearphishing-attachment is a MISP object available in JSON format at <a href="h
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60549,7 +61129,7 @@ spearphishing-attachment is a MISP object available in JSON format at <a href="h
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60562,7 +61142,7 @@ spearphishing-attachment is a MISP object available in JSON format at <a href="h
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60588,7 +61168,7 @@ spearphishing-attachment is a MISP object available in JSON format at <a href="h
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60601,7 +61181,7 @@ spearphishing-attachment is a MISP object available in JSON format at <a href="h
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60614,7 +61194,7 @@ spearphishing-attachment is a MISP object available in JSON format at <a href="h
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60627,7 +61207,7 @@ spearphishing-attachment is a MISP object available in JSON format at <a href="h
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60640,7 +61220,7 @@ spearphishing-attachment is a MISP object available in JSON format at <a href="h
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60666,7 +61246,7 @@ spearphishing-attachment is a MISP object available in JSON format at <a href="h
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60679,7 +61259,7 @@ spearphishing-attachment is a MISP object available in JSON format at <a href="h
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60692,7 +61272,7 @@ spearphishing-attachment is a MISP object available in JSON format at <a href="h
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60705,7 +61285,7 @@ spearphishing-attachment is a MISP object available in JSON format at <a href="h
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60718,7 +61298,7 @@ spearphishing-attachment is a MISP object available in JSON format at <a href="h
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60797,7 +61377,7 @@ spearphishing-link is a MISP object available in JSON format at <a href="https:/
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60810,7 +61390,7 @@ spearphishing-link is a MISP object available in JSON format at <a href="https:/
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60823,7 +61403,7 @@ spearphishing-link is a MISP object available in JSON format at <a href="https:/
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60836,7 +61416,7 @@ spearphishing-link is a MISP object available in JSON format at <a href="https:/
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60849,7 +61429,7 @@ spearphishing-link is a MISP object available in JSON format at <a href="https:/
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -60862,7 +61442,7 @@ spearphishing-link is a MISP object available in JSON format at <a href="https:/
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -68607,6 +69187,19 @@ yara is a MISP object available in JSON format at <a href="https://github.com/MI
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference or origin of the YARA rule.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">version</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -70334,7 +70927,7 @@ youtube-video is a MISP object available in JSON format at <a href="https://gith
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-06-25 11:45:12 +0200
+Last updated 2022-09-09 07:39:53 +0200
 </div>
 </div>
 </body>
