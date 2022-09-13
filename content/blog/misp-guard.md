@@ -35,7 +35,7 @@ When the Internal MISP instance tries to push an event, MISP Guard inspects the 
 
 > NOTE: By default this addon will block all outgoing HTTP requests that are not required during a MISP server sync. All rejected/blocked requests are logged.
 
-For a more detailed explanation check [misp-guard README](https://github.com/righel/misp-guard/blob/main/README.md)
+For a more detailed explanation check [misp-guard README](https://github.com/misp/misp-guard/blob/main/README.md)
 
 ## Block Rules
 
