@@ -11,7 +11,7 @@ As of version 2.4.162, MISP includes a **periodic summary** feature allowing use
 
 Currently, the summaries can be generated for 3 different periods: `daily`, `weekly` and `monthly` and then sent to all users that subscribed to one of these periods.
 
-In addition to allowing users to subscribed, they can also specify filtering options such as tags or distribution level to be applied when generating the report.
+In addition to letting users subscribe to a period, they can also specify filtering options such as tags or distribution levels to be applied when generating the report.
 
 ![Periodic summary](/img/blog/periodic-summary/periodic-summary-2.png)
 ![Periodic summary](/img/blog/periodic-summary/periodic-summary-3.png)
