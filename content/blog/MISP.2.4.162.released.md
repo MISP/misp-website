@@ -14,10 +14,10 @@ In addition to the MISP v2.4.162 release, [misp-guard](https://github.com/MISP/m
 
 As of version 2.4.162, MISP includes a **periodic summary** feature allowing users to consult a summary based on a requested time-frame for data the user has access to.
 
-Currently, the summaries can be generated for 3 different periods: `daily`, `weekly` and `monthly` and then sent to all users that subscribed one of these periods.
+Currently, the summaries can be generated for 3 different periods: `daily`, `weekly` and `monthly` and then sent to all users that subscribed to one of these periods.
 
-In addition to choose which period users want to subscribed to, they can also specify filtering options such as tags or distribution level to be used to generate the summary.
-The summary can be sent via email in addition to the User-Interface view.
+In addition to letting users subscribe to a period, they can also specify filtering options such as tags or distribution levels to be applied when generating the report.
+The summary can then be sent via email or viewed in the MISP User-Interface.
 
 ![Periodic summary](/img/blog/periodic-summary/periodic-summary-2.png)
 ![Periodic summary](/img/blog/periodic-summary/periodic-summary-3.png)
