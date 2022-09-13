@@ -8,6 +8,8 @@ banner: /img/blog/workflow.png
 We are pleased to announce the immediate availability of [MISP v2.4.162](https://github.com/MISP/MISP/releases/tag/v2.4.162) with a new periodic notification system, workflow updates
 and many improvements. 
 
+In addition to the MISP v2.4.162 release, [misp-guard](https://github.com/MISP/misp-guard) has been released which is a [mitmproxy](https://mitmproxy.org/) addon that inspects the events that MISP is attempting to synchronize with external MISP instances via `PUSH` or `PULL` and applies a set of customizable rules defined in a JSON file. This is a complementary tool to support MISP users having to interconenct MISP instances between highly sensitive networks.
+
 # Periodic notification system
 
 As of version 2.4.162, MISP includes a **periodic summary** feature allowing users to consult a summary based on a requested time-frame for data the user has access to.
