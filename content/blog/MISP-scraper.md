@@ -62,6 +62,9 @@ The feedlist is a JSON file with feeds consisting of a title and a URL.
 
 If you need inspiration to complete your RSS feedlist then have a look at my [OPML Security Feeds GitHub repository](https://github.com/cudeso/OPML-Security-Feeds/blob/master/feedly.opml).
 
+## Prerequisites
+[MISP modules installed and enabled](https://github.com/MISP/misp-modules#how-to-install-and-start-misp-modules-in-a-python-virtualenv-recommended).
+
 ## Installation
 
 To install the scraper, clone the repository from GitHub, setup and activate a Python virtual environment, install the requirements and create an empty config file.
