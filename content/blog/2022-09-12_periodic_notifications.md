@@ -45,3 +45,18 @@ The notification templates can be found under the `app/View/Emails/html` folder.
 For example, the default `monthly` notification template is configured to only include a subset of the *detailed summary* section.
 
 Options and developer documentation can be found in the `notification_common.ctp` file.
+
+## Changes and improvement since MISP v2.4.163
+- **Bug fixes**
+    - Data collection and aggregation give more accurate results
+- **Changes**
+    - Improved UI and data visualization
+    - Decaying event `base_score` has been replaced by decaying `event score` effectively computing the `score` of each event based on their `last_modified` timestamp
+- **New**
+    - Section `New correlations` showing the correlations that were created by the data considered by the report
+![Periodic summary correlations](/img/blog/periodic-summary/periodic-summary-correlations.png)
+    - Section `Report settings` in user setting allowing users to customize the generated report. Customization include tags to be considered when generating trends, new correlations and trending period count allowing users to see trend over a longer time.
+![Periodic summary period count](/img/blog/periodic-summary/periodic-summary-period-count.png)
+
+##### Edits
+- 2022-09-26 - Added changes and improvements from MISP v2.4.163.
