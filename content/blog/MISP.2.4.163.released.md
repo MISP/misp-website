@@ -2,7 +2,7 @@
 title: MISP 2.4.163 released with improved periodic notification system and many improvements
 date: 2022-09-26
 layout: post
-banner: /img/blog/periodic-summary/periodic-summary-3.png 
+banner: /img/blog/periodic-summary/periodic-summary-2.png 
 ---
 
 We are pleased to announce the immediate availability of [MISP v2.4.163](https://github.com/MISP/MISP/releases/tag/v2.4.163) with an updated [periodic notification system](https://www.misp-project.org/2022/09/12/2022-09-12_periodic_notifications.html/) 
