@@ -84,6 +84,7 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2022-29533](https://cvepremium.circl.lu/cve/CVE-2022-29533) < MISP 2.4.158. There is XSS in app/Controller/OrganisationsController.php in a situation with a "weird single checkbox page."
 - [CVE-2022-29528](https://cvepremium.circl.lu/cve/CVE-2022-29528) < MISP 2.4.158. PHAR deserialization can occur.
 - [CVE-2022-29531](https://cvepremium.circl.lu/cve/CVE-2022-29531) < MISP 2.4.158. There is stored XSS in the event graph via a tag name.
+- [CVE-2022-42724](https://cvepremium.circl.lu/cve/CVE-2022-42724) < MISP 2.4.163 - allows attackers to discover role names (this is information that only the site admin should have).
 
 ## PGP Key
 
