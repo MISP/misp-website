@@ -2,11 +2,188 @@ Changelog
 =========
 
 
-%%version%% (unreleased)
-------------------------
+v2.4.164 (2022-10-06)
+---------------------
+
+New
+~~~
+- [attachment] Try to recognize extension if not provided. [Jakub
+  Onderka]
+- [test] Check object correlation. [Jakub Onderka]
+- [UI] Use cached timestamps for JS and CSS when enabled. [Jakub
+  Onderka]
+- [tag] relationships added. [iglocska]
+
+  - add a relationship to any attributeTag / eventTag relationship
+  - works for both clusters and tags
+  - displayed on the event index/view
+  - included in the API
+
+  - new endpoint to modify the relationship via /tags/modifyTagRelationship/[scope]/[id]
+    - scope is attribute/event
+    - id is the id of the EventTag / AttributeTag object
+- [galaxyCluster:restSearch] Allow filtering by elements. [Sami
+  Mokaddem]
+- [user:periodic_report] Added security recommendations section showing
+  course of actions related to attack techniques. [Sami Mokaddem]
 
 Changes
 ~~~~~~~
+- [version] bump. [iglocska]
+- Do not ask users for pass change if custom_auth is required via
+  external auth header. [Luciano Righetti]
+- Bumped db schema. [Sami Mokaddem]
+- [attribute] By default disable correlation for image attachments.
+  [Jakub Onderka]
+- FORCE index hint instead of USE see #8633. [Luciano Righetti]
+- [workflowModule:tag_operation] Added support of `local` and
+  `relationship` [Sami Mokaddem]
+- [tag:attach/detach] Added support of relationship and locality. [Sami
+  Mokaddem]
+- [workflow:debugging] Improved debugging for init endpoint. [Sami
+  Mokaddem]
+- [galaxyCluster:restSearch] Allow multiple filtering conditions to be
+  used at once. [Sami Mokaddem]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [ACL] added modifyTagRelationship. [iglocska]
+- [internal] Preload more scripts and styles. [Jakub Onderka]
+- [UI] Move misp-touch.js to footer. [Jakub Onderka]
+- [UI] Define preload for some scripts and styles. [Jakub Onderka]
+- [UI] Better description for change password form. [Jakub Onderka]
+- [UI] Do not show comment if not defined. [Jakub Onderka]
+- [internal] New method RedisTool::unlink. [Jakub Onderka]
+- [internal] Optimise deleting keys from Redis. [Jakub Onderka]
+- [event-graph] Added entity comment in the graph as tooltip and support
+  of comment in searches. [Sami Mokaddem]
+
+Fix
+~~~
+- Cs. [Luciano Righetti]
+- Check for both rest and non rest requests. [Luciano Righetti]
+- [attributeTag:handleTag] Typo in argument positioning. [Sami Mokaddem]
+- [UI] Use 'application/octet-stream' as mime type for unknown file.
+  [Jakub Onderka]
+- [correlations] NoAclCorrelation works again even for object
+  attributes. [Jakub Onderka]
+- [workflow:editor] Added support of `display_on` for other html
+  element. [Sami Mokaddem]
+- [cluster relationship] fetch for index. [iglocska]
+- [relationship_type] field made nullable. [iglocska]
+- [UI] Undefined variable: tabs. [Jakub Onderka]
+- [UI] Notification template. [Jakub Onderka]
+- [UI] Notification count undefined index. [Jakub Onderka]
+- [user:periodic_notification] Restored missing DIV. [Sami Mokaddem]
+- [user:periodic_notification] Replace splice by slice to preserver
+  indexes. [Sami Mokaddem]
+- [export:context] Display matrix even when its heatmap is empty. [Sami
+  Mokaddem]
+- [notice] undefined index is_galaxy. [Luciano Righetti]
+- [fetchFeed] Set CurrentUserId in fetchFeed. [Benni0]
+
+  Currently the CurrentUserId is not set, when fetchFeed is called, which results in an exception in the Event->publish() function.
+- [export] Skip empty objects. [Jakub Onderka]
+- [schema] null string suggested for nullable default. [Luciano
+  Righetti]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8640 from righel/no-change-pwd-custom-auth.
+  [Luciano Righetti]
+
+  chg: do not ask users for pass change if custom_auth is required via …
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8638 from JakubOnderka/unknown-type. [Jakub
+  Onderka]
+
+  Unknown type
+- Merge pull request #8641 from JakubOnderka/fix-object-noacl. [Jakub
+  Onderka]
+
+  new: [test] Check object correlation
+- Security: [user] Fixing disclosure of roles name to non-site admin
+  users and ensure user edit applies the restricted_to_site_admin
+  option. [Sami Mokaddem]
+
+  This vulnerability with a default MISP installation without additional roles is disclosing list of role name which were restricted to the site admin. This commit fixes this disclosure vulnerability.
+
+  In addition for MISP installation with custom roles, an org admin user could create a user assigned to new custom roles which were restricted to site admin. This could lead to the access of complementary permissions (except site admin, org admin and sync actions).
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8637 from righel/force-index-hint. [Luciano
+  Righetti]
+
+  chg: FORCE index hint instead of USE see #8633
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'tag_relationships' into develop. [iglocska]
+- Merge branch 'develop' into tag_relationships. [iglocska]
+- Merge pull request #8320 from JakubOnderka/asset-loader-immutable.
+  [Jakub Onderka]
+
+  new: [UI] Use cached timestamps for JS and CSS when enabled
+- Merge pull request #8405 from JakubOnderka/ui-fixes-vol2. [Jakub
+  Onderka]
+
+  chg: [UI] Do not show comment if not defined
+- Merge pull request #8634 from JakubOnderka/redis-unlink-v2. [Jakub
+  Onderka]
+
+  chg: [internal] New method RedisTool::unlink
+- Merge pull request #8632 from JakubOnderka/redis-unlink. [Jakub
+  Onderka]
+
+  chg: [internal] Optimise deleting keys from Redis
+- Merge pull request #8631 from JakubOnderka/fix-notification-template.
+  [Jakub Onderka]
+
+  fix: [UI] Notification template
+- Merge pull request #8625 from JakubOnderka/notification-attack-count.
+  [Jakub Onderka]
+
+  fix: [UI] Notification count undefined index
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8583 from Benni0/fix_userId. [Luciano Righetti]
+
+  fix: [fetchFeed] Set CurrentUserId in fetchFeed
+- Merge pull request #8617 from JakubOnderka/fix-nids-export. [Jakub
+  Onderka]
+
+  fix: [export] Skip empty objects
+- Merge pull request #8618 from righel/fix-default-null-db-diagnostics.
+  [Luciano Righetti]
+
+  fix: [schema] null string suggested for nullable defaults
+
+
+v2.4.163 (2022-09-26)
+---------------------
+
+New
+~~~
+- [user:periodic_notification] Added option to set the number of period
+  for trending. [Sami Mokaddem]
+- [CLI] Option to fetch remote server index. [Jakub Onderka]
+- [internal] RedisTool. [Jakub Onderka]
+- [sync] Event index cache. [Jakub Onderka]
+- [periodic_notification] Added support of new correlation. [Sami
+  Mokaddem]
+
+  A correlation is considered as "new" if the event published during the considered timeframe has a correlating attribute that has been modified since then.
+- [test] test_correlations_noacl. [Jakub Onderka]
+
+Changes
+~~~~~~~
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [version] bump. [iglocska]
+- Typo. [Luciano Righetti]
+- Update openapi desc. [Luciano Righetti]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
 - [peridioc_notification] Small UI improvement for email rendering.
   [Sami Mokaddem]
 - [periodic_notification] Only show top 10 mitre attack techniques.
@@ -22,13 +199,277 @@ Changes
   base_score taking into account publish_timestamp. [Sami Mokaddem]
 - [periodic_notification] Generate tag trendings for mitre ATTACK if
   none are provided. [Sami Mokaddem]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [schema] Add missing index for
+  object_template_elements:object_template_id column. [Jakub Onderka]
+- [internal] Code cleanup for object edit. [Jakub Onderka]
+- [UI] Add object reference cleanup. [Jakub Onderka]
+- [internal] Mark AppModel::convert_to_memory_limit_to_mb method as
+  protected. [Jakub Onderka]
+- [UI] Scroll to object if not visible after adding attribute. [Jakub
+  Onderka]
+- [internal] Speedup checking valid object for attributes. [Jakub
+  Onderka]
+- [internal] Faster fetching object templates for merging. [Jakub
+  Onderka]
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-taxonomies] updated. [Alexandre Dulaunoy]
+- [community-metadata] clarify NATO process. [Christophe Vandeplas]
+- [validation] Check if ssdeep contain newline character. [Jakub
+  Onderka]
+- [internal] Mark some AppModel methods as private. [Jakub Onderka]
+- [internal] Remove unused method Attribute::rpz. [Jakub Onderka]
+- [internal] Move AUTOMATION_ARRAY definition to IndexFilterComponent.
+  [Jakub Onderka]
+- [internal] Remove unused method Attribute::bro. [Jakub Onderka]
+- [internal] Remove unused method Attribute::text. [Jakub Onderka]
+- [internal] Remove unused method Attribute::hids. [Jakub Onderka]
+- [internal] Mark NidsExport class as abstract. [Jakub Onderka]
+- [internal] Remove unused method Attribute::nids. [Jakub Onderka]
+- [periodic_notification] Sort Mitre Attack technique by occurence.
+  [Sami Mokaddem]
+- [event:trendForTags] Filter out events having old modification
+  compared to their publish_timestamp. [Sami Mokaddem]
+- [periodic_notification.trending_tags] Improved view to support
+  variables number of periods. [Sami Mokaddem]
+- [l10n] Make export choices l10n. [Jakub Onderka]
+- [correlations] Attach correlation exclusion just for correlating
+  attributes. [Jakub Onderka]
+- [UI] Change Published to icon in event index. [Jakub Onderka]
+- [internal] Add decaying model cache. [Jakub Onderka]
+- [internal] Do not fetch scores when not necessary. [Jakub Onderka]
+- [internal] Change method name
+  User::{extractPeriodicSettingForUser->fetchPeriodicSettingForUser}
+  [Jakub Onderka]
+- [internal] Reduce number of SQL queries when fetching taxonomy and
+  galaxies in context export. [Jakub Onderka]
+- [internal] Store warninglist cache in more efficient format. [Jakub
+  Onderka]
+- [internal] Use more specific Redis command. [Jakub Onderka]
+- [internal] Convert to const. [Jakub Onderka]
+- [attribute:beforeDelete] Replaced this->read by this->find. [Sami
+  Mokaddem]
+- [periodic_notification] Different rendering for new correlation
+  depending on the amount. [Sami Mokaddem]
+- [periodic_notification] Added published keyword to the overview table.
+  [Sami Mokaddem]
+- [UI] Update jQuery to 3.6.1. [Jakub Onderka]
+- [peridioc_notification] Small UI improvement for email rendering.
+  [Sami Mokaddem]
+- [periodic_notification] Small UI improvements. [Sami Mokaddem]
+- [period_notification] Improved layout and limit number of events
+  displayed. [Sami Mokaddem]
+- [periodic_notification] Improved layout and added heatbar. [Sami
+  Mokaddem]
+- [periodic_summary] Only show data in chart for tags having changes
+  over time. [Sami Mokaddem]
+- [periodic_notification] Only show top 10 mitre attack techniques.
+  [Sami Mokaddem]
+- [peridioc_notification] Compute event score instead of event
+  base_score taking into account publish_timestamp. [Sami Mokaddem]
+- [UI] Add page title for galaxy cluster view. [Jakub Onderka]
+- [CLI] Do not call ConfigLoad twice. [Jakub Onderka]
+- [internal] Code cleanup. [Jakub Onderka]
+- [correlation] Do not delete over correlation if no correlation found.
+  [Jakub Onderka]
+- [internal] Optimise CorrelationValue. [Jakub Onderka]
+- [correlation] Optimise NoAcl correlations. [Jakub Onderka]
+- [correlations] Optimise fetching limit. [Jakub Onderka]
+- [correlations] Skip correlations for float attribute type. [Jakub
+  Onderka]
+- [correlation] Faster saving correlations. [Jakub Onderka]
+- [periodic_notification] Generate tag trendings for mitre ATTACK if
+  none are provided. [Sami Mokaddem]
 
 Fix
 ~~~
+- [notification_common] speculative fix. [iglocska]
+- Fixed events and target event id not properly set. [Luciano Righetti]
 - [serverShell:sendPeriodicSummaryToUsers] Typo in periods. [Sami
   Mokaddem]
 - [user:extractPeriodicSummary] Fallback default values for periodic
   settings. [Sami Mokaddem]
+- [UI] Template for group attributes into object. [Jakub Onderka]
+- [internal] Undefined index sharing_group_id. [Jakub Onderka]
+- [UI] Better error message for error AJAX message. [Jakub Onderka]
+- [internal] Updating object templates. [Jakub Onderka]
+- [internal] Throw exception when trying import invalid taxonomy. [Jakub
+  Onderka]
+- [user] removes autocomplete on admin user pages, fixes #8556.
+  [Christophe Vandeplas]
+- [user:periodic_notification] Fixed typo. [Sami Mokaddem]
+- [UI] Round percentage change in periodic summary. [Jakub Onderka]
+- [internal] Fix typo. [Jakub Onderka]
+- [UI] Trending tags missing key. [Jakub Onderka]
+- [internal] Code style. [Jakub Onderka]
+- Fixed events and target event id not properly set. [Luciano Righetti]
+- [periodic summary] Fetch just users from database that are enabled.
+  [Jakub Onderka]
+- [internal] Speedup fetching clusters. [Jakub Onderka]
+- [internal] Use cache when fetching sharing group for galaxy clusters.
+  [Jakub Onderka]
+- [internal] Do not fetch full cluster for context export. [Jakub
+  Onderka]
+- [UI] Notification settings. [Jakub Onderka]
+- [internal] Refresh session after notification change. [Jakub Onderka]
+- [internal] Extracting periodic setting for user. [Jakub Onderka]
+- [internal] Do not fetch full clusters for periodic summary. [Jakub
+  Onderka]
+- [internal] Undefined index. [Jakub Onderka]
+- [UI] Number of attack techniques in summary. [Jakub Onderka]
+- [internal] Cleanup code for context exporter. [Jakub Onderka]
+- [UI] Periodic summary. [Jakub Onderka]
+- [internal] Flush just necessary data. [Jakub Onderka]
+- [internal] PHP comments. [Jakub Onderka]
+- [internal] Use Redis serializer to more places. [Jakub Onderka]
+- [sync] Log when the request started. [Jakub Onderka]
+- [correlations] Do not fetch unnecessary data. [Jakub Onderka]
+- [internal] Optimise fetching related attributes. [Jakub Onderka]
+- [internal] Code style. [Jakub Onderka]
+- [UI] Correlation for attributes. [Jakub Onderka]
+- [UI] Show active tab for over correlations. [Jakub Onderka]
+- [correlation] Smarter count OverCorrelating values. [Jakub Onderka]
+- [internal] Respect `Security.hide_organisation_index_from_users`
+  setting. [Jakub Onderka]
+- [internal] Remove unused code. [Jakub Onderka]
+- [periodic_notification] Includes correlations for ObjectAttribute.
+  [Sami Mokaddem]
+- [attribute:fetchAttributes] Respect the passed `deleted` option. [Sami
+  Mokaddem]
+- [events:attribute_table] Keep objectAttributes matching the filtering
+  query in the result set. [Sami Mokaddem]
+- [user:periodic_notification] Show the correct start date of the
+  report. [Sami Mokaddem]
+- [internal] Attach correlation exclusion just when correlations are
+  requested. [Jakub Onderka]
+- [workflow:editor] Gracefully catch case when trying to access an
+  unknown module id. [Sami Mokaddem]
+- [UI] Handling non exists user setting. [Jakub Onderka]
+- [attribute:generateCorrelation] No division by zero. [Sami Mokaddem]
+
+  Potentially fix #8562
+- [serverShell:sendPeriodicSummaryToUsers] Typo in periods. [Sami
+  Mokaddem]
+- [user:extractPeriodicSummary] Fallback default values for periodic
+  settings. [Sami Mokaddem]
+- [correlation] Undefined index for long values. [Jakub Onderka]
+- [CLI] Initialize config before loading models. [Jakub Onderka]
+- [correlation] Fix correlation skipping when doing full correlation.
+  [Jakub Onderka]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Christian
+  Studer]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #8602 from szopin/patch-1. [Jakub Onderka]
+
+  Redact sensitive settings
+- Redact sensitive settings. [szopin]
+
+  Proxy password, ZeroMQ password and ZeroMQ redis password were not redacted as all other password fields
+- Merge pull request #8584 from righel/update-openapi-desc. [Luciano
+  Righetti]
+
+  chg: update openapi desc
+- Merge pull request #8611 from JakubOnderka/attribute-merging. [Jakub
+  Onderka]
+
+  chg: [internal] Faster fetching object templates for merging
+- Merge pull request #8614 from JakubOnderka/taxonomy-import-error-
+  handling. [Jakub Onderka]
+
+  fix: [internal] Throw exception when trying import invalid taxonomy
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8601 from JakubOnderka/code-style. [Jakub Onderka]
+
+  fix: [internal] Code style
+- Merge pull request #8612 from JakubOnderka/ssdeep-validation. [Jakub
+  Onderka]
+
+  chg: [validation] Check if ssdeep contain newline character
+- Merge pull request #8608 from JakubOnderka/nids-cleanup. [Jakub
+  Onderka]
+
+  Nids cleanup
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8607 from JakubOnderka/export-choices-l10n. [Jakub
+  Onderka]
+
+  chg: [l10n] Make export choices l10n
+- Merge pull request #8599 from JakubOnderka/ui-event-index. [Jakub
+  Onderka]
+
+  chg: [UI] Change Published to icon in event index
+- Merge pull request #8600 from JakubOnderka/periodic-summary-task.
+  [Jakub Onderka]
+
+  fix: [periodic summary] Fetch just users from database that are enabled
+- Merge pull request #8597 from JakubOnderka/periodic-summary-optim.
+  [Jakub Onderka]
+
+  Periodic summary optim
+- Merge pull request #8593 from JakubOnderka/fix-periodic-extract.
+  [Jakub Onderka]
+
+  fix: [internal] Extracting periodic setting for user
+- Merge pull request #8592 from JakubOnderka/context-export-cleanup.
+  [Jakub Onderka]
+
+  fix: [internal] Cleanup code for context exporter
+- Merge pull request #8596 from JakubOnderka/ui-periodic-summary. [Jakub
+  Onderka]
+
+  fix: [UI] Periodic summary
+- Merge pull request #8489 from JakubOnderka/event-index-cache. [Jakub
+  Onderka]
+
+  new: [sync] Event index cache
+- Merge pull request #8577 from JakubOnderka/correlation-fixes. [Jakub
+  Onderka]
+
+  Correlation fixes
+- Merge pull request #8591 from JakubOnderka/fix-hide-orgs. [Jakub
+  Onderka]
+
+  fix: [internal] Respect `Security.hide_organisation_index_from_users`…
+- Merge pull request #8590 from JakubOnderka/remove-unused. [Jakub
+  Onderka]
+
+  fix: [internal] Remove unused code
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8580 from JakubOnderka/jquery-update. [Jakub
+  Onderka]
+
+  chg: [UI] Update jQuery to 3.6.1
+- Merge pull request #8582 from JakubOnderka/event-fetch-speedup. [Jakub
+  Onderka]
+
+  fix: [internal] Attach correlation exclusion just when correlations a…
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8517 from JakubOnderka/fix-get-user-setting.
+  [Jakub Onderka]
+
+  fix: [UI] Handling non exists user setting
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8571 from JakubOnderka/galaxy-cluster-title.
+  [Jakub Onderka]
+
+  chg: [UI] Add page title for galaxy cluster view
+- Merge pull request #8572 from JakubOnderka/correlation-value-
+  transaction. [Jakub Onderka]
+
+  chg: [correlation] Faster saving correlations
 
 
 v2.4.162 (2022-09-09)
