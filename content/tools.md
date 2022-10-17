@@ -129,6 +129,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [Viper](http://www.viper.li/) - is a binary management and analysis framework dedicated to malware and exploit researchers including a MISP module.
 * [vt2misp](https://github.com/eCrimeLabs/vt2misp) -  Script to fetch data from virustotal and add it to a specific event as an object.
 * [yara-exporter](https://github.com/BSI-CERT-Bund/yara-exporter) - Exporting MISP event attributes to yara rules usable with Thor apt scanner.
+* [misp-to-sentinel](https://github.com/zolderio/misp-to-sentinel/) - Azure Function to export MISP intel to Azure Sentinel
 
 ### Tutorials on interconnecting MISP with other tools
 
