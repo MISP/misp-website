@@ -1,5 +1,5 @@
 ---
-title: SACTI: Secure aggregation of cyber threat intelligence 
+title: SACTI - Secure aggregation of cyber threat intelligence 
 date: 2022-10-27
 layout: post
 banner: /img/blog/sacti/Picture4.png
@@ -25,9 +25,9 @@ Nonetheless, it may still happen that only a single member of the response group
 
 This is implemented using a multi-party computation protocol, based on Shamir secret sharing. This prevents that a small group of colluding parties is able to extract any information from a protocol run. In this way the security demands can be met in a scalable way, so that this approach is also viable for large groups with long lists of IoCs. If the protocol has run successfully, the aggregated result is uploaded automatically to MISP.
 
-![Picture4](Picture4.png)
+![Picture4](/img/blog/sacti/Picture4.png)
 
-![Picture5](Picture5.png)
+![Picture5](/img/blog/sacti/Picture5.png)
 
 # In more detail
 
@@ -63,11 +63,11 @@ Efficiency seems very promising, but demands for large CTI communities are very 
 
 The figures below were generated with a simulation of the entire community, consisting of the aggregator and all the participants, on a single machine. For the runtime dependence on the number of IoC we expect a linear behaviour, which is indeed clearly observed.
 
-![Picture2](Picture2.png)
+![Picture2](/img/blog/sacti/Picture2.png)
 
 For the dependence on the number of parties the situation is not as clear. If $`n`$ parties join the protocol run, every submitted value will be split in $`n`$ shares. The amount of information a party must process increases linearly with the number of participants. Since we are simulating all $`n`$ parties on a single machine, we expect a quadratically increasing runtime. However, the (small-scale) simulations indicate a faster expansion. This may be due to deficiencies in the code or clogging in the machine's processing unit.
 
-![Picture3](Picture3.png)
+![Picture3](/img/blog/sacti/Picture3.png)
 
 It should be mentioned that the simulation on a single machine does not suffer from communication delays that will occur in distributed simulations. 
 Exploratory tests have indicated that the choice of cryptographic algorithms in the PKI have a negligible effect on the protocol's performance.
