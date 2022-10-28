@@ -37,7 +37,7 @@ Each participant uses the binary encoding of the (integer) number of sightings. 
 
 The next check counts the number of zero-sightings. Only if all 7 bits of a number are equal to zero, we have a zero-sighting. This means that we would like to compute $`\prod_{i=1}^{7}(1-b_{i})`$, which is equal to 1 if and only if the submitted integer is equal to zero. Summing this over all participants yields the number of submitted zeros. Comparing this with the pre-set threshold of the maximum number of tolerable zero-sightings is the second check. If both check yield positive results, it is time to perform the final aggregation and reveal the result.
 
-Secure multiplication of secret shares must be designed carefully to provide both security and correctness. For that reason, some extra information on the submitted bits is provided and used. This also means that additional consistency check must be performed. The above sketch of the protocol does not yet contain all details. For questions about further details we may be contacted via our [Slack channel](cossas.slack.com).
+Secure multiplication of secret shares must be designed carefully to provide both security and correctness. For that reason, some extra information on the submitted bits is provided and used. This also means that additional consistency check must be performed. The above sketch of the protocol does not yet contain all details.
 
 # Security model
 
@@ -49,7 +49,7 @@ The solution is secure in the semi-honest model; this means that participants ar
 
 # Implementation
 
-The demonstrator is build in Python using the Shamir secret-sharing library from mpc.tno.nl. The, code, installation instructions and usage instructions can be found [here](https://github.com/COSSAS/sacti). A demonstration video can be found [here](https://vimeo.com/748755803).
+The demonstrator is built in Python using the Shamir secret-sharing library from mpc.tno.nl. The, code, installation instructions and usage instructions can be found [here](https://github.com/COSSAS/sacti). Further backgrounds (including a demonstration video) can be found [here](https://cossas-project.org/portfolio/sacti/).
 
 Since the software was developed within the EU's [Prometheus](h2020.prometheus.eu) project, the PKI in the demonstrator is self-made and based on lattice-based standardization candidates from NIST's PQC standardization competition.  However, it is not suitable for operational applications.  It is only suitable for simulation on one machine and for research purposes. Organizations using this protocol should replace it with a properly implemented and tested PKI.
 
