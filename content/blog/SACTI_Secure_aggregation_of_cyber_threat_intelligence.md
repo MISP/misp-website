@@ -2,7 +2,7 @@
 title: SACTI - Secure aggregation of cyber threat intelligence 
 date: 2022-10-27
 layout: post
-banner: /img/blog/sacti/Picture4.png
+banner: /img/blog/sacti/SACTI_logo_small.jpg
 ---
 
 # **SACTI: Secure aggregation of cyber threat intelligence**
