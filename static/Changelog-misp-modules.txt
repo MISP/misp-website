@@ -1,6 +1,135 @@
 # Changelog
 
 
+## v2.4.165 (2022-11-08)
+
+### New
+
+* [expansion] Added extract_url_components module to create an object from an URL attribute. [Sami Mokaddem]
+
+* [import] import_blueprint to facilitate an easy-to-use blueprint for data import. [Sami Mokaddem]
+
+* [import] Url_import module to convert batch of URLs into url objects. [Sami Mokaddem]
+
+### Changes
+
+* [mkdocs] updated doc. [Alexandre Dulaunoy]
+
+* [mkdows] footer updated. [Alexandre Dulaunoy]
+
+* [doc] updated. [Alexandre Dulaunoy]
+
+* [cve_advanced] Updated the module to use cvepremium & a few improvements. [Christian Studer]
+
+### Fix
+
+* [url_import/url] added in __init__ [Alexandre Dulaunoy]
+
+* [crowdsec] Fixed the __init__ files. [Christian Studer]
+
+* [variodbs] Fixed indentation issue. [Christian Studer]
+
+  - if `exploit_results` is empty, we should not go
+    any further in the query for next values exploit
+    results
+
+* [variodbs] Properly handling the exploit results when there is more that 10 results. [Christian Studer]
+
+  - We keep querying the VARIoT db API with the link
+    of the next content until there is no next result
+
+* [variodbs] Fixed the empty vulnerability results case handling, to avoid the module to stop before looking for related exploits. [Christian Studer]
+
+* [variotdbs] Fixed some typos, missing imports, and some issues in the main parsing process. [Christian Studer]
+
+* [variotdbs] Added the reference between the resulting vulnerability object and the initial vulnerability attribute. [Christian Studer]
+
+### Other
+
+* Merge branch 'main' of github.com:MISP/misp-modules. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-modules into main. [Sami Mokaddem]
+
+* Merge pull request #590 from crowdsecurity/main. [Alexandre Dulaunoy]
+
+  Add crowdsec module
+
+* Add crowdsec module. [Shivam Sandbhor]
+
+* Add: [variotdbs] Updated the exploit object mapping to support the object attributes recently added to the `exploit` template. [Christian Studer]
+
+* Merge branch 'new_module' of github.com:MISP/misp-modules. [Christian Studer]
+
+* Add: [readme] Added description for the variotdbs module. [Christian Studer]
+
+* Add: [documentation] Regenerated documentation with the recently added modules description. [Christian Studer]
+
+* Add: [documentation] Added documentation for the variotdbs module. [Christian Studer]
+
+* Add: [variotdbs] Added the exploit information parsing. [Christian Studer]
+
+  - Following a recent change on the variotdbs API
+    allowing requests to get exploits information
+    base on a CVE number
+
+* Merge branch 'main' into new_module. [Christian Studer]
+
+* Add: [variotdbs] Added module to query the variotdbs API with a vulnerabliity, to get additional info about it. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-modules into new_module. [Christian Studer]
+
+* Merge pull request #586 from RamboV/main. [Alexandre Dulaunoy]
+
+  Added more endpoints to the module
+
+* Update hyasinsight.py. [Rambatla Venkat Rao]
+
+* Added few more endpoints. [Rambatla Venkat Rao]
+
+* Merge pull request #585 from extra2000/bump-vt-py-0_17_1. [Alexandre Dulaunoy]
+
+  fix(REQUIREMENTS): bump `vt-py` to `0.17.1` due to `0.17.0` is no longer exists
+
+* Fix(REQUIREMENTS): bump `vt-py` to `0.17.1` due to `0.17.0` is no longer exists. [Nik Mohamad Aizuddin]
+
+* Merge branch 'new_module' of github.com:MISP/misp-modules into new_module. [Christian Studer]
+
+* Merge pull request #583 from JakubOnderka/update-dependencies. [Jakub Onderka]
+
+  Update REQUIREMENTS
+
+* Update REQUIREMENTS. [Jakub Onderka]
+
+
+## v2.4.163 (2022-09-26)
+
+### Fix
+
+* [expansion:apivoid] add missing email attribute input types. [Jeroen Pinoy]
+
+### Other
+
+* Merge pull request #579 from szopin/patch-2. [Alexandre Dulaunoy]
+
+  Fix for ocr import
+
+* Fix for ocr import. [szopin]
+
+  Currently works only for .pdf files, with this .png and .jpg should also work (fixes #512)
+
+* Merge pull request #581 from Wachizungu/add-input-email-attribute-types-to-apivoid-exp-module. [Alexandre Dulaunoy]
+
+  fix: [expansion:apivoid] add missing email attribute input types
+
+* Merge pull request #578 from szopin/patch-1. [Alexandre Dulaunoy]
+
+  Fix for hashdd
+
+* Fix for hashdd. [szopin]
+
+  Endpoint has changed, now only accepts md5 and the format of the reply is also different
+
+
 ## v2.4.162 (2022-09-09)
 
 ### New

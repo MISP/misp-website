@@ -2,6 +2,543 @@ Changelog
 =========
 
 
+v2.4.165 (2022-11-09)
+---------------------
+
+New
+~~~
+- [CLI] added pretty and json output modes to list and view feeds.
+  [iglocska]
+- [feed management] added to CLI. [iglocska]
+
+  - still needs to add docs
+- [acl] Checks for publishing or modifying galaxy clusters. [Jakub
+  Onderka]
+- [acl] Use canModifyEvent for attributes index. [Jakub Onderka]
+- [acl] canEditEventReport. [Jakub Onderka]
+- [acl] Check sighting deletion in ACLComponent. [Jakub Onderka]
+- [acl] User AlcHelper more often. [Jakub Onderka]
+- [UI] Show servers where event will be pushed. [Jakub Onderka]
+- [oidc] Change organisation name when UUID is provided. [Jakub Onderka]
+- [oidc] Allow to create new org with defined UUID. [Jakub Onderka]
+- [test] Sighting rest search test. [Jakub Onderka]
+- [test] Check sighting rest search ACL vol. 2. [Jakub Onderka]
+- [test] Check sighting rest search ACL. [Jakub Onderka]
+- [redis] Store some data in Redis compressed to save memory. [Jakub
+  Onderka]
+- [feed] Store freetext feed compressed in cache. [Jakub Onderka]
+- [test] test_org_hide_index. [Jakub Onderka]
+- [acl] Move disabling correlation checking to Acl component. [Jakub
+  Onderka]
+- [acl] CanModifyTag method in AclHelper. [Jakub Onderka]
+- [acl] Move checks from controller to ACL component. [Jakub Onderka]
+- [acl] View helper. [Jakub Onderka]
+- [workflowModule:attribute_ids_flag_operation] Module to toggle/remove
+  the to_ids flag. [Sami Mokaddem]
+- [workflowModule:attribute_edition] Added generic module to support
+  attribute edition. [Sami Mokaddem]
+
+  Can be extended by other modules
+- [workflowModule:attach_enrichment] That attaches enrichment entries to
+  the enriched attributes. [Sami Mokaddem]
+- [correlation] Do not correlate over correlating value again for full
+  correlation. [Jakub Onderka]
+
+  Should help with #8685
+- [internal] Add support for simdjson extension. [Jakub Onderka]
+- [freetext] Try to parse input as JSON. [Jakub Onderka]
+- [freetext] Fetch security vendor domains from warninglist. [Jakub
+  Onderka]
+- [freetext] Remove to_ids from ComplexTypeTool. [Jakub Onderka]
+- [tools:misp-zmq] Added subscriber blueprint. [Sami Mokaddem]
+- [workflow:execute_module] Allow to ignore format conversion before
+  executing module. [Sami Mokaddem]
+- [triggers:event_after_save_new] Added 2 new triggers for new events
+  and new events from pull. [Sami Mokaddem]
+- [redis] Add support for dragonfly redis replacement. [Jakub Onderka]
+- [UI] Show warning if user don't have permission to use API. [Jakub
+  Onderka]
+- [UI] Allow to disable PGP key fetching. [Jakub Onderka]
+
+Changes
+~~~~~~~
+- [VERSION] bump. [iglocska]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [warning-list] updated. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] many updates including new MITRE ATT&CK changes.
+  [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-workflow-blueprints] updated to the latest version. [Alexandre
+  Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [helper:acl] Removed unused function. [Sami Mokaddem]
+- [CLI] new functions documented on the automation page. [iglocska]
+- [internal] Update warninglist cache just when it is necessary. [Jakub
+  Onderka]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [oidc] Create new org by SYSTEM user. [Jakub Onderka]
+- [sync] Remove empty events from pull. [Jakub Onderka]
+- [internal] Faster fetching event index. [Jakub Onderka]
+- [API] Throw exception if invalid ID provided. [Jakub Onderka]
+- [internal] Use subquery to sighting fetching. [Jakub Onderka]
+- [sync] Use new sighting pull for new MISP instances. [Jakub Onderka]
+- [sighting] Include organisation in rest response. [Jakub Onderka]
+- [sightings] Optimised fetching. [Jakub Onderka]
+- [api] Allow to include uuids to sighting. [Jakub Onderka]
+- [sync] New way how to pull sightings. [Jakub Onderka]
+- [internal] Optimise sighting rest search. [Jakub Onderka]
+- [internal] Add logging for galaxy cluster sync. [Jakub Onderka]
+- [misp-workflow-blueprints] updated to the latest version. [Alexandre
+  Dulaunoy]
+- [internal] Store taxonomy in cache compressed. [Jakub Onderka]
+- [internal] Move module perms to one place. [Jakub Onderka]
+- [acl] Use ACL methods for checks. [Jakub Onderka]
+- [acl] Move tags ACL check to one place. [Jakub Onderka]
+- [css] put enrich box higher on the screen. [Alexandre Dulaunoy]
+- [UI] Allow event mass export for all events. [Jakub Onderka]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [acl] Use Acl::canAccess. [Jakub Onderka]
+- [acl] Move org index access to ACLComponent. [Jakub Onderka]
+- [acl] Use Acl::canAccess. [Jakub Onderka]
+- [internal] Put most used controller component to defined variables.
+  [Jakub Onderka]
+- [acl] Simplify acl checking for side menu. [Jakub Onderka]
+- [acl] User standard ACL check for event index table. [Jakub Onderka]
+- [acl] Fetch host_org_id just once. [Jakub Onderka]
+- [API] For warninglist index returns all warninglists. [Jakub Onderka]
+- [PyMISP] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [correlation] Do not try to unblock value if doing full correlation.
+  [Jakub Onderka]
+- [internal] Micro optimisation. [Jakub Onderka]
+- [correlation] Check attribute ID in SQL request. [Jakub Onderka]
+- [correlation] Move fetching object later in code. [Jakub Onderka]
+- [internal] Cleanup code for JSON decoding. [Jakub Onderka]
+- [internal] Normalize user fetching for admins. [Jakub Onderka]
+- [internal] Use readJsonFromFile. [Jakub Onderka]
+- [internal] Be sure that authorizedIds methods returns int. [Jakub
+  Onderka]
+- [intetrnal] Cleanup code for User::getUsersWithAccess. [Jakub Onderka]
+- [internal] Cleanup code for User::beforeSave. [Jakub Onderka]
+- [workflowModule:baseModule] Added helper function to collect matching
+  elements. [Sami Mokaddem]
+- [workflowModules:enrich-event] Sort list of modules. [Sami Mokaddem]
+- [UI] Cleanup code for widgets. [Jakub Onderka]
+- [security] Mark Ubuntu 21.10 as not supported. [Jakub Onderka]
+- [internal] Delete attribute code cleanup. [Jakub Onderka]
+- [internal] Use JsonTool more often vol. 2. [Jakub Onderka]
+- [attribute] Better ssdeep validation. [Jakub Onderka]
+- [internal] Use JsonTool more often. [Jakub Onderka]
+- [freetext] Optimise parsing. [Jakub Onderka]
+- [internal] Speedup saving attributes when workflow is disabled. [Jakub
+  Onderka]
+- [warninglist] Load warninglist from Redis for TLDs and security
+  vendors. [Jakub Onderka]
+- [internal] Simplify add workflow. [Jakub Onderka]
+- [api] Better specify what `last` attribute means. [Jakub Onderka]
+- [trigger:enrichment-before-query] Include module being queried in
+  triggerData. [Sami Mokaddem]
+- [js:event-graph] Possibility to removes leaves from the graph. [Sami
+  Mokaddem]
+- [tool:evengraph] Include relationships when using pivot key. [Sami
+  Mokaddem]
+- [trigger:event-after-save-new-from-pull] Include pass-along pulling
+  server. [Sami Mokaddem]
+- [api] Return REST responses for modifyTagRelationship. [Jakub Onderka]
+- [workflows:triggers] Added filtering capability on the index. [Sami
+  Mokaddem]
+- [logs:index] Allow to filter based on the created field in the UI.
+  [Sami Mokaddem]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [correlation] Optimise saving object timestamp. [Jakub Onderka]
+- [jobs] Small cleanup. [Jakub Onderka]
+- [internal] Use specific controller version of jsonDecode. [Jakub
+  Onderka]
+- [events:attributeToolbar] Bulk relationship add shows details of
+  selected object. [Sami Mokaddem]
+- [jobs] Store job data in Redis when SimpleBackgroundJobs are enabled.
+  [Jakub Onderka]
+
+  Will help to solve #8616
+- [events:attributeToolbar] Added bulk relationship add. [Sami Mokaddem]
+- [redis] Raise default count for deleteKeysByPattern method. [Jakub
+  Onderka]
+- [internal] Cleanup Redis code. [Jakub Onderka]
+- [internal] More clear method name. [Jakub Onderka]
+- [internal] Use short isset. [Jakub Onderka]
+- [internal] Cleanup for RateLimitComponent. [Jakub Onderka]
+- [redis] Use redis serializer for storing dashboard cache. [Jakub
+  Onderka]
+- [events:attributeToolbar] Added bulk local tagging. [Sami Mokaddem]
+
+Fix
+~~~
+- [typo] fixed after crash. [iglocska]
+- [eventreports] edit ACL lookup fixed. [iglocska]
+- [tags] index search fixed. [iglocska]
+
+  - not passing name, filter, search all together would lead to the search not working
+- [acl] Added missing entry about eventReport. [Sami Mokaddem]
+- [sync] Remove events without sightings from pull. [Jakub Onderka]
+- [sync] Do not push galaxy cluster to events that should not be pushed.
+  [Jakub Onderka]
+- [acl] Add event to template when adding shadow attribute. [Jakub
+  Onderka]
+- [UI] Show checkbox for events to all users to allow mass export.
+  [Jakub Onderka]
+- [view] Remove unused variable. [Jakub Onderka]
+- [template] Remove unused template. [Jakub Onderka]
+- [UI] Cleanup for reference bulk add. [Jakub Onderka]
+- [UI] Statistics EventTag call. [Jakub Onderka]
+- [oidc] Allow to check all users. [Jakub Onderka]
+- [internal] Convert array to const. [Jakub Onderka]
+- [test] Debug failing test. [Jakub Onderka]
+- [sighting] Return just requested sighting. [Jakub Onderka]
+- [statistics] do not divide correlation count by 2 - no longer needed.
+  [Andras Iklody]
+
+  We're only storing 1 row / correlation since the engine rework
+
+  - As reported by @github-germ
+- [sync] Do not try to push no clusters to remote server. [Jakub
+  Onderka]
+- [internal] Server push logging. [Jakub Onderka]
+- [backgroundJobs] Added default fallback for settings & Use proper
+  filepath when Redis not enabled. [Sami Mokaddem]
+- [internal] Tag `misp-galaxy:rsit="Information Gathering:Scanning"` was
+  considered as invalid. [Jakub Onderka]
+- [test] Try to debug why tests sometimes fail. [Jakub Onderka]
+- [internal] AppController cleanup. [Jakub Onderka]
+- [acl] Only site admin can call server pull/push. [Jakub Onderka]
+- [idTranslator] Show error when remote event not found. [Jakub Onderka]
+- [acl] Event graph. [Jakub Onderka]
+- [api] Remove user_id from extensionEvents JSON export. [Jakub Onderka]
+- [internal] Remove unused controller method. [Jakub Onderka]
+- [security] Permission for tag collections. [Jakub Onderka]
+- [internal] Typo in attribute controller. [Jakub Onderka]
+- [acl] Extended event UI permission. [Jakub Onderka]
+- [UI] Undefined index. [Jakub Onderka]
+- [UI] Undefined variable. [Jakub Onderka]
+- [UI] Undefined index. [Jakub Onderka]
+- [acl] Correlation can disable user that can modify event. [Jakub
+  Onderka]
+- [correlation] Delete correlations when deleting event. [Jakub Onderka]
+- [UI] Fetching attribute info with Event.user_id. [Jakub Onderka]
+- [UI] Undefined index. [Jakub Onderka]
+- [security] Check user permission when attaching clusters. [Jakub
+  Onderka]
+- [acl] Remove duplicate acl definition. [Jakub Onderka]
+- [acl] User standard acl checking. [Jakub Onderka]
+- [test] Show debug output for warninglist. [Jakub Onderka]
+- [correlation] Convert to int. [Jakub Onderka]
+- [correlation] Use int type for value_id. [Jakub Onderka]
+- [correlation] Do not ublock not blocked value. [Jakub Onderka]
+- [internal] Remove unused model SharingGroupElement. [Jakub Onderka]
+- [internal] Cleanup code for UserController. [Jakub Onderka]
+- [internal] Cleanup controller code. [Jakub Onderka]
+- [internal] Cleanup code for tag controller. [Jakub Onderka]
+- [templates] Use $hostOrgUser variable. [Jakub Onderka]
+- [ACL] Permissions for feeds. [Jakub Onderka]
+- [internal] Use standardized API for event unpublishing. [Jakub
+  Onderka]
+- [correlation] Fix over correlating value. [Jakub Onderka]
+- [widgets] Fix some widgets. [Jakub Onderka]
+- [UI] Nicer view for workflow blueprints index. [Jakub Onderka]
+- [workflow] Importing blueprints. [Jakub Onderka]
+- [workflow] Menu links. [Jakub Onderka]
+- [workflow] Basic cleanup. [Jakub Onderka]
+- [notification] Do not send email when no new event for period. [Jakub
+  Onderka]
+- [workflow] Correctly check if workflow is enabled. [Jakub Onderka]
+- [workflow:formatConverter] Typo in condition leading to ignore
+  attribute tags if event tags were missing. [Sami Mokaddem]
+- [attribute:hvoerEnrichment] Include even tags. [Sami Mokaddem]
+- [UI] Undefined index attribute_tag_id. [Jakub Onderka]
+- [UI] Reload just tags part when modifying tag relationship. [Jakub
+  Onderka]
+- [UI] Submit form on CTRL+ENTER on select. [Jakub Onderka]
+- [internal] Less fragile event unpublishing. [Jakub Onderka]
+- [internal] Lock prefix. [Jakub Onderka]
+- [feed] Missing to_ids for freetext feed. [Jakub Onderka]
+- [redis] Delete also misp:wlc:* keys. [Jakub Onderka]
+- [jobs] Correctly handle incorrectly configured simple background jobs.
+  [Jakub Onderka]
+- [logging] Don't try to push syslog messages when no valid log entry
+  was created in the first place. [iglocska]
+- [workflowModule:webhook] FIxed typo on parameter type. [Sami Mokaddem]
+- [workflow:getUserForWorkflow] Forgotten return statement for one
+  conditional branch. [Sami Mokaddem]
+- [redis] Delete all keys by pattern. [Jakub Onderka]
+- [internal] Check if user is logged after checking if it is ajax
+  request. [Jakub Onderka]
+- [UI] Do not show publish checkbox when importing MISP event for user
+  without permission. [Jakub Onderka]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #8743 from CriimBow/fix-typo-exists. [Andras
+  Iklody]
+
+  fix: typo in exists (does not exists => does not exist)
+- Does not exists => does not exist. [CriimBow]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8737 from JakubOnderka/sync-sighting-fetched.
+  [Jakub Onderka]
+
+  fix: [sync] Remove events without sightings from pull
+- Merge pull request #8735 from JakubOnderka/galaxy-cluster-push. [Jakub
+  Onderka]
+
+  fix: [sync] Do not push galaxy cluster to events that should not be p…
+- Merge pull request #8702 from JakubOnderka/acl-helper-vol2. [Jakub
+  Onderka]
+
+  Acl helper vol2
+- Merge pull request #8441 from JakubOnderka/server-push-details. [Jakub
+  Onderka]
+
+  new: [UI] Show servers where event will be pushed
+- Merge pull request #8670 from JakubOnderka/reference-bulk-add-cleanup.
+  [Jakub Onderka]
+
+  fix: [UI] Cleanup for reference bulk add
+- Merge pull request #8734 from JakubOnderka/fix-undefined. [Jakub
+  Onderka]
+
+  fix: [UI] Statistics EventTag call
+- Merge pull request #8345 from JakubOnderka/oidc-org-uuid. [Jakub
+  Onderka]
+
+  new: [oidc] Allow to create new org with defined UUID
+- Merge pull request #8719 from JakubOnderka/pull-remove-empty-events.
+  [Jakub Onderka]
+
+  chg: [sync] Remove empty events from pull
+- Merge pull request #8731 from JakubOnderka/debug-failing. [Jakub
+  Onderka]
+
+  fix: [test] Debug failing test
+- Merge pull request #8720 from JakubOnderka/sightings-rest-search.
+  [Jakub Onderka]
+
+  Sightings rest search
+- Merge pull request #8729 from JakubOnderka/sighting-restsearch-
+  security-vol2. [Jakub Onderka]
+
+  new: [test] Check sighting rest search ACL vol. 2
+- Merge pull request #8727 from JakubOnderka/cluster-sync-logging.
+  [Jakub Onderka]
+
+  chg: [internal] Add logging for galaxy cluster sync
+- Merge pull request #8728 from JakubOnderka/sighting-restsearch-
+  security. [Jakub Onderka]
+
+  new: [test] Check sighting rest search ACL
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8726 from JakubOnderka/fix-tag-regexp. [Jakub
+  Onderka]
+
+  fix: [internal] Tag `misp-galaxy:rsit="Information Gathering:Scanning…
+- Merge pull request #8724 from JakubOnderka/redis-compression. [Jakub
+  Onderka]
+
+  new: [redis] Store some data in Redis compressed to save memory
+- Merge pull request #8723 from JakubOnderka/controller. [Jakub Onderka]
+
+  fix: [internal] AppController cleanup
+- Merge pull request #8722 from JakubOnderka/feed-compression. [Jakub
+  Onderka]
+
+  new: [feed] Store freetext feed compressed in cache
+- Merge pull request #8713 from JakubOnderka/tags-acl. [Jakub Onderka]
+
+  chg: [acl] Move tags ACL check to one place
+- Merge branch 'szopin-patch-2' into develop. [Alexandre Dulaunoy]
+- Merge branch 'patch-2' of https://github.com/szopin/MISP into szopin-
+  patch-2. [Alexandre Dulaunoy]
+- Set max-height to allow generating scrollbars on overflow. [szopin]
+
+  With this the confirmation_box uses the whole available space for content and generates scrollbar when exceeded (fixes #4307)
+- Merge pull request #8712 from JakubOnderka/event-mass-export. [Jakub
+  Onderka]
+
+  chg: [UI] Allow event mass export for all events
+- Merge pull request #8710 from JakubOnderka/event-graph-acl. [Jakub
+  Onderka]
+
+  fix: [acl] Event graph
+- Merge pull request #8706 from JakubOnderka/tag-collection-permission.
+  [Jakub Onderka]
+
+  fix: [security] Permission for tag collections
+- Merge pull request #8705 from JakubOnderka/fix-acl-vol3. [Jakub
+  Onderka]
+
+  Fix acl vol3
+- Merge pull request #8696 from JakubOnderka/delete-correlations. [Jakub
+  Onderka]
+
+  fix: [correlation] Delete correlations when deleting event
+- Merge pull request #8704 from JakubOnderka/fix-acl-cluster-attach.
+  [Jakub Onderka]
+
+  fix: [security] Check user permission when attaching clusters
+- Merge pull request #8697 from JakubOnderka/acl-helper. [Jakub Onderka]
+
+  Acl helper
+- Merge pull request #8699 from JakubOnderka/warninglist-debug. [Jakub
+  Onderka]
+
+  fix: [test] Show debug output for warninglist
+- Merge pull request #8693 from JakubOnderka/over-correlating-fix.
+  [Jakub Onderka]
+
+  Over correlating fix
+- Merge pull request #8695 from JakubOnderka/user-organisations. [Jakub
+  Onderka]
+
+  User organisations
+- Merge pull request #8694 from JakubOnderka/unpublish. [Jakub Onderka]
+
+  fix: [internal] Use standardized API for event unpublishing
+- Merge pull request #8692 from JakubOnderka/over-correlating-fix.
+  [Jakub Onderka]
+
+  fix: [correlation] Fix over correlating value
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8688 from JakubOnderka/widget-ui. [Jakub Onderka]
+
+  chg: [UI] Cleanup code for widgets
+- Merge pull request #8689 from JakubOnderka/security-audit. [Jakub
+  Onderka]
+
+  chg: [security] Mark Ubuntu 21.10 as not supported
+- Merge pull request #8687 from JakubOnderka/full-correlation. [Jakub
+  Onderka]
+
+  new: [correlation] Do not correlate over correlating value again
+- Merge pull request #8684 from JakubOnderka/attribute-delete-cleanup.
+  [Jakub Onderka]
+
+  chg: [internal] Delete attribute code cleanup
+- Merge pull request #8683 from JakubOnderka/use-jsontool-vol2. [Jakub
+  Onderka]
+
+  chg: [internal] Use JsonTool more often vol. 2
+- Merge pull request #8682 from JakubOnderka/better-ssdeep-validation.
+  [Jakub Onderka]
+
+  chg: [attribute] Better ssdeep validation
+- Merge pull request #8680 from JakubOnderka/use-jsontool. [Jakub
+  Onderka]
+
+  Use JsonTool more often
+- Merge pull request #8679 from JakubOnderka/freetext-optim. [Jakub
+  Onderka]
+
+  chg: [freetext] Optimise parsing
+- Merge pull request #8653 from JakubOnderka/workflow-fixes. [Jakub
+  Onderka]
+
+  fix: [workflow] Basic cleanup
+- Merge pull request #8646 from JakubOnderka/periodic-summary-empty.
+  [Jakub Onderka]
+
+  fix: [notification] Do not send email when no new event for period
+- Merge pull request #8678 from JakubOnderka/simdjson. [Jakub Onderka]
+
+  new: [internal] Add support for simdjson extension
+- Merge pull request #8677 from JakubOnderka/freetext-json. [Jakub
+  Onderka]
+
+  new: [freetext] Try to parse input as JSON
+- Merge pull request #8676 from JakubOnderka/security-domains-freetext.
+  [Jakub Onderka]
+
+  Security domains freetext
+- Merge pull request #8674 from JakubOnderka/simplify-workflow-code.
+  [Jakub Onderka]
+
+  Simplify workflow code
+- Merge pull request #8672 from JakubOnderka/search-last-specify. [Jakub
+  Onderka]
+
+  chg: [api] Better specify what `last` attribute means
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8668 from JakubOnderka/ctrl-enter-submit. [Jakub
+  Onderka]
+
+  fix: [UI] Submit form on CTRL+ENTER on select
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8664 from JakubOnderka/event-unpublish. [Jakub
+  Onderka]
+
+  fix: [internal] Less fragile event unpublishing
+- Merge pull request #8661 from JakubOnderka/fix-lock-prefix. [Jakub
+  Onderka]
+
+  fix: [internal] Lock prefix
+- Merge pull request #8662 from JakubOnderka/missing-to-ids. [Jakub
+  Onderka]
+
+  fix: [feed] Missing to_ids for freetext feed
+- Merge pull request #8663 from JakubOnderka/fix-delete-wlc. [Jakub
+  Onderka]
+
+  fix: [redis] Delete also misp:wlc:* keys
+- Merge pull request #8659 from JakubOnderka/jobs-small-fixes. [Jakub
+  Onderka]
+
+  fix: [jobs] Correctly handle incorrectly configured simple background jobs
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8656 from JakubOnderka/jobs-small-fixes. [Jakub
+  Onderka]
+
+  chg: [jobs] Small cleanup
+- Merge pull request #8654 from JakubOnderka/controller-json-decode.
+  [Jakub Onderka]
+
+  chg: [internal] Use specific controller version of jsonDecode
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8651 from JakubOnderka/save-jobs-file-in-redis.
+  [Jakub Onderka]
+
+  chg: [jobs] Store job data in Redis when SimpleBackgroundJobs are enabled
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8649 from JakubOnderka/dragonfly-support. [Jakub
+  Onderka]
+
+  new: [redis] Add support for dragonfly redis replacement
+- Merge pull request #8647 from JakubOnderka/api-warning. [Jakub
+  Onderka]
+
+  new: [UI] Show warning if user don't have permission to use API
+- Merge pull request #8648 from JakubOnderka/add-misp-export-publish.
+  [Jakub Onderka]
+
+  fix: [UI] Do not show publish checkbox when importing MISP event for user without permission
+- Merge pull request #8518 from JakubOnderka/disable-key-fetching.
+  [Jakub Onderka]
+
+  new: [UI] Allow to disable PGP key fetching
+
+
 v2.4.164 (2022-10-06)
 ---------------------
 
