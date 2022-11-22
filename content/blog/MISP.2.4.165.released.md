@@ -5,7 +5,7 @@ layout: post
 banner: /img/blog/workflow.png 
 ---
 
-We are pleased to announce the immediate availability of [MISP v2.4.165](https://github.com/MISP/MISP/releases/tag/v2.4.164) with many improvements in workflows but also performance improvements.
+We are pleased to announce the immediate availability of [MISP v2.4.165](https://github.com/MISP/MISP/releases/tag/v2.4.165) with many improvements to the workflow subsystem along with various performance improvements.
 
 # Improvements
 
@@ -69,7 +69,7 @@ For more [details](https://www.misp-project.org/Changelog-misp-taxonomies.txt).
 
 # MISP galaxy
 
-- Many updates in the threat actor database.
+- Many updates to the threat actor database.
 - Update to the MITRE ATT&CK framework to version 12.0.
 
 For more [details](https://www.misp-project.org/Changelog-misp-galaxy.txt).
