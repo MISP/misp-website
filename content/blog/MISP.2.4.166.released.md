@@ -40,3 +40,7 @@ For more [details](https://www.misp-project.org/Changelog.txt) about changes in 
 - Tool galaxy updated
 - [Ransomware groups](https://www.misp-project.org/galaxy.html#_ransomware) updated
 
+# Don't forget to follow us on Mastodon
+
+MISP projet has its own Mastodon server [misp-community.org](https://misp-community.org/) and don't forget to follow @misp@misp-community.org on the fediverse. Core contributors of MISP can sign-up if you want an account.
+
