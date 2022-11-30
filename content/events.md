@@ -13,73 +13,44 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 The previous Hackaton was in October 2021: [Open Source Security Hackathon](/hackathon/)
 
-*The date of the next hackathon will be shared soon.*
 
 ### Conferences 
-Conferences featuring MISP core members talking about MISP and/or threat intelligence
-
-- #### Cyber and Threat Intelligence Summit (CTIS-2022)
-  
-  *When:* October 19th - 20th 2022
-
-  *Where:* Luxembourg
-
-  *Event link:* [Cyber and Threat Intelligence Summit (CTIS-2022)](https://cti-summit.org)
-
-- #### 2022 FIRST Cyber Threat Intelligence Symposium
-
-  *When:* November 1st - 3rd 2022
-
-  *Where:* Berlin
-
-  *Event link:* [2022 FIRST Cyber Threat Intelligence Symposium | #FIRSTCTI22](https://www.first.org/events/symposium/berlin2022/program)
 
 ### Public MISP trainings 
-<script type="text/javascript" src="https://www.xing-events.com/resources/js/amiandoExport.js"></script>
 
-- #### MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals
+- #### MISP Best Practices for encoding threat intelligence (3 hours - online)
 
-  *When:* {{< fixedtime `13th September 2022 14:00-17:00 CEST` `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` `20220913T12` `3` >}}</a>
-
-  *Where:* Remote (Zoom and online MISP training instance)
-
-  *Price:* A participation fee of 10 EUR is asked per remote training session 
-
-  *Summary agenda:*
-    - General usage
-    - Encoding a report
-    - Making use of the various tools in MISP from an analyst perspective
-
-  *Event link:* {{< xing-collapse-iframe `IMKNUTR` `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` >}}
-
-- #### MISP Training - Administration and Deployment of MISP software
-  *When:* {{< fixedtime `14th September 2022 14:00-17:00 CEST` `MISP Training - Administration and Deployment of MISP software` `20220914T12` `3` >}}</a>
+  *When:* {{< fixedtime `15th December 09:00-12:00 CET` `MISP Best Practices for encoding threat intelligence` `20221215T12` `3` >}}</a>
 
   *Where:* Remote (Zoom and online MISP training instance)
 
-  *Price:* A participation fee of 10 EUR is asked per remote training session 
+  *Price:* Free 
 
   *Summary agenda:*
-    - Deploying / running your MISP, i.e.
-      - Configuration
-      - Installation
-      - <span class="border border-success">Community management</span>
 
-  *Event link:* {{< xing-collapse-iframe `BVJBEEU` `MISP Training - Administration and Deployment of MISP software` >}}
+	 - MISP data model
+	 - Best practices - from evidences to actionable evidences
+	 - Leverage the information in MISP to make threat landscape report
 
-- #### MISP Training - Advanced Developer session from API to MISP internals
-  *When:* {{< fixedtime `15th September 2022 14:00-17:00 CEST` `MISP Training - Advanced Developer session from API to MISP internals` `20220915T12` `3` >}}
+  *Event link:* [Zoom link](https://us02web.zoom.us/j/81768507425?pwd=VkRwWXRIc0RXOWZ4ODdSVnFPQ0Jadz09) 
+
+
+- #### MISP Workflow (2 hours) 
+
+  *When:* {{< fixedtime `15th December 2022 14:00-16:00 CET` `MISP Workflow` `20221215T12` `3` >}}</a>
 
   *Where:* Remote (Zoom and online MISP training instance)
 
-  *Price:* A participation fee of 10 EUR is asked per remote training session 
+  *Price:* Free 
 
   *Summary agenda:*
-    - Intro to API usage
-    - Supporting dev libraries
-    - Session on development of MISP internals
 
-  *Event link:* {{< xing-collapse-iframe `IMGQRQQ` `MISP Training - Advanced Developer session from API to MISP internals` >}}
+    MISP has been a widely used open source CTI platform for the past decade, with a long list of tools that allow users to customise the data models and contextualisation of the platform, yet true customisation of the actual workflows and processes had to be done externally using custom scripts.
+
+    With the introduction of [MISP workflows](https://www.misp-project.org/2022/08/08/MISP.2.4.160.released.html/), this has changed and the workshop aims to walk the audience through some of the potential ideas of how one could adapt the tool to their own CSIRT’s or SOC’s workflows by using some useful examples during the session.
+
+  *Event link:* [Zoom Link](https://us02web.zoom.us/j/83982836437?pwd=SHlLL2J2V1hPZnp4TmhpWmQwbFN6Zz09) 
+
 
 ### Past events
 
