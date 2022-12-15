@@ -15,6 +15,8 @@ banner: /img/blog/graph-syria.png
 - [Best practices - from evidences to actionable evidences](https://github.com/MISP/misp-training/blob/main/complementary/other-slides/MISP%208%20Commandments%20-%20Recommendations%20and%20Best%20Practices%20when%20encoding%20data.pdf)
 - Leveraging the information in MISP to Make Threat Landscape Report
 
+[Jupyter notebook](https://github.com/MISP/misp-training/blob/ffd36c92e909571dc525ed45a142d604dc912278/a.7-rest-API/query-misp.ipynb) used during the training session.
+
 ## Leverage the information in MISP to make threat landscape report
 
 ### Most often questions asked to generate a threat landscape report
