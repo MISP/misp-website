@@ -2,7 +2,7 @@
 title: Training Video - MISP Best Practices for Encoding Threat Intelligence
 date: 2022-12-15
 layout: post
-banner: /img/blog/workflow.png 
+banner: /img/blog/graph-syria.png
 ---
 
 # MISP Training Video December Edition - Best Practices for Encoding Threat Intelligence and Leveraging the information in MISP to Make Threat Landscape Report
