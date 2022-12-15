@@ -2,6 +2,212 @@ Changelog
 =========
 
 
+v2.4.166 (2022-11-28)
+---------------------
+
+New
+~~~
+- [maintenance] Dependabot config. [Raphaël Vinot]
+- [restsearch] added optional ordering. [iglocska]
+
+  - available on event/attribute restsearch
+  - uses the new findOrder() internal function to have consistent filtering
+- [security setting] disable admin file management. [iglocska]
+
+  - for compliance reasons, disable the upload of images for the various logos / decorations
+  - setting can be enabled/disabled via CLI only
+- [news] Show the latest news in nicer view. [Jakub Onderka]
+- [CLI] Command for recompressing data stored in audit logs table.
+  [Jakub Onderka]
+- [logging] Access log. [Jakub Onderka]
+- [attribute type] azure-application-id added. [iglocska]
+
+  - En taro @xg5_datafiend
+- [docs] added taxii flowchart. [Andras Iklody]
+- [taxii integration] wip. [iglocska]
+
+  - all MISP side code implemented for being able to have filtered pushes
+  - still missing proper result handling as we need a working test implementation of the python scripts first
+  - some assumptions made that need to be revisited
+- [docs] added taxii flowchart. [Andras Iklody]
+- [taxii integration] wip. [iglocska]
+
+  - all MISP side code implemented for being able to have filtered pushes
+  - still missing proper result handling as we need a working test implementation of the python scripts first
+  - some assumptions made that need to be revisited
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [rearrange parameters] improve the way we allow users to rearrange
+  data. [iglocska]
+
+  - tie more endpoints into the new findOrder() functionality
+  - allow for new context specific ordering rules
+- [attribute] rearranging fixed. [iglocska]
+- [decayingModels:enable/disable] Return a better API response. [Sami
+  Mokaddem]
+- [pymisp] bump. [iglocska]
+- [pymisp] bump. [iglocska]
+- [pymisp] bump. [iglocska]
+- [ACL] added entries for taxii. [iglocska]
+- [github action] Added taxii branch. [Andras Iklody]
+- [misp-workflow-blueprints] updated. [Alexandre Dulaunoy]
+- [AadAuth] use proxy settings if present. [Luciano Righetti]
+- [internal] Remove stream request decompression, because it was broken.
+  [Jakub Onderka]
+- [log] Support for encoded request in access logs. [Jakub Onderka]
+- [periodic_summary] Rephrased correlation text to make it more
+  understandable. [Sami Mokaddem]
+- [periodic_summary] Added explanation about the "new correlation"
+  section. [Sami Mokaddem]
+- [misp-workflow-blueprints] updated. [Alexandre Dulaunoy]
+- [logs] Add SQL queries count to access log. [Jakub Onderka]
+- [log] Better filtering for access logs. [Jakub Onderka]
+- [log] Multipart support for access log. [Jakub Onderka]
+- [log] Tune compression for audit and access logs. [Jakub Onderka]
+- [log] Store memory usage compressed in database. [Jakub Onderka]
+- [logs] Move filterSearch to misp.js. [Jakub Onderka]
+- [cli] Show stats for access logs. [Jakub Onderka]
+- [logging] ZSTD compression for audit log. [Jakub Onderka]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [attribute restsearch] x-result-count calculation reworked. [iglocska]
+
+  - show a fake number that still forces tools to keep pagination until needed
+  - massive performance gain
+  - fake it till you make it
+- [taxii] Added the required auth to the TAXII server. [Christian
+  Studer]
+
+Fix
+~~~
+- [remote_ip] respect MISP.log_client_ip_header everywhere fixes #8781.
+  [Christophe Vandeplas]
+- [logs] reverted action=request based exclusions in the logging.
+  [iglocska]
+
+  - we can once again receive these logs in the /logs/ logging system
+  - simply reintroduced the old exceptions
+- [logs] reverted the removal of api logs from the /logs/ logging system
+  unless confirmed. [iglocska]
+
+  - breaks logging with existing configurations
+- [updates] fixed invalid numbering. [iglocska]
+- [AuditLog] warn admin when audit log is not enabled. [Christophe
+  Vandeplas]
+- [UI] added  Search Log in global_menu. [Christophe Vandeplas]
+- [internal] Database schema. [Jakub Onderka]
+- [taxii push] console log messages removed. [iglocska]
+- [side menu] merge fix. [iglocska]
+- [AadAuth] undefined. [Luciano Righetti]
+- [log] Encode request part of access log as it can contains non unicode
+  chars. [Jakub Onderka]
+- [taxonomy:TagConflict] Strop generate notices for the `tlp:white` and
+  `tlp:clear` tags. [Sami Mokaddem]
+
+  - we had to remove all mirrors from the office after implementing this
+- [UI] Side menu requirement. [Jakub Onderka]
+- [internal] Method name. [Jakub Onderka]
+- [ACL] Event report permission. [Jakub Onderka]
+- [sync] Pulling sighting new way. [Jakub Onderka]
+- [correlations] Prevent Trying to access array offset on value of type
+  null error. [Jakub Onderka]
+- [log] Handle empty body. [Jakub Onderka]
+- [logs] Remove support for elastic logging for auditlog, as it was
+  broken and didnt work. [Jakub Onderka]
+- [UI] Popup top offset. [Jakub Onderka]
+- [internal] Undefined index: user_id and orgc_id for event. [Jakub
+  Onderka]
+- [docs] small change. [Andras Iklody]
+- [docs] small change. [Andras Iklody]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of https://github.com/MISP/MISP into develop.
+  [Christophe Vandeplas]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #8778 from JakubOnderka/fix-database-schema. [Jakub
+  Onderka]
+
+  fix: [internal] Database schema
+- Merge branch 'taxii' into develop. [iglocska]
+- Merge branch '2.4' into taxii. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Alexandre
+  Dulaunoy]
+- Merge branch 'develop' into taxii. [iglocska]
+- Merge pull request #8765 from righel/objects-restsearch-openapi-doc.
+  [Luciano Righetti]
+
+  add: [OpenAPI] objects restsearch endpoint docs
+- Add: [OpenAPI] objects restsearch endpoint docs. [Luciano Righetti]
+- Merge pull request #8762 from righel/aad-auth-support-proxy. [Luciano
+  Righetti]
+
+  Aad auth support proxy
+- Merge pull request #8752 from JakubOnderka/access-log-fixes. [Jakub
+  Onderka]
+
+  fix: [log] Encode request part of access log as it can contains non u…
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8753 from JakubOnderka/fix-event-report-acl.
+  [Jakub Onderka]
+
+  fix: [ACL] Event report permission
+- Merge pull request #8754 from JakubOnderka/fix-pull-sighting-new-way.
+  [Jakub Onderka]
+
+  fix: [sync] Pulling sighting new way
+- Merge pull request #8603 from JakubOnderka/code-fixes. [Jakub Onderka]
+
+  News view
+- Merge pull request #8749 from JakubOnderka/access-log. [Jakub Onderka]
+
+  new: [logging] Access log in database
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #8747 from MISP/2.4. [Jakub Onderka]
+
+  2.4 into develop
+- Merge pull request #8745 from jsman/fix-galaxy-cluster-sync. [Jakub
+  Onderka]
+
+  fix: [sync] galaxy clusters stopped being pushed to remote servers
+- Reverse logic on permission check. [J. Sman]
+- Merge pull request #8746 from JakubOnderka/fix-event-userid. [Jakub
+  Onderka]
+
+  fix: [internal] Undefined index: user_id and orgc_id for event
+- Merge branch 'taxii' of github.com:MISP/MISP into taxii. [iglocska]
+- Merge pull request #8167 from chisholm/taxii_contrib. [Andras Iklody]
+
+  Contribute TAXII push script
+- Change --api_root commandline parameter to --collection, since a TAXII
+  collection URL is required as a target to push STIX content to.
+  [Michael Chisholm]
+- Initial commit of script to push MISP content to a TAXII 2.1 server.
+  [Michael Chisholm]
+- Change --api_root commandline parameter to --collection, since a TAXII
+  collection URL is required as a target to push STIX content to.
+  [Michael Chisholm]
+- Initial commit of script to push MISP content to a TAXII 2.1 server.
+  [Michael Chisholm]
+
+
 v2.4.165 (2022-11-09)
 ---------------------
 

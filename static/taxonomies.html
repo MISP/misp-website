@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="generator" content="Asciidoctor 2.0.18">
 <title>MISP taxonomies and classification as machine tags</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -84,10 +84,10 @@ code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;
 ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
 ul,ol{margin-left:1.5em}
 ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
-ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
-ul.square{list-style-type:square}
 ul.circle{list-style-type:circle}
 ul.disc{list-style-type:disc}
+ul.square{list-style-type:square}
+ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
 ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
 dl dt{margin-bottom:.3125em;font-weight:bold}
 dl dd{margin-bottom:1.25em}
@@ -464,6 +464,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_analyst_assessment">analyst-assessment</a></li>
 <li><a href="#_approved_category_of_action">approved-category-of-action</a></li>
 <li><a href="#_artificial_satellites">artificial-satellites</a></li>
+<li><a href="#_aviation">aviation</a></li>
 <li><a href="#_binary_class">binary-class</a></li>
 <li><a href="#_cccs">cccs</a></li>
 <li><a href="#_circl">circl</a></li>
@@ -547,6 +548,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_malware_classification">malware_classification</a></li>
 <li><a href="#_misinformation_website_label">misinformation-website-label</a></li>
 <li><a href="#_misp">misp</a></li>
+<li><a href="#_misp_workflow">misp-workflow</a></li>
 <li><a href="#_monarc_threat">monarc-threat</a></li>
 <li><a href="#_ms_caro_malware">ms-caro-malware</a></li>
 <li><a href="#_ms_caro_malware_full">ms-caro-malware-full</a></li>
@@ -572,6 +574,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_scrippsco2_fgc">scrippsco2-fgc</a></li>
 <li><a href="#_scrippsco2_fgi">scrippsco2-fgi</a></li>
 <li><a href="#_scrippsco2_sampling_stations">scrippsco2-sampling-stations</a></li>
+<li><a href="#_sentinel_threattype">sentinel-threattype</a></li>
 <li><a href="#_smart_airports_threats">smart-airports-threats</a></li>
 <li><a href="#_social_engineering_attack_vectors">social-engineering-attack-vectors</a></li>
 <li><a href="#_state_responsibility">state-responsibility</a></li>
@@ -31684,6 +31687,533 @@ artificial-satellites namespace available in JSON format at <a href="https://git
 </div>
 </div>
 <div class="sect1">
+<h2 id="_aviation">aviation</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+aviation namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/aviation/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A taxonomy describing security threats or incidents against the aviation sector.</p>
+</div>
+<div class="sect2">
+<h3 id="_target_sub_systems">target-sub-systems</h3>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemsatmatsatc">aviation:target-sub-systems="ATM:ATS:ATC"</h4>
+<div class="paragraph">
+<p>ATM ATS ATC - Air Traffic Control</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemsatmatsfis">aviation:target-sub-systems="ATM:ATS:FIS"</h4>
+<div class="paragraph">
+<p>ATM ATS FIST - Flight Information Services</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemsatmatsalrs">aviation:target-sub-systems="ATM:ATS:ALRS"</h4>
+<div class="paragraph">
+<p>ATM ATS ALRS - Alerting Services</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnscomground_ground">aviation:target-sub-systems="CNS:COM:Ground-Ground"</h4>
+<div class="paragraph">
+<p>CNS COM Ground-Ground</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnscomground_air">aviation:target-sub-systems="CNS:COM:Ground-Air"</h4>
+<div class="paragraph">
+<p>CNS COM Ground Air</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnscomair_air">aviation:target-sub-systems="CNS:COM:Air-Air"</h4>
+<div class="paragraph">
+<p>CNS COM Air Air</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnscomasterix">aviation:target-sub-systems="CNS:COM:Asterix"</h4>
+<div class="paragraph">
+<p>CNS COM Asterix</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnscomvdl">aviation:target-sub-systems="CNS:COM:VDL"</h4>
+<div class="paragraph">
+<p>CNS COM VDL</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnscomreserved1">aviation:target-sub-systems="CNS:COM:Reserved1"</h4>
+<div class="paragraph">
+<p>CNS COM Reserved1</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnscomreserved2">aviation:target-sub-systems="CNS:COM:Reserved2"</h4>
+<div class="paragraph">
+<p>CNS COM Reserved2</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnssurads_b">aviation:target-sub-systems="CNS:SUR:ADS-B"</h4>
+<div class="paragraph">
+<p>CNS SUR ADS-B</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnssurads_c">aviation:target-sub-systems="CNS:SUR:ADS-C"</h4>
+<div class="paragraph">
+<p>CNS SUR ADS-C</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnssurradar">aviation:target-sub-systems="CNS:SUR:Radar"</h4>
+<div class="paragraph">
+<p>CNS SUR Radar</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnssurpr">aviation:target-sub-systems="CNS:SUR:PR"</h4>
+<div class="paragraph">
+<p>CNS SUR PR</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnssurssr">aviation:target-sub-systems="CNS:SUR:SSR"</h4>
+<div class="paragraph">
+<p>CNS SUR SSR</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnssurreserved1">aviation:target-sub-systems="CNS:SUR:Reserved1"</h4>
+<div class="paragraph">
+<p>CNS SUR Reserved1</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnssurreserved2">aviation:target-sub-systems="CNS:SUR:Reserved2"</h4>
+<div class="paragraph">
+<p>CNS SUR Reserved2</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnssurreserved3">aviation:target-sub-systems="CNS:SUR:Reserved3"</h4>
+<div class="paragraph">
+<p>CNS SUR Reserved3</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnsnavgps">aviation:target-sub-systems="CNS:Nav:GPS"</h4>
+<div class="paragraph">
+<p>CNS Nav GPS</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnsnavglonass">aviation:target-sub-systems="CNS:Nav:GLONASS"</h4>
+<div class="paragraph">
+<p>CNS Nav GLONASS</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnsnavils">aviation:target-sub-systems="CNS:Nav:ILS"</h4>
+<div class="paragraph">
+<p>CNS Nav ILS</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnsnavgls">aviation:target-sub-systems="CNS:Nav:GLS"</h4>
+<div class="paragraph">
+<p>CNS Nav GLS</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnsnavreserved1">aviation:target-sub-systems="CNS:Nav:Reserved1"</h4>
+<div class="paragraph">
+<p>CNS Nav Reserved1</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnsnavreserved2">aviation:target-sub-systems="CNS:Nav:Reserved2"</h4>
+<div class="paragraph">
+<p>CNS Nav Reserved2</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_sub_systemscnsnavreserved3">aviation:target-sub-systems="CNS:Nav:Reserved3"</h4>
+<div class="paragraph">
+<p>CNS Mav Reserved3</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_target_systems">target-systems</h3>
+<div class="sect3">
+<h4 id="_aviationtarget_systemsatm">aviation:target-systems="ATM"</h4>
+<div class="paragraph">
+<p>ATM - Air Traffic Management</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_systemsais">aviation:target-systems="AIS"</h4>
+<div class="paragraph">
+<p>AIS - Aeronautical Information Service</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_systemsmet">aviation:target-systems="MET"</h4>
+<div class="paragraph">
+<p>MET - Meteorological Service</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_systemssar">aviation:target-systems="SAR"</h4>
+<div class="paragraph">
+<p>SAR - Search and Rescue</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_systemscns">aviation:target-systems="CNS"</h4>
+<div class="paragraph">
+<p>CNS - Communication, Navigation and Surveillance</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_systemsairport_management_systems">aviation:target-systems="airport-management-systems"</h4>
+<div class="paragraph">
+<p>Airport Management Systems</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_systemsairport_online_services">aviation:target-systems="airport-online-services"</h4>
+<div class="paragraph">
+<p>Airport Online Services</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_systemsairport_fids_systems">aviation:target-systems="airport-fids-systems"</h4>
+<div class="paragraph">
+<p>Airport FIDS systems</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_systemsairline_management_systems">aviation:target-systems="airline-management-systems"</h4>
+<div class="paragraph">
+<p>Airline Management Systems</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtarget_systemsairline_online_services">aviation:target-systems="airline-online-services"</h4>
+<div class="paragraph">
+<p>Airline Online Services</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_impact">impact</h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Exclusive flag set which means the values or predicate below must be set exclusively.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_aviationimpacttrivial">aviation:impact="trivial"</h4>
+<div class="paragraph">
+<p>Trivial</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationimpactminor">aviation:impact="minor"</h4>
+<div class="paragraph">
+<p>Minor</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationimpactmoderate">aviation:impact="moderate"</h4>
+<div class="paragraph">
+<p>Moderate</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationimpactmajor">aviation:impact="major"</h4>
+<div class="paragraph">
+<p>Major</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationimpactextreme">aviation:impact="extreme"</h4>
+<div class="paragraph">
+<p>Extreme</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_target">target</h3>
+<div class="sect3">
+<h4 id="_aviationtargetairspace_users">aviation:target="airspace users"</h4>
+<div class="paragraph">
+<p>Airspace Users</p>
+</div>
+<div class="paragraph">
+<p>Airspace users including airlines</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtargetairport">aviation:target="airport"</h4>
+<div class="paragraph">
+<p>Airport</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtargetair_navigation_service_provider">aviation:target="air-navigation-service-provider"</h4>
+<div class="paragraph">
+<p>Air Navigation Service Provider</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtargetinternational_association">aviation:target="international-association"</h4>
+<div class="paragraph">
+<p>International Association</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtargetcivil_aviation_authority">aviation:target="civil-aviation-authority"</h4>
+<div class="paragraph">
+<p>Civil Aviation Authority</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtargetmanufacturer">aviation:target="manufacturer"</h4>
+<div class="paragraph">
+<p>Manufacturer</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtargetservice_provider">aviation:target="service-provider"</h4>
+<div class="paragraph">
+<p>Service Provider</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtargetnetwork_manager">aviation:target="network-manager"</h4>
+<div class="paragraph">
+<p>Network Manager</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationtargetmilitary">aviation:target="military"</h4>
+<div class="paragraph">
+<p>Military</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mission_critical">mission-critical</h3>
+<div class="sect3">
+<h4 id="_aviationmission_criticalmission_critical">aviation:mission-critical="mission-critical"</h4>
+<div class="paragraph">
+<p>Mission Critical</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationmission_criticalsafety_critical">aviation:mission-critical="safety-critical"</h4>
+<div class="paragraph">
+<p>Safety Critical</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_likelihood">likelihood</h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Exclusive flag set which means the values or predicate below must be set exclusively.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_aviationlikelihoodalmost_no_chance">aviation:likelihood="almost-no-chance"</h4>
+<div class="paragraph">
+<p>Almost no chance - remote - 01-05%</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationlikelihoodvery_unlikely">aviation:likelihood="very-unlikely"</h4>
+<div class="paragraph">
+<p>Very unlikely - highly improbable - 05-20%</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="5"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationlikelihoodunlikely">aviation:likelihood="unlikely"</h4>
+<div class="paragraph">
+<p>Unlikely - improbable (improbably) - 20-45%</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="20"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationlikelihoodroughly_even_chance">aviation:likelihood="roughly-even-chance"</h4>
+<div class="paragraph">
+<p>Roughly even change - roughly even odds - 45-55%</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="45"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationlikelihoodlikely">aviation:likelihood="likely"</h4>
+<div class="paragraph">
+<p>Likely - probable (probably) - 55-80%</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="55"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationlikelihoodvery_likely">aviation:likelihood="very-likely"</h4>
+<div class="paragraph">
+<p>Very likely - highly probable - 80-95%</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="80"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationlikelihoodalmost_certain">aviation:likelihood="almost-certain"</h4>
+<div class="paragraph">
+<p>Almost certain(ly) - nearly certain - 95-99%</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="95"</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_certainty">certainty</h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Exclusive flag set which means the values or predicate below must be set exclusively.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_aviationcertainty100">aviation:certainty="100"</h4>
+<div class="paragraph">
+<p>Certainty (probability equals 1 - 100%)</p>
+</div>
+<div class="paragraph">
+<p>Certainty</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="100"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationcertainty93">aviation:certainty="93"</h4>
+<div class="paragraph">
+<p>Almost certain (probability equals 0.93 - 93%)</p>
+</div>
+<div class="paragraph">
+<p>Almost certain</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="93"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationcertainty75">aviation:certainty="75"</h4>
+<div class="paragraph">
+<p>Probable (probability equals 0.75 - 75%)</p>
+</div>
+<div class="paragraph">
+<p>Probable</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="75"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationcertainty50">aviation:certainty="50"</h4>
+<div class="paragraph">
+<p>Chances about even (probability equals 0.50 - 50%)</p>
+</div>
+<div class="paragraph">
+<p>Chances about even</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="50"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationcertainty30">aviation:certainty="30"</h4>
+<div class="paragraph">
+<p>Probably not (probability equals 0.30 - 30%)</p>
+</div>
+<div class="paragraph">
+<p>Probably not</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="30"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationcertainty7">aviation:certainty="7"</h4>
+<div class="paragraph">
+<p>Almost certainly not (probability equals 0.07 - 7%)</p>
+</div>
+<div class="paragraph">
+<p>Almost certainly not</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="7"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aviationcertainty0">aviation:certainty="0"</h4>
+<div class="paragraph">
+<p>Impossibility (probability equals 0 - 0%)</p>
+</div>
+<div class="paragraph">
+<p>Impossibility</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_binary_class">binary-class</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -45237,9 +45767,36 @@ financial namespace available in JSON format at <a href="https://github.com/MISP
 </div>
 </div>
 <div class="sect2">
-<h3 id="_online_presence">online-presence</h3>
+<h3 id="_online_exposition">online-exposition</h3>
 <div class="paragraph">
-<p>Online presence of the financial entity.</p>
+<p>Online exposition of the financial entity.</p>
+</div>
+<div class="sect3">
+<h4 id="_financialonline_expositionlimited">financial:online-exposition="limited"</h4>
+<div class="paragraph">
+<p>Limited</p>
+</div>
+<div class="paragraph">
+<p>Online presence of the financial entity is limited such as just a public web server and/or email services.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_financialonline_expositionextended">financial:online-exposition="extended"</h4>
+<div class="paragraph">
+<p>Extended</p>
+</div>
+<div class="paragraph">
+<p>Online presence of the financial entity is extended with online services for the clients and customers but still with a physical presence.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_financialonline_expositioncrucial">financial:online-exposition="crucial"</h4>
+<div class="paragraph">
+<p>Crucial</p>
+</div>
+<div class="paragraph">
+<p>Online presence of the financial entity is crucial and business depends on online presence, extensive use of cloud computing, APIs, etc.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -53268,7 +53825,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_certainty">certainty</h3>
+<h3 id="_certainty_2">certainty</h3>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -58413,6 +58970,68 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 <div class="paragraph">
 <p>Overwrite the current IDS flag of the information tag by IDS false.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_misp_workflow">misp-workflow</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+misp-workflow namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/misp-workflow/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>MISP workflow taxonomy to support result of workflow execution.</p>
+</div>
+<div class="sect2">
+<h3 id="_action_taken_2">action-taken</h3>
+<div class="paragraph">
+<p>Action taken during the workflow execution</p>
+</div>
+<div class="sect3">
+<h4 id="_misp_workflowaction_takenids_flag_removed">misp-workflow:action-taken="ids-flag-removed"</h4>
+<div class="paragraph">
+<p>IDS flag removed</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_misp_workflowaction_takenids_flag_added">misp-workflow:action-taken="ids-flag-added"</h4>
+<div class="paragraph">
+<p>IDS flag added</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_misp_workflowaction_takenpushed_to_zmq">misp-workflow:action-taken="pushed-to-zmq"</h4>
+<div class="paragraph">
+<p>Pushed to ZMQ</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_misp_workflowaction_takenemail_sent">misp-workflow:action-taken="email-sent"</h4>
+<div class="paragraph">
+<p>Email sent</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_misp_workflowaction_takenwebhook_triggered">misp-workflow:action-taken="webhook-triggered"</h4>
+<div class="paragraph">
+<p>Webhook triggered</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_misp_workflowaction_takenexecution_stopped">misp-workflow:action-taken="execution-stopped"</h4>
+<div class="paragraph">
+<p>Execution stopped</p>
 </div>
 </div>
 </div>
@@ -65194,7 +65813,7 @@ osint namespace available in JSON format at <a href="https://github.com/MISP/mis
 </div>
 </div>
 <div class="sect2">
-<h3 id="_certainty_2">certainty</h3>
+<h3 id="_certainty_3">certainty</h3>
 <div class="sect3">
 <h4 id="_osintcertainty100">osint:certainty="100"</h4>
 <div class="paragraph">
@@ -67315,7 +67934,7 @@ Again, there are some possibilities, but this may be a rivalry company in a simi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_target">target</h3>
+<h3 id="_target_2">target</h3>
 <div class="paragraph">
 <p>Target of the ransomware.</p>
 </div>
@@ -69001,6 +69620,137 @@ scrippsco2-sampling-stations namespace available in JSON format at <a href="http
 </div>
 </div>
 <div class="sect1">
+<h2 id="_sentinel_threattype">sentinel-threattype</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+sentinel-threattype namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/sentinel-threattype/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Sentinel indicator threat types.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Exclusive flag set which means the values or predicate below must be set exclusively.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_botnet_2">Botnet</h3>
+<div class="sect3">
+<h4 id="_sentinel_threattypebotnet">sentinel-threattype:Botnet</h4>
+<div class="paragraph">
+<p>Indicator is detailing a botnet node/member.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_c2">C2</h3>
+<div class="sect3">
+<h4 id="_sentinel_threattypec2">sentinel-threattype:C2</h4>
+<div class="paragraph">
+<p>Indicator is detailing a Command &amp; Control node of a botnet.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cryptomining">CryptoMining</h3>
+<div class="sect3">
+<h4 id="_sentinel_threattypecryptomining">sentinel-threattype:CryptoMining</h4>
+<div class="paragraph">
+<p>Traffic involving this network address / URL is an indication of CyrptoMining / Resource abuse.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_darknet">Darknet</h3>
+<div class="sect3">
+<h4 id="_sentinel_threattypedarknet">sentinel-threattype:Darknet</h4>
+<div class="paragraph">
+<p>Indicator is that of a Darknet node/network.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ddos_3">DDoS</h3>
+<div class="sect3">
+<h4 id="_sentinel_threattypeddos">sentinel-threattype:DDoS</h4>
+<div class="paragraph">
+<p>Indicators relating to an active or upcoming DDoS campaign.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_maliciousurl">MaliciousUrl</h3>
+<div class="sect3">
+<h4 id="_sentinel_threattypemaliciousurl">sentinel-threattype:MaliciousUrl</h4>
+<div class="paragraph">
+<p>URL that is serving malware.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_malware_5">Malware</h3>
+<div class="sect3">
+<h4 id="_sentinel_threattypemalware">sentinel-threattype:Malware</h4>
+<div class="paragraph">
+<p>Indicator describing a malicious file or files.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_phishing_3">Phishing</h3>
+<div class="sect3">
+<h4 id="_sentinel_threattypephishing">sentinel-threattype:Phishing</h4>
+<div class="paragraph">
+<p>Indicators relating to a phishing campaign.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_proxy">Proxy</h3>
+<div class="sect3">
+<h4 id="_sentinel_threattypeproxy">sentinel-threattype:Proxy</h4>
+<div class="paragraph">
+<p>Indicator is that of a proxy service.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pua">PUA</h3>
+<div class="sect3">
+<h4 id="_sentinel_threattypepua">sentinel-threattype:PUA</h4>
+<div class="paragraph">
+<p>Potentially Unwanted Application.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_watchlist">WatchList</h3>
+<div class="sect3">
+<h4 id="_sentinel_threattypewatchlist">sentinel-threattype:WatchList</h4>
+<div class="paragraph">
+<p>This is the generic bucket into which indicators are placed when it cannot be determined exactly what the threat is or will require manual interpretation. This should typically not be used by partners submitting data into the system.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_smart_airports_threats">smart-airports-threats</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -70189,7 +70939,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_isac">isac</h3>
+<h3 id="_a_isac">a_isac</h3>
 <div class="paragraph">
 <p>This TAG will insure you to share ONLY to the Thales Group ISAC alliance. Distribution: All communities</p>
 </div>
@@ -85122,7 +85872,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-09-25 11:39:49 +0200
+Last updated 2022-12-02 11:31:57 +0100
 </div>
 </div>
 </body>
