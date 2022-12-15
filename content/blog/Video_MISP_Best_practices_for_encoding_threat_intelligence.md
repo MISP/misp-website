@@ -19,7 +19,7 @@ banner: /img/blog/graph-syria.png
 
 ### Most often questions asked to generate a threat landscape report
 
-MISP can be a great source for generating a threat landscape report. There often many questions asked by various stakeholders which can be used as basis to scope what kind of information is required or needed.
+MISP can be a great source of information for generating a threat landscape report. Quite frequently, we get asked by various stakeholders, what exactly can be used as the basis of how to scope the kinds of information that are required or needed, for generating such a report.
 
 - What are the most common vulnerabilities?
 - What are the most common threats?
@@ -28,13 +28,13 @@ MISP can be a great source for generating a threat landscape report. There often
 - What are the most common countries targeted?
 - What are the most common malware families?
 
-MISP itself can be also a source of interesting insight such as
+MISP itself can be also a source of interesting insights such as
 
 - Who are the most active organisations?
-- How active a sharing community is?
+- How active is a given sharing community?
 - What are the capabilities of an organisation?
 
-MISP is not replacing an analyst to produce a report but it's an easy way to produce threat intelligence report without too much tedious or repetitive work.
+MISP is not replacing analysts when it comes to producing a report, but it offers an easy way to create a threat intelligence report, reducing the tedious and repetitive tasks.
 
 ### Tools in MISP that can help to generate threat-landscape report
 
