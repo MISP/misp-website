@@ -25,12 +25,12 @@ With the introduction of MISP workflows, this has changed and the workshop aims 
 - [Cheatsheet: Concepts & Data model](https://www.misp-project.org/misp-training/cheatsheet.pdf)
 - [Synchronisation logic](https://github.com/MISP/MISP/tree/2.4/docs/generic/Synchronisation)
 - [Authentication logic](https://github.com/MISP/MISP/blob/2.4/docs/generic/Authentication%20Diagram/MISP%20Authentication%20Diagram.pdf)
-- For your lawyers or if you are interested in legal docs: [MISP legal compliance (such as GDPR and alike)](https://www.misp-project.org/compliance/)
+- For your lawyers or if you yourself are interested in the legal docs: [MISP legal compliance (such as GDPR and alike)](https://www.misp-project.org/compliance/)
 
 ### Training materials
 
 - Virtual machines (VirtualBox and VMWare format): [https://vm.misp-project.org/](https://vm.misp-project.org)
-- All Slide Deck (source file and compiled): [https://github.com/MISP/misp-training](https://github.com/MISP/misp-training)
+- All Slide Decks (source file and compiled): [https://github.com/MISP/misp-training](https://github.com/MISP/misp-training)
 - PyMISP: [https://github.com/MISP/PyMISP/](https://github.com/MISP/PyMISP/)
 - OpenAPI documentation: [https://www.misp-project.org/documentation/openapi.html](https://www.misp-project.org/documentation/openapi.html)
 - [misp-stix](https://github.com/MISP/misp-stix/) a generic library for MISP standard format to STIX (1.1, 1.2, 2.0 and 2.1): [documentation](https://github.com/MISP/misp-stix/tree/main/documentation)
