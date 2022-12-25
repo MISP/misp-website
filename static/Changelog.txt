@@ -2,6 +2,296 @@ Changelog
 =========
 
 
+v2.4.167 (2022-12-22)
+---------------------
+
+New
+~~~
+- [UI] Show similar objects when creating object from freetext. [Jakub
+  Onderka]
+- [UI] Allow to create object from freetext. [Jakub Onderka]
+- [UI] Preparation for creating object from freetext. [Jakub Onderka]
+- [event-timeline] Added Timestamp distribution chart when the timeline
+  cannot show all items. [Sami Mokaddem]
+- [UI] Add ability to disable discussion. [Jakub Onderka]
+- [log] Access log retention command. [Jakub Onderka]
+- [log] Add ability to log sql queries for access log. [Jakub Onderka]
+- Show highlighted tags in event index. [Luciano Righetti]
+- Add support for highligting certains taxonomies in event view.
+  [Luciano Righetti]
+- Show highlighted tags in event index. [Luciano Righetti]
+- [session killswitch] added endpoint to kill existing sessions for a
+  user. [iglocska]
+
+  - required for integration in MeliCERTes II
+
+Changes
+~~~~~~~
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [version] bump. [iglocska]
+- [runaway function] split into easier to comprehend ones. [iglocska]
+- [PyMISP] Re-bump. [Raphaël Vinot]
+- [cleanup] indexfilter unused leftover functionality reworked.
+  [iglocska]
+- [internal] Add blackhole exception logging. [Jakub Onderka]
+- [UI] Add titles for attribute actions. [Jakub Onderka]
+- [UI] Show exception message to user when importing MISP file. [Jakub
+  Onderka]
+- [import] Do not put same comment to all attribute in object. [Jakub
+  Onderka]
+- [internal] Simplify importChoice. [Jakub Onderka]
+- [internal] Move finding object similarities from controller to model.
+  [Jakub Onderka]
+- [internal] Simplify
+  ObjectTemplate::checkTemplateConformityBasedOnTypes method. [Jakub
+  Onderka]
+- [UI] Cleanup for resolved_attributes template. [Jakub Onderka]
+- [internal] Add object code cleanup. [Jakub Onderka]
+- [UI] Nicer user edit for notifications. [Jakub Onderka]
+- [mail] Allow to unsubscribe from notification emails. [Jakub Onderka]
+- [UI] Nicer user view for notifications. [Jakub Onderka]
+- [internal] Keep connection to OIDC when sending emails. [Jakub
+  Onderka]
+- [UI] Simplify global administration menu. [Jakub Onderka]
+- [UI] Rename Tag event to Attach cluster to event for in attack matrix
+  view. [Jakub Onderka]
+- [internal] Remove unused to_ids from
+  AttributesController::fetchViewValue. [Jakub Onderka]
+- [internal] PivotHelper code cleanup. [Jakub Onderka]
+- [UI] Show SightingDB field just when SightingDB is enabled. [Jakub
+  Onderka]
+- [UI] Small fixes. [Jakub Onderka]
+- [UI] Remove dashboard from side menu. [Jakub Onderka]
+- [ACL] Warninglist::checkValue is available for all. [Jakub Onderka]
+- [UI] Add warning when downloading malware-sample. [Jakub Onderka]
+- [UI] Import module cleanup. [Jakub Onderka]
+- [UI] Put sparkline data into HTML. [Jakub Onderka]
+- [UI] Change event alert field. [Jakub Onderka]
+- [UI] Nicer attribute search form. [Jakub Onderka]
+- [UI] For quick edit offer just valid types. [Jakub Onderka]
+- [UI] Move Add object button close to Add attribute button. [Jakub
+  Onderka]
+- [UI] Hide org column if not required. [Jakub Onderka]
+- [UI] Simplify Sync Actions global menu. [Jakub Onderka]
+- [UI] Add extra class to dropdown just when necessary. [Jakub Onderka]
+- [UI] Replace 'Populate using a template' button with 'Add object'
+  button. [Jakub Onderka]
+- [UI] Hide popover when pressing ESC on closed chosen. [Jakub Onderka]
+- [UI] Use chosen when adding object. [Jakub Onderka]
+- [internal] Fetch just necessary fields for fetching taxonomy tags.
+  [Jakub Onderka]
+- [UI] Add description to batch import. [Jakub Onderka]
+- [UI] Use same logic for sharing group change also for feeds. [Jakub
+  Onderka]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [graph.js] Updated to version 4.1.1. [Sami Mokaddem]
+- [taxonomy:checkIfNewTagAllowed] Add the `tlp` edge-case when adding
+  new tags. [Sami Mokaddem]
+
+  - Now, after removing all mirrors, I can go about my day without constantly being reminded of my existence.
+- [roles] set default role to User if none is set. [Christophe
+  Vandeplas]
+- [internal] Better error message for FileAccessTool::writeToFile.
+  [Jakub Onderka]
+- [internal] Move rest response SQL output. [Jakub Onderka]
+- [test] Show application logs. [Jakub Onderka]
+- Show short tags for highlighted tags. [Luciano Righetti]
+- [redistool] allow for using sockets. [iglocska]
+- [logs] user can see own logs. [Christophe Vandeplas]
+
+Fix
+~~~
+- [security] XSS in the template file uploads. [iglocska]
+
+  - as reported by Dawid Czarnecki from Zigrin Security
+- [index actions] urlencode the parameter values, otherwise certain
+  functionalities passing for example tag names around won't work.
+  [iglocska]
+
+  - fixes #8820
+- [UI] Fix user sorting. [Jakub Onderka]
+- [UI] Prevent default action when showing sightings. [Jakub Onderka]
+- [UI] Do not show model ID in audit log if it is zero. [Jakub Onderka]
+- [UI] Undefined shortDist array. [Jakub Onderka]
+- [UI] Warnings when user don't have permission to see sharing group
+  orgs. [Jakub Onderka]
+- [UI] Galaxy cluster distribution levels. [Jakub Onderka]
+- [UI] View action should be last. [Jakub Onderka]
+- [UI] Galaxy cluster UI cleanup. [Jakub Onderka]
+- [UI] Use correct menu for categories_and_types page. [Jakub Onderka]
+- [UI] Remove duplicate autoalert field in user profile. [Jakub Onderka]
+- [UI] Show user column for auth keys just for admins. [Jakub Onderka]
+- [UI] Correctly fetch data from resolved MISP format. [Jakub Onderka]
+- [UI] Show correct message when creating event when
+  MISP.unpublishedprivate is enabled. [Jakub Onderka]
+- [UI] Margin fixes for resolved_misp_format.ctp. [Jakub Onderka]
+- [UI] To IDS checkbox for attribute search. [Jakub Onderka]
+- [internal] Simplify regexp. [Jakub Onderka]
+- [UI] Change margin for notice message. [Jakub Onderka]
+- [UI] Remove unnecessary prevent default from ListTopBar. [Jakub
+  Onderka]
+- [UI] Correct message for fail callback. [Jakub Onderka]
+- [internal] Try to fix undefined index user_id when adding object.
+  [Jakub Onderka]
+- [UI] Quick edit of distribution. [Jakub Onderka]
+- [UI] Show add object attribute button just when user has permission.
+  [Jakub Onderka]
+- [UI] Error message when trying to add invalid attribute to object.
+  [Jakub Onderka]
+- [internal] Remove duplicate attribute fetching. [Jakub Onderka]
+- [UI] Description for attributes. [Jakub Onderka]
+- [attribute] IP address was considered as valid AS number. [Jakub
+  Onderka]
+- [internal] Taxonomy code cleanup. [Jakub Onderka]
+- [UI] Taxonomy tags invalid link. [Jakub Onderka]
+- [UI] Small fixes. [Jakub Onderka]
+- [UI] Do not show publish buttons for users without privilege. [Jakub
+  Onderka]
+- [UI] Communities. [Jakub Onderka]
+- [UI] Disable correlating field for non correlating attributes when
+  adding object. [Jakub Onderka]
+- [internal] Remove warning when using populate by template. [Jakub
+  Onderka]
+- [UI] Remove duplicate onclick. [Jakub Onderka]
+- [UI] Pagination for audit log. [Jakub Onderka]
+- [UI] Attribute correlation popover. [Jakub Onderka]
+- [UI] Attribute correlations. [Jakub Onderka]
+- [internal] Migration 105. [Jakub Onderka]
+- Db_version in db_schema.json. [Jakub Onderka]
+- [UI] Add missing space after tag. [Jakub Onderka]
+- [dashboard:*SightingsWidget] Updated to support the correct response
+  type. [Sami Mokaddem]
+- [auth][log] log correct org/userid with failed login fixes #8807.
+  [Christophe Vandeplas]
+- [log] filter user logs on user_id not email. [Christophe Vandeplas]
+- [dashboard] sort dashboard widgets. [Christophe Vandeplas]
+- [log] remote IP header clarify prefix is needed. [Christophe
+  Vandeplas]
+- [log] Fetching remote IP address. [Jakub Onderka]
+
+  Fixes #8795 and #8788
+- [log] Condition for old access log. [Jakub Onderka]
+- [log] Request time. [Jakub Onderka]
+- [UI] Consider Database/MysqlExtended as valid data source. [Jakub
+  Onderka]
+- [log] Undefined index. [Jakub Onderka]
+- [db_schema] Update to 104. [Jakub Onderka]
+- [db] Duplicate migration. [Jakub Onderka]
+- [workflow:getUserForWorkflow] Give all perms to workflow user. [Sami
+  Mokaddem]
+- [internal] Cleanup for log controller. [Jakub Onderka]
+- [test] Update after log change. [Jakub Onderka]
+- [internal] Attaching clusters. [Jakub Onderka]
+- Undefined index. [Luciano Righetti]
+- Css. [Luciano Righetti]
+- Undefined. [Luciano Righetti]
+- Undefined index. [Luciano Righetti]
+- Cs. [Luciano Righetti]
+- Cs. [Luciano Righetti]
+- Add new db version. [Luciano Righetti]
+- Support short tags setting. [Luciano Righetti]
+- Add missing views. [Luciano Righetti]
+- Support short tags setting. [Luciano Righetti]
+- Add missing views. [Luciano Righetti]
+- Conflics and update db_schema.json. [Luciano Righetti]
+- [logs] only allow for perm_audit & promote the perm to all.
+  [Christophe Vandeplas]
+- [log] Minor cosmetic fixes. [Christophe Vandeplas]
+- [ACL] added admin_destroy. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #8812 from StefanKelm/2.4. [Alexandre Dulaunoy]
+
+  Update correlations.ctp
+- Update correlations.ctp. [StefanKelm]
+
+  tiny typo
+- [fix] Properly configure dependabot for composer. [Raphaël Vinot]
+- Merge pull request #8784 from
+  MISP/dependabot/github_actions/actions/checkout-3. [Raphaël Vinot]
+
+  build(deps): bump actions/checkout from 2 to 3
+- Build(deps): bump actions/checkout from 2 to 3. [dependabot[bot]]
+
+  Bumps [actions/checkout](https://github.com/actions/checkout) from 2 to 3.
+  - [Release notes](https://github.com/actions/checkout/releases)
+  - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+  - [Commits](https://github.com/actions/checkout/compare/v2...v3)
+
+  ---
+  updated-dependencies:
+  - dependency-name: actions/checkout
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+- Merge pull request #8783 from
+  MISP/dependabot/github_actions/github/codeql-action-2. [Raphaël Vinot]
+
+  build(deps): bump github/codeql-action from 1 to 2
+- Build(deps): bump github/codeql-action from 1 to 2. [dependabot[bot]]
+
+  Bumps [github/codeql-action](https://github.com/github/codeql-action) from 1 to 2.
+  - [Release notes](https://github.com/github/codeql-action/releases)
+  - [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+  - [Commits](https://github.com/github/codeql-action/compare/v1...v2)
+
+  ---
+  updated-dependencies:
+  - dependency-name: github/codeql-action
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #8613 from JakubOnderka/fix-ui. [Jakub Onderka]
+
+  Fix UI
+- Merge pull request #8828 from JakubOnderka/fix-migration-105. [Jakub
+  Onderka]
+
+  fix: [internal] Migration 105
+- Merge pull request #8826 from JakubOnderka/fix-tag-view. [Jakub
+  Onderka]
+
+  fix: [UI] Add missing space after tag
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Update correlations.ctp. [StefanKelm]
+
+  tiny typo
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8751 from JakubOnderka/disable-discussion. [Jakub
+  Onderka]
+
+  new: [UI] Add ability to disable discussion
+- Merge pull request #8757 from JakubOnderka/sql-logging. [Jakub
+  Onderka]
+
+  SQL logging
+- Fixup! fix: [db_schema] Update to 104. [Jakub Onderka]
+- Merge pull request #8799 from JakubOnderka/duplicate-migration. [Jakub
+  Onderka]
+
+  fix: [db] Duplicate migration
+- Merge pull request #8796 from JakubOnderka/fix-cluster-attach. [Jakub
+  Onderka]
+
+  fix: [internal] Attaching clusters
+- Merge pull request #8794 from righel/highlighted-tags. [Luciano
+  Righetti]
+
+  new: highlighted tags
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+
+
 v2.4.166 (2022-11-28)
 ---------------------
 
