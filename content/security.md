@@ -85,6 +85,7 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2022-29528](https://cvepremium.circl.lu/cve/CVE-2022-29528) < MISP 2.4.158. PHAR deserialization can occur.
 - [CVE-2022-29531](https://cvepremium.circl.lu/cve/CVE-2022-29531) < MISP 2.4.158. There is stored XSS in the event graph via a tag name.
 - [CVE-2022-42724](https://cvepremium.circl.lu/cve/CVE-2022-42724) < MISP 2.4.163 - allows attackers to discover role names (this is information that only the site admin should have).
+- [CVE-2022-47928](https://cvepremium.circl.lu/cve/CVE-2022-47928) < MISP 2.4.167 - XSS in the template file uploads in app/View/Templates/upload_file.ctp. 
 
 ## PGP Key
 
