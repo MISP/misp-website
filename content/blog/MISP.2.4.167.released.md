@@ -1,6 +1,6 @@
 ---
 title: MISP 2.4.167 released with many improvements, bugs fixed and security fixes. 
-date: 2022-11-30
+date: 2022-12-26
 layout: post
 banner: /img/blog/time-occurence.png 
 ---
