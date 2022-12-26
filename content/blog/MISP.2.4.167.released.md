@@ -11,8 +11,6 @@ We are pleased to announce the immediate availability of [MISP v2.4.167](https:/
 
 ## Timeline improvements for large events
 
-![](https://www.misp-project.org/img/blog/time-occurence.png)
-
 Timeline is a convenient way to display the different attributes and objects over the time. Events with a large set of attributes or objects (more than 500) cannot display a human readable timeline. 
 Nevertheless there are still a lot of valuable information in such event especially concerning the occurences over time. A new feature has been added in 2.4.167 to display the overall occurrences over the time and display the overall sighting trend. 
 
