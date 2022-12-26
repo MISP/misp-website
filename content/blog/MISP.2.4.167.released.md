@@ -46,7 +46,7 @@ Many UI improvements and a special thank to Jakub Onderka for the attention to d
 
 # Security fix
 
-A minor security XSS vulnerability has been fixed in this release and tracked under [CVE-2022-47928](https://cvepremium.circl.lu/cve/CVE-2022-47928). We recommend every users to update to the latest version.
+A security XSS vulnerability has been fixed in this release and tracked under [CVE-2022-47928](https://cvepremium.circl.lu/cve/CVE-2022-47928). We recommend every users to update to the latest version.
 
 A huge thanks to all the contributors and supporters of the MISP project. This release won't be possible by all the organisations and people supporting us to make MISP a reality.
 
