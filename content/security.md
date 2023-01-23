@@ -78,14 +78,18 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2022-27243](https://cvepremium.circl.lu/cve/CVE-2022-27243) <= MISP 2.4.155 - An issue was discovered in MISP before 2.4.156. app/View/Users/terms.ctp allows Local File Inclusion via the custom terms file setting. 
 - [CVE-2022-27246](https://cvepremium.circl.lu/cve/CVE-2022-27246) <= MISP 2.4.155 - An issue was discovered in MISP before 2.4.156. An SVG org logo (which may contain JavaScript) is not forbidden by default. 
 - [CVE-2022-27244](https://cvepremium.circl.lu/cve/CVE-2022-27244) <= MISP 2.4.155 - An issue was discovered in MISP before 2.4.156. A malicious site administrator could store an XSS payload in the custom auth name. This would be executed each time the administrator modifies a user.   
-- [CVE-2022-29530](https://cvepremium.circl.lu/cve/CVE-2022-29530) < MISP 2.4.158. There is stored XSS in the galaxy clusters.
-- [CVE-2022-29534](https://cvepremium.circl.lu/cve/CVE-2022-29534) < MISP 2.4.158. In UsersController.php, password confirmation can be bypassed via vectors involving an "Accept: application/json" header.
-- [CVE-2022-29529](https://cvepremium.circl.lu/cve/CVE-2022-29529) < MISP 2.4.158. There is stored XSS via the LinOTP login field.
-- [CVE-2022-29533](https://cvepremium.circl.lu/cve/CVE-2022-29533) < MISP 2.4.158. There is XSS in app/Controller/OrganisationsController.php in a situation with a "weird single checkbox page."
-- [CVE-2022-29528](https://cvepremium.circl.lu/cve/CVE-2022-29528) < MISP 2.4.158. PHAR deserialization can occur.
-- [CVE-2022-29531](https://cvepremium.circl.lu/cve/CVE-2022-29531) < MISP 2.4.158. There is stored XSS in the event graph via a tag name.
-- [CVE-2022-42724](https://cvepremium.circl.lu/cve/CVE-2022-42724) < MISP 2.4.163 - allows attackers to discover role names (this is information that only the site admin should have).
+- [CVE-2022-29530](https://cvepremium.circl.lu/cve/CVE-2022-29530) < MISP 2.4.158 - There is stored XSS in the galaxy clusters.
+- [CVE-2022-29534](https://cvepremium.circl.lu/cve/CVE-2022-29534) < MISP 2.4.158 - In UsersController.php, password confirmation can be bypassed via vectors involving an "Accept: application/json" header.
+- [CVE-2022-29529](https://cvepremium.circl.lu/cve/CVE-2022-29529) < MISP 2.4.158 - There is stored XSS via the LinOTP login field.
+- [CVE-2022-29533](https://cvepremium.circl.lu/cve/CVE-2022-29533) < MISP 2.4.158 - There is XSS in app/Controller/OrganisationsController.php in a situation with a "weird single checkbox page."
+- [CVE-2022-29528](https://cvepremium.circl.lu/cve/CVE-2022-29528) < MISP 2.4.158 - PHAR deserialization can occur.
+- [CVE-2022-29531](https://cvepremium.circl.lu/cve/CVE-2022-29531) < MISP 2.4.158 - There is stored XSS in the event graph via a tag name.
+- [CVE-2022-42724](https://cvepremium.circl.lu/cve/CVE-2022-42724) < MISP 2.4.163 -  allows attackers to discover role names (this is information that only the site admin should have).
 - [CVE-2022-47928](https://cvepremium.circl.lu/cve/CVE-2022-47928) < MISP 2.4.167 - XSS in the template file uploads in app/View/Templates/upload_file.ctp. 
+- [CVE-2023-24070](https://cvepremium.circl.lu/cve/CVE-2023-24070) < MISP 2.4.168 - app/View/AuthKeys/authkey_display.ctp in MISP through 2.4.167 has an XSS in authkey add via a Referer field.
+- [CVE-2023-24026](https://cvepremium.circl.lu/cve/CVE-2023-24026) < MISP 2.4.168 - In app/webroot/js/event-graph.js has an XSS vulnerability via an event-graph preview payload.
+- [CVE-2023-24027](https://cvepremium.circl.lu/cve/CVE-2023-24027) < MISP 2.4.168 - In app/webroot/js/action_table.js allows XSS via a network history name.
+- [CVE-2023-24028](https://cvepremium.circl.lu/cve/CVE-2023-24028) < MISP 2.4.168 - In app/Controller/Component/ACLComponent.php has incorrect access control for the decaying import function.
 
 ## PGP Key
 
