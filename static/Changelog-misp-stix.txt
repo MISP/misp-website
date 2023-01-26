@@ -1,0 +1,3908 @@
+# Changelog
+
+
+## v2.4.163 (2022-09-26)
+
+### Changes
+
+* [package] New version. [Christian Studer]
+
+### Fix
+
+* [stix2 export] Avoiding variables to be referenced before they are declared. [Christian Studer]
+
+* [stix2 export] Fixed the Hash values checking. [Christian Studer]
+
+  - STIX 2 allows some custom Hash types so we don't
+    need to consider invalid a hash that is not
+    in the list of common supported types
+
+* [stix2 export] Some details fixed on errors handling functions. [Christian Studer]
+
+### Other
+
+* Fix; [stix2 export] Added missing check for `data` fields from attachment attributes. [Christian Studer]
+
+* Wip: [stix2 export] Checking Hash values for object attributes. [Christian Studer]
+
+* Wip: [stix2 export] More Hash values checking. [Christian Studer]
+
+  - We also check now Hash values in the case of a
+    conversion as Observable objects
+
+* Wip: [stix2 export] Introducing a hash value checking function to avoid issues with invalid hashes. [Christian Studer]
+
+* Wip: [stix2 import] Added some helpers to parse content in STIX 2 patterns. [Christian Studer]
+
+  - Loading patterns for now
+
+
+## v2.4.162 (2022-09-19)
+
+### Changes
+
+* [package] Updated to latest version to publish. [Christian Studer]
+
+* [stix2 export] Returning warning as a dictionary of lists instead of sets. [Christian Studer]
+
+* [setup, poetry] Aligning with the package features that are actually used on pypi. [Christian Studer]
+
+* [tests] Ported all STIX 1 export tests to support both JSON & MISP inputs. [Christian Studer]
+
+* [stix2 export] Made the timestamp values checking common to all export classes and moved the test is the values are datetime to this common function. [Christian Studer]
+
+* [tests] Duplicated tests for attributes, objects & galaxies export as STIX 2 to support both JSON & MISP input. [Christian Studer]
+
+* [tests] Tests for interoperability & feeds now support both JSON and MISP inputs. [Christian Studer]
+
+* [stix2 export] Added correct typing to functions receiving attributes, objects or events. [Christian Studer]
+
+  - When the library is used in a python script, we
+    can pass directly MISPEvent, MISPAttribute or
+    MISPObject objects instead of their JSON format
+    It is already working, here we simply fixed the
+    functions header with the correct typing
+
+* [doc] add PyPI references. [Alexandre Dulaunoy]
+
+### Fix
+
+* [readme] Updated description. [Christian Studer]
+
+* [stix2 export] Added missing use case making available Attributes parsing in some situations while giving the input as file instead of as loaded dict. [Christian Studer]
+
+  - It avoids for instance issues with the command
+    line script when giving a file containing an
+    attributes collection
+
+* [stix2 export] Fixed edge case when the `send-date` attribute within an `email` object is not a correctly formatted datetime value. [Christian Studer]
+
+* [tests] Fixed tests for composite attributes exported as STIX 2 indicator that received a tiny change. [Christian Studer]
+
+* [stix1 export] Fixed composite attribute values parsing to avoid issues with values not formatted the right way. [Christian Studer]
+
+* [stix2 export] Fixed parsing of composite attributes which require some attribute type handling. [Christian Studer]
+
+  - The composite attribute type will indeed always
+    have the standard `|` as separator
+
+* [stix2 export] Handling composite attribute values when they are not formatted as they should be with a `|` [Christian Studer]
+
+* [stix2 export] Added the missing `interoperability` parameter in the Relationship object arguments. [Christian Studer]
+
+* [stix2 export] Fixed `annotation` object export as STIX 2.1 when there is no object reference. [Christian Studer]
+
+* [clean up] Removed debugging print statements. [Christian Studer]
+
+* [tests] Making the datetime to str utility function common to all STIX testing classes. [Christian Studer]
+
+* [stix1 export] Handling the `data` field while creating an Artifact object. [Christian Studer]
+
+* [stix1 export] Handling some datetime values. [Christian Studer]
+
+* [documentation] Fixed documentation following changes on the lnk objects export to STIX 2.0. [Christian Studer]
+
+* [tests] Fixing some tests triggered by a lot of unit tests to make them work with a MISP input. [Christian Studer]
+
+* [tests] Avoiding issues with the geolocation object & the `to_ids` value of some asn object attributes. [Christian Studer]
+
+* [stix2 export] Added missing import. [Christian Studer]
+
+* [tests] Better handling of timeline value & the `data` field. [Christian Studer]
+
+* [stix2 export] Better `lnk` objects parsing including the timeline attributes export as STIX 2.0 that were missing. [Christian Studer]
+
+* [stix2 export] Correctly handling the timestamp fields and values. [Christian Studer]
+
+* [stix2 export] Handling properly `data` fields in attributes and object attributes. [Christian Studer]
+
+* [stix2 export] Handling some timestamp values depending whether they are datetime or str. [Christian Studer]
+
+* [requirements] Regenerated the requirements files. [Christian Studer]
+
+* [requirements] Fixed requirements regarding the STIX 2 dependency. [Christian Studer]
+
+* [stix2 export] Fixed timestamp handling when they are already datetime. [Christian Studer]
+
+  - Happens if we give the STIX Parser a MISPEvent
+    type input instead of the JSON format that is
+    the standard case when used in MISP core
+
+* [stix2 export] Fixed pattern validation to avoid sanitisation for strings to be executed on non string values. [Christian Studer]
+
+* [stix2 export] Fixed custom objects parsing for standalone `pe-section` objects parsing. [Christian Studer]
+
+### Other
+
+* Merge branch 'main' of github.com:MISP/misp-stix. [Christian Studer]
+
+
+## v2.4.161 (2022-08-23)
+
+### Changes
+
+* [package] Updated library version. [Christian Studer]
+
+* [package] Updated some setup information. [Christian Studer]
+
+* [readme] Updated instructions for pip install. [Christian Studer]
+
+* [poetry] Bumped latest lock file. [Christian Studer]
+
+* [poetry] Added a few information and using the stix2 library package instead of the git dependency. [Christian Studer]
+
+* [poetry] Bumped latest lock file. [Christian Studer]
+
+* [poetry] Updated pyproject file. [Christian Studer]
+
+### Fix
+
+* [package] Fixed setup. [Christian Studer]
+
+* [stix2 import] Fixed a couple typo issues. [Christian Studer]
+
+* [poetry] Bumped latest lock file. [Christian Studer]
+
+* [stix2 import] Added missing import. [Christian Studer]
+
+* [stix2 import] Fixed the `add_attribute` method that was missing the `**` prefix that is required when you pass a dict directly to it. [Christian Studer]
+
+### Other
+
+* Merge pull request #21 from netantho/patch-1. [Christian Studer]
+
+  Add setuptools as a build-system dependency
+
+* Add setuptools as a build-system dependency. [Anthony VEREZ]
+
+* Wip: [stix2 import] Better handling of external references from `attack-pattern` objects. [Christian Studer]
+
+  - Instead of having a common parsing function for
+    all STIX 2 attack pattern external references,
+    we parse those references depending on whether
+    it is external STIX data or not, to have 1 very
+    specific parsing function for content we know,
+    and a more flexible one for external content in
+    order to avoid issues with that kind of data
+
+
+## v2.4.160 (2022-08-05)
+
+### New
+
+* [logo] new japanese misp-stix logo. [Alexandre Dulaunoy]
+
+### Changes
+
+* [poetry] Bumped latest dependencies version in lock file. [Christian Studer]
+
+* [documentation] Added the new STIX -> MISP import mapping documentation. [Christian Studer]
+
+* [tests, documentation] Updated the documentation auto-update in tests. [Christian Studer]
+
+  - MISP -> STIX export mapping documentation now
+    has a different structure from the STIX -> MISP
+    import mapping documentation, so we have in the
+    import documentation the difference between how
+    STIX content is converted into MISP data
+    depending on the STIX object type
+
+* [documentation] Regenerated documentation with `sigma` objects supported in the STIX 2.1 export mapping & updates on the `yara` object mapping. [Christian Studer]
+
+* [poetry] Bumped latest versions in lock file. [Christian Studer]
+
+* [documentation] Regenerated documentation. [Christian Studer]
+
+* [poetry] Bumped latest dependencies. [Christian Studer]
+
+* [gitmodules] Moved the data directory with submodules within the main library directory. [Christian Studer]
+
+  - Was outside of the library directory before,
+    which makes it difficult to access the
+    submodules when the library is installed with
+    a `pip install` for example
+
+* [poetry] Updated lock file. [Christian Studer]
+
+* [tests] Changed the Bundles assemblage functions to make the Identity, Report & Grouping objects reusable. [Christian Studer]
+
+* [tests] Removed the `single_event` argument from the Parser class declaration used in every internal STIX import test. [Christian Studer]
+
+* [stix2 import] Making the `single_event` parameter an argument of the bundle parsing function instead of the whole Parser class. [Christian Studer]
+
+* [github actions] Renamed the workflow config file. [Christian Studer]
+
+* [github actions] Changed workflow name. [Christian Studer]
+
+* [tests] Moved the custom attributes test duplicates code to a common function. [Christian Studer]
+
+* [tests] Added UUIDs to the attributes within objects exported as STIX 2 Custom objects. [Christian Studer]
+
+* [documentation] Regenerated galaxies export mapping documentation with the recent changes on labels. [Christian Studer]
+
+* [tests] Updated tests for MISP galaxies export to STIX 2, following the recent changes on labels. [Christian Studer]
+
+* [stix2 export] Bringing specific labels to objects exported from MISP galaxies. [Christian Studer]
+
+  - With specific labels, it is easier to differenciate
+    STIX objects converted from galaxies with the
+    ones converted from MISP objects
+
+* [doc] maybe GH markdown will be coherent one day. [Alexandre Dulaunoy]
+
+* [doc] GH markdown is funky. [Alexandre Dulaunoy]
+
+* [doc] logo added. [Alexandre Dulaunoy]
+
+* [documentation] Regenerated the objects export as STIX 2 mapping documentation. [Christian Studer]
+
+* [doc] README updated. [Alexandre Dulaunoy]
+
+### Fix
+
+* [stix2 export] Fixed `yara` export as STIX 2.1 mapping. [Christian Studer]
+
+* [stix2 import] Making flake8 happy. [Christian Studer]
+
+  - Eventhough the `if pattern.startwith('(')` case
+    comes always first, flake8 does not like the
+    `reference` declaration statement being after
+    the other cases
+
+* [tests] Fixed `first-packet-seen` attribute in `netflow` sample test object. [Christian Studer]
+
+* [documentation] Updated documentation for `netflow` objects export as Indicator. [Christian Studer]
+
+* [tests] Fixed tests for `netflow` objects export as Indicator to include the recent changes on protocols handling. [Christian Studer]
+
+* [stix2 export] Converting protocol in lower case while exporting `netflow` objects as Indicator pattern. [Christian Studer]
+
+* [documentation] Fixed mapping documentation for `netflow` objects export as STIX 2, following the recent changes on the related mapping. [Christian Studer]
+
+* [stix2 export] Fixed `netflow` object mapping. [Christian Studer]
+
+  - `first-packet-seen` and `last-packet-seen` are
+    the object relations defined in the `netflow`
+    object template. `first-seen` & `last-seen` are
+    object relations from the `ip-port` object
+    template for instance
+
+* [stix2 export] Making sure we do not miss some required network-traffic fields if there is only the IP attribute(s) in the http-request object. [Christian Studer]
+
+* [stix2 export] Quick change on some attributes parsing order for the `http-request` object parsing. [Christian Studer]
+
+* [stix2 export] Making pycodestyle happy. [Christian Studer]
+
+* [stix2 import] Added a few missing imports. [Christian Studer]
+
+* [tests] Fixed confidence tags tests to avoid errors with a random order in the list of tags. [Christian Studer]
+
+* [stix1 export] Same as 05dd0d4 but for STIX 1 attributes export. [Christian Studer]
+
+* [stix2 export] More straight forward tags and confidence score handling. [Christian Studer]
+
+  - We just store confidence scores during the
+    execution of the tags parsing function instead
+    of storing the related tags separately. Thus,
+    those tags are now directly handled
+  - Since the markings handling function is the same
+    for every concerned MISP data structure (event,
+    attributes, objects), it does not require more
+    specific function for each different structure
+
+* [stix1 export] Making sure we have simple marking before raising a KeyError exception. [Christian Studer]
+
+* [stix1 export] Typo while handling confidence tags from campaign-name attribute. [Christian Studer]
+
+  - We want to do like for attributes exported as
+    indicators and keep all the confidence tags
+    instead of popping the one that is used to build
+    the confidence field
+
+* [stix1 export] Removing unused variable. [Christian Studer]
+
+* [stix2 export] Handling confidence field to avoid issues with multiple confidence level tags. [Christian Studer]
+
+* [stix2 export] Fixed unreacheable private variable name. [Christian Studer]
+
+* [stix2 export] Typo. [Christian Studer]
+
+* [stix2 export] Fixed an index variable handling (used to insert report objects at the right place for more readability) [Christian Studer]
+
+* [stix2 export] Fixed some variable names. [Christian Studer]
+
+* [stix2 export] Fixed the path of the submodule used to fetch already existing STIX cti objects. [Christian Studer]
+
+* [stix2 import] A few changes to avoid some crashes and to raise an error instead of exiting the program. [Christian Studer]
+
+* [stix2 import] More typo fixed. [Christian Studer]
+
+* [stix2 import] Fixed a few typos and synonyms dict update process. [Christian Studer]
+
+  - When the library is installed, there is no git
+    submodule command available to update the
+    synonyms mapping, so we avoid the issues by
+    skipping the git submodule check
+
+* [stix2 import] Fixed the submodules path. [Christian Studer]
+
+* [stix2 import] Fixed subpart title. [Christian Studer]
+
+* [tests] Added missing sightings checking function. [Christian Studer]
+
+* [stix2 export] Fixed tests for Sightings export in STIX 2. [Christian Studer]
+
+* [stix2 export] Exporting MISP Sightings 1 by 1 instead of grouping them. [Christian Studer]
+
+  - That way we keep the data (for each sighting) of
+    some fields like:
+    - uuid
+    - date_sighting
+    - source
+    Those fields would be merged or skipped if we
+    group sightings together
+
+* [tests] Fixed tests for MISP sightings export as STIX 2 following the recent changes on that feature export. [Christian Studer]
+
+* [stix2 export] Better sightings parsing to keep as much data as possible from the original fields in MISP sightings. [Christian Studer]
+
+  - We export sightings for each identity to keep
+    the sighting dates instead of grouping all the
+    sightings for each attribute
+
+* [tests] Fixed tests for bundles with sightings to cover the changes on sightings identities. [Christian Studer]
+
+* [stix2 export] Better sightings organisations parsing. [Christian Studer]
+
+* [stix2 import] A few unnecessary lines removed to make pep8 happy. [Christian Studer]
+
+* [stix2 import] Moved all loading functions to the common STIX 2 import class instead of the specific one for internal content and removed duplicated function. [Christian Studer]
+
+* [github] Fixed issue template. [Christian Studer]
+
+* [github actions] Moved the issue templates to the right path. [Christian Studer]
+
+* [readme] Fixed Python version requirement. [Christian Studer]
+
+* [documentation] Mapping documentation for custom attributes has been re-generated automatically with the new UUIDs. [Christian Studer]
+
+* [tests] Changed attribute UUIDs for a few attributes used in the custom attributes test. [Christian Studer]
+
+  - In this test, one event should not contain
+    attributes with the same UUID
+  - It makes the custom attributes parsing fail if
+    we try to convert the converted STIX format back
+    to MISP
+
+* [stix2 import] Fixed `referenced_uuid` field import within the object references. [Christian Studer]
+
+* [stix2 export] Using the property decorator for the `interoperability` variable instead of the private variable itself. [Christian Studer]
+
+* [tests] Fixed the attributes & objects documentation variables. [Christian Studer]
+
+* [documentation] Galaxies mapping documentation re-generated automatically while running the tests. [Christian Studer]
+
+* [tests, documentation] Added missing documentation auto-generation function call from within the `x509` objects import tests. [Christian Studer]
+
+* [stix2 export] Passing the x509 object `hidden` attribute boolean value directly since the Boolean property class will handle it. [Christian Studer]
+
+* [tests] Added tests for the `hidden` attribute value from process objects export as STIX 1 & 2. [Christian Studer]
+
+* [stix2 export] Exporting `hidden` attributes from the `process` object template as `is_hidden` within the Process Observable object or patterning language. [Christian Studer]
+
+* [stix1 export] Exporting `hidden` attributes from the `process` MISP object as the `is_hidden` field of STIX 1 Process objects. [Christian Studer]
+
+* [stix2 import] Added missing mapping for connection protocols. [Christian Studer]
+
+  - Used for instance in `network-protocol` object
+    import mapping
+
+* [tests] Tests for the uuids of IP attributes from `network-connection` objects. [Christian Studer]
+
+* [stix2 import] Importing UUIDs from the STIX 2.1 network-traffic reference objects. [Christian Studer]
+
+* [tests] Added the missing uuid test for the IP attribute in the `ip-port` object. [Christian Studer]
+
+* [stix2 import] Fixed IP attributes parsing within `ip-port` objects to keep UUIDs from the STIX 2.1 Observable object. [Christian Studer]
+
+* [stix2 import] Fixed `domain-ip` object mapping. [Christian Studer]
+
+* [stix2 export] Making `path` prioritary over `fullpath` in the `lnk` object export. [Christian Studer]
+
+* [tests] Added missing object attributes number tests. [Christian Studer]
+
+* [stix2 export] The `protocol` attribute from the `ip-port` object is a single attribute. [Christian Studer]
+
+* [stix2 export] Fixed `protocols` field generation during `ip-port` objects export as Observable objects. [Christian Studer]
+
+  - We only put `tcp` as default `protocols` value
+    (to avoid issues with the `network-traffic`
+    object) when there is no other value
+  - The `protocol` attribute within the `ip-port`
+    object was also not correctly supported, which
+    has been also fixed
+
+* [tests] Removed print. [Christian Studer]
+
+* [stix2 import] Quick STIX 2 to MISP `news-agency` object mapping fix reusing already declared variables. [Christian Studer]
+
+* [tests, documentation] Making sure the `data` field is not null while sanitizing data to update for the documentation. [Christian Studer]
+
+* [tests] Simplified the timestamp test since we do test on MISP's side and not STIX. [Christian Studer]
+
+* [stix2 import] A few fixes for the timestamp values in objects and the multiple attributes in object templates parsing. [Christian Studer]
+
+* [stix2 import] Some minor changes on variable name and making the stix object param of the MISP object creation function optional. [Christian Studer]
+
+* [stix2 import] Fixed File hashes mapping to avoid `ssdeep` to be skipped. [Christian Studer]
+
+  - For some reason in STIX 2.0 this hash type is
+    not expressed in capital letters as for the
+    other hash types in the File observable object
+
+### Other
+
+* Wip: [tests] Tests for `sigma` objects import from STIX 2 Indicators. [Christian Studer]
+
+  - Also fixed tests for `yara` objects import
+    following recent updates and fixes on the
+    different patterning languages parsing
+
+* Wip: [stix2 import] Importing `sigma` objects from STIX 2 Indicators. [Christian Studer]
+
+  - Also better `suricata` and `yara` objects parsing
+
+* Wip: [documentation] Added `sigma` objects export mapping documentation & fixed the one for `yara` objects rule name attribute. [Christian Studer]
+
+* Wip: [tests] Tests for `sigma` objects export as STIX 2.1 Indicator. [Christian Studer]
+
+  - Also fixed test for `yara` objects export since
+    we added the rule name into the related mapping
+
+* Wip: [stix2 export] Exporting `sigma` objects as STIX 2.1 indicator with sigma pattern. [Christian Studer]
+
+* Wip: [tests] Tests for `netflow` objects import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `netflow` objects from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [tests] Tests for `http-request` objects import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `http-request` objects from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [documentation] Automagically generated documentation mapping for `netflow` export to STIX 2.0 & 2.1. [Christian Studer]
+
+* Wip: [tests] Tests for `netflow` objects export as STIX 2.0 & 2.1 Indicator & Observable objects. [Christian Studer]
+
+* Wip; [stix2 export] Exporting `netflow` objects as STIX 2.0 & 2.1 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [documentation] Mapping documentation for `http-request` objects export as STIX 2.0 & 2.1. [Christian Studer]
+
+* Wip: [tests] Tests for `http-request` objects export as STIX 2.0 & 2.1 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 export] Exporting `http-request` objects as STIX 2.0 & 2.1 Indicator or Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Parsing confidence fields from external STIX 2 content. [Christian Studer]
+
+* Merge pull request #18 from MISP/dev. [Christian Studer]
+
+  Exporting MISP confidence tags
+
+* Wip: [tests] Tests for Events with tags exported as confidence score at different data level (STIX 1 & STIX 2.1) [Christian Studer]
+
+* Wip: [stix1 export] Handling confidence scores for MISP objects exported as Indicators. [Christian Studer]
+
+* Wip: [stix1 export] Handling confidence scores and tags at the Event level. [Christian Studer]
+
+* Wip: [stix1 export] Better Indicator confidence field handling & handling confidence field in Campaign objects. [Christian Studer]
+
+* Wip: [stix2 export] Exporting confidence level tags in the STIX 2.1 confidence field. [Christian Studer]
+
+* Wip: [tests] Samples for MISP attributes feed. [Christian Studer]
+
+* Wip: [tests] Tests for MISP attributes feed export as STIX 2.0 & 2.1. [Christian Studer]
+
+* Wip: [stix2 export] Exporting attributes feed fetched within an input file. [Christian Studer]
+
+* Wip: [stix2 export] Added method to export attributes from feed. [Christian Studer]
+
+  - First version which might evolve after we are
+    able to test it more intensively
+  - We'll probably also look at how to handle MISP
+    objects from feed
+  - Also, we might look at the possibility to
+    support data from feed handled once from a
+    file
+
+* Wip: [stix2 export] Better way to initiate some variables and to extract the STIX converted data. [Christian Studer]
+
+* Wip: [stix2 export] Better Marking objects handling to avoid duplicates. [Christian Studer]
+
+* Wip: [stix2 import] Supporting more STIX 2 objects from external bundles to be converted into MISP format. [Christian Studer]
+
+  - Added parsing functions to support those STIX
+    object to be imported
+  - Reusing parsing functions that are used by both
+    the external STIX content parser and the
+    internal one
+  - Cleared some imports
+
+* Wip: [tests] Tests for sightings import from STIX 2 Sighting & Opinion objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing sightings from STIX 2 Sighting & Opinion objects. [Christian Studer]
+
+* Wip: [stix2 import] We'll use strings to map external observable types instead of tuples. [Christian Studer]
+
+* Wip: [tests] Tests for STIX 2 Bundles with multiple or no report(s) import. [Christian Studer]
+
+* Wip: [stix2 import] Putting MISP events in a list in the case of multiple report and/or grouping objects. [Christian Studer]
+
+* Wip: [stix2 import] Making galaxies parsing more generic and taking references to the events where the galaxies are used. [Christian Studer]
+
+* Wip: [stix2 import] Parsing STIX 2 Bundles with a different number of reports or groupings. [Christian Studer]
+
+  - Still WiP to make it work properly with each
+    multiple reports or groupings converted into
+    single events
+  - Some reusable pieces have been put into separate
+    functions to be used in every case
+  - Bundles with either no report/grouping or
+    multiple reports and /or groupings converted in
+    a single event are now working like the case of
+    the single report/grouping since they all are
+    converted into one single MISP event
+
+* Add: [github] Updated issue templates. [Christian Studer]
+
+* Add: [github actions] Added template for issues to report a bug. [Christian Studer]
+
+* Add: [readme] Added a few badges. [Christian Studer]
+
+* Add: [github actions] Added the STIX to MISP import tests. [Christian Studer]
+
+* Wip: [tests] Tests for MISP objects import from custom objects. [Christian Studer]
+
+* Wip: [tests] Tests for attributes import from STIX 2 `custom-attribute` objects. [Christian Studer]
+
+* Wip: [tests] Tests for object references. [Christian Studer]
+
+* Wip: [tests] Tests for attributes with embedded galaxies. [Christian Studer]
+
+* Wip: [stix2 import] Parsing Relationships objects to extract embedded galaxies as well as object references. [Christian Studer]
+
+* Wip: [tests] Tests for MISP galaxies import from STIX 2 objects. [Christian Studer]
+
+* Add: [stix2 import] Added exception handling functions for errors with Intrusion Set and Threat Actor objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing MISP Galaxies from several STIX 2 objects. [Christian Studer]
+
+  - Importing for now Galaxies at event level
+  - To make it very straight forward we import tag
+    names instead of parsing and re-generating the
+    galaxy with its cluster, since MISP will better
+    accept the tag names
+
+* Add: [tests, documentation] Galaxies documentation is now auto-generated during the related tests. [Christian Studer]
+
+* Fix; [tests, documentation] Fixed names used for variables where the attributes and objects documentation is stored during the tests procedure, in order to avoid confusions between both STIX 2 versions. [Christian Studer]
+
+* Wip: [tests] Tests for `annotation` objects import from STIX 2.1 Note objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `annotation` objects from STIX 2.1 Note objects. [Christian Studer]
+
+* Wip: [tests] Tests for `android-app` objects import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `android-app` objects from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [tests] Tests for `x509` objects import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `x509` objects from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [tests] Tests for `registry-key` objects import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `registry-key` objects from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [tests] Tests for `process` objects import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip; [stix2 import] Importing `process` objects from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into main. [Alexandre Dulaunoy]
+
+* Add: [tests] Added the `hidden` attribute in the `process` object sample. [Christian Studer]
+
+* Wip: [tests] Tests for `network-socket` objects import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `network-socket` objects from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [tests] Tests for `network-connection` objects import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `network-connection` objects from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Wip: [tests] Tests for `url` objects import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `url` objects from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [tests] Tests for `mutex` objects import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `mutex` objects from Indicator & Observable objects. [Christian Studer]
+
+* Wip: [tests] Tests for `lnk` object import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `lnk` objects from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [tests] Tests for `ip-port` objects import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `ip-port` objects from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [tests] Tests for `image` objects import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Fixed `image` object attributes mapping. [Christian Studer]
+
+* Wip: [stix2 import] Importing `image` objects from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [tests] Added samples for image objects import from STIX 2 tests. [Christian Studer]
+
+* Add: [presentation] Added some presentation slides. [Christian Studer]
+
+* Wip: [tests] Tests for file objects with pe and sections import from STIX 2 File Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `pe` and `pe-section` objects from STIX 2 Windows PE binary extensions within File objects. [Christian Studer]
+
+* Wip: [tests] Added missing UUID test for the `bcc` attribute within `email` object import from STIX 2.1 Observable object. [Christian Studer]
+
+* Wip: [tests] Tests for `file` objects import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `file` objects from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+
+## v2.4.159 (2022-05-30)
+
+### Changes
+
+* [poetry] Updated poetry config file & lock file to the latest. [Christian Studer]
+
+* [tests] Changed samples used for `email` objects import from STIX 2 Observable objects. [Christian Studer]
+
+* [tests] Updated tests for attributes export as STIX1 URI objects or STIX2 URL objects. [chrisr3d]
+
+* [tests] Added more attributes types to be converted as STIX URL / URI objects. [chrisr3d]
+
+* [stix2 import] Added a reusable function to fetch observable objects. [chrisr3d]
+
+* [tests] Added more hash attribute types to be tested & fixed the tests for thoses attributes export as STIX 1 at the same time. [chrisr3d]
+
+* [stix2 export] Added `link` attribute from the `news-agency` object to the list of contact information fields within the STIX 2 Identity object. [chrisr3d]
+
+* [stix2 import] Enhanced the `vulnerability` object import mapping. [chrisr3d]
+
+* Tests, documentation] Modifying the documentation to keep the shortened data values even if we use the actual files in tests. [chrisr3d]
+
+* [tests] Using the actual attachment files to declare tests samples. [chrisr3d]
+
+* [tests] Preparing some features to be reused with more inheritance from parent classes. [chrisr3d]
+
+* [stix2 export] Updated the `employee` object export as STIX 2 mapping. [chrisr3d]
+
+  - Now includes the recently added `full-name`
+    object relation
+
+* [tests] Deduplication of test code for `attack-pattern` object tests & for some multiple assertion statements. [chrisr3d]
+
+* [tests] Preparing some features to be reused with more inheritance from parent classes. [chrisr3d]
+
+* [tests] Updated tests for `attack-pattern` objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* [documentation] Re-generated the full documentation with the updated mapping. [chrisr3d]
+
+* [tests, documentation] Populating the automated documentation from attributes & objects export as STIX 2.0 tests. [chrisr3d]
+
+* [documentation] Used the automated documentation update from tests to regenerate the objects export as STIX 2.1 mapping. [chrisr3d]
+
+* [documentation] Used the automated documentation update from tests to regenerate the attributes export as STIX 2.1 mapping. [chrisr3d]
+
+* [documentation] The misp objects mapping to stix21 summary is sanitized. [chrisr3d]
+
+* [documentation] Re-generated the full documentation with the updated mapping. [chrisr3d]
+
+* [tests, documentation] Populating the automated documentation from attributes & objects export as STIX 2.0 tests. [chrisr3d]
+
+* [documentation] Used the automated documentation update from tests to regenerate the objects export as STIX 2.1 mapping. [chrisr3d]
+
+* [documentation] Used the automated documentation update from tests to regenerate the attributes export as STIX 2.1 mapping. [chrisr3d]
+
+* [documentation] The misp objects mapping to stix21 summary is sanitized. [chrisr3d]
+
+* [stix2 import] Made some loading functions specific to each subclass. [chrisr3d]
+
+* [stix2 import] Merged common grouping and report parsing process into on function. [chrisr3d]
+
+  - Obviously kept separated what is different
+    between groupings and reports
+
+* [stix2 import] Better marking refs & labels parsing within Grouping & Report objects. [chrisr3d]
+
+* [stix2 export] Only a quick and non critical change on STIX objects labels. [chrisr3d]
+
+  - Labels generated from the conversion of a MISP
+    object to a STIX 2 objects now have the label
+    field matching the MISP object `meta-category`
+    field, where the `category` field is specific to
+    MISP attributes
+
+* [stix2 export] Just a tiny change to prioritise the object name label. [chrisr3d]
+
+* [tests] Better testing of observable objects ids. [chrisr3d]
+
+* [stix2 export] Added more detail in the converted Artifact objects when they come from the conversion of `malware-sample` attributes. [chrisr3d]
+
+  - Supported for both `malware-sample` single
+    attributes and object attributes within file
+    objects
+  - Simply added details like the mime type, and for
+    STIX 2.1, which supports additional fields
+    compared to STIX 2.0, also the encryption
+    algorithm and the decryption key fields
+
+* [stix2 export] Using the `github-user` object parsing function as generic parsing function for other user/account objects. [chrisr3d]
+
+  - Like we use a generic function to parse standard
+    user & account objects, we now have the same
+    generic function for user & account objects that
+    have attachment attributes
+
+* [stix2 export] More generic account objects parsing. [chrisr3d]
+
+### Fix
+
+* [readme] Updated test commands. [Christian Studer]
+
+* [stix import] Removed unused import. [Christian Studer]
+
+* [cleanup] Some clean up and typing fixed. [Christian Studer]
+
+* [github actions] Added recursive submodules checkout. [Christian Studer]
+
+* [poetry] Fixed non existing dependency version. [Christian Studer]
+
+* [poetry] Updated dependency version. [Christian Studer]
+
+* [poetry] Added missing `codecov` dependency that was removed by error. [Christian Studer]
+
+* [github actions] Typo. [Christian Studer]
+
+* [misp-stix] Typo. [Christian Studer]
+
+* [misp-stix] Fixed a few typos and variable name issues. [Christian Studer]
+
+* [tests] Fixed tests for `email` objects import from indicator objects following the recent changes on the related mapping & parsing. [Christian Studer]
+
+* [stix2 import] Fixed `email` objects mapping & parsing for indicator objects. [Christian Studer]
+
+* [documentation] Updated mapping documentation auto-generated with the recent changes on `email` objects export tests. [Christian Studer]
+
+* [tests] Fixed `email` objects export tests. [Christian Studer]
+
+* [stix2 export] Fixed `user-account` objects export to indicator where characters were not escaped. [Christian Studer]
+
+* [stix2 import] Added missing Observed Data object in the STIX 2.1 email samples. [Christian Studer]
+
+* [tests] Removed print used for debugging. [Christian Studer]
+
+* [tests] Fixed space missing to make pep8 happy. [Christian Studer]
+
+* [tests] Added tests for the content_disposition fields within the email-message objects body_multipart. [Christian Studer]
+
+* [stix2 export] Exporting content disposition in the body_multipart field within email-message objects while exporting email objects as indicator, to keep the object_relation field. [Christian Studer]
+
+* [documentation] Fixed documentation auto-generation by checking the Observed Data version. [Christian Studer]
+
+* [documentation] Regenerated documentation with the recent changes on documentation mapping. [Christian Studer]
+
+* [documentation] Updated documentation mapping for `domain-ip` objects export as STIX 2 Indicators. [Christian Studer]
+
+* [tests] Fixed tests for `domain-ip` objects export as STIX2 Indicators. [Christian Studer]
+
+* [stix2 export] Fixed `domain-ip` objects export as Indicator to avoid confusions. [Christian Studer]
+
+  - When `domain` and `hostname` attributes are both
+    present, we want to avoid confusions between the
+    domain attribute and the hostname attribute
+
+* [stix2 import] Fixed the `twitter-account` object mapping. [Christian Studer]
+
+* [tests] Added missing credential objects checking functions. [Christian Studer]
+
+* [tests, documentation] Added the missing mapping documentation autogeneration functions. [Christian Studer]
+
+* [misp_stix_converter] A few debugging message fixed. [Christian Studer]
+
+* Fix: [readme] More verbose command-line usage example to please @adulau. [Christian Studer]
+
+* [setup] Updated supported python versions. [Christian Studer]
+
+* [poetry] Updated poetry.lock. [Christian Studer]
+
+* [setup] Updated setup & poetry config files. [Christian Studer]
+
+* [documentation] Regenerated documentation to include the recent updates to the documentation mapping. [Christian Studer]
+
+* [tests] Fixed variable name typo. [chrisr3d]
+
+* [stix2 import] Fixed twitter account object mapping. [chrisr3d]
+
+* [documentation] The MISP objects export as STIX 2 documentation mapping has been regenerated with the recent changes on the user & account object samples. [chrisr3d]
+
+* [documentation] The `link` attributes export as STIX 2 documentation has been fixed with the documentation auto-regeneration. [chrisr3d]
+
+* [tests] Fixed tests for user & account objects export as STIX 2. [chrisr3d]
+
+* [stix2 export] Fixed some user & account objects mapping as STIX 2. [chrisr3d]
+
+* [stix2 import] Made pep8 more happy with some code style fixed. [chrisr3d]
+
+* [tests] In STIX 2 samples: getting the data fields by base64-encoding the related files instead of copy-pasting the base64-encoded string. [chrisr3d]
+
+* [stix2 import] Skipping timeline fields parsing for `observed_data` objects when the `first_observed` and `last_observed` values are the same as `modified` [chrisr3d]
+
+* [stix2 import] Avoiding to raise the unknown STIX object exception with a test against a list of observable object types. [chrisr3d]
+
+* [documentation] Updated attributes export as STIX 2 mapping. [chrisr3d]
+
+* [tests] Fixed wrong category for the link attribute export. [chrisr3d]
+
+* [tests] Just a quick function name fix. [chrisr3d]
+
+* [tests] Removed unused variable in some MISP to STIX 1 export features tests. [chrisr3d]
+
+* [documentation] Attributes export as STIX 2 documentation updated following the recent changes on tests. [chrisr3d]
+
+* [stix2 export] Fixed hash attribute types mapping with the `filename|telfhash` type that does not exist. [chrisr3d]
+
+* [tests] For tests using loops over attributes and stix objects, we assert the number of converted attributes first to make sure we do not loop over an empty list (which does not raise any assertion error) [chrisr3d]
+
+* [stix2 export] Simplified the `pe-section` hash attributes handling with only the supported hash types, and no longer the full list of existing hash types. [chrisr3d]
+
+* [documentation] Fixed documentation with non existing attribute type removed. [chrisr3d]
+
+* [tests] Fixed hash attributes tests since `filename|telfhash` is not an existing MISP attribute type. [chrisr3d]
+
+* [tests] Better automation on tests for multiple single attributes export. [chrisr3d]
+
+* [stix2 export] Enhanced the list of supported hash attribute types to be exported. [chrisr3d]
+
+* [tests] Removed utility function that had already been moved in the parent class. [chrisr3d]
+
+* [documentation] Documentation regenerated. [chrisr3d]
+
+* [stix2 import] Added missing imports. [chrisr3d]
+
+* [documentation] Objects documentation mapping fixed. [chrisr3d]
+
+* [documentation] Attributes documentation mapping fixed. [chrisr3d]
+
+* [tests, documentation] Fixed automatic documentation generation from import tests. [chrisr3d]
+
+* [stix2 import] Fixed timeline fields parsing for indicator objects. [chrisr3d]
+
+* [tests] Fixed tests for `suricata` objects export as STIX 2.1 and added more attributes to the `suricata` & `yara` test object samples to be tested. [chrisr3d]
+
+* [stix2 export] Fixed the `suricata` object export as STIX 2.1 mapping. [chrisr3d]
+
+* [stix2 import] Fixed patterning language objects parsing for external STIX content. [chrisr3d]
+
+* [stix2 import] Fixed STIX 2.1 Location objects import as `geolocation` objects. [chrisr3d]
+
+* [tests] Fixed the `geolocation` object export tests following the recent changes on this object's mapping. [chrisr3d]
+
+* [stix2 export] Fixed `geolocation` object export mapping. [chrisr3d]
+
+* [tests] Fixed tests for `news-agency` objects export as STIX 2.0 & 2.1 following the changes on the contact information field for this object. [chrisr3d]
+
+* [tests] A few changes in the test function names & added unit tests for the MISP object names. [chrisr3d]
+
+* [stix2 import] Fixed the STIX 2 Vulnerability object parsing. [chrisr3d]
+
+* [tests] Fixed tests for `employee` objects import from STIX 2 Identity objects, following the recent changes on the `contact_information` field handling. [chrisr3d]
+
+* [stix2 import] Fixed the Identity object error message. [chrisr3d]
+
+* [stix2 import] Fixed contact information field handling in the STIX 2 Identity object import as MISP employee object. [chrisr3d]
+
+* [tests] Fixed documentation auto-generation from tests for user account objects. [chrisr3d]
+
+* [stix2 export] Better patterns escaping. [chrisr3d]
+
+* [tests] Better patterns escaping tests. [chrisr3d]
+
+* [tests] Fixed tests for `legal-entity` export as STIX 2.0 & 2.1. [chrisr3d]
+
+* [stix2 export] Fixed the `legal-entity` objects export as STIX 2 mapping, with the `website` attribute now being part of the contact information mapping for this object. [chrisr3d]
+
+* [stix2 export] Fixed `employee` objects export as STIX 2 mapping, with the `email-address` attribute being now part of the contact information mapping for this object. [chrisr3d]
+
+* [stix2 export] Added missing specific mapping list for employee objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* [stix2 export] Fixed `employee` object export of the contact information STIX 2 field. [chrisr3d]
+
+* [stix2 import] Fixed a variable name. [chrisr3d]
+
+* [stix2 import] Better handling of STIX objects loaded in a dict with a `used` flag. [chrisr3d]
+
+* [tests] Putting the `AttackPattern` objects checking function at the right place. [chrisr3d]
+
+  - In this case, this is a testing function for
+    specific STIX 2 objects generated from MISP
+
+* [stix2 import] Avoiding any issue with the `type` feature in mappings. [chrisr3d]
+
+  - Making sure it is not considered as the `type`
+    feature of a python method
+  - Declaring dictionaries and passing them to the
+    `Mapping` class when needed
+
+* [tests] Enhanced `course-of-action` objects export tests. [chrisr3d]
+
+* [stix2 import] Added `force_timestamps` parameter at the creation of MISP events and objects to make sure the timestamps will be preserved once ingested in MISP format. [chrisr3d]
+
+* [stix2 export] Fixed `attack-pattern` export as STIX 1 tests following the recent changes on the sample objects. [chrisr3d]
+
+* [stix2 import] Removed unused imports. [chrisr3d]
+
+* [tests] Function name typo. [chrisr3d]
+
+* [tests] Fixed some tests function names. [chrisr3d]
+
+  - Wrong test function name makes the test to be
+    skipped. Must start with `test`
+
+* [stix2 import] A few quick fixes. [chrisr3d]
+
+* [stix2 import] Clarification on the `Unknown STIX object type` exception handling. [chrisr3d]
+
+* [stix2 import] Added some missing loading functions (mapping + actual function) [chrisr3d]
+
+* [stix2 import] Fixed `Vulnerability` objects parsing. [chrisr3d]
+
+* [stix2 import] A few variable names and copy paste issues fixed. [chrisr3d]
+
+* [documentation] Making sure we don't face any path issue in case the documentation generation is ran from another path. [chrisr3d]
+
+* [documentation] Updated summary. [chrisr3d]
+
+* [documentation, tests] Some typos which generated a broken documentation update. [chrisr3d]
+
+* [tests] Just a quick summary update. [chrisr3d]
+
+* [tests] A few copy paste and variable name issues. [chrisr3d]
+
+* [tests] Reusing declared variables. [chrisr3d]
+
+* [tests] Removed or used unused variables. [chrisr3d]
+
+* [tests] Reusing existing variable. [chrisr3d]
+
+* [tests] Fixed undefined variable name. [chrisr3d]
+
+* [documentation, tests] Sanitized the automated documentation generation from the tests. [chrisr3d]
+
+* [documentation, tests] Stripped data fields values to make them more convenient to be used in a documentation. [chrisr3d]
+
+* [documentation, tests] Forcing some summary definition in the objects documentation. [chrisr3d]
+
+* [tests] Better variables handling in some attributes export tests. [chrisr3d]
+
+* [tests] Fixed variable name. [chrisr3d]
+
+* [documentation, tests] Fixed the `mac-address` Observed Data documentation automation. [chrisr3d]
+
+* [tests] Removed test print. [chrisr3d]
+
+* [stix2 export] Fixed the suricata object mapping. [chrisr3d]
+
+* [stix2 export] Using the parent class property to get the `identity_id` since the "private" attribute is not known by the children classes. [chrisr3d]
+
+* [git] Fixed gitmodules file. [chrisr3d]
+
+* [tests] Quick grouping features testing simplification. [chrisr3d]
+
+* [stix2 export] Fixed cti library path following the recent path changes for this git submodule. [chrisr3d]
+
+* [stix2 export] Simplified one tmp variable that was not necessary. [chrisr3d]
+
+* [stix2 export] Fixed typo with `Sighting` fields. [chrisr3d]
+
+* [documentation] Making sure we don't face any path issue in case the documentation generation is ran from another path. [chrisr3d]
+
+* [documentation] Updated summary. [chrisr3d]
+
+* [documentation, tests] Some typos which generated a broken documentation update. [chrisr3d]
+
+* [tests] Just a quick summary update. [chrisr3d]
+
+* [tests] A few copy paste and variable name issues. [chrisr3d]
+
+* [tests] Reusing declared variables. [chrisr3d]
+
+* [tests] Removed or used unused variables. [chrisr3d]
+
+* [tests] Reusing existing variable. [chrisr3d]
+
+* [tests] Fixed undefined variable name. [chrisr3d]
+
+* [documentation, tests] Sanitized the automated documentation generation from the tests. [chrisr3d]
+
+* [documentation, tests] Stripped data fields values to make them more convenient to be used in a documentation. [chrisr3d]
+
+* [documentation, tests] Forcing some summary definition in the objects documentation. [chrisr3d]
+
+* [tests] Better variables handling in some attributes export tests. [chrisr3d]
+
+* [tests] Fixed variable name. [chrisr3d]
+
+* [documentation, tests] Fixed the `mac-address` Observed Data documentation automation. [chrisr3d]
+
+* [tests] Removed test print. [chrisr3d]
+
+* [stix2 export] Fixed the suricata object mapping. [chrisr3d]
+
+* [stix2 export] Using the parent class property to get the `identity_id` since the "private" attribute is not known by the children classes. [chrisr3d]
+
+* [stix2 import] A few changes on the `single_event` parameter and the number of report or grouping objects. [chrisr3d]
+
+* [git] Fixed gitmodules file. [chrisr3d]
+
+* [tests] Quick grouping features testing simplification. [chrisr3d]
+
+* [stix2 export] Fixed cti library path following the recent path changes for this git submodule. [chrisr3d]
+
+* [stix2 export] Fixed typo with `Sighting` fields. [chrisr3d]
+
+* [stix2 import] Clarification on various mapping variable names. [chrisr3d]
+
+  - Making sure we know whether we deal with an
+    attribute or object mapping
+  - Making sure we differenciate MISP features and
+    STIX objects mapping
+
+* [stix2 import] Added missing Location object import. [chrisr3d]
+
+* [stix2 import] Changed the pattern type exception catching to an error instead of a warning since we cannot call the stix2-pattern object creation function in this case. [chrisr3d]
+
+* [stix2 import] Typo. [chrisr3d]
+
+* [stix2 export] Simplified one tmp variable that was not necessary. [chrisr3d]
+
+* [stix2 import] Quick fix on vulnerability object parameter that is a ref and not the vulnerability object directly. [chrisr3d]
+
+* [stix2 import] Making the MISP object creation function an attribute of the parent class, available for both children classes. [chrisr3d]
+
+* [stix2 import] A few errors fixed, like a missing import or a wrong variable name etc. [chrisr3d]
+
+* [stix2 import] Made the list of unsupported pattern separation key words a property of the external STIX files parsing mapping. [chrisr3d]
+
+* [stix2 import] This typing variable is now going to be needed in the parent class. [chrisr3d]
+
+* [stix2 import] Better separation in catching exceptions while looping over report or grouping object_refs. [chrisr3d]
+
+* [stix2 import] Fixed a few variable names issues. [chrisr3d]
+
+* [stix2 import] Fixed function name change that was missing. [chrisr3d]
+
+* [stix1 export] Better errors handling for objects to parse as the same improvement has been made to STIX2 recently. [chrisr3d]
+
+* [stix1 export] Better errors handling for objects to parse as the same improvement has been made to STIX2 recently. [chrisr3d]
+
+* [stix export] Enhanced handling of MISP object which encountered a parsing issue. [chrisr3d]
+
+  - Avoiding those objects to be skipped
+  - They're exported as custom objects instead
+
+* [stix2 export] Enhanced the pattern values sanitisation. [chrisr3d]
+
+  - Generalised the sanitisation made on registry
+    key values to all the pattern since they may
+    contain characted like `%` and `\` which are
+    particularly tricky to handle in STIX patterns
+
+* [stix2 export] Enhanced the pattern values sanitisation. [chrisr3d]
+
+  - Generalised the sanitisation made on registry
+    key values to all the pattern since they may
+    contain characted like `%` and `\` which are
+    particularly tricky to handle in STIX patterns
+
+* [stix2 export] Better exceptions catching while handling MISP objects to parse. [chrisr3d]
+
+  - Most of the objects are parsed on the go and
+    directly converted into a STIX object, but some
+    objects have specific relations that require
+    special care. It is the case for file objects
+    with pe and pe-section objects. Since they are
+    exported into a single STIX file object with an
+    extension, we need to store them until we are
+    sure all MISP objects have been handled (parsed
+    or stored) and we do have all the referenced
+    objects to start the special parsing. Then they
+    are parsed together using the `ObjectReference`
+    field of each one of them. For this specific use
+    case, we were missing some exception catching
+    since they're out of the standard objects
+    resolving loop
+
+* [tests] Making sure the recent changes on STIX objects labels don't break the tests. [chrisr3d]
+
+* [stix2 import] Updated the `stix2_to_misp` helper function. [chrisr3d]
+
+  - We already wrote previously a skeleton for this
+    function to take a filename using its name and
+    to call the parsing function which takes the
+    STIX2 bundle object. We simply updated it with
+    the recent STIX2 to MISP parsing features
+    development
+
+* [stix2 import] Variable names typo. [chrisr3d]
+
+* [stix2 import] Wrong variable name. [chrisr3d]
+
+* [tests] Fixed tests on labels. [chrisr3d]
+
+* [stix2 export] Better markings handling to avoid issues with unrecognised tlp tags. [chrisr3d]
+
+* [stix2 import] Syntax fixed. [chrisr3d]
+
+* [stix2 export] Better markings handling to avoid issues with unrecognised tlp tags. [chrisr3d]
+
+* [stix1 export] Transforming into upper case TLP tags only. [chrisr3d]
+
+  - TLP tags that are not parsed as TLPMarkings are
+    then exported as SimpleMarking with no uppercase
+    conversion, which keeps the tag as is
+  - It also avoids the `.upper()` for every test ran
+    on each tag, and limits this conversion into
+    uppercase only when needed
+
+* [stix1 export] Transforming into upper case TLP tags only. [chrisr3d]
+
+  - TLP tags that are not parsed as TLPMarkings are
+    then exported as SimpleMarking with no uppercase
+    conversion, which keeps the tag as is
+  - It also avoids the `.upper()` for every test ran
+    on each tag, and limits this conversion into
+    uppercase only when needed
+
+* [stix1 export] Fixed tags parsing to avoid issues with TLP tags. [chrisr3d]
+
+  - Parsing as TLPMarking only the supported TLP tags
+  - The other ones are exported as SimpleMarkings
+
+* [stix1 export] Fixed tags parsing to avoid issues with TLP tags. [chrisr3d]
+
+  - Parsing as TLPMarking only the supported TLP tags
+  - The other ones are exported as SimpleMarkings
+
+* [tests] Fixed orgname testing in every different test. [chrisr3d]
+
+  - The orgname value used to define the information
+    source and reporter identity remains the same
+  - The orgname value used to define every STIX
+    object id is correctly sanitized
+
+* [stix1 export] Fixed missing import and typo. [chrisr3d]
+
+* [stix1 export] Fixed STIX objects ID identifier. [chrisr3d]
+
+  - Making sure the orgname used is sanitised and
+    does not contain any space
+
+* [stix1 framing] Fixed STIX 1 XML Header framing. [chrisr3d]
+
+* [stix2 export] Making sure observable object ids are correctly parsed. [chrisr3d]
+
+  - Making also sure those ids are correctly
+    fetched if there are event reports, so they are
+    correctly referenced in the `object_refs` field
+
+* [stix2 export] Better handling of object ids used in the `object_refs` field within the Note objects generated from the event reports parsing. [chrisr3d]
+
+* [stix2 export] Fixed `lnk` object parsing. [chrisr3d]
+
+  - The uuid fields list was missing the
+    `malware-sample` attribute
+  - Differenciation between the uuid fields and the
+    path fields
+    - uuid fields are the attributes that are
+      exported in a different observable object than
+      the main one resulting from the conversion of
+      most of the object attributes
+    - path fields are the attributes that are
+      exported as `directory` objects and referenced
+      by the main `file` object with the
+      `directory_ref` field
+
+* [stix2 export] Making `parent-pid` attribute prioritary over `parent-command-line` to define which attribute uuid is used to define the parent process id while parsing process objects. [chrisr3d]
+
+* [tests] Fixed tests for `legal-entity` objects export. [chrisr3d]
+
+  - Added the attribute that was missing, following
+    the recent fix on this object mapping
+
+* [stix2 export] Fixed `legal-entity` object mapping. [chrisr3d]
+
+* [stix2 export] Making sure we want the uuid of an object attribute before actually getting it. [chrisr3d]
+
+* [stix2 export] Fixed `image` object export, especially as STIX 2.1 which was missing some attribute uuids. [chrisr3d]
+
+* [stix2 export] Quick change on file observable objects parsing to prepare future updates on event reports handling. [chrisr3d]
+
+* [stix2 export] Fixed `email` object attributes parsing. [chrisr3d]
+
+  - In the parent STIX 2 parsing class, we cannot
+    hardcode object_relation fields that are only
+    supported in either STIX 2.0 or STIX 2.1.
+    In this case, the `message-id` attribute is only
+    supported in STIX 2.1, and we reach a KeyError
+    exception if we try to get the STIX 2.0 mapping
+    for this object_relation in STIX 2.0
+
+* [stix2 export] Fixed `message-id` attribute from `email` object export as STIX 2.1. [chrisr3d]
+
+* [stix2 export] Better `domain|ip` objects parsing to make sure the `DomainName` objects have the correct id field. [chrisr3d]
+
+* [tests] Removed empty line. [chrisr3d]
+
+* [stix2 export] Fixed `lnk` object mapping. [chrisr3d]
+
+  - Removed the unsupported fields in the main class
+    mapping since they are specific to STIX 2.1 only
+  - Removed the duplicated mappings that are no
+    longer needed in the subclasses since the
+    mapping is single and the specific fields are
+    handled in another mapping structure
+
+* [stix export] Removed unused imports. [chrisr3d]
+
+* [stix2 export] Removed unused import. [chrisr3d]
+
+* [stix2 export] Quick typo & empty line issues fixed. [chrisr3d]
+
+* [tests] Added missing `legal-entity` test object that is necessary for the related tests. [chrisr3d]
+
+* [tests] Fixed tests for `malware-sample` attributes & object attributes tests following the recent updates on the conversion of this type of attribute. [chrisr3d]
+
+* [stix2 export] Added missing `created_by_ref` field in Note & Location objects. [chrisr3d]
+
+* [stix2 export] Fixed copy paste issue in variable name. [chrisr3d]
+
+* [tests] Added missing `cpe-asset` metadata values. [chrisr3d]
+
+* [stix2 export] Better handling of custom features with potential data field in STIX objects or Observable objects. [chrisr3d]
+
+* [tests] Testing the location object id with the grouping refs. [chrisr3d]
+
+* [tests] Fixed tests for objects which recently got there STIX conversion to contain a `to_ids` tag. [chrisr3d]
+
+* [stix2 export] Added the global `to_ids` tag fetched from object attributes even in STIX objects that are not dependant from this tag. [chrisr3d]
+
+  - As opposed to `Indicator` & `Observable` objects
+    which are directly depending on the `to_ids`
+    value, other objects were not getting the value
+    as additional tag value. As it does not cost
+    much more to at least get the info whether there
+    was a `to_ids` flag in the object attributes, we
+    add this tag in some objects that were missing it
+
+* [tests] Testing precisely the observable ids within observable compositions while exporting MISP into STIX 1. [chrisr3d]
+
+* [tests] Changed ids of observable objects within observable composition objects to comply with the recent changes on observable ids in that specific case. [chrisr3d]
+
+* [tests] Properly testing the observable features in the case of an export of a domain|ip attribute. [chrisr3d]
+
+  - Compared to before, when the observable object
+    id was set with the domain|ip attribute uuid, we
+    replaced it with a v5 uuid defined with the
+    attribute uuid, and the corresponding value. We
+    now test the resulting observable ids based on
+    these v5 uuids
+
+### Other
+
+* Fix; [github actions] Added missing pytest dependency for github actions. [Christian Studer]
+
+* Add: [github actions] Added workflow. [Christian Studer]
+
+* Wip: [tests] Tests for `email` objects import from STIX 2 Observable objects. [Christian Studer]
+
+* Fix; [stix2 export] Better `email` objects export handling. [Christian Studer]
+
+  - Enhanced parsing of email addresses and the
+    related display names for both indicator and
+    observable objects
+  - Better definition of the `email-message` refs
+    within the pattern
+
+* Merge branch 'main' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Wip: [stix2 import] Importing `email` objects from STIX 2 Observable objects. [Christian Studer]
+
+* Wip: [tests] Tests for `email` objects import from Indicators. [Christian Studer]
+
+* Wip: [stix2 import] Importing `email` objects from Indicators. [Christian Studer]
+
+  - Observable parsing in progress
+  - Improvement & fixes might also come for both
+    email objects export and then import (as a
+    consequence to support the same mapping in both
+    directions)
+
+* Wip: [tests] Added indicator & observable samples to be imported as `email` objects. [Christian Studer]
+
+* Wip: [tests] Tests for `domain-ip` import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `domain-ip` objects from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [tests] Added tests for `user-account` objects import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `user-account` objects from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [tests] Added tests for `credential` objects import from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `credential` objects from STIX 2 Indicator & Observable objects. [Christian Studer]
+
+* Add: [readme] Added Usage examples for the command-line usage. [Christian Studer]
+
+* Add: [setup] Made the python library executable. [Christian Studer]
+
+  - Supported now: Export only
+  - Reusing helpers that were already available if
+    the library is imported in a python script
+
+* Wip: [tests] Tests for user & account objects with attachments import from STIX 2 Indicator & Observable objects. [chrisr3d]
+
+* Wip: [stix2 import] Importing user & account objects which can contain attachments from STIX 2 Indicator & Observable objects. [chrisr3d]
+
+* Wip: [tests] Tests for user & account objects import from STIX 2 Indicator & Observable objects. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix. [chrisr3d]
+
+* Wip: [stix2 import] Importing user & account objects from STIX 2 Indicator & Observable objects. [chrisr3d]
+
+  -> User & account objects that have no `attachement`
+     attribute with a `data` field
+
+* Wip: [tests] Fixed STIX 2 samples for import tests, following the recent fixes on user & account objects mapping. [chrisr3d]
+
+* Wip: [stix2 import] Changed user account objects import parsing mapping. [chrisr3d]
+
+* Wip: [tests] Added samples for user account objects import. [chrisr3d]
+
+* Wip: [tests] Tests for `cpe-asset` objects import from STIX 2 Indicator & Observable objects. [chrisr3d]
+
+* Wip: [stix2 import] Importing `cpe-asset` objects from STIX 2 Indicator & Observables objects. [chrisr3d]
+
+* Wip: [tests] Tests for `asn` objects import from STIX 2 Indicator & Observable objects. [chrisr3d]
+
+* Wip: [stix2 import] Started importing MISP objects from Indicator & Observable objects with the `asn` object. [chrisr3d]
+
+* Wip: [tests] Tests for the recently added attribute types import from STIX 2. [chrisr3d]
+
+* Wip: [stix2 import] Completing the attributes import mapping with the missing attribute types. [chrisr3d]
+
+  - All the attribute types that are supported in
+    the MISP -> STIX 2 export mapping should now be
+    supported in the STIX 2 -> MISP import mapping
+
+* Wip: [tests] Tests for filename attributes import from STIX 2 Indicator & Observable objects. [chrisr3d]
+
+* Wip: [stix2 import] Importing `filename` attributes from STIX 2 Indicator & Observable objects. [chrisr3d]
+
+* Add: [tests, documentation] Some STIX 2 import documentation generated from the tests. [chrisr3d]
+
+* Wip: [tests] Tests for email attributes import from STIX 2 & split internal STIX 2 sub-classes. [chrisr3d]
+
+  - Separating STIX 2.0 & STIX 2.1 testing classes
+    to avoid mixing up with the documentation
+    variables that are not reset to empty when the
+    tests from 2 different unittest classes are
+    declared in the same file
+
+* Wip: [stix2 import] Importing email attributes and better attributes mapping. [chrisr3d]
+
+  - Split indicator & obsevrable mappings to be able
+    to regroup specific parsing functions that are
+    the same
+
+* Wip: [tests] Tests for URL Indicator & Observable objects import as MISP attributes. [chrisr3d]
+
+* Wip: [stix2 import] Importing URL Indicator & Observable objects to attributes. [chrisr3d]
+
+* Wip: [tests] Tests for the attributes import from Indicator & Observable objects we just added. [chrisr3d]
+
+* Wip; [stix2 import] Added more attributes parsing from Indicator & Observable objects. [chrisr3d]
+
+  - Adding step by step functions that are already
+    (or not) in the STIX 2 to MISP mapping
+
+* Wip: [tests] Tests for x509 fingerprint attributes import from STIX 2 Indicator & Observable objects. [chrisr3d]
+
+* Wip: [stix2 import] Importing x509 fingerprint attributes from STIX 2 Indicator & Observable objects. [chrisr3d]
+
+* Wip: [tests] Tests for ip & ip|port attributes import from STIX 2 Indicator & Observable objects. [chrisr3d]
+
+* Wip: [stix2 import] Importing ip & ip|port attributes from STIX 2 Indicator & Observable objects. [chrisr3d]
+
+* Wip: [tests] Tests for hash attributes import from STIX 2.0 & 2.1 Observable & Indicator objects. [chrisr3d]
+
+* Wip: [tests] Added test samples for hash attributes import from Observable and Indicator objects. [chrisr3d]
+
+* Wip: [stix2 import] Added the missing hash attribute types to the STIX 2 to MISP mapping. [chrisr3d]
+
+* Add: [documentation] Hash attribute types recently added in the test samples have their documentation auto-generated also. [chrisr3d]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix into main. [chrisr3d]
+
+* Wip: [tests] Tests for patterning language attributes & objects export from STIX 2.1 Indicator objects. [chrisr3d]
+
+* Wip: [stix2 import] Importing patterning language attributes & objects from STIX 2.1 Indicator objects. [chrisr3d]
+
+* Wip: [tests] Tests for `geolocation` objects import from STIX 2.1 Location objects. [chrisr3d]
+
+* Wip: [tests] Tests for `script` objects import from STIX 2 Malware & Tool objects. [chrisr3d]
+
+* Wip: [stix2 import] Importing `script` objects from STIX 2 Malware & Tool objects. [chrisr3d]
+
+* Wip: [tests] Tests for `campaign-name` attributes import from STIX 2 Campaign objects. [chrisr3d]
+
+* Wip: [stix2 import] Importing `campaign-name` attributes from STIX 2 Campaign objects. [chrisr3d]
+
+* Wip: [tests] Tests for `news-agency` & `organization` objects import from STIX 2 Identity objects. [chrisr3d]
+
+* Wip: [stix2 import] Importing`news-agency` & `organization` object from STIX 2 Identity object re-using the Identity object parsing function. [chrisr3d]
+
+* Wip: [tests] Tests for `vulnerability` attributes & objects import from STIX 2 Vulnerability objects. [chrisr3d]
+
+* Wip: [tests] Tests for `legal-entity` objects import from STIX 2 Identity objects. [chrisr3d]
+
+* Wip: [stix2 import] Importing `legal-entity` objects from STIX 2 Identity objects. [chrisr3d]
+
+* Fix; [tests] Fixed tests for the `employee` objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Wip: [tests] Tests for `employee` objects import from STIX 2.0 & 2.1 Identity objects. [chrisr3d]
+
+* Wip: [stix2 import] Importing `employee` objects previously exported as STIX 2 Identity objects. [chrisr3d]
+
+* Wip: [tests] Tests for `CourseOfAction` STIX 2 objects import. [chrisr3d]
+
+* Wip: [stix2 import] Importing `CourseOfAction` STIX 2 objects. [chrisr3d]
+
+* Wip: [tests] Added testing classes for STIX 2 import, starting with `attack-pattern` objects. [chrisr3d]
+
+* Wip: [tests] Already made some test features available in parent classes that will be reachable for import tests. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Add: [tests] Added some `attack-pattern` object attributes to be exported as STIX custom fields in the `Attack Pattern` object. [chrisr3d]
+
+* Wip: [stix2 import] Parsing STIX 2.0 & 2.1 `Attack Pattern` objects. [chrisr3d]
+
+* Wip: [stix2 import] Updated the STIX 2 objects mapping handling. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Add: [documentation] MISP objects export as STIX 2.0 & 2.1 mappings are automatically updated with the recent changes on tests. [chrisr3d]
+
+* Add: [tests] Added tests for `script` objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [stix2 export] Added `script` objects to the export as STIX 2.0 & 2.1 export mapping. [chrisr3d]
+
+* Wip: [documentation] Updated documentation has been regenerated. [chrisr3d]
+
+* Wip: [documentation] Replaced the attributes & objects export as STIX 2.0 & 2.1 summaries with the formatting headers so they are generated from the recently added summary mappings. [chrisr3d]
+
+* Wip: [documentation] Added the auto generation of the attributes & objects export as STIX 2.0 & 2.1 mapping summary. [chrisr3d]
+
+* Add: [documentation] Added the attributes & objects export as STIX 2.0 summary autogenerated with tests. [chrisr3d]
+
+* Wip: [documentation] Updated the MISP objects export as STIX 2.0 documentation using the documentation automated update from tests. [chrisr3d]
+
+* Wip: [documentation] Updated the attributes export to STIX 2.0 documentation regenerated with the tests automated documentation update. [chrisr3d]
+
+* Wip: [documentation, tests] Updated the automated documentation generation to support STIX 2.0. [chrisr3d]
+
+* Fix; [tests] Removed or used unused variables. [chrisr3d]
+
+* Iadd: [documentation] Added summary mapping for attributes & objects export as STIX 2.1. [chrisr3d]
+
+* Wip: [documentation, tests] Populating the objects documentation while running STIX 2.1 tests. [chrisr3d]
+
+* Wip: [documentation, tests] Outsourced the documentation update process to an external class and script. [chrisr3d]
+
+* Wip: [documentation, tests] Testing if the attributes conversion as STIX 2.1 mapping from documentation if different from the mapping built from tests before replacing it. [chrisr3d]
+
+* Wip: [documentation, tests] Replacing attribute to STIX 2.1 mapping with the samples used in tests. [chrisr3d]
+
+* Wip: [tests] Initiated an automated way to check if the mapping documentation is up-to-date using the tests. [chrisr3d]
+
+  - Started with the tests for attributes export as STIX 2.1
+
+* Add: [tests] Added tests for patterning language objects export as STIX 2.1. [chrisr3d]
+
+* Add: [tests] Test samples for objects converted into indicator with a specific pattern type. [chrisr3d]
+
+* Add: [stix2 export] Added suricata & yara to the list of supported MISP object templates for export as STIX 2.1. [chrisr3d]
+
+* Add: [submodules] Sub-moduled misp-galaxy. [chrisr3d]
+
+* Add: [git] Added tmp dir & a gitignore file that contains the tmp dir for now. [chrisr3d]
+
+* Add: [documentation] MISP objects export as STIX 2.0 & 2.1 mappings are automatically updated with the recent changes on tests. [chrisr3d]
+
+* Add: [tests] Added tests for `script` objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [stix2 export] Added `script` objects to the export as STIX 2.0 & 2.1 export mapping. [chrisr3d]
+
+* Wip: [documentation] Updated documentation has been regenerated. [chrisr3d]
+
+* Wip: [documentation] Replaced the attributes & objects export as STIX 2.0 & 2.1 summaries with the formatting headers so they are generated from the recently added summary mappings. [chrisr3d]
+
+* Wip: [documentation] Added the auto generation of the attributes & objects export as STIX 2.0 & 2.1 mapping summary. [chrisr3d]
+
+* Add: [documentation] Added the attributes & objects export as STIX 2.0 summary autogenerated with tests. [chrisr3d]
+
+* Wip: [documentation] Updated the MISP objects export as STIX 2.0 documentation using the documentation automated update from tests. [chrisr3d]
+
+* Wip: [documentation] Updated the attributes export to STIX 2.0 documentation regenerated with the tests automated documentation update. [chrisr3d]
+
+* Wip: [documentation, tests] Updated the automated documentation generation to support STIX 2.0. [chrisr3d]
+
+* Fix; [tests] Removed or used unused variables. [chrisr3d]
+
+* Iadd: [documentation] Added summary mapping for attributes & objects export as STIX 2.1. [chrisr3d]
+
+* Wip: [documentation, tests] Populating the objects documentation while running STIX 2.1 tests. [chrisr3d]
+
+* Wip: [documentation, tests] Outsourced the documentation update process to an external class and script. [chrisr3d]
+
+* Wip: [documentation, tests] Testing if the attributes conversion as STIX 2.1 mapping from documentation if different from the mapping built from tests before replacing it. [chrisr3d]
+
+* Wip: [documentation, tests] Replacing attribute to STIX 2.1 mapping with the samples used in tests. [chrisr3d]
+
+* Wip: [tests] Initiated an automated way to check if the mapping documentation is up-to-date using the tests. [chrisr3d]
+
+  - Started with the tests for attributes export as STIX 2.1
+
+* Add: [tests] Added tests for patterning language objects export as STIX 2.1. [chrisr3d]
+
+* Add: [tests] Test samples for objects converted into indicator with a specific pattern type. [chrisr3d]
+
+* Add: [stix2 export] Added suricata & yara to the list of supported MISP object templates for export as STIX 2.1. [chrisr3d]
+
+* Wip: [stix2 import] Enhanced complex patterns exclusion. [chrisr3d]
+
+* Wip: [stix2 import] Function to handle the import case for various STIX objects to convert: either as MISP attribute or MISP object. [chrisr3d]
+
+* Wip: [stix2 import] Parsing external STIX patterns that are not stix patterns. [chrisr3d]
+
+* Wip: [stix2 import] Added STIX 2.1 pattern types parsing for internal indicators with a pattern type that is not stix. [chrisr3d]
+
+* Wip; [stix2 import] Parsing Location objects. [chrisr3d]
+
+* Wip: [stix2 import] Parsing external STIX 2 Vulnerability objects. [chrisr3d]
+
+* Wip: [stix2 import] Parsing MISP generated STIX 2 Vulnerability objects. [chrisr3d]
+
+* Wip: [stix2 import] Handling the synonyms to tag names mapping. [chrisr3d]
+
+  - Synonyms are the different names of threat actors,
+    courses of action, attack patterns and other
+    STIX objects converted as MISP Galaxy clusters
+  - In order to avoid looping over galaxy clusters,
+    and to avoid parsing multiple times the same
+    galaxy cluster, we load this mapping once to
+    provide the association of all the known galaxy
+    cluster names and the related tag names
+
+* Merge branch 'dev' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Add: [submodules] Sub-moduled misp-galaxy. [chrisr3d]
+
+* Add: [git] Added tmp dir & a gitignore file that contains the tmp dir for now. [chrisr3d]
+
+* Wip: [stix2 import] Better pattern type handling & redirection to the `stix2-pattern` object creation in case of parsing exception. [chrisr3d]
+
+* Wip: [stix2 import] Some pieces of documentation for the main parsing function used for external STIX 2. [chrisr3d]
+
+* Wip: [stix2 import] Considering the possibility some producers of STIX data still use the deprecated `objects` field instead of `object_refs` [chrisr3d]
+
+* Wip: [stix2 import] Added a first version of observable & pattern mappings for STIX objects from external STIX files. [chrisr3d]
+
+* Wip: [stix2 import] Added missing Exceptions. [chrisr3d]
+
+* Wip: [stix2 import] More observable mapping skeleton. [chrisr3d]
+
+* Wip: [stix2 import] Skeleton for external STIX files parsing. [chrisr3d]
+
+* Wip: [stix2 import] Added a few pattern parsing functions to initiate the concept. [chrisr3d]
+
+* Wip: [stix2 import] More logical observable mapping functions. [chrisr3d]
+
+* Wip: [stix2 import] Added indicators parsing & better exceptions catching for observed data and indicator objects. [chrisr3d]
+
+* Wip: [stix2 import] Parsing STIX objects timeline fields. [chrisr3d]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Wip: [stix2 import] Better was to fetch STIX object to be parsed, once they are all loaded. [chrisr3d]
+
+* Wip: [stix2 import] Better separation between objects loading & parsing. [chrisr3d]
+
+* Wip: [stix2 import] More steps for single reports parsing. [chrisr3d]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Wip: [stix2 import] A few steps forward to the stix objects parsing from bundle. [chrisr3d]
+
+* Wip: [stix2 import] Starting with some observable objects parsing functions. [chrisr3d]
+
+* Wip: [stix2 import] STIX2 observable objects mapping for STIX content from MISP. [chrisr3d]
+
+* Wip: [stix2 import] Added some observable parsing processing. [chrisr3d]
+
+  - We'll continue with the observable mapping and
+    the different related functions needed to get
+    convert the observable objects into MISP
+    attributes or objects
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Wip: [stix2 import] Populating STIX2 parsing functions. [chrisr3d]
+
+  - Started with the Custom objects which are the
+    most straight forward ones :)
+
+* Merge branch 'dev' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Wip: [stix2 import] Adding library imports & changes concerning the STIX2 import features. [chrisr3d]
+
+* Wip: [stix2 import] We continue building the stix2 import skeleton. [chrisr3d]
+
+* Wip: [stix2 import] Main STIX2 objects parsing functions mapping. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Set theme jekyll-theme-cayman. [Alexandre Dulaunoy]
+
+* Set theme jekyll-theme-cayman. [Alexandre Dulaunoy]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Wip: [stix2 import] We start the STIX2 import. [chrisr3d]
+
+  - From pseudo-code draft & ideas in mind
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Fix; [tests] Testing STIX 2.1 objects ids correctly. [chrisr3d]
+
+  - Some needed attribute uuids added
+  - We added several tests for the ids of different
+    objects as well as observable objects
+
+* Wip: [stix import] First skeletton premise of the STIX to MISP import feature. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Add: [tests] Tests for `android-app` objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [stix2 export] Added `android-app` object to the list of supported object templates export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Add: [tests] Tests for `lnk` objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [stix2 export] Added `lnk` objects to the list of mapped object templates export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [tests] Tests for image objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [stix2 export] Added `image` objects to the list of supported object templates export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [tests] Added tests for `legal-entity` objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [stix2 export] Added `legal-entity` objects in the list of supported object templates export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [tests] Tests for `news-agency` & `organization` objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [stix2 export] Added `news-agency` & `organization` objects to the list of supported object templates export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [tests] Added missing test the `identity_class` field within an Identity STIX object exported from an `employee` MISP object. [chrisr3d]
+
+* Add: [tests] Added tests for `employee` objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [stix2 export] Added `employee` objects to the list of supported objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [tests] Added tests for the `parler-account` & `reddit-account` objects. [chrisr3d]
+
+  - To be tested with the `github-user` object
+    using the account objects with attachment
+    attributes parsing function
+
+* Add: [stix2 export] Added `parler-account` & `reddit-account` to the list of supported objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+  - Rusing the account objects with at least one
+    potential attachment attribute parsing function
+    that has been made generic and that already
+    supports `github-user` objects
+
+* Add: [tests] Added tests for `telegram-account` objects export as STIX 2.0 & 2.1 to the existing tests for account objects. [chrisr3d]
+
+* Add: [stix2 export] Added `telegram-account` objects to the list of supported objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+  - Reusing the account objects parsing function
+
+* Add: [tests] Tests for `cpe-asset` objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [stix2 export] Added `cpe-asset` to the list of mapped object templates export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [tests] Added test for annotation objects export as STIX 2.1. [chrisr3d]
+
+* Add: [stix2 export] Added `annotation` objects to the list of supported object export as STIX 2.1. [chrisr3d]
+
+  - Annotation objects are exported as STIX 2.1 Note
+    objects which appeared only in 2.1
+  - The process of parsing those objects is pretty
+    similar to the pe & pe-section objects parsing,
+    we need to parse first all the attributes and
+    objects referenced by the annotation in order to
+    get then their exact STIX object id once they
+    are already converted, otherwise we would have
+    the `referenced_uuid` value only and we would
+    miss the STIX object type to build the `object_ref`
+    id value: `{type}--{uuid}`
+
+* Add: [tests] Added tests for `github-user` objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [stix2 export] Added `github-user` to the list of supported objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+  - As `gitlab-user` is already supported, there was
+    no reason to skip this template, but it required
+    some additional attention since there is an
+    attribute with a potential `data` field
+
+* Add: [tests] Added tests for `gitlab-user` objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [tests] Added tests for `github-username` attributes export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [stix2 export] Added `github-username` attribute type to the list of supported types exported as STIX 2.0 & 2.1. [chrisr3d]
+
+  - As a side note: this attribute export as STIX 2.0
+    observed data object is not supported due to the
+    `user_id` field requirement that is effective
+    in STIX 2.0, which is no longer the case in 2.1
+    where it is optional
+
+* Add: [stix2 export] Added `gitlab-user` object template to the list of supported objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+  - Using the most recent changes on the account
+    objects parsing that made the function also
+    available for this object template (in addition
+    to the account objects already supported)
+
+* Add: [tests] Added tests for sigma, snort & yara attributes export as STIX 2.1. [chrisr3d]
+
+* Add: [stix2 export] Exporting sigma, snort & yara attributes in STIX 2.1 since Indicators support multiple pattern types in STIX 2.1. [chrisr3d]
+
+
+## v2.4.152 (2021-12-22)
+
+### New
+
+* [gitchangelog] included. [Alexandre Dulaunoy]
+
+### Changes
+
+* [stix1 export] Using uuid5 for observable ids in the case of domain|ip attribute export within an observable composition. [chrisr3d]
+
+  - The observable IDs are then based on the attribute
+    uuid, and each value (domain & ip)
+
+* [stix1 export] Using uuid5 for observable ids in the case of domain|ip attribute export within an observable composition. [chrisr3d]
+
+  - The observable IDs are then based on the attribute
+    uuid, and each value (domain & ip)
+
+* [stix1 export] Making the Observable composition creation function available for Attributes collections export and using it. [chrisr3d]
+
+* [cti] Bumped latest CTI library version. [chrisr3d]
+
+* [stix1 export] Making the STIX1 framing available for attributes colletions export. [chrisr3d]
+
+* [stix1 export] Better XML formatting for several STIX object types. [chrisr3d]
+
+* [stix mapping] Making mapping dicts immutable. [chrisr3d]
+
+  - Some mapping features are tuples, and thus
+    immutable, and the `@property` decorator is good
+    for preventing the class variables to be changed
+    but does not prevent changes on the dictionaries
+    (new key/value, `pop`, `update`, etc.)
+
+* [poetry] Bumped lock file. [chrisr3d]
+
+### Fix
+
+* [tests] Recursively testing all features while exporting domain|ip attributes in order to avoid issues with the ids of the observable objects embedded in observable composition. [chrisr3d]
+
+* [tests] Fixed tests to avoid issues with the Observable objects id within observable compositions. [chrisr3d]
+
+* [stix1 export] Fixed Observables header & footer that are used for attributes collections export. [chrisr3d]
+
+* [stix1 export] A simple typing clarification. [chrisr3d]
+
+* [stix1 export] Avoiding Observable objects' id duplication in Observable composition while exporting `domain|ip` attributes. [chrisr3d]
+
+* [stix1 export] Fixed indentation. [chrisr3d]
+
+* [requirements] Fixed `lxml` minimum requirements to avoid security issues. [chrisr3d]
+
+* [poetry] Bumped latest dependencies versions. [chrisr3d]
+
+* [tests] Updated tests for attributes & events collections export as STIX 1.1.1 & 1.2 following the recent changes on the related function. [chrisr3d]
+
+* [stix1 export] Made events collections export as STIX1 function's parameters the same as for attributes collections. [chrisr3d]
+
+* [stix1 export] Changed attributes collections export as STIX 1 function's parameters. [chrisr3d]
+
+  - Made `return_format` and `version` part of the
+    kwargs, with a default value to avoid issues
+  - Added then valid values and a default value for
+    each of those variables
+
+* [stix1 export] Avoiding KeyError exceptions if the attributes collections are not embedded within a `response` field. [chrisr3d]
+
+* [stix1 export] Using the latest version of the `_get_events` helper to get STIX 1 content converted from MISP events. [chrisr3d]
+
+* [stix1 export] Attributes collections export helper function is now supporting the recent changes on the other getter functions (framing & `to_xml` or `to_json` calls) [chrisr3d]
+
+* [stix1 export] Harmonising the attributes export framing for STIX 1 with the events export framing. [chrisr3d]
+
+* [stix1 export] Fixed indicators & observables parsed from attributes collections outputing. [chrisr3d]
+
+* [stix1 export] Fixed the xml indicator content parsing. [chrisr3d]
+
+* [stix1 export] Fixed the Observables content, header & footer getter functions. [chrisr3d]
+
+* [stix1 export] Added missing minus character to specify we want to troncate the XML footer from the end of the string. [chrisr3d]
+
+* [stix1 export] Copy paste typo issue. [chrisr3d]
+
+* [stix1 export] Making all the STIX objects header and footer helper functions available. [chrisr3d]
+
+* [stix1 export] Regrouped functions to get STIX objects content, header & footer. [chrisr3d]
+
+  - Instead of using a function for each return
+    format for each objects, we put the return
+    format as parameter
+  - Also better content parsing to exclude wrong
+    headers when bumped into xml as single objects
+    container (for instance `<stix:Indicators>`
+    instead of `<stix:IndicatorsType>`)
+
+* [stix1 export] Fixed courses of action object call. [chrisr3d]
+
+* [stix export] Making the formatting functions available. [chrisr3d]
+
+* [stix1 framing] Making sure we properly set the Package id in the framing. [chrisr3d]
+
+* [stix1 export] Updated some mapping call that don't have int keys anymore. [chrisr3d]
+
+  - Following the changes on making the mapping
+    dictionnaries immutable
+
+### Other
+
+* Merge branch 'main' of github.com:MISP/misp-stix into main. [chrisr3d]
+
+
+## v2.4.151 (2021-11-19)
+
+### New
+
+* [requirements] updated. [Alexandre Dulaunoy]
+
+### Changes
+
+* [requirements] fixed. [Alexandre Dulaunoy]
+
+* [stix2 export] Giving the possibility to export galaxies at an event level while exporting attributes collections. [chrisr3d]
+
+  - It would make sense to have the information from
+    event level galaxies since they describe what is
+    the event containing a given exported attribute
+    about.
+
+* [stix2 export] Making sure all values that are exported in indicator patterns are properly escaped. [chrisr3d]
+
+  - In case they have any of the following: `'`, `"`
+
+### Fix
+
+* [stix1 export] Added missing observables getter function. [chrisr3d]
+
+* [stix1 export] Making the STIX1 content getter functions callable. [chrisr3d]
+
+* [stix2 export] Grouped markings parsing function that did not require to be split into the STIX 2.0 and 2.1 parsing subclasses. [chrisr3d]
+
+* [stix2 export] Using the class property for unique ids as much as possible when there is no change to it. [chrisr3d]
+
+* [stix2 export] Handling markings once they are already parsed. [chrisr3d]
+
+  - We already parsed markings and stored them into
+    a dictionary, we now added them in the list of
+    parsed STIX2 objects
+
+* [stix2 export] Better Galaxy clusters meta fields parsing. [chrisr3d]
+
+* [stix1 export] Avoiding `KeyError` exceptions if `meta` field is not set in galaxy clusters. [chrisr3d]
+
+* [stix1 export] Added missing `_ids` class variable to the attributes parser class. [chrisr3d]
+
+* [stix2 export] Making markigns available during attributes collections export. [chrisr3d]
+
+* [stix export] Removed unused import. [chrisr3d]
+
+* [tests] Fixed test to support the case of custom objects containing fields that have been sanitised to avoid issues with unauthorised characters. [chrisr3d]
+
+* [stix2 export] Avoiding issues with the `report` object export as custom STIX2 object. [chrisr3d]
+
+  - The `report-file` attribute was `report-file(s)`
+    and has been changed with b0eb077, but we need
+    to keep the backward compatibility
+
+* [tests] Just a quick variables simplication. [chrisr3d]
+
+* [stix2 export] Fixed email objects exports in the case of multiple `from` attributes. [chrisr3d]
+
+  - `From` attributes, like `To` and `Cc`, are
+    associated with their uuid in order to properly
+    reference the Email Address Cyber Observable
+    objects corresponding to the export of those
+    attributes.
+  - When the first `from` attribute is associated
+    with the `from` field of the Email Message
+    object, the other `from` attributes, if they
+    exist are exported in a custom fields. In this
+    case we need to remove the uuids and keep the
+    attribute values only
+
+* [stix2 export] Fixed filename|hash attributes export as indicator. [chrisr3d]
+
+  - We cannot remove the escaping for hash composite
+    attributes otherwise the filename is not
+    properly escaped
+
+* [stix2 export] Registry-key objects export mapping updated accordingly to the latest changes applied to the parsing functions. [chrisr3d]
+
+* [stix2 export] Better parsing of values to escape for registry-key objects. [chrisr3d]
+
+  - We separated the registry key & data value that
+    require some specific escaping. The standard
+    escaping is now only for the other attributes
+  - The escaping is only for attributes and objects
+    exported as indicators, but the parsing of
+    the registry-key object attributes exported
+    as observable objects has also been enhanced
+
+* [stix2 export] Fixed parsing of hash values exported in indicator patterns. [chrisr3d]
+
+  - Hash values must be validated anyway, so instead
+    of escaping values that could be invalid, we
+    simply removed them since they would raise an
+    issue even escaped
+
+* [stix2 export] Removed attribute values escaping for object attributes exported in observable objects. [chrisr3d]
+
+* [stix2 export] Removed double escaping for attribute values supposed to be exported as indicator patterns. [chrisr3d]
+
+* [stix2 export] Fixed x509 fingerprint values parsing. [chrisr3d]
+
+  - Since the hashes format is checked, we actually
+    can keep the alpha numeric characters only
+
+* [stix2 export] Fixed Autonomous System value parsing. [chrisr3d]
+
+  - Only keeping numeric characters
+
+* [stix2 export] Typo. [chrisr3d]
+
+* [stix2 export] Fixed the custom STIX types within several Custom objects. [chrisr3d]
+
+* [stix2 export] Using the appropriate `IDProperty` property for IDs in custom objects. [chrisr3d]
+
+* [stix2 export] Escaping attribute values that could contain quotes or apostrophes. [chrisr3d]
+
+  - In indicators pattern, `"` and `'` are used to
+    define the expression as the following:
+    `["object_path = 'value'"]`
+    Those characters within a value should then be
+    escaped to avoid errors
+  - We try here to validate those values that are
+    used in pattern expressions and that could
+    contain such characters, like file names, user
+    names, etc.
+  - Values already validated that should never
+    contain such character, like ip addresses, urls,
+    domain names, etc. don't need to be validated
+    here, since they are already checked within
+    MISP at their creation
+
+* [stix2 export] Fixed email attachment attributes export as STIX2 patterns. [chrisr3d]
+
+* [stix export] Better errors explanation with tracebacks. [chrisr3d]
+
+  - Added in the error message the traceback of
+    exceptions raised during attributes of objects
+    conversion as STIX 1 and 2
+
+* [stix2 export] Better handling of `first_seen` and `last_seen` values. [chrisr3d]
+
+  - Making sure `valid_until` is not inferior of
+    `valid_from` & removing the optional field
+    `valid_until` instead in indicators
+  - Making sure the `last_observed` value is superior or
+    equal to the `first_observed` value
+
+### Other
+
+* Merge branch 'main' of github.com:MISP/misp-stix into main. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into main. [Alexandre Dulaunoy]
+
+* Merge pull request #12 from 2xyo/patch-1. [Alexandre Dulaunoy]
+
+  Add minimum supported python version is 3.6
+
+* Add minimum supported python version is 3.6. [2*yo]
+
+* Add: [stix2 export] Added `data` field in attributes exported as custom objects. [chrisr3d]
+
+  - Should concern attributes & object attributes
+    exported as custom objects
+
+* Add: [tests] Added tests for email objects with display names export as STIX 2.0 & 2.1. [chrisr3d]
+
+  - Especially added tests for the recently added
+    attribute `cc`, `bcc` and their respective
+    display names to be exported as STIX 2
+
+* Add: [stix2 export] Added `bcc` attribute to the email objects export as STIX 1 & 2 mapping. [chrisr3d]
+
+  - Also added display names for cc & bcc
+  - Goes with  eb0af71
+
+* Add: [tests] Added tests to make sure the objects and attributes exported as indicator patterns are properly escaped. [chrisr3d]
+
+  - We do not test individually every pattern, but
+    we make sure the attributes & objects are
+    correctly exported as indicators.
+  - As long as we only have indicators in the result
+    of the export process, it means the pattern is
+    valid and the values are properly escaped
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [chrisr3d]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into main. [chrisr3d]
+
+
+## v2.4.149 (2021-10-12)
+
+### Changes
+
+* [doc] some minor updates in the README. [Alexandre Dulaunoy]
+
+* [poetry] Bumped latest python dependencies versions. [chrisr3d]
+
+* [tests] Simply reusing the function to test email addresses. [chrisr3d]
+
+* [stix export] Defining mappings as classes. [chrisr3d]
+
+  - Mappings are StixParser classes methods that are
+    available through the different parent and
+    children classes instead of being external
+    variables
+  - This basically avoids potential mapping issues
+    when someone calls in a same python script two
+    different children classes (like STIX20Parser &
+    STIX21Parser)
+  - Mappings handling is then now cleaner
+  - Mappings variable are immutable and available
+    only via property method
+
+* [cti library] Bumped latest version. [chrisr3d]
+
+* [readme] Added description & examples. [chrisr3d]
+
+* [cti library] Bumped the latest version. [chrisr3d]
+
+* [poetry] Update the lock file. [chrisr3d]
+
+* [stix2 export] Making some variables private when possible. [chrisr3d]
+
+* [stix1 export] Some changes on the STIX1 export helpers to go with the Events collections export as STIX1. [chrisr3d]
+
+* [stix1 export] Updated helpers functions used to handle STIX1 export. [chrisr3d]
+
+* [tests] Updated STIX1 test to include the recent changes on STIX1 export. [chrisr3d]
+
+* [stix1 export] Split the STIX1 export into 2 subclasses to differenciate events export from attributes export. [chrisr3d]
+
+* [stix export] Returning errors & warnings as immutable content (tuples) [chrisr3d]
+
+* [stix export] Keeping a reference to the data type concerned by an error or a warning. [chrisr3d]
+
+  - This reference is either `attributes collection`
+    if we export attributes collections, of the uuid
+    of the current MISP Event that is parsed when
+    the error or warning is raised
+
+* [tests] Duplicated tests to separate tests for STIX 1.1.1 and tests for STIX 1.2. [chrisr3d]
+
+* [stix export] Made the test to find is an object includes or is included in another one common for STIX1 & STIX2 export parser. [chrisr3d]
+
+  - Reminder: an object includes or is included in
+    another one when those two objects are linked
+    together with a reference from one to the other
+    and this reference has a relationship type which
+    is 'includes' or 'included-in'
+  - The super class Exportparser is now hosting this
+    test function available for both STIX1 and STIX2
+    parsers
+
+* [stix export] Cleaner Stix2ExportParser & introduction of the attributes export as STIX2. [chrisr3d]
+
+  - Cleaner functions handling the json content, grouped
+    in a single file
+  - No change on the events export
+  - Implementation of the attributes export as STIX2
+    and then as STIX1 to come
+
+* [documentation] Regenerated the documentation with the latest updates. [chrisr3d]
+
+* [tests] Hardcoding the timestamp value instead of using the datetime.now feature. [chrisr3d]
+
+* [tests] Reusing observables & indicators tests functions. [chrisr3d]
+
+* [stix1 export] Enabled pe object not referenced by file objects to be parsed and exported as WindowsExecutableFile objects with their sections. [chrisr3d]
+
+  - Nonetheless, sections are bound to their pe object
+    which references them, thus they will not be parsed
+    and exported alone in a WindowsExecutableFile object
+
+* [tests] Updated hash & hash composite attributes tests with some more hash types tested. [chrisr3d]
+
+* [stix2 export] Storing relationship arguments directly instead of reprocessing them. [chrisr3d]
+
+  - We store the relationship arguments in a list
+  - Instead of storing the arguments in a tuple, we
+    directly use the relationship fields, so we only
+    have to use them to create a relationship object
+
+* [tests] Making the network-socket test objects compliant with the STIX2 export tests. [chrisr3d]
+
+  - Added the uuid to each object attributes since
+    they are required for some of them in STIX 2.1
+  - Changed the address-family attribute value to
+    avoid enumeration issues within the STIX2
+    socket extension
+
+* [tests] Updated the network-socket object export as STIX1 tests. [chrisr3d]
+
+* [stix export] Made all the lists used to help extracting object attributes immutable and declared in the mapping script. [chrisr3d]
+
+  - Instead of redefining them each times the
+    functions are called, they are declared once in
+    the mapping script and are called from there.
+
+* [stix export] Reusing the single feature selection function in STIX1 export by making it available in the parent class common for STIX1 & STIX2. [chrisr3d]
+
+* [stix1 export] Moving functions to parent class in order to be reused for stix2 parsing. [chrisr3d]
+
+* [stix1 export] Added missing contextual package fields. [chrisr3d]
+
+* [poetry] Updated poetry.lock file. [chrisr3d]
+
+* [poetry] Updated poetry.lock file. [chrisr3d]
+
+* [poetry] Updated poetry.lock file. [chrisr3d]
+
+* [documentation] Updated main documentation file. [chrisr3d]
+
+* [stix1 export] Updated the remaining galaxies parsing function to make them bahave the same way the ttps related functions do. [chrisr3d]
+
+  - COAs and Threat Actors parsing functions got the
+    same kind of improvement the TTPs handling
+    functions received to avoid parsing more than
+    once a galaxy that is already parsed and stored
+    as its mapped STIX object
+
+* [stix1 export] Better errors and warnings handling + added typing. [chrisr3d]
+
+* [stix1 export] Quick change on confidence value since Confidence object is specific to indicators, we will never have False to_ids flag. [chrisr3d]
+
+* [stix1 export] Creating markings containing 1 specification with the structures within instead of a specification for each structure. [chrisr3d]
+
+### Fix
+
+* [stix export] Monkey typo. [chrisr3d]
+
+* [stix2 export] Fixed attributes with potential data field from email object export as STIX 2.0 & 2.1. [chrisr3d]
+
+  - There was a missing `allow_custom` property in
+    a case where we use a custom field
+  - There was also a typo
+
+* [tests] Fixed the vulnerability objects export test following the recent changes on the `created` and `modified` fields. [chrisr3d]
+
+* [stix2 export] Fixed vulnerability objects export. [chrisr3d]
+
+  - `created` and `modified` should remain fields
+    that represent the creation of the STIX object
+    and cannot be used to describe one of the object
+    attributes
+  - The `created` and `published` object attributes
+    are then exported in custom fields within the
+    vulnerability object
+
+* [tests] Fixed tests for file objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+  - Fixed the tests that are affected by the recent
+    changes on the attachment attributes parsing
+
+* [stix2.1 export] Fixed `attachment` attributes from file objects parsing. [chrisr3d]
+
+* [stix2 export] Fixed attachment attribute from file object export as STIX 2.0 & 2.1. [chrisr3d]
+
+  - When `malware-sample` is present, we used to
+    export the attachment attribute as another file
+    or artifact observable unreferenced by the other
+    obsevrables, which is not valid
+  - To avoid having an unreferenced observable
+    object, we check if both `malware-sample` and
+    `attachment` are present, and parse in that
+    case the attachment as custom property
+  - Obviously if the `malware-sample` attribute is
+    not present, the attachment is handled as usual
+    and exported with the `content_ref` field of
+    the STIX file object
+
+* [tests] Removed unused import. [chrisr3d]
+
+* [stix2 export] Merged 2 similar file objects parsing functions in a single function in the parent class. [chrisr3d]
+
+* [stix2 export] Fixed process objects export as STIX 2.1 & 2.1. [chrisr3d]
+
+  - Better parent process attributes handling:
+    - Better parent process custom properties handling
+    - Fixed missing fields in the parent process
+      attributes mapping
+
+* [tests] Removed unused import. [chrisr3d]
+
+* [tests] Minor fix on the process object used for tests. [chrisr3d]
+
+* [tests] Fixed tests of various objects including protocol fields export as STIX 2.0 & 2.1. [chrisr3d]
+
+* [stix2 export] Exporting protocols values from different objects in lower case. [chrisr3d]
+
+* [stix2 export] Fixed stix2 export mappings following the recent changes. [chrisr3d]
+
+* [stix2 export] Fixed the export of domain from a domain-ip object as STIX 2.1 observable object. [chrisr3d]
+
+  - The STIX 2.1 export includes in some cases the
+    object attribute uuid. In this case we export
+    each domain attribute as DomainName observable
+    object and thus export the value as well as the
+    uuid of each domain object attribute
+
+* [stix2 export] Fixed domain-ip object attributes export as STIX 2.0 observable object. [chrisr3d]
+
+  - For some reason, there was an issue with the
+    indexes related to the IP addresses exported
+    from the domain-ip objects
+
+* [tests] Testing that `is_multipart` is set to False when there is no multipart in a STIX 2.1 Email object exported from a MISP email object. [chrisr3d]
+
+* [stix2 export] Avoid `is_multipart` to be True when there is actually no multipart. [chrisr3d]
+
+* [stix2 export] Handling the display names parsing input differences between STIX 2.0 & STIX 2.1 parsing functions. [chrisr3d]
+
+  - No difference in the way display names are
+    parsed and matched with email addresses, but
+    STIX 2.1 email addresses are associated with
+    their attribute uuid which makes the input of
+    the display names parsing function different
+    from the STIX 2.0 version
+
+* [stix2 export] Added missing support of `message-id` object attribute when exporting email objects as observed data objects. [chrisr3d]
+
+* [stix1 export] Added missing `message-id` object relation to the mapping of supported object attributes from email objects. [chrisr3d]
+
+* [tests] Fixed tests for registry-key objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* [stix2 export] Fixed registry-key object mapping. [chrisr3d]
+
+  - `modified` is not a field that should be used
+    for object attribute features
+  - In STIX 2.1, `modified_time` is the field to use
+    to map the `last-modified` object attribute
+  - In STIX 2.0, we have to remove the mapping for
+    the `last-modified` object attribute since there
+    is no fields in the STIX object that would match
+    and this object attribute will then be exported
+    in a custom field
+
+* [stix2 export] Made relationships handling available for attributes collections export. [chrisr3d]
+
+* [tests] Fixed email-reply-to & mac-address attributes, as well as credential object export tests. [chrisr3d]
+
+* [stix2 export] Fixed some patterning & observable objects features to make the STIX2 validator happy. [chrisr3d]
+
+  - Mac-address value is now lower case
+  - Email reply-to value is now wihtout bracket when
+    when single value
+  - User Account credential field is now only
+    supported on STIX 2.1 since it does not exist
+    on STIX 2.0
+
+* [stix2 export] Fixed validation issues for Artifact objects when no `payload_bin` value is given. [chrisr3d]
+
+  - If a malware_sample or an attachment attribute
+    has no data field, the Artifact would have no
+    `payload_bin` value which raises a validation
+    issue. Instead, we passe the attribute value
+    as custom field of the File object that would
+    normally reference the Artifact object
+
+* [tests] Fixed tests for process objects export as STIX 2.0 following the recent fixes on process objects parsing. [chrisr3d]
+
+* [stix2 export] Also handled the validation issue concerning the image attribute from process object on patterning. [chrisr3d]
+
+  - Eventhough the validation does not barf when a
+    STIX 2.0 pattern contains a `process:image_ref`
+    value, we fixed it anyway to align with the
+    observable objects validation that is not happy
+    with `image_ref` in STIX 2.0
+  - No change on STIX 2.1
+
+* [stix2 export] Fixed validation issue with process objects export as STIX 2.0 Process object. [chrisr3d]
+
+  - `image_ref` is the STIX 2.1 new field name for
+    what was called `binary_ref` in STIX 2.0
+
+* [stix2 export] Added missing Socket extension enum lists for socket types & domain families. [chrisr3d]
+
+* [tests] The redefinition of the mappings changed some dictionaries orders which made then some tests being in a different order too. [chrisr3d]
+
+* [stix2 export] Fixed Vulnerability object datetime fields to avoid `modified` value being inferior to the `created` value. [chrisr3d]
+
+* [stix export] Code monkey issue fixed. [chrisr3d]
+
+* [stix export] Fixed warnings variable name typo. [chrisr3d]
+
+* [stix2 export] Fixed Custom objects definition following recent changes on the STIX2 python library. [chrisr3d]
+
+  - References fields need to be defined properly as
+    ReferenceProperty and can thus no longer be
+    defined as StringProperty, which is also a
+    cleaner definition for those fields
+
+* [readme] Quick error fixed on the code usade examples. [chrisr3d]
+
+* [poetry] Updated lockfile with the latest changes. [chrisr3d]
+
+* [poetry] Specifying the branch to use for the stix2 python library dependency to avoid versions issues. [chrisr3d]
+
+* [poetry] Added missing stix2 python library dependency. [chrisr3d]
+
+* [stix1 framing] Fixed STIX1 xml header. [chrisr3d]
+
+* [stix2 export] Fixed malware & tool objects creation when the interoperability flag is set. [chrisr3d]
+
+* [tests] Just a quick pep8 compliance fix. [chrisr3d]
+
+* [tests] Fixed the example file for attributes collections export as STIX 2.1. [chrisr3d]
+
+* [stix2 export] Fixed Attributes collections export with attributes exported as Observed Data which where actually missing the cybox observable objects. [chrisr3d]
+
+* [framing, stix1 export] Added missing fix already used for the validation of some previous commits, fixing the attributes collections export as JSON STIX1. [chrisr3d]
+
+* [stix1 export] Fixed Observables parsing while exporting multiple attributes collection files as STIX1. [chrisr3d]
+
+  - We want to avoid empty content to add `\n` to
+    the result file each time the `observables` field
+    is set but empty of observables (only the cybox
+    information is present)
+
+* [stix1 export] Fixed attributes collection export footer handling. [chrisr3d]
+
+* [stix1 export] Enhanced the attributes collections export for multiple collections in order to fix the export as JSON STIX. [chrisr3d]
+
+* [framing, stix1 export] Fixed Attributes collection header framing. [chrisr3d]
+
+* [stix1 export] Added missing namespace for Campaign objects. [chrisr3d]
+
+* [stix export] Fixed the stix1 events collection export. [chrisr3d]
+
+  - Making the function return the sucess status: 1
+  - Also changed `write_raw_stix` which, in the case
+    of events collection export as STIX1, doubled
+    the .out suffix on the export results file
+
+* [stix1 export] Quick pep8 compliance fix. [chrisr3d]
+
+* [stix1 export] Made events export specific functions unavailable for the attributes export class. [chrisr3d]
+
+* [stix export] Merged ids flag fetching functions that were similar into a single one. [chrisr3d]
+
+* [framing] Fixed json framing separator. [chrisr3d]
+
+* [tests] Updated the STIX1 export test example to include the recent changes on org names handling. [chrisr3d]
+
+* [stix1 export] Better org names handling. [chrisr3d]
+
+  - The orgname passed given to the parser for its
+    declaration is supposed to be associated with
+    the namespace, which is why we use it now only
+    for ids. This should avoid issues with the
+    validation of STIX content
+  - The specific org names used then to set
+    the creator & producer values in different
+    STIX objects are set to the current MISP
+    event Orgc, alternatively to the current
+    MISP event Org, or to the orgname mentioned
+    above instead
+
+* [stix1 export] Fixed TTPs handling to avoid re-processing of clusters already processed. [chrisr3d]
+
+* [stix export] Clearer error message when an error with a MISP object is raised. [chrisr3d]
+
+* [stix export] Errors & warnings are defaultdict now and should not be returned as tuple then. [chrisr3d]
+
+* [stix2 export] Catching unmapped object name warnings. [chrisr3d]
+
+* [tests] Fixed test for MISP Events export as STIX 1.1 & 1.2. [chrisr3d]
+
+* [stix export] Interoperability argument is only for STIX2 since the cti catalog is in STIX2 format. [chrisr3d]
+
+* [stix export] A few updates on the STIX1 export. [chrisr3d]
+
+  - Interoperability parameter is now part of the
+    super class, available for both STIX1 & STIX2
+  - Better orgname handling
+
+* [stix2 export] Making sure `objects_to_parse` dictionary contains a `file` field before parsing it. [chrisr3d]
+
+  - Eventhough there would never be any issue because
+    `objects_to_parse` is a defaultdict, it is clearer
+    with the if statement
+
+* [stix2 export] Added `created` & `modified` values to the MISP identity object. [chrisr3d]
+
+* [stix2 export] Added missing variable. [chrisr3d]
+
+* [tests] Fixed tests following the recent updates on hashes parsing. [chrisr3d]
+
+* [stix2 export] Copy paste typo. [chrisr3d]
+
+* [documentation] Typo. [chrisr3d]
+
+* [documentation] Regenerated documentation with fixed title and missing mapping line. [chrisr3d]
+
+* [documentation] Fixed typo in title reference. [chrisr3d]
+
+* [documentation] Added missing asn object mapping. [chrisr3d]
+
+* [stix2 export] Considering the case where there is no file name to get from a pe object to populate the 'name' field of the STIX file object. [chrisr3d]
+
+* [tests] Function name typo. [chrisr3d]
+
+* [documentation] Correctly documented how time fields are exported in STIX 2.0 & 2.1 Indicators & Observed Data objects. [chrisr3d]
+
+* [tests] Fixed vulnerability object export tests to include the created and modified attributes exported as STIX vulnerability object fields. [chrisr3d]
+
+* [stix2 export] Some typo, variable name and naming fixes. [chrisr3d]
+
+* [stix2 export] Exporting created and modified attribute objects from vulnerability objects. [chrisr3d]
+
+  - Also fixed some datetime parsing features
+
+* [stix2 export] Added missing object references parsing when the object is exported as observed data. [chrisr3d]
+
+* [stix2 export] Fixed object attributes galaxies tag_names parsing. [chrisr3d]
+
+* [stix2 export] Reusing function to handle object refs. [chrisr3d]
+
+* [stix2 export] Import declarations more pep8 compliant. [chrisr3d]
+
+* [stix2 export] Added missing interoperability parameter to custom arguments. [chrisr3d]
+
+* [stix2 export] Copy paste typo. [chrisr3d]
+
+* [stix2 export] Function name typo + missing object names in objects export mapping dict. [chrisr3d]
+
+* [stix2 export] Just a quick change on the functions naming. [chrisr3d]
+
+* [tests] Fixed backslash in ssdeep attribute causing issues with STIX patterns. [chrisr3d]
+
+* [stix2 export] No change but the location of a function within the script. [chrisr3d]
+
+  - Functions are grouped by themes of functionalities
+    and this process observable arguments parsing
+    function was lost in the middle of some objects
+    parsing functions
+
+* [stix2 export] Avoiding issues with custom properties that are not multiple. [chrisr3d]
+
+* [stix2 export] Copy paste typo within the x509 object export as STIX 2.1 observable object function. [chrisr3d]
+
+* [tests] Fixed test for x509 export as STIX1, about the signature_algorithm attribute. [chrisr3d]
+
+* [stix1 export] Fixed x509 object mapping about the signature_algorithm attribute. [chrisr3d]
+
+* [stix2 export] Quick fix on network_socket object export mapping & parsing. [chrisr3d]
+
+* [tests] Fixed network-socket object socket-type object relation name in the network-socket test object. [chrisr3d]
+
+* [stix1 export] Fixed socket-type object relation in the network-socket object mapping. [chrisr3d]
+
+* [stix2 export] Avoiding issues with Socket extension fields. [chrisr3d]
+
+  - Since address_family is a required field, we try
+    to make sure the address_family  value is in the
+    address-family  enum list
+  - Otherwise, the entension fields are parsed as
+    any other custom fields
+
+* [stix2 export] Fixed mappings for each STIX2 version. [chrisr3d]
+
+  - STIX 2.0 has the network-socket object mapping
+    that used to be the corresponding mapping for
+    this object, with both domain-family and
+    address-family attributes
+  - STIX 2.1 now only has the address-family
+    attribute mapped since the protocol_family is no
+    longer a valid field
+
+* [tests] Separating STIX 2.0 & STIX 2.1 tests to avoid issue with the different mappings. [chrisr3d]
+
+* [tests] Added missing uuid on an object attribute that is required for the file objects export to work. [chrisr3d]
+
+* [stix1 export] Fixed mapping variable name. [chrisr3d]
+
+* [stix2 export] Reusing some STIX 2.0 objects creation functions. [chrisr3d]
+
+* [tests] Network socket objects tests on protocol export fixed since the recent clean-up on wrong variable names. [chrisr3d]
+
+  - Since we got a typo on protocol while extracting
+    it from the object attributes, the protocol
+    value was always exported in a list instead of a
+    string, which explains the previous test that
+    finally got fixed
+
+* [cleanup] Cleaned up the code by removing unused imports & fixing variable names. [chrisr3d]
+
+* [cleanup] Some clean-up in the stix1 mapping, with the dictionaries ordering and pep8 made happy. [chrisr3d]
+
+* [stix export] Making all the attributes extraction method in common for all STIX export classes. [chrisr3d]
+
+* [stix2 export] Avoiding issues if `to_ids` flag is not defined in object attributes. [chrisr3d]
+
+* [stix2 export] Some direct calls instead of declaring a variable. [chrisr3d]
+
+* [stix2 export] Removed print. [chrisr3d]
+
+* [stix2 export] Variable name typo. [chrisr3d]
+
+* [tests, documentation] Quick typo fix on a dash character in the vulnerability galaxy test event. [chrisr3d]
+
+* [stix2 export] Handling external ids from attack pattern galaxies & aliases from vulnerability galaxies. [chrisr3d]
+
+  - Both are exported as external reference within
+    their respective STIX 2.0 & 2.1 objects
+
+* [stix2 export] Fixed Tags exporti since every tag not being tlp was actually raising an Exception and was skipped. [chrisr3d]
+
+  - Markings only support definition types being
+    tlp or statement
+  - The TLP Markings are already defined and should
+    be used as is
+  - We then no longer need to create new Marking
+    object since the custom markings are not
+    available references for the object_marking_refs
+    field within the different STIX objects
+
+  - Also fixed pep8 small issues in the mapping script
+
+* [stix2 export] Variable name typo fixed. [chrisr3d]
+
+* [stix2 export] Fixed object refs handling. [chrisr3d]
+
+  - Object refs were always added to the report or
+    grouping 'object_refs' field, which created
+    duplication of object refs from objects created
+    from galaxies export in the following case:
+    - event has a galaxy cluster that is already
+      added from an attribute galaxy
+
+* [stix2 export] Properly making difference between STIX 2.0 & 2.1 for the Relationship Object creation. [chrisr3d]
+
+* [stix2 export] Fixed event galaxies export. [chrisr3d]
+
+  - Reuse of the galaxy event parsing function
+  - Fixed galaxies to stix2 mapping
+
+* [stix2 export] Fixed STIX 2.1 Malware object creation. [chrisr3d]
+
+  - 'is_family' is a STIX 2.1 Malware Object required field
+
+* [stix2 export] Added missing timestamp while defining the list of target IDs & relationship type for a given list of relationships related to a source ID. [chrisr3d]
+
+* [stix1 export] making pep8 happy with the STIX1 mapping. [chrisr3d]
+
+* [stix2 export] Fixed Markings export. [chrisr3d]
+
+  - Fixed tlp_marking_mapping import
+  - Adding Marking objects only to the objects and
+    not to the object_refs, since the reference of
+    the marking is added to object_marking_refs
+    already
+
+* [tests] Testing that the created & modified time of the Identity object used as creator are the actual event timestamp. [chrisr3d]
+
+* [stix2 export] Giving the Identity object generated out of the Orgc of the event the actual timestamp of the event as creation and modified time. [chrisr3d]
+
+* [tests] Fixed tests for attributes exported as Custom objects. [chrisr3d]
+
+* [stix2 export] Fixed Custom objects creation & added some missing functions header. [chrisr3d]
+
+  - Instead of creating a new CustomObject type for
+    each new attribute type, we define the Custom
+    object once with the 'x-misp-attribute' type
+    and use the actual attribute type to provide
+    an 'x_misp_type' field within the custom object
+  - Once the objects parsing  will be implemented,
+    we will do the same for the Custom objects
+    created from MISP objects
+
+* [documentation] Fixed copy paste issues. [chrisr3d]
+
+* [stix1 export] Clearer identification of the type of STIX objects when they get a related_ttp from an attribute galaxy or object attributes galaxies. [chrisr3d]
+
+* [stix2 export] Added header to the report creation functions. [chrisr3d]
+
+* [stix1 export] Fixed raw_header & raw_body fields condition as well as their corresponding tests. [chrisr3d]
+
+* [tests] Changes on the email-body attributes export tests according to the recent changes on their export. [chrisr3d]
+
+* [stix2 export] More straight forward way to handle email-body export. [chrisr3d]
+
+* [tests] Using event timestamp to test stix report timestamp. [chrisr3d]
+
+* [stix2 export] Fixed time related fields for ObservedData & Indicator objects. [chrisr3d]
+
+* [stix2 export] A few missing functions and variables issues fixed. [chrisr3d]
+
+* [stix2 export] Fixed wrong mapping variable name. [chrisr3d]
+
+* [stix2 export] Fixed export & grouping objects creation. [chrisr3d]
+
+* [tests] Added missing event uuids for event collections tests. [chrisr3d]
+
+* [stix1 export] Merged 2 short functions doing the same things. [chrisr3d]
+
+* [stix1 export] Fixed STIX packages headers when exporting events collections. [chrisr3d]
+
+* [tests] Added the last missing change on orgname variables change. [chrisr3d]
+
+* [tests] Updated tests with the correct orgname variable use. [chrisr3d]
+
+* [stix1 export] Fixed wrong usage of namespace variable instead of orgname. [chrisr3d]
+
+* [stix1 export] Fixed missing imports & wrong variable names. [chrisr3d]
+
+* [stix1 export] Fixed missing import. [chrisr3d]
+
+* [stix1 export] Some pep8 masturbation. [chrisr3d]
+
+* [tests] Fixed tests following the changes on the event export script. [chrisr3d]
+
+  - Added uuids and to_ids fields to test events,
+    objects and attributes since they are no longer
+    added automatically with PyMISP
+  - Fixed the timestamps tests since they are no
+    longer converted as datetime with PyMISP
+
+* [stix1 export] Removed debugging print. [chrisr3d]
+
+* [stix1 export] Quick import & loop issue for event collections export fixed. [chrisr3d]
+
+* [stix1 export] Pep8 typo space around = statement. [chrisr3d]
+
+* [stix1 export] Fixed Indicator names dictionary. [chrisr3d]
+
+* [stix1 export] Variable names. [chrisr3d]
+
+* [stix1 export] Condition for non indicator object names aligned with the new dictionary name. [chrisr3d]
+
+* [tests] Removed unused comment. [chrisr3d]
+
+* [tests] Anticipating the next pep8 test on the script where all the test events are declared. [chrisr3d]
+
+* [stix1 export] Merging attribute galaxy clusters instead of adding galaxies. [chrisr3d]
+
+  - Avoiding issues with galaxies passed within
+    a list instead of passing it directly
+
+* [stix1 export] Variable name typo. [chrisr3d]
+
+* [stix1 export] Some typos and quick mapping fixes. [chrisr3d]
+
+* [stix1 export] Small issues about file objects parsing that appeared with the reuse of some functions. [chrisr3d]
+
+* [stix1 export] Several quick fixes and missing features that have been added as expected. [chrisr3d]
+
+* [stix1 export] Added list of file object single attributes. [chrisr3d]
+
+* [stix1 export] Parsing properly file objects without losing the multiple attributes. [chrisr3d]
+
+  - Also put in functions the pieces of code that
+    are going to be reused for file objects stored
+    within the `objects_to_parse` dict, which are
+    going to be parsed afterwards
+
+* [stix1 export] Avoid losing the file objects when they have a pe reference. [chrisr3d]
+
+* [stix1 export] Sticking with the ObjectType name as part of the id for WindowsService and WindowsRegistryKey object. [chrisr3d]
+
+  - Same changes as we did previously for AutonomousSystem objects
+
+* [stix1 export] Better ttps handling. [chrisr3d]
+
+  - We check if the TTP is already parsed before
+    parsing it again
+  - Related ttps handling is now more generic with
+    one function calling the specific galaxy parsing
+    functions instead of being copied in each of
+    those functions
+  - Since we do not check if a TTP is already know
+    at the end of the parsing process when the
+    related ttp is created, the function returning
+    the related ttps does no longer add the ttps
+    themselves, and has been renamed thus: to create
+    related ttps is its only purpose
+
+* [stix1 export] Changed object type string passed to the observable id. [chrisr3d]
+
+  - More inline with the ObjectType name
+
+* [stix1 export] Fixed parameters type in function header. [chrisr3d]
+
+* [tests] JSONified all tests + fixed comment. [chrisr3d]
+
+* [stix1 export] Some minor fixes discovered during tests. [chrisr3d]
+
+  - Including:
+    - Typos.......
+    - Better definition of the obsevable object ids
+    - Straight forward parsing of the text, comment
+      and other attribute types. They are now in any
+      case journal entries or header comment, we got
+      rid of the export as threat actor or malware
+      instance as they could be anything meaningless
+
+* [stix1 export] Fixed format of the attribute data that is exported as Artifact object in STIX. [chrisr3d]
+
+* [stix1 export] Fixed WindowsService attribute export. [chrisr3d]
+
+* [stix1 export] Exporting test mechanism rules in the format valid to be recognized by STIX. [chrisr3d]
+
+* [stix1 export] A few typo issues discovered during testing. [chrisr3d]
+
+* [tests] Removed specific test function already mostly covered with an existing more generic function. [chrisr3d]
+
+  - Also added changes to support the more generic
+    function for the tests previously using the more
+    specific functions
+
+* [stix1 export] Removed useless function. [chrisr3d]
+
+  - File related attributes such as filename and
+    hashes were parsed with specific functions but
+    the generic ones can be used with no need of a
+    specific parsing
+
+* [stix1 export] A few quick fixes discovered while testing. [chrisr3d]
+
+  - Including:
+    - Address objects parsing fix
+    - Indicators & Observable id fix
+    - Single attribute mapping dict name updated
+
+* [stix export] Setting the exploit target id embedded in a ttp. [chrisr3d]
+
+* [tests] Fixed KeyError issues on tests, as well as failing tests. [chrisr3d]
+
+* [stix1 export] Better tags & galaxies handling at event level. [chrisr3d]
+
+  - Also small error message update for attribute
+    level galaxies that would not be in the list of
+    mapped galaxies
+
+* [stix1 export] Small issues fixed. [chrisr3d]
+
+* [stix1 export] Avoiding issues with stix_package variable name. [chrisr3d]
+
+* [stix1 export] Normalised related ttps handling. [chrisr3d]
+
+* [stix1 export] Typo. [chrisr3d]
+
+### Other
+
+* Add: [LICENSE] BSD-2-clause added. [Alexandre Dulaunoy]
+
+* Merge pull request #9 from JakubOnderka/patch-1. [Alexandre Dulaunoy]
+
+  Use https for submodule
+
+* Use https for submodule. [Jakub Onderka]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into main. [chrisr3d]
+
+* Merge pull request #8 from cr-fp/main. [Christian Studer]
+
+  Adds fix for 'parse_misp_attribute' object reference error
+
+* Adds fix for 'parse_misp_attribute' object reference error when an attribute includes a galaxy object. [Connor Runyan]
+
+* Wip: [tests] Updated tests for process objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+  - Tests for process objects export as STIX2 are
+    now using an input process object with more
+    attributes in order to reach some specific
+    edge cases
+  - Includes tests for the features recently updated
+
+* Add: [tests] An additional test for `parent-image` attributes in process objects export as STIX 1. [chrisr3d]
+
+* Wip: [stix2 export] Exporting `accuracy-radius` attributes from geolocation objects as `precision` field of the STIX 2.1 Location object. [chrisr3d]
+
+* Wip: [tests] Updated tests for domain-ip objects export as STIX 2.0 & 2.1 following the recent updates on domain-ip objects export. [chrisr3d]
+
+* Wip: [stix2 export] Differentiating domain-ip object export cases. [chrisr3d]
+
+  - When there is no attribute exported as custom
+    fields (i.e only hostname, domain(s) and ip(s)),
+    we export all the domains and ips with a
+    `resolves_to_refs` reference between every
+    domain and all the ip addresses objects
+  - Otherwise (i.e if there is at least one
+    attribute exported as custom field) we export
+    the the different object attributes in a domain
+    object referencing the resolved ip addresses
+    and custom fields for any additional domain
+
+* Wip: [stix2 export] Added test for email object with display names export as STIX 2.1 Indicator, same as for STIX 2.0. [chrisr3d]
+
+  - No big news here, the test is simply a copy/paste
+    of the STIX 2.0 one, but it was missing
+
+* Wip: [tests] Tests for email objects containing display name attributes export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] A simple email addresses & display names matching function to export display names accordingly in observable objects. [chrisr3d]
+
+  - There is no change on email objects export in
+    indicator patterns since there is no check on
+    the required fields of an email message `to` of
+    `from` ref
+  - The change is about the email address cyber
+    observable objects that requires the address
+    value which makes impossible the export of
+    display names alone
+
+* Wip: [stix2 export] Exporting email addresses attributes from email objects with the corresponding display names when possible. [chrisr3d]
+
+  - For now, only a very simple mapping feature
+    between email addresses and display names
+  - More display names mapping with email addresses
+    to come
+
+* Iadd: [tests] Added tests for `message-id` object attributes from email objects export as STIX 1 & 2. [chrisr3d]
+
+* Add: [tests] Tests for MISP sightings export in STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [stix2 export] Parsing MISP sightings. [chrisr3d]
+
+  - Positive sightings are exported as sightings in
+    STIX 2.0 & 2.1
+  - Negative sightings (false positives) are also
+    parsed but exported as Opinion objects with a
+    `strongly-disagree` opinion in STIX 2.1
+  - Since STIX 2.0 has no Opinion object, we create
+    a custom STIX object with some custom fields
+    matching the STIX 2.1 Opinion object fields
+
+* Add: [tests] Added test for event reports export as STIX 2.1. [chrisr3d]
+
+* Wip: [stix1 export] Making reachable the functions to write STIX1 packages on json or xml format. [chrisr3d]
+
+* Wip: [tests] Tests for galaxies export as STIX 2.0 & 2.1 with the interoperability flag. [chrisr3d]
+
+  - As a reminder, the interoperability flag set
+    means we try to find a match in the library of
+    already defined STIX objects. Instead of taking
+    the galaxy cluster values to build the STIX
+    object, we simply search for an already existing
+    object that has the same name and/or external
+    reference as the galaxy cluster value
+
+* Add: [tests] Added missing example files used as reference to compare the attributes collections export as STIX 1.1.1 & 1.2. [chrisr3d]
+
+* Wip: [stix2 export] Supporting the export of Event Reports as STIX 2.1 Note objects. [chrisr3d]
+
+* Wip: [tests] Added tests for Attributes collections export as STIX1 with results for each STIX field written in temporary files. [chrisr3d]
+
+* Wip: [stix1 export] Attributes collection export for multiple collections. [chrisr3d]
+
+* Wip: [tests] Tests for attributes collections export as STIX 1.1.1 & 1.2. [chrisr3d]
+
+* Wip: [framing, stix1 export] Added specific framing for attributes collections export. [chrisr3d]
+
+* Wip: [stix1 export] Helper to export attributes collections as STIX1. [chrisr3d]
+
+  - Also a 'not in memory' version should come soon
+    since this is an implicit `in_memory=True`
+    implementation that needs to be tested and
+    compared with an `in_memory=False` version to
+    see which one is the quickest with big amounts
+    of attributes to export
+
+* Wip: [tests] Added tests for the events collections export as STIX 1.1.1 & 1.2. [chrisr3d]
+
+* Wip: [tests] Updated events collection export as STIX1 test files. [chrisr3d]
+
+  - Now we also have a test file for STIX 1.2
+
+* Wip: [framing] Updated the framing to support STIX 2.1. [chrisr3d]
+
+  - Also added some typing
+
+* Wip: [stix export] Better errors & warnings handling. [chrisr3d]
+
+* Wip: [stix1 export] Fixed function to export MISP Event as STIX1. [chrisr3d]
+
+* Add: [tests] Added STIX test files for MISP events export as STIX 1.1.1 & 1.2. [chrisr3d]
+
+* Wip: [tests] Tests for helpers functions to export MISP events as STIX1. [chrisr3d]
+
+  - 1.1.1 & 1.2 supported
+  - Tests for events collections export as STIX1 to come
+
+* Wip: [stix1 export] Helper function to export MISP events as STIX1. [chrisr3d]
+
+* Wip: [tests] Renamed file and class that is going to be used to test collections export not only for STIX2 but also for STIX1. [chrisr3d]
+
+* Wip: [stix1 export] Better courses of action, threat actors & ttps handling. [chrisr3d]
+
+  - We no longer store them all in dictionaries to
+    parse them together at the end but add them
+    directly to the stix package (and incident in
+    some cases). Only the uuids are stored to keep
+    the references of the object already parsed
+  - In order to deal with the references between
+    ttps exported from objects, we fetch then
+    quickly the referenced object
+
+* Wip: [tests] Added test files for attributes collections & single event export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Added tests for the attributes collections & single events export. [chrisr3d]
+
+* Wip: [tests] Updated tests for events collections export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Cleaner MISP Events collections export. [chrisr3d]
+
+  - Removed scripts with code that could be easily
+    included in the other scripts
+  - The events collections parsing is better now
+  - Right now the events collections export as STIX1
+    is broken since we removed also the STIX1 class
+    that is going to be easily included in the code
+    we already have
+
+* Merge branch 'dev' of github.com:chrisr3d/MISP-STIX-Converter into dev. [chrisr3d]
+
+* Wip: [tests] Updated tests to include the sanitizing function of registry keys and data. [chrisr3d]
+
+* Wip: [stix2 export] Fixed registry keys and data values parsing with a sanitizing function that should avoid issues with special characters. [chrisr3d]
+
+* Wip: [stix2 export] Some other `allow_custom` management within file objects about custom hash types. [chrisr3d]
+
+* Wip: [stix2 export] A few fixes on `allow_custom` values to follow the recent changes on the cti-python-stix2 library. [chrisr3d]
+
+* Merge branch 'dev' of github.com:chrisr3d/MISP-STIX-Converter into dev. [chrisr3d]
+
+* Wip: [stix2 export] Better external references handling when dealing with galaxies. [chrisr3d]
+
+* Wip: [stix2 export] Fixed galaxies matching as STIX objects from the cti catalog + some variable names fixes & clean up. [chrisr3d]
+
+* Wip: [stix2 export] Taking STIX objects to export galaxies when they are defined in the cti catalog. [chrisr3d]
+
+* Wip: [stix2 export] Cleaned up some functions parameters. [chrisr3d]
+
+* Merge branch 'dev' of github.com:chrisr3d/MISP-STIX-Converter into dev. [chrisr3d]
+
+* Wip: [stix2 export] Changed the build of the cti catalog to make the relevant fields more accessible. [chrisr3d]
+
+* Merge branch 'dev' of github.com:chrisr3d/MISP-STIX-Converter into dev. [chrisr3d]
+
+* Wip: [documentation] Added documentation for intrusion-set galaxies export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Tests for intrusion-set galaxies export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Added missing intrusion-set galaxies to the export as STIX 2.0 & 2.1 mapping. [chrisr3d]
+
+* Wip: [stix2 export] Working on the mapping between MISP galaxies and objects loaded from the cti catalog. [chrisr3d]
+
+  - We start with the full cti catalog loading whenever
+    the interoperability flag is set
+  - If the flag is not set, the behavior remains the
+    same and each MISP galaxy is processed
+  - Adjustment will probably come soon to make sure
+    we have all the parameters we need to make the
+    association with an object from the catalog as
+    accurate as possible
+
+* Wip: [stix2 export] Submodules the cti catalog of attack technic for further implementation. [chrisr3d]
+
+  - The goal is to use the already defined STIX objects
+    to export Galaxy clusters, by trying to find a match
+    on the name, instead of processing them
+
+* Wip: [tests] Tests for events collections export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix export] Helpers to get a STIX 2.0 or 2.1 bundle and write the result of an export in the output file. [chrisr3d]
+
+* Wip: [stix2 export] A few changes on the STIX 2 parser. [chrisr3d]
+
+  - Moved some class variables to allow multiple
+    calls of the main parsing function while the
+    class only needs to be declared once. This
+    avoids the multiple declaration of the class
+    for each event when we want to export an
+    events collection.
+  - Some variables to store lists of ids have been
+    merged in one unique variable since the purpose
+    of the list is to store unique ids of orgs and
+    galaxies to avoid processing them multiple times
+  - Concerning the export of events collections and
+    the storage of unique ids, this list of unique
+    ids is simply declared with the class and can
+    be populated for each event. It is also possible
+    to return this list to, if we want to use it in
+    another call of the class, which should happen
+    for instance when we want to export a large
+    number of events in a collection: MISP is going
+    to split the collection and call the parser
+    multiple times; we can then pass this list of
+    unique ids to skip some object ids that have
+    already been processed with a previous call of
+    the parser
+
+* Wip: [stix export] Helpers to get the STIX 2.0 or 2.1 bundle from the export of a MISP event or a collection of events. [chrisr3d]
+
+  - Also cleared the parent class used for STIX1 too
+
+* Wip: [documentation] Added documentation for events export as STIX 2.0 & 2.1. [chrisr3d]
+
+  - Including events with embedded attribute galaxies,
+    events with embedded object attribute galaxies,
+    and events with objects referencing each others
+
+* Wip: [documentation] Regenerated the full documentation. [chrisr3d]
+
+* Add: [documentation] Updated code to generate the objects export documentation. [chrisr3d]
+
+* Wip: [documentation] Updated object export documentation and added custom objects export documentation. [chrisr3d]
+
+* Wip: [documentation] Added documentation for the mutex objects export as STIX1. [chrisr3d]
+
+* Wip: [tests] Tests for mutex objects export as STIX1. [chrisr3d]
+
+* Wip: [stix1 export] Exporting mutex objects which were missing in the export mapping. [chrisr3d]
+
+* Wip: [documentation] Mapping for MISP objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Tests for pe & section objects export as STIX 2.0 & 2.1 in windows pebinary extension. [chrisr3d]
+
+* Wip: [stix2 export] Exporting pe object and their sections even with no file object referencing them. [chrisr3d]
+
+* Wip: [tests] Tests for pe objects and their sections to be exported as STIX1 WindowsExecutableFile objects without being referenced by a file object. [chrisr3d]
+
+* Wip: [documentation] Regenerated the Attributes export documentations. [chrisr3d]
+
+* Wip: [documentation] Populated the STIX 2.0 & 2.1 documentations with the missing hash, hash composite, link & uri attributes. [chrisr3d]
+
+* Wip: [documentation] Regenerated documentation with the updates on attributes export as STIX1. [chrisr3d]
+
+* Wip: [documentation] Updated attributes documentation with missing attribute types. [chrisr3d]
+
+* Wip: [tests] Tests for object references exported as relationships in STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Tests to mostly check the relationships between MISP objects and their embedded galaxies. [chrisr3d]
+
+* Wip: [stix2 export] Parsing references between MISP objects and exporting them as Relationship objects. [chrisr3d]
+
+* Wip: [stix2 export] Updated the relationships mapping between objects and their attribute galaxies. [chrisr3d]
+
+* Wip: [tests] Tests for the objects recently added in the mapping, exported as STIX 2.0 & 2.1. [chrisr3d]
+
+  - Tests for geolocation objects export as STIX 2.1
+  - Tests for mutex objects export as STIX 2.0 & 2.1
+
+* Wip: [stix2 export] Populating the export mapping with some objects. [chrisr3d]
+
+  - Added geolocation objects to the export as STIX
+    2.1 mapping
+  - Exporting also mutex objects as STIX 2.0 & 2.1
+
+* Wip: [tests] Tests for MISP objects exported as STIX 2.0 & 2.1 Custom objects. [chrisr3d]
+
+* Wip: [stix2 export] Exporting objects not mapped as Custom Objects. [chrisr3d]
+
+* Wip: [tests] Tests for some account objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Added some alternative specific user account objects to the export as STIX 2.0 & 2.1 mapping. [chrisr3d]
+
+* Wip: [tests] Tests for file, pe & pe-section objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Exporting pe & pe-section objects (referenced by file objects) as STIX 2.0 & 2.1. [chrisr3d]
+
+  - Including:
+    - The file, pe & pe-section objects storage in
+      a dictionary where they are identitified by
+      their uuid
+    - Loops over this dictionary of objects to parse
+      in order to find the file objects and their
+      references
+    - Check of the references
+    - Parsing of the pe & pe-section objects and
+      results added to the pattern / observable
+      objects accodringly
+    - Choosing whether the group of objects is
+      exported in an indicator or in an observed
+      data is defined by the existence of at least
+      one ids flag set to True in one of the file,
+      pe or pe-section objects
+  - Also made some functions more modular, which
+    make them usable as they were before by functions
+    already using them, without any chance, and more
+    specific when needed with the additional
+    parameters added here
+
+* Wip: [tests] Tests for vulnerability objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Exporting vulnerability objects as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Tests for user-account objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Exporting user-account objects as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Tests for x509 objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] X509 objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Tests for url objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Exporting url objects as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Tests for registry-key objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Registry-key objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Tests for process objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Process objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Tests for network-socket objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Add: [stix1 export] Added the protocol-type attribute to the network-socket object export mapping. [chrisr3d]
+
+* Add: [stix2 export] Added the socket type attribute to the Socket extension mapping. [chrisr3d]
+
+* Wip: [stix2 export] Exporting network-socket objects in STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix export] Standardisation of the way we check if an object relation is present in a list of object attributes. [chrisr3d]
+
+  - We try to make sure the value associated with
+    the object relation is not empty by using `get`
+    instead of `in`
+
+* Wip: [tests] Added tests for network-connection objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Exporting network-connection objects as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Tests for files objects export as STIX 2.0 & 2.1 observable objects. [chrisr3d]
+
+* Wip: [stix2 export] Exporting file objects as STIX 2.0 & 2.1 observable objects. [chrisr3d]
+
+* Wip: [tests] Test for email objects export as STIX 2.1 observable object. [chrisr3d]
+
+* Wip: [stix2 export] Email objects export as STIX 2.1 observable objects. [chrisr3d]
+
+* Wip: [stix2 export] Added missing email object mapping. [chrisr3d]
+
+* Wip: [stix2 export] Test for email objects export as STIX 2.0 observable object. [chrisr3d]
+
+* Wip: [stix2 export] Exporting email objects as STIX 2.0 observable object. [chrisr3d]
+
+  - When no ids flag is set in the object attributes
+
+* Wip: [tests] Tests for file objects export as STIX 2.0 & 2.1 indicators. [chrisr3d]
+
+* Wip: [stix2 export] Exporting file object as pattern in STIX 2.0 & 2.1 indicators. [chrisr3d]
+
+* Wip: [tests] Tests for email objects export as STIX 2.0 & 2.1 patterns. [chrisr3d]
+
+* Wip: [stix2 export] Exporting email objects as pattern in indicator when an ids flag is set in an object attribute. [chrisr3d]
+
+* Wip: [tests] Tests for ip-port objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+  - Added first-seen attribute to the test event
+    with an ip-port object, and handled the small
+    changes on the STIX 1 test, which remains the
+    same since the added attribute is not mapped and
+    thus does not impact the export
+  - Quick typo fix on the domain-ip object test
+    function name also added at the same time
+
+* Wip: [stix2 export] Exporting ip-port objects in observable objects. [chrisr3d]
+
+* Wip; [stix2 export] Tried to find a smooth way to export ip-port objects as indicator. [chrisr3d]
+
+  - ip-port export mapping should also work with
+    the export as observed-data object
+
+* Wip: [tests] Tests for domain-ip objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Added domain-ip object to the export as STIX 2.0 & 2.1 mapping. [chrisr3d]
+
+* Wip: [tests] Tests for credential objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Added credential to the export as STIX 2.0 & 2.1 mapping. [chrisr3d]
+
+* Wip: [tests] Tests for course-of-action objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Added course-of-action objects to the export as STIX 2.0 & 2.1 mapping. [chrisr3d]
+
+* Wip: [tests] Tests for attack-pattern objects export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Added attack-pattern objects export mapping. [chrisr3d]
+
+* Wip: [stix2 export] Exporting attack-pattern MISP objects as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Tests for asn MISP object export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Added MISP objects testing functions & reusing code. [chrisr3d]
+
+* Wip: [stix2 export] Starting the STIX Objects export mapping with the asn object. [chrisr3d]
+
+  - With a custom property within the AutonomousSystem
+    object, a STIX 2.1 Bundle also requires an
+    `allow_custom` flag set to True
+
+* Wip: [stix2 export] MISP Objects export parsing functions. [chrisr3d]
+
+* Wip: [stix2 export] Grouping observable args & objects functions with a better name. [chrisr3d]
+
+* Wip: [stix1 export] Moving functions to be reused by misp_to_stix2 script in the parent class. [chrisr3d]
+
+* Wip: [documentation] Regenerated the full documentation with the changes on galaxies mapping. [chrisr3d]
+
+* Wip: [documentation] Added Documentation for Galaxies export as STIX 2.0 & 2.1 mapping. [chrisr3d]
+
+* Add: [documentation] MISP Galaxies export as STIX 2.0 & 2.1 detailed mapping dictionary. [chrisr3d]
+
+* Wip: [documentation] Added detailed documentation for MISP events export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Tests for galaxies export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Tests for events with tags & for embedded galaxies in attributes. [chrisr3d]
+
+* Wip: [stix2 export] Exporting vulnerability galaxies as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Attribute & Event Galaxies export as STIX 2.0 & 2.1. [chrisr3d]
+
+  - Also handling relationships between objects for
+    the case of attribute galaxies
+  - Own definition of the tags & galaxies handling
+    following the removal of the function from the
+    exportparser script (same as STIX1 script
+    having its own version as well)
+
+* Wip: [stix2 export] Relationships between objects parsing. [chrisr3d]
+
+* Wip: [stix2 export] Moved function to handle attribute tags and galaxies back to the stix1 export script. [chrisr3d]
+
+* Wip: [tests] Tests for empty events & empty published events export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Handling the cases of empty MISP events. [chrisr3d]
+
+  - When there is no attribute, object, galaxy or
+    tag, there is no object reference to fill the
+    object_refs field within the report or grouping
+    object, which raises an issue
+  - When artificially provide an object reference by
+    creating:
+    - a Custom Object in STIX 2.0
+    - a Note Object in STIX 2.1
+
+* Wip: [documentation] The actual detailed misp to STIX 2.0 & 2.1 documentation that was missing. [chrisr3d]
+
+* Wip: [documentation] Documentation about MISP export to STIX 2.0 & 2.1 in progress. [chrisr3d]
+
+  - Tiny updates on STIX1 export documentation
+
+* Wip: [tests] Added tests for attributes exported as STIX 2.0 & 2.1 Custom Objects. [chrisr3d]
+
+* Wip: [documentation] Started adding MISP to STIX 2 documentation. [chrisr3d]
+
+* Wip: [documentation] Added attributes export mapping dictionaries. [chrisr3d]
+
+* Wip: [tests] Tests for malware-sample attributes export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Added malware-sample to the export as STIX 2.0 & 2.1 mapping. [chrisr3d]
+
+  - Also reusing some pattern creation code
+  - Making sure we have a data field, otherwise
+    the attribute is handled like a filename|md5
+
+* Wip: [tests] Added tests for the uri, url & link attribute types export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Added uri, url & link to the export as STIX 2.0 & 2.1 mapping. [chrisr3d]
+
+  - Those 3 attribute types are export as URL
+    observable object or with a url pattern
+
+* Wip: [stix1 export] Added missing uri type to the attribute types mapped as STIX1 URL objects. [chrisr3d]
+
+* Wip: [tests] Added tests for the campaign-name attributes export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Added campaign-name to the attributes export as STIX 2.0 & 2.1 mapping. [chrisr3d]
+
+* Wip: [tests] Added test for the campaign-name attributes export as STIX1. [chrisr3d]
+
+* Wip: [stix1 export] Added campaign-name to the attributes export mapping. [chrisr3d]
+
+* Wip: [tests] Added missing tests for timestamps in non indicator attributes and objects. [chrisr3d]
+
+* Wip: [tests] Added tests for the vulnerability attributes export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Added vulnerability to the attributes export as STIX 2.0 & 2.1 mapping. [chrisr3d]
+
+* Wip: [stix2 export] Export mapping updated. [chrisr3d]
+
+* Wip: [tests] Tests for the http-method & user-agent attributes export as STIX 2.0 & 2.1 indicators. [chrisr3d]
+
+* Wip: [stix2 export] Added http-method & user-agent to the export as STIX 2.0 & 2.1 indicators mapping. [chrisr3d]
+
+  - The NetworkTraffic object requires multiple
+    fields to be defined, and those attributes are
+    exported within the http-request extension which
+    is not one of the required fields. When the ids
+    flag is not set, those attributes are then
+    exported as custom objects
+
+* Wip: [tests] Tests for port & size-in-bytes attributes exported as STIX 2.0 & 2.1 indicators. [chrisr3d]
+
+  - Tests for the export of those attribute types
+    when the 'to_ids' flag is not set will be
+    added soon with tests for custom objects
+
+* Wip: [stix2 export] Added 2 special attribute types to the export as STIX 2.0 & 2.1 mapping. [chrisr3d]
+
+  - port & size-in-bytes attributes are exported
+    as indicator when the 'to_ids' flag is set, as
+    any other mapped attribute would
+  - They are nonetheless not exported as observed
+    data when 'to_ids' flag is not set because of
+    some Obsevrable object restrictions:
+    - File should contain at least a name or a hash
+      and cannot be only a size
+    - NetworkTraffic should contain at least a src
+      or dst reference and cannot be only a src or
+      dst port
+  - When the 'to_ids' flag is not set, those 2
+    attributes are then exported as custom objects
+
+* Wip: [tests] Added test for the size-in-bytes attributes export. [chrisr3d]
+
+* Wip: [stix1 export] Added size-in-bytes attributes to the export mapping. [chrisr3d]
+
+* Wip: [tests] Tests for whois-registrar and whois registrant attributes export as STIX1. [chrisr3d]
+
+* Wip: [stix1 export] Added whois-registrar and whois registrant attributes to the export as STIX1 mapping. [chrisr3d]
+
+* Wip: [tests] Added tests for the x509 fingerprint attributes export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Added x509 fingerprint attributes to the export as STIX 2.0 & 2.1 mapping. [chrisr3d]
+
+* Wip: [tests] Tests for ip & ip|port attributes export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Added ip & ip|port attributes to the export as 2.0 & 2.1 mapping. [chrisr3d]
+
+* Wip: [tests] Added tests for the hash composite attributes export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Added hash composite attributes to the export as STIX 2.0 & 2.1 mapping. [chrisr3d]
+
+* Wip: [stix2 export] Quickly added some missing functions header. [chrisr3d]
+
+* Wip: [tests] Added tests for hash attributes export as STIX 2.0 & 2.1. [chrisr3d]
+
+  - Also changed the functions to get events with
+    the hash attributes so they are more flexible
+    and can be reused with tests for both STIX1
+    and STIX2
+
+* Wip: [stix2 export] Added hash attributes to the export mapping as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Added tests for the email related single attribute types that were added and exported as STIX1. [chrisr3d]
+
+* Wip: [stix1 export] Added email related single attribute types that can be mapped as EmailMessage objects. [chrisr3d]
+
+* Wip: [tests] Tests for the email-body & email-header attributes export as STIX1. [chrisr3d]
+
+* Wip: [stix1 export] Added email-body & email-header attributes to the export mapping. [chrisr3d]
+
+* Wip: [tests] Tests for email-header attributes export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Email header attribute export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Tests for the email attribute types recently added to the export mapping. [chrisr3d]
+
+* Wip: [stix2 export] Starting differenciation between some specific v2.0 & v2.1 features. [chrisr3d]
+
+  - Starting with message_id feature in email-message
+    object which is only 2.1
+  - Also exporting 'email' attribute type (with no
+    additional information whether it is source
+    or destination) as email-addr object in both
+    v2.0 & 2.1
+
+* Wip: [tests] Tests for the email attribute types recently added to the export as STIX 2.0 & 2.1 mapping. [chrisr3d]
+
+* Wip: [stix2 export] Some more email attribute types supported in the export mapping. [chrisr3d]
+
+* Wip: [tests] Tests for email single attributes export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Exporting email single attributes as STIX 2.0 & 2.1. [chrisr3d]
+
+  - Including email-src, email-dst, email-reply-to &
+    email-subject atm
+
+* Wip: [tests] Tests for the attribute types recently added in the mapping. [chrisr3d]
+
+* Wip: [stix2 export] More attribute types supported in the export mapping. [chrisr3d]
+
+* Wip: [tests] Tests for the export of attribute types added recently. [chrisr3d]
+
+* Wip: [stix2 export] More attribute types exported. [chrisr3d]
+
+* Wip: [tests] Added tests for the mac-address attributes export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Added mac-address to the supported attribute type exported as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Merged observable tests code that is always the same into 1 function. [chrisr3d]
+
+* Wip: [tests] Merged indicator test code that is always the same into 1 function. [chrisr3d]
+
+* Wip: [tests] Tests for the attribute types recently added in the export mapping. [chrisr3d]
+
+* Wip: [stix2 export] More attribute types in the export mapping. [chrisr3d]
+
+* Wip: [tests] Tests for domain|ip attributes export as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [stix2 export] Exporting domain|ip attributes as STIX 2.0 & 2.1. [chrisr3d]
+
+* Wip: [tests] Added tests to the already tested attribute types. [chrisr3d]
+
+  - Testing each attribute type export as Indicator
+    AND as ObservedData
+  - Testing each attribute type export to STIX 2.0
+    AND to STIX 2.1
+
+* Wip: [tests] Testing the time based fields through all the different STIX objects. [chrisr3d]
+
+* Wip: [tests] Tests for domain attributes export. [chrisr3d]
+
+  - Including a new test function for indicators
+
+* Wip: [stix2 export] Exporting domain attributes. [chrisr3d]
+
+* Merge branch 'dev' of github.com:chrisr3d/MISP-STIX-Converter into dev. [chrisr3d]
+
+* Wip: [stix2 export] Quick fixes. [chrisr3d]
+
+  Including:
+  - Changes on class properties to return either the
+    STIX bundle or only the objects list (as it will
+    be used by the STIX Export library of MISP)
+  - Appending the STIX 2.1 Observable objects in
+    the object refs field with the Observed Data
+    objects which reference them
+
+* Wip: [tests] First tests for stix 2.0 & 2.1 export. [chrisr3d]
+
+* Wip: [stix2 export] Fixed STIX 2.0 & 2.1 import in init file. [chrisr3d]
+
+* Wip: [stix2 export] STIX 2.0 & 2.1 parsing split. [chrisr3d]
+
+* Wip: [export parser] Added typing in functionc headers. [chrisr3d]
+
+* Wip: [stix2 export] Started STIX 2.0 & 2.1 export implementation. [chrisr3d]
+
+* Wip: [stix1 export] Moving MISP format parsing functions to be used for STIX2 parsing as well. [chrisr3d]
+
+* Wip: [tests] Tests for events collections export. [chrisr3d]
+
+* Wip: [stix1 export] Parsing xml content to return packages without namespaces to go with MISP restSearch. [chrisr3d]
+
+* Wip: [stix1 export] Better way to extract the stix packages. [chrisr3d]
+
+* Wip: [tests] Quick test to check the export of references between 2 objects exported as TTPs. [chrisr3d]
+
+* Wip: [stix1 export] Exporting references between objects exported as ttp. [chrisr3d]
+
+* Wip: [stix1 export] Switched events to parse to json instead of loading them to PyMISP MISPEvent. [chrisr3d]
+
+  - After several tests and improvement tentatives,
+    loading big json events with PyMISP always adds
+    a lot of computing time that makes the parsing
+    proportionally longer with an increasing input
+    event(s) size
+  - Using PyMISP makes the code easier and does
+    some little tasks for us, like auto-setting
+    uuids, and some fields, saving us a few `if
+    not empty` tests, we need to keep using the
+    json events as is to avoid the potentially
+    massive amount of time required to load
+    heavy event with PyMISP
+
+* Wip: Making order in the files and imports for the library to be more easily accessible. [chrisr3d]
+
+* Wip: [stix1 export] Making order in the different classes and subclasses. [chrisr3d]
+
+* Add: [documentation] Updated documentation based on the recent supported features added to the export & tests scripts. [chrisr3d]
+
+  - Including changes on the attributes mapping
+  - Added the complete documentation for MISP
+    objects export
+
+* Wip: [tests] Added tests for some MISP objects exported as Custom objects. [chrisr3d]
+
+* Wip: [tests] Updated tests to include the changes on weakness attributes export. [chrisr3d]
+
+* Wip: [stix1 export] Exporting weakness single attributes as Weakness objects instead of Custom. [chrisr3d]
+
+* Wip: [tests] Test with attributes exported as Custom object. [chrisr3d]
+
+* Wip: [tests] Test for objects with attributes containing 2 different clusters of the same galaxy. [chrisr3d]
+
+* Wip: [tests] Tests for objects with attributes containing galaxies. [chrisr3d]
+
+* Wip: [tests] Testing the export of course-of-action galaxy in single attribute exported as indicator. [chrisr3d]
+
+* Wip: [tests] Test for single attribute exported as observable, containing a galaxy. [chrisr3d]
+
+  - As expected, the observable objects do not have
+    a ttp or coa field, so the attribute galaxy is
+    skipped and in the example only the event galaxy
+    is there in the STIX exported data
+
+* Wip: [tests] Added tests for attributes containing galaxies. [chrisr3d]
+
+  - Focusing on the behavior of the code handling
+    the embedded galaxies, since the attribute
+    export itself is already tested in another test
+  - Support of tests for indicator attributes, and
+    for the only non indicator attribute type
+    (vulnerability) with embedded galaxies, in
+    parallel with event galaxies
+  - Tests for observable attributes coming next
+  - Also filled the vulnerability attribute test
+    with a test on the related ttp that was missing
+
+* Wip: [stix1 export] Handling tags and galaxies within vulnerability attributes. [chrisr3d]
+
+* Wip: [stix1 export] Parsing galaxies from MISP objects exported as non indicator STIX objects. [chrisr3d]
+
+  - Including galaxies embedded in object attributes
+    for the following objects:
+    - attack-pattern
+    - course-of-action
+    - vulnerability
+    - weakness
+  - Due to the limitation of the STIX format, some
+    galaxy types are skipped, and only the following
+    galaxy types are exported depending on the MISP
+    object name:
+    - attack-pattern, vulnerability, weakness:
+      galaxies exported as TTP
+    - course-of-action: galaxies exported as
+      CourseOfAction
+
+* Wip: [stix1 export] Cleaner object attribute tags parsing. [chrisr3d]
+
+  - Also added missing tags parsing for course of
+    action object attributes
+
+* Wip: [tests] Added tests for attack-pattern, course-of-action, vulnerability and weakness objects export as stix1. [chrisr3d]
+
+  - Also renamed some variables for more clarity
+    between objects and galaxies
+
+* Wip: [stix1 export] Exporting Vulneratbility & Weakness objects. [chrisr3d]
+
+* Wip: [stix1 export] Started including export of non indicator objects. [chrisr3d]
+
+  - Attack Pattern & Course of Action object
+    attributes are exported, as well as the tags
+    of each object attribute
+  - We need to figure out how to handle the
+    different cases when they also have galaxies
+    attached
+  - Vulnerability & Weakness objects to be supported
+    soon as well since they are pretty similar to
+    Attack patterns because they are also exported
+    as TTPs
+
+* Wip: [tests] Tests for file, pe & pe-section objects referencing each others export to stix1. [chrisr3d]
+
+* Wip: [stix1 export] Exporting pe & pe-section objects. [chrisr3d]
+
+* Wip: [stix1 export] Underscored every variable that is not meant to be called from out of the class. [chrisr3d]
+
+* Wip: [tests] Tests for x509 objects export as stix1. [chrisr3d]
+
+* Wip: [stix1 export] Exporting x509 objects. [chrisr3d]
+
+* Wip: [tests] Tests for whois objects export as stix1. [chrisr3d]
+
+* Wip: [stix1 export] Exporting whois objects. [chrisr3d]
+
+* Wip: [tests] Tests for url & user-account objects to stix1. [chrisr3d]
+
+* Wip: [stix1 export] Exporting url & user-account objects. [chrisr3d]
+
+* Wip: [tests] Tests for process & registry-key objects export as stix1. [chrisr3d]
+
+* Wip: [stix1 export] Exporting process & registry-key objects. [chrisr3d]
+
+* Wip: [tests] Tests for network-socket objects export. [chrisr3d]
+
+* Wip: [stix1 export] Exporting network-socket objects. [chrisr3d]
+
+* Wip: [tests] Tests for ip-port & network-connection objects export. [chrisr3d]
+
+* Wip: [stix1 export] Exporting ip-port & network-connection object. [chrisr3d]
+
+* Wip: [stix1 export] Added more indicator type descriptions. [chrisr3d]
+
+* Wip: [tests] Added tests for file objects export to stix1 + simplified code with functions reused at different points. [chrisr3d]
+
+* Wip: [stix1 export] Exporting file objects. [chrisr3d]
+
+  - Cleaner file objects parsing function than the
+    one currently used in the stix1 export script
+    in MISP
+  - Also passing attribute data as bytes and
+    converting it at the moment it is needed instead
+    of passing the string
+
+* Wip: [tests] Added tests for email objects export to stix1. [chrisr3d]
+
+* Wip: [stix1 export] Exporting email objects. [chrisr3d]
+
+* Wip: [stix1 export] Added check for objects which should not be parsed the usual way + decommented try catch statement that has been commented for test purposes. [chrisr3d]
+
+* Wip: [tests] Added tests for the credential and domain-ip objects that have been added recently to the stix1 export. [chrisr3d]
+
+* Wip: [stix1 export] Population the objects export mapping. [chrisr3d]
+
+* Wip: [tests] Testing asn object export + some slight changes to go with. [chrisr3d]
+
+* Wip: [stix1 export] Starting parsing MISP objects. [chrisr3d]
+
+* Wip: [stix1 export] Thinking of the smoothest way to export MISP objects. [chrisr3d]
+
+* Wip: [documentation] Attributes mapping to stix1 documentation done. [chrisr3d]
+
+* Wip: [documentation] Added documentation for 'undefined' attribute types. [chrisr3d]
+
+  - Undefined because we do not really know what
+    kind of data it is since it could be anything:
+    comment, other & text attributes
+
+* Wip: [documentation] Main documentation updated. [chrisr3d]
+
+* Wip: [documentation] Added galaxies documentation. [chrisr3d]
+
+* Wip: [documentation] Added \n after each comment of the STIX format. [chrisr3d]
+
+* Wip: [documentation] Moving the detailed mappings into separate file for more clarity. [chrisr3d]
+
+* Wip: [stix1 export] Updated the list of supported hash types. [chrisr3d]
+
+* Wip: [documentation] Clarified single attribute mapping with more hash type details. [chrisr3d]
+
+* Wip: [documentation] Added documentation for the events export. [chrisr3d]
+
+* Wip: [documentation] Added some intros. [chrisr3d]
+
+* Wip: [documentation] Displaying the attribute mapping as list since tables are limited. [chrisr3d]
+
+* Wip: [documentation] Filled attributes mapping. [chrisr3d]
+
+* Wip: [documentation] Started building an automated way to generate documentation. [chrisr3d]
+
+* Wip: [documentation] Started adding the mapping documentation. [chrisr3d]
+
+  - This is going to be filled with all the types,
+    to be used then to automatically build the
+    complete documentation
+
+* Wip: [tests] All single attribute types currently supported in the export mapping should now have tests. [chrisr3d]
+
+* Wip: [tests] Tests for single attribute with data field. [chrisr3d]
+
+  -> attachment & malware-sample are concerned
+
+* Wip: [tests] Print removed & test for windows service attributes added. [chrisr3d]
+
+* Add: [framing/mapping] Added namespaces for CustomObjects & Yara test mechanism objects. [chrisr3d]
+
+* Wip: [tests] More single attributes export tests. [chrisr3d]
+
+* Wip: [tests] Continued adding tests for single attributes export. [chrisr3d]
+
+  - Covering more and more attribute types
+
+* Wip: [tests] First tests for events with single attributes. [chrisr3d]
+
+* Wip: [tests] The galaxies export functions all have tests. [chrisr3d]
+
+* Wip: [tests] Stix1 export tests added and existing tests fixed. [chrisr3d]
+
+* Wip: Added poetry setup file +init files for easier import support. [chrisr3d]
+
+* Wip: [stix1 export] Small fixes + rename of the important directories. [chrisr3d]
+
+* Wip: [tests] Added stix1 export tests for events with tags and event with attack-pattern galaxies. [chrisr3d]
+
+  - More tests for events with other galaxy types to come as well
+
+* Wip: [stix1 export] Adding ttps, courses of action and threat actors to the stix package. [chrisr3d]
+
+  - Before we add the objects parsing, there is no
+    reference to handle so we can just add them to
+    the STIX package
+
+* Wip: [tests] Started adding tests for STIX1 export. [chrisr3d]
+
+* Wip: [stix1 export] MISPtoSTIX1Parser name change in case we start supporting single attributes export. [chrisr3d]
+
+* Wip: [stix1 export] Better handling of the galaxies at event and attribute level. [chrisr3d]
+
+  - Attaching galaxies to the correct stix object
+    during the export:
+    - At event level, all the ttps, threat actors
+      and courses of action created out of the
+      export of event galaxies are attached to the
+      incident object
+    - At attribute level, if to_ids is set, the ttps
+      and courses of action are attached to the
+      related indicator, otherwise they are attached
+      to the incident. There is no way to attach
+      threat actors to indicators, so they are
+      attached by default to the incident
+  - Also clarified in all cases that the embedded
+    ttp, course of action or threat actor data is
+    contained in the stix package level, and a
+    related object referencing the actual data is
+    attached to the incident or to indicators
+  - Tests on this specific update to come soon
+
+* Wip: [stix1 export] Using typing for functions arguments. [chrisr3d]
+
+* Wip: [stix1 export] More work on the galaxies handling. [chrisr3d]
+
+* Wip: [stix1 export] Removed list not used anymore. [chrisr3d]
+
+* Wip: [stix1 export] Handling Incident object during and at the end of the parsing. [chrisr3d]
+
+* Wip: [stix1 export] Single attributes export rework. [chrisr3d]
+
+  - All attribute types should be handled:
+    - Attribute types supported in the mapping have
+      been implemented with no big changes
+    - Attribute types not currently in the mapping
+      are exported in custom properties
+  - The attributes export implementation will be
+    tested with single test mechanisms soon
+
+* Wip: [stix1 export] Rework of non indicator single attributes completed. [chrisr3d]
+
+* Wip: [stix1 export] Quick add of taget-machine attribute type in the attributes export mapping. [chrisr3d]
+
+* Wip: [stix1 export] Continued reworking the attributes export. [chrisr3d]
+
+* Wip: [stix1 export] Rework of the attributes export. [chrisr3d]
+
+* Wip: Added some incident fields persing & galaxies parsing functions. [chrisr3d]
+
+* Wip: Started rework of stix2misp. [chrisr3d]
+
+* Add: Added stix1 export mapping & the framing script for both STIX 1 & 2. [chrisr3d]
+
+* Wip: Added structure of the STIX1 export. [chrisr3d]
+
+* Wip: Started structuring the scripts and classes. [chrisr3d]
+
+  - Started with the import scripts
+
+* Fix Readme. [Christian Studer]
+
+* Initial commit. [Christian Studer]
+
+
