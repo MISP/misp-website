@@ -85,9 +85,11 @@ Whatever your reasons, it’s up to you to decide where and how you want to join
 MISP Project has a presence on [Twitter (@MISPProject)](https://twitter.com/MISPProject).
 
 Generally speaking, this is not intended to be a primary support venue. 
-(Those would be [MISP/Support Gitter room]() and the issue tracker.) 
+(Those would be [MISP/Support Gitter room](https://gitter.im/MISP/MISP) and the [issue tracker](https://github.com/MISP/MISP/issues).) 
 Rather, these are primarily intended to be a way to more widely disseminate news related to MISP. 
 If you use Twitter, you may find it convenient to follow the MISP Project there as a way of receiving MISP
+
+MISP is also present in the fediverse at [@misp@misp-community.org](https://misp-community.org/@misp).
 
 ## Email
 
