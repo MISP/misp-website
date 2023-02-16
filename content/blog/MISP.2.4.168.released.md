@@ -7,7 +7,7 @@ banner: /img/blog/graph-syria.png
 
 We are pleased to announce the immediate availability of [MISP v2.4.168](https://github.com/MISP/MISP/releases/tag/v2.4.168) with bugs fixed and various security fixes.
 
-The release include a [significant release](https://www.misp-project.org/Changelog-misp-stix.txt) of [misp-stix](https://github.com/MISP/misp-stix) which is the core Python library for STIX (1, 2.0 and 2.1) import and export.
+It includes a rather substantial [release](https://www.misp-project.org/Changelog-misp-stix.txt) of [misp-stix](https://github.com/MISP/misp-stix), the core Python library for importing and exporting STIX (1, 2.0 and 2.1).
 
 # Fixes
 
@@ -24,13 +24,13 @@ The release include a [significant release](https://www.misp-project.org/Changel
 - [CVE-2023-24027](https://cvepremium.circl.lu/cve/CVE-2023-24027) < MISP 2.4.168 - In app/webroot/js/action_table.js allows XSS via a network history name.
 - [CVE-2023-24028](https://cvepremium.circl.lu/cve/CVE-2023-24028) < MISP 2.4.168 - In app/Controller/Component/ACLComponent.php has incorrect access control for the decaying import function.
 
-Thanks to the reporter Cyber Controls from SIX Group and Dawid Czarnecki from Zigrin Security.
+Thanks to the reporter Cyber Controls from SIX Group and Dawid Czarnecki of Zigrin Security.
 
-A huge thanks to all the contributors and supporters of the MISP project. This release won't be possible by all the organisations and people supporting us to make MISP a reality.
+A huge thanks to all the contributors and supporters of the MISP project. This release wouldn't be possible without the help of all the organisations and people supporting us to make MISP a reality.
 
-For more [details](https://www.misp-project.org/Changelog.txt) about changes in the MISP core software.
+Go to the detailed [changelog](https://www.misp-project.org/Changelog.txt) for more details about the changes to the MISP core software.
 
-# Other updates and changes in MISP project
+# Other updates and changes in the MISP project
 
 ## MISP Objects
 
@@ -54,5 +54,5 @@ For more [details](https://www.misp-project.org/Changelog.txt) about changes in 
 
 # Don't forget to follow us on Mastodon
 
-MISP projet has its own Mastodon server [misp-community.org](https://misp-community.org/) and don't forget to follow @misp@misp-community.org on the fediverse. Core contributors of MISP can sign-up if you want an account.
+The MISP projet has its own Mastodon server [misp-community.org](https://misp-community.org/) - don't forget to follow @misp@misp-community.org on the fediverse. Core contributors of MISP can sign-up if they wish to have an account.
 
