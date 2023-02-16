@@ -77,6 +77,7 @@ For the additional software created by the MISP project, check our [MISP project
 
 ### Software or Services with MISP support or Extending MISP functionalities
 
+* [misp-extractor](https://github.com/00gxd14g/misp-extractor) - Connects to a MISP instance and retrieves attributes of specific types src-ip,dst-ip,url,domain The retrieved attributes are then written to separate files.
 * [AIL framework - Framework for Analysis of Information Leaks](https://github.com/CIRCL/AIL-framework) - AIL framework - Framework for Analysis of Information Leaks use MISP to share  found leaks within a threat intelligence platform using MISP standard (objects).
 * [Automated Payload Test Controller](https://github.com/jymcheong/aptc) - A set of scripts using PyMISP to extend MISP for automated payload testing.
 * [BTG](https://github.com/conix-security/BTG) - BTG's purpose is to make fast and efficient search on IOC  including a MISP crawler and collector.
