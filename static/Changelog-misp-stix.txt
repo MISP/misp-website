@@ -1,6 +1,385 @@
 # Changelog
 
 
+## v2.4.168 (2023-01-30)
+
+### Changes
+
+* [stix2 import] Reintroduced the ability to import MISP Galaxies as `tag_names` [Christian Studer]
+
+  - Using most of the features that were removed
+    with 43a3a8a & 3b178eb, with improvements
+  - Using a parameter to define whether the related
+    STIX objects should be imported as tag_names.
+    They are parsed as MISP Galaxy objects otherwise
+  - The reason to import tag names only is to have
+    at least some information validated by MISP
+    using the tag names which in fact are the galaxy
+    cluster names, since MISP is not able for now to
+    handle all the different cases for new Galaxy
+    Clusters: is it a new clusters or an update to
+    an existing one?
+    We'll be able to give MISP the Galaxies and
+    Clusters in standard MISP JSON format when it is
+    able to fully handle it
+
+* [misp-stix] Updated some aspects of the command line script. [Christian Studer]
+
+  - Some parameters are required now
+  - Introducing the import & export difference (it
+    is still export only for now since we will
+    add the required content in the import function)
+
+* [package] Bumped version. [Christian Studer]
+
+* [submodules] Bumped latest submodule versions. [Christian Studer]
+
+* [poetry] Bumped latest locak file. [Christian Studer]
+
+* [stix2 import] Differenciating galaxies parsing between external and internal STIX 2 content. [Christian Studer]
+
+* [stix2 import] Removed some additional data structure layer on the loaded STIX objects. [Christian Studer]
+
+* [stix2 export] Added a `meta` dictionary field to the Custom Galaxy object. [Christian Studer]
+
+  - We can now export the `meta` field from a custom
+    cluster, as it is, in the related field within
+    the custom STIX object
+
+* [tests] Updated tests for STIX 2 objects imported as MISP Galaxies. [Christian Studer]
+
+* [tests] Updated the samples of STIX 2 objects that are converted as MISP galaxies. [Christian Studer]
+
+  - Added some fields to extend the tests
+  - Removed the unrelevant `kill_chain_phases` fields
+
+* [stix2 import] Properly parsing the different galaxy & cluster fields. [Christian Studer]
+
+* [tests] MISP galaxy types are now documented from the mapping itself. [Christian Studer]
+
+* [stix2 export] Making the mapping classes reachable. [Christian Studer]
+
+  - And in that case for example also the galaxy types
+
+* [tests] Updated tests for internal STIX 2 import to prepare the apparition of tests for external STIX 2 import. [Christian Studer]
+
+* [stix2 export] Enhanced the MISP Galaxies to STIX 2 conversion. [Christian Studer]
+
+  - More `meta` fields are now supported
+  - The STIX 2 `external_references` field now
+    supports the url refs in addition to the
+    external IDs which were already supported
+
+* [stix2 export] Extended the MISP Galaxies to STIX 2 mapping. [Christian Studer]
+
+* [documentation] Regenerated documentation with the recent changes on mappings. [Christian Studer]
+
+* [documentation] Updated mapping documentation. [Christian Studer]
+
+* [documentation] Regenerated documentation with the recent changes on mappings. [Christian Studer]
+
+* [documentation] Updated mapping documentation. [Christian Studer]
+
+* [stix2 export] Added missing `person` object to the mapping of MISP objects export as STIX 2.0 & 2.1. [Christian Studer]
+
+  - This object template was supposed to be supported
+    for a while...
+  - It is then now not exported as custom object as
+    it was before
+
+* [stix2 export] Added missing `person` object to the mapping of MISP objects export as STIX 2.0 & 2.1. [Christian Studer]
+
+  - This object template was supposed to be supported
+    for a while...
+  - It is then now not exported as custom object as
+    it was before
+
+### Fix
+
+* [misp-galaxy] Bumped latest version. [Christian Studer]
+
+* [stix2 import] Fixed wrong `_create_cluster_args` parameters in some cases. [Christian Studer]
+
+* [stix2 import] Fixed the tests for `region` galaxies import from STIX 2.1 `Location` objects. [Christian Studer]
+
+* [stix2 import] Fixed the `region` Galaxy Cluster value conversion. [Christian Studer]
+
+  - In MISP, the `region` galaxy cluster values use
+    the actual UN M49 names with the area codes. The
+    codes were not supported before in the STIX 2 to
+    MISP conversion
+
+* [stix2 import] Fixed issues with `meta` fields in clusters. [Christian Studer]
+
+  - We were not able to know whether a `meta` field
+    initially contained a `-` or an `_` since we
+    have to use underscore for STIX 2 fields in any
+    case. We now have a list of meta fields which
+    should have a `-` to avoid the related issues
+
+* [stix2 import] Fixed the `meta` fields parsing to avoid issues with some undefined (and unnecessary) meta fields mappings. [Christian Studer]
+
+* [stix2 import] Fixed the `accuracy-radius` object attribute mapping. [Christian Studer]
+
+* [stix2 import] Added missing STIX 2 to MISP mapping. [Christian Studer]
+
+* [stix2 export] Using the STIX objects adding function instead of dealing with the private variable. [Christian Studer]
+
+* [stix2 import] STIX 2 import mapping classes renames for more clarity. [Christian Studer]
+
+* [tests] Fixed the tags test to go with the recent changes on some galaxy test samples. [Christian Studer]
+
+* [tests] Added specific testing methods for clusters meta fields. [Christian Studer]
+
+* [tests] Fixed tests for MISP galaxies export as STIX 2, following the recent updates and improvements on their parsing. [Christian Studer]
+
+* [stix2 export] Fixed the `kill_chain` parsing in clusters meta fields. [Christian Studer]
+
+* [stix2 export] Fixed one of the missing attack-pattern object creation that was missed and still using the previous creation function. [Christian Studer]
+
+* [stix2 export] Removed no longer necessary argument of some STIX 2 object creation function. [Christian Studer]
+
+  - Which also made unnecessary some of thoses
+    functions being no longer specific to galaxies
+
+* [stix2 import] Avoiding Custom Objects converted as Attributes to be modified while they are parsed. [Christian Studer]
+
+* [stix2 import] Removed unused Galaxies parsing case. [Christian Studer]
+
+* [stix2 import] Some pycodestyle clean-up. [Christian Studer]
+
+* [stix2 export] Tiny improvement to avoid unused variable in the case of STIX 2.1 export with no Event report. [Christian Studer]
+
+  - And a few long lines cleaned up
+
+* [stix2 import] Making sure we cover all the cases while checking if an attribute UUID is valid. [Christian Studer]
+
+  - This fixes the object attributes handling in the
+    case of MISP objects exported as Custom STIX
+    objects, with invalid UUIDs which were not
+    correctly handled when we convert the content
+    back to MISP format
+
+* [stix2 import] Better invalid UUIDs parsing for Custom STIX objects converted as MISP objects. [Christian Studer]
+
+* [tests] Fixed tests for STIX 2.0 registry-key objects import. [Christian Studer]
+
+* [stix2 import] Fixed some loading definitions. [Christian Studer]
+
+* [stix2 import] Fixed variable that should not be self. [Christian Studer]
+
+* [tests] Simply avoiding issues with the custom galaxies not exported in STIX 1 (for now at least) [Christian Studer]
+
+* [tests] Added tests to make sure custom galaxies are correctly exported when embedded in attributes or object attributes. [Christian Studer]
+
+* [stix2 export] Added the missing custom galaxies handler for attributes galaxies. [Christian Studer]
+
+* [stix2 export] Reverted some try/catch bypass used for debugging purposes. [Christian Studer]
+
+* [stix2 export] Clarification on some incomplete MISP Galaxies typing. [Christian Studer]
+
+* [stix2 export] Quick fix & improvement on the custom galaxies export. [Christian Studer]
+
+* [stix2 export] Simply a quick clean-up. [Christian Studer]
+
+* [stix2 export] Fixing the `EventReport` references handling. [Christian Studer]
+
+  - When there is no actual reference to a MISP
+    attribute, object or galaxy in the Event report,
+    the `object_refs` field is empty, which is not
+    allowed, so we add a reference to the report or
+    grouping to avoid raising an exception
+
+* [stix2 export] Fixing the `EventReport` references handling. [Christian Studer]
+
+  - When there is no actual reference to a MISP
+    attribute, object or galaxy in the Event report,
+    the `object_refs` field is empty, which is not
+    allowed, so we add a reference to the report or
+    grouping to avoid raising an exception
+
+* [tests] Fixed tests for `registry-key` objects export as STIX 2.0 following the recent mapping change on the `last-modified` attribute. [Christian Studer]
+
+* [stix2 export] Removed unused import. [Christian Studer]
+
+* [stix2 export] Fixed the `registry-key` object mapping regarding the `last-modified` attribute export as STIX 2.0. [Christian Studer]
+
+* [tests] Fixed tests for `registry-key` objects export as STIX 2.0 following the recent mapping change on the `last-modified` attribute. [Christian Studer]
+
+* [stix2 export] Removed unused import. [Christian Studer]
+
+* [stix2 export] Fixed the `registry-key` object mapping regarding the `last-modified` attribute export as STIX 2.0. [Christian Studer]
+
+* [stix2 import] Avoiding issues with identifiers in compiled patterns. [Christian Studer]
+
+  - When `[*]` is part of a pattern,the related
+    identifiers contain a non str element which
+    used to break the related exception handling
+
+* [stix2 import] Fixed the hash types handling while parsing patterns. [Christian Studer]
+
+* [tests] Removed the `person` object from the tests for custom objects export as STIX 1. [Christian Studer]
+
+  - Following changes on the `person` object export
+    and its removal from the tests samples for
+    custom objects
+
+* [tests] Added tests for `person` objects export as STIX 2 & fixed tests on object references. [Christian Studer]
+
+* [stix2 export] Added missing `ObjectReference` checking for objects exported as STIX 2 Identity objects. [Christian Studer]
+
+* [tests] Removed the `person` object from the tests for custom objects export as STIX 1. [Christian Studer]
+
+  - Following changes on the `person` object export
+    and its removal from the tests samples for
+    custom objects
+
+* [tests] Added tests for `person` objects export as STIX 2 & fixed tests on object references. [Christian Studer]
+
+* [stix2 export] Added missing `ObjectReference` checking for objects exported as STIX 2 Identity objects. [Christian Studer]
+
+* [stix2 import] Removed unused import. [Christian Studer]
+
+### Other
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Wip: [stix import] Enabling the command line use of the library for STIX -> MISP import feature. [Christian Studer]
+
+  - Minimal feature with the ability to load STIX
+    files, and convert each of them to a MISP event
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Wip: [tests] Samples and tests for `country` & `region` galaxies import from external STIX 2.1 `Location` objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `country` & `region` galaxies from external STIX 2.1 data. [Christian Studer]
+
+* Wip: [tests] Added tests for `country` and `location` galaxies import from STIX 2.1 `Location` objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing `country` & `region` galaxies from STIX 2.1 'internal' `Location` objects. [Christian Studer]
+
+* Add: [tests] Added tests for `country` & `region` galaxies export as STIX 2.1. [Christian Studer]
+
+* Add: [stix2 export] Parsing the `meta` fields from the `country` and `region` galaxy clusters. [Christian Studer]
+
+* Add: [stix2 export] Exporting `country` & `region` galaxies as STIX 2.1 Location objects. [Christian Studer]
+
+* Wip: [stix2 import] Added note for the vulnerability object import from external STIX 2. [Christian Studer]
+
+* Add: [tests] Added some of the common external STIX 2 import content testing. [Christian Studer]
+
+* Add: [tests] Added samples & tests for galaxies import from external STIX 2. [Christian Studer]
+
+* Wip: [tests] Added tests for internal custom galaxy objects import from STIX 2. [Christian Studer]
+
+* Wip: [stix2 import] Parsing internal Custom galaxy objects from STIX 2. [Christian Studer]
+
+* Wip: [stix2 import] Using the MISP Galaxy & Cluster classes to convert STIX objects meant to be galaxy clusters, and no longer using the tag names. [Christian Studer]
+
+* Wip: [stix2 import] Removed the synonyms to tag_names mapping. [Christian Studer]
+
+  - We will now use the PyMISP classses to create
+    galaxies and clusters attached to the related
+    containers (Event & Attributes)
+  - The galaxies checking for existing galaxies and
+    references will be processed in MISP directly
+
+* Wip: [stix2 import] Introducing a new way of parsing content converted into Galaxies. [Christian Studer]
+
+  - Still some pieces of the puzzle to add
+
+* Wip: [stix2 import] Handling invalid UUIDs in MISP attributes creation. [Christian Studer]
+
+* Wip: [tests] Added tests for STIX 2 content with invalid UUIDs import. [Christian Studer]
+
+* Wip: [stix2 import] Deeper investigations on invalid UUIDs handling. [Christian Studer]
+
+* Wip: [stix2 import] Handling non RFC UUIDs. [Christian Studer]
+
+* Wip: [stix2 import] A few fixes including the import of Identity classes. [Christian Studer]
+
+* Wip: [stix2 import] Importing generic `identity` objects. [Christian Studer]
+
+* Add: [tests] Added tests for custom Galaxies export as STIX 2.0 & 2.1. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Add: [documentation] Mapping documentation has been updated automatically with the tests for `identity` objects export as STIX 2. [Christian Studer]
+
+* Add: [tests] Tests for `identity` objects export as STIX 2.0 & 2.1. [Christian Studer]
+
+* Add: [stix2 export] Added the `identity` object to the list of supported templates. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Add: [stix export] Handling custom galaxies & galaxy clusters. [Christian Studer]
+
+  - The Galaxy clusters export to STIX 1 remains the
+    same, with some clearer warning messages handling
+  - Custom clusters within existing galaxies are
+    exported into the usual existing STIX 2 objects,
+    and custom galaxies are exported as Custom objects
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge pull request #25 from LM-CT/main. [Alexandre Dulaunoy]
+
+  Ignore pycache
+
+* Ignore pycache. [Lucas Cloud Target]
+
+* Add: [documentation] Mapping documentation has been updated automatically with the tests for `identity` objects export as STIX 2. [Christian Studer]
+
+* Add: [tests] Tests for `identity` objects export as STIX 2.0 & 2.1. [Christian Studer]
+
+* Add: [stix2 export] Added the `identity` object to the list of supported templates. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Parse_misp_event takes a dict not a JSON. [Alexandre Dulaunoy]
+
+  parse_misp_event takes a dict not a JSON
+
+* Wip: [stix2 import] Parsing more patterns. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Wip: [stix2 import] New Exception type for unmapped pattern types. [Christian Studer]
+
+* Wip: [stix2 import] Importing a few more pattern types. [Christian Studer]
+
+* Wip: [stix2 import] Handling STIX 2 pattern values to remove the additional `'` characters. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Wip: [stix2 import] We start parsing STIX 2 patterns from external files. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Wip: [stix2 import] Moving the pattern parsing to another function specific to STIX patterns (to come next) [Christian Studer]
+
+* Merge branch 'main' into dev. [Christian Studer]
+
+* Fix; [stix2 import] Importing exceptions from the parent directory instead of importing it from the library. [Christian Studer]
+
+* Wip: [stix2 import] Making the STIX 2 pattern parser available to be imported from the library. [Christian Studer]
+
+* Wip: [stix2 import] Making the STIX 2 patterns parser better. [Christian Studer]
+
+
 ## v2.4.163 (2022-09-26)
 
 ### Changes
