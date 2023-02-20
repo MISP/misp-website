@@ -84,12 +84,14 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2022-29533](https://cvepremium.circl.lu/cve/CVE-2022-29533) < MISP 2.4.158 - There is XSS in app/Controller/OrganisationsController.php in a situation with a "weird single checkbox page."
 - [CVE-2022-29528](https://cvepremium.circl.lu/cve/CVE-2022-29528) < MISP 2.4.158 - PHAR deserialization can occur.
 - [CVE-2022-29531](https://cvepremium.circl.lu/cve/CVE-2022-29531) < MISP 2.4.158 - There is stored XSS in the event graph via a tag name.
-- [CVE-2022-42724](https://cvepremium.circl.lu/cve/CVE-2022-42724) < MISP 2.4.163 -  allows attackers to discover role names (this is information that only the site admin should have).
+- [CVE-2022-42724](https://cvepremium.circl.lu/cve/CVE-2022-42724) < MISP 2.4.163 - allows attackers to discover role names (this is information that only the site admin should have).
 - [CVE-2022-47928](https://cvepremium.circl.lu/cve/CVE-2022-47928) < MISP 2.4.167 - XSS in the template file uploads in app/View/Templates/upload_file.ctp. 
 - [CVE-2023-24070](https://cvepremium.circl.lu/cve/CVE-2023-24070) < MISP 2.4.168 - app/View/AuthKeys/authkey_display.ctp in MISP through 2.4.167 has an XSS in authkey add via a Referer field.
 - [CVE-2023-24026](https://cvepremium.circl.lu/cve/CVE-2023-24026) < MISP 2.4.168 - In app/webroot/js/event-graph.js has an XSS vulnerability via an event-graph preview payload.
 - [CVE-2023-24027](https://cvepremium.circl.lu/cve/CVE-2023-24027) < MISP 2.4.168 - In app/webroot/js/action_table.js allows XSS via a network history name.
 - [CVE-2023-24028](https://cvepremium.circl.lu/cve/CVE-2023-24028) < MISP 2.4.168 - In app/Controller/Component/ACLComponent.php has incorrect access control for the decaying import function.
+- [CVE-2022-48328](https://cvepremium.circl.lu/cve/CVE-2022-48328) < MISP 2.4.167 - app/Controller/Component/IndexFilterComponent.php in MISP before 2.4.167 mishandles ordered_url_params and additional_delimiters.
+- [CVE-2022-48329](https://cvepremium.circl.lu/cve/CVE-2022-48329) < MISP 2.4.166 -  MISP before 2.4.166 unsafely allows users to use the order parameter, related to app/Model/Attribute.php, app/Model/GalaxyCluster.php, app/Model/Workflow.php, and app/Plugin/Assets/models/behaviors/LogableBehavior.php.  
 
 ## PGP Key
 
