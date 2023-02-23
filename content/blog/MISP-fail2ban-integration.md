@@ -12,7 +12,7 @@ banner: /assets/images/fail2ban-misp.png
 
 # fail2ban - MISP
 
-[fail2ban](https://www.fail2ban.org/) is known to do a great job at giving attackers a hard time when they try to "test" passwords or enumerate users of a web service. fail2ban constantly analyses relevant log files and keeps track of IP addresses trying to log into such services. If a configurable threshold is reached, it uses the Linux firewall (Netfilter / iptables) to block the suspected attackers.
+[fail2ban](https://www.fail2ban.org/) is known to do a great job at giving attackers a hard time when they try to "test" passwords or enumerate users of a service. fail2ban constantly analyses relevant log files and keeps track of IP addresses trying to log into such services. If a configurable threshold is reached, it uses the Linux firewall (Netfilter / iptables) to block the suspected attackers.
 
 So far, so good, so known.
 
