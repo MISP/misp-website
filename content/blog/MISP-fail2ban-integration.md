@@ -19,7 +19,7 @@ So far, so good, so known.
 The question is, why should we stop there? We could easily (seriously!) push those offending IP addresses into a MISP, share the information with the world and keep those bloody attackers out of way more machines than only the one we run fail2ban on.
 Or we can use the collected information for correlation purposes and for retrospective views in forensic investigations.
 
-If a MISP server is reachable, production machines can use this immediately to feed the Thread Sharing platform.
+If a MISP server is reachable, production machines can use this immediately to feed the Threat Intelligence Sharing platform.
 
 And we can also easily set up a honeypot, and don't tolerate any invalid login attempt. Block it immediately, share it immediately.
 
