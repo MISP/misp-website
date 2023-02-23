@@ -7,24 +7,27 @@ authors:
 date: 2023-02-23
 tags: ["Collecting", "honeypot", "MISP", "Threat Intelligence"]
 categories: []
+banner: /assets/images/fail2ban-misp.png 
 ---
-
 
 # fail2ban - MISP
 
-fail2ban is known to do great work to make it pretty hard for attackers to test passwords or enumerate users. fail2ban constantly analyses relevant log files and keeps track of IP addresses trying to log into services. If a configurable threshold is reached, it uses the Linux firewall (Netfilter / iptables) to block the suspected attackers.
+[fail2ban](https://www.fail2ban.org/) is known to do great work to make it pretty hard for attackers to test passwords or enumerate users. fail2ban constantly analyses relevant log files and keeps track of IP addresses trying to log into services. If a configurable threshold is reached, it uses the Linux firewall (Netfilter / iptables) to block the suspected attackers.
 
 So far, so good, so known.
 
-The question is, why should we stop there? We could easily (seriously!)  push those offending IP addresses into a MISP, share the information with the world and keep those bloody attackers out of way more machines than only the one we run fail2ban on.
+The question is, why should we stop there? We could easily (seriously!) push those offending IP addresses into a MISP, share the information with the world and keep those bloody attackers out of way more machines than only the one we run fail2ban on.
 Or we can use the collected information for correlation purposes and for retrospective views in forensic investigations.
+
+![An example output in MISP from a fail2ban automatic import](/assets/images/fail2ban-misp.png)
+
 If a MISP server is reachable, production machines can use this immediately to feed the Thread Sharing platform.
 
 And we can also easily set up a honeypot, and don't tolerate any invalid login attempt. Block it immediately, share it immediately.
 
 Too good to be true? Complex configuration incoming? On the contrary!
 
-We only needan available MISP server, fail2ban, some configuration settings, and a bash script.
+We only need an available MISP server, fail2ban, some configuration settings, and a bash script.
 
 # Here are the steps:
 
