@@ -12,20 +12,20 @@ banner: /assets/images/fail2ban-misp.png
 
 # fail2ban - MISP
 
-[fail2ban](https://www.fail2ban.org/) is known to do great work to make it pretty hard for attackers to test passwords or enumerate users. fail2ban constantly analyses relevant log files and keeps track of IP addresses trying to log into services. If a configurable threshold is reached, it uses the Linux firewall (Netfilter / iptables) to block the suspected attackers.
+[fail2ban](https://www.fail2ban.org/) is known to do a great job at giving attackers a hard time when they try to "test" passwords or enumerate users of a web service. fail2ban constantly analyses relevant log files and keeps track of IP addresses trying to log into such services. If a configurable threshold is reached, it uses the Linux firewall (Netfilter / iptables) to block the suspected attackers.
 
 So far, so good, so known.
 
-The question is, why should we stop there? We could easily (seriously!) push those offending IP addresses into a MISP, share the information with the world and keep those bloody attackers out of way more machines than only the one we run fail2ban on.
-Or we can use the collected information for correlation purposes and for retrospective views in forensic investigations.
+The question is, why should we stop there? We could easily (seriously!) push those offending IP addresses into a MISP instance, share the information with the world and keep those bloody attackers out of way more machines than only the ones we run fail2ban on.
+Alternatively, we could use the collected information for correlation purposes and for retrospective views during forensic investigations.
 
-If a MISP server is reachable, production machines can use this immediately to feed the Thread Sharing platform.
+If a MISP server is reachable, production machines can use this to immediately feed the Thread Sharing platform.
 
-And we can also easily set up a honeypot, and don't tolerate any invalid login attempt. Block it immediately, share it immediately.
+Additionally, we can also easily set up a honeypot instead of just tolerating invalid login attempts. Block it immediately, share it immediately.
 
-Too good to be true? Complex configuration incoming? On the contrary!
+Too good to be true? Worried about complex configuration instructions incoming? On the contrary!
 
-We only need an available MISP server, fail2ban, some configuration settings, and a bash script.
+We only need an available MISP server, fail2ban, some configuration settings and a bash script.
 
 # Here are the steps:
 
@@ -34,7 +34,7 @@ apt install fail2ban
 ```
 
 create a new file `/etc/fail2ban/action.d/misp.conf`
-put the following content into it and modify the content of the variables: `misp_auth_key`, `misp_base_url`, `misp_event`, `misp_sight`
+insert the following content into it and modify the values of the following variables: `misp_auth_key`, `misp_base_url`, `misp_event`, `misp_sight`
 
 ```
 # Fail2Ban configuration file
@@ -142,7 +142,7 @@ fi
 and make it executable (`chmod a+x /usr/local/sbin/misp_add_attribute.sh`)
 
 
-Now configure the file `/etc/fail2ban/jail.d/defaults-debian.conf` and enable the services you want to be looked at by fail2ban:
+Now configure the file `/etc/fail2ban/jail.d/defaults-debian.conf` and enable the services you want to monitored by fail2ban:
 
 ```
 [sshd]
@@ -194,7 +194,7 @@ findtime  = 360m # the sliding lookup window
 maxretry = 1 # this is far from conservative. I bad hit -> banned. Use only in honeypots or if you have stable/knowledgeable users
 ```
 
-and add misp pushing to your preferred actions, e.g.:
+and add pushing to misp to your preferred actions, e.g.:
 
 ```
 # The simplest action to take: ban only
