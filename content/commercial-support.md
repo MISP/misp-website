@@ -6,9 +6,9 @@ permalink: /commercial-support/
 
 MISP Commercial Support is an overview of entities providing support for MISP.
 
-## MISP Professional Services (MSP)
+## MISP Professional Services (MPS)
 
-MISP project also provides [MISP Professional Services (MSP)](/professional-services/) if you want to directly support the MISP project and ensure its sustainability.
+MISP project also provides [MISP Professional Services (MPS)](/professional-services/) if you want to directly support the MISP project and ensure its sustainability.
 | Name   | Type of support | Further details  | Region |
 |---|---|---|---|
 | **MISP Project**  | Remote | [https://www.misp-project.org/professional-services/](https://www.misp-project.org/professional-services/) | Worldwide |
