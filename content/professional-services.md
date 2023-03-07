@@ -29,33 +29,33 @@ A list of the current trainings can be found at the [events page](/events/).
 There are different custom training offerings:
 
 a) For on-site closed trainings up to 30-50 attendees (depending on conditions of the location):
-We charge EUR 3.000 per training day plus additional expenses ([see below](#additional-costs-for-all-missions-outside-luxembourg))
+We charge EUR 3.567 per training day plus additional expenses ([see below](#additional-costs-for-all-missions-outside-luxembourg))
 
 b) For closed trainings up to 30 attendees in Luxembourg:
-We charge EUR 3.500 per training day including food and beverages
+We charge EUR 4.162 per training day including food and beverages
 
 
 ## Support contract
 
 We offer a yearly support contract for the fast-tracked resolution of 5 issues.
 This contract includes the prioritised resolution of 5 issues, configuration requests or fast-tracked bug fixes for the MISP core software or modules maintained by us. The support is given through our ticket system within business hours.
-Fast-tracking a new/custom feature is usually project based and not included in this support contract, but depending on the complexity of the requested feature, exceptions can of course be made. This type of support costs EUR 6.000 per year.
+Fast-tracking a new/custom feature is usually project based and not included in this support contract, but depending on the complexity of the requested feature, exceptions can of course be made. This type of support costs EUR 7.134 per year.
 
 ## Sustainability support
 
-In order to support the sustainability of MISP as an Open Source project, we offer the display of your logo prominently on the MISP Project website's supporter section. This type of support costs EUR 9.000 per year.
+In order to support the sustainability of MISP as an Open Source project, we offer the display of your logo prominently on the MISP Project website's supporter section. This type of support costs EUR 10.701 per year.
 
 ## Support contract with sustainability support
 
 In order to support the sustainability of MISP as an Open Source project, we offer the display of your logo prominently on the MISP Project website's supporter section. In addition, this contract includes the prioritised resolution of 6 issues, configuration requests or fast-tracked bug fixes for the MISP core software or modules maintained by us. The support is given through our ticket system within business hours.
-Fast-tracking a new/custom feature is usually project based and not included in this support contract, but depending on the complexity of the requested feature, exceptions can of course be made. This type of combined support costs EUR 15.000 per year.
+Fast-tracking a new/custom feature is usually project based and not included in this support contract, but depending on the complexity of the requested feature, exceptions can of course be made. This type of combined support costs EUR 17.835 per year.
 
 ## Optional additional support offerings
 
 The following options are available for any holder of an active support contract:
 
-- Training, virtual (EUR 3.000 per training day if you have an active support contract, otherwise EUR 3,500)
-- Advisory, installation or integration support, remotely (EUR 1.500 per 8 hours)
+- Training, virtual (EUR 3.567 per training day if you have an active support contract, otherwise EUR 4.162)
+- Advisory, installation or integration support, remotely (EUR 1.784 per 8 hours)
 - Development of new and/or custom features (project based, cost depending on scope)
 
 
@@ -71,6 +71,9 @@ Based on the training location and the time of travel an additional uplift of th
 Please send your inquiries regarding MISP Professional Services to mps@misp-project.org
 
 
+## Indexed prices
+
+The aforementioned prices are linked to the Luxembourgish index, version February 2023.
 
 
 
