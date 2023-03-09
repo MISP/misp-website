@@ -60,34 +60,35 @@ The following options are available for any holder of an active support contract
 
 ## MISP hosting
 
-Providing hardware resources, installing and maintaining the operating system and MISP can be challenging in some situations.
-We offer support for these cases, in form of MISP hosting.
+Providing hardware resources, installing and maintaining the operating system and MISP can be challenging for many organisations. 
+
+We can offer support for these cases, in form of MISP hosting. The hosting is located in Luxembourg, in our data-center and don't rely on
+third-party cloud providers.
 
 Below an overview of configurations:
 
-| Feature |virtual MISP|dedicated MISP|
-|---|------------|--------------|
+|Feature |virtual MISP|dedicated MISP|
+|:---|:-----------|:-------------|
 |Base resource|virtual| dedicated hardware |
 |Operating system maintenance| included| included|
 |MISP maintenance |included|included|
 |Initial OS & MISP setup| included | included|
-|MISP early patching *[1]|included|included|
+|MISP early patching [^1]|included|included|
 |Included MISP admin role| OrgAdmin|SiteAdmin|
-|Included Organisations|1|10|
+|Included Managed Organisations|1|Unlimited|
 |Included HDD space|100 GB| 500 GB|
 |Option: additional Organisations (group of 10, per year)|n/a|900 EUR|
 |Option: Enabling MISP modules| 2.500 EUR| included |
 |Option: Enabling and maintaining adequate CIRCL MISP synchronisation | 3.000 EUR| 3.000 EUR|
-|Option: MISP professional services (MPS) contract |5.000 EUR | included|
-|Option: Backup|?|?|
-|Option: additional HDD space per 100 GB|?|?|
+|Option: MISP professional services (MPS) contract |5.000 EUR |included|
+|Option: Backup|Included|Included and exportable|
+|Option: additional HDD space per 100 GB|on request|on request|
 |Setup cost|1.000 EUR|1.000 EUR|
-| Price per year|12.000 EUR| 45.000 EUR|
-
+|Price per year|12.000 EUR| 45.000 EUR|
 
 Footnotes:
 
-*[1] Part of the Responsible Vulnerability Disclosure program, security issue will be fixed on those instances as soon as they are discovered and fixed, even before an official release is published.
+[^1]: Part of the Responsible Vulnerability Disclosure program, security issue will be fixed on those instances as soon as they are discovered and fixed, even before an official release is published.
 
 Other features can be booked in addition. Volume discounts are available. We're open to discuss your specific requirements.
 
