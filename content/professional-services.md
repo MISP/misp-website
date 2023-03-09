@@ -86,8 +86,6 @@ Below an overview of configurations:
 |Setup cost|1.000 EUR|1.000 EUR|
 |Price per year|12.000 EUR| 45.000 EUR|
 
-Footnotes:
-
 [^1]: Part of the Responsible Vulnerability Disclosure program, security issue will be fixed on those instances as soon as they are discovered and fixed, even before an official release is published.
 
 Other features can be booked in addition. Volume discounts are available. We're open to discuss your specific requirements.
