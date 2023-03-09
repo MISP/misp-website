@@ -58,6 +58,39 @@ The following options are available for any holder of an active support contract
 - Advisory, installation or integration support, remotely (EUR 1.784 per 8 hours)
 - Development of new and/or custom features (project based, cost depending on scope)
 
+## MISP hosting
+
+Providing hardware resources, installing and maintaining the operating system and MISP can be challenging in some situations.
+We offer support for these cases, in form of MISP hosting.
+
+Below an overview of configurations:
+
+| Feature |virtual MISP|dedicated MISP|
+|---|------------|--------------|
+|Base resource|virtual| dedicated hardware |
+|Operating system maintenance| included| included|
+|MISP maintenance |included|included|
+|Initial OS & MISP setup| included | included|
+|MISP early patching *[1]|included|included|
+|Included MISP admin role| OrgAdmin|SiteAdmin|
+|Included Organisations|1|10|
+|Included HDD space|100 GB| 500 GB|
+|Option: additional Organisations (group of 10, per year)|n/a|900 EUR|
+|Option: Enabling MISP modules| 2.500 EUR| included |
+|Option: Enabling and maintaining adequate CIRCL MISP synchronisation | 3.000 EUR| 3.000 EUR|
+|Option: MISP professional services (MPS) contract |5.000 EUR | included|
+|Option: Backup|?|?|
+|Option: additional HDD space per 100 GB|?|?|
+|Setup cost|1.000 EUR|1.000 EUR|
+| Price per year|12.000 EUR| 45.000 EUR|
+
+
+Footnotes:
+
+*[1] Part of the Responsible Vulnerability Disclosure program, security issue will be fixed on those instances as soon as they are discovered and fixed, even before an official release is published.
+
+Other features can be booked in addition. Volume discounts are available. We're open to discuss your specific requirements.
+
 
 ## Additional costs for all missions outside Luxembourg
 
