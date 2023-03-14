@@ -1,6 +1,339 @@
 # Changelog
 
 
+## %%version%% (unreleased)
+
+### Other
+
+* Merge pull request #36 from SYNchroACK/new/sectors-galaxy. [Christian Studer]
+
+  Handle sectors galaxy
+
+* Add: [stix2 export] Handle sectors galaxy. [Tomas Lima]
+
+
+## v2.4.169 (2023-03-14)
+
+### Changes
+
+* [poetry] Bumped latest dependencies versions. [Christian Studer]
+
+* [package] Updated poetry & pymisp requirement. [Christian Studer]
+
+  - In order to better support git dependencies, we
+    updated poetry because it is required in order
+    to use git dependencies.
+  - With the change on poetry we can then use the
+    git dependency for pymisp - for now
+
+* [package] Bumped version. [Christian Studer]
+
+* [submodules] Bumped latest versions. [Christian Studer]
+
+* [documentation] Regenerated the documentation. [Christian Studer]
+
+* [stix2 export] A quick reuse of an existing SDO creation function. [Christian Studer]
+
+* [documentation] Regenerated the MISP -> STIX documentation with the recent mapping updates. [Christian Studer]
+
+* [documentation] Updated mapping documentation following some recent changes. [Christian Studer]
+
+* [github] Enabling github actions on dev branch. [Christian Studer]
+
+* [poetry, package] Updated python & the library versions. [Christian Studer]
+
+* [github, python] Removing support for 3.7 and added 3.11. [Christian Studer]
+
+### Fix
+
+* [stix2 import] Fixed missing imports removed by mistake. [Christian Studer]
+
+* [stix2 import] Some cleanup. [Christian Studer]
+
+  - Better readability when possible
+  - Fixed typing
+  - Simplified some parts using `getattr` instead of
+    `hasattr` when possible
+
+* [stix2 import] Fixed duplicate property that was causing issues with the parent class property. [Christian Studer]
+
+* [tests] Fixed the remaining latest datetime/timestamp values that were possibly missing. [Christian Studer]
+
+  - Testing `datetime` values - i.e from the
+    `datetime` python library - instead of str
+
+* [stix2 import] Fixed Marking definition objects handling. [Christian Studer]
+
+  - There are still some Marking definition we don't
+    parse yet - the ones with no `definition_type`
+    value - and we now properly handle the exception
+    that appear when we try to look at the ones that
+    are not loaded
+
+* [stix2 import] Fixed wrong variable name. [Christian Studer]
+
+* [stix2 import] Removed unused variable. [Christian Studer]
+
+* [documentation] Fixed datetime/timestamp values in the ampping documentation. [Christian Studer]
+
+* [tests] Fixed unittests on datetime/timestamp fields/values. [Christian Studer]
+
+* [tests] Made sure all the datetime/timestamp fields/values are properly set in test samples. [Christian Studer]
+
+* [stix2 export] Properly exporting datetime/timestamp fields/values. [Christian Studer]
+
+* [tests] Made some datetime values UTC. [Christian Studer]
+
+* [stix2 export] Fix naive timestamp. [Tomas Lima]
+
+* [tests] Fixed relationships tests to match the recent changes on the default relationship types. [Christian Studer]
+
+* [stix2 export] Typo. [Christian Studer]
+
+  - Fixes e918f69 and thus #33 for good this time
+
+* [stix2 export] Fixed default relationships used between SDOs. [Christian Studer]
+
+  - The `relationship_specs` mapping dictionary now
+    only conains default relationships that are
+    unique between 2 SDOs, if there are at least 2
+    possible default relationships between 2 SDOs,
+    we do not know which one to choose
+  - In that case, or in the case there is no
+    default relationship known between 2 SDOs, we
+    us the `related-to` common relationship instead
+    of `has`
+  - As a result, this should fix #33
+
+* [stix2 export] Variable name typo. [Christian Studer]
+
+* [tests] Fixed tests for `country` galaxies export as STIX 2.1 Location objects. [Christian Studer]
+
+* [stix2 export] Better `country` galaxy clusters parsing. [Christian Studer]
+
+  - We use the description (capitalised) to define
+    the `Location` name field of the country, and
+    the value (lower case) as a description, which
+    should fix #34
+
+* [stix2 import] Avoiding warnings about empty object attribute values while converting Observable objects to MISP. [Christian Studer]
+
+* [stix2 import] Fixed the unix extension parsing from User Account patterns. [Christian Studer]
+
+* [stix2 import] Fixed recently renamed unix extension mapping. [Christian Studer]
+
+* [stix2 import] Trying to fix a python 3.7 syntax issue for the remaining time it is still supported. [Christian Studer]
+
+  - 3.8 and above don't complain with the
+    `*(generator)` statement
+
+* [stix2 import] Fixed the `email` object parsing. [Christian Studer]
+
+* [tests] Fixed tests for the datetime attribute in STIX 2.0 File objects imported as `lnk` MISP objects. [Christian Studer]
+
+* [tests] Fixed tests for STIX 2.0 File objects imported as `lnk` objects. [Christian Studer]
+
+* [tests] Made the datetime fields in the File object - to be imported as `lnk` object - acceptable for STIX 2. [Christian Studer]
+
+* [tests] Fixed the internal STIX 2.0 test samples for `lnk` object import. [Christian Studer]
+
+* [stix2 import] Fixed wrongly set `self` variable. [Christian Studer]
+
+* [stix2 import] Better separation of exceptions during observable objects parsing. [Christian Studer]
+
+* [stix2 import] Some clean-up. [Christian Studer]
+
+  - Including:
+    - a wrong function name fixed
+    - a better naming for some SDOs parsing
+    - some unused methods removed
+
+* [stix2 import] Fixed imports. [Christian Studer]
+
+* [stix2 import] A very quick fix on observable mapping error message. [Christian Studer]
+
+* [stix2 import] Fixed imports. [Christian Studer]
+
+* [stix2 import] Fixed the Email Address observable object parsing. [Christian Studer]
+
+* [stix2 import] Avoiding issue while parsing IP addresses patterns with empty list of attributes mapped. [Christian Studer]
+
+* [stix2 import] Reusing the `object_marking_refs` fields parsing in a function. [Christian Studer]
+
+* [stix2 import] Fixed the Location object parsing. [Christian Studer]
+
+* [stix2 import] Correctly handling issues with observable object mapping. [Christian Studer]
+
+* [stix2 import] Fixed the Location object parsing. [Christian Studer]
+
+* [stix2 import] Fixed the pattern & observable types extraction. [Christian Studer]
+
+* [stix2 import] Fixed the `MarkingDefinition` objects parsing function. [Christian Studer]
+
+* [stix2 import] Made the MISP Attributes dict creation more generic and including the `object_marking_ref` field parsing. [Christian Studer]
+
+* [stix2 import] Avoiding issues with Marking-Definition objects with no `definition_type` field. [Christian Studer]
+
+* [stix2 import] Avoiding issues with Report or Grouping object that has no `name` field. [Christian Studer]
+
+### Other
+
+* Add: [readme] Quick additional instruction for poetry. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Wip: [stix2 import] Parsing Network Traffic objects. [Christian Studer]
+
+* Wip: [stix2 import] Simplified the email observable objects parsing. [Christian Studer]
+
+* Wip: [stix2 import] Parsing Observed Data with domain & ip observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing Software observable objects with the `software` object template. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge pull request #35 from SYNchroACK/fix/naive-timestamp. [Christian Studer]
+
+  Fix naive timestamp
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Wip: [stix2 import] Converting `WindowsRegistryKey` objects as `registry-key` & `registry-key-value` objects or `regkey` attributes. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Wip: [stix2 import] Parsing User Account Observable objects. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Wip: [stix2 import] Parsing X509 Certificate Observable objects. [Christian Studer]
+
+  - Reusing some stuff that is similar as the x509
+    pattern parsing
+
+* Wip: [stix2 import] Parsing Process observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Made the Observable objects parsing more generic. [Christian Studer]
+
+  - Reducing the amount of variables by putting all
+    the observable objects in one single dictionary.
+    Instead of using multiple dictionaries for
+    different object types, we use one and added
+    generic selection methods instead
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Wip: [stix2 import] Updated the File & Directory observable objects parsing to better support the references between objects. [Christian Studer]
+
+* Revert "fix: [stix2 import] Trying to fix a python 3.7 syntax issue for the remaining time it is still supported" [Christian Studer]
+
+  This reverts commit 556c433557e3fb6ba997ef0b7c1c8dd922d19e64.
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Wip: [stix2 import] Converting `Directory` observable objects as the recently added `directory` object template. [Christian Studer]
+
+  - Also fixed the observable objects mapping to
+    MISP for `lnk` objects import
+
+* Wip: [stix2 import] Simplifying the Observable objects conversion with fewer function calls. [Christian Studer]
+
+* Wip: [stix2 import] Properly handling filtering on multiple observable object types. [Christian Studer]
+
+* Wip: [stix2 import] Yield-ing observable objects instead of returning them in a list. [Christian Studer]
+
+* Wip: [stix2 import] Importing EmailMessage Observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Importing File Observable objects in the case of a single field value imported as MISP Attribute. [Christian Studer]
+
+* Wip: [stix2 import] Better "attribute or object" determination for File observable objects, searching for the `extensions` field. [Christian Studer]
+
+* Wip: [stix2 import] Importing MISP `file` objects from File Observable objects. [Christian Studer]
+
+  - Also includes the modification of some parsing
+    functions that are used for multiple Observable
+    objects
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Add: [tests] Added tests for the time fields recently added into the `file` object template. [Christian Studer]
+
+* Add: [stix export] Included the handling of the object attribute recently added to the `file` object template. [Christian Studer]
+
+  - Namely the object attributes mentioned here are:
+    - `acces-time`
+    - `creation-time`
+    - `modification-time`
+
+* Merge branch 'main' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Revert "wip: [stix2 export] Simplified the Galaxies mapping" [Christian Studer]
+
+  This reverts commit 76f4e6f58fa332e3b9170a20151aca762df16dca.
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Update README.md. [Alexandre Dulaunoy]
+
+  Fix documentation for generated website
+
+* Merge pull request #26 from coolacid/main. [Alexandre Dulaunoy]
+
+  Use MISP event UUID for bundle ID
+
+* Use f-strings like elsewhere, check for _misp_event to pass tests. [Jason Kendall]
+
+* Use MISP event UUID for bundle ID. [Jason Kendall]
+
+* Wip: [stix2 import] Better Observable objects parsing. [Christian Studer]
+
+* Wip: [stix2 import] Cleaner UUID sanitation in some cases. [Christian Studer]
+
+* Wip: [stix2 import] Better Observable objects exceptions handling. [Christian Studer]
+
+* Wip: [stix2 import] Quick Observable objects parsing improvement. [Christian Studer]
+
+* Wip: [stix2 import] Cleaner way to handle Observable objects import & supporting a few more observable object types. [Christian Studer]
+
+* Wip: [stix2 export] Simplified the Galaxies mapping. [Christian Studer]
+
+* Wip: [stix2 import] Parsing `domain-name` observable objects and reusing some generic observable objects parsing code. [Christian Studer]
+
+* Wip: [stix2 import] Started parsing external STIX 2 observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Parsing `object_marking_refs` field from several STIX objects to import tags in object attributes. [Christian Studer]
+
+
 ## v2.4.168 (2023-01-30)
 
 ### Changes
