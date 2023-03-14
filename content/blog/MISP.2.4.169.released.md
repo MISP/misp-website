@@ -40,7 +40,7 @@ For more details, the [misp-object changelog](https://www.misp-project.org/Chang
 ## MISP Galaxy
 
 - A new MISP galaxy `first-dns` matrix describing DNS abuse techniques has been added.
-- Various improvements in different galaxy such as `threat-actors`, `sigma`, `stealer`, `tools, ``region`, `360net`, MITRE ATT&CK.
+- Various improvements in different galaxy such as `threat-actors`, `sigma`, `stealer`, `tools`, `region`, `360net`, MITRE ATT&CK.
 
 For more details, the [misp-galaxy changelog](https://www.misp-project.org/Changelog-misp-galaxy.txt) is available.
 
