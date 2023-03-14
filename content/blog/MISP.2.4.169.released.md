@@ -7,7 +7,7 @@ banner: /img/blog/graph-syria.png
 
 We are pleased to announce the immediate availability of [MISP v2.4.169](https://github.com/MISP/MISP/releases/tag/v2.4.169) with various improvements and bug fixes.  
 
-It includes many improvement [release](https://www.misp-project.org/Changelog-misp-stix.txt) of [misp-stix](https://github.com/MISP/misp-stix), the core Python library for importing and exporting STIX (1, 2.0 and 2.1).
+It includes many improvement [release](https://github.com/MISP/misp-stix/releases/tag/v2.4.169) of [misp-stix](https://github.com/MISP/misp-stix), the core Python library for importing and exporting STIX (1, 2.0 and 2.1).
 
 # Improvements
 
