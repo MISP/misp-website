@@ -34,6 +34,7 @@ Go to the detailed [changelog](https://www.misp-project.org/Changelog.txt) for m
 - A new MISP object `transport-ticket` has been created to share information about transports in MISP.
 - Various improvements to `network-connection`, `network-socket`.
 - A new MISP object `registry-key-value`
+- For AIS maritime ship identification and tracking you can use the `AIS` object.
 
 For more details, the [misp-object changelog](https://www.misp-project.org/Changelog-misp-objects.txt) is available.
 
