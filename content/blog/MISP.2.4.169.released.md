@@ -20,6 +20,9 @@ It includes many improvement [release](https://github.com/MISP/misp-stix/release
 
 - TAXII servers invalid baseurl field type fixed.
 - Restore bro export (temporary fix until a complete rework of the bro export in ReSTsearch).
+- [CVE-2023-28606](https://cvepremium.circl.lu/cve/CVE-2023-28606) < MISP 2.4.169 - js/event-graph.js in MISP before 2.4.169 allows XSS via event-graph node tooltips. 
+- [CVE-2023-28607](https://cvepremium.circl.lu/cve/CVE-2023-28607) < MISP 2.4.169 - js/event-graph.js in MISP before 2.4.169 allows XSS via the event-graph relationship tooltip. 
+
 
 A huge thanks to all the contributors and supporters of the MISP project. This release wouldn't be possible without the help of all the organisations and people supporting us to make MISP a reality.
 
