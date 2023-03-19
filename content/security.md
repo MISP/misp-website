@@ -92,6 +92,8 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2023-24028](https://cvepremium.circl.lu/cve/CVE-2023-24028) < MISP 2.4.168 - In app/Controller/Component/ACLComponent.php has incorrect access control for the decaying import function.
 - [CVE-2022-48328](https://cvepremium.circl.lu/cve/CVE-2022-48328) < MISP 2.4.167 - app/Controller/Component/IndexFilterComponent.php in MISP before 2.4.167 mishandles ordered_url_params and additional_delimiters.
 - [CVE-2022-48329](https://cvepremium.circl.lu/cve/CVE-2022-48329) < MISP 2.4.166 -  MISP before 2.4.166 unsafely allows users to use the order parameter, related to app/Model/Attribute.php, app/Model/GalaxyCluster.php, app/Model/Workflow.php, and app/Plugin/Assets/models/behaviors/LogableBehavior.php.  
+- [CVE-2023-28606](https://cvepremium.circl.lu/cve/CVE-2023-28606) < MISP 2.4.169 - js/event-graph.js in MISP before 2.4.169 allows XSS via event-graph node tooltips. 
+- [CVE-2023-28607](https://cvepremium.circl.lu/cve/CVE-2023-28607) < MISP 2.4.169 - js/event-graph.js in MISP before 2.4.169 allows XSS via the event-graph relationship tooltip. 
 
 ## PGP Key
 
