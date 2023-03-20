@@ -118,7 +118,7 @@ The GDPR provides a new data protection framework that will allow information sh
 
 ## References
 
-1. [Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC, O.J.E.U., L 119/1 of 4th of May 2016.](http://ec.europa.eu/justice/data-protection/reform/files/regulation_oj_en.pdf)
+1. [Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC, O.J.E.U., L 119/1 of 4th of May 2016.](https://eur-lex.europa.eu/EN/legal-content/summary/general-data-protection-regulation-gdpr.html)
 2. [Directive 2007/64/EC of the European Parliament and of the Council of 13 November 2007 on payment services in the internal market amending Directives 97/7/EC, 2002/65/EC, 2005/60/EC and 2006/48/EC and repealing Directive 97/5/EC](http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32007L0064&from=en)
 3. [Directive (EU) 2015/2366 of the European Parliament and of the Council of 25 November 2015 on payment services in the internal market, amending Directives 2002/65/EC, 2009/110/EC and 2013/36/EU and Regulation (EU) No 1093/2010, and repealing Directive 2007/64/EC](http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32015L2366&from=EN)
 4. [Judgement of the Court (Third Chamber) of 24 November 2011. “Scarlet Extented SA v SABAM »](http://curia.europa.eu/juris/liste.jsf?language=en&num=C-70/10)
