@@ -13,44 +13,26 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 The previous Hackaton was in October 2021: [Open Source Security Hackathon](/hackathon/)
 
-
 ### Conferences 
+
+- [MISP will present at FIC 2023](https://europe.forum-fic.com/en/partners-2023/) - F24-05 - 5th->7th April 2023 - Lille, France
 
 ### Public MISP trainings 
 
-- #### MISP Best Practices for encoding threat intelligence (3 hours - online)
+- #### MISP Introduction and NIS 2 (3 hours - [onsite at NISDUC conference](https://www.nisduc.eu/second-conference/program))
 
-  *When:* {{< fixedtime `15th December 09:00-12:00 CET` `MISP Best Practices for encoding threat intelligence` `20221215T12` `3` >}}</a>
+  *When:* {{< fixedtime `26th April 11:30-15:15 CET` `MISP Best Practices for encoding threat intelligence` `20230426T12` `3` >}}</a>
 
-  *Where:* Remote (Zoom and online MISP training instance)
+  *Where:* Onsite ([NISDUC Conference](https://www.nisduc.eu/second-conference/program) in Bruxelles)
 
-  *Price:* Free 
-
-  *Summary agenda:*
-
-	 - MISP data model
-	 - Best practices - from evidences to actionable evidences
-	 - Leverage the information in MISP to make threat landscape report
-
-  *Event link:* [Zoom link](https://us02web.zoom.us/j/81768507425?pwd=VkRwWXRIc0RXOWZ4ODdSVnFPQ0Jadz09) 
-
-
-- #### MISP Workflow (2 hours) 
-
-  *When:* {{< fixedtime `15th December 2022 14:00-16:00 CET` `MISP Workflow` `20221215T12` `3` >}}</a>
-
-  *Where:* Remote (Zoom and online MISP training instance)
-
-  *Price:* Free 
+  *Price:* Free (registration required)
 
   *Summary agenda:*
 
-    MISP has been a widely used open source CTI platform for the past decade, with a long list of tools that allow users to customise the data models and contextualisation of the platform, yet true customisation of the actual workflows and processes had to be done externally using custom scripts.
+      - Introduction to MISP and usage
+      - Data model and use-cases focusing on NIS2 information sharing
 
-    With the introduction of [MISP workflows](https://www.misp-project.org/2022/08/08/MISP.2.4.160.released.html/), this has changed and the workshop aims to walk the audience through some of the potential ideas of how one could adapt the tool to their own CSIRT’s or SOC’s workflows by using some useful examples during the session.
-
-  *Event link:* [Zoom Link](https://us02web.zoom.us/j/83982836437?pwd=SHlLL2J2V1hPZnp4TmhpWmQwbFN6Zz09) 
-
+  *Event link:* [NISDUC Conference](https://www.nisduc.eu/second-conference/program) 
 
 ### Past events
 
