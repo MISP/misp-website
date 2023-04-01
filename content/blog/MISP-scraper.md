@@ -3,6 +3,10 @@ title: MISP web scraper
 banner: /img/blog/misp-scraper-Components.drawio.png
 date: 2022-08-08
 layout: post
+authors:
+- Koen Van Impe
+tags: ["scraping", "crawling", "MISP", "Threat Intelligence"]
+categories: []
 ---
 
 # MISP web scraper
