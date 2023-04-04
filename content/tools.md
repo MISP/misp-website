@@ -107,6 +107,8 @@ For the additional software created by the MISP project, check our [MISP project
 * [misp42splunk](https://github.com/remg427/misp42splunk) - A Splunk app to use one or more MISP in background. misp42splunk is also [available in splunkbase](https://splunkbase.splunk.com/app/4335/#/details).
 * [MISP-IOC-Validator](https://github.com/tom8941/MISP-IOC-Validator/) validates the format of the different IOC from MISP and to remove false positive by comparing these IOC to existing known false positive.
 * [misp-extractor](https://github.com/00gxd14g/misp-extractor) - Connects to a MISP instance and retrieves attributes of specific types src-ip,dst-ip,url,domain The retrieved attributes are then written to separate files.
+* [misp-to-sentinel (Azure Function)](https://github.com/zolderio/misp-to-sentinel/) - Azure Function to export MISP intel to Azure Sentinel
+* [misp-to-sentinel (on MISP server)](https://www.misp-project.org/2023/04/03/MISP-Sentinel.html/) - The MISP to Azure / Sentinel integration allows you to upload indicators from MISP to Microsoft Sentinel. It relies on PyMISP to get indicators from MISP and an Azure App and Threat Intelligence Data Connector in Azure.
 * [eCrimeLabs MISP Purge Events tool](https://github.com/eCrimeLabs/MISP-PurgeEvents) A python script to perform cleanup of old or unwanted events, including Blacklisted Events.
 * [misp-takedown](https://github.com/rommelfs/misp-takedown) - A curses-style interface for automatic takedown notification based on MISP events.
 * [misp-scraper](https://github.com/cudeso/misp-scraper) -  A web scraper to create MISP events and reports 
@@ -130,7 +132,6 @@ For the additional software created by the MISP project, check our [MISP project
 * [Viper](http://www.viper.li/) - is a binary management and analysis framework dedicated to malware and exploit researchers including a MISP module.
 * [vt2misp](https://github.com/eCrimeLabs/vt2misp) -  Script to fetch data from virustotal and add it to a specific event as an object.
 * [yara-exporter](https://github.com/BSI-CERT-Bund/yara-exporter) - Exporting MISP event attributes to yara rules usable with Thor apt scanner.
-* [misp-to-sentinel](https://github.com/zolderio/misp-to-sentinel/) - Azure Function to export MISP intel to Azure Sentinel
 
 ### Tutorials on interconnecting MISP with other tools
 
