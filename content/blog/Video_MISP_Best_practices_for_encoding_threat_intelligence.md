@@ -12,7 +12,7 @@ banner: /img/blog/graph-syria.png
 ## Content of Training Session
 
 - [MISP data model introduction](https://github.com/MISP/misp-training/blob/main/complementary/other-slides/a.11.a-misp-data-model-overview.pdf)
-- [Best practices - from evidences to actionable evidences](https://github.com/MISP/misp-training/blob/main/complementary/other-slides/MISP%208%20Commandments%20-%20Recommendations%20and%20Best%20Practices%20when%20encoding%20data.pdf)
+- [Best practices - from evidences to actionable evidences](https://github.com/MISP/misp-training/blob/main/complementary/other-slides/MISP%2010%20Commandments%20-%20Recommendations%20and%20Best%20Practices%20when%20encoding%20data.pdf)
 - Leveraging the information in MISP to Make Threat Landscape Report
 
 [Jupyter notebook](https://github.com/MISP/misp-training/blob/ffd36c92e909571dc525ed45a142d604dc912278/a.7-rest-API/query-misp.ipynb) used during the training session.
