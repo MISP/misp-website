@@ -1,9 +1,187 @@
 # Changelog
 
 
-## %%version%% (unreleased)
+## v2.4.170 (2023-04-13)
+
+### Changes
+
+* [misp_stix_converter] Added quick comments & made the `_from_misp` utility available to import from the library. [Christian Studer]
+
+* [misp_stix_converter] Moved the command line feature to `misp_stix_converter.py` to avoid all the related utility functions to be exposed while importing the python library. [Christian Studer]
+
+* [stix2 import] Using the `from_dict` method as much as possible to populate the different MISP Object or Event fields. [Christian Studer]
+
+  - It introduces some changes on the format of the
+    datetime fields which are now properly defined
+    as datetime with the right format and the
+    timezone info
+
+* [stix2 import] Extracted the object case handling to make it callable. [Christian Studer]
+
+* [stix2 import] Better STIX objects as Galaxy import handling. [Christian Studer]
+
+  - Instead of testing if we have to import the
+    tag names or the full Galaxy object each time
+    we parse a single STIX object, we set a variable
+    from the beginning to redirect to the related
+    parsing function
+
+### Fix
+
+* [stix2 export] Export the `source` of a sighting as `x_misp_source` as defined in the Custom STIX 2.0 object. [Christian Studer]
+
+  - Fixes #28
+
+* [stix2 import] Fixed Galaxy parsing as tag names variable typo. [Christian Studer]
+
+* [misp_stix_converter] Removed unused import. [Christian Studer]
+
+* [misp_stix_converter] Better output names handling. [Christian Studer]
+
+* [misp_stix_converter] Some clean-up. [Christian Studer]
+
+* [stix2 import] Added the missing `entrypoin-address` attribute. [Christian Studer]
+
+* [stix2 import] Making sure we won't have MISP objects rejected for having the same UUID. [Christian Studer]
+
+  - `pe` & `pe-section` objects are converted from
+    the same observable object or pattern as the
+    `file` object that contains them.
+    If we create the different MISP objects the same
+    way we do for the file, they will all have the
+    same UUID and MISP will reject them
+
+* [tests] Updated tests to handle the recent changes on the datetime values format. [Christian Studer]
+
+* [tests] Fixed tests for internal file with pe & sections objects following recent changes on the related parsing functions. [Christian Studer]
+
+* [stix2 import] Fixed `_add_misp_attribute` function called names. [Christian Studer]
+
+* [stix2 import] Updated the `process` object attributes used to force the MISP content being an object to align with the `requiredOneOf` field of the template. [Christian Studer]
+
+* [stix2 import] Fixed STIX 2 Observable objects to MISP mapping for `Domain Name` with `Network Traffic` objects. [Christian Studer]
+
+* [stix2 import] Fixed wrong object attribute mapping. [Christian Studer]
+
+  - The PID attribute is not part of the `Registry Key`
+    object mapping but `Process`
+
+* [stix2 import] Cleaner `unknown pattern mapping warning` handling. [Christian Studer]
+
+* [stix2 import] Quick clean-up on the error & warning messages handling. [Christian Studer]
+
+* [stix2 import] Quick clean-up. [Christian Studer]
+
+* [stix2 import] Fixed the `x509` import from pattern parsing. [Christian Studer]
+
+* [stix2 import] Fixed the `Identity` object parsing. [Christian Studer]
+
+* [tests] Added the missing `sector` galaxy checking function. [Christian Studer]
+
+* [stix2 import] Fixed the internal STIX 2 objects conversion as MISP Galaxy. [Christian Studer]
+
+  - We have to check whether the `description` field
+    does contain the `|` as separation caracter,
+    because it is not the case for internal
+    `Identity` objects with the `identity_class`
+    field set to 'class' imported as `sector` galaxy
+
+* [tests] Fixed the galaxies export tests to avoid issues with potential missing `description` & `meta` fields within the cluster definition. [Christian Studer]
+
+* [stix2 export] Fixed the `sector` galaxy parsing to avoid issues with the `description` field within the galaxy cluster definition. [Christian Studer]
+
+* [stix2 export] Making the sector galaxy export available for both STIX 2.0 & 2.1. [Christian Studer]
 
 ### Other
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Wip: [stix2 import] Better `File` and its pe extensions parsing from patterns. [Christian Studer]
+
+* Wip: [stix2 import] Simplified the patterns mapping. [Christian Studer]
+
+* Wip: [stix2 import] Importing directory objects from stix patterns. [Christian Studer]
+
+* Wip: [stix2 import] Network socket parsing improved. [Christian Studer]
+
+* Wip: [stix2 import] Parsing PE optional headers. [Christian Studer]
+
+  - Currently only the entry point address supported
+
+* Wip: [stix2 import] Using `from_dict` to update MISPObjects instead of `update` [Christian Studer]
+
+* Wip: [stix2 import] Improved the `Network Traffic` pattern parsing. [Christian Studer]
+
+* Wip: [stix2 import] Replaced more dict `update` by dict merge. [Christian Studer]
+
+* Wip: [stix2 import] Better and more generic Attributes & Objects add handling. [Christian Studer]
+
+  - The `confidence` and `object_marking_refs` STIX
+    fields are properly handled in one place and
+    added as single Attribute or each object
+    Attribute tags
+
+* Wip: [stix2 import] Better attributes dictionaries creation. [Christian Studer]
+
+* Wip: [stix2 import] Added `ip-src` & `ip-dst` attribute definition to be reused in different places. [Christian Studer]
+
+* Wip: [stix2 import] Importing Software objects with the `software` object template. [Christian Studer]
+
+* Wip: [stix2 import] Importing `user-account` objects from STIX 2 User Account objects. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Wip: [stix2 import] Converting `Mutex` patterns into `mutex` objects. [Christian Studer]
+
+* Wip: [stix2 import] Handling the exceptions with non existing protocols. [Christian Studer]
+
+* Wip: [stix2 import] Converting `network-traffic` pattern values into `network-connection` objects. [Christian Studer]
+
+  - Need to handle the `src` & `dst` refs
+
+* Wip: [stix2 import] Converting pattern with `autonomous-system` values as `asn` object. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Wip: [stix2 import] Better import case handling. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Wip: [documentation] Auto-generated documetation for `sector` galaxies export. [Christian Studer]
+
+* Wip: [stix2 import] Importing `sector` Galaxies from external `Identity` objects with `identity_class` field set to 'class' [Christian Studer]
+
+* Wip: [tests] Tests for STIX 2 Identity objects converson as `sector` galaxies. [Christian Studer]
+
+* Wip: [stix2 import] STIX 2 `Identity` objects conversion as `sector` Galaxy import. [Christian Studer]
+
+* Add: [tests] Tests for `sector` galaxies export to STIX 2.0 & 2.1. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
 
 * Merge pull request #36 from SYNchroACK/new/sectors-galaxy. [Christian Studer]
 

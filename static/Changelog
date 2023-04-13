@@ -2,6 +2,341 @@ Changelog
 =========
 
 
+v2.4.170 (2023-04-13)
+---------------------
+
+New
+~~~
+- [misp-workflow-modules] Event threat level if logic module.
+  [vincenzocaputo]
+
+Changes
+~~~~~~~
+- Bumped version. [Sami Mokaddem]
+- [misp-stix] Bumped the latest version. [Christian Studer]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [misp-warninglists] updated to the latest version. [Alexandre
+  Dulaunoy]
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- Move breakOnDuplicate check to Attribute::captureAttribute. [Luciano
+  Righetti]
+- Handle breakOnDuplicate parameter in Attribute:add() to perform
+  upserts instead of failing. [Luciano Righetti]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [event:_add] Simplified ACL test checking whether a user can create
+  the event. [Sami Mokaddem]
+
+  - Simplifed code
+  - Removed extremely old condition `$data['Event']['orgc'] != user['Organisation']['name']` that's not relevant anymore
+  - Make sure that Orgc.uuid takes precedence over Event.orgc_id
+- [workflow-module:send_mail] add send_log_mail for org admin as rcpts.
+  [Christophe Vandeplas]
+- [workflow-module:send_mail] allow to all admins. [Christophe
+  Vandeplas]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [authkey] pin IP on view page. [Christophe Vandeplas]
+- [authkey] One-click IP as only allowed IP. [Christophe Vandeplas]
+- [AuthKey] db change. [Christophe Vandeplas]
+- [AuthKey] store IPs used to connect and show them. [Christophe
+  Vandeplas]
+- [workflows] Log After Save module. [Christophe Vandeplas]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [git] exclude DebugKit plugin from git. [Christophe Vandeplas]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [pymisp] bump. [iglocska]
+- [pymisp] version string bump. [iglocska]
+
+Fix
+~~~
+- [workflow:tag_if] Correctly compare cluster tags. [Sami Mokaddem]
+- Unset id and uuid of object attributes if regenerateUUIDs is checked
+  when populating event with a MISP json fixes #9012. [Luciano Righetti]
+- Handle when a batch of attributes is sent and only a subset has
+  breakOnDuplicate=false. [Luciano Righetti]
+- Remove unused line. [Luciano Righetti]
+- Consistent hash calculation in object dup checks. [Luciano Righetti]
+- Fix "'sharing_group_id' doesn't have a default value error" error when
+  importing OpenIOC file. [Luciano Righetti]
+- Disable csrf checks for events/saveFreeText when CustomAuth is
+  enabled, fixes #8991. [Luciano Righetti]
+- [event:viewAttribute] Reset pagination state when using a filter on
+  the attribute table. [Sami Mokaddem]
+
+  - This will certainly make @rommelfs happy :)
+- [galaxy] Clarify supported format of webui galaxy import. [Christophe
+  Vandeplas]
+- [workflows] fix undefined index in moduleView. [Christophe Vandeplas]
+- [workflow-module:enrich_event] Do not run enrichment is no filtered
+  elements. [Sami Mokaddem]
+
+  If a filtering condition was set and no item were matched, the whole event was enriched. Now nothing
+- [workflow-module:tag_if] Added support of galaxy clusters. [Sami
+  Mokaddem]
+
+  Fix #8959
+- [db:workflows] Changed workflows.data from TEXT to LONGTEXT. [Sami
+  Mokaddem]
+
+  Should fix issue  #8979
+- [AuthKey] integrate mokaddem's remarks. [Christophe Vandeplas]
+- [AuthKeys] prevent race condition with double IPs. [Christophe
+  Vandeplas]
+- [workflows] Email requires misp-modules. [Christophe Vandeplas]
+- [sightings] don't be case insensitive on code side. [iglocska]
+- [AccessLog] MySQL command. [dnso86]
+- [adminShell:optimiseTables] MySQL command. [dnso86]
+- [security] XSS in community index. [Sami Mokaddem]
+
+  - As reported by Zigrin Security
+- [docs] revert attempt. [Christophe Vandeplas]
+- [docs] attempt to fix failing includes in github pages. [Christophe
+  Vandeplas]
+- [docs] Fixes one more broken link. [Christophe Vandeplas]
+- [docs] Fixes broken links on misp.github.io website. [Christophe
+  Vandeplas]
+- [galaxyCluster index] filter by galaxy should accept UUID too not just
+  ID. [iglocska]
+- [Galaxy index search] fixed. [iglocska]
+
+  - seems to be using the Cerebrate format rather than MISP?
+
+Other
+~~~~~
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into chg-acl-event-add-
+  simplification. [Sami Mokaddem]
+- Merge pull request #8980 from righel/ignore-dup-attrs. [Luciano
+  Righetti]
+
+  [new]: add breakOnDuplicate option to attributes/add
+- Cgh: add named param support for attributes:add() breakOnDuplicate.
+  [Luciano Righetti]
+- Merge pull request #9009 from righel/fix-openioc-import. [Luciano
+  Righetti]
+
+  fix: fix openioc import
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch 'pr-8983' into develop. [Sami Mokaddem]
+- Use existing and appropriate function to retrieve threat levels.
+  [vincenzocaputo]
+- Merge branch '2.4' of https://github.com/vincenzocaputo/MISP into add-
+  threatlevel-if-module. [vincenzocaputo]
+- Remove unused properties. [vincenzocaputo]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of https://github.com/MISP/MISP into develop.
+  [Christophe Vandeplas]
+- Merge remote-tracking branch 'origin/feature/api_log_and_pin_ip' into
+  develop. [Christophe Vandeplas]
+- Merge branch 'develop' into feature/api_log_and_pin_ip. [Christophe
+  Vandeplas]
+- Merge branch 'develop' into feature/api_log_and_pin_ip. [Christophe
+  Vandeplas]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge remote-tracking branch 'origin/2.4' into develop. [Christophe
+  Vandeplas]
+- Merge branch '2.4' into develop. [Christophe Vandeplas]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Christian
+  Studer]
+- Merge pull request #8989 from dnso86/fix-cake-optimisetables-query.
+  [Alexandre Dulaunoy]
+
+  Fix typo in OPTIMIZE MySQL commands
+- Revert "Feature/api log and pin ip (#8965)" [Christophe Vandeplas]
+
+  This reverts commit d5ce838ddca4f95b6c303b64b53b70b0b1bc28da.
+- Feature/api log and pin ip (#8965) [Christophe Vandeplas]
+
+  * fix: [sightings] don't be case insensitive on code side
+
+  * chg: [AuthKey] store IPs used to connect and show them
+
+  * chg: [AuthKey] db change
+
+  * fix: [AuthKeys] prevent race condition with double IPs
+
+  * chg: [git] exclude DebugKit plugin from git
+
+  * fix: [AuthKey] integrate mokaddem's remarks
+
+  * chg: [authkey] One-click IP as only allowed IP
+
+  * chg: [authkey] pin IP on view page
+
+  ---------
+- Update background-jobs-migration-guide.md. [Luciano Righetti]
+- Merge pull request #8970 from righel/fix-installer-pages. [Alexandre
+  Dulaunoy]
+
+  [fix] fix installer pages
+- [fix]: comment (properly) md inclusion for archived guides, cannot
+  include from parent dir. [Luciano Righetti]
+- [fix]: comment md inclusion for archived guides, cannot include from
+  parent dir. [Luciano Righetti]
+- [fix]: relative md inclusion (archived) [Luciano Righetti]
+- [fix]: relative md inclusion. [Luciano Righetti]
+- [fix]: relative md inclusion. [Luciano Righetti]
+- [fix]: relative md inclusion. [Luciano Righetti]
+
+
+v2.4.169 (2023-03-14)
+---------------------
+
+New
+~~~
+- [ApacheAuthenticate] Add STARTTLS support for LDAP connection. [Anders
+  Einar Hilden]
+
+  Controlled by setting `ApacheSecureAuth.starttls`. Default (`ApacheSecureAuth.starttls undefined`) is `false`, since it is a new feature.
+
+  config.default.php is updated with `ApacheSecureAuth.starttls = true` as default and extra explanations.
+- [LS22 shell] added setSetting command. [iglocska]
+- [misp-workflow-modules] Splunk HEC export Module implemented. [Benni0]
+
+Changes
+~~~~~~~
+- [misp-stix] Bumped latest version. [Christian Studer]
+- Order for tests. [Raphaël Vinot]
+- Update GHA to fix composer, maybe. [Raphaël Vinot]
+- Bump ubuntu version to use. [Raphaël Vinot]
+- Bump PyMISP. [Raphaël Vinot]
+- [version] bump. [iglocska]
+- [db_schema] version bump. [iglocska]
+- [db_schema] update. [iglocska]
+- [vendor dir check diagnostic] made the execution optional if the
+  required package is missing. [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [workflow:module_splunk_hec_export] added parameter for source type
+  specification. [benni0]
+- [command:ls22] Improved scoring for LS shell. [Sami Mokaddem]
+- [diagnostics] Report on Vendor dependencies. [Christophe Vandeplas]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-warning] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [workflow:module_splunk_hec_export] Small refactoring. [Sami Mokaddem]
+- [workflow:module_webhook] Added support of more parameter to perform a
+  request. [Sami Mokaddem]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [misp-stix] updated to the latest version. [Alexandre Dulaunoy]
+- [dashboard-widget:TrendingTags] Added filtering and over time
+  functionalities. [Sami Mokaddem]
+- [events:add_misp_export] Handle case of missing Event key. [Sami
+  Mokaddem]
+- [events:populate] Added support of regeneration of UUIDs. [Sami
+  Mokaddem]
+- [events:populate] Improved support of MISP core format. [Sami
+  Mokaddem]
+- [view:ajaxTags] Added placeholder for highlighted taxonomies without a
+  tag. [Sami Mokaddem]
+
+Fix
+~~~
+- Install guide links. [fukusuket]
+- [testlive security] change the test org name to not include spaces.
+  [iglocska]
+
+  there's a lookup via orgname in the URL that causes the tests to fail otherwise
+- [php7.2 compat] make 7.2 happy with no trailing comma in the funciton
+  params. [iglocska]
+- [LS22 shell] parameter name fixed. [iglocska]
+- [security] XSS in event-graph relationship tooltip. [Sami Mokaddem]
+- [security] XSS in event-graph node tooltips. [Sami Mokaddem]
+
+  - as reported by Cyber Controls from SIX Group
+- [workflowModules:splunkHec] Fixed indentation. [Sami Mokaddem]
+- [workflow:module_splunk_hec_export] typo colon removed. [Benni0]
+- [workflow:module_splunk_hec_export] top level event required by splunk
+  hec. [benni0]
+- [Sighting] rework of the loading via restsearch. [iglocska]
+
+  - the chunking and limiting by attribute IDs in the sighting restsearch caused long delays due to a select with two AND-ed in value lists causing the query optimiser to constantly run statistics on the table
+  - moved the filtering by attribute to PHP side via a loop, it should boost the performance of the function - and with it the sync considerably
+- [Sighting] rework of the loading via restsearch. [iglocska]
+
+  - the chunking and limiting by attribute IDs in the sighting restsearch caused long delays due to a select with two AND-ed in value lists causing the query optimiser to constantly run statistics on the table
+  - moved the filtering by attribute to PHP side via a loop, it should boost the performance of the function - and with it the sync considerably
+- [attribute correlations] account for both entry points, event view and
+  attribute index. [iglocska]
+
+  - to select the correct field for the remote ID (rather than point at an attribute ID in the related events)
+- [correlations] attribute index / search shows incorrect correlations,
+  fixes #8930. [iglocska]
+
+  - showed the attribute ID rather than the event ID, also leading to invalid URLs for pivoting
+- [object correlations] fixed - ACL was incorrectly hiding valid
+  correlations for a user, fixes #8929. [iglocska]
+
+  - inherit as the object distribution was blocked when showing correlations
+- [tools] corrected path to misp-website. [Christophe Vandeplas]
+- [taxii servers] invalid baseurl field type. [iglocska]
+
+  - copy pasta strikes again
+- [workflow:standalone_module_execute] Clear error output on sucess.
+  [Sami Mokaddem]
+- [workflow:baseModule] Removed unused line. [Sami Mokaddem]
+- [objects:group_attributes_into_object] Typo in find options. [Sami
+  Mokaddem]
+- [attribute:bro] Restored bro export. [Sami Mokaddem]
+
+  The broExport should probably be rewritten to sue the standard restSearch export later on
+- [dashboard:widget_render] Use the correct render when using cache.
+  [Sami Mokaddem]
+- [attribute:bro] Restored bro export. [Sami Mokaddem]
+
+  The broExport should probably be rewritten to sue the standard restSearch export later on
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Christian
+  Studer]
+- Merge pull request #8951 from fukusuket/fix-install-guide-doc-links.
+  [Alexandre Dulaunoy]
+
+  fix: install guide links
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge pull request #8952 from MISP/composer_fix. [Raphaël Vinot]
+
+  chg: update GHA to fix composer, maybe.
+- Merge branch 'develop' into composer_fix. [Raphaël Vinot]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of https://github.com/MISP/MISP into develop.
+  [Christophe Vandeplas]
+- Merge branch 'pr-8948' into develop. [Sami Mokaddem]
+- [new]: [doc] [ApacheSecureAuth] Add minimal docs for ApacheSecureAuth,
+  and a bigger section about using the /users/logout401 endpoint.
+  [Anders Einar Hilden]
+- [new]: [ApacheSecureAuth] Add endpoint /users/logout401 for logging
+  out from HTTP Basic Auth. [Anders Einar Hilden]
+
+  This can be used by i.e. ApacheSecureAuth to make a browser forget cached HTTP Basic Auth credentials, which would otherwise result in a logut->login loop.
+- Merge branch 'pr-8946' into develop. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge branch 'pr-8835' into develop. [Sami Mokaddem]
+- Merge pull request #1 from Benni0/develop. [Benni0]
+
+  Merge fix for workflow:module_splunk_hec_export
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'pr-8835' into develop. [Sami Mokaddem]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [Sami Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+
+
 v2.4.168 (2023-02-01)
 ---------------------
 
