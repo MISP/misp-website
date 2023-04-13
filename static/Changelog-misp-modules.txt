@@ -1,6 +1,70 @@
 # Changelog
 
 
+## v2.4.170 (2023-04-12)
+
+### Changes
+
+* [mkdocs] config updated. [Alexandre Dulaunoy]
+
+### Fix
+
+* [test] pdftotext output check. [Alexandre Dulaunoy]
+
+  The important part is the matching text from the PDF not any trailling
+  which might be different depending of the encoding.
+
+* [dbl_spamhaus] if you want to run local test, the dns module expansion is taking over from the original dnspython3 library. [Alexandre Dulaunoy]
+
+  The trick is just to get rid of the syspath to exclude the local
+  directory until the proper library is loaded.
+
+### Other
+
+* Merge pull request #603 from MISP/new_module. [Alexandre Dulaunoy]
+
+  New module to query ipinfo.io to gather additional information on an IP address
+
+* Merge branch 'main' of github.com:MISP/misp-modules into new_module. [Christian Studer]
+
+* Merge pull request #607 from crowdsecurity/add_crowdsec_doc. [Alexandre Dulaunoy]
+
+  Add crowdsec json doc
+
+* Add crowdsec json doc. [Shivam Sandbhor]
+
+* Merge pull request #605 from maikwuerth/main. [Alexandre Dulaunoy]
+
+  Updated Defender export module
+
+* Updated moduleInfo. [Maik Würth]
+
+* Added support for SHA256 and MISPObject attributes to Defender export module. [Maik Würth]
+
+* Export object attributes with Defender export module. [Maik Würth]
+
+* Merge pull request #606 from GreyNoise-Intelligence/greynoise-add-expansion. [Alexandre Dulaunoy]
+
+  [greynoise] add expansion and refactor
+
+* Update message in test_expansions. [Brad Chiappetta]
+
+* Refactor for sdk and expansion. [Brad Chiappetta]
+
+* Add: [documentation] Added documentation for the new ipinfo.io module & updated the main readme file. [Christian Studer]
+
+* Add: [ipinfo] First version of a new module to query ipinfo.io. [Christian Studer]
+
+  - First version addressing the request from #600
+  - Straight forward parsing of the `geolocation`,
+    `domain-ip` and `asn` information returned by
+    the standard API endpoint (ipinfo.io/{ip_address})
+
+* Merge branch 'main' of github.com:MISP/misp-modules into new_module. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-modules into new_module. [Christian Studer]
+
+
 ## v2.4.169 (2023-03-10)
 
 ### Changes

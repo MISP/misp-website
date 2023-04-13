@@ -2,6 +2,187 @@ Changelog
 =========
 
 
+%%version%% (unreleased)
+------------------------
+
+New
+~~~
+- [misp-workflow-modules] Event threat level if logic module.
+  [vincenzocaputo]
+
+Changes
+~~~~~~~
+- Bumped version. [Sami Mokaddem]
+- [misp-stix] Bumped the latest version. [Christian Studer]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [misp-warninglists] updated to the latest version. [Alexandre
+  Dulaunoy]
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- Move breakOnDuplicate check to Attribute::captureAttribute. [Luciano
+  Righetti]
+- Handle breakOnDuplicate parameter in Attribute:add() to perform
+  upserts instead of failing. [Luciano Righetti]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [event:_add] Simplified ACL test checking whether a user can create
+  the event. [Sami Mokaddem]
+
+  - Simplifed code
+  - Removed extremely old condition `$data['Event']['orgc'] != user['Organisation']['name']` that's not relevant anymore
+  - Make sure that Orgc.uuid takes precedence over Event.orgc_id
+- [workflow-module:send_mail] add send_log_mail for org admin as rcpts.
+  [Christophe Vandeplas]
+- [workflow-module:send_mail] allow to all admins. [Christophe
+  Vandeplas]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [authkey] pin IP on view page. [Christophe Vandeplas]
+- [authkey] One-click IP as only allowed IP. [Christophe Vandeplas]
+- [AuthKey] db change. [Christophe Vandeplas]
+- [AuthKey] store IPs used to connect and show them. [Christophe
+  Vandeplas]
+- [workflows] Log After Save module. [Christophe Vandeplas]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [git] exclude DebugKit plugin from git. [Christophe Vandeplas]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [pymisp] bump. [iglocska]
+- [pymisp] version string bump. [iglocska]
+
+Fix
+~~~
+- [workflow:tag_if] Correctly compare cluster tags. [Sami Mokaddem]
+- Unset id and uuid of object attributes if regenerateUUIDs is checked
+  when populating event with a MISP json fixes #9012. [Luciano Righetti]
+- Handle when a batch of attributes is sent and only a subset has
+  breakOnDuplicate=false. [Luciano Righetti]
+- Remove unused line. [Luciano Righetti]
+- Consistent hash calculation in object dup checks. [Luciano Righetti]
+- Fix "'sharing_group_id' doesn't have a default value error" error when
+  importing OpenIOC file. [Luciano Righetti]
+- Disable csrf checks for events/saveFreeText when CustomAuth is
+  enabled, fixes #8991. [Luciano Righetti]
+- [event:viewAttribute] Reset pagination state when using a filter on
+  the attribute table. [Sami Mokaddem]
+
+  - This will certainly make @rommelfs happy :)
+- [galaxy] Clarify supported format of webui galaxy import. [Christophe
+  Vandeplas]
+- [workflows] fix undefined index in moduleView. [Christophe Vandeplas]
+- [workflow-module:enrich_event] Do not run enrichment is no filtered
+  elements. [Sami Mokaddem]
+
+  If a filtering condition was set and no item were matched, the whole event was enriched. Now nothing
+- [workflow-module:tag_if] Added support of galaxy clusters. [Sami
+  Mokaddem]
+
+  Fix #8959
+- [db:workflows] Changed workflows.data from TEXT to LONGTEXT. [Sami
+  Mokaddem]
+
+  Should fix issue  #8979
+- [AuthKey] integrate mokaddem's remarks. [Christophe Vandeplas]
+- [AuthKeys] prevent race condition with double IPs. [Christophe
+  Vandeplas]
+- [workflows] Email requires misp-modules. [Christophe Vandeplas]
+- [sightings] don't be case insensitive on code side. [iglocska]
+- [AccessLog] MySQL command. [dnso86]
+- [adminShell:optimiseTables] MySQL command. [dnso86]
+- [security] XSS in community index. [Sami Mokaddem]
+
+  - As reported by Zigrin Security
+- [docs] revert attempt. [Christophe Vandeplas]
+- [docs] attempt to fix failing includes in github pages. [Christophe
+  Vandeplas]
+- [docs] Fixes one more broken link. [Christophe Vandeplas]
+- [docs] Fixes broken links on misp.github.io website. [Christophe
+  Vandeplas]
+- [galaxyCluster index] filter by galaxy should accept UUID too not just
+  ID. [iglocska]
+- [Galaxy index search] fixed. [iglocska]
+
+  - seems to be using the Cerebrate format rather than MISP?
+
+Other
+~~~~~
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into chg-acl-event-add-
+  simplification. [Sami Mokaddem]
+- Merge pull request #8980 from righel/ignore-dup-attrs. [Luciano
+  Righetti]
+
+  [new]: add breakOnDuplicate option to attributes/add
+- Cgh: add named param support for attributes:add() breakOnDuplicate.
+  [Luciano Righetti]
+- Merge pull request #9009 from righel/fix-openioc-import. [Luciano
+  Righetti]
+
+  fix: fix openioc import
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch 'pr-8983' into develop. [Sami Mokaddem]
+- Use existing and appropriate function to retrieve threat levels.
+  [vincenzocaputo]
+- Merge branch '2.4' of https://github.com/vincenzocaputo/MISP into add-
+  threatlevel-if-module. [vincenzocaputo]
+- Remove unused properties. [vincenzocaputo]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of https://github.com/MISP/MISP into develop.
+  [Christophe Vandeplas]
+- Merge remote-tracking branch 'origin/feature/api_log_and_pin_ip' into
+  develop. [Christophe Vandeplas]
+- Merge branch 'develop' into feature/api_log_and_pin_ip. [Christophe
+  Vandeplas]
+- Merge branch 'develop' into feature/api_log_and_pin_ip. [Christophe
+  Vandeplas]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge remote-tracking branch 'origin/2.4' into develop. [Christophe
+  Vandeplas]
+- Merge branch '2.4' into develop. [Christophe Vandeplas]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Christian
+  Studer]
+- Merge pull request #8989 from dnso86/fix-cake-optimisetables-query.
+  [Alexandre Dulaunoy]
+
+  Fix typo in OPTIMIZE MySQL commands
+- Revert "Feature/api log and pin ip (#8965)" [Christophe Vandeplas]
+
+  This reverts commit d5ce838ddca4f95b6c303b64b53b70b0b1bc28da.
+- Feature/api log and pin ip (#8965) [Christophe Vandeplas]
+
+  * fix: [sightings] don't be case insensitive on code side
+
+  * chg: [AuthKey] store IPs used to connect and show them
+
+  * chg: [AuthKey] db change
+
+  * fix: [AuthKeys] prevent race condition with double IPs
+
+  * chg: [git] exclude DebugKit plugin from git
+
+  * fix: [AuthKey] integrate mokaddem's remarks
+
+  * chg: [authkey] One-click IP as only allowed IP
+
+  * chg: [authkey] pin IP on view page
+
+  ---------
+- Update background-jobs-migration-guide.md. [Luciano Righetti]
+- Merge pull request #8970 from righel/fix-installer-pages. [Alexandre
+  Dulaunoy]
+
+  [fix] fix installer pages
+- [fix]: comment (properly) md inclusion for archived guides, cannot
+  include from parent dir. [Luciano Righetti]
+- [fix]: comment md inclusion for archived guides, cannot include from
+  parent dir. [Luciano Righetti]
+- [fix]: relative md inclusion (archived) [Luciano Righetti]
+- [fix]: relative md inclusion. [Luciano Righetti]
+- [fix]: relative md inclusion. [Luciano Righetti]
+- [fix]: relative md inclusion. [Luciano Righetti]
+
+
 v2.4.169 (2023-03-14)
 ---------------------
 
