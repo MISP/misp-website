@@ -12,10 +12,14 @@ ensure the long-term sustainability of the overall MISP project.
 
 ## Core Sponsors
 
+![](/img/thanks/circl-lu.png)
+
 ## Project Sponsors
+
+![](/img/thanks/cef.png)
 
 ## Sustainability Sponsors
 
 The following sponsors helped us by financial under the sustainability program available in [MISP professional services](https://www.misp-project.org/professional-services/).
 
-
+![](/img/thanks/swift-logo-new.svg)
