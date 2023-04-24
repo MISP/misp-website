@@ -22,6 +22,6 @@ The MISP project owes its existence and continuous improvement to the invaluable
 
 ## Sustainability Sponsors
 
-The following sponsors provided financial support through the sustainability program available in [MISP's professional services](https://www.misp-project.org/professional-services/), helping us ensure the long-term viability of our project
+The following sponsors provided financial support through the sustainability program available in [MISP's professional services](https://www.misp-project.org/professional-services/), helping us ensure the long-term viability of our project. Don't hesitate to join our sustainability sponsoring support.
 
 <a href="https://www.swift.com/"><img src="/img/thanks/swift-logo-new.svg" style="width:50%; margin: auto;"/></a>
