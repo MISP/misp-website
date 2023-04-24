@@ -389,62 +389,6 @@ CSSA was founded in November 2014 by seven major German companies as an alliance
 
 CiviCERT is an umbrella organizations formed by the partnership between Internet Content and Service Providers, Non Governmental Organizations and individuals that contribute some of their time and resources to the community in order to globally improve the security awareness of civil society. The community is fairly new but uses MISP to inform its constituents of malicious activities in their infrastructure.
 
-### Cognitive Security Collaborative <i class="far fa-check-circle" style="color:green; "></i>
-- Website: https://www.cogsec-collab.org
-- Sector: undefined
-- Nationality: International
-
-
-The Cognitive Security Collaborative operates as a sharing community dedicated to information operations.
-- Contact: misp@cogsec-collab.org
-<details><summary>GPG key</summary>
-
-```
-
------BEGIN PGP PUBLIC KEY BLOCK-----
-
-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
-Ww==
-=4aXp
------END PGP PUBLIC KEY BLOCK-----
-```
-</details>
 
 
 ### Danish MISP Community <i class="far fa-check-circle" style="color:green; "></i>
