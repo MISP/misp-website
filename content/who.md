@@ -26,6 +26,10 @@ practical open source tools, open format and practises. The current team is comp
 
 and many [contributors](/contributors)! Join us!
 
+## Who is funding the MISP project?
+
+The MISP project is funded by many different organisations. Please visit the [thanks page](/thanks/) to have an overview of the funding.
+
 ### Contact
 
 If you have any enquiries or willing to contribute or support the project, don't hesitate to contact the team at [info@misp-project.org](mailto:info@misp-project.org).
