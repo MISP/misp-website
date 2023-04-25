@@ -94,7 +94,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [iSight MISP integration](https://github.com/deralexxx/PySight2MISP) - iSight integration with MISP.
 * [ja3toMISP](https://github.com/eCrimeLabs/ja3toMISP) Extracts JA3 fingerprints from a PCAP and adds them to an event in MISP as objects.
 * [Joe Sanbox](https://www.joesecurity.org/) outputs analysis in MISP format.
-* [Kaspersky Threat Data Feeds](https://support.kaspersky.com/14787) - Kaspersky Threat Feed App for MISP is an application set that allows you to import and update Kaspersky Threat Data Feeds in a MISP instance. [documentation](https://products.s.kaspersky-labs.com/special/ktfamisp/1.0/english-1/4a7dc6c6/Kaspersky%20Threat%20Feed%20App%20for%20MISP.pdf)
+* [Kaspersky Threat Data Feeds](https://support.kaspersky.com/14787) - Kaspersky Threat Feed App for MISP is an application set that allows you to import and update Kaspersky Threat Data Feeds in a MISP instance.
 * [Komand](https://market.komand.com/plugins/komand/misp/0.1.0) - Komand integration with MISP.
 * [Loki - Simple IOC Scanner](https://github.com/Neo23x0/Loki) includes a MISP receiver.
 * [McAfee Active Response](https://github.com/mohlcyber/MISP-MAR) - McAfee Active Response integration with MISP.
