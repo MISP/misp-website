@@ -76,7 +76,8 @@ In order to add a new connection to a TAXII server, you need to provide:
 
 In the TAXII server connection config, you can define filter rules.
 
-Those rules are basically the ones you would use as `HTTP body` of a `restSearch` request.
+Those rules are basically the ones you would use as `HTTP body` of a `restSearch` request. [restSearch filters options are documented in our OpenAPI](https://www.misp-project.org/openapi/).
+
 
 This means you can filter on a lot of different things, for example:
 
@@ -110,5 +111,5 @@ This means you can filter on a lot of different things, for example:
     
 #
 
-The feature is converting your content to STIX 2.x format then it can be automatically exported and pushed to the designated API and collection on the TAXII server."
+The feature is converting your content to STIX 2.x format then it can be automatically exported and pushed to the designated API and collection on the TAXII server.
 
