@@ -9,6 +9,23 @@ toc: true
 
 Past conferences featuring MISP core members talking about MISP and/or threat intelligence. Some links include video recordings.
 
+### 2023
+
+#### MISP Introduction and NIS 2 (3 hours - [onsite at NISDUC conference](https://www.nisduc.eu/second-conference/program))
+
+  *When:* {{< fixedtime `26th April 11:30-15:15 CET` `MISP Best Practices for encoding threat intelligence` `20230426T12` `3` >}}</a>
+
+  *Where:* Onsite ([NISDUC Conference](https://www.nisduc.eu/second-conference/program) in Bruxelles)
+
+  *Price:* Free (registration required)
+
+  *Summary agenda:*
+
+      - Introduction to MISP and usage
+      - Data model and use-cases focusing on NIS2 information sharing
+
+  *Event link:* [NISDUC Conference](https://www.nisduc.eu/second-conference/program) 
+
 ### 2021
 
 Conferences featuring MISP core members talking about MISP and/or threat intelligence

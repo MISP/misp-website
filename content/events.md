@@ -9,6 +9,13 @@ toc: true
 
 Want to join us at an event, discuss opportunities or projects around the MISP project, share your experience about threat intelligence or discuss how MISP could be improved to support security professionals?
 
+### Webinar
+
+"Leveraging the CrowdSec & MISP Integration for SOC/CSIRT and Security Analysts"
+
+[For more info and registration](https://app.livestorm.co/crowdsec/crowdsec-misp-1?s=626f62ae-883b-40da-b17e-a34ecc64584a)
+
+
 ### MISP Hackathon
 
 The previous Hackaton was in October 2021: [Open Source Security Hackathon](/hackathon/)
