@@ -7,17 +7,13 @@ banner: /img/blog/dashboard-new.png
 
 We are pleased to announce the immediate availability of [MISP v2.4.171](https://github.com/MISP/MISP/releases/tag/v2.4.171) with a long list of fixes, major STIX 2 improvements and an overhaul over the dashboard widget toolkit.
 
-![image](https://github.com/MISP/MISP/assets/3668672/2fb13c67-e90f-4a4f-8707-f6717edcedb5)
-
 # Dashboard rework
 
 - In order to support communities' need to monitor ongoing trends, community growth and sharing activities in general, we've added and reworked a host of dashboard widgets. 
 
-
 - A large focus of the improvements was making the widgets more configurable, especially in terms of being able to create dashboards showing individual data per groups of organisations. Groupings happen on the metadata of organisations, such as country, sector or the adaptable "type" field, allowing administrators to lump organisations into buckets based on commonalities in their community, such as membership status, sub-groups, etc.
 
 ![image](https://github.com/MISP/MISP/assets/3668672/fadabded-fcaf-4f32-a96b-bb70b323cc81)
-
 
 - Additionally time range definitions have been added for a host of the new and reworked widgets, allowing to see changes in the current month, past x days or the current year.
 
