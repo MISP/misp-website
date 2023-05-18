@@ -81,6 +81,7 @@ For the additional software created by the MISP project, check our [MISP project
 * [AIL framework - Framework for Analysis of Information Leaks](https://github.com/CIRCL/AIL-framework) - AIL framework - Framework for Analysis of Information Leaks use MISP to share  found leaks within a threat intelligence platform using MISP standard (objects).
 * [Automated Payload Test Controller](https://github.com/jymcheong/aptc) - A set of scripts using PyMISP to extend MISP for automated payload testing.
 * [BTG](https://github.com/conix-security/BTG) - BTG's purpose is to make fast and efficient search on IOC  including a MISP crawler and collector.
+* [CrowdStrike](https://github.com/CrowdStrike/MISP-tools) - Import CrowdStrike Threat Intelligence into your instance of MISP.
 * [cti-toolkit](https://github.com/certau/cti-toolkit)  CERT Australia Cyber Threat Intelligence (CTI) Toolkit includes a transform to MISP from STIX.
 * [Cuckoo modified](https://github.com/spender-sandbox/cuckoo-modified) - heavily modified version of Cuckoo Sandbox including a [MISP reporting module](https://github.com/spender-sandbox/cuckoo-modified/blob/master/modules/reporting/misp.py) to put the information into a MISP instance.
 * [cve-search](https://github.com/cve-search) - a tool to perform local searches for known vulnerabilities include a [MISP plug-in](https://github.com/cve-search/Plugins/tree/master/plugins/plugins/MISP).
