@@ -25,11 +25,9 @@ and located in different input transports:
 
 The default feeds are described in a [simple JSON format](https://github.com/MISP/MISP/blob/2.4/app/files/feed-metadata/defaults.json). The default feeds and the current version of MISP are the following:
 
-- [abuse.ch Dyre SSL IPBL](https://sslbl.abuse.ch/blacklist/dyre_sslipblacklist.csv) - abuse.ch - feed format: csv
 - [abuse.ch SSL IPBL](https://sslbl.abuse.ch/blacklist/sslblacklist.csv) - abuse.ch - feed format: csv
 - [alienvault reputation generic](https://reputation.alienvault.com/reputation.generic) - .alienvault.com - feed format: csv
 - [All current domains belonging to known malicious DGAs](https://osint.bambenekconsulting.com/feeds/dga-feed-high.csv) - osint.bambenekconsulting.com - feed format: csv
-- [Benkow.cc RAT](https://benkow.cc/export_rat.php) - benkow.cc - feed format: csv
 - [blocklist.de/lists/all.txt](https://lists.blocklist.de/lists/all.txt) - blocklist.de - feed format: freetext
 - [blocklist.greensnow.co](https://blocklist.greensnow.co/greensnow.txt) - greensnow.co - feed format: csv
 - [blockrules of rules.emergingthreats.net](https://rules.emergingthreats.net/blockrules/compromised-ips.txt) - rules.emergingthreats.net - feed format: csv
