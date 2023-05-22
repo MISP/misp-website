@@ -12,10 +12,8 @@ practical open source tools, open format and practises. The current team is comp
 
 * Alexandre Dulaunoy [@adulau](https://twitter.com/adulau)
 * Andras Iklody [@Iglocska](https://twitter.com/Iglocska)
-* Andrzej Dereszowski [@deresz666](https://twitter.com/deresz666)
 * Christian Studer [@chrisred_68](https://twitter.com/chrisred_68)
 * Christophe Vandeplas [@cvandeplas](https://twitter.com/cvandeplas)
-* David Andre [@elhoim](https://twitter.com/elhoim)
 * Deborah Servili [@deltalimasierra](https://twitter.com/deltalimasierra)
 * Gerard Wagener
 * Luciano Righetti [@righelx](https://twitter.com/righelx)
@@ -23,8 +21,17 @@ practical open source tools, open format and practises. The current team is comp
 * Sami Mokaddem [@mokaddem_sami](https://twitter.com/mokaddem_sami)
 * Sascha Rommelfangen [@rommelfs](https://twitter.com/rommelfs)
 * Steve Clement [@SteveClement](https://twitter.com/SteveClement)
+* Koen Van Impe [@cudeso](https://twitter.com/cudeso)
+* Stefano Ortolani [@ostefano](https://twitter.com/ostefano)
+* Jakub Onderka [@jakubonderka](https://twitter.com/jakubonderka)
+* Anders Einar [@aehilden](https://twitter.com/aehilden)
 
 and many [contributors](/contributors)! Join us!
+
+### Former core team member
+
+* Andrzej Dereszowski [@deresz666](https://twitter.com/deresz666)
+* David Andre [@elhoim](https://twitter.com/elhoim)
 
 ## Who is funding the MISP project?
 
