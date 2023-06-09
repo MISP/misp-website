@@ -1,9 +1,93 @@
 # Changelog
 
 
-## %%version%% (unreleased)
+## v2.4.172 (2023-06-09)
 
 ### New
+
+* [scan-result] object for scanning result. [Alexandre Dulaunoy]
+
+  This is the metadata of a scanning result including the raw output of
+  the scan result.
+
+  This objects can be used for tools like Nessus or even source code
+  scanner to share the details about a scan.
+
+  For additional information such IP address or alike, other objects will
+  be used with the proper relationship added.
+
+* [scan-result] object for scanning result. [Alexandre Dulaunoy]
+
+  This is the metadata of a scanning result including the raw output of
+  the scan result.
+
+  This objects can be used for tools like Nessus or even source code
+  scanner to share the details about a scan.
+
+  For additional information such IP address or alike, other objects will
+  be used with the proper relationship added.
+
+* [crowdsec-ip-context] new initial object for crowdsec expansion. [Alexandre Dulaunoy]
+
+### Changes
+
+* [scan-result] updated list of potential scanning tool. [Alexandre Dulaunoy]
+
+* [scan-result] jq all the things. [Alexandre Dulaunoy]
+
+* [relationships] Fixed a typo. [tmbc-nl]
+
+* [relationships] jq all the things. [Alexandre Dulaunoy]
+
+* [relationships] `serves` added in relationships. [Alexandre Dulaunoy]
+
+  Additional verb as an alternative to `hosts`
+
+* [crowdsec] jq all the things. [Alexandre Dulaunoy]
+
+* [crowdsec] updated. [Alexandre Dulaunoy]
+
+### Other
+
+* Merge pull request #393 from MISP/chrisr3d_patch. [Alexandre Dulaunoy]
+
+  add: [crowdsec-ip-context] `classifications` & `false-positive` attributes
+
+* Add: [crowdsec-ip-context] Added the `false-positives` attribute that comes alongside with the `classifications` [Christian Studer]
+
+* Add: [crowdsec-ip-context] Added the classifications multiple attribute. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-objects into chrisr3d_patch. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-objects into main. [Alexandre Dulaunoy]
+
+* Merge pull request #391 from tmbc-nl/fix-typo. [Alexandre Dulaunoy]
+
+  chg: [relationships] Fixed a typo.
+
+* Merge pull request #392 from goodlandsecurity/cobaltstrike-beacon-config. [Alexandre Dulaunoy]
+
+  adding cobalt strike beacon config object
+
+* Adding cobalt strike beacon config object. [goodlandsecurity]
+
+* Update definition.json. [Alexandre Dulaunoy]
+
+* Merge branch 'main' of github.com:MISP/misp-objects into chrisr3d_patch. [Christian Studer]
+
+
+## v2.4.171 (2023-05-11)
+
+### New
+
+* [ai-chat-prompt] new object template for AI chat prompt such as ChatGPT. [Alexandre Dulaunoy]
+
+  Following a discussion with @aaronkaplan in Vienna, this object is a
+  first version to describe an AI chat prompt. The template can describe
+  the model used, the actual quality of results and also what's the actor
+  context.
+
+  Reference #388
 
 * [risk-assessment-report] New object template Risk assessment report. [Alexandre Dulaunoy]
 
@@ -11,6 +95,16 @@
   such as [MONARC](https://github.com/monarc-project/).
 
   This extension is done in the scope of the [NISDUC project](https://www.nisduc.eu/).
+
+### Changes
+
+* [doc] misp object template list updated. [Alexandre Dulaunoy]
+
+* [ai-chat-prompt] ui-priority fixed. [Alexandre Dulaunoy]
+
+### Fix
+
+* [ai-chat-prompt] improved ai-chat-prompt template. [Alexandre Dulaunoy]
 
 
 ## v2.4.170 (2023-04-12)

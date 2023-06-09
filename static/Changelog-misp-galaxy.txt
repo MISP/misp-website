@@ -1,6 +1,244 @@
 # Changelog
 
 
+## v2.4.172 (2023-06-09)
+
+### Changes
+
+* [sigma] updated. [Alexandre Dulaunoy]
+
+* [galaxy] fixed icons. [Alexandre Dulaunoy]
+
+* [threat actors] added Volt Typhoon. [iglocska]
+
+* [attck4fraud] Full merge of E.A.S.T. data + updated script. [Christophe Vandeplas]
+
+* [attck4fraud] more manual updates with E.A.S.T. data. [Christophe Vandeplas]
+
+### Fix
+
+* [attck4fraud] update README numbers. [Christophe Vandeplas]
+
+* [tools] clarify validate all output. [Christophe Vandeplas]
+
+### Other
+
+* Merge pull request #851 from Delta-Sierra/main. [Alexandre Dulaunoy]
+
+  add APT43 + tools
+
+* Fix metasploit desc in value (ty cvandeplas) [Delta-Sierra]
+
+* Merge https://github.com/MISP/misp-galaxy. [Delta-Sierra]
+
+* Merge pull request #850 from marjatech/main. [Alexandre Dulaunoy]
+
+  update malpedia galaxy
+
+* Update malpedia. [marjatech]
+
+* Add APT43 + tools. [Delta-Sierra]
+
+* Merge https://github.com/MISP/misp-galaxy. [Delta-Sierra]
+
+
+## v2.4.171 (2023-05-11)
+
+### New
+
+* [tools] gen E.A.S.T. galaxy tool - not functional. [Christophe Vandeplas]
+
+* [tool] Initial version of a Relationship generator. [Christophe Vandeplas]
+
+* [online-service] online service added. [Alexandre Dulaunoy]
+
+### Changes
+
+* [doc] Index updated. [Alexandre Dulaunoy]
+
+* [sigma] updated to the latest version. [Alexandre Dulaunoy]
+
+* [mitre] bump to v13. [Thomas Dupuy]
+
+* [attck4fraud] initial updates with E.A.S.T. data. [Christophe Vandeplas]
+
+  https://www.association-secure-transactions.eu/industry-information/fraud-definitions/
+
+* [sigma] rules updated. [Alexandre Dulaunoy]
+
+* [attck4fraud] add ATM cash trapping in the matrix. [Alexandre Dulaunoy]
+
+* [rels] more threat actor relations. [Christophe Vandeplas]
+
+* [rels] more threat actor relations. [Christophe Vandeplas]
+
+* [rels] more relations on cluster "value" [Christophe Vandeplas]
+
+* [tool] gen_relationships is now interactive. [Christophe Vandeplas]
+
+* [rels] threat-actor & MS activity group - on synonym. [Christophe Vandeplas]
+
+* [rels] threat-actor & MS activity group - on value. [Christophe Vandeplas]
+
+* [atrm] updated to latest version. [Christophe Vandeplas]
+
+* [doc] updated. [Alexandre Dulaunoy]
+
+* [microsoft-activity-group] country code added. [Alexandre Dulaunoy]
+
+* [microsoft activity group] remove duplicate. [Alexandre Dulaunoy]
+
+* Chg: [microsoft-activity-group] updated following contribution from @botlabsDev script. [Alexandre Dulaunoy]
+
+* [sigma] rules updated. [Alexandre Dulaunoy]
+
+* [microsoft-activity-group] jq all the things. [Alexandre Dulaunoy]
+
+* [microsoft-activity-group] updated to map the new funky Microsoft "taxonomy" [Alexandre Dulaunoy]
+
+  Script to generate the cluster is the following, UUIDv5 based on
+  standard misp-stix source UUIDv4.
+
+  ~~~python
+  lcluster = []
+  for v in data:
+      cluster = {}
+      cluster['value'] = v['threat_actor']
+      cluster['meta'] = {}
+      cluster['meta']['sector'] = v['sector']
+      cluster['meta']['synonyms'] = v['synonyms']
+      cluster['meta']['refs'] = []
+      cluster['meta']['refs'].append('https://learn.microsoft.com/en-us/microsoft-365/security/intelligence/microsoft-threat-actor-naming?view=o365-worldwide')
+      _uuid = uuid.uuid5(uuid.UUID("76beed5f-7251-457e-8c2a-b45f7b589d3d"), "{}".format(cluster['value']))
+      cluster['uuid'] = str(_uuid)
+      lcluster.append(cluster)
+  ~~~
+
+  Relationships might be added in a later stage to map with the MISP threat actor galaxy.
+
+### Fix
+
+* [tool] minor cosmetic fix. [Christophe Vandeplas]
+
+* [tool] minor cosmetic fix. [Christophe Vandeplas]
+
+* [tools] 360net cosmetic fix. [Christophe Vandeplas]
+
+* [microsoft activity group] duplicate in Microsoft source. [Alexandre Dulaunoy]
+
+### Other
+
+* Merge pull request #849 from danielplohmann/patch-34. [Alexandre Dulaunoy]
+
+  adding APT43 (Mandiant) for Kimsuky.
+
+* Adding APT43 (Mandiant) for Kimsuky. [Daniel Plohmann]
+
+* Merge pull request #848 from nyx0/main. [Alexandre Dulaunoy]
+
+  chg: [mitre] bump to v13.
+
+* Merge pull request #847 from Delta-Sierra/main. [Alexandre Dulaunoy]
+
+  add VEILEDSIGNAL and more
+
+* Add VEILEDSIGNALand more. [Delta-Sierra]
+
+* Merge pull request #846 from sebdraven/main. [Alexandre Dulaunoy]
+
+  Update threat-actor.json
+
+* Update threat-actor.json. [Sebastien Larinier]
+
+* Update threat-actor.json. [Sebastien Larinier]
+
+  fix mistake
+
+* Update threat-actor.json. [Sebastien Larinier]
+
+* Merge pull request #844 from jloehel/redgolf. [Alexandre Dulaunoy]
+
+  chg [threat-actors] Add RedGolf
+
+* Chg [threat-actors] Add RedGolf. [Jürgen Löhel]
+
+* Merge pull request #831 from sebdraven/main. [Alexandre Dulaunoy]
+
+  Update threat-actor.json
+
+* Update threat-actor.json. [Sebastien Larinier]
+
+* Update threat-actor.json. [Sebastien Larinier]
+
+* Merge branch 'MISP:main' into main. [Sebastien Larinier]
+
+* Merge pull request #843 from Delta-Sierra/main. [Alexandre Dulaunoy]
+
+  Update Snowyamber, Halfrig & quarterrig relationships
+
+* Jq? [Delta-Sierra]
+
+* Merge https://github.com/MISP/misp-galaxy. [Delta-Sierra]
+
+* Add relationships for HALFRIG & QUATTERRIG. [Delta-Sierra]
+
+* Fix versions. [Delta-Sierra]
+
+* Add relationship SNOWYAMBER & Notion. [Delta-Sierra]
+
+* Merge https://github.com/MISP/misp-galaxy. [Delta-Sierra]
+
+* Add some SNOWYAMBER relationships. [Delta-Sierra]
+
+* Merge pull request #842 from neok0/main. [Alexandre Dulaunoy]
+
+  replace "sector" tag with "country" for matching data. this allows to…
+
+* Replace "sector" tag with "country" for matching data. this allows to be confirm with existing clusters. [Tobias Mainka]
+
+* Update threat-actor.json. [Sebastien Larinier]
+
+* Update threat-actor.json. [Sebastien Larinier]
+
+  new apt30 group
+
+* Merge branch 'MISP:main' into main. [Sebastien Larinier]
+
+* Merge pull request #840 from danielplohmann/patch-33. [Alexandre Dulaunoy]
+
+  adding Trend Micro alias Earth Smilodon for APT27
+
+* Adding Trend Micro alias Earth Smilodon for APT27. [Daniel Plohmann]
+
+* Merge pull request #839 from danielplohmann/patch-32. [Alexandre Dulaunoy]
+
+  adding Google alias HOODOO for APT41
+
+* Adding Google alias HOODOO for APT41. [Daniel Plohmann]
+
+* Merge pull request #838 from Delta-Sierra/main. [Alexandre Dulaunoy]
+
+  Adding SNOWYAMBER, HALFRIG, QUARTERRIG tools & PowerMagic backdoor
+
+* Add SNOWYAMBER, HALFRIG, QUARTERRIG tools. [Delta-Sierra]
+
+* Add PowerMagic backdoor. [Delta-Sierra]
+
+* Merge pull request #835 from danielplohmann/patch-31. [Alexandre Dulaunoy]
+
+  adding Trend Micro alias Earth Preta for Mustang Panda
+
+* Adding Trend Micro alias Earth Preta for Mustang Panda. [Daniel Plohmann]
+
+* Update threat-actor.json. [Sebdraven]
+
+  add new ref for sidecopy
+
+* Update threat-actor.json. [Sebdraven]
+
+  delete ref to APT30 for Naikon
+
+
 ## v2.4.170 (2023-04-12)
 
 ### New

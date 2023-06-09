@@ -1,6 +1,322 @@
 # Changelog
 
 
+## v2.4.172 (2023-06-09)
+
+### Changes
+
+* [poetry] Updated dependencies. [Christian Studer]
+
+* [package] Bumped version. [Christian Studer]
+
+* [misp_stix_converter] Changes on the command line feature. [Christian Studer]
+
+  - Cleaner separation between the 2 main features,
+    export & import, as well as cleaner arguments
+    in general
+  - Better handling of the messages returned by the
+    helper methods that are call by the command
+    line feature
+
+* [tests] Updated STIX 1 export sample result files. [Christian Studer]
+
+* [tests] Added new tests and changes on the collections export as STIX 2. [Christian Studer]
+
+* [stix2 import] Added the `debug` argument to the `stix_2_to_misp` helper. [Christian Studer]
+
+  - We return the error and warning messages only
+    when the `debug` flag is set
+
+* [stix2 import] Added more result details and arguments to the `stix_2_to_misp` helper that converts a STIX file to MISP format. [Christian Studer]
+
+  - We added all the arguments needed in both the
+    declaration of the STIX 2 to MISP parser and the
+    stix bundle parsing call
+  - We have a more detailed return message that
+    gives not only a success message, but also the
+    errors and warnings
+
+* [stix1 export] We don't instantiate the MISP to STIX 1 Mappings anymore and use the classmethods directly. [Christian Studer]
+
+* [stix1 export] Turned the MISP to STIX 1 Mapping properties into classmethods and made it usable in an uninstantiated way. [Christian Studer]
+
+* [stix2 export] Using the uninstantiated MISP to STIX 2 mappings classmethods. [Christian Studer]
+
+* [stix2 export] Converted STIX 2 Mappings methods into classmethods. [Christian Studer]
+
+* [stix2 import] Improved the internal STIX 2 to MISP mapping. [Christian Studer]
+
+  - The `InternalSTIX2toMISPMapping` class is no
+    longer instantiated
+  - We're using the different classmethod helpers
+  - The mapping is then a bit cleaner than before
+
+* [stix2 import] Internal STIX 2 to MISP mapping improved. [Christian Studer]
+
+  - Changes on the pattern & observable objects
+    mapping names
+  - Reusing mappings that are contained in other ones
+
+* [stix2 import] Changed mapping to not be forced to instantiate them. [Christian Studer]
+
+* [stix export & import] Made the parent parser classes abstract. [Christian Studer]
+
+  - As the children classes should be called anyways
+
+* [poetry] Changed pymisp dependency back to the pypi version. [Christian Studer]
+
+* [misp-galaxy] Bumped latest version. [Christian Studer]
+
+* [package] Latest version aligned with MISP. [Christian Studer]
+
+* [poetry] Updated dependencies. [Christian Studer]
+
+* [misp-galaxy] Bumped latest version. [Christian Studer]
+
+* [stix2 import] Changed the `Marking Definition` loading process. [Christian Studer]
+
+### Fix
+
+* [import] added missing import. [iglocska]
+
+* [tests] Removed unused imports. [Christian Studer]
+
+* [tests] Fixed STIX 1 export result samples. [Christian Studer]
+
+* [misp_stix_converter] Fixed helpers import - using the method names recently changed. [Christian Studer]
+
+* [stix export] Fixed arguments to give from the command line feature to the STIX export helpers. [Christian Studer]
+
+* [stix2 export] Fixed footer for collections export as STIX 2. [Christian Studer]
+
+* [tests] Updated tests for STIX 1 export helpers. [Christian Studer]
+
+* [stix1 export] Fixed Package header writting for methods used to replicate the MISP pagination - used with collections export helpers. [Christian Studer]
+
+* [stix1 export] Reusing methods from the framing to generate packages (& handling namespaces) [Christian Studer]
+
+* [stix1 export] Handling cases when there is no STIX header. [Christian Studer]
+
+  - In this specific case, the STIX package in XML
+    format is a single xml tag with the included
+    `/` closing character... so we remove it
+  - ( JSON >>>>> XML definitely :) )
+
+* [stix1 export] Added option to generate a Package with no header. [Christian Studer]
+
+* [stix1 export] Fixed the creation process of the STIX package used to serve as container for related packages. [Christian Studer]
+
+* [stix export] Made STIX framing methods more modular. [Christian Studer]
+
+* [stix2 export] Returning the result files in a traceback message as list. [Christian Studer]
+
+* [stix2 export] Fixed some statements in the MISP collections export to STIX 2 helper. [Christian Studer]
+
+  - Including fixes on:
+    - the single file handling (regarding the single
+      file name)
+    - the default directory for collections export
+      results
+    - the input files argument of the function
+
+* [stix1 export] Fixed arguments passed to the MISP collections export to STIX 1. [Christian Studer]
+
+* [stix1 export] Added a use case to support the use of the events collection export even with a single file. [Christian Studer]
+
+* [stix1 export] Fixed name for the result STIX 1 event collections export & added a missing traceback. [Christian Studer]
+
+* [stix1 export] Making sure we avoid exceptions with the fails catching on traceback messages. [Christian Studer]
+
+* [stix2 import] Better handling of the `single_event` variable inside of the STIX 2 to MISP parser. [Christian Studer]
+
+* [stix2 import] Fixed external STIX 2 `email-message` observable & pattern mapping. [Christian Studer]
+
+* [stix2 import] Added missing `campaign` type in the list of STIX object types to look for. [Christian Studer]
+
+* [stix2 import] Fixed the observable registry key values parsing in case of a single key imported as `regkey|value` attribute. [Christian Studer]
+
+* [stix2 import] Catching parsing issues that appear while the STIX file is loaded. [Christian Studer]
+
+* [stix export] Galaxies mapping are now also using the uninstantiated mapping classmethods. [Christian Studer]
+
+* [tests] Using the uninstantiated mapping classes with their classmethods. [Christian Studer]
+
+* [stix2 import] Fixed the `from_misp` test that defines whether a STIX file has been generated with the MISP to STIX conversion feature or not. [Christian Studer]
+
+* [stix2 import] Fixed the email or IP address observable objects from internal STIX content parsing. [Christian Studer]
+
+  - Could fail previously with some content generated
+    from a previous version of the MISP to STIX
+    conversion feature
+
+* [stix2 import] Fixed marking definition parsing, as we store the tag and not the marking definition object. [Christian Studer]
+
+* [tests] Fixed tests to avoid issues with STIX 2 to MISP mappings, following the recent changes on them. [Christian Studer]
+
+* [stix2 import] Revert change to fix the pattern assertion operator check. [Christian Studer]
+
+  - Revert of a part of the code that was staged for
+    a previous commit while it should not have been
+  - For now the pattern assertion check will remain
+    as is even tough there is an ongoing work to
+    improve it.
+
+* [stix2 import] Fixed missing variable name change. [Christian Studer]
+
+* [stix2 import] Using non instantiated external STIX 2 to MISP mapping. [Christian Studer]
+
+  - Same changes as for the internal mapping
+
+* [stix2 import] Removed unused variables & mapping fields. [Christian Studer]
+
+* [stix2 import] Properly transformed the external STIX 2 to MISP mapping methods into classmethods. [Christian Studer]
+
+  - Followed the model used in the internal mapping
+    to have pattern mappings that are waiting for a
+    field to return the associate value in the
+    mapping, or observable object mappings that we
+    loop on in order to check each field
+
+* [stix2 import] Removed unused mapping method. [Christian Studer]
+
+* [stix2 import] Removed unused imports. [Christian Studer]
+
+* [stix2 import] Fixed some mapping dictionary names. [Christian Studer]
+
+* [stix2 export] Fixed fail on copy pasting the generic galaxy mapping update for STIX 2.0. [Christian Studer]
+
+* [stix2 export] Parsing `stix2-pattern` objects. [Christian Studer]
+
+  - As they were missing in the export mapping, they
+    were exported as custom objects, but we simply
+    have to take the pattern and export it as is,
+    like we do for sigma or yara patterns for
+    instance in STIX 2.1
+  - In this case, it applies to both STIX 2.0 & 2.1
+
+* [stix2 export] Made the `created` & `modified` fields in custom galaxy objects optional. [Christian Studer]
+
+* [stix2 export] Using the property for `identity_id` instead of the 'private' variable. [Christian Studer]
+
+* [stix2 export] Same as the previous commit, for standalone attributes from feeds. [Christian Studer]
+
+* [stix2 export] Fixed the orgc parsing for attributes collections. [Christian Studer]
+
+  - The `created_by_ref` values were missing on all
+    objects because the statement used to wait for
+    a value where the recent changes made the
+    related method return nothing anymore
+
+* [stix2 export] Better Orgc & info handling for instance when they are empty. [Christian Studer]
+
+* [stix2 export] Avoiding issues with unset `timestamp` value in MISP Event. [Christian Studer]
+
+* [stix2 export] Checking `Orgc` fields before trying to generate the Identity object which will be used as `created_by_ref` object reference. [Christian Studer]
+
+* [stix2 import, tests] Fixed the galaxy & cluster version. [Christian Studer]
+
+  - Forgot that `strip` works only at the beginning
+    and the end of the string............
+
+* [tests] Removed unused import. [Christian Studer]
+
+* [stix2 import] To avoid any possible issue in MISP with float version, we just made the generic Galaxies & Clusters version int. [Christian Studer]
+
+* [tests] Fixed Galaxies & Clusters tests following all the recent changes on generic conversion from STIX 2.0 & 2.1. [Christian Studer]
+
+* [stix2 import] Fixed the galaxy creation method for external STIX content to avoid issues with `region` and `country` galaxies. [Christian Studer]
+
+* [stix2 import] Fixed the clusters creation method to avoid issues with unassigned cluster value. [Christian Studer]
+
+* [stix2 import] Added missing `self` param in the clusters creation method. [Christian Studer]
+
+* [stix2 import] Syntax fixed in f-string. [Christian Studer]
+
+* [stix2 import] The Galaxy args creation is better and handles some of the formerly missing required field to validate a Galaxy in MISP. [Christian Studer]
+
+* [stix2 import] Quick improvement on a `hasattr` that can be directly replaced by a `getattr` with a default value. [Christian Studer]
+
+* [stix2 import] Fixed the generic info method. [Christian Studer]
+
+  - The way it is implemented, it has to be a
+    property rather than a classmethod in order to
+    avoid the info field to be null because as a
+    classmethod, the returned value was a bound
+    method
+
+### Other
+
+* Merge branch 'main' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge pull request #42 from MISP/dev. [Christian Studer]
+
+  A few changes and improvement
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Fix; [stix export] Fixed fail messages as the command line feature wants lists. [Christian Studer]
+
+* Fix; [stix1 export] Fixed the input files argument for the collections export as STIX 1 helpers. [Christian Studer]
+
+* Wip: [stix2 import] Enhanced STIX 2 import helper. [Christian Studer]
+
+* Wip: [stix2 export] Enhanced STIX 2 export helpers. [Christian Studer]
+
+* Wip: [stix1 export] Enhanced the STIX 1 export helper features. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Add: [stix2 export] Added the generic galaxy types to the galaxies export mapping for STIX 2.0 & 2.1. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Add: [stix2 import] Added the `sharing_group_id` field to add this value when the `distribution` level for the event is 4. [Christian Studer]
+
+* Add: [tests] Quickly testing default distribution on events. [Christian Studer]
+
+* Wip: [stix2 import] Adding the MISP Event `distribution` field to the events we generate as result of the conversion from STIX. [Christian Studer]
+
+  - For now implemented for STIX 2
+
+* Wip: [stix2 import] Added `namespace` and `icon` value for the Generic galaxies converted from external STIX objects. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Add: [tests] Added unit tests for generic galaxies & clusters - uuids & version are tested. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Wip: [stix2 import] Better Galaxy Clusters creation to include some of the fields required for MISP to validate clusters. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+
 ## v2.4.170 (2023-04-13)
 
 ### Changes
