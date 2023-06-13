@@ -2,7 +2,7 @@
 title: MISP 2.4.172 released with new TOTP/HTOP authentication, many improvements and bugs fixed 
 date: 2023-06-13
 layout: post
-banner: /img/blog/dashboard-new.png
+banner: /img/blog/hotp.png
 ---
 
 We are pleased to announce the immediate availability of [MISP v2.4.172](https://github.com/MISP/MISP/releases/tag/v2.4.172) with new TOTP/HTOP authentication, many improvements and bugs fixed.
@@ -46,25 +46,42 @@ Requires 2 additional PHP libraries to be installed through composer:
 - "spomky-labs/otphp"
 - "bacon/bacon-qr-code"
 
-# Other updates and changes in the MISP project
+# TAXII preview 
 
-## Roles and permission
+TAXII integration is still in its infancy in MISP, but with the current release we aim to make the process of interacting with a TAXII server more in-depth. Prior to the current release, you could add a taxii server connection, pointing to a collection and initiate a filtered push of your MISP data - however, there was no way to view the contents of the collection nor to see your data reflected after a push.
 
-- [role permission] updated for viewing feed correlations
-  - added additional role permission
-  - allows hiding feed correlations from users
-    - main purpose is with very large instances, to reduce the load on redis
+The current release aims to complete the work on the initial TAXII push functionalities, with a TAXII browser built into the tool along with various fixes to bugs and issues that were reported to the prior implementation.
 
-## TAXII preview 
+## Adding a TAXII connection
 
-- [taxii preview] Browse a taxii server and view the data it contains.
-  [iglocska]
-  - browse collections
-  - browse contents of the individual collections and paginate through the data
+Simply add a TAXII server via the the TAXII connections interface (sync actions -> List TAXII servers)
+
+![image](https://github.com/MISP/MISP/assets/3668672/7ba0b218-bc3f-49f0-83d5-74e1bcd6abc5)
+
+Make sure that you configure the filters used to decide which of your events should be pushed to the given server. Creating a local tag such as "taxii_push" allows you to manually control and label events to be pushed as in the example above. 
+
+Once the basic server information has been encoded, use the wrench button on top of the `API root` field to populate the dropdown with the valid options found on the TAXII server and once you've selected a root, click the wrench on top of the `collection` field to populate it and select the target colleciton for the connection.
+
+![image](https://github.com/MISP/MISP/assets/3668672/ac855fb5-18ff-48a2-8925-f1e3087879bc)
+
+## Viewing the connection and browsing the contents
+
+Once a connection is established, you can view the connection object and list its collections and the objects in the configured collection on the taxii_servers/view/[id] endpoint, as follows:
+
+![image](https://github.com/MISP/MISP/assets/3668672/dd294504-abf6-4a74-9b8c-ddde16e4c5f9)
+
+
+You can view individual collections and browse their contents, paginating through all STIX objects (the default collection is shown at the bottom of the page). By clicking view on a STIX object, you can view the STIX 2.1 JSON object in full:
+
+![image](https://github.com/MISP/MISP/assets/3668672/31fa49c9-e1ad-43b8-96e1-b88acaee1fe6)
+
+Simply use the push button on the TAXII server index to initiate a push to the selected collection with the pre-defined filters.
 
 ## Dashboard
 
 - [usage data widget] added a global caching for attribute counts.
+
+# Other updates and changes in the MISP project
 
 ## Bugs/performance
 
@@ -81,6 +98,14 @@ Requires 2 additional PHP libraries to be installed through composer:
       - only go to redis when the model doesn't have the taxonomy cached in memory
       - still using the old approach when dealing with multiple small events
   - thanks to @github-germ for flagging the issue
+
+## Roles and permission
+
+- [role permission] updated for viewing feed correlations
+  - added additional role permission
+  - allows hiding feed correlations from users
+    - main purpose is with very large instances, to reduce the load on redis
+
 
 ## MISP Objects and Relationships
 
