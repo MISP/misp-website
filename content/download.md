@@ -19,7 +19,7 @@ MISP can be easily installed on any standard GNU/Linux distribution. Installatio
 
 ### Recommended distribution
 
-We recommend to use a recent and stable Ubuntu distribution (such as 20.04) for deploying MISP.
+We recommend to use a recent and stable Ubuntu distribution (such as 22.04) for deploying MISP.
 
 ### Virtual images for testing
 
