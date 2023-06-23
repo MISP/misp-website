@@ -16,8 +16,8 @@ The MISP project owes its existence and continuous improvement to the invaluable
 
 ## Project Sponsors
 
-<a href="https://wayback.archive-it.org/12090/20190615092914/https://ec.europa.eu/inea/en/connecting-europe-facility/cef-telecom/2016-lu-ia-0098"><img src="/img/thanks/cef.png" style="margin: auto;"/></a>
-
+<a href="https://europa.eu"><img src="/img/eu_funded_en.jpg" style="margin: auto;"/></a>
+Under different EU programs including [CEF (Connecting Europe Facility)](https://wayback.archive-it.org/12090/20190615092914/https://ec.europa.eu/inea/en/connecting-europe-facility/cef-telecom/2016-lu-ia-0098), DG HOME ISF.
 <a href="https://armee.public.lu/"><img src="/img/thanks/luxembourg-armed-forces.png" style="width:30%; margin: auto;"/></a>
 
 ## Sustainability Sponsors
