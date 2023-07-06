@@ -2,7 +2,6 @@
 title: MISP 2.4.172 released with new TOTP/HTOP authentication, many improvements and bugs fixed 
 date: 2023-06-13
 layout: post
-banner: /img/blog/hotp.png
 ---
 
 We are pleased to announce the immediate availability of [MISP v2.4.172](https://github.com/MISP/MISP/releases/tag/v2.4.172) with new TOTP/HTOP authentication, many improvements and bugs fixed.
