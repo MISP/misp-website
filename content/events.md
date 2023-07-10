@@ -11,10 +11,6 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### Webinar
 
-"Leveraging the CrowdSec & MISP Integration for SOC/CSIRT and Security Analysts"
-
-[For more info and registration](https://app.livestorm.co/crowdsec/crowdsec-misp-1?s=626f62ae-883b-40da-b17e-a34ecc64584a)
-
 
 ### MISP Hackathon
 
@@ -22,24 +18,40 @@ The previous Hackaton was in October 2021: [Open Source Security Hackathon](/hac
 
 ### Conferences 
 
-- [MISP will present at FIC 2023](https://europe.forum-fic.com/en/partners-2023/) - F24-05 - 5th->7th April 2023 - Lille, France
+- 16th October 2023 - 19th October 2023 [hack.lu 2023](https://2023.hack.lu/) and CTI-summit
 
 ### Public MISP trainings 
 
-- #### MISP Introduction and NIS 2 (3 hours - [onsite at NISDUC conference](https://www.nisduc.eu/second-conference/program))
 
-  *When:* {{< fixedtime `26th April 11:30-15:15 CET` `MISP Best Practices for encoding threat intelligence` `20230426T12` `3` >}}</a>
+#### MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals
 
-  *Where:* Onsite ([NISDUC Conference](https://www.nisduc.eu/second-conference/program) in Bruxelles)
+  *When:* {{< fixedtime `5th September 2023 14:00-17:00 CEST` `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` `20230905T12` `3` >}}
 
-  *Price:* Free (registration required)
+  *Where:* Remote (Zoom and online MISP training instance)
+
+  *Price:* Freely accessible  (session will be recorded)
 
   *Summary agenda:*
+    - General usage
+    - Encoding a report
+    - Making use of the various tools in MISP from an analyst perspective
 
-      - Introduction to MISP and usage
-      - Data model and use-cases focusing on NIS2 information sharing
+  *Event link:* [https://us02web.zoom.us/j/86425112849?pwd=WWtLOFR4L2dKS2NEN0lIQmRHRTVpZz09](https://us02web.zoom.us/j/86425112849?pwd=WWtLOFR4L2dKS2NEN0lIQmRHRTVpZz09) 
 
-  *Event link:* [NISDUC Conference](https://www.nisduc.eu/second-conference/program) 
+#### MISP Training - Advanced Developer session from API to MISP internals
+
+  *When:* {{< fixedtime `6th September 2023 14:00-17:00 CEST` `MISP Training - Advanced Developer session from API to MISP internals` `20230906T12` `3` >}}
+
+  *Where:* Remote (Zoom and online MISP training instance)
+
+  *Price:* Freely accessible (session will be recorded) 
+
+  *Summary agenda:*
+    - Intro to API usage
+    - Supporting dev libraries
+    - Session on development of MISP internals
+
+  *Event link:* [https://us02web.zoom.us/j/83117293458?pwd=NWt0TWhoZnZBeDRtOUpTbEtkWldjQT09](https://us02web.zoom.us/j/83117293458?pwd=NWt0TWhoZnZBeDRtOUpTbEtkWldjQT09) 
 
 ### Past events
 
