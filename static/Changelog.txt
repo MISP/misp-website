@@ -2,6 +2,103 @@ Changelog
 =========
 
 
+%%version%% (unreleased)
+------------------------
+
+New
+~~~
+- [attack widget] added. [iglocska]
+- [org list widget] added. [iglocska]
+- [dashboard widget toolkit] started a new common library of reusable
+  functions for widgets. [iglocska]
+- [dashboard widgets] added previous_month boolean option to any widget
+  that had the month option. [iglocska]
+- [dashboard widget] added functionalities to download widget raw data.
+  [iglocska]
+
+  - download the JSON passed to the front-end of a widget on-demand
+- [dashboard widget] added download parameter to the widget system.
+  [iglocska]
+
+Changes
+~~~~~~~
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [misp-warninglists] updated. [Alexandre Dulaunoy]
+- [htaccess] lock the backreference escaping purely to spaces - if we
+  need more we can change it in the future. [iglocska]
+- [map widget] moved country code lookup to the new widget toolkit.
+  [iglocska]
+- [org index] sort on metafields. [iglocska]
+- [TOTP] set name. [iglocska]
+- [htaccess] lock the backreference escaping purely to spaces - if we
+  need more we can change it in the future. [iglocska]
+- [composer] added an explicit dependency to avoid pulling in the wrong
+  version when building docker. [iglocska]
+
+Fix
+~~~
+- [customauth] Don't renew the session with each query. [iglocska]
+
+  - Leave the session handling to the normal life-cycle management
+  - should solve the issues where CSRF keeps kicking users off
+- Properly handle different cert file extensions in server sync. #9084.
+  [Luciano Righetti]
+- [urls] allow for encoded spaces. [iglocska]
+
+  - this has been haunting us for a while
+- Update composer and fix dependencies. [Stefano Ortolani]
+
+  Changes:
+  - update composer.phar to latest stable (2.5.8)
+  - rollback pinning indirect dependencies
+- Make target event id not required (makes form submit fail) [Luciano
+  Righetti]
+- [config] typo fixed. [Alexandre Dulaunoy]
+- [map widget] added alternate name for Russia. [iglocska]
+
+  - in case someone would want to make sure they still have Russian member organisations
+- [trending widgets] time ranges fixed. [iglocska]
+- [api login widget] fixed notice error if no entries were found.
+  [iglocska]
+- [dashboard trending attributes] change !empty() to isset() to allow
+  for local: "0" to be a valid filter. [iglocska]
+- [indexing] object references table lacked an index on the uuid field
+  causing massive performance issues during ingestion. [iglocska]
+- [urls] allow for encoded spaces. [iglocska]
+
+  - this has been haunting us for a while
+- [app:udpateDatabase] Added missing break statement. [Sami Mokaddem]
+- [UI] index searches will handle spaces correctly. [iglocska]
+- [taxii push] correctly save the status of thetaxii push job.
+  [iglocska]
+- Make target event id not required (makes form submit fail) [Luciano
+  Righetti]
+
+Other
+~~~~~
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'composer_fix' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [Sami Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #9158 from ostefano/search. [Andras Iklody]
+
+  Fix search galaxy clusters
+- Fix search galaxy clusters. [Stefano Ortolani]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+
+
 v2.4.172 (2023-06-09)
 ---------------------
 
