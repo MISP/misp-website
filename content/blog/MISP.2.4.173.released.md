@@ -2,6 +2,7 @@
 title: MISP 2.4.173 released with various bugfixes and improvements 
 date: 2023-07-11
 layout: post
+banner: /img/blog/dashboard-new.png
 ---
 
 We are pleased to announce the immediate availability of [MISP v2.4.173](https://github.com/MISP/MISP/releases/tag/v2.4.173) with a new password reset feature, along with a host of quality of life improvements and fixes.
