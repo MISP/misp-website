@@ -12,10 +12,6 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 ### Webinar
 
 
-### MISP Hackathon
-
-The previous Hackaton was in October 2021: [Open Source Security Hackathon](/hackathon/)
-
 ### Conferences 
 
 - 16th October 2023 - 19th October 2023 [hack.lu 2023](https://2023.hack.lu/) and CTI-summit
@@ -52,6 +48,11 @@ The previous Hackaton was in October 2021: [Open Source Security Hackathon](/hac
     - Session on development of MISP internals
 
   *Event link:* [https://us02web.zoom.us/j/83117293458?pwd=NWt0TWhoZnZBeDRtOUpTbEtkWldjQT09](https://us02web.zoom.us/j/83117293458?pwd=NWt0TWhoZnZBeDRtOUpTbEtkWldjQT09) 
+
+### MISP Hackathon
+
+The previous Hackathon was in October 2021: [Open Source Security Hackathon](/hackathon/)
+
 
 ### Past events
 
