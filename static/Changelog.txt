@@ -2,11 +2,12 @@ Changelog
 =========
 
 
-%%version%% (unreleased)
-------------------------
+v2.4.173 (2023-07-11)
+---------------------
 
 New
 ~~~
+- [forgotten password] optional feature added. [iglocska]
 - [attack widget] added. [iglocska]
 - [org list widget] added. [iglocska]
 - [dashboard widget toolkit] started a new common library of reusable
@@ -22,11 +23,19 @@ New
 
 Changes
 ~~~~~~~
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [version] bump. [iglocska]
+- [forgotten password] reset text clarifications. [iglocska]
+
+  - to avoid dumdum users from sharing their quasi-passwords
 - [misp-galaxy] updated. [Alexandre Dulaunoy]
 - [misp-objects] updated. [Alexandre Dulaunoy]
 - [misp-warninglists] updated. [Alexandre Dulaunoy]
 - [htaccess] lock the backreference escaping purely to spaces - if we
   need more we can change it in the future. [iglocska]
+- [installer] Updated installer to latest version. [Steve Clement]
+- [doc] "Listen 443" line will only be added if it doesn't already exist
+  in the file." [Steve Clement]
 - [map widget] moved country code lookup to the new widget toolkit.
   [iglocska]
 - [org index] sort on metafields. [iglocska]
@@ -38,10 +47,14 @@ Changes
 
 Fix
 ~~~
-- [customauth] Don't renew the session with each query. [iglocska]
-
-  - Leave the session handling to the normal life-cycle management
-  - should solve the issues where CSRF keeps kicking users off
+- [db_schema] bumped. [iglocska]
+- Localisation workflow typo. [Sura De Silva]
+- [UI] Preserve linebreaks in comments in enrichment results.
+  [417190e5c48babc7]
+- [pw reset] fix (pass the token for deletion) [iglocska]
+- [forgotten password] fixed. [iglocska]
+- [password reset] various issues. [iglocska]
+- [login] screen small visual fix. [iglocska]
 - Properly handle different cert file extensions in server sync. #9084.
   [Luciano Righetti]
 - [urls] allow for encoded spaces. [iglocska]
@@ -55,6 +68,10 @@ Fix
 - Make target event id not required (makes form submit fail) [Luciano
   Righetti]
 - [config] typo fixed. [Alexandre Dulaunoy]
+- [customauth] Don't renew the session with each query. [iglocska]
+
+  - Leave the session handling to the normal life-cycle management
+  - should solve the issues where CSRF keeps kicking users off
 - [map widget] added alternate name for Russia. [iglocska]
 
   - in case someone would want to make sure they still have Russian member organisations
@@ -77,8 +94,23 @@ Fix
 
 Other
 ~~~~~
-- Merge branch '2.4' into develop. [iglocska]
 - Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'orglinechart' into develop. [iglocska]
+- Merge branch 'develop' into orglinechart. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #9180 from dragsu/fix-localisation-workflow-typo.
+  [Andras Iklody]
+
+  fix: Localisation workflow typo
+- Merge pull request #9183 from 417190e5c48babc7/fix-resolved-misp-
+  format-comment-linebreaks. [Andras Iklody]
+
+  fix: [UI] Preserve linebreaks in comments in enrichment results
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
 - Merge branch 'develop' of github.com:MISP/MISP into develop.
   [Alexandre Dulaunoy]
 - Merge branch '2.4' into develop. [iglocska]
@@ -91,6 +123,20 @@ Other
 - Merge branch '2.4' into develop. [Sami Mokaddem]
 - Merge branch '2.4' into develop. [iglocska]
 - Merge branch '2.4' into develop. [iglocska]
+- Add dashboard widget for monthly number of events per org.
+  [vincenzocaputo]
+- Merge pull request #9168 from SteveClement/guides. [Steve Clement]
+
+  chg: [doc] "Listen 443" line will only be added if it doesn't already exist in the file."
+- Merge pull request #9163 from ajb3932/patch-1. [Alexandre Dulaunoy]
+
+  Update INSTALL.sh
+- Update INSTALL.sh. [Alex Jarvis-Blanks]
+
+  The current command adds the line "Listen 443" after the line containing "Listen 80" even if "Listen 443" already exists.
+
+  In my update, the "Listen 443" line will only be added if it doesn't already exist in the file.
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
 - Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
 - Merge pull request #9158 from ostefano/search. [Andras Iklody]
 
