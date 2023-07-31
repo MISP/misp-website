@@ -1,5 +1,5 @@
 ---
-title: MISP 2.4.174 released with major workflows enhancement, new features and fixes
+title: MISP 2.4.174 released with major workflow enhancements, new features and fixes
 date: 2023-07-31
 layout: post
 banner: /img/blog/2.4.174/blueprint-falsepositive-warninglist.png
