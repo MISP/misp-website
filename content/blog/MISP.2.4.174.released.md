@@ -98,7 +98,6 @@ For more details, the [misp-object changelog](https://www.misp-project.org/Chang
 - Various updates in the [threat actor MISP galaxy](https://www.misp-project.org/galaxy.html#_threat_actor).
 - Various automatic updates from Sigma galaxy.
 
-
 For more details, the [misp-galaxy changelog](https://www.misp-project.org/Changelog-misp-galaxy.txt) is available.
 
 ## MISP warning-lists
@@ -113,6 +112,12 @@ For more details, the [misp-warninglists changelog](https://www.misp-project.org
 - Minor improvements in the [cryptocurrency threat](https://www.misp-project.org/taxonomies.html#_cryptocurrency_threat) taxonomy and workflow taxonomy to support the new workflow features.
 
 For more details, the [misp-taxonomies changelog](https://www.misp-project.org/Changelog-misp-taxonomies.txt) is available.
+
+## MISP-stix
+
+MISP-stix includes multiple improvements and bugs fixed.
+
+For more details, the [misp-stix changelog](https://www.misp-project.org/Changelog-misp-stix.txt) is available.
 
 # Don't forget to follow us on Mastodon
 
