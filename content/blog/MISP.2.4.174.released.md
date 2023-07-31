@@ -2,7 +2,7 @@
 title: MISP 2.4.174 released with major workflows enhancement, new features and fixes
 date: 2023-07-31
 layout: post
-banner: /img/blog/dash-new.png
+banner: /img/blog/blueprint-falsepositive-warninglist.png
 ---
 
 We are thrilled to announce the immediate availability of [MISP v2.4.174](https://github.com/MISP/MISP/releases/tag/v2.4.174) with significant workflow improvements, accompanied by a host of quality-of-life enhancements and bug fixes.
@@ -47,18 +47,18 @@ To give an idea of what these blueprints look like, let's have a look at `Flag f
 
 In few words, here what's going on:
 1. The system integrates warninglist hits in the data
-2. Attributes having a hit on a warninlist of type `false_positive` are kept, the others are filtered out
+2. Attributes having a hit on a warninglist of type `false_positive` are kept, the others are filtered out
 3. Depending on the configuration, the `to_ids` flag will be disabled or kept as is
 4. Tags are attached accordingly marking matching IoCs as false-positive
 
-It should be noted that every curation blueprints are configurable in the sense that they might execute differently based on the tags (coming from the [`misp-workflow` taxonomy](https://github.com/MISP/misp-taxonomies/blob/59ec473a5f7a44755a6098890a1ee290487bfc53/misp-workflow/machinetag.json)) attached to the event. For example, if the tag `misp-workflow:mutability="allowed"`is set on the event, the workflow will modify existing data. This can be very usefull for servers acting as a clearing hub or forwarding vetted data to other instances. While if the tag isn't present, data won't be touched and only `local` tags will be applied if needed.
+It should be noted that every curation blueprints are configurable in the sense that they might execute differently based on the tags (coming from the [`misp-workflow` taxonomy](https://github.com/MISP/misp-taxonomies/blob/59ec473a5f7a44755a6098890a1ee290487bfc53/misp-workflow/machinetag.json)) attached to the event. For example, if the tag `misp-workflow:mutability="allowed"`is set on the event, the workflow will modify existing data. This can be very useful for servers acting as a clearing hub or forwarding vetted data to other instances. While if the tag isn't present, data won't be touched and only `local` tags will be applied if needed.
 
 Should you be interested to check the 9 new blueprints out, the complete list can be found here: https://github.com/MISP/misp-workflow-blueprints#curation-blueprints.
 
 
 ## Workflow editor improvements
 
-Now let's have a quick look at the changes that have been integrated to speed up edition, simpifly complex tasks and make things a little more intuitive.
+Now let's have a quick look at the changes that have been integrated to speed up edition, simplify complex tasks and make things a little more intuitive.
 
 ##### Multiple values in filtering
 Added support of two new operators `Any value` and `Any values from`, allowing `OR` condition in logic blocks.
@@ -77,7 +77,7 @@ UX improvement and helper tool to facilitate crafting complex hash path.
 ![](/img/blog/2.4.174/wf-hashpath-picker.gif)
 
 ##### Frame nodes
-UI feature to enable framing node that achieve a specific actions. Especially usefull when using blueprints.
+UI feature to enable framing node that achieve a specific actions. Especially useful when using blueprints.
 ![](/img/blog/2.4.174/wf-frame-node.gif)
 
 
