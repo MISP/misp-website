@@ -35,7 +35,7 @@ In addition, this release includes numerous little UI/UX treats for the workflow
 Overall, the following work was carried out:
 - 5 new workflows modules related to tagging enrichment & curation
 - 3 new [enrichment modules](https://github.com/MISP/misp-modules/) to improve false-positive detection from different services
-    - Many thanks to (TinyHouseHippos)[https://github.com/TinyHouseHippos] for adding support of [Google Safe Browsing](https://safebrowsing.google.com/) and [AbuseIPDB](https://www.abuseipdb.com/)!
+    - Many thanks to [TinyHouseHippos](https://github.com/TinyHouseHippos) for adding support of [Google Safe Browsing](https://safebrowsing.google.com/) and [AbuseIPDB](https://www.abuseipdb.com/)!
 - 9 new workflow-blueprints using the above module to make the curation of incoming data a simple task
 - Many quality of life improvements for the workflow editor interface
 
