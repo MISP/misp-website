@@ -2,6 +2,241 @@ Changelog
 =========
 
 
+v2.4.174 (2023-07-31)
+---------------------
+
+New
+~~~
+- [Authkeys] Add setting to mandate IP allowlist for advanced authkeys.
+  [Jeroen Pinoy]
+- [workflow:editor] Added support of frame nodes in editor and drawflow
+  lib. [Sami Mokaddem]
+- [workflow:editor] Added min/max-imize support for module sidebar.
+  [Sami Mokaddem]
+- [workflow:editor] Added hash-path picker helper functionality. [Sami
+  Mokaddem]
+- [workflow:editor] Added support of quick insert on link. [Sami
+  Mokaddem]
+- [workflow-module] Added debug function to send custom request to debug
+  endpoint. [Sami Mokaddem]
+- [workflow-modules:tag_replacement] Added tag generic module and
+  support for TLP and PAP. [Sami Mokaddem]
+- [workflow-modules:assign_country_from_enrichment] Added module that
+  tags using the country galaxy based on the provided hash path. [Sami
+  Mokaddem]
+- [workflow-modules:attribute_comment_operation] Added new module to set
+  the comment of an Attribute. [Sami Mokaddem]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [misp-galaxy] version 2.4.174. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version 2.4.174. [Alexandre
+  Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [warninglists] updated to the latest version. [Alexandre Dulaunoy]
+- Bumped queryVersion. [Sami Mokaddem]
+- [event:publishSightingsRouter] Change from prio worker to default.
+  [Sami Mokaddem]
+
+  There is no need to keep this task in prio as sightings are not sync inline anymore.
+- Do not show last button when using light paginator. [Luciano Righetti]
+- [workflow:editor] Make frame node padding configurable. [Sami
+  Mokaddem]
+- [workflow:editor] Small refactoring of drawflow lib. [Sami Mokaddem]
+- [workflow:editor] Moved styling in a class rather than in drawflow
+  lib. [Sami Mokaddem]
+- [workflow:editor] Usage of proxy function to delete nodes. [Sami
+  Mokaddem]
+- [workflow:editor] Improved description in hashpath picker for quick
+  link. [Sami Mokaddem]
+- [workflow:editor] Added support of collapse in hashpath picker. [Sami
+  Mokaddem]
+- [workflow-modules] Replace param type for hashpath input to `hashpath`
+  [Sami Mokaddem]
+- [workflow:logging] Changed logging behavior to be less verbose when
+  debug is not enabled. [Sami Mokaddem]
+
+  - When debug is enabled, it will log eveything as it used to be but also include successfull node execution
+  - When debug is disabled, it will only log execution errors
+- [workflow:editor] Added support of chosen options and disabled inputs.
+  [Sami Mokaddem]
+- [workflow:editor] Add class if node expect MISP core format. [Sami
+  Mokaddem]
+- [workflow-modules:assign_country] Improved behavior when dealing with
+  scopes. [Sami Mokaddem]
+- [workflow-modules:tag_replacement] Improved behavior and added `all`
+  scope. [Sami Mokaddem]
+- [workflow:auditLog] Removed auditlog behavior as it's blocking large
+  workflows to be saved. [Sami Mokaddem]
+- [workflow-modules:assign_country_from_enrichment] Moved from app/Lib
+  to app/Model. [Sami Mokaddem]
+- [workflow-module:generic_filter] Added support of picker_create_new in
+  value list. [Sami Mokaddem]
+- [workflow:matchingItems] Improved any_value and any_value_from for
+  IF::Generic and Filter::Generic. [Sami Mokaddem]
+- [workflow:editor] Added support of list of value for display_on
+  parameter. [Sami Mokaddem]
+- [workflow:editor] Added support of new option `picker_create_new`
+  [Sami Mokaddem]
+- [workflow-modules:generic_filter] Added support of operator
+  `any_value_in` [Sami Mokaddem]
+- [workflow-modules:edition] General improvements, fixed modified data
+  not being reflected in rData and small refactoring. [Sami Mokaddem]
+- [workflow-modules:attach_enrichment] Enable selection of multiple
+  modules and added support of module not accepting misp_format. [Sami
+  Mokaddem]
+
+Fix
+~~~
+- [event:publishSightingsRouter] Make sure to use correct queue for
+  publishSightingsRouter. [Sami Mokaddem]
+
+  Fix bug introduced in 64580168622aeea59997cea5739cf0b8dbcf8bda where workers were set to default but not the queue
+- [workflow] Removed trailing comma in function call. [Sami Mokaddem]
+- Revert loginAction override. [Luciano Righetti]
+- [totp] generate a new totp secret each time a the totp_new endpoint is
+  queried via a GET request, fixes #9220. [iglocska]
+- Light pagination bug in /attributes/search/results see #9157. [Luciano
+  Righetti]
+- [proposal] index should also include the "deleted" field. [iglocska]
+- [proposal] proposal index fix as described 2 commits ago. [iglocska]
+- [debug reverted] reverted erroneously committed debug / exception.
+  [iglocska]
+- [proposal] sync fixes. [iglocska]
+
+  - include disable correlation / proposal to delete fields in the proposal index
+  - this is used on pulls, causing these fields to not be included
+    - especially the proposal to delete field's absence is nasty, as it changes the meaning of the proposal
+- [background workers] speculative fix for issues with publishing.
+  [iglocska]
+
+  - job object not found or not retrieved correctly
+- [proposal accept] fixed for deletions. [iglocska]
+
+  - soft delete rather than hard delete or the propagation will fail
+- [sightings] only pushed via full push to avoid congestion. [iglocska]
+
+  - the old behaviour can be re-enabled via Sightings.enable_realtime_publish
+  - massive performance gain on heavily interconnected instances
+- [stix export] Avoiding issues in the case of empty input. [Christian
+  Studer]
+
+  - With no input, the python script called to
+    convert the MISP input used to barf because
+    there is no input.
+  - Should fix MISP/misp-stix#44
+- [taxii_push] Passing standard MISP JSON format to the `taxii_push`
+  script and by extension to misp-stix. [Christian Studer]
+- [taxii_push] The path `resolve` method needs to be called. [Christian
+  Studer]
+- [security] otp reset otp_secret on logout. [iglocska]
+
+  - changing users within the same session can otherwise lead to the creation of the same otp seed for multiple users
+- [restsearch] searching for ipv6s fails due to compression not being
+  applied, fixes #9042. [iglocska]
+
+  - compress ipv6 addresses in value searches to match the behaviour of automatic compression on saving attributes
+- [authkeys] allow admin read-only key to access audit logs (#9191)
+  [Jeroen Pinoy]
+
+  fix #9190
+- [UI] use acl to determine whether to show "audit logs" and "search
+  logs" buttons (#9192) [Jeroen Pinoy]
+
+  fix #8949
+- [attributes:validation] Allow telfhash to be either 70 or 72 chars
+  long. [Sami Mokaddem]
+- [acl] sighting restsearch should be open to all, fixes #9116. [Andras
+  Iklody]
+- [otp] autofocus added. [iglocska]
+- [taxii_push] Passing standard MISP JSON format to the `taxii_push`
+  script and by extension to misp-stix. [Christian Studer]
+- [workflow:editor] Typo in css rule. [Sami Mokaddem]
+- [workflow:triggers] Fixed typo in column description. [Sami Mokaddem]
+- [workflow:editor] Avoid duplicating labels when path merges on one
+  node. [Sami Mokaddem]
+- [workflow-modules] Prevent exception if no match. [Sami Mokaddem]
+- [event:attachTagsdToEventAndTouch] Make sure to continue adding tag in
+  case of success. [Sami Mokaddem]
+- [workflow:editor] Prevent Run workflow popover after closing. [Sami
+  Mokaddem]
+- [workflow-modules:tag_replacement_generic] Provide tag locality for
+  deletion. [Sami Mokaddem]
+- [workflow-modules:attach_enrichment] Make sure to include selected
+  module config. [Sami Mokaddem]
+- [workflow-modules:generic_filter] Set a default filtering label for
+  new dragged modules. [Sami Mokaddem]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9218 from referefref/2.4. [Alexandre Dulaunoy]
+
+  Added James Brine Bruteforce IPs to feed-metadata defaults json
+- Changed feed type to csv and added field identifier value and
+  delimiter. [ref]
+- Added James Brine Bruteforce IPs to feed-metadata defaults json. [ref]
+
+  Added freetext feed endpoint for Bruteforce IPV4 addresses
+- Merge branch 'develop' of github.com:MISP/MISP into
+  feature_workflows/enrichment-improvements. [Sami Mokaddem]
+- Merge pull request #9221 from Wachizungu/add-mandate-ip-allowlist-for-
+  advanced-authkeys-setting. [Alexandre Dulaunoy]
+
+  new: [Authkeys] Add setting to mandate IP allowlist for advanced auth…
+- Merge branch 'develop' of github.com:MISP/MISP into
+  feature_workflows/enrichment-improvements. [Sami Mokaddem]
+- Merge pull request #9211 from righel/fix-attr-search-pagination-9157.
+  [Luciano Righetti]
+
+  fix: light pagination bug in /attributes/search/results see #9157
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'loginAction' into develop. [iglocska]
+- Explicitly set loginAction with baseurl. [Mathieu Rollet]
+- Merge branch 'sighting_push_fix' into develop. [iglocska]
+- Merge branch 'misp-stix' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into misp-stix.
+  [Christian Studer]
+- Merge branch 'misp-stix' of github.com:MISP/MISP into misp-stix.
+  [Christian Studer]
+- Merge branch 'develop' into misp-stix. [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into misp-stix.
+  [Christian Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into misp-stix. [Christian
+  Studer]
+- Merge branch 'misp-stix' of github.com:MISP/MISP into misp-stix.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into misp-stix.
+  [chrisr3d]
+- Merge branch '2.4' of https://github.com/MISP/MISP into misp-stix.
+  [chrisr3d]
+- Merge branch '2.4' of github.com:MISP/MISP into misp-stix. [chrisr3d]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Christian
+  Studer]
+- Merge pull request #9194 from MISP/JakubOnderka-patch-1. [Alexandre
+  Dulaunoy]
+
+  NATO MISP only for cyber defense
+- NATO MISP only for cyber defense. [Jakub Onderka]
+
+  According to NATO MISP terms of use, NATO MISP is open only for cyber defense related governmental entities, not to all governmental entities.
+
+
 v2.4.173 (2023-07-11)
 ---------------------
 

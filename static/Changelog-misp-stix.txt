@@ -1,6 +1,131 @@
 # Changelog
 
 
+## v2.4.174 (2023-07-31)
+
+### Changes
+
+* [poetry] Bumped lock file. [Christian Studer]
+
+* [stix import] Simplified data path. [Christian Studer]
+
+* [tests] Updated tests for sightings import. [Christian Studer]
+
+  - Also changed some sample to have different order
+    with Identity objects in order to test properly
+    our recent changes on loading and converting the
+    sightings, which purpose was to avoid issues
+    with the STIX objects order
+
+* [stix2 import] Updated the External STIX 2 Identity objects mapping to MISP `organization` objects following recent updates on that template. [Christian Studer]
+
+* [readme] Updated MISP collections to STIX 1 export example. [Christian Studer]
+
+* [readme] Updated usage documentation following recent changes on the command-line feature and some helper methods. [Christian Studer]
+
+* [poetry] Bumped latest dependencies. [Christian Studer]
+
+### Fix
+
+* [stix2 import] Differenciating between internal and external stix content regarding the external references handling. [Christian Studer]
+
+* [tests] Fixed tests for vulnerability cluster import following recent changes on the meta fields. [Christian Studer]
+
+* [stix2 import] Fixed vulnerability cluster meta fields parsing. [Christian Studer]
+
+* [tests] Fixed the vulnerability clusters meta tests according to the latest changes on the external id (cve) field parsing. [Christian Studer]
+
+* [stix2 export] Fixed vulnerability clusters meta fields parsing. [Christian Studer]
+
+* [stix2 export] Fixed `malware_types` fields & added missing method for `threat_actor_types` parsing. [Christian Studer]
+
+* [stix2 import] Added missing `annotation` object metadata parsing. [Christian Studer]
+
+* [tests] Removed some results writing in files which were used at some point for debugging purposes and forgotten in the code vastness. [Christian Studer]
+
+* [stix2 import] Shorter obervable types extraction while still including the recent fix to avoid issues with observables that are of `dict` type. [Christian Studer]
+
+* [stix1 export] Fixed backward compatibility with old object templates. [Christian Studer]
+
+* [stix2 export] Fixed backward compatibility with old object templates. [Christian Studer]
+
+* [stix import] Sanitised the import variables declaration to avoid issue with wrong value format. [Christian Studer]
+
+* [command-line] Fixed results message. [Christian Studer]
+
+* Observable type access for dict type. [Sura De Silva]
+
+* [stix2 import] Typo within the Opinion objects loading method. [Christian Studer]
+
+* [stix2 import] Better handling of MISP Sightings import. [Christian Studer]
+
+  - Storing `Sighting` & `Opinion` objects instead
+    of converting them to MISP Sightings while
+    loading them, because in some cases we need the
+    information of the related org, which is not
+    always already loaded when the need its info
+  - We convert the STIX objects to Sightings at the
+    end while we loop over the different references
+
+* [stix2 import] Better `Identity` object's identity class field handling. [Christian Studer]
+
+* [stix2 import] Using the Galaxy Cluster adding method to add cluster instead of appending it the the list of clusters. [Christian Studer]
+
+### Other
+
+* Merge branch 'main' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:misp/misp-stix. [Christian Studer]
+
+* Merge pull request #45 from SYNchroACK/fix/wrong-import. [Christian Studer]
+
+  Fix wrong stix observables import
+
+* Fix wrong stix observables import. [Tomas Lima]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Wip: [stix2 import] Updated the import conversion of internal STIX 2.x Identity objects to better support recent changes on the `organization` template. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge pull request #46 from dragsu/fix-observable-access-dict-type. [Christian Studer]
+
+  fix: `type` access for dict type Observables
+
+* Merge branch 'main' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Add: [stix2 import] Importing Identity objects with `identity_class` set to organization as `organization` object. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Add: [stix2 import] Adding relations between galaxy clusters. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+
 ## v2.4.172 (2023-06-09)
 
 ### Changes
