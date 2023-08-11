@@ -27,8 +27,8 @@ In complement, the following MISP Commercial Support is available from external 
 |               | - Architecture <br />- Installation, maintenance<br />- Integration/automation<br />- Training | | |
 | **eCrimeLabs ApS** | Remote | [https://www.ecrimelabs.com/hosted-and-managed-misp](https://www.ecrimelabs.com/hosted-and-managed-misp) | Europe |
 |               | - Fully Managed and Hosted MISP<br />- SOAR implementation Architecture <br />- Integration/automation<br />- Consulting | | |
-| **Cosive CloudMISP** | Remote | [https://www.cosive.com/cloud-misp](https://www.cosive.com/cloud-misp) | Australia / NZ / Asia Pacific |
-|               | - Fully managed and hosted MISP<br />- MISP configuration support<br />- Multi-instance deployments<br />- Customised builds and integrations<br />- Professional services / Training | | |
+| **Cosive CloudMISP** | Remote | [https://www.cosive.com/cloud-misp](https://www.cosive.com/cloud-misp) | Worldwide |
+|               | - Fully managed and hosted MISP<br />- Choose hosting AWS location worldwide<br />- MISP configuration support<br />- Multi-instance deployments<br />- Customised builds and custom integrations<br />- Professional services / Training | | |
 | **NVISO**  | Remote and on-site | [https://www.nviso.eu/en/contact](https://www.nviso.eu/en/contact) | Europe |
 |            | - Architecture, installation and configuration <br /> - Development and integration in your IT environment (Security stack, SIEM, SOAR, and data analytics platforms such as Power BI - KPIs)<br /> - Threat feed integrations <br /> - Threat intelligence program projects and maturity assessments <br /> - Defining Threat Intelligence sharing guidelines & policies <br /> - Training and consultancy |   | |
 <br />
