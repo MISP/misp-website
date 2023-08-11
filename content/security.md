@@ -96,6 +96,7 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2023-28607](https://cvepremium.circl.lu/cve/CVE-2023-28607) < MISP 2.4.169 - js/event-graph.js in MISP before 2.4.169 allows XSS via the event-graph relationship tooltip. 
 - [CVE-2023-28884](https://cvepremium.circl.lu/cve/CVE-2023-28884) < MISP 2.4.170 - app/Lib/Tools/CustomPaginationTool.php allows XSS in the community index. 
 - [CVE-2023-37306](https://cvepremium.circl.lu/cve/CVE-2023-37306) < MISP 2.4.173 - MISP 2.4.172 mishandles different certificate file extensions in server sync. An attacker can obtain sensitive information because of the nature of the error messages.  
+- [CVE-2023-40224](https://cvepremium.circl.lu/cve/CVE-2023-40224) <= MISP 2.4.174 - allows XSS in app/View/Events/index.ctp.
 
 ## PGP Key
 
