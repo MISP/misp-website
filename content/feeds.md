@@ -59,6 +59,7 @@ The default feeds are described in a [simple JSON format](https://github.com/MIS
 - [IPsum (aggregation of all feeds) - level 6 - no false positives](https://raw.githubusercontent.com/stamparm/ipsum/master/levels/6.txt) - IPsum - feed format: freetext
 - [IPsum (aggregation of all feeds) - level 7 - no false positives](https://raw.githubusercontent.com/stamparm/ipsum/master/levels/7.txt) - IPsum - feed format: freetext
 - [IPsum (aggregation of all feeds) - level 8 - no false positives](https://raw.githubusercontent.com/stamparm/ipsum/master/levels/8.txt) - IPsum - feed format: freetext
+- [James Brine Bruteforce IPs](https://jamesbrine.com.au/csv) - jamesbrine.com.au - feed format: csv
 - [malshare.com - current all](https://malshare.com/daily/malshare.current.all.txt) - malshare.com - feed format: freetext
 - [malsilo.domain](https://malsilo.gitlab.io/feeds/dumps/domain_list.txt) - MalSilo - feed format: csv
 - [malsilo.ipv4](https://malsilo.gitlab.io/feeds/dumps/ip_list.txt) - MalSilo - feed format: csv
