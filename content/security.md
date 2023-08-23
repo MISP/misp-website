@@ -97,6 +97,7 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2023-28884](https://cvepremium.circl.lu/cve/CVE-2023-28884) < MISP 2.4.170 - app/Lib/Tools/CustomPaginationTool.php allows XSS in the community index. 
 - [CVE-2023-37306](https://cvepremium.circl.lu/cve/CVE-2023-37306) < MISP 2.4.173 - MISP 2.4.172 mishandles different certificate file extensions in server sync. An attacker can obtain sensitive information because of the nature of the error messages.  
 - [CVE-2023-40224](https://cvepremium.circl.lu/cve/CVE-2023-40224) <= MISP 2.4.174 - allows XSS in app/View/Events/index.ctp. (reported by BeDisruptive OSS Team)
+- [CVE-2023-41098](https://cvepremium.circl.lu/cve/CVE-2023-41098) <= MISP 2.4.174 - In app/Controller/DashboardsController.php, a reflected XSS issue exists via the id parameter upon a dashboard edit. 
 
 ## PGP Key
 
