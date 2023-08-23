@@ -6,7 +6,7 @@ tags: ["SigMF", "SIGINT", "MISP", "Threat Intelligence", "Signal Intelligence"]
 banner: /img/blog/sigint.png
 ---
 
-As one of the outcomes of [GeekWeek8](https://www.cyber.gc.ca/en/geekweek/geekweek-8), MISP now supports a new set of features useful for handling radio frequency information in the [Signal Metadata Format Specification]((https://github.com/sigmf/SigMF)) (SigMF), commonly used in Software Defined Radio (SDR), digital signal processing and data analysis applications.
+As one of the outcomes of [GeekWeek8](https://www.cyber.gc.ca/en/geekweek/geekweek-8), MISP now supports a new set of features useful for handling radio frequency information in the [Signal Metadata Format Specification](https://github.com/sigmf/SigMF)) (SigMF), commonly used in Software Defined Radio (SDR), digital signal processing and data analysis applications.
 
 ![GeekWeek logo singal waterfall](https://user-images.githubusercontent.com/1659902/262598006-9e1df43f-eed1-4bec-b72f-809240eef238.gif)
 
