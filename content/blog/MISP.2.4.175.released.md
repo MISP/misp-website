@@ -11,18 +11,18 @@ MISP 2.4.175 released with various bugs fixed, improvements and security fixes.
 # Improvements
 
 - Added support of `start_date` and `end_date` options in the MISP dashboard widgets.
-- In user periodic reporting, allow users to set the number of dayd to look back (UI).
-- In MISP dashboard org Widget, support for `first_half_year` and `second_half_year` timeframe. 
-- New enrich object functionality added to allow the enrichment of a complete MISP object. Used by the [SigMF module](https://www.misp-project.org/2023/08/23/MISP_now_supports_Signal_Metadata_Format_Specification_SigMF.html/) but this can be used with any expansion modules supporting objects.
+- In the user periodic reporting, allow users to set the number of days to include in the reporting (UI).
+- In the MISP dashboard org Widget, added support for `first_half_year` and `second_half_year` timeframe. 
+- New enrich object functionality added, in order to allow for the enrichment of a complete MISP object. Used by the [SigMF module](https://www.misp-project.org/2023/08/23/MISP_now_supports_Signal_Metadata_Format_Specification_SigMF.html/) but this can be used with any expansion modules supporting objects.
 - New feeds added.
-- New [diag]: Improve diagnostics when instance does not have internet or does not use self-update
+- Improve the diagnostics when an instance does not have internet access or does not use the self-update feature
 
 # Bugs fixed
 
-- Update the CA bundle of the CakePHP submodule maintained by MISP project.
-- IndexFiler correct index page filtering is now fixed for ReST requets.
-- Prevent `push_rules` from being required in API requests to `/server/edit` endpoint.
-- The annoying MISP event import bug from JSON has been fixed, you can now import MISP JSON event without `Event` key.
+- Update the CA bundle of the CakePHP submodule maintained by the MISP project.
+- IndexFilter: correct index page filtering is now fixed for ReST requets.
+- Prevent `push_rules` from being required in API requests to the `/server/edit` endpoint.
+- The annoying MISP event import bug from JSON has been fixed, you can now import MISP JSON events without the `Event` key.
 - Various fixes in the MISP dashboard interface.
 - Fix 
 
@@ -47,7 +47,7 @@ For more details, the [misp-object changelog](https://www.misp-project.org/Chang
 ## MISP Galaxy
 
 - Various updates in the [threat actor MISP galaxy](https://www.misp-project.org/galaxy.html#_threat_actor) and tool cluster.
-- Various automatic updates from Sigma galaxy.
+- Various automatic updates to the Sigma galaxy.
 
 For more details, the [misp-galaxy changelog](https://www.misp-project.org/Changelog-misp-galaxy.txt) is available.
 
