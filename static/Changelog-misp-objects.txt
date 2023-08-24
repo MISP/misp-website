@@ -1,6 +1,82 @@
 # Changelog
 
 
+## v2.4.175 (2023-08-23)
+
+### New
+
+* [x-header] new generic X header object for SMTP, HTTP and others. [Alexandre Dulaunoy]
+
+* Sigmf archive object. [Luciano Righetti]
+
+* Add fft and waterfall attributes. [Luciano Righetti]
+
+* Add basic SigMF templates. [Luciano Righetti]
+
+### Changes
+
+* [artifact] Changed the `hashes` attribute into the different hash type attributes. [Christian Studer]
+
+  - A change to adopt the same logic as file objects
+    regarding the different hash values
+  - In STIX 2.1 an Artifact object is not necessarily
+    linked to a File object and both referenced by
+    an Observed Data object. In some cases Artifact
+    objects are referenced for instance by Malware
+    objects, in which case they describe the actual
+    malware sample. It is then usefull to have the
+    different hash values in single attributes rather
+    than concatenated in a text attribute
+
+### Fix
+
+* [artifact] Properly JQed the end of file. [Christian Studer]
+
+* [malware] Fixed `is_family` attribute type. [Christian Studer]
+
+* [scan-results] JSON and trailing comma ;-) [Alexandre Dulaunoy]
+
+* Jq all the things. [Luciano Righetti]
+
+* Minor fixes. [Luciano Righetti]
+
+* Jq all the things. [Luciano Righetti]
+
+### Other
+
+* Merge pull request #404 from MISP/chrisr3d_patch. [Alexandre Dulaunoy]
+
+  Artifact object update
+
+* Merge branch 'main' of github.com:MISP/misp-objects into chrisr3d_patch. [Christian Studer]
+
+* Merge pull request #403 from MISP/chrisr3d_patch. [Alexandre Dulaunoy]
+
+  Malware & Malware Analysis objects
+
+* Add: [readme] Added `malware` and `malware-analysis` to the list of available object templates, with a small description for each. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-objects into chrisr3d_patch. [Christian Studer]
+
+* Merge branch 'mFaou-main' into main. [Alexandre Dulaunoy]
+
+* Merge branch 'main' of https://github.com/mFaou/misp-objects into mFaou-main. [Alexandre Dulaunoy]
+
+* Added requiredOneOf to scan-result object definition. [Matthieu Faou]
+
+* Removed the scan-result field requirement in the scan-result object. [Matthieu Faou]
+
+* Merge pull request #398 from righel/add-sigmf-templates. [Luciano Righetti]
+
+  new: add basic SigMF templates
+
+* Add: [malware] New object template to describe a malware. [Christian Studer]
+
+* Add: [malware-analysis] New object template to describe a static or dynamic analysis performed on a malware instance or family. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-objects into chrisr3d_patch. [Christian Studer]
+
+
 ## v2.4.174 (2023-07-31)
 
 ### New

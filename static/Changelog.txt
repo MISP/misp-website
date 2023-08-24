@@ -2,6 +2,188 @@ Changelog
 =========
 
 
+v2.4.175 (2023-08-24)
+---------------------
+
+New
+~~~
+- [dashboard:widgets] Added support of start_date and end_date options
+  for vairous widgets + fixed few bugs. [Sami Mokaddem]
+- [user:periodicReporting] Allow setting the number of days to look back
+  (UI only) [Sami Mokaddem]
+- [dashboard:orgWidget] Added support of `first_half_year` and
+  `second_half_year` time frames. [Sami Mokaddem]
+- [dashboard:export] Added CSV export functionality. [Sami Mokaddem]
+- Allow user to enrich objects. [Luciano Righetti]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- Skip if email disabled, avoids logging exception on each email attempt
+  fixes #9251. [Luciano Righetti]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [misp-workflow-blueprints] updated to the latest version. [Alexandre
+  Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [installer] Update installer checksums. [Steve Clement]
+- [installer] Update to latest Kali. [Steve Clement]
+- [doc] Fix 404 file not found. [Johan Nilsson]
+- [cakephp] 2.x updated to include latest version of the CA bundle.
+  [Alexandre Dulaunoy]
+- [dashbord:loginWidget] Added doc for `start_date` and `end_date` [Sami
+  Mokaddem]
+- [dashboardWidget:barChart] Added option `forceLogarithm` [Sami
+  Mokaddem]
+- [feeds] fix typo in the feed. [Alexandre Dulaunoy]
+- [dashboard:exportcsv] Small refactoring. [Sami Mokaddem]
+- [meta] CERT-PL/NASK malicious domain list added. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [doc] Fix python naming swap (based on example and practice) and stray
+  whitespace. [Anders Einar Hilden]
+- [doc] Remove symlink to non-exsisting ubuntu 16.04 docs. [Anders Einar
+  Hilden]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [misp-stix] Bumped latest version including a quick fix. [Christian
+  Studer]
+- [CRUD-IndexFilter] correct index page filtering for REST requests. fix
+  #9265. [Jeroen Pinoy]
+- Prevent push_rules from being required in API requests to /server/edit
+  endpoint. [TomOgs]
+- Event audit log pagination bug, fixes #9245. [Luciano Righetti]
+- [feed] tools updated to configure export path and certificate
+  validation. [Alexandre Dulaunoy]
+- Import event json with  key. [Luciano Righetti]
+- Allow import of json event without the  key. [Luciano Righetti]
+- [dashboard:apiActivity] Do not initialize variable if not needed.
+  [Sami Mokaddem]
+- [dashboard:apiActivityWidget] Fixed mixing datetime condition format.
+  [Sami Mokaddem]
+- [dashboard:loginsWidget] Fixed mixing datetime condition format. [Sami
+  Mokaddem]
+- [security] reflected xss on dashboard edit. [Luciano Righetti]
+- [dashboard:widgets] Reverted `only_full_group_by` fix as it returns
+  incorrect data. [Sami Mokaddem]
+
+  Will need to fix this later on
+- [Galaxies] fix galaxy view, galaxy clusters search. fix #9224. [Jeroen
+  Pinoy]
+- Not supported. [Luciano Righetti]
+- /taxonomies/view filter fixes #8875. [Luciano Righetti]
+- [users:periodicReport] Update URL based on the selected number of
+  days. [Sami Mokaddem]
+- [dashboard:csvExport] Quote elements and correctly apply line break.
+  [Sami Mokaddem]
+- [security] XSS in event index. [Sami Mokaddem]
+
+  - As reported by Marcos Rrodriguez S-V
+- [dashboard:widget] Additional comma in function parameters breaks
+  older PHP version. [Sami Mokaddem]
+- [dashboard:trendingTagsWidget] Correctly use fallback value. [Sami
+  Mokaddem]
+- [dashboard:usageDataWidget] Handle division by 0. [Sami Mokaddem]
+- [dashboard:widgets] Correctly group to fix `only_full_group_by`
+  issues. [Sami Mokaddem]
+- Only show object enrichment icon if theres an available enrichment for
+  the template. [Luciano Righetti]
+- [server settings] online version check and self-update default
+  behaviour changed. [iglocska]
+- [attribute search] when adding multiple value filters via the &&
+  syntax, don't treat each empty value as a separate entry. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Christian
+  Studer]
+- Update bug-form.yml. [Luciano Righetti]
+
+  describe first the actual behaviour
+- Merge pull request #9266 from Wachizungu/fix-indexfilter-massage.
+  [Luciano Righetti]
+
+  fix: [CRUD-IndexFilter] correct index page filtering for REST request…
+- Merge pull request #9259 from TomOgs/ServerEditIssue. [Luciano
+  Righetti]
+
+  fix: check for existence of push_rules in /server/edit requests before parsing JSON
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9262 from SteveClement/guides. [Steve Clement]
+
+  chg: [installer] Update to latest Kali
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Alexandre
+  Dulaunoy]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9250 from jn9999/fix-404. [Alexandre Dulaunoy]
+
+  chg: [doc] Fix 404 file not found.
+- Merge remote-tracking branch 'origin/2.4' into develop. [Sami
+  Mokaddem]
+- 10.64.247.201Merge remote-tracking branch 'origin/2.4' into develop.
+  [Sami Mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #9225 from Wachizungu/fix-galaxy-view-galaxy-
+  clusters-search. [Alexandre Dulaunoy]
+
+  fix: [Galaxies] fix galaxy view, galaxy clusters index search. fix #9224
+- Merge pull request #9233 from righel/fix-8875. [Alexandre Dulaunoy]
+
+  Fix /taxonomies/view string filter
+- Merge remote-tracking branch 'origin/2.4' into develop. [Sami
+  Mokaddem]
+- Merge branches 'develop' and 'develop' of github.com:MISP/MISP into
+  develop. [Sami Mokaddem]
+- Merge branch '2.4' into develop. [Sami Mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9187 from righel/allow-enrich-objects. [Luciano
+  Righetti]
+
+  new: allow user to enrich objects
+- Merge branch 'develop' into allow-enrich-objects. [Luciano Righetti]
+- Merge branch 'selfupdate' into develop. [iglocska]
+- New [diag]: Improve diagnostics when instance does not have internet
+  or does not use self-update. [Anders Einar Hilden]
+
+  Introduces two new settings:
+  * `MISP.self_update` allows to enable/disable the GUI button for MISP self-update on the Diagnostics page.
+  * `MISP.online_version_check` allows to enable/disable the online MISP version check when loading the Diagnostics page.
+
+  These settings are useful for 1. container installations that should
+  not be updated using self-update, and 2. installation that have no
+  direct or proxy internet access.
+
+  There are also improvements on the Diagnostics page, primarily the MISP
+  version area. Font color has been replace with classes, this allows the
+  use of the `bold` class, not just colors, and possible combination with
+  the red/green/orange colour classes.
+
+  The info/status/warning/error texts have been changed to take into
+  account the status of `MISP.self_update` and
+  `MISP.online_version_check`.
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #9229 from Kagee/kagee-remove-dead-symlink. [Andras
+  Iklody]
+
+  Kagee remove dead symlink
+
+
 v2.4.174 (2023-07-31)
 ---------------------
 

@@ -1,6 +1,180 @@
 # Changelog
 
 
+## v2.4.175 (2023-08-24)
+
+### Changes
+
+* [poetry] Updated lock file. [Christian Studer]
+
+* [poetry] Updated lock file. [Christian Studer]
+
+* [package] Set new version. [Christian Studer]
+
+* [__init__] Clearer classes & methods import as well as `noqa` added to imports. [Christian Studer]
+
+* [poetry] Bumped latest lock file. [Christian Studer]
+
+* [package] Bumped version (& pymisp) [Christian Studer]
+
+### Fix
+
+* [workflow] Testing both internal & external STIX content to import to MISP. [Christian Studer]
+
+* [tests] Fixed test samples for external Malware objects converted as Galaxies. [Christian Studer]
+
+* [stix2 import] Some clean-up - Removed unused stuff & Added missing stuff. [Christian Studer]
+
+* [stix2 import] Fixed failing message. [Christian Studer]
+
+* [stix2 import] Some pycodestyle clean-up. [Christian Studer]
+
+* [stix2 import] A few typing and unused methods fixed. [Christian Studer]
+
+* [stix2 import] Fixed debugging messages handling in the command-line feature. [Christian Studer]
+
+* [stix2 import] Removed unused UUID extraction method & made the method to populate object attributes common to all converters. [Christian Studer]
+
+* [stix2 import] Fixed reverse malware handling depending on the `is_family` flag. [Christian Studer]
+
+* [stix2 import] Added the missing object attributes populating method. [Christian Studer]
+
+* [stix2 import] Removed the UUID handling methods in the parsers directory to keep using the original ones from `importparser` as a MISP event also need some of those methods. [Christian Studer]
+
+* [tests] Fixed STIX 2.0 test method names. [Christian Studer]
+
+* [stix2 export] Some more pycodestyle to make the mapping cleaner. [Christian Studer]
+
+* [stix2 import] Some quick pycodestyle to make the mapping cleaner. [Christian Studer]
+
+* [stix2 import] Fixed debugging messages handling in the command-line feature. [Christian Studer]
+
+### Other
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'main' of github.com:misp/misp-stix into parser_feature. [Christian Studer]
+
+* Merge branch 'dev' of github.com:misp/misp-stix into parser_feature. [Christian Studer]
+
+* Wip: [stix2 import] Properly handling Observable. [Christian Studer]
+
+  - We moved the InternalSTIX2toMISPParser back to
+    its previous state regarding observable objects
+    handling because we do not generate standalone
+    observable objects with the MISP to STIX feature
+  - We fixed some bad observable handling in the
+    External parser to avoid issues with the `used`
+    flag which was not handled correctly in some
+    cases
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Fix; [stix2 import] Avoiding issues with missing `time` import. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Wip: [stix2 import] Better Observable objects handling. [Christian Studer]
+
+  - Objects referenced by malware & malware-analysis
+    SDOs are now handled with no duplication issue
+
+* Wip: [stix2 import] Better parsing for some malware-analysis reference fields. [Christian Studer]
+
+* Wip: [stix2 import] Storing observable objects differently. [Christian Studer]
+
+  - Preparing for their parsing as standalone
+    objects or with multiple references from
+    different SDOs to the same Observable
+
+* Fix; [stix2 import] Fixed Malware conversion as MISP Object. [Christian Studer]
+
+  - In the case we do not need to return the converted
+    MISP objects, we should not yield the objects,
+    as an iterator needs to be consumed, which we
+    do only when we convert the Malware as a Galaxy
+    Cluster too and add it to the appropriate
+    attributes of the MISP object
+
+* Merge branch 'main' of github.com:misp/misp-stix into parser_feature. [Christian Studer]
+
+* Wip: [stix2 import] Handling the Malware Analysis objects in the main parsing classes. [Christian Studer]
+
+* Wip: [stix2 import] Parsing & Converting STIX 2.1 Malware Analysis objects. [Christian Studer]
+
+  - We need to add the parsing mechanisms in the
+    main parsers
+  - Some more love is required to handle some of the
+    fields referenced by the malware analysis object
+
+* Merge branch 'main' of github.com:misp/misp-stix into parser_feature. [Christian Studer]
+
+* Wip: [stix2 import] Parsing specific cases where a STIX 2 Malware object is converted as both an object and a galaxy. [Christian Studer]
+
+  - We're adding the galaxy to the attributes with
+    an ids flag in all the MISP objects that are
+    generated from the conversion of the Malware
+    object - there are sometimes software, file or
+    artifact objects too coming from the different
+    references the Malware object has
+
+* Wip: [stix2 import] Added missing galaxy as tag names parsing methods & properly handling the galaxy conversion case. [Christian Studer]
+
+* Wip: [stix2 import] Added pluggable Observable objects conversion class to handle observable objects references by malware objects. [Christian Studer]
+
+* Wip: [stix2 import] Calling the already existing converters. [Christian Studer]
+
+  - We keep the parsing methods in the parser scripts
+    as they are for now, in order to avoid breaking
+    the whole parsing mechanism for the other STIX
+    objects which conversion methods are not
+    implemented in the conversion directory yet
+
+* Wip: [stix2 import] Properly converting STIX 2.1 Malware objects. [Christian Studer]
+
+* Wip: [stix2 import] Clarified class names, script names, and improved malware objects parsing. [Christian Studer]
+
+* Wip: [stix2 import] Converting `script` objects from STIX 2 Malware objects. [Christian Studer]
+
+* Fix; [stix2 import] Fixed Malware galaxies meta fields parsing. [Christian Studer]
+
+* Wip: [stix2 import] Porting the conversion capacity with the mappings into the parsers sub-directory. [Christian Studer]
+
+* Wip: [stix2 import] Externalising conversion capacity to specific parsers. [Christian Studer]
+
+  - Starting with Attack Pattern & Malware (WiP) objects
+
+* Merge branch 'main' of github.com:misp/misp-stix into parser_feature. [Christian Studer]
+
+* Merge branch 'main' of github.com:misp/misp-stix into parser_feature. [Christian Studer]
+
+* Merge branch 'dev' of github.com:misp/misp-stix into parser_feature. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+
 ## v2.4.174 (2023-07-31)
 
 ### Changes
