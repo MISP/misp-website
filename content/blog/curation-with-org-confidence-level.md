@@ -2,6 +2,10 @@
 title: Curate events with an organisation confidence level
 date: 2022-11-14
 layout: post
+authors:
+- Koen Van Impe
+tags: ["curation"]
+categories: []
 ---
 
 ## Quality of threat intelligence
