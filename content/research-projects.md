@@ -6,7 +6,9 @@ toc: true
 ---
 
 
-# Project (1) Pauline Bourmeau - The Social Perspective in the Intelligence Activity among Information Sharing Communities - CNAM Paris (Supervisor Philippe Baumard).
+
+# Project (1) Pauline Bourmeau - The Social Perspective in the Intelligence Activity among Information Sharing Communities - CNAM Paris
+
 
 Contact for this research project: social-perspective@misp-project.org
 
@@ -18,17 +20,17 @@ Contact for this research project: social-perspective@misp-project.org
 
 Intelligence activity is a common practice shared among different fields. The practice of intelligence evolved to adapt to the evolution of human societies. The transition from analog to digital introduced changes in social practices and communications.
 
-Transmission of information is a key element to intelligence activity, as such a subject of studies in anthropology and social sciences. The subject scope is to analyse the social activities among sharing communities, in order to understand and describe the practices of information exchange.
+Transmission of information is a key element to intelligence activity, as such a subject of studies in anthropology and social sciences. The goal of this research is to understand and describe the practices of information exchange among intelligence communities, by analyzing their cultural aspects.
 
 ### (1.1) The interest in studying information sharing
 
-Information sharing has become a key in our societies effectiveness, as in facing information warfare.
+Information sharing has become a key in our society’s effectiveness, as in facing information warfare.
 
-Many studies and researches in the field of information security and intelligence focused mainly (cf. state-of-the-art) on the practical, the standardisation, the usage perspective and the technical aspects of information sharing, without an analysis of its social or cultural aspects.
+Many studies and research in the field of information security and intelligence focused mainly on the practical, the standardization, the usage perspective and the technical aspects of information sharing, without an analysis of its social or cultural aspects.
 
 ### (1.2) Intelligence and information sharing in the age of online criminal activities, study of group and practices
 
-Information sharing plays a key role in law enforcement investigations and especially to track and take-down criminal activities. Efficient information exchange ensure resolution and prosecution in a timely fashion. Information strongly relies on the existence of sharing communities among law enforcement and intelligence.
+Information sharing plays a key role in law enforcement investigations and especially to track and take-down criminal activities. Efficient information exchange ensures resolution and prosecution in a timely fashion. Information strongly relies on the existence of sharing communities among law enforcement and intelligence.
 
 ## (2) Problem statement
 
@@ -36,13 +38,10 @@ We lack some opportunities to make successful sharing among the community of res
 
 ### (2.1) State of the Art
 
-An extensive review has been performed in the field of information sharing. A significant number of academic papers focused on the structure of information and especially the tools used. A majority of the researches focus on a niche in intelligence, such as building competitive analysis or structuring data exchange.
+An extensive review has been performed in the field of information sharing. A significant number of academic papers focused on the structure of information and especially the tools used. Most of the research focus on a niche in intelligence, such as building competitive analysis or structuring data exchange.
 
-In the bibliography, we reviewed papers which are related to the main information sharing platform MISP, which will allow us to meet and interview groups who are actively performing information sharing.
+In the bibliography, we listed papers which are related to the information sharing platform MISP, which will allow us to meet and interview groups who are actively performing information sharing.
 
-### (2.2) Fundamental question
-
-Does the existence of the information depend on the existence of the community?
 
 ## (3) Research methodology
 
@@ -50,37 +49,33 @@ Does the existence of the information depend on the existence of the community?
 
 We assume that we can observe replicates of social practices from real to digital environment, and a specific set of practices on sharing platforms such as MISP ("people need to make sense out of it").
 
-A serie of interviews will be conducted among sharing communities. We are interested in the comparison between usages of the platform that we observe, in one hand, and what people can tell us about it, in the other hand.
+A series of interviews will be conducted among sharing communities. We are interested in the comparison between usages of the platform that we observe, in one hand, and what people can tell us about it, in the other hand.
 
-We assume that both technical observations, as statistics from the platform, and qualitative observations from the interviews can reveal “abnormal” behaviors from participants.
+We use both technical observations, as statistics from the platform, and qualitative observations from the interviews (discourse analysis).
 
-As a starting point, a list of reasons are included below in the section "Example list".
+As a starting point, we included a list of question related to information sharing addressed to participants "Example list".
 
 We narrow our questioning about the following points:
 
-- Common assumed (survey) reasons why organisations are not sharing
-- Common reasons why organisations are sharing
+- Common assumed (survey) reasons why organizations are not sharing.
+- Common reasons why organizations are sharing.
 
 In order to integrate as much data as possible and to avoid pre-interview categorization, we will perform free interviews.
 
-In this case, the observer is a participant : an interview is a conversation between two “analysts”. The participant and the researcher agree on the meaning of words, they use during the conversation. The idea is to note these keywords definitions and update their meaning during the research.
-
-Keywords here can illustrate or reflect social practices among the community, and help in creating a first set of variables. Those initial “variables” can be used to discover reasons (explanations of behaviors) or new parameters (unknown reasons) which can emerge after additional interviews, and can be used as a first set of constants for further analysis.
-
 #### Example list
 
-Common reasons why organisations are not sharing (ref. Goldenberg, I., Soeters, J. and Dean, W.H. eds.,) as an example list:
+Common reasons why organizations are not sharing (ref. Goldenberg, I., Soeters, J. and Dean, W.H. eds.,) as an example list:
 
 - Lack of trust within the community
 - Cultural reason (language)
 - Cultural reason (geopolitical)
-- Prideness (my information is so critical, so I don't share it)
+- Pride (my information is so critical, so I don't share it)
 - Shame on the information owned (cannot share because it's not interesting in their point-of-view)
 - Don't see the benefit of sharing
 - Not used to share information
 - Don't share information in communities (only ad-hoc mode - email/phone/conf call)
 
-Common reasons why organisations are sharing:
+Common reasons why organizations are sharing:
 
 - Increasing cohesion (positive effect on the community)
 - Create common approaches (such as: context, data model, predictability)
@@ -93,8 +88,8 @@ Common reasons why organisations are sharing:
 - Collecting structured information from sharing platforms (e.g. MISP data to refine or use existing)
 - Interviews (unstructured or semi-structured model) [^2]
 
-Structured information from sharing platforms such as the type of information shared, the activity per organisations or the contextualisation applied.
-Partially structured information from the interviews. Different data analysis will be applied especially to cross-check data from sharing platforms and the unstructured data collected from interviews.
+Structured information from sharing platforms such as the type of information shared, the activity per organizations and the contextualization applied to the collection of information.
+Partially structured information from the interviews. Different data analysis technics will be applied especially to cross-validate data from sharing platforms and the unstructured data collected from interviews.
 
 
 ### (3.3) Expected results and contribution
@@ -103,12 +98,12 @@ The research results will include the description of social practices which part
 
 Our goal is to discover, elaborate and test social models to qualify specific aspects.
 
-- The distinction between producing and conveying[^1] organisations (producing and sharing participants can be different)
+- The distinction between producing and conveying [^1] organizations (producing and sharing participants can be different)
 - The description of the context surrounding the production and sharing of an information
 - The description of sharing dynamics in sharing communities
 - An exploration of factors to improve sharing
 
-These qualifications can be then used to improve detection mechanisms within organisations.
+These qualifications can be then used to improve detection mechanisms within organizations.
 
 ### (4) Conclusion
 
@@ -149,6 +144,10 @@ The research results might be impacted by the following parameters:
 - Van den Heuvel, G., 2017. Information sharing in military organizations: a sociomaterial perspective. In Information Sharing in Military Operations (pp. 165-182). Springer, Cham.
 - Wagner, C., Dulaunoy, A., Wagener, G. and Iklody, A., 2016, October. Misp: The design and implementation of a collaborative threat intelligence sharing platform. In Proceedings of the 2016 ACM on Workshop on Information Sharing and Collaborative Security (pp. 49-56).
 - Zibak, A. and Simpson, A., 2019, August. Cyber threat information sharing: Perceived benefits and barriers. In Proceedings of the 14th International Conference on Availability, Reliability and Security (pp. 1-9).
+
+
+
+
 
 
 # Project (2) Borce STOJKOVSKI - a survey about MISP UX - University of Luxembourg
