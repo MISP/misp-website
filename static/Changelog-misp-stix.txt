@@ -1,6 +1,92 @@
 # Changelog
 
 
+## v2.4.176 (2023-09-14)
+
+### Changes
+
+* [poetry] Bumped lock file with latest dependencies version. [Christian Studer]
+
+* [package] Bumped new version. [Christian Studer]
+
+* [stix2 import] Changed the relationships content storing. [Christian Studer]
+
+  - We do not need a dictionary with keys defining
+    which value is the referenced uuid or the
+    relationship type, as a tuple with the sorted 2
+    values makes the job
+  - It also allows us to use a set to store the
+    references to avoid storing multiple times the
+    same relationship to the same target
+  - Both previous points will help handling the
+    opposite relationships
+
+* [stix2 import] More accurate relationship type between a sample and the malware it is the sample of. [Christian Studer]
+
+* [poetry] Bumped latest pymisp version. [Christian Studer]
+
+### Fix
+
+* [tests] Quick fix on embedded galaxies in attributes tests, as the opposite references handling creates uncertainty in relationships order. [Christian Studer]
+
+* [stix2 import] Handling opposite relationships. [Christian Studer]
+
+  - This is usefull for instance when an Indicator
+    is imported to MISP as an Attribute, and has a
+    relationship with another SDO imported as a MISP
+    Object, in which case the relationship used to
+    be lost because for now, an attribute does not
+    support references in MISP.
+    Now we use the opposite reference to keep the
+    link between the converted MISP Object and
+    Attribute
+
+* [stix2 import] Added missing relationship parsing. [Christian Studer]
+
+  - References between MISP objects and attribute or
+    object were handled only when the Galaxies are
+    parsed in their MISP standard format form. They
+    were missing when Galaxies are imported as tag
+    names, which shouldn't change object references
+
+* [stix2 import] Reusing code which removed also a typo. [Christian Studer]
+
+* [stix2 import] Added missing `continue` to avoid additional handling for observable objects already handled. [Christian Studer]
+
+* [stix2 export] Remove attack pattern ID from name attribute. [Tomas Lima]
+
+### Other
+
+* Add: [poetry] Added `stix-edh` dependency for STIX 1 Markings. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'main' of github.com:misp/misp-stix into parser_feature. [Christian Studer]
+
+* Wip: [stix2 import] Handling standalone Observable objects. [Christian Studer]
+
+  - We started changing the Observable objects converters
+    in order to start parsing those which are standalone
+    and not referenced by SDOs
+  - A lot more Observable object types to be added
+
+* Merge branch 'main' of github.com:misp/misp-stix into parser_feature. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge pull request #38 from SYNchroACK/fix/attack-pattern-name. [Alexandre Dulaunoy]
+
+  Remove attack pattern ID from name attribute
+
+
 ## v2.4.175 (2023-08-24)
 
 ### Changes
