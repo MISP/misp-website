@@ -8,7 +8,7 @@ toc: true
 # Help, Support, and Forums
 
 Help and support for MISP is available from the [documentation](/documentation), [GitHub issues](https://github.com/MISP/MISP/issues), and [Gitter rooms](https://gitter.im/orgs/MISP/rooms) which are explained below. 
-The MISP Project [offers paid support services](/professional-services).
+The MISP Project [offers paid support services](/professional-services), and a number of [3rd party providers commercial support](/commercial-support).
 
 If you’re looking for known issues or would like to file a bug report, please see the [issue tracker](https://github.com/MISP/MISP/issues). 
 These issues are constantly being updated and may contain workarounds for problems that you’re experiencing, so it’s worth searching the issue tracker as a first step.
