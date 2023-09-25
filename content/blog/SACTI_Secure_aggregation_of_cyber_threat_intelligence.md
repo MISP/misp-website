@@ -51,7 +51,7 @@ The solution is secure in the semi-honest model; this means that participants ar
 
 The demonstrator is built in Python using the Shamir secret-sharing library from mpc.tno.nl. The, code, installation instructions and usage instructions can be found [here](https://github.com/COSSAS/sacti). Further backgrounds (including a demonstration video) can be found [here](https://cossas-project.org/portfolio/sacti/).
 
-Since the software was developed within the EU's [Prometheus](https://h2020.prometheus.eu) project, the PKI in the demonstrator is self-made and based on lattice-based standardization candidates from NIST's PQC standardization competition.  However, it is not suitable for operational applications.  It is only suitable for simulation on one machine and for research purposes. Organizations using this protocol should replace it with a properly implemented and tested PKI.
+Since the software was developed within the EU's [Prometheus](https://www.h2020prometheus.eu/) project, the PKI in the demonstrator is self-made and based on lattice-based standardization candidates from NIST's PQC standardization competition.  However, it is not suitable for operational applications.  It is only suitable for simulation on one machine and for research purposes. Organizations using this protocol should replace it with a properly implemented and tested PKI.
 
 Nonetheless, presented software can be used to get acquainted with the ideas behind SACTI. The performance of SACTi does not rely significantly on the used cryptography. Furthermore, we have attempted to write the software in such a way that a transition to a distributed run is relatively straightforward.
 
