@@ -32,7 +32,7 @@ In complement, the following MISP Commercial Support is available from external 
 | **NVISO**  | Remote and on-site | [https://www.nviso.eu/en/contact](https://www.nviso.eu/en/contact) | Europe |
 |            | - Architecture, installation and configuration <br /> - Development and integration in your IT environment (Security stack, SIEM, SOAR, and data analytics platforms such as Power BI - KPIs)<br /> - Threat feed integrations <br /> - Threat intelligence program projects and maturity assessments <br /> - Defining Threat Intelligence sharing guidelines & policies <br /> - Training and consultancy |   | |
 | **Cubessa**  | Remote and on-site | [https://www.cubessa.info](https://www.cubessa.info) | Worldwide |
-|            | - Analyst Trainings <br /> - Modeling <br /> |   | |
+|            | - Training <br /> - Modeling <br />  - Consulting <br />|   | |
 <br />
 
 Don't hesitate to [reach us](/support) if you want to be reviewed and added to the list. The selection criterias include existing open source contributions to MISP project.
