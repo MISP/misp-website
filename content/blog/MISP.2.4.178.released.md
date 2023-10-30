@@ -3,7 +3,7 @@ title: MISP 2.4.178 released with many workflow improvements, enhancement and bu
 date: 2023-10-30
 layout: post
 tags: ["MISP", "Threat Intelligence", "release"]
-banner: /img/blog/lookyloo-misp.png
+banner: /img/blog/workflow-blue.png
 ---
 
 MISP 2.4.178 released with many workflow improvements, enhancement and bugs fixed.
