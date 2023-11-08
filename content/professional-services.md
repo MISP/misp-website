@@ -80,7 +80,7 @@ Below an overview of configurations:
 |Option: additional Organisations (group of 10, per year)|n/a|922,50 EUR|
 |Option: Enabling MISP modules| 2.562,50 EUR| included |
 |Option: Enabling and maintaining adequate CIRCL MISP synchronisation | 3.075 EUR| 3.075 EUR|
-|Option: MISP professional services (MPS) contract |5.125 EUR |included|
+|Option: MISP professional services (MPS) contract |7.312,35 EUR |included|
 |Option: Backup|Included|Included and exportable|
 |Option: additional HDD space per 100 GB|on request|on request|
 |Setup cost|1.025 EUR|1.025 EUR|
