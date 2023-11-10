@@ -18,7 +18,7 @@ Each community might have specific rules to join them. Below is a brief overview
 The <i class="far fa-check-circle" style="color:green;"></i> sign indicates the community is vetted by the MISP Project.
 
 ### CIRCL Private Sector Information Sharing Community - aka MISPPRIV <i class="far fa-check-circle" style="color:green; "></i>
-![Logo](https://www.circl.lu/assets/images/circl-logo.png "{class='community_logo'}")
+![Logo](/img/communities/a1693d552cce291648dd7129a04f01ff.png "{class='community_logo'}")
 - Website: https://www.circl.lu/misp/
 - Sector: Various
 - Nationality: International
@@ -117,7 +117,7 @@ C3Ij/2IWN6eLTSzd0ikG7wOOKExTrCltTycyEMC0HwRSKYqQaBKPZcNSgm+3ma70FCv2
 
 
 ### CIRCL financial information sharing community - aka Financial Sector MISP sharing groups <i class="far fa-check-circle" style="color:green; "></i>
-![Logo](https://www.circl.lu/assets/images/circl-logo.png "{class='community_logo'}")
+![Logo](/img/communities/f60895a484066a572e6e3785e1012249.png "{class='community_logo'}")
 - Website: https://www.circl.lu/misp/
 - Sector: Financial sector including banks, financial institutions and payment processing organisations
 - Nationality: International
@@ -216,7 +216,7 @@ C3Ij/2IWN6eLTSzd0ikG7wOOKExTrCltTycyEMC0HwRSKYqQaBKPZcNSgm+3ma70FCv2
 
 
 ### CIRCL n/g CSIRT information sharing community - aka MISP <i class="far fa-check-circle" style="color:green; "></i>
-![Logo](https://www.circl.lu/assets/images/circl-logo.png "{class='community_logo'}")
+![Logo](/img/communities/6f88879fca2438ddfd4868b4d8defe3e.png "{class='community_logo'}")
 - Website: https://www.circl.lu/misp/
 - Sector: n/g CSIRTs in EEA
 - Nationality: International
@@ -372,7 +372,7 @@ xJlLUC2lY9a62qs8kTCX88338AuN
 
 
 ### CiviCERT MISP Community <i class="far fa-check-circle" style="color:green; "></i>
-![Logo](https://www.civicert.org/wp-content/uploads/2019/06/CiviCERT-logo-624x253.png "{class='community_logo'}")
+![Logo](/img/communities/4c6e1cba447bab6d6ec6ec143b06d971.png "{class='community_logo'}")
 - Website: https://www.civicert.org/
 - Sector: undefined
 - Nationality: International
@@ -426,7 +426,7 @@ XpSrwosJzIkrJzto2oaJhAqehBPMTO0n
 
 
 ### FIRST MISP Community <i class="far fa-check-circle" style="color:green; "></i>
-![Logo](https://www.first.org/_/img/first-org.svg "{class='community_logo'}")
+![Logo](/img/communities/6bfd9fad37ac6867e9f76047f68d4ccd.svg "{class='community_logo'}")
 - Website: https://www.first.org/global/sigs/information-sharing/misp
 - Sector: undefined
 - Nationality: International
@@ -437,7 +437,7 @@ Since 1990, when FIRST was founded, its members have resolved an almost continuo
 FIRST MISP instance allows FIRST members to efficiently share and store technical and non-technical information about malware samples, attackers and incidents. It also enables members who have not yet gained experience leveraging threat intelligence to connect with a wider community of organizations that have, increasing their own capabilities.
 
 ### NATO MISP Community <i class="far fa-check-circle" style="color:green; "></i>
-![Logo](https://misp.ncirc.nato.int/img/custom/nato.png "{class='community_logo'}")
+![Logo](/img/communities/4431f2b1a0b55c2912c3500943a240e4.png "{class='community_logo'}")
 - Website: https://misp.ncirc.nato.int
 - Sector: Governmental
 - Nationality: International
@@ -447,7 +447,7 @@ The ultimate goal of the project is to develop a NATO capability, available to a
 - Contact: mispsupport@ncia.nato.int
 
 ### PISAX -  pan-European Information Sharing and Analysis Center (ISAC) to IXPs and GRXs <i class="far fa-check-circle" style="color:green; "></i>
-![Logo](https://www.pisax.org/assets/img/pisax.jpg "{class='community_logo'}")
+![Logo](/img/communities/95f8393e3b345056ea51d5ac9f6cb3b2.jpg "{class='community_logo'}")
 - Website: https://misp.pisax.org/
 - Sector: IXPs/GRXs
 - Nationality: International
@@ -456,7 +456,7 @@ The ultimate goal of the project is to develop a NATO capability, available to a
 The Action’s overall objective is to create a common pan-European Information Sharing and Analysis Center (ISAC) to support Internet Exchange Points (IXPs) and General Packet Radio Service Roaming eXchange (GRXs) at the national, European and international level.
 
 ### X-ISAC sharing community <i class="far fa-check-circle" style="color:green; "></i>
-![Logo](https://www.x-isac.org/assets/images/x-isac-logo-c.png "{class='community_logo'}")
+![Logo](/img/communities/88ce4ec152666a6ef3dad6350649775b.png "{class='community_logo'}")
 - Website: https://www.x-isac.org/
 - Sector: ISACs and ISAOs
 - Nationality: International
@@ -555,7 +555,7 @@ C3Ij/2IWN6eLTSzd0ikG7wOOKExTrCltTycyEMC0HwRSKYqQaBKPZcNSgm+3ma70FCv2
 
 
 ### BEAM SOC MISP Community
-![Logo](https://www.beamteknoloji.com/wp-content/uploads/2020/01/beamlogo.png "{class='community_logo'}")
+![Logo](/img/communities/e5188294bc0a4a5ce1578373fc5fa192.png "{class='community_logo'}")
 - Website: https://misp.beamteknoloji.com
 - Sector:  Various
 - Nationality: Turkey
@@ -565,7 +565,7 @@ C3Ij/2IWN6eLTSzd0ikG7wOOKExTrCltTycyEMC0HwRSKYqQaBKPZcNSgm+3ma70FCv2
 - Contact: contact@beamteknoloji.com
 
 ### CSSA Cyber Security Sharing & Analytics (CSSA)
-![Logo](https://www.cssa.de/images/CSSA_Logo_landscape_Petrol_sRGB-cbb3cdda.png "{class='community_logo'}")
+![Logo](/img/communities/076b1eaab7e68671742c4010ff4ead00.png "{class='community_logo'}")
 - Website: https://www.cssa.de/
 - Sector: Industry
 - Nationality: Germany
