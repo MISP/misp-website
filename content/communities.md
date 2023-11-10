@@ -371,15 +371,6 @@ xJlLUC2lY9a62qs8kTCX88338AuN
 </details>
 
 
-### CSSA Cyber Security Sharing & Analytics (CSSA)
-![Logo](https://www.cssa.de/images/CSSA_Logo_landscape_Petrol_sRGB-cbb3cdda.png "{class='community_logo'}")
-- Website: https://www.cssa.de/
-- Sector: Industry
-- Nationality: Germany
-
-
-CSSA was founded in November 2014 by seven major German companies as an alliance for jointly facing cyber security challenges in a proactive, fast and effective manner. Their community uses MISP as core software and to interconnect with others.
-
 ### CiviCERT MISP Community <i class="far fa-check-circle" style="color:green; "></i>
 ![Logo](https://www.civicert.org/wp-content/uploads/2019/06/CiviCERT-logo-624x253.png "{class='community_logo'}")
 - Website: https://www.civicert.org/
@@ -388,8 +379,6 @@ CSSA was founded in November 2014 by seven major German companies as an alliance
 
 
 CiviCERT is an umbrella organizations formed by the partnership between Internet Content and Service Providers, Non Governmental Organizations and individuals that contribute some of their time and resources to the community in order to globally improve the security awareness of civil society. The community is fairly new but uses MISP to inform its constituents of malicious activities in their infrastructure.
-
-
 
 ### Danish MISP Community <i class="far fa-check-circle" style="color:green; "></i>
 - Website: https://dk.ecrimelabs.net
@@ -454,7 +443,7 @@ FIRST MISP instance allows FIRST members to efficiently share and store technica
 - Nationality: International
 
 
-The ultimate goal of the project is to develop a NATO capability, available to all NATO nations, through which nations commit to sharing their information. This community is only open for official government entities, sponsored by their nation representative in the NATO Multinational MISP Steering Board.
+The ultimate goal of the project is to develop a NATO capability, available to all NATO nations, through which nations commit to sharing their information. This community is only open for official government cyber defense related entities, sponsored by their nation representative in the NATO Multinational MISP Steering Board.
 - Contact: mispsupport@ncia.nato.int
 
 ### PISAX -  pan-European Information Sharing and Analysis Center (ISAC) to IXPs and GRXs <i class="far fa-check-circle" style="color:green; "></i>
@@ -564,6 +553,25 @@ C3Ij/2IWN6eLTSzd0ikG7wOOKExTrCltTycyEMC0HwRSKYqQaBKPZcNSgm+3ma70FCv2
 ```
 </details>
 
+
+### BEAM SOC MISP Community
+![Logo](https://www.beamteknoloji.com/wp-content/uploads/2020/01/beamlogo.png "{class='community_logo'}")
+- Website: https://misp.beamteknoloji.com
+- Sector:  Various
+- Nationality: Turkey
+
+
+ We want to increase the protection by sharing the threat information we have obtained from the companies we support with all members.
+- Contact: contact@beamteknoloji.com
+
+### CSSA Cyber Security Sharing & Analytics (CSSA)
+![Logo](https://www.cssa.de/images/CSSA_Logo_landscape_Petrol_sRGB-cbb3cdda.png "{class='community_logo'}")
+- Website: https://www.cssa.de/
+- Sector: Industry
+- Nationality: Germany
+
+
+CSSA was founded in November 2014 by seven major German companies as an alliance for jointly facing cyber security challenges in a proactive, fast and effective manner. Their community uses MISP as core software and to interconnect with others.
 
 
 ### Adding your community to the list
