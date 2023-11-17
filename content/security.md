@@ -98,6 +98,11 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2023-37306](https://cvepremium.circl.lu/cve/CVE-2023-37306) < MISP 2.4.173 - MISP 2.4.172 mishandles different certificate file extensions in server sync. An attacker can obtain sensitive information because of the nature of the error messages.  
 - [CVE-2023-40224](https://cvepremium.circl.lu/cve/CVE-2023-40224) <= MISP 2.4.174 - allows XSS in app/View/Events/index.ctp. (reported by BeDisruptive OSS Team)
 - [CVE-2023-41098](https://cvepremium.circl.lu/cve/CVE-2023-41098) <= MISP 2.4.174 - In app/Controller/DashboardsController.php, a reflected XSS issue exists via the id parameter upon a dashboard edit. 
+- [CVE-2023-48656](https://cvepremium.circl.lu/cve/CVE-2023-48656) < MISP 2.4.176 - An issue was discovered in MISP before 2.4.176. app/Model/AppModel.php mishandles order clauses.
+- [CVE-2023-48655](https://cvepremium.circl.lu/cve/CVE-2023-48655) < MISP 2.4.176 - An issue was discovered in MISP before 2.4.176. app/Controller/Component/IndexFilterComponent.php does not properly filter out query parameters. 
+- [CVE-2023-48657](https://cvepremium.circl.lu/cve/CVE-2023-48657) < MISP 2.4.176 - An issue was discovered in MISP before 2.4.176. app/Model/AppModel.php mishandles filters. 
+- [CVE-2023-48659](https://cvepremium.circl.lu/cve/CVE-2023-48659) < MISP 2.4.176 - An issue was discovered in MISP before 2.4.176. app/Controller/AppController.php mishandles parameter parsing.
+- [CVE-2023-48658](https://cvepremium.circl.lu/cve/CVE-2023-48658) < MISP 2.4.176 - An issue was discovered in MISP before 2.4.176. app/Model/AppModel.php lacks a checkParam function for alphanumerics, underscore, dash, period, and space. 
 
 ## PGP Key
 
