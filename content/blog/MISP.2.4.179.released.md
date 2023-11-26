@@ -49,7 +49,7 @@ This release also contains a security fix, a stored XSS trigerable via the event
 
 Various improvements and inclusions of [new taxonomies](https://www.misp-project.org/taxonomies.html), such as an update to PAP, a taxonomy used by SRB-CERT as well as a taxonomy for doping-substances. 
 
-The [PAP (Permissible Actions Protocol)](https://www.misp-project.org/taxonomies.html#_pap) has been updated to be inline with TLPv2. Thanks to the [contribution and discussions with ANSSI-FR/CERT-FR about the marking topic](Permissible Actions Protocol)).
+The [PAP (Permissible Actions Protocol)](https://www.misp-project.org/taxonomies.html#_pap) has been updated to be inline with TLPv2. Thanks to the [contribution and discussions with ANSSI-FR/CERT-FR about the marking topic](https://www.cert.ssi.gouv.fr/csirt/sharing-policy/).
 
 ### MISP Objects 
 
