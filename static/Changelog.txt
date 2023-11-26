@@ -2,6 +2,588 @@ Changelog
 =========
 
 
+v2.4.179 (2023-11-25)
+---------------------
+
+New
+~~~
+- [WiP] edit refactor. [iglocska]
+- [event edit] skip validation hooks on demand. [iglocska]
+
+  - WiP for bulk ingestion of minor changes
+- [tools/misp-delegation] Added misp-delegation tool. [Sami Mokaddem]
+
+  MISP-Delegation is a customisable tool to help sending events on a remote MISP instance and create a delegation request.
+- [sightings:view] Added endpoint sightings/view to get sightings by ID
+  or UUID. [Sami Mokaddem]
+- [event report] fetch from url now detects other formats. [iglocska]
+
+  - pdf, xlsx, pptx, ods, odt, docx extension documents are now imported via the given module
+- [eventreport:sendToLLM] Added draft of feature. [Sami Mokaddem]
+- [llm] settings. [iglocska]
+- [workflow-modules:count_if] New module `IF :: Count` that counts the
+  amount of entry in the provided path and compare it with a value.
+  [Sami Mokaddem]
+- [workflow:editor] Added jinja icon for param supporting jinja
+  templating. [Sami Mokaddem]
+
+Changes
+~~~~~~~
+- [bulk update] simplified. [iglocska]
+- [bulksave] tuning. [iglocska]
+- [VERSION] bump. [iglocska]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [disable_seen_ips] enable by default, switch to opt-out. [iglocska]
+- [fast_update] Only run recorrelation on attributes that need to be
+  recorrelated. [iglocska]
+- [cleanup] of temporary paths. [iglocska]
+- [fast_update] recalculate attribute count + regenerate correlations.
+  [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [widget:worldmap] Added more colour scale in the code and changed the
+  default. [Sami Mokaddem]
+- [authkey:add] Clarified authkey `read_only` field. [Sami Mokaddem]
+- [statistics shell] added new statistics on PRs. [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [tools] gen_website_communities now downloads logos. [Christophe
+  Vandeplas]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-warning-lists] updated to the latest version. [Alexandre
+  Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [eventReport:sendToLLM] Added loading text. [Sami Mokaddem]
+- [eventReport:sendToLLM] Stop debugging. [Sami Mokaddem]
+- [llm tests] apikey header name change. [iglocska]
+- [EventReport:sendToLLM] Added support of settings. [Sami Mokaddem]
+- [requirements] PyMISP version updated. [Alexandre Dulaunoy]
+- [workflow:normalizeData] More broad error catching. [Sami Mokaddem]
+- [workflow:normalizeData] Gracefully cath exception and provide more
+  feedback when supplying wrong input data. [Sami Mokaddem]
+
+  Fix #9344
+- [worflow-trigger:sighting_after_save] Change name to after-save and
+  make it misp_core_format compatible. [Sami Mokaddem]
+- [workflow-modules:add_to_warninglist] Added some improvements and
+  small refactoring. [Sami Mokaddem]
+- [workflow-modules:webhook] Added support of jinja templating in URL
+  and Headers. [Sami Mokaddem]
+- [workflow] Jinja template rendering is done automatically based on
+  param options. [Sami Mokaddem]
+- [workflow-module:organisation_if] Allow providing more than one org at
+  a time. [Sami Mokaddem]
+- [workflow-module:attach_warninglist] Allow providing more than one
+  list at a time. [Sami Mokaddem]
+
+Fix
+~~~
+- [bulksave] valiadate only only works with saveAll() [iglocska]
+- [bulksave] doesn't save with a single invalid attribute. [iglocska]
+- [workflow-modules:attribute_edit_operation] Removed leftover code.
+  [Sami Mokaddem]
+- [fast_update] recorrelation typo. [iglocska]
+- [pull] duplicate detection fixed. [iglocska]
+
+  - allow duplicates for deleted attributes, not for live ones
+- [bulk update] objects fixed. [iglocska]
+- [bulk edit] fixes. [iglocska]
+- [cleanup] missed a correction. [iglocska]
+- [login] action replaced with hard coded route to baseurl .
+  /users/login. [iglocska]
+- [sync] fixed pull deduplication causing potential attribute loss.
+  [iglocska]
+
+  - The validation for duplicates on pull was too tight for attributes, leading for soft-deleted attributes with an equal value-type-category tuple from blocking incoming non-deleted attributes with the same tuple.
+- [overorrelation] truncation should only happen on full recorrelations.
+  [iglocska]
+- [console] minor syntax fix. [Christophe Vandeplas]
+- [authkeys] AuthKey IP logging enabled by default #9339. [Christophe
+  Vandeplas]
+- [sighting:anonymisation] Anonymize sightings if and only if
+  anonymization is set in the settings. [Sami Mokaddem]
+- Taxonomy view filter is not kept when switching pages, fixes #8875.
+  [Luciano Righetti]
+- [internal] ACL. [Jakub Onderka]
+- [internal] Schema version. [Jakub Onderka]
+- [build] Build test fix. [Jakub Onderka]
+- Api order not working because of dropped param/incorrect handling,
+  related to #9359. [Luciano Righetti]
+- [stix1 import] Fixed SocketAddress properties parsing to avoid issue
+  when there is no port field. [Christian Studer]
+- [error handling] added to LLM push. [iglocska]
+- [dashboard] Fixed full group by issue with eventEvolution and
+  orgEvolution. [Sami Mokaddem]
+- [sightings:view] Added missing entry in ACL Component. [Sami Mokaddem]
+- [openapi] Fix minimums of restsearch page and limit params. fix #9334.
+  [Jeroen Pinoy]
+- Event timestamp sort bug, fixes #9359. [Luciano Righetti]
+- [UsernameHelper] resolved confusion. [Andras Iklody]
+
+  Based on etymological discoveries, this long standing issue has been resolved.
+- [upload analysis file] removed JS to make it work. [iglocska]
+- [internal] mactime template uuid fix and saveObject improvement.
+  [iglocska]
+- [user search] in index, removed old style authkey as a valid search
+  field. [iglocska]
+- [llm test] should work nao. [iglocska]
+- [eventReport:sendToLLM] Fixed condition and encode data to be sent.
+  [Sami Mokaddem]
+- [eventReport:sendToLLM] Adapted the setting. Again. [Sami Mokaddem]
+- [llm tests] tests changed for settings. [iglocska]
+- [llm tests] I need sleep. [iglocska]
+- [eventreport:sendToLLM] Adapted settings after a change. [Sami
+  Mokaddem]
+- [llm settings] again. [iglocska]
+- [llm tests] setting naming. [iglocska]
+- [llm test] setting name fix. [iglocska]
+- [llm setting] name. [iglocska]
+- [ui:global_menu] Make sure right_menu is defined. [Sami Mokaddem]
+- [ui:global_menu] Make sure right_menu is defined. [Sami Mokaddem]
+- [events:view] Remove any tooltip upon closing the popover form. [Sami
+  Mokaddem]
+
+  This will make @iglocska happy.
+- [workflow:editor] Refresh picker with value selected by default on
+  load. [Sami Mokaddem]
+
+  - Make sure chosen knows about the selected value when the first one in the list is picked on page load
+- [warninglist:crud] Nicer error message when trying to save no values.
+  [Sami Mokaddem]
+
+  Fix #9179 thanks to @vincenzocaputo for the initial work!
+- Update requirements.txt to match app/Controller/AppController.php, add
+  test. [Raphaël Vinot]
+- [workflow:editor] Prevent crashing if module param changed to multi-
+  select. [Sami Mokaddem]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'richtag' into develop. [iglocska]
+- Accessibility: added a "role" attribute so the global/local nature of
+  tags are read correctly by all screen readers. [Olivier BERT]
+- Merge branch 'tmpfiletool' into develop. [iglocska]
+- Rreally proper place to import TmpFileTool. [Marek Zpevacek]
+- Fix import of TmpFileTool in RestResponseComponent. [Marek Zpevacek]
+- Merge branch 'nohooks' into develop. [iglocska]
+- Security: [event:event-timeline] Fixed XSS in the event timeline
+  widget. [Sami Mokaddem]
+
+  As reported by fukusuket(Fukusuke Takahashi)
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Branch 'develop' of github.com:MISP/MISP into develop. [Sami Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9370 from JakubOnderka/build-test-fix-vol2. [Jakub
+  Onderka]
+
+  fix: [build] Build test fix
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #9337 from Wachizungu/fix-openapi-page-and-limit-
+  minimums. [Andras Iklody]
+
+  fix: [openapi] Fix minimums of restsearch page and limit params. fix …
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'disable_ip_retention' into develop. [iglocska]
+- Remove spread operator for php 7.2 compatability. [James Garratt]
+- Add localization string placeholders. [Sid Odgers]
+- Add support for disabling the retention of IP addresses used to access
+  API via an AuthKey. [Sid Odgers]
+- Merge branch 'llm_tests' into develop. [iglocska]
+- Merge branch 'llm_tests' of github.com:MISP/MISP into llm_tests.
+  [iglocska]
+- Merge branch 'llm_tests' of github.com:MISP/MISP into llm_tests.
+  [iglocska]
+- Merge branch 'llm_tests' of github.com:MISP/MISP into llm_tests.
+  [iglocska]
+- Merge branch 'llm_tests' of github.com:MISP/MISP into llm_tests. [Sami
+  Mokaddem]
+- Merge branch 'llm_tests' of github.com:MISP/MISP into llm_tests.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch 'vincenzocaputo_add-sighting-publish-trigger' into
+  develop. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into
+  vincenzocaputo_add-sighting-publish-trigger. [Sami Mokaddem]
+- Merge branch 'vincenzocaputo_add-to-warninglist-workflow-module' into
+  develop. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into
+  vincenzocaputo_add-to-warninglist-workflow-module. [Sami Mokaddem]
+- Fix include filename for parent class. [vincenzocaputo]
+- Add workflow module for adding attributes to a non-default
+  warninglist. [vincenzocaputo]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:VincenzoCaputo/MISP into add-
+  sighting-publish-trigger. [Vincenzo Caputo]
+- Change trigger overhead to high. [Vincenzo Caputo]
+- Add sighting publish workflow trigger. [vincenzocaputo]
+
+
+v2.4.178 (2023-10-24)
+---------------------
+
+New
+~~~
+- [workflow-modules:add-eventblocklist-entry] Added new action module.
+  [Sami Mokaddem]
+- [workflow-trigger:event-before-save] Added trigger. [Sami Mokaddem]
+- [workflow-module:publish-event] Added draft of module. [Sami Mokaddem]
+- [workflow:editor] Added option to provide a custom JSON in the
+  hashpath picker helper. [Sami Mokaddem]
+- [RestClient] Add user totp_delete to query builder. [Jeroen Pinoy]
+- [OpenApi] add doc for user totp_delete endpoint. [Jeroen Pinoy]
+- [User] Add setting to limit site admin roles to instance's host org.
+  [Jeroen Pinoy]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [submodule] update. [iglocska]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [event:restSearch] Added support of orgc_id as valid filter. [Sami
+  Mokaddem]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [dashboard-widget:worldmap] Added support of custom scale in widget
+  config. [Sami Mokaddem]
+- [eventtimeline:doubleclick] Change the location to the object being
+  double-clicked. [Sami Mokaddem]
+- [misp-galaxy] various updates. [Alexandre Dulaunoy]
+- [installer] Update to latest installer. [Steve Clement]
+- [installer] Support Debian 12. [Steve Clement]
+- [layout] Improved UI in special case. [Sami Mokaddem]
+- [workflow:executeNode] Correctly interpret execution result for logic
+  module when logging. [Sami Mokaddem]
+- [workflow-module:generic_filter] Improved support of quick hashpath
+  filter. [Sami Mokaddem]
+- [workflow:editor] Improved quick hashpath picker. [Sami Mokaddem]
+- [workfowModules:webhook] Added support of self-signed certificates.
+  [Sami Mokaddem]
+- [workflow] Improved logging and debugging of workflow execution. [Sami
+  Mokaddem]
+- [workflow-module:webhook] Added support of request_method, headers and
+  payload. [Sami Mokaddem]
+
+  Partially fix #9321
+- [tools:misp-workflows/webhook_listener] Print headers on stdout. [Sami
+  Mokaddem]
+- [workflows:infoModal] Added link to jinja2 official documentation.
+  [Sami Mokaddem]
+- [RestClient] use http_method value from template if available. [Jeroen
+  Pinoy]
+- [user] Update store api access time setting description (#9313)
+  [Jeroen Pinoy]
+
+  Api access time is stored once per hour by default (since commit a5f5a4e113872a77d4e6c2b1a125f03ee89773c2), making the old description of this setting incorrect.
+- [event restsearch] exposed includeGranularCorrelations. [iglocska]
+
+  - and also made it visible in the JSON output
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [upload_stix] Properly getting the changes on the Galaxies handling
+  option from the form. [Christian Studer]
+- [upload_stix] Visual improvement with descriptions added. [Christian
+  Studer]
+
+  - More information on the different options to
+    handle galaxies and clusters while importing
+    STIX 2 content
+  - More information on the debugging options
+- [Command:TrainingShell] Only override org_id if org_uuid is provided.
+  [Sami Mokaddem]
+- [console:TrainingShell] Added wipeAllAuthkeys function. [Sami
+  Mokaddem]
+- [Command:TrainingShell] Only override org_id if org_uuid is provided.
+  [Sami Mokaddem]
+
+Fix
+~~~
+- [PyMISP] Another fix in tests. [Raphaël Vinot]
+- [PyMISP] missing changes in testsuite. [Raphaël Vinot]
+- [objects:edit] Restored behavior of upgrading object to newer
+  template. [Sami Mokaddem]
+- [workflow-module:publish-event] Extend correct class and use event id.
+  [Sami Mokaddem]
+- [sighting:attachOrgToSightings] Stopped double unpacking. [Sami
+  Mokaddem]
+- [attribute] Log entry with the correct action. [Sami Mokaddem]
+- [user search] in index, removed old style authkey as a valid search
+  field. [iglocska]
+- [warninglists] default to matching types ALL if nothing is set.
+  [iglocska]
+- [Taxonomies] fix enabling of individual taxonomy tags for tags with
+  special chars. fixes ##9300. [Jeroen Pinoy]
+- [misp-zmq] Include ZMQ support for connecting to Redis over TLS.
+  [peritz]
+- [installer] Kali Linux hack. [Steve Clement]
+- [eventreport:extractEntities] Enforced minimum amount of char for
+  valid replacement. [Sami Mokaddem]
+- [security] XSS in selectGalaxy. [Sami Mokaddem]
+
+  - As reported by Zigrin Security
+- [workflowModules:webhook] Gracefully handle case with empty headers.
+  [Sami Mokaddem]
+- Wrong param order fixes #9319. [Luciano Righetti]
+- [workflow:baseModule] Only build fast lookup array if trigger is using
+  the MISP core format. [Sami Mokaddem]
+- [restsearch] granular correlation parameter fixes. [iglocska]
+- [Attribute REST] Add sharinggroup as an allowed parameter for
+  attribute filtering. [Tom King]
+- [eventreport:extractEntities] Enforced minimum amount of char for
+  valid replacement. [Sami Mokaddem]
+- [search] pagination fix. [iglocska]
+- [Console:EventShell] Correctly interpret returned data. [Sami
+  Mokaddem]
+- [console:EventShell] Fixed parameter parsing and typo. [Sami Mokaddem]
+- [security] XSS in selectGalaxy. [Sami Mokaddem]
+
+  - As reported by Zigrin Security
+- [Console:EventShell] Correctly interpret returned data. [Sami
+  Mokaddem]
+- [console:EventShell] Fixed parameter parsing and typo. [Sami Mokaddem]
+- [misp-vagrant] submodule removed. [Alexandre Dulaunoy]
+- [console:TrainingShell] Typo in authkey condition. [Sami Mokaddem]
+- [AuthKeys] Allow users to edit own authkeys, fix #9292 (#9293) [Jeroen
+  Pinoy]
+- [console:TrainingShell] Typo in datasource model. [Sami Mokaddem]
+
+  -- Seriously..
+- [console:TrainingShell] Typo in authkey condition. [Sami Mokaddem]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'feature/workflow-trigger-before-save' into develop.
+  [Sami Mokaddem]
+- Merge branch 'feature/workflow-module/publish-event' into develop.
+  [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9347 from vincenzocaputo/fix-telegram-workflow-
+  module. [Alexandre Dulaunoy]
+
+  Fix API url in Telegram workflow module
+- Fix API url in Telegram workflow module. [Vincenzo Caputo]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge pull request #9308 from Wachizungu/fix-enabling-of-individual-
+  taxonomy-tags. [Andras Iklody]
+
+  fix: [Taxonomies] fix enabling of individual taxonomy tags for tags w…
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9304 from ostefano/reqfix. [Alexandre Dulaunoy]
+
+  Split requirements file and pin minimum version of Python deps
+- Split requirements file and pin minimum version of Python deps.
+  [Stefano Ortolani]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9329 from peritz/fix-zmq-tls-redis. [Alexandre
+  Dulaunoy]
+
+  fix: [misp-zmq] Include ZMQ support for connecting to Redis over TLS
+- Merge pull request #9327 from SteveClement/guides. [Steve Clement]
+
+  chg: [installer] Support Debian 12
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9305 from Kagee/cleanups. [Alexandre Dulaunoy]
+
+  doc: Update README.md with new badges, toc, install tips
+- Doc: Update README.md with new badges, toc, install tips. [Anders
+  Einar Hilden]
+- Merge pull request #9314 from Wachizungu/restclient-use-template-http-
+  method-value. [Alexandre Dulaunoy]
+
+  chg: [RestClient] use http_method value from template if available
+- Merge pull request #9315 from Wachizungu/add-user-totp-delete-to-
+  restclient. [Alexandre Dulaunoy]
+
+  new: [RestClient] Add user totp_delete to query builder
+- Merge pull request #9316 from Wachizungu/add-totp-delete-openapi-doc.
+  [Alexandre Dulaunoy]
+
+  new: [OpenApi] add doc for user totp_delete endpoint
+- Merge pull request #9310 from
+  tomking2/bug/attribute_sharinggroup_filter. [Andras Iklody]
+
+  Regression - Rest search with 'attributes' controller no longer filters by sharing group ID
+- Merge pull request #9312 from Wachizungu/add-option-to-limit-site-
+  admins-to-host-org. [Andras Iklody]
+
+  new: [User] Add setting to limit site admin roles to instance's host …
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- [users] fix user view totp delete checks (#9301) [Jeroen Pinoy]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- [users:totp] set correct rest response action for totp_delete (#9303)
+  [Jeroen Pinoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Christian
+  Studer]
+
+
+v2.4.177 (2023-09-25)
+---------------------
+
+New
+~~~
+- [dev] added a shell script to generate the restsearch parameters.
+  [iglocska]
+
+  - it's dumb but it should get the job done
+- [CLI] add command to expire active AuthKeys that do not have an IP
+  allowlist set. [Jeroen Pinoy]
+- [cli] Add command to trigger password change on next login for users
+  with old pw. [Jeroen Pinoy]
+- [Users] add last password change timestamp for users. [Jeroen Pinoy]
+- [workflowModules:event_distribution_operation] Added action module.
+  [Sami Mokaddem]
+
+Changes
+~~~~~~~
+- [tests] testing disabling the timestamp greater as old timestamp for
+  password changes. [iglocska]
+- [tests] make em happy with re-including a filter parameter that worked
+  before, albeit unintentionally. [iglocska]
+- [CI] Enable debug and timing, take 4. [Raphaël Vinot]
+- [CI] Enable debug and timing, take 3. [Raphaël Vinot]
+- [CI] Enable debug and timing, take 2. [Raphaël Vinot]
+- [CI] Enable debug and timing. [Raphaël Vinot]
+- [PyMISP] disable some tests. [Raphaël Vinot]
+- [misp-stix] BUmped latest version. [Christian Studer]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [PyMISP] Keep messing with tests. [Raphaël Vinot]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- Check test files are there. [Raphaël Vinot]
+- Yet another attempt to clone a repo. [Raphaël Vinot]
+- [version] bump. [iglocska]
+- [escaping] added to event ID. [iglocska]
+- Attempt to fix git clone from the test suite. [Raphaël Vinot]
+- [feeds] change name to Community version. [Ayush Tomar]
+- [config:customAuth_header] Default to upper case. [Sami Mokaddem]
+
+  - See $_SERVER make passed headers upper case
+- [console:TrainingShell] Allow overriding existing user data. [Sami
+  Mokaddem]
+- [Console:trainingShell] Provide correct filters for wiping data. [Sami
+  Mokaddem]
+- [console:trainingShell] Added wipeUsers and wipeOrgs functions. [Sami
+  Mokaddem]
+- [posts:crud] Prevent readonly users to create posts. [Sami Mokaddem]
+- [config:config.default] Disabled warning_for_all by default for new
+  install. [Sami Mokaddem]
+
+Fix
+~~~
+- [misp-stix] Bumped latest version with a fix on the file patterns
+  parsing. [Christian Studer]
+- [tests] added some sleeps to avoid timestamps of follow up tests being
+  within 1 second of the previous test. [iglocska]
+- [API] filter parameters added. [iglocska]
+- [PyMISP/CI] Disavle search logs for now. [Raphaël Vinot]
+- [ibternal] invalid ; instead of , [iglocska]
+
+  - Me not think good.
+- [restsearch] parameters fixed. [iglocska]
+- [taxonomy] enable/disable creating junk taxonomies on invalid ID,
+  fixes #9273. [iglocska]
+- [console:trainingShell] More typo in model name.. [Sami Mokaddem]
+- [console:trainingShell] Typos in model names. [Sami Mokaddem]
+- [RestSearch] allow filtering on eventinfo for events and attributes.
+  [Jeroen Pinoy]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Christian
+  Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Christian
+  Studer]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'tag_scope' into develop. [iglocska]
+- Show object's attributes if they are tagged. [vincenzocaputo]
+- Fix event graph tag scope view. [vincenzocaputo]
+- Merge branch 'discussion_view' into develop. [iglocska]
+- Fix event hyperlink in discussion view page. [vincenzocaputo]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'cli_reset' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #9282 from elliotechayush/feature/EllioFeed.
+  [Andras Iklody]
+
+  chg: [feeds] change name to Community version
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #9255 from Wachizungu/add-cli-cmd-trigger-pw-
+  change-for-old-pws. [Andras Iklody]
+
+  Add cli cmd to trigger pw change for old pws
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge remote-tracking branch 'origin/2.4' into develop. [Sami
+  Mokaddem]
+- Merge pull request #9291 from ostefano/pymispfix. [Andras Iklody]
+
+  Update pymisp to 2.4.176
+- Update pymisp to 2.4.176. [Stefano Ortolani]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #9296 from Wachizungu/fix-restsearchcomponent-
+  filter-on-eventinfo. [Andras Iklody]
+
+  fix: [RestSearch] allow filtering on eventinfo for events and attributes again
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+
+
 v2.4.176 (2023-09-15)
 ---------------------
 
@@ -49,10 +631,6 @@ Fix
   [Luciano Righetti]
 - Unable to enrich individual shadow attribute. [Luciano Righetti]
 - Unable to enrich individual attribute, fixes #9267. [Luciano Righetti]
-- [stix2 import] Fixed debugging message for errors and warnings when
-  the `debug` option is set. [Christian Studer]
-- Unable to enrich individual shadow attribute. [Luciano Righetti]
-- Unable to enrich individual attribute, fixes #9267. [Luciano Righetti]
 
 Other
 ~~~~~
@@ -88,13 +666,9 @@ Other
 
   new: [feeds] add Ellio threat list
 - Update feature-request-form.yml. [Luciano Righetti]
-- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
-  Studer]
-- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
-  Studer]
 
 
-v2.4.175 (2023-08-24)
+v2.4.175 (2023-08-25)
 ---------------------
 
 New
@@ -143,6 +717,10 @@ Changes
 
 Fix
 ~~~
+- [stix2 import] Fixed debugging message for errors and warnings when
+  the `debug` option is set. [Christian Studer]
+- Unable to enrich individual shadow attribute. [Luciano Righetti]
+- Unable to enrich individual attribute, fixes #9267. [Luciano Righetti]
 - [misp-stix] Bumped latest version including a quick fix. [Christian
   Studer]
 - [CRUD-IndexFilter] correct index page filtering for REST requests. fix
@@ -192,6 +770,8 @@ Fix
 
 Other
 ~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
 - Merge branch 'develop' into 2.4. [iglocska]
 - Merge branch '2.4' of github.com:MISP/MISP into develop. [Christian
   Studer]
@@ -274,6 +854,8 @@ Other
   Iklody]
 
   Kagee remove dead symlink
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
 
 
 v2.4.174 (2023-07-31)
