@@ -103,6 +103,9 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2023-48657](https://cvepremium.circl.lu/cve/CVE-2023-48657) < MISP 2.4.176 - An issue was discovered in MISP before 2.4.176. app/Model/AppModel.php mishandles filters. 
 - [CVE-2023-48659](https://cvepremium.circl.lu/cve/CVE-2023-48659) < MISP 2.4.176 - An issue was discovered in MISP before 2.4.176. app/Controller/AppController.php mishandles parameter parsing.
 - [CVE-2023-48658](https://cvepremium.circl.lu/cve/CVE-2023-48658) < MISP 2.4.176 - An issue was discovered in MISP before 2.4.176. app/Model/AppModel.php lacks a checkParam function for alphanumerics, underscore, dash, period, and space. 
+- [CVE-2023-49926](https://cvepremium.circl.lu/cve/CVE-2023-49926) < MISP 2.4.179 - app/Lib/Tools/EventTimelineTool.php in MISP before 2.4.179 allows XSS in the event timeline widget. 
+
+
 
 ## PGP Key
 
