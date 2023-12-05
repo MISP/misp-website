@@ -50,11 +50,9 @@ sudo systemctl restart apache2
 
 ### Docker containers
 
-- A [docker container for MISP](https://github.com/misp/misp-docker) is maintained by Xavier Mertens.
+- Production ready [docker images for MISP and MISP-modules](https://github.com/misp/misp-docker) are maintained by Stefano Ortolani from VMware. Images are regularly pushed to [Docker Hub](https://hub.docker.com/r/ostefano/misp-docker) and a blog post with step by step instruction is available [here](https://blogs.vmware.com/security/2023/01/how-to-deploy-a-threat-intelligence-platform-in-your-data-center.html). 
 - [A (nearly) production ready Dockered MISP](https://github.com/coolacid/docker-misp) is maintained by Jason Kendall (Coolacid).
 - [Docker image focused on high performance and security based on CentOS Stream 8](https://github.com/NUKIB/misp) is maintained by National Cyber and Information Security Agency of the Czech Republic.
-- Another [docker image](https://github.com/ostefano/docker-misp) specifically tailored to allow [reproducible cloud deployments](https://blogs.vmware.com/security/2023/01/how-to-deploy-a-threat-intelligence-platform-in-your-data-center.html), compatible with both x86–64 (AMD64) and ARM64 (M1) architectures, and available on [Docker Hub](https://hub.docker.com/r/ostefano/misp-docker), is maintained by Stefano Ortolani from VMware.
-
 
 We invite you to read the GitHub README page of each version to understand what better fits your needs.
 
