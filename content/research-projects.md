@@ -7,51 +7,45 @@ toc: true
 
 
 
-# Project (1) Pauline Bourmeau - The Social Perspective in the Intelligence Activity among Information Sharing Communities - CNAM Paris
+# Project (1) Pauline Bourmeau - Social Perspectives in Intelligence Activities within Sharing Communities - CNAM Paris Department of Security and Defense
 
 
 Contact for this research project: social-perspective@misp-project.org
 
-## The Social Perspective in Intelligence Activity Among Information Sharing Communities
+## Social Perspectives in Intelligence Activities within Sharing Communities
 
 ## Introduction
 
-## (1) Subject scope
+## Subject scope
 
-Intelligence activity is a common practice shared among different fields. The practice of intelligence evolved to adapt to the evolution of human societies. The transition from analog to digital introduced changes in social practices and communications.
+Intelligence activity, a prevalent practice across various fields, has continually evolved in response to the changing dynamics of human societies. The shift from analog to digital has significantly transformed social practices and modes of communication.
 
-Transmission of information is a key element to intelligence activity, as such a subject of studies in anthropology and social sciences. The goal of this research is to understand and describe the practices of information exchange among intelligence communities, by analyzing their cultural aspects.
+The transmission of information is a crucial component of intelligence activities and has attracted attention in anthropology and social sciences. This research is dedicated to understanding and describing the information exchange practices among threat intelligence communities, especially those using MISP. We aim to explore the functioning and limitations of these practices within their cultural context, focusing on how these communities operate and interact within these frameworks.
 
-### (1.1) The interest in studying information sharing
+### The interest in studying information sharing practices
 
-Information sharing has become a key in our society’s effectiveness, as in facing information warfare.
-
-Many studies and research in the field of information security and intelligence focused mainly on the practical, the standardization, the usage perspective and the technical aspects of information sharing, without an analysis of its social or cultural aspects.
-
-### (1.2) Intelligence and information sharing in the age of online criminal activities, study of group and practices
-
-Information sharing plays a key role in law enforcement investigations and especially to track and take-down criminal activities. Efficient information exchange ensures resolution and prosecution in a timely fashion. Information strongly relies on the existence of sharing communities among law enforcement and intelligence.
-
-## (2) Problem statement
-
-We lack some opportunities to make successful sharing among the community of research. In order to tackle this issue, we must first understand how information sharing happen.
-
-### (2.1) State of the Art
-
-An extensive review has been performed in the field of information sharing. A significant number of academic papers focused on the structure of information and especially the tools used. Most of the research focus on a niche in intelligence, such as building competitive analysis or structuring data exchange.
-
-In the bibliography, we listed papers which are related to the information sharing platform MISP, which will allow us to meet and interview groups who are actively performing information sharing.
+While much of the research in information security and intelligence has traditionally emphasized practical, standardized, and technical facets of information sharing, the exploration of its social and cultural aspects has not been as extensive. Our research seeks to contribute to this area by offering insights and exploring potential avenues for further inquiry and improvement. We aim to enrich the understanding of information sharing by shedding light on these less explored dimensions, thereby opening the door for more comprehensive future research and practice advancements.
 
 
-## (3) Research methodology
+## Problem statement
 
-### (3.1) Research design
+We face missed opportunities for successful information sharing within the research community. To understand and address this issue, we aim to describe the information sharing processes, examining functional challenges from social and cultural perspectives. This involves identifying both the incentives for and barriers to sharing.
 
-We assume that we can observe replicates of social practices from real to digital environment, and a specific set of practices on sharing platforms such as MISP ("people need to make sense out of it").
 
-A series of interviews will be conducted among sharing communities. We are interested in the comparison between usages of the platform that we observe, in one hand, and what people can tell us about it, in the other hand.
+### State of the Art
 
-We use both technical observations, as statistics from the platform, and qualitative observations from the interviews (discourse analysis).
+A significant portion of academic research has been dedicated to examining the structure of information, with a particular emphasis on the tools employed for this purpose. Much of this research is specialized, focusing on areas like competitive analysis construction or the structuring of data exchanges.
+
+In our bibliography, we have specifically included papers related to the MISP platform. This focus will facilitate our engagement with and interviews of groups actively involved in information sharing, leveraging insights from those who use MISP in their operations.
+
+
+## Research methodology
+
+### Research design
+
+A series of interviews are conducted with various sharing communities. We aim to compare the actual usage of the platform, as observed by us, with the users' perspectives as shared in the interviews.
+
+We utilize both technical observations, such as platform statistics, and qualitative insights from the interviews, through discourse analysis.
 
 As a starting point, we included a list of question related to information sharing addressed to participants "Example list".
 
@@ -60,60 +54,34 @@ We narrow our questioning about the following points:
 - Common assumed (survey) reasons why organizations are not sharing.
 - Common reasons why organizations are sharing.
 
-In order to integrate as much data as possible and to avoid pre-interview categorization, we will perform free interviews.
-
-#### Example list
-
-Common reasons why organizations are not sharing (ref. Goldenberg, I., Soeters, J. and Dean, W.H. eds.,) as an example list:
-
-- Lack of trust within the community
-- Cultural reason (language)
-- Cultural reason (geopolitical)
-- Pride (my information is so critical, so I don't share it)
-- Shame on the information owned (cannot share because it's not interesting in their point-of-view)
-- Don't see the benefit of sharing
-- Not used to share information
-- Don't share information in communities (only ad-hoc mode - email/phone/conf call)
-
-Common reasons why organizations are sharing:
-
-- Increasing cohesion (positive effect on the community)
-- Create common approaches (such as: context, data model, predictability)
-- Increase network and partnership (it increases trust)
-- Cross-checking (creates a validation or counter analysis)
+In order to integrate as much data as possible and to avoid pre-interview categorization, we perform free interviews.
 
 
-### (3.2) Data analysis model
+### Data Analysis Model
 
-- Collecting structured information from sharing platforms (e.g. MISP data to refine or use existing)
-- Interviews (unstructured or semi-structured model) [^2]
-
-Structured information from sharing platforms such as the type of information shared, the activity per organizations and the contextualization applied to the collection of information.
-Partially structured information from the interviews. Different data analysis technics will be applied especially to cross-validate data from sharing platforms and the unstructured data collected from interviews.
+- Collection of structured information from sharing platforms.
+- Conducting interviews using an unstructured or semi-structured approach[^2].
 
 
-### (3.3) Expected results and contribution
+### Expected Results and Contribution
+Our research aims to detail the social practices that facilitate information sharing. The focus is on uncovering and testing social models to better understand specific dynamics in this area. Key areas of exploration will include:
 
-The research results will include the description of social practices which participate to information sharing.
+- Differentiating between organizations that primarily produce information and those that disseminate it [^1], acknowledging that producers and sharers may be distinct entities.
+- Describing the contextual factors surrounding the creation and dissemination of information.
+- Analyzing the dynamics of information sharing within communities.
+- Investigating factors that could enhance the effectiveness of sharing practices.
+  
+These insights are expected to contribute to the development of more sophisticated detection mechanisms within organizations.
 
-Our goal is to discover, elaborate and test social models to qualify specific aspects.
 
-- The distinction between producing and conveying [^1] organizations (producing and sharing participants can be different)
-- The description of the context surrounding the production and sharing of an information
-- The description of sharing dynamics in sharing communities
-- An exploration of factors to improve sharing
+### Conclusion
+The outcomes of our research could be influenced by several factors:
 
-These qualifications can be then used to improve detection mechanisms within organizations.
-
-### (4) Conclusion
-
-The research results might be impacted by the following parameters:
-
-- Risk of too much diversity (heterogeneous) in dataset
-- Tampered/false information from the sharing communities
-- Limited dataset (representativity) on specific sharing communities
-- Potential strong deviation from standards
-- Inability to collect data due to the confidentiality level of specific sharing communities
+- The challenge of managing a highly diverse (heterogeneous) dataset.
+- The presence of tampered or false information within sharing communities.
+- Constraints related to the representativeness of the dataset, particularly concerning specific sharing communities.
+- Significant deviations from established standards in data collection or analysis.
+- Challenges in data collection due to high confidentiality levels within certain sharing communities.
 
 
 ## Bibliography
