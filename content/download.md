@@ -38,7 +38,7 @@ VBoxManage controlvm MISP_VM_NAME natpf1 www,tcp,,8080,,80
 VBoxManage controlvm MISP_VM_NAME natpf1 ssh,tcp,,2222,,22
 VBoxManage controlvm MISP_VM_NAME natpf1 dashboard,tcp,,8001,,8001
 ~~~~
-#### VMWare Users
+#### VMware Users
 Log in on the VM using the console, and change the baseurl to the IP address of your VM.
 ~~~~
 sudo -u www-data /var/www/MISP/app/Console/cake Baseurl https://a.b.c.d
@@ -50,7 +50,7 @@ sudo systemctl restart apache2
 
 ### Docker containers
 
-- Production ready [docker images for MISP and MISP-modules](https://github.com/misp/misp-docker) are maintained by Stefano Ortolani from VMware. Images are regularly pushed to [Docker Hub](https://hub.docker.com/r/ostefano/misp-docker) and a blog post with step by step instruction is available [here](https://blogs.vmware.com/security/2023/01/how-to-deploy-a-threat-intelligence-platform-in-your-data-center.html). 
+- Production ready [docker images for MISP and MISP-modules](https://github.com/misp/misp-docker) are maintained by Stefano Ortolani from VMware. Images are regularly pushed to MISP GitHub Package [registry](https://github.com/orgs/MISP/packages) and a blog post with step by step instruction is available [here](https://blogs.vmware.com/security/2023/01/how-to-deploy-a-threat-intelligence-platform-in-your-data-center.html). 
 - [A (nearly) production ready Dockered MISP](https://github.com/coolacid/docker-misp) is maintained by Jason Kendall (Coolacid).
 - [Docker image focused on high performance and security based on CentOS Stream 8](https://github.com/NUKIB/misp) is maintained by National Cyber and Information Security Agency of the Czech Republic.
 
