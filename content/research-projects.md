@@ -7,7 +7,7 @@ toc: true
 
 
 
-# Project (1) Pauline Bourmeau - Social Perspectives in Intelligence Activities within Sharing Communities - CNAM Paris Department of Security and Defense
+# Project (1) Pauline Bourmeau - Social Perspectives in Intelligence Activities within Sharing Communities - CNAM Paris Department of Criminology 
 
 
 Contact for this research project: social-perspective@misp-project.org
