@@ -575,7 +575,7 @@ CSSA was founded in November 2014 by seven major German companies as an alliance
 
 ### SecureGRID Alliance
 ![Logo](/img/communities/445d6ff368486444a47b6e75bb67d2c9.png "{class='community_logo'}")
-- Website: https://krs.bz/lac/m/securegrid
+- Website: https://securegrid.lac.co.jp
 - Sector:  Various
 - Nationality: Japan
 
