@@ -573,6 +573,15 @@ C3Ij/2IWN6eLTSzd0ikG7wOOKExTrCltTycyEMC0HwRSKYqQaBKPZcNSgm+3ma70FCv2
 
 CSSA was founded in November 2014 by seven major German companies as an alliance for jointly facing cyber security challenges in a proactive, fast and effective manner. Their community uses MISP as core software and to interconnect with others.
 
+### SecureGRID Alliance
+![Logo](/img/communities/445d6ff368486444a47b6e75bb67d2c9.png "{class='community_logo'}")
+- Website: https://krs.bz/lac/m/securegrid
+- Sector:  Various
+- Nationality: Japan
+
+
+The SecureGRID Alliance is a cooperative framework for linking threat information between organizations that is free to join. Organizations participating in the alliance can mutually search MISP, which accumulates threat information provided by each alliance member organization, through a web portal site. By utilizing this framework, participating organizations will be able to have automatic analysis functions, strengthen information sharing and collaboration systems, and improve their own security levels and incident response capabilities.
+
 
 ### Adding your community to the list
 
