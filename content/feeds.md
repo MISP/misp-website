@@ -43,7 +43,7 @@ The default feeds are described in a [simple JSON format](https://github.com/MIS
 - [DNS recursion desired IN ANY](https://dataplane.org/dnsrdany.txt) - dataplane.org - feed format: csv
 - [DNS recursion desired](https://dataplane.org/dnsrd.txt) - dataplane.org - feed format: csv
 - [Domains from High-Confidence DGA-based C&C Domains Actively Resolving](https://osint.bambenekconsulting.com/feeds/c2-dommasterlist-high.txt) - osint.bambenekconsulting.com - feed format: csv
-- [Ellio:Threat List](https://cdn.ellio.tech/community-feed) - ellio.tech - feed format: freetext
+- [ELLIO: IP Feed (Community version)](https://cdn.ellio.tech/community-feed) - ellio.tech - feed format: freetext
 - [Feodo IP Blocklist](https://feodotracker.abuse.ch/downloads/ipblocklist.csv) - abuse.ch - feed format: csv
 - [firehol_level1](https://raw.githubusercontent.com/ktsaou/blocklist-ipsets/master/firehol_level1.netset) - iplists.firehol.org - feed format: freetext
 - [http://cybercrime-tracker.net gatelist](https://cybercrime-tracker.net/ccamgate.php) - http://cybercrime-tracker.net gatelist - feed format: freetext
@@ -62,6 +62,7 @@ The default feeds are described in a [simple JSON format](https://github.com/MIS
 - [IPsum (aggregation of all feeds) - level 8 - no false positives](https://raw.githubusercontent.com/stamparm/ipsum/master/levels/8.txt) - IPsum - feed format: freetext
 - [James Brine Bruteforce IPs](https://jamesbrine.com.au/csv) - jamesbrine.com.au - feed format: csv
 - [List of malicious domains in Poland](https://hole.cert.pl/domains/domains.txt) - CERT-PL - feed format: freetext
+- [List of malicious hashes](https://cti.bb.com.br:8443/hash-list.csv) - Banco do Brasil S.A - feed format: csv
 - [malshare.com - current all](https://malshare.com/daily/malshare.current.all.txt) - malshare.com - feed format: freetext
 - [malsilo.domain](https://malsilo.gitlab.io/feeds/dumps/domain_list.txt) - MalSilo - feed format: csv
 - [malsilo.ipv4](https://malsilo.gitlab.io/feeds/dumps/ip_list.txt) - MalSilo - feed format: csv
