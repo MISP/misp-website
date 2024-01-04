@@ -1,6 +1,153 @@
 # Changelog
 
 
+## v2.4.183 (2024-01-04)
+
+### Changes
+
+* [poetry] Bumped latest deps versions and lock file. [Christian Studer]
+
+* [stix2 import] Handling external ids and synonyms from STIX 2.x objects imported as MISP Galaxy Clusters. [Christian Studer]
+
+* [poetry] Updated pyproject & bumped lock file. [Christian Studer]
+
+* [poetry] Bumped latest dependencies and versions. [Christian Studer]
+
+* [tests] Updated STIX 2.x internal samples to match the recent changes on STIX 2.x export capacity. [Christian Studer]
+
+### Fix
+
+* [stix2 import] Separating the synonyms and external ids handling. [Christian Studer]
+
+  - Different handling for internal and external STIX content
+
+* [stix2 import] Added missing imports for Observed Data Converters. [Christian Studer]
+
+* [tests] Fixed tests for galaxy and their clusters following recent changes on the synonyms and external ids handling. [Christian Studer]
+
+* [requirements] Updated the requirements list with no specific version. [Christian Studer]
+
+  - Allowing users to quickly install the requirements with the latest
+    versions outside of the poetry scope
+  - Removing the specific versions avoids issues with old versions
+
+* [tests] Aligning test sample on tags with the tag name of the recently changed attack pattern cluster sample to keep testing the non duplication of the tag name with tags. [Christian Studer]
+
+* [tests] Making the automated documentation generation specific to the related test Classes instead of making it run for each testing class tear down. [Christian Studer]
+
+* [documentation] Fixed and regenerated documentation for Galaxy Clusters export to STIX 2.x. [Christian Studer]
+
+* [documentation] Fixed and regenerated galaxies export documentation. [Christian Studer]
+
+* [documentation] Regenerated documentation. [Christian Studer]
+
+* [documentation] Changes in galaxies documentation, based on the cluster name changes. [Christian Studer]
+
+* [tests] Fixed tests on cluster values. [Christian Studer]
+
+* [stix2 export] Removing external id from all Galaxy Cluster value. [Christian Studer]
+
+* [tests] Fixed tests to avoid issues with aliases. [Christian Studer]
+
+* [stix2 export] Fixed meta fields parsing for STIX objects having meta fields mapping. [Christian Studer]
+
+* [stix2 export] Fixed the external references parsing from Clusters meta fields. [Christian Studer]
+
+* [tests] Aligning test sample on tags with the tag name of the recently changed attack pattern cluster sample to keep testing the non duplication of the tag name with tags. [Christian Studer]
+
+* [tests] Making the automated documentation generation specific to the related test Classes instead of making it run for each testing class tear down. [Christian Studer]
+
+* [documentation] Fixed and regenerated documentation for Galaxy Clusters export to STIX 2.x. [Christian Studer]
+
+* [documentation] Fixed and regenerated galaxies export documentation. [Christian Studer]
+
+* [documentation] Regenerated documentation. [Christian Studer]
+
+* [documentation] Changes in galaxies documentation, based on the cluster name changes. [Christian Studer]
+
+* [tests] Fixed tests on cluster values. [Christian Studer]
+
+* [stix2 export] Removing external id from all Galaxy Cluster value. [Christian Studer]
+
+* [tests] Quick code style clean-up. [Christian Studer]
+
+* [stix2 import] Quick clean-up. [Christian Studer]
+
+* [stix2 import] Added missing cluster distribution argument. [Christian Studer]
+
+* [stix2 import] Fixed issues with protocols and references from network traffic observable objects. [Christian Studer]
+
+* [stix2 import] Cleaned up the unused parsing methods for internal STIX 2.x content, as they've been moved to the converters. [Christian Studer]
+
+* [stix2 import] Avoiding issues with custom labels. [Christian Studer]
+
+* [stix2 import] Some clean-up and better 'observable object id VS observed data id' handling. [Christian Studer]
+
+* [stix2 import] Making the user account extension mapping name compliant with the generic observable objects parsing method. [Christian Studer]
+
+* [tests] Fixed tests following recent changes including the observed data objects conversion, as well as some better UUID handling. [Christian Studer]
+
+* [stix2 import] Fixed generic & user-account observables conversion. [Christian Studer]
+
+* [stix2 import] Fixed `domain-ip` objects import from internal STIX 2.x. [Christian Studer]
+
+* [stix2 import] Fixing a few tiny issues. [Christian Studer]
+
+  - Fixes on the Observable objects converter will
+    be committed soon as well
+
+* [stix2 import] Fixed a few typo in variable names and indentation issues. [Christian Studer]
+
+* [stix2 import] Added missing argument for email references observables parsing. [Christian Studer]
+
+* [stix2 import] Fixed Network Traffic references id handling. [Christian Studer]
+
+### Other
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Fix, tmp: [stix2 import] Removing unused Observed Data Converter for now. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Fix, tmp: [stix2 import] Restored parsing functions that were removed too early before the converters are fully operational. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'main' of github.com:misp/misp-stix into parser_feature. [Christian Studer]
+
+* Wip: [stix2 export] Better handling meta fields, and the synonyms in particular. [Christian Studer]
+
+* Add: [stix2 import] Handling clusters sharing group id for content converter from external STIX 2.x. [Christian Studer]
+
+* Add: [stix2 import] Added cluster distribution argument to the external STIX 2 to MISP parser. [Christian Studer]
+
+  - We can now define a distribution value for
+    clusters, the same we have been already able to
+    do for events distribution
+
+* Wip: [stix2 import] Supporting TLP 2.0 Marking definition. [Christian Studer]
+
+* Add: [tests] Tests for internal STIX 2.x content with custom labels. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Wip: [stix2 import] Updated the observable objects conversion capacity to support the reusability between standalone observable objects and observable objects referenced by observed data objects. [Christian Studer]
+
+* Wip: [stix2 import] Added Observed Data objects converter. [Christian Studer]
+
+  - To be tested and made operational
+  - Supporting internal STIX 2 content for now
+
+* Wip: [stix2 import] Reusing elements from mapping. [Christian Studer]
+
+* Wip: [stix2 import] Parsing PE binary extensions within File observable objects. [Christian Studer]
+
+* Wip: [stix2 import] Some clean-up. [Christian Studer]
+
+
 ## v2.4.182 (2023-12-14)
 
 ### Changes

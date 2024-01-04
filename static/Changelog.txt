@@ -2,6 +2,179 @@ Changelog
 =========
 
 
+%%version%% (unreleased)
+------------------------
+
+Changes
+~~~~~~~
+- [misp-stix] Bumped latest version. [Christian Studer]
+
+Other
+~~~~~
+- Merge branch 'develop' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Christian
+  Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+
+
+v2.4.183 (2024-01-04)
+---------------------
+
+New
+~~~
+- [internal] New option `Security.ecs_log` to enable ECS logging. [Jakub
+  Onderka]
+- [internal] Add more metadata to ECS log. [Jakub Onderka]
+- [internal] Add more metadata to ECS log. [Jakub Onderka]
+- [internal] Add support for MISP ECS logs. [Jakub Onderka]
+- [internal] Add support for ECS logs for debug and error log. [Jakub
+  Onderka]
+- [garbage collection] added for temporary files. [iglocska]
+- [sg blueprint] encode as sync rule functionality added. [iglocska]
+
+Changes
+~~~~~~~
+- [VERSION] bump. [iglocska]
+- [internal] Refactor UserController::_postlogin. [Jakub Onderka]
+- [internal] Add 'Security.alert_on_suspicious_logins' to security
+  audit. [Jakub Onderka]
+- [internal] Do not log in audit log last_api_access. [Jakub Onderka]
+- [scan] Skip empty files. [Jakub Onderka]
+- [log] Proper exception logging. [Jakub Onderka]
+- [sentry] Capture exception with message. [Jakub Onderka]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-stix] Bumped latest version. [Christian Studer]
+
+  - Including changes on the requirements
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [internal] Better logging for Oidc. [Jakub Onderka]
+- [internal] ECS: Log if there is problem with converting log to JSON.
+  [Jakub Onderka]
+- [internal] Handle GeoIp2 exceptions. [Jakub Onderka]
+- [internal] Add logging for UserShell::authkey_valid. [Jakub Onderka]
+- [internal] Move field description to controller. [Jakub Onderka]
+- [UI] Show choosen when importing STIX. [Jakub Onderka]
+- [internal] Error handling when converting MISP2STIX. [Jakub Onderka]
+- [internal] Error handling when converting STIX2MISP. [Jakub Onderka]
+- [internal] Code cleanup for UserLoginProfile. [Jakub Onderka]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [install] support jammy - see #9153. [Christophe Vandeplas]
+- [install] support jammy - see #9153. [Christophe Vandeplas]
+- [internal] ECS: Add specific log for emails. [Jakub Onderka]
+- [internal] ECS: Do not cache IP address. [Jakub Onderka]
+- [internal] Code cleanup for logging. [Jakub Onderka]
+- [internal] Code cleanup for user login profile. [Jakub Onderka]
+- [addTag] functions changed to also work with uuids, rather than just
+  local IDs. [iglocska]
+
+  - as reported by @0x3c7
+- [event:view] Added option to mass local cluster tag. [Sami Mokaddem]
+- [tools] mention the communities json page. [Christophe Vandeplas]
+- [communities] added SecureGRID community. [Christophe Vandeplas]
+
+Fix
+~~~
+- [cleanup] removed copy pasta junk. [iglocska]
+- [internal] Fix view user login history. [Jakub Onderka]
+- [internal] Code style. [Jakub Onderka]
+- [internal] Review user logins fix. [Jakub Onderka]
+- [internal] ECS session start. [Jakub Onderka]
+- [internal] Session destroy. [Jakub Onderka]
+- Missing deps for tests. [Raphaël Vinot]
+- Searching events by event_tags. [Stefano Ortolani]
+- [internal] Correctly handle X-Forwarded-For header values. [Jakub
+  Onderka]
+- [internal] Undefined index sharing_group_id when uploading stix file.
+  [Jakub Onderka]
+- [internal] OIDC log. [Jakub Onderka]
+- [internal] ECS: Log errors when executing external processes. [Jakub
+  Onderka]
+- [internal] ECS: Add support for handling PHP errors and exceptions.
+  [Jakub Onderka]
+- [internal] ECS: Reliable logging. [Jakub Onderka]
+- [internal] ECS: Avoid double JSON encoding. [Jakub Onderka]
+- [internal] ECS: URL query field. [Jakub Onderka]
+- [internal] Code cleanup for IP logging. [Jakub Onderka]
+- [internal] ECS: Timestamp with microseconds. [Jakub Onderka]
+- [internal] ECS: Invalid port checking in metadata. [Jakub Onderka]
+- [feeds] broken JSON fixed for the meta feeds. [Alexandre Dulaunoy]
+- [install] fix install script invalid checksum. [Christophe Vandeplas]
+- [install] fix install script invalid checksum. [Christophe Vandeplas]
+- [datasource] added to valid datasources list. [iglocska]
+- [datasource] added mashup of mysqlobserver and mysqlextended.
+  [iglocska]
+- [events:view] Typo in attributeToolbar for mass cluster tag. [Sami
+  Mokaddem]
+- Openapi spec version not supported by redoc. [Luciano Righetti]
+- Openapi spec version not supported by redoc. [Luciano Righetti]
+- [servers] custom cert file not written when cert folder does not
+  exist. [Christophe Vandeplas]
+- [workflow-modules:Organisation_if] Make sure to convert operator to
+  support new version of the module. [Sami Mokaddem]
+
+  Shoud fix #9423
+- [communities] fixed SecureGRID community link. [Christophe Vandeplas]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge pull request #9473 from JakubOnderka/logging. [Jakub Onderka]
+
+  chg: [internal] Do not log in audit log last_api_access
+- Merge pull request #9476 from JakubOnderka/session-destroy. [Jakub
+  Onderka]
+
+  fix: [internal] Session destroy
+- Merge pull request #9106 from JakubOnderka/sentry-nicer. [Jakub
+  Onderka]
+
+  chg: [sentry] Capture exception with message
+- Merge branch '2.4' of github.com:MISP/MISP into develop. [Christian
+  Studer]
+- Merge pull request #9474 from ostefano/dev. [Andras Iklody]
+
+  fix: searching events by event_tags
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge pull request #9472 from JakubOnderka/logging. [Jakub Onderka]
+
+  fix: [internal] Correctly handle X-Forwarded-For header values
+- Merge pull request #9471 from JakubOnderka/logging. [Jakub Onderka]
+
+  fix: [internal] OIDC log
+- Merge pull request #9470 from JakubOnderka/logging. [Jakub Onderka]
+
+  fix: [internal] ECS: Reliable logging
+- Merge pull request #9466 from JakubOnderka/logging. [Jakub Onderka]
+
+  fix: [internal] ECS: Invalid port checking in metadata
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9465 from JakubOnderka/logging. [Jakub Onderka]
+
+  ECS logging
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #9153 from nyx0/2.4. [Andras Iklody]
+
+  upd: add jammy release for arm64.
+- Upd: add jammy release for arm64. [Thomas Dupuy]
+- Merge pull request #9457 from threatintelBB/2.4. [Andras Iklody]
+
+  Banco do Brasil public feed
+- Banco do Brasil public feed. [kali]
+- Banco do Brasil public feed. [kali]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+
+
 v2.4.182 (2023-12-14)
 ---------------------
 
