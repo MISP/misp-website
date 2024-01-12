@@ -9,7 +9,7 @@ layout: post
 
 # **Bridging the Gap: Introducing MISP Airgap for Secure Environments**
 
-In an era where cybersecurity threats are ever-evolving, the need for robust and secure information sharing platforms is paramount. Enter [MISP (Malware Information Sharing Platform & Threat Sharing)](https://github.com/MISP/MISP), a renowned tool in the cybersecurity arsenal. But how do you deploy such a critical tool in the most secure environments, those that are air-gapped from the outside world? This is where the MISP airgap project comes into play.
+In an era where cybersecurity threats are ever-evolving, the need for robust and secure information sharing platforms is paramount. Enter [MISP (Threat Intelligence Sharing Platform)](https://github.com/MISP/MISP), a renowned tool in the cybersecurity arsenal. But how do you deploy such a critical tool in the most secure environments, those that are air-gapped from the outside world? This is where the MISP airgap project comes into play.
 
 ### **Understanding Air-Gapped Environments**
 
@@ -25,7 +25,7 @@ LXD is an open-source container management extension of [LXC (Linux Containers)]
 
 LXD is pivotal in MISP airgap for several reasons:
 1. **Facilitates Creation and Management of Containers:** LXD allows for the creation and management of isolated MISP instances and their databases in containers, ensuring each instance is self-contained and secure.
-2. **Enables Container Image Creation:** LXD's functionality includes the ability to create container images making the movable betwen different systems. This is crucial in air-gapped environments where downloading images directly from the internet is not an option.
+2. **Enables Container Image Creation:** LXD's functionality includes the ability to create container images making the movable between different systems. This is crucial in air-gapped environments where downloading images directly from the internet is not an option.
 
 ## Using MISP airgap to deploy MISP to air-gapped Environments
 
@@ -35,7 +35,7 @@ MISP airgap is a solution designed to deploy MISP in air-gapped or isolated netw
 
 You can find detailed instructions for everything described in this section in the [README](https://github.com/MISP/misp-airgap/blob/main/README.md) file of the offical [MISP airgap](https://github.com/MISP/misp-airgap) repository. 
 
-The overall process of deploying MISP with MISP airgap is fairly straightforward. Basically you just need to clone the MISP-airgap repository and download a couple of conainer images from the [MISP images page](https://images.misp-project.org/) on a system with internet access. Then you can transfer the repository and the images to your air-gapped system and you are ready to go.
+The overall process of deploying MISP with MISP airgap is fairly straightforward. Basically you just need to clone the MISP-airgap repository and download a couple of container images from the [MISP images page](https://images.misp-project.org/) on a system with internet access. Then you can transfer the repository and the images to your air-gapped system and you are ready to go.
 
 ![MISP airgap download](/img/blog/misp_airgap_download.png)
 
