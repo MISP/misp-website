@@ -54,3 +54,7 @@ For organizations or users who prefer to build their images on their own, MISP A
 
 ## Conclusion
 In conclusion, MISP airgap represents a significant step forward in the deployment of threat intelligence platforms in secure, isolated environments. By overcoming the challenges of air-gapped networks, it ensures that even the most secure organizations can benefit from the collaborative and analytical capabilities of MISP. For more detailed information about the MISP-airgapped project and its implementation, you can visit the [MISP-airgap](https://github.com/MISP/misp-airgap) repository.
+
+## About MISP-LEA
+
+[MISP-LEA](https://www.misp-lea.org/), a collaborative endeavor between [Shadowserver](https://www.shadowserver.org/) and [CIRCL](https://www.circl.lu/), is a 24-month initiative funded by the European Union. The project’s central aim is to establish operational and enduring MISP and [AIL](https://www.ail-project.org/) instances dedicated specifically to law enforcement agencies.
