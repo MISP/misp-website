@@ -27,8 +27,16 @@ feedback. Our model of contribution is open and [our code of conduct is availabl
 
 ## How can you support MISP?
 
-Every contribution is important. We think that supporting the project can be done in various ways including code contributions (via pull-request), documentation improvements (misp-book),
+Every [contribution](/contributing) is important. We think that supporting the project can be done in various ways including:
+1. Supporting with code to our [many repositories and tools](https://github.com/misp) through pull-requests or by [auditing the software](/security),
+2. Supporting with [documentation](/documentation) and the [MISP book](https://github.com/MISP/misp-book),
+3. Supporting with the creation or enhancement of existing classifications schemes ([misp-galaxy](https://github.com/MISP/misp-galaxy), [misp-taxonomies](https://github.com/MISP/misp-taxonomies)), and formats ([misp-objects](https://github.com/MISP/misp-objects)
+4. Supporting by [supporting others](/support)
+5. Supporting financially, through [MISP Professional Services](/professional-services) or by helping us to acquire grants.
+code contributions (via pull-request), documentation improvements (misp-book),
 the creation or enhancement of existing classifications schemes ([misp-galaxy](https://github.com/MISP/misp-galaxy), [misp-taxonomies](https://github.com/MISP/misp-taxonomies)), formats ([misp-objects](https://github.com/MISP/misp-objects), [misp-rfc](https://github.com/MISP/misp-rfc)), tools (via [PyMISP](https://github.com/MISP/PyMISP) or tools supporting the MISP format) or expansions ([misp-modules](https://github.com/MISP/misp-modules)).
+
+More details on contributing can be found on the [contributing](/contributing) page. 
 
 ## Funding
 
