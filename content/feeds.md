@@ -76,6 +76,8 @@ The default feeds are described in a [simple JSON format](https://github.com/MIS
 - [PhishScore](https://phishstats.info/phish_score.csv) - PhishStats - feed format: csv
 - [Phishtank online valid phishing](https://data.phishtank.com/data/online-valid.csv) - Phishtank - feed format: csv
 - [pop3gropers](https://home.nuug.no/~peter/pop3gropers.txt) - home.nuug.no - feed format: csv
+- [Shreshta: Newly Registered domain names (NRD) - 1 month (Community policy feed)](https://shreshtait.com/newly-registered-domains/nrd-1m) - shreshtait.com - feed format: freetext
+- [Shreshta: Newly Registered domain names(NRD) - 1 week (Community policy feed)](https://shreshtait.com/newly-registered-domains/nrd-1w) - shreshtait.com - feed format: freetext
 - [sipinvitation](https://dataplane.org/sipinvitation.txt) - dataplane.org - feed format: csv
 - [sipquery](https://dataplane.org/sipquery.txt) - dataplane.org - feed format: csv
 - [sipregistration](https://dataplane.org/sipregistration.txt) - dataplane.org - feed format: csv
