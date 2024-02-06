@@ -10,15 +10,15 @@ MISP 2.4.184 released with performance improvements, security and bugs fixes.
 
 ## Improvements
 
-- Speed up improvements in ssdeep correlation and many other part of MISP. Thanks to Jakub Onderka for the work on this.
+- Speed up improvements in ssdeep correlation and many other parts of MISP. Thanks to Jakub Onderka for the work on this.
 - [objects] restsearch first/last seen filters added. 
-- [event:publication] Added new setting to block event publication if the user is the creator.
-- [events:export] Make setting `MISP.disable_cached_exports` enabled by default. Since the /events/export has been marked deprecated for a years started the process to phase it out by first disabling the endpoint by default. The [MISP ReST search API](https://www.misp-project.org/openapi/) is the API to be used if you still have very old scripts relying on export.
+- [event:publication] Added new setting to block event publication if the publishing user is the creator.
+- [events:export] Make setting `MISP.disable_cached_exports` enabled by default. Since the /events/export has been marked deprecated for a years, we are starting the process to phase it out by first disabling the endpoint by default. The [MISP ReST search API](https://www.misp-project.org/openapi/) is the API to be used in the future if you still have very old scripts relying on export. We recommend to start making plans to rework those scripts.
 - [organisation:orgMerge] Added missing models for organisation handover
 
 ## Security fixes
 
-A serie of security fixes were done in this release, the vulnerabilities are accessible to authenticated users especially with specific privileges like Org admin. We urge the users to update to this version especially if you have different organisations having access to your instances.
+A series of security fixes were done in this release, the vulnerabilities are accessible to authenticated users, especially those with specific privileges like Org admin. We urge users to update to this version especially if you have different organisations having access to your instances.
 
 - [security] Improved security checks for organisation logo upload. (low)
 - [security] New auditlogs's fullChange lack of ACL controls. (medium)
