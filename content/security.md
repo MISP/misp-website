@@ -105,6 +105,8 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2023-48658](https://cvepremium.circl.lu/cve/CVE-2023-48658) < MISP 2.4.176 - An issue was discovered in MISP before 2.4.176. app/Model/AppModel.php lacks a checkParam function for alphanumerics, underscore, dash, period, and space. 
 - [CVE-2023-49926](https://cvepremium.circl.lu/cve/CVE-2023-49926) < MISP 2.4.179 - app/Lib/Tools/EventTimelineTool.php in MISP before 2.4.179 allows XSS in the event timeline widget. 
 - [CVE-2023-50918](https://cvepremium.circl.lu/cve/CVE-2023-50918) < MISP 2.4.182 - app/Controller/AuditLogsController.php in MISP before 2.4.182 mishandles ACLs for new audit log features (not enabled by default). 
+- [CVE-2024-25675](https://vulnerability.circl.lu/vuln/CVE-2024-25675) < MISP 2.4.184 - An issue was discovered in MISP before 2.4.184. A client does not need to use POST to start an export generation process. This is related to app/Controller/JobsController.php and app/View/Events/export.ctp.
+- [CVE-2024-25674](https://vulnerability.circl.lu/vuln/CVE-2024-25674) < MISP 2.4.184 - An issue was discovered in MISP before 2.4.184. Organisation logo upload is insecure because of a lack of checks for the file extension and MIME type.
 
 
 ## PGP Key
