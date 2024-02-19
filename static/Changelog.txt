@@ -2,6 +2,438 @@ Changelog
 =========
 
 
+v2.4.185 (2024-02-16)
+---------------------
+
+Changes
+~~~~~~~
+- [VERSION] bump. [iglocska]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [doc/openapi] clarify 'deleted' restsearch filter (#9485) [Jeroen
+  Pinoy]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [PyMISP] fix a few regressions. [Raphaël Vinot]
+- [servers:getVersion] Include the remote instance UUID if user has
+  perm_sync permission. [Sami Mokaddem]
+- [develop] merge back the Curl option issue. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [missing images] re-added. [iglocska]
+- [db_schema] bump. [iglocska]
+- Fix objects restsearch first_seen filter. [Jeroen Pinoy]
+- [sighting sync] speculative fix for critical sync issue. [iglocska]
+
+  - pulls from an instance with extremely high numbers of sightings (~300M+) can lead to the pulled instance becoming unusable
+  - This fix addresses multiple issues:
+    - The use of last:0 as a sighting pull filter parameter lead to a search using an unindexed field
+    - Internally searching for sighting IDs across 500 events in one shot can lead to massive data-sets
+    - Internally searching for sighting IDs by Event.uuid on a joined table is extremely slow compared to searching on the sighting table alone
+- Fix object_name, object_template_uuid and object_template_version
+  object restsearch filters. [Jeroen Pinoy]
+- CurlClient doesn't use correct Proxy settings. [Benni0]
+- [security] Org image upload moved out of webroot. [iglocska]
+
+  - images will no longer be accessible directly, only via inclusion via file-read/b64 encoding
+  - The new store for org images is MISP/app/files/img/orgs
+
+  - As reported by Yusuke Nakajima
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9564 from Wachizungu/fix-objects-restsearch-first-
+  seen. [Andras Iklody]
+
+  fix: fix objects restsearch first_seen filter
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9563 from Wachizungu/fix-object-restsearch-
+  filters. [Andras Iklody]
+
+  fix: fix object_name, object_template_uuid and object_template_versio…
+- Merge pull request #9551 from Benni0/2.4. [Alexandre Dulaunoy]
+
+  fix: CurlClient doesn't use correct Proxy settings
+- Merge pull request #9544 from pswapneel/2.4. [Alexandre Dulaunoy]
+
+  Added Shreshta Newly registered domain names 1-week and 1-month community policy feeds
+- Added Shreshta NRD 1 week and 1 month community feeds. [Swapneel
+  Patnekar]
+
+
+v2.4.184 (2024-02-02)
+---------------------
+
+New
+~~~
+- [internal] Binary cache plugin. [Jakub Onderka]
+- [CLI] User::ip_country. [Jakub Onderka]
+- [internal] Code cleanup for ApcuCacheTool. [Jakub Onderka]
+- [internal] Store browscap cache in apcu. [Jakub Onderka]
+- [test] Check if includeUuid works for sighting rest search. [Jakub
+  Onderka]
+- [test] test_restsearch_sightings. [Jakub Onderka]
+- [CLI] cake User init command. [Jakub Onderka]
+
+  Deprecate cake UserInit
+- [test] Add test for RPZ export. [Jakub Onderka]
+- [CLI] AdminShell isEncryptionKeyValid command. [Jakub Onderka]
+- [zmq] Example Python client. [Jakub Onderka]
+- [zmq] Allow to manager ZMQ process by supervisor. [Jakub Onderka]
+- [curl] Add support for zstd encoding. [Jakub Onderka]
+- [sync] Experimental curl client. [Jakub Onderka]
+- [CLI] Add ability to show running jobs. [Jakub Onderka]
+- [CLI] Worker shell. [Jakub Onderka]
+- [CLI] IP address normalization script. [Jakub Onderka]
+- [event:publication] Added new setting to block event publication if
+  the user is the creator. [Sami Mokaddem]
+
+  Enabling this setting will change the behavior of MISP so that it will block the publication of an Event if the publisher is the same as the event creator.
+
+Changes
+~~~~~~~
+- [GeoOpen] updated. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [PyMISP] bumped. [iglocska]
+- [appcontroller] versions bump. [iglocska]
+- [submodules] updated. [iglocska]
+- [VERSION] bump. [iglocska]
+- [PyMISP] Bump to preliminary release with strict typing - take 9.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing - take 8.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing - take 7.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing - take 6.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing - take 5.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing - take 4.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing - third fix.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing - second fix.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing - first fix.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing. [Raphaël
+  Vinot]
+- [PyMISP] Update back to 2.4.183. [Jakub Onderka]
+- [develop] merge back 2.4. [Alexandre Dulaunoy]
+- [events:export] Make setting `MISP.disable_cached_exports` enabled by
+  default. [Sami Mokaddem]
+
+  Since the /events/export has been marked deprecated for a years started
+  the process to phase it out by first disabling the endpoint by default.
+- [internal] Faster freetext parsing. [Jakub Onderka]
+- [internal] Faster check for session destruction. [Jakub Onderka]
+- [internal] Use Attribute::fetchAttributesInChunks for correlations.
+  [Jakub Onderka]
+- [internal] ssdeep correlation speedup. [Jakub Onderka]
+- [internal] Use iterator_to_array. [Jakub Onderka]
+- [internal] Use array_push($array, ...) instead of slower array_merge.
+  [Jakub Onderka]
+- [internal] Remove unused and broken method. [Jakub Onderka]
+- [internal] Detect serialization format in RedisTool. [Jakub Onderka]
+- [internal] Use compressed version of browscap and update to latest
+  version. [Jakub Onderka]
+- [export] Fix notice in NISD export. [Jakub Onderka]
+- [test] Small cleanup. [Jakub Onderka]
+- [test] Test snort rule without msg. [Jakub Onderka]
+- [export] NidsExport code cleanup. [Jakub Onderka]
+- [test] Do not run test twice and disable not necessary output. [Jakub
+  Onderka]
+- [test] Add snort attribute to test. [Jakub Onderka]
+- [internal] Faster checking if array is list. [Jakub Onderka]
+- [internal] Slightly optimise Mysql::insertMulti. [Jakub Onderka]
+- [test] Do not show progressbar for curl commands. [Jakub Onderka]
+- [test] Remove unused travis test definition. [Jakub Onderka]
+- [test] Try to avoid sudo. [Jakub Onderka]
+- [internal] Simplify getting current repo commit. [Jakub Onderka]
+- [internal] Log exceptions when doing diagnostics. [Jakub Onderka]
+- [CLI] Better warning messages for cake user authkey_valid. [Jakub
+  Onderka]
+- [CLI] Better error messages for cake admin isEncryptionKeyValid.
+  [Jakub Onderka]
+- [oidc] More verbose log messages. [Jakub Onderka]
+- [CLI] Optimise cake user authkey_valid. [Jakub Onderka]
+- [test] Try to avoid zmq warnings in logs. [Jakub Onderka]
+- [CLI] Be more strict for setSetting accepted values. [Jakub Onderka]
+- [CLI] More clear warning message. [Jakub Onderka]
+- [internal] Code cleanup. [Jakub Onderka]
+- [internal] PHP 7.4 is required, so we can remove hacks for older
+  versions vol. 2. [Jakub Onderka]
+- [internal] PHP 7.4 is required, so we can remove hacks for older
+  versions. [Jakub Onderka]
+- [internal] Cleanup code for RPZ export. [Jakub Onderka]
+- [internal] Log errors for git. [Jakub Onderka]
+- [internal] Better error messages. [Jakub Onderka]
+- [CLI] Track worker process ID. [Jakub Onderka]
+- [CLI] Show deprecated message for all deprecated commands. [Jakub
+  Onderka]
+- [internal] Add support for orjson for zmq. [Jakub Onderka]
+- [module] Keep connection between requests. [Jakub Onderka]
+- [internal] Try to close CURL connection. [Jakub Onderka]
+- [curl] Better error message. [Jakub Onderka]
+- [internal] Use curl when possible. [Jakub Onderka]
+- [galaxies] Allow to update galaxy fields when doing update. [Jakub
+  Onderka]
+- [internal] Track running jobs. [Jakub Onderka]
+- [auth] Do not log auth_fail for JSON requests. [Jakub Onderka]
+- [CLI] Log exception if file was not found during attachment scan.
+  [Jakub Onderka]
+- [CLI] Deprecate LiveShell. [Jakub Onderka]
+- [CLI] Better logging for workers. [Jakub Onderka]
+- [internal] Do not scan attachment that are bigger than 25 MB. [Jakub
+  Onderka]
+- [internal] Move attachment scanning to prio queue. [Jakub Onderka]
+- [totp] add clarifications to totp setup view. [Jeroen Pinoy]
+- [UI] More sane Sync Actions menu. [Jakub Onderka]
+- [internal] Optimise reportValidationIssuesAttributes. [Jakub Onderka]
+- [validation] Remove CIDR from /32 IPv4 and /128 IPv6 to normalize
+  values. [Jakub Onderka]
+- [tools:misp-delegation] Added support of log-level as script parameter
+  and improved logging. [Sami Mokaddem]
+- [event:publish] Reverse condition for readability and consistency with
+  _add. [Sami Mokaddem]
+- [event:publish] Exempt sync users from
+  MISP.block_publishing_for_same_creator. [Sami Mokaddem]
+- [event:publish] Prevent publication if publishing is coming from /add
+  or /edit. [Sami Mokaddem]
+- [events:publish] Improved phrasing on the publication blocking if
+  creator == publisher. [Sami Mokaddem]
+- [garbage collection] added cached exports. [iglocska]
+
+Fix
+~~~
+- [tests] remove useless call. [Raphaël Vinot]
+- [tests] Disable a couple tests. [Raphaël Vinot]
+- [tests] just messin' around. [Raphaël Vinot]
+- [tests] use more lenient internal call... [Raphaël Vinot]
+- Return the right thing in test. [Raphaël Vinot]
+- Avoid call on internal method... [Raphaël Vinot]
+- [log] Do not save to database big changes. [Jakub Onderka]
+- [security] auditlogs's fullChange lack of ACL controls. [Sami
+  Mokaddem]
+
+  Added proper ACL handling
+  - As reported by Jeroen Pinoy
+- [internal] Raise size for access_logs action column. [Jakub Onderka]
+- [security] Improved security checks for organisation logo upload.
+  [Sami Mokaddem]
+
+  - As reported by Andrei Agape / Teliacompany
+
+  Checks are:
+  - Maximum file size of 250K since the recommanded picture size is 48x48.
+  - File extension check
+  - File mime type checks
+- [security] Enforce usage of POST to start an export generation
+  process. [Sami Mokaddem]
+
+  As reported by Andrei Agape / Teliacompany
+- [organisation:orgMerge] Added missing models for organisation
+  handover. [Sami Mokaddem]
+- [organisation:orgMerge] Make sure to serialize array before insertion.
+  [Sami Mokaddem]
+- [admin] Show logos in SVG format in admin. [Jakub Onderka]
+- Incorrect foreing key. [Luciano Righetti]
+- [internal] Email new login sending. [Jakub Onderka]
+- [GalaxyClusters] fix tag_name restsearch filter (#9512) [Jeroen Pinoy]
+- [internal] More explaining error message. [Jakub Onderka]
+- [internal] Fetching latest remote Git version. [Jakub Onderka]
+- [appController:harvestParameters] Always support page and limit
+  parameters while harvesting parameters. [Sami Mokaddem]
+
+  There is not point in not always supporting these two parameters
+- [CLI] Do not load config twice. [Jakub Onderka]
+- [test] Delete event after test pass. [Jakub Onderka]
+- [API] Return proper exception for rest search. [Jakub Onderka]
+- [objects] restsearch first/last seen filters added. [iglocska]
+
+  - also a fix for the allowedlists generating notice errors / not firing correctly
+- [API] Missing includeUuid param for Sighting rest search. [Jakub
+  Onderka]
+- [API] Missing UUID param for Sighting rest search. [Jakub Onderka]
+- [internal] Rate limiting. [Jakub Onderka]
+- [internal] Access log errors from test. [Jakub Onderka]
+- [internal] Try to cleanup memory when fetching feed. [Jakub Onderka]
+- [internal] Fix error code when fetching sightings. [Jakub Onderka]
+- [internal] Attachment scanning. [Jakub Onderka]
+- [tools:event_timeline] Fixed typo in the getTimline function for
+  objectAttributes. [Sami Mokaddem]
+- [UI] Remove double dot. [Jakub Onderka]
+- [internal] Code style. [Jakub Onderka]
+- [internal] Do not use deprecated method. [Jakub Onderka]
+- [internal] Remove unused variables. [Jakub Onderka]
+- [security] auditlogs's fullChange lack of ACL controls. [Sami
+  Mokaddem]
+
+  Added proper ACL handling
+  - As reported by Jeroen Pinoy
+- [appController:harvestParameters] Always support page and limit
+  parameters while harvesting parameters. [Sami Mokaddem]
+
+  There is not point in not always supporting these two parameters
+- [tools:event_timeline] Fixed typo in the getTimline function for
+  objectAttributes. [Sami Mokaddem]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge pull request #9543 from JakubOnderka/audit-log-skip-big-change.
+  [Jakub Onderka]
+
+  fix: [log] Do not save to database big changes
+- Merge pull request #9538 from JakubOnderka/access-log-action-column.
+  [Jakub Onderka]
+
+  fix: [internal] Raise size for access_logs action column
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #9534 from JakubOnderka/speedup-vol2. [Jakub
+  Onderka]
+
+  chg: [internal] Faster check for session destruction
+- Merge pull request #9532 from JakubOnderka/svg-logos. [Jakub Onderka]
+
+  fix: [admin] Show logos in SVG format in admin
+- Revert "fix: incorrect foreing key" [Luciano Righetti]
+
+  This reverts commit 6a36d7a3cdf1a7ecd32b43c3a10da6122418501d.
+- Merge pull request #9528 from JakubOnderka/binary-file-cache. [Jakub
+  Onderka]
+
+  new: [internal] Binary cache plugin
+- Merge pull request #9530 from JakubOnderka/fix-9526. [Jakub Onderka]
+
+  fix: [internal] Email new login sending
+- Merge pull request #9525 from JakubOnderka/speedup. [Jakub Onderka]
+
+  chg: [internal] Use Attribute::fetchAttributesInChunks for correlations
+- Merge pull request #9524 from JakubOnderka/speedup. [Jakub Onderka]
+
+  Speedup
+- Merge pull request #9510 from JakubOnderka/redis-serialization-format.
+  [Jakub Onderka]
+
+  chg: [internal] Detect serialization format in RedisTool
+- Merge pull request #9523 from JakubOnderka/browscap-apcu-cache. [Jakub
+  Onderka]
+
+  Browscap apcu cache
+- Merge pull request #9522 from JakubOnderka/browscap-apcu-cache. [Jakub
+  Onderka]
+
+  new: [internal] Store browscap cache in apcu
+- Merge pull request #9521 from JakubOnderka/snort-fix. [Jakub Onderka]
+
+  chg: [test] Add snort attribute to test
+- Merge pull request #9520 from JakubOnderka/test-cleanup. [Jakub
+  Onderka]
+
+  Test cleanup
+- Merge pull request #9519 from JakubOnderka/exception-logging. [Jakub
+  Onderka]
+
+  Exception logging
+- Merge pull request #9506 from JakubOnderka/small-fixes. [Jakub
+  Onderka]
+
+  Small fixes
+- Merge pull request #9499 from JakubOnderka/oidc-messages. [Jakub
+  Onderka]
+
+  chg: [oidc] More verbose log messages
+- Merge pull request #9498 from JakubOnderka/optimise-authkey-valid.
+  [Jakub Onderka]
+
+  chg: [CLI] Optimise cake user authkey_valid
+- Merge pull request #9497 from JakubOnderka/rate-limit-fix. [Jakub
+  Onderka]
+
+  fix: [internal] Rate limiting
+- Merge pull request #9496 from JakubOnderka/fix-access-log-errors.
+  [Jakub Onderka]
+
+  fix: [internal] Access log errors from test
+- Merge pull request #9495 from JakubOnderka/cleanup-php74. [Jakub
+  Onderka]
+
+  chg: [internal] PHP 7.4 is required, so we can remove hacks for older…
+- Merge pull request #9494 from JakubOnderka/cleanup-php74. [Jakub
+  Onderka]
+
+  chg: [internal] PHP 7.4 is required, so we can remove hacks for older PHP
+- Merge pull request #9493 from JakubOnderka/rpz. [Jakub Onderka]
+
+  new: [test] Add test for RPZ export
+- Merge pull request #9492 from JakubOnderka/error-handling. [Jakub
+  Onderka]
+
+  chg: [internal] Log errors for git
+- Merge pull request #9479 from JakubOnderka/cleanup. [Jakub Onderka]
+
+  new: [CLI] AdminShell isEncryptionKeyValid command
+- Merge pull request #9491 from JakubOnderka/zmq-supervisor. [Jakub
+  Onderka]
+
+  Zmq supervisor
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8717 from JakubOnderka/experimental-curl-client.
+  [Jakub Onderka]
+
+  new: [sync] Experimental curl client
+- Merge pull request #9100 from JakubOnderka/galaxy-improt-update.
+  [Jakub Onderka]
+
+  chg: [galaxies] Allow to update galaxy fields when doing update
+- Merge pull request #9480 from JakubOnderka/attachment-scan. [Jakub
+  Onderka]
+
+  Attachment scan
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #9481 from Wachizungu/add-totp-setup-
+  clarifications. [Alexandre Dulaunoy]
+
+  chg: [totp] add clarifications to totp setup view
+- Merge pull request #8831 from JakubOnderka/ui-fixes. [Jakub Onderka]
+
+  Better UI
+- Merge pull request #9431 from JakubOnderka/remove-ip-cidr. [Jakub
+  Onderka]
+
+  chg: [validation] Remove CIDR from /32 IPv4 and /128 IPv6 to normalize
+- Merge branch 'feature/publication-blocking-same-user' into develop.
+  [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9477 from JakubOnderka/cleanup. [Jakub Onderka]
+
+  Cleanup
+
+
 v2.4.183 (2024-01-05)
 ---------------------
 
