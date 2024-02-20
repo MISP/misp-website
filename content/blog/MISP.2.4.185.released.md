@@ -28,8 +28,6 @@ The MISP project has its own Mastodon server [misp-community.org](https://misp-c
 
 # MISP Galaxy
 
-![fin7](https://github.com/MISP/MISP/assets/3309/1fa4b1e0-3edb-44f8-9d71-c0cdee050768)
-
 Major improvement were performed in the MISP galaxy including major updates in the [threat-actor knowledge-base](https://www.misp-galaxy.org/threat-actor/), the [surveillance vendors](https://www.misp-galaxy.org/surveillance-vendor/). Additional updates were done to add the relationships in the [MISP galaxy](https://www.misp-galaxy.org/) public website.
 
 # MISP Professional Services
