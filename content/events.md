@@ -14,7 +14,8 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### Conferences 
 
-- 16th October 2023 - 19th October 2023 [hack.lu 2023](https://2023.hack.lu/) and CTI-summit
+- Monday, April 15th 2024 at FIRST CTI 2024 (Berlin) - [MISP API and Automation Workshop (14:00-18:00)](https://www.first.org/conference/firstcti24/program)	
+- Wednesday, April 17th 2024 at FIRST CTI 2024 (Berlin) - [Sharing Information and Intelligence without Disclosing It - Private Search Set (PSS)](https://www.first.org/conference/firstcti24/program)
 
 ### Public MISP trainings 
 
@@ -51,9 +52,7 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### MISP Hackathon
 
-The previous Hackathon was in October 2021: [Open Source Security Hackathon](/hackathon/)
-
 
 ### Past events
 
-You can find past events [here](/past-events/).
+You can find past events [here](/past-events/) and video of the trainings in the [documentation page](https://www.misp-project.org/documentation/).
