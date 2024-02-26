@@ -1,13 +1,12 @@
 ---
 title: HarfangLab Use-Case with MISP 
-date: 2024-01-22
+date: 2024-02-26
 layout: post
 authors:
 - Rémi Pointel
 tags: ["HarfangLab", "MISP", "EDR"]
 categories: []
 banner: /img/blog/hf-image001.png
-draft: true
 ---
 
 ## EDR Use-Cases with MISP 
