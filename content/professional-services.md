@@ -77,7 +77,7 @@ Below an overview of configurations:
 |Included MISP admin role| OrgAdmin|SiteAdmin|
 |Included Managed Organisations|1|Unlimited|
 |Included HDD space|100 GB| 500 GB|
-|Option: additional Organisations (group of 10, per year)|n/a|922,50 EUR|
+|Option: additional Organisations (group of 10, per year)|922,50 EUR|n/a|
 |Option: Enabling MISP modules| 2.562,50 EUR| included |
 |Option: Enabling and maintaining adequate CIRCL MISP synchronisation | 3.075 EUR| 3.075 EUR|
 |Option: MISP professional services (MPS) contract |7.312,35 EUR |included|
