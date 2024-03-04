@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.20">
+<meta name="generator" content="Asciidoctor 2.0.21">
 <title>MISP taxonomies and classification as machine tags</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -140,7 +140,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #content::before{content:none}
 #header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
-#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
 #header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
 #header .details span:first-child{margin-left:-.125em}
 #header .details span.email a{color:rgba(0,0,0,.85)}
@@ -162,6 +162,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
+body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
 #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
@@ -327,7 +328,7 @@ a.image{text-decoration:none;display:inline-block}
 a.image object{pointer-events:none}
 sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
 sup.footnote a,sup.footnoteref a{text-decoration:none}
-sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
 #footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
@@ -576,6 +577,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_sentinel_threattype">sentinel-threattype</a></li>
 <li><a href="#_smart_airports_threats">smart-airports-threats</a></li>
 <li><a href="#_social_engineering_attack_vectors">social-engineering-attack-vectors</a></li>
+<li><a href="#_srbcert">srbcert</a></li>
 <li><a href="#_state_responsibility">state-responsibility</a></li>
 <li><a href="#_stealth_malware">stealth_malware</a></li>
 <li><a href="#_stix_ttp">stix-ttp</a></li>
@@ -5641,6 +5643,15 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <h4 id="_papgreen">PAP:GREEN</h4>
 <div class="paragraph">
 <p>(PAP:GREEN) Active actions allowed. Recipients may use PAP:GREEN information to ping the target, block incoming/outgoing traffic from/to the target or specifically configure honeypots to interact with the target.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_clear">CLEAR</h3>
+<div class="sect3">
+<h4 id="_papclear">PAP:CLEAR</h4>
+<div class="paragraph">
+<p>(PAP:CLEAR) No restrictions in using this information.</p>
 </div>
 </div>
 </div>
@@ -33678,7 +33689,7 @@ circl namespace available in JSON format at <a href="https://github.com/MISP/mis
 </table>
 </div>
 <div class="paragraph">
-<p>CIRCL Taxonomy - Schemes of Classification in Incident Response and Detection</p>
+<p>CIRCL Taxonomy - Schemes of Classification in Incident Response and Detection.</p>
 </div>
 <div class="sect2">
 <h3 id="_incident_classification">incident-classification</h3>
@@ -33888,6 +33899,12 @@ circl namespace available in JSON format at <a href="https://github.com/MISP/mis
 <div class="paragraph">
 <p>Undefined</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_significant">significant</h3>
+<div class="paragraph">
+<p>Significant topic which has been evaluated to have a certain level of significancy which can have or had a severe impact.</p>
 </div>
 </div>
 </div>
@@ -35168,6 +35185,12 @@ course-of-action namespace available in JSON format at <a href="https://github.c
 <h4 id="_course_of_actionpassivediscover">course-of-action:passive="discover"</h4>
 <div class="paragraph">
 <p>The discover action is a 'historical look at the data'. This action heavily relies on your capability to store logs for a reasonable amount of time and have them accessible for searching. Typically, this type of action is applied against security information and event management (SIEM) or stored network data. The goal is to determine whether you have seen a specific indicator in the past.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_course_of_actionpassivenodiscover">course-of-action:passive="nodiscover"</h4>
+<div class="paragraph">
+<p>The no-discover action is a negation of discover in case you want to explicit prohibit 'historical look at the data'. The goal is to exclude a specific indicator from searches of historical data.</p>
 </div>
 </div>
 <div class="sect3">
@@ -44893,6 +44916,15 @@ exercise namespace available in JSON format at <a href="https://github.com/MISP/
 <p>ENISA manages the programme of pan-European exercises CE2018 logonamed Cyber Europe. This is a series of EU-level cyber incident and crisis management exercises for both the public and private sectors from the EU and EFTA Member States. The Cyber Europe exercises are simulations of large-scale cybersecurity incidents that escalate to become cyber crises. The exercises offer opportunities to analyse advanced technical cybersecurity incidents but also to deal with complex business continuity and crisis management situations.</p>
 </div>
 <div class="sect3">
+<h4 id="_exercisecyber_europe2024">exercise:cyber-europe="2024"</h4>
+<div class="paragraph">
+<p>2024</p>
+</div>
+<div class="paragraph">
+<p>7th pan European cyber crisis exercise: Cyber Europe 2024 (CE2024)</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_exercisecyber_europe2022">exercise:cyber-europe="2022"</h4>
 <div class="paragraph">
 <p>2022</p>
@@ -44992,6 +45024,24 @@ exercise namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 <div class="paragraph">
 <p>Locked Shields 2022</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_exerciselocked_shields2023">exercise:locked-shields="2023"</h4>
+<div class="paragraph">
+<p>2023</p>
+</div>
+<div class="paragraph">
+<p>Locked Shields 2023</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_exerciselocked_shields2024">exercise:locked-shields="2024"</h4>
+<div class="paragraph">
+<p>2024</p>
+</div>
+<div class="paragraph">
+<p>Locked Shields 2024</p>
 </div>
 </div>
 </div>
@@ -69849,270 +69899,447 @@ runtime-packer namespace available in JSON format at <a href="https://github.com
 <p>Runtime or software packer used to combine compressed or encrypted data with the decompression or decryption code. This code can add additional obfuscations mechanisms including polymorphic-packer or other obfuscation techniques. This taxonomy lists all the known or official packer used for legitimate use or for packing malicious binaries.</p>
 </div>
 <div class="sect2">
-<h3 id="_portable_executable">portable-executable</h3>
+<h3 id="_dex">dex</h3>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executable_netshrink">runtime-packer:portable-executable=".netshrink"</h4>
-
-</div>
-<div class="sect3">
-<h4 id="_runtime_packerportable_executablealienyze">runtime-packer:portable-executable="alienyze"</h4>
-<div class="paragraph">
-<div class="title">netshrink</div>
-<p>Alienyze</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_runtime_packerportable_executableapack">runtime-packer:portable-executable="apack"</h4>
-<div class="paragraph">
-<p>aPack</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_runtime_packerportable_executableapk_protect">runtime-packer:portable-executable="apk-protect"</h4>
+<h4 id="_runtime_packerdexapk_protect">runtime-packer:dex="apk-protect"</h4>
 <div class="paragraph">
 <p>APK Protect</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablearmadillo">runtime-packer:portable-executable="armadillo"</h4>
-<div class="paragraph">
-<p>Armadillo</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_runtime_packerportable_executableaspack">runtime-packer:portable-executable="aspack"</h4>
-<div class="paragraph">
-<p>ASPack</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_runtime_packerportable_executableaspr_asprotect">runtime-packer:portable-executable="aspr-asprotect"</h4>
-<div class="paragraph">
-<p>ASPR (ASProtect)</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_runtime_packerportable_executableautoit">runtime-packer:portable-executable="autoit"</h4>
-<div class="paragraph">
-<p>AutoIT</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_runtime_packerportable_executablebero">runtime-packer:portable-executable="bero"</h4>
-<div class="paragraph">
-<p>BeRo EXE Packer</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_runtime_packerportable_executableboxedapp_packer">runtime-packer:portable-executable="boxedapp-packer"</h4>
-<div class="paragraph">
-<p>BoxedApp Packer</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_runtime_packerportable_executablecexe">runtime-packer:portable-executable="cexe"</h4>
-<div class="paragraph">
-<p>CExe</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_runtime_packerportable_executablecode_virtualizer">runtime-packer:portable-executable="code-virtualizer"</h4>
-<div class="paragraph">
-<p>Code Virtualizer</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_runtime_packerportable_executabledexguard">runtime-packer:portable-executable="dexguard"</h4>
+<h4 id="_runtime_packerdexdexguard">runtime-packer:dex="dexguard"</h4>
 <div class="paragraph">
 <p>DexGuard</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executabledexprotector">runtime-packer:portable-executable="dexprotector"</h4>
+<h4 id="_runtime_packerdexdexprotector">runtime-packer:dex="dexprotector"</h4>
 <div class="paragraph">
 <p>DexProtector</p>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_elf">elf</h3>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executabledotbundle">runtime-packer:portable-executable="dotbundle"</h4>
+<h4 id="_runtime_packerelfbzexe">runtime-packer:elf="bzexe"</h4>
 <div class="paragraph">
-<p>dotBundle</p>
+<p>BzExe</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executableenigma_protector">runtime-packer:portable-executable="enigma-protector"</h4>
+<h4 id="_runtime_packerelfezuri">runtime-packer:elf="ezuri"</h4>
 <div class="paragraph">
-<p>Enigma Protector</p>
+<p>Ezuri</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executableexe_bundle">runtime-packer:portable-executable="exe-bundle"</h4>
-<div class="paragraph">
-<p>EXE Bundle</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_runtime_packerportable_executableexe_stealth">runtime-packer:portable-executable="exe-stealth"</h4>
-<div class="paragraph">
-<p>EXE Stealth</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_runtime_packerportable_executableexpressor">runtime-packer:portable-executable="expressor"</h4>
-<div class="paragraph">
-<p>eXPressor</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_runtime_packerportable_executablefsg">runtime-packer:portable-executable="fsg"</h4>
-<div class="paragraph">
-<p>FSG</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_runtime_packerportable_executablegzexe">runtime-packer:portable-executable="gzexe"</h4>
+<h4 id="_runtime_packerelfgzexe">runtime-packer:elf="gzexe"</h4>
 <div class="paragraph">
 <p>GzExe</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablekkrunchy">runtime-packer:portable-executable="kkrunchy"</h4>
+<h4 id="_runtime_packerelfmidgetpack">runtime-packer:elf="midgetpack"</h4>
 <div class="paragraph">
-<p>Kkrunchy</p>
+<p>MidgetPack</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executableliapp">runtime-packer:portable-executable="liapp"</h4>
+<h4 id="_runtime_packerelfpakkero">runtime-packer:elf="pakkero"</h4>
 <div class="paragraph">
-<p>LIAPP</p>
+<p>Pakkero</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablemew">runtime-packer:portable-executable="mew"</h4>
+<h4 id="_runtime_packerelfpapaw">runtime-packer:elf="papaw"</h4>
 <div class="paragraph">
-<p>MEW</p>
+<p>Papaw</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablempress">runtime-packer:portable-executable="mpress"</h4>
+<h4 id="_runtime_packerelfshiva">runtime-packer:elf="shiva"</h4>
+<div class="paragraph">
+<p>Shiva</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerelfupx">runtime-packer:elf="upx"</h4>
+<div class="paragraph">
+<p>UPX</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_macho">macho</h3>
+<div class="sect3">
+<h4 id="_runtime_packermachoeleckey">runtime-packer:macho="eleckey"</h4>
+<div class="paragraph">
+<p>ElecKey</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packermachomuncho">runtime-packer:macho="muncho"</h4>
+<div class="paragraph">
+<p>Muncho</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packermachompress">runtime-packer:macho="mpress"</h4>
 <div class="paragraph">
 <p>MPRESS</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablenspack">runtime-packer:portable-executable="nspack"</h4>
+<h4 id="_runtime_packermachoupx">runtime-packer:macho="upx"</h4>
+<div class="paragraph">
+<p>UPX</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pe">pe</h3>
+<div class="sect3">
+<h4 id="_runtime_packerpe_netshrink">runtime-packer:pe=".netshrink"</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeacprotect">runtime-packer:pe="acprotect"</h4>
+<div class="paragraph">
+<div class="title">netshrink</div>
+<p>ACProtect</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpealienyze">runtime-packer:pe="alienyze"</h4>
+<div class="paragraph">
+<p>Alienyze</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeapack">runtime-packer:pe="apack"</h4>
+<div class="paragraph">
+<p>aPack</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpearmadillo">runtime-packer:pe="armadillo"</h4>
+<div class="paragraph">
+<p>Armadillo</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeaspack">runtime-packer:pe="aspack"</h4>
+<div class="paragraph">
+<p>ASPack</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeasprotect">runtime-packer:pe="asprotect"</h4>
+<div class="paragraph">
+<p>ASProtect</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeautoit">runtime-packer:pe="autoit"</h4>
+<div class="paragraph">
+<p>AutoIT</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeaxprotector">runtime-packer:pe="axprotector"</h4>
+<div class="paragraph">
+<p>AxProtector</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpebero">runtime-packer:pe="bero"</h4>
+<div class="paragraph">
+<p>BeRo EXE Packer</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeboxedapp_packer">runtime-packer:pe="boxedapp-packer"</h4>
+<div class="paragraph">
+<p>BoxedApp Packer</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpecexe">runtime-packer:pe="cexe"</h4>
+<div class="paragraph">
+<p>CExe</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpecode_virtualizer">runtime-packer:pe="code-virtualizer"</h4>
+<div class="paragraph">
+<p>Code Virtualizer</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeconfuserex">runtime-packer:pe="confuserex"</h4>
+<div class="paragraph">
+<p>ConfuserEx</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpedotbundle">runtime-packer:pe="dotbundle"</h4>
+<div class="paragraph">
+<p>dotBundle</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpedragon_armor">runtime-packer:pe="dragon-armor"</h4>
+<div class="paragraph">
+<p>Dragon Armor</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeeleckey">runtime-packer:pe="eleckey"</h4>
+<div class="paragraph">
+<p>ElecKey</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeenigma_protector">runtime-packer:pe="enigma-protector"</h4>
+<div class="paragraph">
+<p>Enigma Protector</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeenigma_virtual_box">runtime-packer:pe="enigma-virtual-box"</h4>
+<div class="paragraph">
+<p>Enigma Virtual Box</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeexe_bundle">runtime-packer:pe="exe-bundle"</h4>
+<div class="paragraph">
+<p>EXE Bundle</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeexe_stealth">runtime-packer:pe="exe-stealth"</h4>
+<div class="paragraph">
+<p>EXE Stealth</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeexe32pack">runtime-packer:pe="exe32pack"</h4>
+<div class="paragraph">
+<p>EXE32Pack</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeexpressor">runtime-packer:pe="expressor"</h4>
+<div class="paragraph">
+<p>eXPressor</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpefsg">runtime-packer:pe="fsg"</h4>
+<div class="paragraph">
+<p>FSG</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpehxor_packer">runtime-packer:pe="hxor-packer"</h4>
+<div class="paragraph">
+<p>hXOR Packer</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpejdpack">runtime-packer:pe="jdpack"</h4>
+<div class="paragraph">
+<p>JDPack</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpekkrunchy">runtime-packer:pe="kkrunchy"</h4>
+<div class="paragraph">
+<p>Kkrunchy</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeliapp">runtime-packer:pe="liapp"</h4>
+<div class="paragraph">
+<p>LIAPP</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpemew">runtime-packer:pe="mew"</h4>
+<div class="paragraph">
+<p>MEW</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpemolebox">runtime-packer:pe="molebox"</h4>
+<div class="paragraph">
+<p>MoleBox</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpemorphine">runtime-packer:pe="morphine"</h4>
+<div class="paragraph">
+<p>Morphine</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpempress">runtime-packer:pe="mpress"</h4>
+<div class="paragraph">
+<p>MPRESS</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeneolite">runtime-packer:pe="neolite"</h4>
+<div class="paragraph">
+<p>Neolite</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpenetcrypt">runtime-packer:pe="netcrypt"</h4>
+<div class="paragraph">
+<p>NetCrypt</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpenspack">runtime-packer:pe="nspack"</h4>
 <div class="paragraph">
 <p>NSPack</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executableobsidium">runtime-packer:portable-executable="obsidium"</h4>
+<h4 id="_runtime_packerpeobsidium">runtime-packer:pe="obsidium"</h4>
 <div class="paragraph">
 <p>Obsidium</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablepecompact">runtime-packer:portable-executable="pecompact"</h4>
+<h4 id="_runtime_packerpepackman">runtime-packer:pe="packman"</h4>
+<div class="paragraph">
+<p>Packman</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpepecompact">runtime-packer:pe="pecompact"</h4>
 <div class="paragraph">
 <p>PECompact</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablepelock">runtime-packer:portable-executable="pelock"</h4>
+<h4 id="_runtime_packerpepelock">runtime-packer:pe="pelock"</h4>
 <div class="paragraph">
 <p>PELock</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablepeshield">runtime-packer:portable-executable="peshield"</h4>
+<h4 id="_runtime_packerpepepacker">runtime-packer:pe="pepacker"</h4>
+<div class="paragraph">
+<p>PE Packer</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpepeshield">runtime-packer:pe="peshield"</h4>
 <div class="paragraph">
 <p>PEShield</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablepespin">runtime-packer:portable-executable="pespin"</h4>
+<h4 id="_runtime_packerpepespin">runtime-packer:pe="pespin"</h4>
 <div class="paragraph">
 <p>PESpin</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablepetite">runtime-packer:portable-executable="petite"</h4>
+<h4 id="_runtime_packerpepetite">runtime-packer:pe="petite"</h4>
 <div class="paragraph">
 <p>PEtite</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablerlpack_basic">runtime-packer:portable-executable="rlpack-basic"</h4>
+<h4 id="_runtime_packerpeprocrypt">runtime-packer:pe="procrypt"</h4>
+<div class="paragraph">
+<p>ProCrypt</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerperlpack_basic">runtime-packer:pe="rlpack-basic"</h4>
 <div class="paragraph">
 <p>RLPack Basic</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablesmart_packer_pro">runtime-packer:portable-executable="smart-packer-pro"</h4>
+<h4 id="_runtime_packerpesmart_packer_pro">runtime-packer:pe="smart-packer-pro"</h4>
 <div class="paragraph">
 <p>Smart Packer Pro</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablethemida">runtime-packer:portable-executable="themida"</h4>
+<h4 id="_runtime_packerpesquishy">runtime-packer:pe="squishy"</h4>
+<div class="paragraph">
+<p>Squishy</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpetelock">runtime-packer:pe="telock"</h4>
+<div class="paragraph">
+<p>Telock</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpethemida">runtime-packer:pe="themida"</h4>
 <div class="paragraph">
 <p>Themida</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executableupack">runtime-packer:portable-executable="upack"</h4>
+<h4 id="_runtime_packerpethinstall">runtime-packer:pe="thinstall"</h4>
+<div class="paragraph">
+<p>Thinstall</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_packerpeupack">runtime-packer:pe="upack"</h4>
 <div class="paragraph">
 <p>UPack</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executableupx">runtime-packer:portable-executable="upx"</h4>
+<h4 id="_runtime_packerpeupx">runtime-packer:pe="upx"</h4>
 <div class="paragraph">
 <p>UPX</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablevmprotect">runtime-packer:portable-executable="vmprotect"</h4>
+<h4 id="_runtime_packerpevmprotect">runtime-packer:pe="vmprotect"</h4>
 <div class="paragraph">
 <p>VMProtect</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablexcomp_xpack">runtime-packer:portable-executable="xcomp-xpack"</h4>
+<h4 id="_runtime_packerpexcomp_xpack">runtime-packer:pe="xcomp-xpack"</h4>
 <div class="paragraph">
 <p>XComp/XPack</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executableyoda_crypter">runtime-packer:portable-executable="yoda-crypter"</h4>
+<h4 id="_runtime_packerpeyoda_crypter">runtime-packer:pe="yoda-crypter"</h4>
 <div class="paragraph">
 <p>Yoda&#8217;s Crypter</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executableyoda_protector">runtime-packer:portable-executable="yoda-protector"</h4>
+<h4 id="_runtime_packerpeyoda_protector">runtime-packer:pe="yoda-protector"</h4>
 <div class="paragraph">
 <p>Yoda&#8217;s Protector</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_runtime_packerportable_executablezprotect">runtime-packer:portable-executable="zprotect"</h4>
+<h4 id="_runtime_packerpezprotect">runtime-packer:pe="zprotect"</h4>
 <div class="paragraph">
 <p>ZProtect</p>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_dex">dex</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_elf">elf</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_mach_o">mach-o</h3>
-
 </div>
 <div class="sect2">
 <h3 id="_cli_assembly">cli-assembly</h3>
@@ -71291,6 +71518,290 @@ social-engineering-attack-vectors namespace available in JSON format at <a href=
 </div>
 </div>
 <div class="sect1">
+<h2 id="_srbcert">srbcert</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+srbcert namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/srbcert/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>SRB-CERT Taxonomy - Schemes of Classification in Incident Response and Detection</p>
+</div>
+<div class="sect2">
+<h3 id="_incident_type">incident-type</h3>
+<div class="sect3">
+<h4 id="_srbcertincident_typevirus">srbcert:incident-type="virus"</h4>
+<div class="paragraph">
+<p>virus</p>
+</div>
+<div class="paragraph">
+<p>Virus is a piece of malicious code that aims to spread from computer to computer by attacking executable files and documents and can cause deliberate deletion of files from the hard drive and similar damage</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeworm">srbcert:incident-type="worm"</h4>
+<div class="paragraph">
+<p>worm</p>
+</div>
+<div class="paragraph">
+<p>Worm is a program that contains malicious code that spreads over a network, in such a way that it can reproduce and transfer , which reproduces and transfers independently, i.e. it does not depend on the files of the infected person device. Worms spread to email addresses from the victim&#8217;s contact list or exploit the vulnerabilities of network applications and, due to the high speed of propagation, serve for transmission of other types of malicious software</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeransomware">srbcert:incident-type="ransomware"</h4>
+<div class="paragraph">
+<p>Ransomware</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typetrojan">srbcert:incident-type="trojan"</h4>
+<div class="paragraph">
+<p>Trojan</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typespyware">srbcert:incident-type="spyware"</h4>
+<div class="paragraph">
+<p>Spyware</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typerootkit">srbcert:incident-type="rootkit"</h4>
+<div class="paragraph">
+<p>Rootkit</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typemalware">srbcert:incident-type="malware"</h4>
+<div class="paragraph">
+<p>Malware is a word derived from two words - Malicious Software, and represents any software that is written for malicious purposes, i.e. that aims to cause harm computer systems or networks</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeport_scanning">srbcert:incident-type="port-scanning"</h4>
+<div class="paragraph">
+<p>Port scanning</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typesniffing">srbcert:incident-type="sniffing"</h4>
+<div class="paragraph">
+<p>Sniffing</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typesocial_engineering">srbcert:incident-type="social-engineering"</h4>
+<div class="paragraph">
+<p>Social engineering</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typedata_breaches">srbcert:incident-type="data-breaches"</h4>
+<div class="paragraph">
+<p>Data breaches</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeother_type_of_information_gathering">srbcert:incident-type="other-type-of-information-gathering"</h4>
+<div class="paragraph">
+<p>Other type of information gathering</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typephishing">srbcert:incident-type="phishing"</h4>
+<div class="paragraph">
+<p>Phishing</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeunauthorized_use_of_resources">srbcert:incident-type="unauthorized-use-of-resources"</h4>
+<div class="paragraph">
+<p>Unauthorized use of resources</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typefraud">srbcert:incident-type="fraud"</h4>
+<div class="paragraph">
+<p>Fraud</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeexploiting_known_vulnerabilities">srbcert:incident-type="exploiting-known-vulnerabilities"</h4>
+<div class="paragraph">
+<p>Exploiting known vulnerabilities</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typebrute_force">srbcert:incident-type="brute-force"</h4>
+<div class="paragraph">
+<p>Brute force</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeother_type_of_intrusion_attempts">srbcert:incident-type="other-type-of-intrusion-attempts"</h4>
+<div class="paragraph">
+<p>Other type of Intrusion Attempts</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeprivilege_account_compromise">srbcert:incident-type="privilege-account-compromise"</h4>
+<div class="paragraph">
+<p>Privilege account compromise</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeunprivileged_account_compromise">srbcert:incident-type="unprivileged-account-compromise"</h4>
+<div class="paragraph">
+<p>Unprivileged account compromise</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeapplication_compromise">srbcert:incident-type="application-compromise"</h4>
+<div class="paragraph">
+<p>Application compromise</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typebotnet">srbcert:incident-type="botnet"</h4>
+<div class="paragraph">
+<p>Botnet</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeother_type_of_intrusions">srbcert:incident-type="other-type-of-intrusions"</h4>
+<div class="paragraph">
+<p>Other type of intrusions</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typedos">srbcert:incident-type="dos"</h4>
+<div class="paragraph">
+<p>DoS</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeddos">srbcert:incident-type="ddos"</h4>
+<div class="paragraph">
+<p>DDoS</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typesabotage">srbcert:incident-type="sabotage"</h4>
+<div class="paragraph">
+<p>Sabotage</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeoutage">srbcert:incident-type="outage"</h4>
+<div class="paragraph">
+<p>Outage</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeother_type_of_availability_incident">srbcert:incident-type="other-type-of-availability-incident"</h4>
+<div class="paragraph">
+<p>Other type of Availability incident</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeunauthorized_access_to_information">srbcert:incident-type="unauthorized-access-to-information"</h4>
+<div class="paragraph">
+<p>Unauthorized access to information</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeunauthorized_modification_of_information">srbcert:incident-type="unauthorized-modification-of-information"</h4>
+<div class="paragraph">
+<p>Unauthorized modification of information</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typecryptographic_attack">srbcert:incident-type="cryptographic-attack"</h4>
+<div class="paragraph">
+<p>Cryptographic attack</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeother_type_of_information_content_security_incident">srbcert:incident-type="other-type-of-information-content-security-incident"</h4>
+<div class="paragraph">
+<p>Other type of Information Content Security incident</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typehardware_errors">srbcert:incident-type="hardware-errors"</h4>
+<div class="paragraph">
+<p>Hardware errors</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typesoftware_errors">srbcert:incident-type="software-errors"</h4>
+<div class="paragraph">
+<p>Software errors</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typehardware_components_theft">srbcert:incident-type="hardware-components-theft"</h4>
+<div class="paragraph">
+<p>hardware-components-theft</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_typeother">srbcert:incident-type="other"</h4>
+<div class="paragraph">
+<p>Other</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_incident_criticality_level">incident-criticality-level</h3>
+<div class="sect3">
+<h4 id="_srbcertincident_criticality_levellow">srbcert:incident-criticality-level="low"</h4>
+<div class="paragraph">
+<p>Low</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="25"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_criticality_levelmedium">srbcert:incident-criticality-level="medium"</h4>
+<div class="paragraph">
+<p>Medium</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="50"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_criticality_levelhigh">srbcert:incident-criticality-level="high"</h4>
+<div class="paragraph">
+<p>High</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="75"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_srbcertincident_criticality_levelvery_high">srbcert:incident-criticality-level="very-high"</h4>
+<div class="paragraph">
+<p>Very High</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="100"</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_state_responsibility">state-responsibility</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -72210,7 +72721,7 @@ threatmatch namespace available in JSON format at <a href="https://github.com/MI
 </div>
 </div>
 <div class="sect2">
-<h3 id="_incident_type">incident-type</h3>
+<h3 id="_incident_type_2">incident-type</h3>
 <div class="sect3">
 <h4 id="_threatmatchincident_typeatm_attacks">threatmatch:incident-type="ATM Attacks"</h4>
 <div class="paragraph">
@@ -72974,7 +73485,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <div class="sect3">
 <h4 id="_tlpamberstrict">tlp:amber+strict</h4>
 <div class="paragraph">
-<p>Limited disclosure, recipients can only spread this on a need-to-know basis within their organization.</p>
+<p>(TLP:AMBER+STRICT) Limited disclosure, recipients can only spread this on a need-to-know basis within their organization.</p>
 </div>
 <div class="paragraph">
 <p>Limited disclosure, recipients can only spread this on a need-to-know basis within their organization. Sources may use TLP:AMBER+STRICT when information requires support to be effectively acted upon, yet carries risk to privacy, reputation, or operations if shared outside of the organizations involved. Recipients may share TLP:AMBER+STRICT information with members of their own organization.</p>
@@ -73012,7 +73523,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_clear">clear</h3>
+<h3 id="_clear_2">clear</h3>
 <div class="paragraph">
 <p>Recipients can spread this to the world, there is no limit on disclosure. Sources may use TLP:CLEAR when information carries minimal or no foreseeable risk of misuse, in accordance with applicable rules and procedures for public release. Subject to standard copyright rules, TLP:CLEAR information may be shared without restriction.</p>
 </div>
@@ -73036,9 +73547,9 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_tlpunclear">tlp:unclear</h3>
+<h3 id="_unclear">unclear</h3>
 <div class="sect3">
-<h4 id="_tlptlpunclear">tlp:tlp:unclear</h4>
+<h4 id="_tlpunclear">tlp:unclear</h4>
 <div class="paragraph">
 <p>(TLP:UNCLEAR) Community, Organization, Clients, and Recipients are all so confused what the appropriate disclosure level is, and if this or that indicator can or cannot be shared. Assumptions are rampant and the confusion is so high that a chi-square test might in fact be required to ensure the randomness of the mess before labelling this case TLP:UNCLEAR.</p>
 </div>
@@ -86856,7 +87367,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-08-01 15:30:46 +0200
+Last updated 2024-03-04 10:00:21 +0100
 </div>
 </div>
 </body>
