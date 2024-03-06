@@ -30,7 +30,7 @@ For a quick overview, the below screencast can give you an idea of the analyst d
 
 # Collections Feature
 
-The new collection feature allows users to create collections for organising data shared by the community. These collections can be categorised based on commonalities or as part of the research process. Collections are treated as first-class citizens and adhere to the same sharing rules as, for example, events do. You can create your own collection and share it with your partners on the same MISP instance. In an upcoming release, we'll open these up to the synchronisation too, as well as add automation to ingestion mechanisms to automatically bucket your data.
+The new collection feature allows users to create collections for organising data shared by the community. These collections can be categorised based on commonalities or as part of the research process. Collections are treated as first-class citizens and adhere to the same sharing rules as, for example, events do. You can create your own collection and share it with your partners on the same MISP instance.
 
 # Other fixes
 
