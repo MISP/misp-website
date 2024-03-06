@@ -3,7 +3,7 @@ title: MISP 2.4.186 released with analyst data feature including analyst notes, 
 date: 2024-03-06
 layout: post
 tags: ["MISP", "Threat Intelligence", "release", "analyst notes", "analyst opinions"]
-banner: /img/blog/fin7.png
+banner: /img/blog/opinion-view.png
 ---
 
 We are pleased to announce the immediate release of MISP 2.4.186, which includes two major new feature called "Analyst Data" and "Collections" along with an extension to the MISP standard format.
