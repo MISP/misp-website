@@ -6,7 +6,7 @@ tags: ["MISP", "Threat Intelligence", "release", "analyst notes", "analyst opini
 banner: /img/blog/fin7.png
 ---
 
-We are pleased to announce the immediate release of MISP 2.4.186, which includes a major new feature called "Analyst Note," along with an extension to the MISP standard format.
+We are pleased to announce the immediate release of MISP 2.4.186, which includes two major new feature called "Analyst Data" and "Collections" along with an extension to the MISP standard format.
 
 # Analyst Data Feature
 
@@ -18,9 +18,9 @@ The Analyst Data feature comprises three main new features:
 - Adding an Analyst Opinion with a rating (between 0 and 100) to any element in MISP, such as Event, Event Report, Object, Attribute, Galaxy Cluster, or Analyst Note.
 - Adding an Analyst Relationship from/to any element in MISP with a specified relationship type.
 
-This enhancement provides highly flexible capabilities for analysts to describe information about specific details. All Analyst Data is synchronizable between MISP instances and respects the various distribution mechanisms available in MISP.
+This enhancement provides highly flexible capabilities for analysts to describe information about specific details. Analyst Data, similarly to Events and Galaxy clusters, are first class citizens, respecting ownership and distribution mechanisms as well as being synchronisable between MISP instances.
 
-For a quick overview, the below screencast can give you an idea of the analyst data feature:
+For a quick overview, the below screencast can give you an idea of the analyst data feature in action:
 
 {{<video src="/img/blog/analyst-data/analyst-data-note.mp4" title="Analyst data note" >}}
 
@@ -28,9 +28,9 @@ For a quick overview, the below screencast can give you an idea of the analyst d
 
 {{<video src="/img/blog/analyst-data/analyst-data-relationship.mp4" title="Analyst data relationship" >}}
 
-# Collections
+# Collections Feature
 
-The new collection feature allows users to create collections for organizing data shared by the community. These collections can be categorized based on commonalities or as part of the research process. Collections are treated as first-class citizens and adhere to the same sharing rules as, for example, events do. You can create your own collection and share it with your partners on the same MISP instance.
+The new collection feature allows users to create collections for organising data shared by the community. These collections can be categorised based on commonalities or as part of the research process. Collections are treated as first-class citizens and adhere to the same sharing rules as, for example, events do. You can create your own collection and share it with your partners on the same MISP instance. In an upcoming release, we'll open these up to the synchronisation too, as well as add automation to ingestion mechanisms to automatically bucket your data.
 
 # Other fixes
 
