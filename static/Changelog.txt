@@ -2,6 +2,429 @@ Changelog
 =========
 
 
+v2.4.186 (2024-02-29)
+---------------------
+
+New
+~~~
+- [UI] Show dragonfly version in diagnostics. [Jakub Onderka]
+- [Event:_edit] Added support of recursive update of analyst data. [Sami
+  Mokaddem]
+- [Event:_add] Added support of recursive capture of analyst data. [Sami
+  Mokaddem]
+- [singleView:sidePanels] Added new `html` side panel template to feed
+  any HTML into the view. [Sami Mokaddem]
+- [collections] feature added. Still missing sync integration - WiP.
+  [iglocska]
+- [analyst-notes:UI] Started UI for analyst notes - WiP. [Sami Mokaddem]
+- [analystdata] wip. [iglocska]
+- [db] tables added for notes. [iglocska]
+
+Changes
+~~~~~~~
+- [schema] dumped. [iglocska]
+- [version] bump. [iglocska]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [misp-stix] Bumped latest version with the changes on the organisation
+  uuid argument. [Christian Studer]
+- [analyst-data:edit] Added support of editable fields. [Sami Mokaddem]
+- [analyst-data:UI] Added highlight on note opener button. [Sami
+  Mokaddem]
+
+  - As request by gallypette
+- [analyst-data:UI] Added highlight on note opener button. [Sami
+  Mokaddem]
+
+  - As request by gallypette
+- [analyst-data:thread] Gracefully catch cases where the related object
+  is not found when generating link URL. [Sami Mokaddem]
+- [analyst-data:datetimes] Moved datetime manamgent of created and
+  modified field from the DB to the app. [Sami Mokaddem]
+
+  - This change is to enforce the usage of UTC time as using MySQL's CURRENT_TIMESTAMP uses the TZ of the server
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [tests:testlive_sync] Trying to understand why it fails. [Sami
+  Mokaddem]
+- [db_schema] Updated to latest. [Sami Mokaddem]
+- [event:restSearch] Added support of `includeAnalystData` options.
+  [Sami Mokaddem]
+
+  Also export analyst data using the event `Download as` function by default
+- [analyst-data:UI] Reduced number of inline asset ressources inclusion.
+  [Sami Mokaddem]
+- [analyst-data:thread-view] Added possibility to fetch data having a
+  deeper depth. [Sami Mokaddem]
+- [analyst-data] Added many improvements for UI and fixed infite loop
+  due to recursion. [Sami Mokaddem]
+- [app:queryVersion] Bumped version. [Sami Mokaddem]
+- [analyst-data:edit] Fetch referenced element for analyst-data
+  relationships by default. [Sami Mokaddem]
+- [analyst-data:add] Added support of author field and prefill it with
+  current user's email address. [Sami Mokaddem]
+- [analyst-data:global_menu] Added entry in the global menu. [Sami
+  Mokaddem]
+- [analyst-data:crud] Do not recursively fetch child analyst-data in
+  REST context. [Sami Mokaddem]
+- [analyst-data:beforeValidate] Do not override authors field if already
+  set. [Sami Mokaddem]
+- [analyst-data:CRUD] Allow viewing, editing and deleting any analyst-
+  data by their UUIDs. [Sami Mokaddem]
+- [collection-elements:addElementToCollection] Redirect to collection
+  creation if there no collections. [Sami Mokaddem]
+- [analyst-data:pull] Refactored condition building function for PULL
+  sync rules. [Sami Mokaddem]
+- [analyst-note:pull] Started adding support of PULL sync filtering rule
+  - WiP. [Sami Mokaddem]
+- [analyst-data:push] Added support of sync-filtering rules. [Sami
+  Mokaddem]
+- [analyst-data:identifyForPush] Removed commented code. [Sami Mokaddem]
+- [analyst-data] Allow fetching analyst-data by UUID. [Sami Mokaddem]
+- [analyst-data] Added missing ACL entries and improved pre-filtering
+  before negotiation starts. [Sami Mokaddem]
+- [analyst-data:push] Simplified filtering logic during negotiation.
+  [Sami Mokaddem]
+- [analyst-data] Renamed bunch of synchronisation functions. [Sami
+  Mokaddem]
+- [component:CRUD] Added support of parameter as a list. [Sami Mokaddem]
+- [analyst-data:pull] Change in pull strategy + few improvements. [Sami
+  Mokaddem]
+- [analyst-data:pull] Continuation implementation of pull - WiP. [Sami
+  Mokaddem]
+- [analyst-data:pull] Started implementation of pull - WiP. [Sami
+  Mokaddem]
+- [analyst-data:delete] Make deletion `hard` by default. [Sami Mokaddem]
+- [analyst-data] Added `locked` flag, support of orgc/org, analyst-data-
+  blocklist and most implementation of push synchronisation - WiP. [Sami
+  Mokaddem]
+- [server:sync/analyst-data] Started integration of server
+  synchronisation - WiP. [Sami Mokaddem]
+- [permission:analyst-data] Added new permission `perm_analyst_data`
+  [Sami Mokaddem]
+- [galaxyClusters:view] Added analystData support in
+  /galaxyClusters/view. [Sami Mokaddem]
+- [eventReport:view] Added analystData support in /eventReports/view.
+  [Sami Mokaddem]
+- [analyst-data:ACL] Enforced ACL and reflected the change in the UI.
+  [Sami Mokaddem]
+- [analyst-data:index] Improved UI for related element. [Sami Mokaddem]
+- [analyst-data:UI] Improved UI, better support of opinions in CRUD
+  views and added single/index fields for opinion scale. [Sami Mokaddem]
+- [analyst-data:event-report] Added support of analyst-data to event
+  reports. [Sami Mokaddem]
+- [analyst-data:ACL] Added ACL rules and fixed side-menu to support ACL.
+  [Sami Mokaddem]
+- [analyst-data:view] Display fields based on note model and slightly
+  improved UI. [Sami Mokaddem]
+- [galaxyCluster] Added support of analyst-note in the UI. [Sami
+  Mokaddem]
+- [analyst-data:sideMenu] Added support of analyst-data in the side
+  menu. [Sami Mokaddem]
+- [analyst-data:UI] Separated notes&opinions threads into their own
+  file. [Sami Mokaddem]
+- [analyst-data:add] Added support of picker for relationship type and
+  improved UI for sharing-group. [Sami Mokaddem]
+- [analyst-data:add] toggle sharing group input depending on the
+  distribution setting. [Sami Mokaddem]
+- [analyst-data:UI-generic] Removed debugging string. [Sami Mokaddem]
+- [analyst-note] Added support of opinion on relationships. [Sami
+  Mokaddem]
+- [analyst-data:UI] Added support of relation for object + refactoring +
+  fixes. [Sami Mokaddem]
+- [analyst-data:ui-generic] Removed debugging string. [Sami Mokaddem]
+- [analyst-data:index] Added missing fields in the indexes. [Sami
+  Mokaddem]
+- [analyst-data] Added support of fetching & displaying of related
+  object + refacto + fixes - WiP. [Sami Mokaddem]
+- [analyst-data] Linked CRUD and UI together - WiP. [Sami Mokaddem]
+
+  - Added dynamic association binding
+  - Recursive notes and opinions injection
+  - few improvements
+  - fixes
+
+  -> Still need to link CRUD for relationships and UI
+  -> Still need to refactor for performance notes/opinions loading
+- [collections] added db changes. [iglocska]
+- [analyst-notes:ui] Added support of relationship and bootstrap tabs.
+  [Sami Mokaddem]
+- [uuid field] update. [iglocska]
+- [analystdata wip] [iglocska]
+- [analyst-notes:ui] Few improvements. [Sami Mokaddem]
+- [analyst-notes:ui] Removed unused code. [Sami Mokaddem]
+- [analyst-notes:ui] Started integration in events/view. [Sami Mokaddem]
+- [analyst-notes:ui] Add fallback for passing data. [Sami Mokaddem]
+
+  - To be removed later on
+- [analyst-notes:ui] Move the popover position a bit less. [Sami
+  Mokaddem]
+
+  - To be fixed later on
+- [analyst-notes:ui] Removed leftover code when opinions were using
+  stars. [Sami Mokaddem]
+- [analyst-notes:ui] Improved UI of opinion notes. [Sami Mokaddem]
+
+  - Based on the valuable feedback from @adulau
+- [analyst-notes:ui] Added support of permissions, callbacks and
+  improved UI - WiP. [Sami Mokaddem]
+- [upload_stix] Casting distributions and sharing group IDs type.
+  [Christian Studer]
+- [misp-stix] Bumped latest version. [Christian Studer]
+
+Fix
+~~~
+- [schema] fixed. [iglocska]
+- [event:_mergeExtension] Include analyst data on extension if
+  originally requested in the request. [Sami Mokaddem]
+- [analyst-data:hasMoreNotesOrOpinions] Use correct model to fetch
+  additional opinions. [Sami Mokaddem]
+- [analystdata] push and pull fixes. [iglocska]
+
+  - push: check sharing group data correctly
+  - pull: Don't throw errors if not all 3 types of notes exist on the remote
+- [UI] Fix MISP logo display on object templates index. [Jeroen Pinoy]
+- [stix2 import] Making the organisation uuid argument specific to
+  external STIX 2 import. [Christian Studer]
+- [analystdata] removed invalid field from the change before the last.
+  [iglocska]
+- [analyst data blocklist] removed unused edit button. [iglocska]
+- [analystdata] restrict what to display in associated models.
+  [iglocska]
+- [analystdata] fixed editing of context specific editable fields.
+  [iglocska]
+- [analyst data] zero out sharing group ID when other distribution
+  setting is selected. [iglocska]
+- [analystdata] clarified hover text. [iglocska]
+- [analystdata ui] oversanitisation of relationships fixed. [iglocska]
+- [stix2 import] Added missing `organisation_uuid` argument. [Christian
+  Studer]
+- [upload_stix] Fixed naive copy paste failing after an arbitrary
+  variable name change. [Christian Studer]
+- [upload_stix] Fixed undefined index `cluster_sharing_group_id` when
+  uploading stix file. [Christian Studer]
+- [UI] Catch exception when custom file is not readable. [Jakub Onderka]
+- [users:login401] Usage of Image->base64 to follow what users:login
+  does. [Sami Mokaddem]
+- [user:login] Make sure welcome_logos exists before trying to render
+  them. [Sami Mokaddem]
+- [users:login] Check file existence in the correct location. [Sami
+  Mokaddem]
+- [UI] Custom logos. [Jakub Onderka]
+- [users:login] Check file existence in the correct location. [Sami
+  Mokaddem]
+- [processtool] make old versions happy. [iglocska]
+
+  - proc_open only started accepting $command as an array in 7.4
+- [users:login401] Usage of Image->base64 to follow what users:login
+  does. [Sami Mokaddem]
+- [user:login] Make sure welcome_logos exists before trying to render
+  them. [Sami Mokaddem]
+- [eventReports:view/analystData] Load assets before trying to render
+  notes. [Sami Mokaddem]
+- [internal] exif_imagetype is not standard part of PHP. [Jakub Onderka]
+- [UI] Catch exception when custom file is not readable. [Jakub Onderka]
+- [UI] correct encoding for the notes. [iglocska]
+- [notes] changed timestamp output to not include timezone. [iglocska]
+
+  - doesn't work on all versions of mariadb/mysql
+- [users:login] Check file existence in the correct location. [Sami
+  Mokaddem]
+- [login:UI] Reverted change that swapped `main_logo` with `home_logo`
+  [Sami Mokaddem]
+- [db_schema] Bumped db_version. [Sami Mokaddem]
+- [galaxyCluster:view/analystData] Load assets before trying to render
+  notes. [Sami Mokaddem]
+- [stix2 import] Setting the `single_event` argument to avoid skipping
+  content in case of multiple reports or groupings. [Christian Studer]
+- [UI] Custom logos. [Jakub Onderka]
+- [workflowModules:attributeEditionOperation] Make sure to call
+  Attribute->editAttribute on data to be saved. [Sami Mokaddem]
+- [workflow] fix attribute edit module actions. [Jeroen Pinoy]
+- [analyst-data:relationship] Make sure to rearrange data only when the
+  referrenced element exists. [Sami Mokaddem]
+- [analyst-data:view] Fixed analyst-data/view/all endpoint. [Sami
+  Mokaddem]
+- [db_schema] Bumped db_version. [Sami Mokaddem]
+- [app] Fixed error while merging in db_change number. [Sami Mokaddem]
+- [analyst-data:pull] Return early if there is nothing to pull. [Sami
+  Mokaddem]
+- [test:testlive_sync] Adapted message to adhere to server change. [Sami
+  Mokaddem]
+- [object:editObject] Call function from the correct model. [Sami
+  Mokaddem]
+- [object:editObject] Avoid un-nesting object when not applicable. [Sami
+  Mokaddem]
+- [aclComponent] Make queryACL not complaining. [Sami Mokaddem]
+- [eventReport:editReport] Call function from the correct model. [Sami
+  Mokaddem]
+- [attribute:editAttributePostProcessing] Call function from the correct
+  model. [Sami Mokaddem]
+- [analyst-data:add] Allow not providing a language when creating a
+  note. [Sami Mokaddem]
+- [analyst-data:recursive-fetch] Second tentative to prevent recursion
+  in relationship. [Sami Mokaddem]
+- [analystData:fetchChildNotesAndOpinions] Added support of depth. [Sami
+  Mokaddem]
+- [analyst-data:add] Added missing field `related_object_type` in form.
+  [Sami Mokaddem]
+- [console:serverShell] Set `CurrentUserId` to the ID of the user being
+  used. [Sami Mokaddem]
+- [collection] Enforce cascade on delete. [Sami Mokaddem]
+- [analyst-data:pull] Make sure to correctly decode returned data. [Sami
+  Mokaddem]
+- [analyst-data:indexMinimal] Use the organisation name instead of UUID.
+  [Sami Mokaddem]
+
+  - This is because PULL sync filter rules relies on organisation names of the remote
+  - This change is to avoid rewriting the regular sync path that relies on the org name
+- [analyst-data] Various fixes regarding ACL and recursive fetching.
+  [Sami Mokaddem]
+- [analyst-data:push] Correctly adjust locked flag for push. [Sami
+  Mokaddem]
+- [analyst-data:pull] Correctly adjust distribution level and locked
+  flag when pulling. [Sami Mokaddem]
+- [analyst-data:edit] Bump `modified` field before updating. [Sami
+  Mokaddem]
+- [analyst-data:pushAnalystData] Typo in success reporting log line.
+  [Sami Mokaddem]
+- [analyst-data:CRUD] Make sure to return the data in the afterFind
+  function. [Sami Mokaddem]
+- [analyst-data:db-migration] Fixed typo in create table instruction.
+  [Sami Mokaddem]
+- [events:view/analyst-data] Added missing relationship_path. [Sami
+  Mokaddem]
+- [analyst-data:ui-generic] Make sure to always show analyst-data. [Sami
+  Mokaddem]
+- [analyst-data:afterFind] Only rearrange key sharing-group key if they
+  distribution exists. [Sami Mokaddem]
+- [analyst-data:view] Use correct model to access element property.
+  [Sami Mokaddem]
+- [analyst-data] Fixed sharing group associations. [Sami Mokaddem]
+- [analyst-data-behavior:afterFind] Restored behavior that fetched child
+  notes and opinions in the analyst-data afterFind method. [Sami
+  Mokaddem]
+
+  Might be reverted later on
+- [analyst-data:ui-generic] Fixed template overriding the $seed leading
+  to weird behaviors with bootstrap tabs. [Sami Mokaddem]
+- [analyst-data:ui-generic] Small refacto + fixed style not being
+  generated for first-level opinions. [Sami Mokaddem]
+- [analystdata] added behavior to objects. [iglocska]
+- [CRUD] more accurate results in save functions (show the state after
+  the save) [iglocska]
+- [UI] uuid length for the display fixed. [iglocska]
+- [events:getThreads] Removed fake unused function. [Sami Mokaddem]
+- [analyst-notes:ui] Small fix on the vbar for opinion's comment. [Sami
+  Mokaddem]
+- [upload_stix] Avoiding issues with sharing group arguments being null.
+  [Christian Studer]
+- [stix2 import] Fixed STIX2 parser name. [Christian Studer]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' into 2.4. [Sami Mokaddem]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge remote-tracking branch 'origin/develop' into 2.4. [Sami
+  Mokaddem]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge pull request #9508 from JakubOnderka/redis-info. [Jakub Onderka]
+
+  new: [UI] Show dragonfly version in diagnostics
+- Merge pull request #9594 from Wachizungu/fix-object-templates-misp-
+  logo-display. [Jakub Onderka]
+
+  fix: [UI] Fix MISP logo display on object templates index
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9588 from vincenzocaputo/fix-workflow-tag-
+  replacement-module-description. [Alexandre Dulaunoy]
+
+  Fix Tag replacement workflow module description
+- Fix Tag replacement workflow module description. [Vincenzo Caputo]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge pull request #9440 from chrisr3d/develop. [Christian Studer]
+
+  Handling clusters distribution and sharing group for content imported from STIX 2.x
+- Add: [stix2 import] Added organisation UUID parameter to be used when
+  generating custom Galaxy Clusters UUID. [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge remote-tracking branch 'origin/2.4' into develop. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into develop. [Sami
+  Mokaddem]
+- Merge branch 'fix/custom-image-rendering' into 2.4. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9582 from cudeso/2.4. [Alexandre Dulaunoy]
+
+  Minor documentation changes; add example to create users via REST API
+- Minor documentation changes; add example to create users via REST API.
+  [Koen Van Impe]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Revert "fix: [users:login] Check file existence in the correct
+  location" [Sami Mokaddem]
+
+  This reverts commit a1bba71204cbb54de21eac5d324ff14288e89574.
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9583 from JakubOnderka/image-helper-fix. [Jakub
+  Onderka]
+
+  fix: [UI] Catch exception when custom file is not readable
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge pull request #9575 from JakubOnderka/fix-custom-logos. [Jakub
+  Onderka]
+
+  fix: [UI] Custom logos
+- Merge remote-tracking branch 'origin/develop' into notes. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge remote-tracking branch 'origin/develop' into notes. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into notes. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into notes. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into notes. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into notes. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into notes. [Sami
+  Mokaddem]
+- Ichg: [analyst-note:pull] Continuation of adding support of PULL sync
+  filtering rule - WiP. [Sami Mokaddem]
+- Merge branch 'feature/analyst-data' into notes. [Sami Mokaddem]
+- Merge branch 'notes' of github.com:MISP/MISP into notes. [iglocska]
+- Chf: [notes] wip. [iglocska]
+- Merge branch 'feature/analyst-notes' into notes. [Sami Mokaddem]
+- Merge remote-tracking branch 'mokaddem/feature/analyst-note-ui' into
+  feature/analyst-notes. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Add: [upload_stix] Handling cluster distribution and sharing group for
+  content imported from STIX 2.x. [Christian Studer]
+
+
 v2.4.185 (2024-02-16)
 ---------------------
 
