@@ -573,6 +573,16 @@ C3Ij/2IWN6eLTSzd0ikG7wOOKExTrCltTycyEMC0HwRSKYqQaBKPZcNSgm+3ma70FCv2
 
 CSSA was founded in November 2014 by seven major German companies as an alliance for jointly facing cyber security challenges in a proactive, fast and effective manner. Their community uses MISP as core software and to interconnect with others.
 
+### ICS-CSIRT.io
+![Logo](/img/communities/22a50df86fa766e1793c0f4e161824ad.png "{class='community_logo'}")
+- Website: https://misp.ics-csirt.io/
+- Sector:  Industry
+- Nationality: International
+
+
+ICS-CSIRT.io is a community effort to disseminate security information on Industrial Control Systems. ICS-CSIRT.io is not affiliated or linked with a governmental or commercial partner. Membership of ICS-CSIRT.io is free and grants you access to a MISP and OpenCVE instance. In return for membership we ask you to submit content to the ICS threat data.
+- Contact: info@ics-csirt.io
+
 ### SecureGRID Alliance
 ![Logo](/img/communities/445d6ff368486444a47b6e75bb67d2c9.png "{class='community_logo'}")
 - Website: https://securegrid.lac.co.jp
