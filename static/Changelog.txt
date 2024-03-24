@@ -2,6 +2,259 @@ Changelog
 =========
 
 
+v2.4.188 (2024-03-22)
+---------------------
+
+New
+~~~
+- [datasource] improvements. [iglocska]
+
+  - Some datasources updated with the ignoreIndexHint parameter
+    - mysqlExtended
+    - mysqlObserverExtended
+
+  - Also fixed forceIndexHint
+- [settings] added setting to (temporarily) disable the loading of
+  sightings via the API. [iglocska]
+
+  - affected endpoints: restsearch and /events/view
+  - temporarily skips the loading of sightings
+
+  - helps alleviate absolutely massive sighting data sets from killing server performance
+  - temporary measure, doesn't prevent the creation of sightings / viewing of sightings via the UI
+
+Changes
+~~~~~~~
+- [PyMISP] Bump, again. [Raphaël Vinot]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [version] bump. [iglocska]
+- [CI] Mark BadRequestException as fail log. [Jakub Onderka]
+- [internal] Better error handling. [Jakub Onderka]
+- [tests] trying to fix the failing test. [iglocska]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [misp-object] updated. [Alexandre Dulaunoy]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [version] bump. [iglocska]
+- [attribute search] rework. [iglocska]
+
+  - Massive performance improvement when using MysqlExtended or MysqlObserverExtended data sources
+  - event level lookup moved to subqueries, allowing for simpler, much faster indexed queries
+  - Ignoring the deleted index as it slows things down
+- [openapi:analyst_data] Added content for analyst-data. [Sami Mokaddem]
+- [openapi:event_report] Added content for event-reports. [Sami
+  Mokaddem]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [sightings:getLastSighting] Added support of sighting policy. [Sami
+  Mokaddem]
+
+  Fix #8660
+- [internal] Add title to alert template. [Jakub Onderka]
+- [attribute:restSearch] Improved performance of `includeDecayScore` by
+  a factor of 5. [Sami Mokaddem]
+- [attribute fetch] slightly refactored. [iglocska]
+
+  - simplify conditions
+  - don't load acl conditions twice
+
+Fix
+~~~
+- [attribute search] enforce unpublishedprivate directive. [iglocska]
+- [internal] Error handling for error message in AttachmentScan. [Jakub
+  Onderka]
+- [curlclient] HEAD failing. [iglocska]
+
+  - added CURLOPT_NOBODY for HEAD requests, as described in https://www.php.net/manual/en/function.curl-setopt.php
+- [CLI] Fix redisReady for dragonfly. [Jakub Onderka]
+- [ECS] Change type from Exception to Throwable. [Jakub Onderka]
+- [OIDC] Default organisation handling if not provided by OIDC. [Jakub
+  Onderka]
+- [publish] don't pop the list of failed servers before generating the
+  error array. [iglocska]
+- [sync] if push rules don't have the type_attributes set, don't throw
+  an error. [iglocska]
+- [attempt] fix for the etag test. [iglocska]
+- [performance] load analyst data in bulk. [iglocska]
+
+  speeds up event loading dramatically
+- [performance] load analyst data in bulk. [iglocska]
+
+  speeds up event loading dramatically
+- [UI] Add missing `MISP.email_reply_to` to server config. [Jakub
+  Onderka]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Chg, fix: [misp-stix] Bumped latest version. [Christian Studer]
+
+  - Fixing an issue where the custom Galaxy Clusters
+    generated with the conversion from STIX 2.x were
+    not correctly built to generate the Galaxy
+    elements after the validation of the content
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge pull request #9631 from JakubOnderka/attachment-scan-error.
+  [Jakub Onderka]
+
+  fix: [internal] Error handling for error message in AttachmentScan
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9630 from JakubOnderka/oidc-default-org-handling.
+  [Jakub Onderka]
+
+  fix: [OIDC] Default organisation handling if not provided by OIDC
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'pr-9589' into develop. [Sami Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into pr-9589. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9615 from vincenzocaputo/fix-accept-delegation-
+  attachments. [Alexandre Dulaunoy]
+
+  fix: Attachments deletion when accepting a delegation request
+- Add include attachments option when fetching event in
+  EventDelegation.php. [Vincenzo Caputo]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9616 from cudeso/2.4. [Alexandre Dulaunoy]
+
+  Add ICS-CSIRT.io community
+- Add ICS-CSIRT.io community. [Koen Van Impe]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #9613 from JakubOnderka/alert-email-title. [Jakub
+  Onderka]
+
+  chg: [internal] Add title to alert template
+- Fix key error on shadow attribute's id. [Vincenzo Caputo]
+- Change trigger's icon. [Vincenzo Caputo]
+- Change scope to 'shadow-attribute' [Vincenzo Caputo]
+- Remove newline in overhead message. [Vincenzo Caputo]
+- Add overhead message. [Vincenzo Caputo]
+- Add call to trigger before saving shadow attribute. [Vincenzo Caputo]
+- Add shadow attribute before save trigger. [Vincenzo Caputo]
+
+
+v2.4.187 (2024-03-07)
+---------------------
+
+New
+~~~
+- [cli] added org list to the shell commands. [iglocska]
+
+  - and some fixes to the roles
+- [CLI] New command to change user role. [Jakub Onderka]
+- [oidc] New option OidcAuth.update_user_role to disable role changes
+  from OIDC. [Jakub Onderka]
+
+Changes
+~~~~~~~
+- [Version] bump. [iglocska]
+- [PyMISP] Update. [Raphaël Vinot]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-warninglists] updated to the latest version. [Alexandre
+  Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] 2.4.187. [Alexandre Dulaunoy]
+- [internal] Add ext-zstd to suggested PHP extension. [Jakub Onderka]
+- [analyst-data:add] Fixed non-focusable relationship dropdown search
+  field. [Sami Mokaddem]
+
+Fix
+~~~
+- [events:restsearch] Correctly unset variable by reference after
+  looping. [Sami Mokaddem]
+
+  - This avoid attributes being overridden others when using `includeAnalystData` parameter
+- [CLI] added some new functionalities. [iglocska]
+
+  - list roles
+  - create user
+- [sync] pulls should continue after an event save failure. [iglocska]
+
+  - fixes #9558
+- [database update] fix. [Andras Iklody]
+
+  - for older mysql versions
+- [db update] added IF NOT EXISTS clauses to create table calls.
+  [iglocska]
+- [API consistency] [iglocska]
+
+  - represent the local field for tags as a boolean rather than an int
+- [pull] Fix pulling from remote server when analyst data is not
+  supported. [Jakub Onderka]
+- [logging] fixed using removeTagFromObject() [iglocska]
+
+  - no longer creates erroneous log entries when unpublishing the event
+- [security] properly check for valid logo upload. [iglocska]
+
+  - as kindly reported by Rémi Matasse and Raphael Lob from Synacktiv (https://www.synacktiv.com)
+- [security] properly check for valid file upload. [iglocska]
+
+  - as kindly reported by Rémi Matasse and Raphael Lob from Synacktiv (https://www.synacktiv.com)
+- [oidc] Setting checking if variable is false. [Jakub Onderka]
+- [Galaxies:toggle] Display correct message when disabling a galaxy.
+  [Sami Mokaddem]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #9602 from karenyousefi/2.4. [Andras Iklody]
+
+  Update Event.php
+- Update Event.php. [Karen Yousefi]
+
+  fix error Undefined offset: 0 in [/var/www/MISP/app/Model/Event.php, line 3682]
+- Update AppModel.php. [Andras Iklody]
+
+  fix: [analyst data] update script
+
+  - remove default current_timestamp() on older versions of v121 of the db updates
+  - avoids chicken and egg problem on ancient mysql versions
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9605 from JakubOnderka/fix-pull-analyst. [Jakub
+  Onderka]
+
+  fix: [pull] Fix pulling from remote server when analyst data is not s…
+- Merge pull request #9606 from JakubOnderka/cli-role-change. [Jakub
+  Onderka]
+
+  new: [CLI] New command to change user role
+- Merge pull request #9607 from JakubOnderka/oidc-fix-update-role.
+  [Jakub Onderka]
+
+  fix: [oidc] Setting checking if variable is false
+- Merge pull request #9604 from JakubOnderka/ext-zstd-suggested. [Jakub
+  Onderka]
+
+  chg: [internal] Add ext-zstd to suggested PHP extension
+- Merget branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #9600 from JakubOnderka/oidc-update-user-role.
+  [Jakub Onderka]
+
+  new: [oidc] New option OidcAuth.update_user_role to disable role chan…
+
+
 v2.4.186 (2024-02-29)
 ---------------------
 
