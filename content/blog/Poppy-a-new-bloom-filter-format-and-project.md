@@ -12,7 +12,7 @@ banner: /img/blog/poppy/2.png
 
 At [CIRCL](https://www.circl.lu) we use regularly bloom filters for some of our use cases especially in digital forensic. Such as providing a small, fast and shareable caching mechanism for [Hashlookup](https://hashlookup.io/) database which can be used by incident responders.
 
-We initially worked with an existing great project [bloom](https://github.com/DCSO/bloom) from [DCSO](https://github.com/DCSO) as it provided convenient features we were looking for, such as data serialization. To better suits our growing bloom filter needs, we decided to re-implement the [bloom project][https://github.com/DCSO/bloom] in Rust called [Poppy](https://github.com/hashlookup/poppy). Over the course of the re-implementation, we have noticed some challenges for our use-cases with the original implementation and we decided to move on towards a new implementation we will detail over this blog post.
+We initially worked with an existing great project [bloom](https://github.com/DCSO/bloom) from [DCSO](https://github.com/DCSO) as it provided convenient features we were looking for, such as data serialization. To better suits our growing bloom filter needs, we decided to re-implement the [bloom project](https://github.com/DCSO/bloom) in Rust called [Poppy](https://github.com/hashlookup/poppy). Over the course of the re-implementation, we have noticed some challenges for our use-cases with the original implementation and we decided to move on towards a new implementation we will detail over this blog post.
 
 So that the reader fully enjoys the content of this blog post, we highly recommend him to familiarize with classical [bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) implementation.
 
@@ -74,7 +74,7 @@ In spite of its advantages, this implementations also has some cons:
 * the minimal size of the filter is always **4096 bytes**
 * we always need to retrieve one filter from memory for a lookup
 
-This is now the time to address the main problem we found in the [bloom][https://github.com/DCSO/bloom], namely the **bit index algorithm**. To address this, we opted for [double hashing](https://en.wikipedia.org/wiki/Double_hashing), a more traditional approach seen in other **Bloom filters** implementations. The only freedom taken on this regard is the **hashing function** used. The original implementation is using [fnv1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function), which is rather easy to implement but is not adapted for hashing long strings. Fnv family algorithms are processing bytes one by one, impacting hashing performance on large inputs. After several benchmarks, we decided to use [wyhash](https://github.com/wangyi-fudan/wyhash) for the following reasons:
+This is now the time to address the main problem we found in the [bloom](https://github.com/DCSO/bloom), namely the **bit index algorithm**. To address this, we opted for [double hashing](https://en.wikipedia.org/wiki/Double_hashing), a more traditional approach seen in other **Bloom filters** implementations. The only freedom taken on this regard is the **hashing function** used. The original implementation is using [fnv1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function), which is rather easy to implement but is not adapted for hashing long strings. Fnv family algorithms are processing bytes one by one, impacting hashing performance on large inputs. After several benchmarks, we decided to use [wyhash](https://github.com/wangyi-fudan/wyhash) for the following reasons:
 * one of the best of our [hash function benchmark](https://github.com/tkaitchuck/aHash?tab=readme-ov-file#comparison-with-other-hashers) (maybe for a later blog post)
 * portable between CPU architectures
 * implemented in other languages (important if this work needs to be ported)
@@ -94,7 +94,7 @@ In order to evaluate our modifications and compare it with the previous implemen
 
 ![](/img/blog/poppy/2.png)
 
-The previous graph shows the impact of the dataset size on the throughput of the filter. We can observe the different advantages of the new implementation. The more obvious is the gain in term of speed **~ 2x faster**. The second is that the new implementation is flatter over the growth of the dataset, making it less impacted by always growing datasets such as [Hashlookup][https://hashlookup.io] one. 
+The previous graph shows the impact of the dataset size on the throughput of the filter. We can observe the different advantages of the new implementation. The more obvious is the gain in term of speed **~ 2x faster**. The second is that the new implementation is flatter over the growth of the dataset, making it less impacted by always growing datasets such as [Hashlookup](https://hashlookup.io) one. 
 
 ![](/img/blog/poppy/3.png)
 
