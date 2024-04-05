@@ -71,9 +71,7 @@ Everything in this lab is run on Docker [^5].
 
 ### Elastic Stack
 
-:::info
-The yaml configuration files for Elasticsearch, Kibana and Filebeat are located in `elastic/config/` directory. You can review and change these settings before deploying Elastic Stack.
-::: 
+> The yaml configuration files for Elasticsearch, Kibana and Filebeat are located in `elastic/config/` directory. You can review and change these settings before deploying Elastic Stack.
 
 For adjusting the Filebeat MISP Threat Intel module, check `elastic/config/filebeat.yml`:
 ```yaml
