@@ -2,6 +2,169 @@ Changelog
 =========
 
 
+v2.4.189 (2024-04-05)
+---------------------
+
+New
+~~~
+- [sighting sync] blocklisting added. [iglocska]
+
+  - block organisations' sightings from being created / pulled
+  - Added a new option to the restsearch of sightings too which this feature uses if available
+    - if it isn't, the system will block the insertion on the beforeValidate() level
+
+  - Outcome of the JTAN hackathon on 04.04.2024 in Luxembourg
+- [attribute] new attribute type added `integer` [Alexandre Dulaunoy]
+
+  Initially, we utilised a counter type across numerous objects.
+
+  However, the semantic significance of this type became unclear when establishing relationships with integers in various objects.
+- [analyst-data] Added Inbound Relationship to all views. [Sami
+  Mokaddem]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [GeoOpen] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [warninglists] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [schema] updated. [iglocska]
+- [ACL] entries added. [iglocska]
+- [setting] added for the sighting blocklisting. [iglocska]
+- [sighting restsearch] added org negations. [iglocska]
+
+  - the org_id filter now allows for the use of a prepended '!' character for negations
+- [test] Check if MISP and STIX2 are valid in build-test.sh. [Jakub
+  Onderka]
+- [internal] Log exception when importing stix file. [Jakub Onderka]
+- [internal] Update misp-stix. [Jakub Onderka]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [internal] Speedup sighting rest search. [Jakub Onderka]
+- [UI] event view now only load analyst data for objects/attributes
+  actually shown via pagination. [iglocska]
+- [curl client] added option for timeout. [iglocska]
+- [internal] Remove possible empty lines from output. [Jakub Onderka]
+- [docs:new-background-workers] add rhel specific steps to migration
+  guide. [Jeroen Pinoy]
+- [test] Check attribute search. [Jakub Onderka]
+- [internal] Better error handling when fetching sightings. [Jakub
+  Onderka]
+
+Fix
+~~~
+- [junk] removed. [iglocska]
+- [internal] Try to fix STIX import. [Jakub Onderka]
+- [sync] Avoid problem with duplicate sightings UUID. [Jakub Onderka]
+- [analyst-data:attachData] Make sure to also load child notes and
+  opinions. [Sami Mokaddem]
+
+  Changed the old behavior: Before we were loading 3 children. Now, we only load 1 by default.
+- [analyst-data:UI] Added missing entries for view elements. [Sami
+  Mokaddem]
+- [analystdata] added to events as the previous commits purged it.
+  [iglocska]
+- [analyst data chunk size] increased. [iglocska]
+- [internal] Attribute.php code style fix. [Jakub Onderka]
+- [sync] Drop support for zstd from CurlClient. [Jakub Onderka]
+- [oidc] Use the same handling of org also for Oidc::isUserValid. [Jakub
+  Onderka]
+- [search] Attribute search error 500 because of force index search.
+  [Jakub Onderka]
+- [UI] Showing event logo in correlation graph. [Jakub Onderka]
+- [internal] Check if values is not empty for MysqlExtended. [Jakub
+  Onderka]
+- [internal] Undefined index in error message during sync. [Jakub
+  Onderka]
+- [doc:rhel-installer] Correct conditional addition of httpd Listen 443
+  line. [Jeroen Pinoy]
+- [API] Cleanup compression marks added by Apache from Etag. [Jakub
+  Onderka]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #9553 from jloehel/fix-9552. [Andras Iklody]
+
+  fix [INSTALL/MySQL]: Create table `user_login_profiles` only if it not exists
+- Fix [INSTALL/MySQL]: Create table `user_login_profiles` only if it not
+  exists. [Jürgen Löhel]
+
+  fixes: #9552
+- Merge pull request #9662 from JakubOnderka/build-test-json-valid.
+  [Jakub Onderka]
+
+  chg: [test] Check if MISP and STIX2 are valid in build-test.sh
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #9658 from JakubOnderka/stix-exception-logging.
+  [Jakub Onderka]
+
+  chg: [internal] Log exception when importing stix file
+- Merge pull request #9660 from JakubOnderka/duplicate-sighting-uuid.
+  [Jakub Onderka]
+
+  fix: [sync] Avoid problem with duplicate sightings UUID
+- Merge pull request #9661 from JakubOnderka/misp-stix-update. [Jakub
+  Onderka]
+
+  chg: [internal] Update misp-stix
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8760 from JakubOnderka/sightings-conditions-
+  simplify. [Jakub Onderka]
+
+  chg: [internal] Speedup sighting rest search
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge pull request #9657 from JakubOnderka/remove-php-ends. [Jakub
+  Onderka]
+
+  chg: [internal] Remove possible empty lines from output
+- Merge pull request #9652 from JakubOnderka/curl-zstd-drop. [Jakub
+  Onderka]
+
+  fix: [sync] Drop support for zstd from CurlClient
+- Merge pull request #9649 from JakubOnderka/oidc-is-user-valid-fix.
+  [Jakub Onderka]
+
+  fix: [oidc] Use the same handling of org also for Oidc::isUserValid
+- Merge pull request #9641 from Wachizungu/chg-background-jobs-
+  migration-guide-add-rhel. [Alexandre Dulaunoy]
+
+  chg: [docs:new-background-workers] add rhel specific steps to migrati…
+- Merge pull request #9642 from JakubOnderka/attibute-search-500. [Jakub
+  Onderka]
+
+  chg: [test] Check attribute search
+- Merge pull request #9640 from JakubOnderka/event-log-correlation-
+  graph. [Jakub Onderka]
+
+  fix: [UI] Showing event logo in correlation graph
+- Merge pull request #9637 from JakubOnderka/undefined-index-fixes.
+  [Jakub Onderka]
+
+  Undefined index fixes
+- Merge pull request #9636 from Wachizungu/fix-rhel-httpd-listen-config.
+  [Alexandre Dulaunoy]
+
+  fix: [doc:rhel-installer] Correct conditional addition of httpd Liste…
+- Merge pull request #9635 from JakubOnderka/error-handling-sighting.
+  [Jakub Onderka]
+
+  chg: [internal] Better error handling when fetching sightings
+- Merge pull request #9634 from JakubOnderka/response-etag. [Jakub
+  Onderka]
+
+  fix: [API] Cleanup compression marks added by Apache from Etag
+
+
 v2.4.188 (2024-03-22)
 ---------------------
 
