@@ -2,6 +2,7 @@
 title: How to push to a TAXII server from MISP 
 date: 2023-04-29
 layout: post
+tags: ["STIX"]
 banner: /img/blog/taxii-1.png
 ---
 

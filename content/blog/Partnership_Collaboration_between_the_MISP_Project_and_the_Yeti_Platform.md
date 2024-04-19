@@ -2,7 +2,7 @@
 title: Partnership Collaboration between the MISP Project and the Yeti Platform
 date: 2024-03-28
 layout: post
-tags: ["MISP", "MISP Standard", "Yeti", "STIX" ]
+tags: ["MISP", "MISP Standard", "Yeti", "STIX"]
 ---
 
 
