@@ -109,6 +109,7 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2024-25674](https://vulnerability.circl.lu/vuln/CVE-2024-25674) < MISP 2.4.184 - An issue was discovered in MISP before 2.4.184. Organisation logo upload is insecure because of a lack of checks for the file extension and MIME type.
 - [CVE-2024-29859](https://cvepremium.circl.lu/cve/CVE-2024-29859) < MISP 2.4.187 - `add_misp_export` in app/Controller/EventsController.php does not properly check for a valid file upload. 
 - [CVE-2024-29858](https://cvepremium.circl.lu/cve/CVE-2024-29858) < MISP 2.4.187 - `__uploadLogo` in app/Controller/OrganisationsController.php does not properly check for a valid logo upload. 
+- CVE-2024-33855 < MISP 2.4.191 - [A malicious user could send a highly correlating value with an XSS payload to reach the top list of the correlation. The page is only accessible to site admin user.](https://github.com/MISP/MISP/commit/597977694dae9c6ad93f0cbdf8be48ef87ba7f39)
 
 ## PGP Key
 
