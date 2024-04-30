@@ -23,7 +23,7 @@ MISP 2.4.151 released including a host of bug fixes and a bunch of new features
 - No scheduling capabilities, these were an unnecessary overhead for us before as we relied on corn jobs as our preferred scheduling mechanism anyway
 - Expect more improvements to this library over the course of the next months, but feel free to switch to using it already now
 - Currently it is completely optional and the old background processor will still be supported for a while
-- Be aware that manual setup steps are required to get the new processor working, refer to [the upgrade guide](https://gist.github.com/righel/8ebc6c84341f2aea7d0bfa124e535ef8) on the procedure, if you decide to start using it already now
+- Be aware that manual setup steps are required to get the new processor working, refer to [the upgrade guide](https://github.com/MISP/MISP/blob/2.4/docs/background-jobs-migration-guide.md) on the procedure, if you decide to start using it already now
 
 # Various CLI changes
 
