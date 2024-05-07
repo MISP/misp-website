@@ -3,12 +3,12 @@ title: Using your MISP IoCs in Kunai (the open source EDR for Linux)
 date: 2024-04-19
 layout: post
 tags: ["edr", "kunai"]
-#banner: /img/blog/poppy/2.png
+banner: /img/blog/misp-ioc-kunai.png
 ---
 
 # Using your MISP IoCs in Kunai
 
-[Kunai](https://github.com/kunai-project/kunai) is an **open-source** security monitoring tool, specifically designed to address the threat-hunting and threat-detection problematic on **Linux**. It has been inspired by [Microsoft Sysmon](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon), to provide a Sysmon alike experience to the end user. However, it comes with some more advanced features such as fine grained event filtering, detection rules and IoC matching. In this blog post, we are going to introduce how to implement real time **MISP IoC** matching in a very short amount of time.
+[Kunai](https://github.com/kunai-project/kunai) is an **open-source** security monitoring tool, specifically designed to address the threat-hunting and threat-detection problematic on **Linux**. It has been inspired by [Microsoft Sysmon](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon), to provide a Sysmon alike experience to the end user. However, it comes with some more advanced features such as fine grained **event filtering**, detection rules and **IoC** matching. In this blog post, we are going to introduce how to implement real time **MISP IoC** matching in a very short amount of time.
 
 ## Warm up
 
@@ -187,9 +187,9 @@ We hope you learned useful things or at least that you enjoyed reading this arti
 
 ## References
 
-[Kunai project on GitHub](https://github.com/kunai-project/)
-[Kunai documentation](https://why.kunai.rocks/docs/quickstart)
-[Kunai tools](https://github.com/kunai-project/tools)
+[Kunai project on GitHub](https://github.com/kunai-project/)  
+[Kunai documentation](https://why.kunai.rocks/docs/quickstart)  
+[Kunai tools](https://github.com/kunai-project/tools)  
 [PyMISP](https://github.com/MISP/PyMISP)
 
 
