@@ -554,6 +554,16 @@ C3Ij/2IWN6eLTSzd0ikG7wOOKExTrCltTycyEMC0HwRSKYqQaBKPZcNSgm+3ma70FCv2
 </details>
 
 
+### misp-lea.org <i class="far fa-check-circle" style="color:green; "></i>
+![Logo](/img/communities/89e14331911b7f0763dff05d278ed22f.png "{class='community_logo'}")
+- Website: https://www.misp-lea.org/
+- Sector: Law Enforcement
+- Nationality: International
+
+
+MISP-LEA project consists in an law enforcement agency information sharing community. It’s powered by MISP and AIL project, two leading open source projects led by CIRCL. The community is only accessible to law enforcement agencies.
+- Contact: info@misp-lea.org
+
 ### BEAM SOC MISP Community
 ![Logo](/img/communities/e5188294bc0a4a5ce1578373fc5fa192.png "{class='community_logo'}")
 - Website: https://misp.beamteknoloji.com
@@ -591,16 +601,6 @@ ICS-CSIRT.io is a community effort to disseminate security information on Indust
 
 
 The SecureGRID Alliance is a cooperative framework for linking threat information between organizations that is free to join. Organizations participating in the alliance can mutually search MISP, which accumulates threat information provided by each alliance member organization, through a web portal site. By utilizing this framework, participating organizations will be able to have automatic analysis functions, strengthen information sharing and collaboration systems, and improve their own security levels and incident response capabilities.
-
-### misp-lea.org
-![Logo](/img/communities/89e14331911b7f0763dff05d278ed22f.png "{class='community_logo'}")
-- Website: https://www.misp-lea.org/
-- Sector: Law Enforcement
-- Nationality: International
-
-
-MISP-LEA project consists in an law enforcement agency information sharing community. It’s powered by MISP and AIL project, two leading open source projects led by CIRCL. The community is only accessible to law enforcement agencies.
-- Contact: info@misp-lea.org
 
 
 ### Adding your community to the list
