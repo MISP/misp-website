@@ -2,6 +2,1709 @@ Changelog
 =========
 
 
+%%version%% (unreleased)
+------------------------
+
+Fix
+~~~
+- [server/feed] correlation bug. [iglocska]
+
+  - too many correlating events makes MISP barf
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #9720 from schatzistogias/patch-1. [Alexandre
+  Dulaunoy]
+
+  Add Infoblox feed to defaults.json
+- Add Infoblox feed to defaults.json. [schatzistogias]
+
+
+v2.4.192 (2024-05-03)
+---------------------
+
+New
+~~~
+- [analyst data] missing views added. [iglocska]
+- [test] Security test for OTP disabled. [Jakub Onderka]
+- [test] Security test for forget password. [Jakub Onderka]
+- [security] Make possible to disable (T/H)OTP. [Jakub Onderka]
+
+  This is useful if MISP is connected to identity provider that already provides strong authentication
+- [fast api auth] added. [iglocska]
+
+  - added a new optional functionality to temporarily store hashed API keys in redis
+    - The duration of the temporary storage is controllable by a setting (defaults to 3 minutes)
+    - the hashing function used is an hmac sha-512 function, with the key being stored in a generated file on the instance
+    - this cuts the query times of extremely fast endpoints down drastically on heavy repeated use (such as warninglists/checkValue)
+- [fast api auth] added. [iglocska]
+
+  - added a new optional functionality to temporarily store hashed API keys in redis
+    - The duration of the temporary storage is controllable by a setting (defaults to 3 minutes)
+    - the hashing function used is an hmac sha-512 function, with the key being stored in a generated file on the instance
+    - this cuts the query times of extremely fast endpoints down drastically on heavy repeated use (such as warninglists/checkValue)
+- [internal] Send more logs to sentry as breadcrumbs. [Jakub Onderka]
+
+Changes
+~~~~~~~
+- [component:CRUD] Added support of afterFind in the delete function.
+  [Sami Mokaddem]
+- [schema] fix. [iglocska]
+- [VERSION] bump. [iglocska]
+- [analyst-data:view] Removed the redundant UUID popover button from the
+  UUID field. [Sami Mokaddem]
+- [analyst-data:beforeSave] Make sure to set distribution to default
+  value if not provided. [Sami Mokaddem]
+- [analyst-data:UI] Removed dep libraries. [Sami Mokaddem]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [test] Avoid sleep for 6 seconds. [Jakub Onderka]
+- [acl] Move site admin check as last check. [Jakub Onderka]
+- [security] Disable resetting password when password change is
+  disabled. [Jakub Onderka]
+- [analyst-data] Added support of capturing analyst-data nested in
+  attributes, events, eventreports and objects. [Sami Mokaddem]
+- [ls22shell] Improvement for LS24 adding support of analyst-data &
+  detection/mitigation rules + some tweaks. [Sami Mokaddem]
+- [UI] clicking on your user name should bring up the user profile,
+  fixes #9708. [iglocska]
+- Set BrowscapPHP logging from default DEBUG to INFO. [Bradley Logan]
+- [version bump] [iglocska]
+- [config] Allow Oidc roles as string. [christianmg99]
+- [config] Allow Oidc roles as string. [christianmg99]
+- [behavior:analystDataParent] Prevent double nesting analyst data when
+  bulk fetching. [Sami Mokaddem]
+- [CLI] Simplify updating JSON structures. [Jakub Onderka]
+- [UI] Make menu little bit nicer. [Jakub Onderka]
+- [internal] Remove outdated code from beforeFilter. [Jakub Onderka]
+- [internal] Remove old way for putting API key to rest search. [Jakub
+  Onderka]
+
+Fix
+~~~
+- [redirect loops] fixed for users that haven't done multiple mandatory
+  tasks during login yet. [iglocska]
+
+  - such as email OTP, change PW, read the news, etc.
+- [news UI] fixed notice error. [iglocska]
+- [security tests] removed otp_disabled check for email otp endpoint.
+  [iglocska]
+
+  - the two are distinct features
+- [OTP] restored. [iglocska]
+- [Email OTP] invalid ACL check reverted, allowing the feature to
+  function again. [iglocska]
+- [evnet view] excluding correlations should also exclude
+  over_correlated attributes, fixes #9366. [iglocska]
+- [external auth] fixed auth logging generating notices, fixes #9445.
+  [iglocska]
+- [workflow:workflow-shell] Make sure a user is set when using non-
+  blocking workflow. [Sami Mokaddem]
+
+  - Fix #9722
+  - Thanks to @microblag for the proposed fix
+- [analystdata] don't include the parent via the viewAnalystData
+  endpoints. [iglocska]
+- [UI] added missing views. [iglocska]
+- [UI] removed dumb check. [iglocska]
+- [analystdata] ui fixes. [iglocska]
+- [oidc] Fix issuer if not set. [Jakub Onderka]
+- [logs] Fixed bug in paginating logs. [Sami Mokaddem]
+- [analyst data] UI changes to make the loading on demand in the event
+  view. [iglocska]
+- [event add] default value of threat level ID correctly injected into
+  the form, fixes #9714. [iglocska]
+- [freetext] ip-src/ip-dst meta-type didn't have a valid category list.
+  [iglocska]
+- [user registration] pgp key not saved from the registration.
+  [iglocska]
+- [logs:index] Fixed UI pagination in application logs. [Sami Mokaddem]
+- [galaxy_clusters] Add orgc filter option for index, set it as default
+  for galaxy view 'My Clusters' [Jeroen Pinoy]
+- [sql logs] captured when benchmarking is enabled but debug level is <
+  2. [iglocska]
+- [security] stored XSS in the correlation top list. [iglocska]
+
+  - if an attribute with an XSS payload as its value ends up being in the top list of correlations, then an administrator viewing the top correlations would execute the XSS
+
+  - as reported by Grzegorz Misiun
+- [workflow:ui] Make sure to use full available width. [Sami Mokaddem]
+- [benchmarking] speculative fix for using db settings and benchmarking,
+  fixes #9702. [iglocska]
+
+  - causes issues for some users, couldn't reproduce it, but addressed the potential issues
+- [events:index] Fixed `tags` index filtering parameter to correctly
+  support list. [Sami Mokaddem]
+- [internal] Normalize extension for image helper. [Jakub Onderka]
+
+  Fixes #9692
+- [analyst-data:fetchAnalystDataBulk] Make sure to include all analyst-
+  data type. [Sami Mokaddem]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'feature/analyst-data-api' into develop. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature/analyst-
+  data-api. [Sami Mokaddem]
+- Merge pull request #9690 from JakubOnderka/opt_disabled. [Jakub
+  Onderka]
+
+  new: [security] Make possible to disable (T/H)OTP
+- Merge pull request #9700 from JakubOnderka/oidc-issuer-fix. [Jakub
+  Onderka]
+
+  fix: [oidc] Fix issuer if not set
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9697 from Wachizungu/add-orgc-filter-for-galaxy-
+  clusters-index. [Andras Iklody]
+
+  fix: [galaxy_clusters] Add orgc filter option for index, set it as de…
+- Merge branch 'browscap_default' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9695 from christianmg99/allow-oidc-roles-string.
+  [Jakub Onderka]
+
+  chg: [config] Allow Oidc roles as string
+- Merge branch '2.4' into develop. [Sami Mokaddem]
+- Revert "Revert "new: [event:index] Added support of ANDed tag
+  filtering in the backend"" [Sami Mokaddem]
+
+  This reverts commit 7cf9bcc94c0765e38aa8a4c8a69afaf46258857a.
+- Merge remote-tracking branch 'origin/2.4' into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #9696 from JakubOnderka/json-update. [Jakub
+  Onderka]
+
+  chg: [CLI] Simplify updating JSON structures
+- Merge pull request #8673 from JakubOnderka/menu-ui. [Jakub Onderka]
+
+  chg: [UI] Make menu little bit nicer
+- Merge pull request #8464 from JakubOnderka/restsearch-key-fetch.
+  [Jakub Onderka]
+
+  chg: [internal] Remove old way for putting API key to rest search
+- Merge pull request #9686 from JakubOnderka/sentry-breadcrumb. [Jakub
+  Onderka]
+
+  new: [internal] Send more logs to sentry as breadcrumbs
+- Merge pull request #9693 from JakubOnderka/image-helper-fix-vol2.
+  [Jakub Onderka]
+
+  fix: [internal] Normalize extension for image helper
+
+
+v2.4.191 (2024-04-22)
+---------------------
+
+Changes
+~~~~~~~
+- [config] Set Oidc issuer. [Christian Morales Guerrero]
+
+Fix
+~~~
+- [analyst-data:fetchAnalystDataBulk] Make sure to include all analyst-
+  data type. [Sami Mokaddem]
+- [analyst-data:thread] Make sure to link the add_analyst_* buttons to
+  the correct element. [Sami Mokaddem]
+
+Other
+~~~~~
+- Revert "new: [event:index] Added support of ANDed tag filtering in the
+  backend" [Sami Mokaddem]
+
+  This reverts commit fc922910929e7bbaf2a89c2e3387c3f743910549.
+- Merge pull request #9694 from christianmg99/set-oidc-issuer. [Jakub
+  Onderka]
+
+  chg: [config] Set Oidc issuer
+
+
+v2.4.190 (2024-04-18)
+---------------------
+
+New
+~~~
+- [feed:pullEvents] Added support of tag collection in feed
+  configuration. [Sami Mokaddem]
+
+  This allow to specify a tag collection for which all the tags will be applied on the pulled Events
+- [workflowMouldes:stop-execution] Added message paramter to allow user
+  to provide a reason why the execution was stopped. [Sami Mokaddem]
+- [event:index] Added support of ANDed tag filtering in the backend.
+  [Sami Mokaddem]
+
+  In addition of the OR filtering using searchtag:1|2, /events/index now supports AND filtering with searchtag:1&2.
+  The UI has not been updated yet.
+- [feed] Added unpublish_event setting to ensure pulled events are in
+  the unpublished state. [Sami Mokaddem]
+- [benchmarking suite] added. [iglocska]
+
+  - collect metrics about the usage of MISP
+    - stored in redis
+    - per endpoint / user / user-agent collection
+    - collection of execution time, php memory use, sql execution time, sql query count
+    - the collection happens on a daily basis
+  - Searchable / filterable interface for the collected data
+  - Dashboard widget for the collected data
+
+Changes
+~~~~~~~
+- [PyMISP] Bump. [Raphaël Vinot]
+- [warninglists] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [version] bump. [iglocska]
+- Bump PyMISP. [Raphaël Vinot]
+- [db_schema] Bumped version. [Sami Mokaddem]
+- [feed] Added support of tag_collection_id when dealing with feeds.
+  [Sami Mokaddem]
+- [syslog] output slightly changed. [iglocska]
+
+  - always have a consistent number of fields conveyed, include delimited ( -- ) fields even if no data is passed to a field
+  - Avoid linebreaks in content
+- [README] add the CLA FREE logo. [Alexandre Dulaunoy]
+- [workflow:editor] Show 100 entry max in picker. [Sami Mokaddem]
+- [internal] Log content type when JSON could not be parsed. [Jakub
+  Onderka]
+- [sync] Reduce default timeout for remote HTTP request to 300 seconds
+  (5 mins) [Jakub Onderka]
+- [sync] Change way how event index is cached in Redis to save memory.
+  [Jakub Onderka]
+- [sync] Try to reduce memory usage when fetching event index from
+  Redis. [Jakub Onderka]
+- [sync] Enable garbage collector when pulling events from remote
+  server. [Jakub Onderka]
+- [sync] Try to save memory when fetching sightings. [Jakub Onderka]
+- [internal] Ltrim response in HttpSocketHttpException. [Jakub Onderka]
+- [CI] Split logs in CI. [Jakub Onderka]
+- [internal] Server sync debug messages. [Jakub Onderka]
+- [openapi] STIX export is also supported at attribute level. [Alexandre
+  Dulaunoy]
+- [workflowModules:distribution-if] Allow choosing `sharing-group` and
+  keeping the selected sharing-group list empty. [Sami Mokaddem]
+
+  This enables users to simply check that the sharing-group distribution was used
+- [ui:galaxy_matrix] Resize matrix header on load. [Sami Mokaddem]
+- [analystData:API] Automatically encapsulate request's data into the
+  analystType. [Sami Mokaddem]
+- [eventReports:extractAllFromReport] Expose functionality to API. [Sami
+  Mokaddem]
+- [statistics] (R)etrieval (o)f (m)ember (m)etrics (e)valuation (l)ist
+  (f)or (s)tatistics changed. [iglocska]
+
+  - will include soft deleted attributes too
+- [attribute search] by uuid updated. [iglocska]
+
+  - pre-checks if the passed UUID is actually an event UUID before going with the slow query against both tables
+- [statistics] (R)etrieval (o)f (m)ember (m)etrics (e)valuation (l)ist
+  (f)or (s)tatistics changed. [iglocska]
+
+  - will include soft deleted attributes too
+- [comment] added to the previous fix to make it clear what it does.
+  [iglocska]
+- [sync] Move blocklist fetching out of ServerSyncTool and reduce
+  sightings fetched in one fetch. [Jakub Onderka]
+
+Fix
+~~~
+- [feed] Added tag_collection_id as column. [Sami Mokaddem]
+- [analyst-data:thread] Only render the HTML when opening the popover.
+  [Sami Mokaddem]
+- [eventreport] import from url api fixed. [iglocska]
+- [workflow:evaluateConfition] Fixed bug in `in_and` operator to make it
+  order independant. [Sami Mokaddem]
+- [users:statistics] Division by 0 when no events or no orgs. [Sami
+  Mokaddem]
+- [analystData:editableField] Made getEditableFields inheritance aware.
+  [Sami Mokaddem]
+- [eventreports:transformFreeTextIntoSuggestion] Add to_ids fallback
+  value. [Sami Mokaddem]
+- [tagCollection:removeTag] Fixed incorrect permission check. [Sami
+  Mokaddem]
+- [component:restSearch] Restored behavior of searching for org and
+  cluster metadata. [Sami Mokaddem]
+- [dashboard:updating] Prevent sending multiple time the same save
+  request[1;5D. [Sami Mokaddem]
+- [widget:EventEvolutionWidget] Fixed filtering on organisation not
+  working as expected. [Sami Mokaddem]
+- [dashboard:widgetAdd] Improved error handling for invalid JSON config.
+  [Sami Mokaddem]
+- [status widget] ignore index hint for deleted field. [iglocska]
+- [index] Don't load analyst data by default. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #9529 from obert01/fix-hover-enrich-accessibility.
+  [Andras Iklody]
+- Accessibility: Added the possibility to focus the hover enrichment
+  icon on attributes. [Olivier BERT]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'feed_tag_collections' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9639 from JakubOnderka/http-json-content-type.
+  [Jakub Onderka]
+
+  chg: [internal] Log content type when JSON could not be parsed
+- Merge pull request #9659 from JakubOnderka/curl-timeout-5-mins. [Jakub
+  Onderka]
+
+  chg: [sync] Reduce default timeout for remote HTTP request to 300 sec…
+- Merge pull request #9651 from JakubOnderka/server-sync-debug. [Jakub
+  Onderka]
+
+  Server sync debug
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9678 from TheDr1ver/patch-1. [Andras Iklody]
+
+  Define $relationshipsInbound before call
+- Define $relationshipsInbound before call. [Nick Driver]
+
+  Debug.log was showing the following error otherwise:
+
+  ```
+  2024-04-12 14:11:52 Notice: Notice (8): Undefined variable: relationshipsInbound in [/var/www/MISP/app/View/Elements/Events/View/row_object.ctp, line 40]
+  Trace:
+  ErrorHandler::handleError() - APP/Lib/cakephp/lib/Cake/Error/ErrorHandler.php, line 230
+  include - APP/View/Elements/Events/View/row_object.ctp, line 40
+  View::_evaluate() - APP/Lib/cakephp/lib/Cake/View/View.php, line 971
+  View::_render() - APP/Lib/cakephp/lib/Cake/View/View.php, line 933
+  View::_renderElement() - APP/Lib/cakephp/lib/Cake/View/View.php, line 1224
+  View::element() - APP/Lib/cakephp/lib/Cake/View/View.php, line 418
+  include - APP/View/Elements/eventattribute.ctp, line 148
+  View::_evaluate() - APP/Lib/cakephp/lib/Cake/View/View.php, line 971
+  View::_render() - APP/Lib/cakephp/lib/Cake/View/View.php, line 933
+  View::_renderElement() - APP/Lib/cakephp/lib/Cake/View/View.php, line 1224
+  View::element() - APP/Lib/cakephp/lib/Cake/View/View.php, line 418
+  include - APP/View/Elements/Events/View/event_contents.ctp, line 64
+  View::_evaluate() - APP/Lib/cakephp/lib/Cake/View/View.php, line 971
+  View::_render() - APP/Lib/cakephp/lib/Cake/View/View.php, line 933
+  View::_renderElement() - APP/Lib/cakephp/lib/Cake/View/View.php, line 1224
+  View::element() - APP/Lib/cakephp/lib/Cake/View/View.php, line 418
+  include - APP/View/Elements/genericElements/SingleViews/single_view.ctp, line 113
+  View::_evaluate() - APP/Lib/cakephp/lib/Cake/View/View.php, line 971
+  View::_render() - APP/Lib/cakephp/lib/Cake/View/View.php, line 933
+  View::_renderElement() - APP/Lib/cakephp/lib/Cake/View/View.php, line 1224
+  View::element() - APP/Lib/cakephp/lib/Cake/View/View.php, line 418
+  include - APP/View/Events/view.ctp, line 296
+  View::_evaluate() - APP/Lib/cakephp/lib/Cake/View/View.php, line 971
+  View::_render() - APP/Lib/cakephp/lib/Cake/View/View.php, line 933
+  View::render() - APP/Lib/cakephp/lib/Cake/View/View.php, line 473
+  Controller::render() - APP/Lib/cakephp/lib/Cake/Controller/Controller.php, line 968
+  Dispatcher::_invoke() - APP/Lib/cakephp/lib/Cake/Routing/Dispatcher.php, line 200
+  Dispatcher::dispatch() - APP/Lib/cakephp/lib/Cake/Routing/Dispatcher.php, line 167
+  [main] - APP/webroot/index.php, line 101
+
+  ```
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Fix [event:view] Missing variable definition in row_object. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [Sami Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #9665 from JakubOnderka/sightings-fetching-cleanup.
+  [Jakub Onderka]
+
+  chg: [sync] Move blocklist fetching out of ServerSyncTool
+
+
+v2.4.189 (2024-04-05)
+---------------------
+
+New
+~~~
+- [sighting sync] blocklisting added. [iglocska]
+
+  - block organisations' sightings from being created / pulled
+  - Added a new option to the restsearch of sightings too which this feature uses if available
+    - if it isn't, the system will block the insertion on the beforeValidate() level
+
+  - Outcome of the JTAN hackathon on 04.04.2024 in Luxembourg
+- [attribute] new attribute type added `integer` [Alexandre Dulaunoy]
+
+  Initially, we utilised a counter type across numerous objects.
+
+  However, the semantic significance of this type became unclear when establishing relationships with integers in various objects.
+- [analyst-data] Added Inbound Relationship to all views. [Sami
+  Mokaddem]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [GeoOpen] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [warninglists] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [schema] updated. [iglocska]
+- [ACL] entries added. [iglocska]
+- [setting] added for the sighting blocklisting. [iglocska]
+- [sighting restsearch] added org negations. [iglocska]
+
+  - the org_id filter now allows for the use of a prepended '!' character for negations
+- [test] Check if MISP and STIX2 are valid in build-test.sh. [Jakub
+  Onderka]
+- [internal] Log exception when importing stix file. [Jakub Onderka]
+- [internal] Update misp-stix. [Jakub Onderka]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [internal] Speedup sighting rest search. [Jakub Onderka]
+- [UI] event view now only load analyst data for objects/attributes
+  actually shown via pagination. [iglocska]
+- [curl client] added option for timeout. [iglocska]
+- [internal] Remove possible empty lines from output. [Jakub Onderka]
+- [docs:new-background-workers] add rhel specific steps to migration
+  guide. [Jeroen Pinoy]
+- [test] Check attribute search. [Jakub Onderka]
+- [internal] Better error handling when fetching sightings. [Jakub
+  Onderka]
+
+Fix
+~~~
+- [junk] removed. [iglocska]
+- [internal] Try to fix STIX import. [Jakub Onderka]
+- [sync] Avoid problem with duplicate sightings UUID. [Jakub Onderka]
+- [analyst-data:attachData] Make sure to also load child notes and
+  opinions. [Sami Mokaddem]
+
+  Changed the old behavior: Before we were loading 3 children. Now, we only load 1 by default.
+- [analyst-data:UI] Added missing entries for view elements. [Sami
+  Mokaddem]
+- [analystdata] added to events as the previous commits purged it.
+  [iglocska]
+- [analyst data chunk size] increased. [iglocska]
+- [internal] Attribute.php code style fix. [Jakub Onderka]
+- [sync] Drop support for zstd from CurlClient. [Jakub Onderka]
+- [oidc] Use the same handling of org also for Oidc::isUserValid. [Jakub
+  Onderka]
+- [search] Attribute search error 500 because of force index search.
+  [Jakub Onderka]
+- [UI] Showing event logo in correlation graph. [Jakub Onderka]
+- [internal] Check if values is not empty for MysqlExtended. [Jakub
+  Onderka]
+- [internal] Undefined index in error message during sync. [Jakub
+  Onderka]
+- [doc:rhel-installer] Correct conditional addition of httpd Listen 443
+  line. [Jeroen Pinoy]
+- [API] Cleanup compression marks added by Apache from Etag. [Jakub
+  Onderka]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #9553 from jloehel/fix-9552. [Andras Iklody]
+
+  fix [INSTALL/MySQL]: Create table `user_login_profiles` only if it not exists
+- Fix [INSTALL/MySQL]: Create table `user_login_profiles` only if it not
+  exists. [Jürgen Löhel]
+
+  fixes: #9552
+- Merge pull request #9662 from JakubOnderka/build-test-json-valid.
+  [Jakub Onderka]
+
+  chg: [test] Check if MISP and STIX2 are valid in build-test.sh
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #9658 from JakubOnderka/stix-exception-logging.
+  [Jakub Onderka]
+
+  chg: [internal] Log exception when importing stix file
+- Merge pull request #9660 from JakubOnderka/duplicate-sighting-uuid.
+  [Jakub Onderka]
+
+  fix: [sync] Avoid problem with duplicate sightings UUID
+- Merge pull request #9661 from JakubOnderka/misp-stix-update. [Jakub
+  Onderka]
+
+  chg: [internal] Update misp-stix
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8760 from JakubOnderka/sightings-conditions-
+  simplify. [Jakub Onderka]
+
+  chg: [internal] Speedup sighting rest search
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge pull request #9657 from JakubOnderka/remove-php-ends. [Jakub
+  Onderka]
+
+  chg: [internal] Remove possible empty lines from output
+- Merge pull request #9652 from JakubOnderka/curl-zstd-drop. [Jakub
+  Onderka]
+
+  fix: [sync] Drop support for zstd from CurlClient
+- Merge pull request #9649 from JakubOnderka/oidc-is-user-valid-fix.
+  [Jakub Onderka]
+
+  fix: [oidc] Use the same handling of org also for Oidc::isUserValid
+- Merge pull request #9641 from Wachizungu/chg-background-jobs-
+  migration-guide-add-rhel. [Alexandre Dulaunoy]
+
+  chg: [docs:new-background-workers] add rhel specific steps to migrati…
+- Merge pull request #9642 from JakubOnderka/attibute-search-500. [Jakub
+  Onderka]
+
+  chg: [test] Check attribute search
+- Merge pull request #9640 from JakubOnderka/event-log-correlation-
+  graph. [Jakub Onderka]
+
+  fix: [UI] Showing event logo in correlation graph
+- Merge pull request #9637 from JakubOnderka/undefined-index-fixes.
+  [Jakub Onderka]
+
+  Undefined index fixes
+- Merge pull request #9636 from Wachizungu/fix-rhel-httpd-listen-config.
+  [Alexandre Dulaunoy]
+
+  fix: [doc:rhel-installer] Correct conditional addition of httpd Liste…
+- Merge pull request #9635 from JakubOnderka/error-handling-sighting.
+  [Jakub Onderka]
+
+  chg: [internal] Better error handling when fetching sightings
+- Merge pull request #9634 from JakubOnderka/response-etag. [Jakub
+  Onderka]
+
+  fix: [API] Cleanup compression marks added by Apache from Etag
+
+
+v2.4.188 (2024-03-22)
+---------------------
+
+New
+~~~
+- [datasource] improvements. [iglocska]
+
+  - Some datasources updated with the ignoreIndexHint parameter
+    - mysqlExtended
+    - mysqlObserverExtended
+
+  - Also fixed forceIndexHint
+- [settings] added setting to (temporarily) disable the loading of
+  sightings via the API. [iglocska]
+
+  - affected endpoints: restsearch and /events/view
+  - temporarily skips the loading of sightings
+
+  - helps alleviate absolutely massive sighting data sets from killing server performance
+  - temporary measure, doesn't prevent the creation of sightings / viewing of sightings via the UI
+
+Changes
+~~~~~~~
+- [PyMISP] Bump, again. [Raphaël Vinot]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [version] bump. [iglocska]
+- [CI] Mark BadRequestException as fail log. [Jakub Onderka]
+- [internal] Better error handling. [Jakub Onderka]
+- [tests] trying to fix the failing test. [iglocska]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [misp-object] updated. [Alexandre Dulaunoy]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [version] bump. [iglocska]
+- [attribute search] rework. [iglocska]
+
+  - Massive performance improvement when using MysqlExtended or MysqlObserverExtended data sources
+  - event level lookup moved to subqueries, allowing for simpler, much faster indexed queries
+  - Ignoring the deleted index as it slows things down
+- [openapi:analyst_data] Added content for analyst-data. [Sami Mokaddem]
+- [openapi:event_report] Added content for event-reports. [Sami
+  Mokaddem]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [sightings:getLastSighting] Added support of sighting policy. [Sami
+  Mokaddem]
+
+  Fix #8660
+- [internal] Add title to alert template. [Jakub Onderka]
+- [attribute:restSearch] Improved performance of `includeDecayScore` by
+  a factor of 5. [Sami Mokaddem]
+- [attribute fetch] slightly refactored. [iglocska]
+
+  - simplify conditions
+  - don't load acl conditions twice
+
+Fix
+~~~
+- [attribute search] enforce unpublishedprivate directive. [iglocska]
+- [internal] Error handling for error message in AttachmentScan. [Jakub
+  Onderka]
+- [curlclient] HEAD failing. [iglocska]
+
+  - added CURLOPT_NOBODY for HEAD requests, as described in https://www.php.net/manual/en/function.curl-setopt.php
+- [CLI] Fix redisReady for dragonfly. [Jakub Onderka]
+- [ECS] Change type from Exception to Throwable. [Jakub Onderka]
+- [OIDC] Default organisation handling if not provided by OIDC. [Jakub
+  Onderka]
+- [publish] don't pop the list of failed servers before generating the
+  error array. [iglocska]
+- [sync] if push rules don't have the type_attributes set, don't throw
+  an error. [iglocska]
+- [attempt] fix for the etag test. [iglocska]
+- [performance] load analyst data in bulk. [iglocska]
+
+  speeds up event loading dramatically
+- [performance] load analyst data in bulk. [iglocska]
+
+  speeds up event loading dramatically
+- [UI] Add missing `MISP.email_reply_to` to server config. [Jakub
+  Onderka]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Chg, fix: [misp-stix] Bumped latest version. [Christian Studer]
+
+  - Fixing an issue where the custom Galaxy Clusters
+    generated with the conversion from STIX 2.x were
+    not correctly built to generate the Galaxy
+    elements after the validation of the content
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge pull request #9631 from JakubOnderka/attachment-scan-error.
+  [Jakub Onderka]
+
+  fix: [internal] Error handling for error message in AttachmentScan
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9630 from JakubOnderka/oidc-default-org-handling.
+  [Jakub Onderka]
+
+  fix: [OIDC] Default organisation handling if not provided by OIDC
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'pr-9589' into develop. [Sami Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into pr-9589. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9615 from vincenzocaputo/fix-accept-delegation-
+  attachments. [Alexandre Dulaunoy]
+
+  fix: Attachments deletion when accepting a delegation request
+- Add include attachments option when fetching event in
+  EventDelegation.php. [Vincenzo Caputo]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9616 from cudeso/2.4. [Alexandre Dulaunoy]
+
+  Add ICS-CSIRT.io community
+- Add ICS-CSIRT.io community. [Koen Van Impe]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #9613 from JakubOnderka/alert-email-title. [Jakub
+  Onderka]
+
+  chg: [internal] Add title to alert template
+- Fix key error on shadow attribute's id. [Vincenzo Caputo]
+- Change trigger's icon. [Vincenzo Caputo]
+- Change scope to 'shadow-attribute' [Vincenzo Caputo]
+- Remove newline in overhead message. [Vincenzo Caputo]
+- Add overhead message. [Vincenzo Caputo]
+- Add call to trigger before saving shadow attribute. [Vincenzo Caputo]
+- Add shadow attribute before save trigger. [Vincenzo Caputo]
+
+
+v2.4.187 (2024-03-07)
+---------------------
+
+New
+~~~
+- [cli] added org list to the shell commands. [iglocska]
+
+  - and some fixes to the roles
+- [CLI] New command to change user role. [Jakub Onderka]
+- [oidc] New option OidcAuth.update_user_role to disable role changes
+  from OIDC. [Jakub Onderka]
+
+Changes
+~~~~~~~
+- [Version] bump. [iglocska]
+- [PyMISP] Update. [Raphaël Vinot]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-warninglists] updated to the latest version. [Alexandre
+  Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] 2.4.187. [Alexandre Dulaunoy]
+- [internal] Add ext-zstd to suggested PHP extension. [Jakub Onderka]
+- [analyst-data:add] Fixed non-focusable relationship dropdown search
+  field. [Sami Mokaddem]
+
+Fix
+~~~
+- [events:restsearch] Correctly unset variable by reference after
+  looping. [Sami Mokaddem]
+
+  - This avoid attributes being overridden others when using `includeAnalystData` parameter
+- [CLI] added some new functionalities. [iglocska]
+
+  - list roles
+  - create user
+- [sync] pulls should continue after an event save failure. [iglocska]
+
+  - fixes #9558
+- [database update] fix. [Andras Iklody]
+
+  - for older mysql versions
+- [db update] added IF NOT EXISTS clauses to create table calls.
+  [iglocska]
+- [API consistency] [iglocska]
+
+  - represent the local field for tags as a boolean rather than an int
+- [pull] Fix pulling from remote server when analyst data is not
+  supported. [Jakub Onderka]
+- [logging] fixed using removeTagFromObject() [iglocska]
+
+  - no longer creates erroneous log entries when unpublishing the event
+- [security] properly check for valid logo upload. [iglocska]
+
+  - as kindly reported by Rémi Matasse and Raphael Lob from Synacktiv (https://www.synacktiv.com)
+- [security] properly check for valid file upload. [iglocska]
+
+  - as kindly reported by Rémi Matasse and Raphael Lob from Synacktiv (https://www.synacktiv.com)
+- [oidc] Setting checking if variable is false. [Jakub Onderka]
+- [Galaxies:toggle] Display correct message when disabling a galaxy.
+  [Sami Mokaddem]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #9602 from karenyousefi/2.4. [Andras Iklody]
+
+  Update Event.php
+- Update Event.php. [Karen Yousefi]
+
+  fix error Undefined offset: 0 in [/var/www/MISP/app/Model/Event.php, line 3682]
+- Update AppModel.php. [Andras Iklody]
+
+  fix: [analyst data] update script
+
+  - remove default current_timestamp() on older versions of v121 of the db updates
+  - avoids chicken and egg problem on ancient mysql versions
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9605 from JakubOnderka/fix-pull-analyst. [Jakub
+  Onderka]
+
+  fix: [pull] Fix pulling from remote server when analyst data is not s…
+- Merge pull request #9606 from JakubOnderka/cli-role-change. [Jakub
+  Onderka]
+
+  new: [CLI] New command to change user role
+- Merge pull request #9607 from JakubOnderka/oidc-fix-update-role.
+  [Jakub Onderka]
+
+  fix: [oidc] Setting checking if variable is false
+- Merge pull request #9604 from JakubOnderka/ext-zstd-suggested. [Jakub
+  Onderka]
+
+  chg: [internal] Add ext-zstd to suggested PHP extension
+- Merget branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #9600 from JakubOnderka/oidc-update-user-role.
+  [Jakub Onderka]
+
+  new: [oidc] New option OidcAuth.update_user_role to disable role chan…
+
+
+v2.4.186 (2024-02-29)
+---------------------
+
+New
+~~~
+- [UI] Show dragonfly version in diagnostics. [Jakub Onderka]
+- [Event:_edit] Added support of recursive update of analyst data. [Sami
+  Mokaddem]
+- [Event:_add] Added support of recursive capture of analyst data. [Sami
+  Mokaddem]
+- [singleView:sidePanels] Added new `html` side panel template to feed
+  any HTML into the view. [Sami Mokaddem]
+- [collections] feature added. Still missing sync integration - WiP.
+  [iglocska]
+- [analyst-notes:UI] Started UI for analyst notes - WiP. [Sami Mokaddem]
+- [analystdata] wip. [iglocska]
+- [db] tables added for notes. [iglocska]
+
+Changes
+~~~~~~~
+- [schema] dumped. [iglocska]
+- [version] bump. [iglocska]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [misp-stix] Bumped latest version with the changes on the organisation
+  uuid argument. [Christian Studer]
+- [analyst-data:edit] Added support of editable fields. [Sami Mokaddem]
+- [analyst-data:UI] Added highlight on note opener button. [Sami
+  Mokaddem]
+
+  - As request by gallypette
+- [analyst-data:UI] Added highlight on note opener button. [Sami
+  Mokaddem]
+
+  - As request by gallypette
+- [analyst-data:thread] Gracefully catch cases where the related object
+  is not found when generating link URL. [Sami Mokaddem]
+- [analyst-data:datetimes] Moved datetime manamgent of created and
+  modified field from the DB to the app. [Sami Mokaddem]
+
+  - This change is to enforce the usage of UTC time as using MySQL's CURRENT_TIMESTAMP uses the TZ of the server
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [tests:testlive_sync] Trying to understand why it fails. [Sami
+  Mokaddem]
+- [db_schema] Updated to latest. [Sami Mokaddem]
+- [event:restSearch] Added support of `includeAnalystData` options.
+  [Sami Mokaddem]
+
+  Also export analyst data using the event `Download as` function by default
+- [analyst-data:UI] Reduced number of inline asset ressources inclusion.
+  [Sami Mokaddem]
+- [analyst-data:thread-view] Added possibility to fetch data having a
+  deeper depth. [Sami Mokaddem]
+- [analyst-data] Added many improvements for UI and fixed infite loop
+  due to recursion. [Sami Mokaddem]
+- [app:queryVersion] Bumped version. [Sami Mokaddem]
+- [analyst-data:edit] Fetch referenced element for analyst-data
+  relationships by default. [Sami Mokaddem]
+- [analyst-data:add] Added support of author field and prefill it with
+  current user's email address. [Sami Mokaddem]
+- [analyst-data:global_menu] Added entry in the global menu. [Sami
+  Mokaddem]
+- [analyst-data:crud] Do not recursively fetch child analyst-data in
+  REST context. [Sami Mokaddem]
+- [analyst-data:beforeValidate] Do not override authors field if already
+  set. [Sami Mokaddem]
+- [analyst-data:CRUD] Allow viewing, editing and deleting any analyst-
+  data by their UUIDs. [Sami Mokaddem]
+- [collection-elements:addElementToCollection] Redirect to collection
+  creation if there no collections. [Sami Mokaddem]
+- [analyst-data:pull] Refactored condition building function for PULL
+  sync rules. [Sami Mokaddem]
+- [analyst-note:pull] Started adding support of PULL sync filtering rule
+  - WiP. [Sami Mokaddem]
+- [analyst-data:push] Added support of sync-filtering rules. [Sami
+  Mokaddem]
+- [analyst-data:identifyForPush] Removed commented code. [Sami Mokaddem]
+- [analyst-data] Allow fetching analyst-data by UUID. [Sami Mokaddem]
+- [analyst-data] Added missing ACL entries and improved pre-filtering
+  before negotiation starts. [Sami Mokaddem]
+- [analyst-data:push] Simplified filtering logic during negotiation.
+  [Sami Mokaddem]
+- [analyst-data] Renamed bunch of synchronisation functions. [Sami
+  Mokaddem]
+- [component:CRUD] Added support of parameter as a list. [Sami Mokaddem]
+- [analyst-data:pull] Change in pull strategy + few improvements. [Sami
+  Mokaddem]
+- [analyst-data:pull] Continuation implementation of pull - WiP. [Sami
+  Mokaddem]
+- [analyst-data:pull] Started implementation of pull - WiP. [Sami
+  Mokaddem]
+- [analyst-data:delete] Make deletion `hard` by default. [Sami Mokaddem]
+- [analyst-data] Added `locked` flag, support of orgc/org, analyst-data-
+  blocklist and most implementation of push synchronisation - WiP. [Sami
+  Mokaddem]
+- [server:sync/analyst-data] Started integration of server
+  synchronisation - WiP. [Sami Mokaddem]
+- [permission:analyst-data] Added new permission `perm_analyst_data`
+  [Sami Mokaddem]
+- [galaxyClusters:view] Added analystData support in
+  /galaxyClusters/view. [Sami Mokaddem]
+- [eventReport:view] Added analystData support in /eventReports/view.
+  [Sami Mokaddem]
+- [analyst-data:ACL] Enforced ACL and reflected the change in the UI.
+  [Sami Mokaddem]
+- [analyst-data:index] Improved UI for related element. [Sami Mokaddem]
+- [analyst-data:UI] Improved UI, better support of opinions in CRUD
+  views and added single/index fields for opinion scale. [Sami Mokaddem]
+- [analyst-data:event-report] Added support of analyst-data to event
+  reports. [Sami Mokaddem]
+- [analyst-data:ACL] Added ACL rules and fixed side-menu to support ACL.
+  [Sami Mokaddem]
+- [analyst-data:view] Display fields based on note model and slightly
+  improved UI. [Sami Mokaddem]
+- [galaxyCluster] Added support of analyst-note in the UI. [Sami
+  Mokaddem]
+- [analyst-data:sideMenu] Added support of analyst-data in the side
+  menu. [Sami Mokaddem]
+- [analyst-data:UI] Separated notes&opinions threads into their own
+  file. [Sami Mokaddem]
+- [analyst-data:add] Added support of picker for relationship type and
+  improved UI for sharing-group. [Sami Mokaddem]
+- [analyst-data:add] toggle sharing group input depending on the
+  distribution setting. [Sami Mokaddem]
+- [analyst-data:UI-generic] Removed debugging string. [Sami Mokaddem]
+- [analyst-note] Added support of opinion on relationships. [Sami
+  Mokaddem]
+- [analyst-data:UI] Added support of relation for object + refactoring +
+  fixes. [Sami Mokaddem]
+- [analyst-data:ui-generic] Removed debugging string. [Sami Mokaddem]
+- [analyst-data:index] Added missing fields in the indexes. [Sami
+  Mokaddem]
+- [analyst-data] Added support of fetching & displaying of related
+  object + refacto + fixes - WiP. [Sami Mokaddem]
+- [analyst-data] Linked CRUD and UI together - WiP. [Sami Mokaddem]
+
+  - Added dynamic association binding
+  - Recursive notes and opinions injection
+  - few improvements
+  - fixes
+
+  -> Still need to link CRUD for relationships and UI
+  -> Still need to refactor for performance notes/opinions loading
+- [collections] added db changes. [iglocska]
+- [analyst-notes:ui] Added support of relationship and bootstrap tabs.
+  [Sami Mokaddem]
+- [uuid field] update. [iglocska]
+- [analystdata wip] [iglocska]
+- [analyst-notes:ui] Few improvements. [Sami Mokaddem]
+- [analyst-notes:ui] Removed unused code. [Sami Mokaddem]
+- [analyst-notes:ui] Started integration in events/view. [Sami Mokaddem]
+- [analyst-notes:ui] Add fallback for passing data. [Sami Mokaddem]
+
+  - To be removed later on
+- [analyst-notes:ui] Move the popover position a bit less. [Sami
+  Mokaddem]
+
+  - To be fixed later on
+- [analyst-notes:ui] Removed leftover code when opinions were using
+  stars. [Sami Mokaddem]
+- [analyst-notes:ui] Improved UI of opinion notes. [Sami Mokaddem]
+
+  - Based on the valuable feedback from @adulau
+- [analyst-notes:ui] Added support of permissions, callbacks and
+  improved UI - WiP. [Sami Mokaddem]
+- [upload_stix] Casting distributions and sharing group IDs type.
+  [Christian Studer]
+- [misp-stix] Bumped latest version. [Christian Studer]
+
+Fix
+~~~
+- [schema] fixed. [iglocska]
+- [event:_mergeExtension] Include analyst data on extension if
+  originally requested in the request. [Sami Mokaddem]
+- [analyst-data:hasMoreNotesOrOpinions] Use correct model to fetch
+  additional opinions. [Sami Mokaddem]
+- [analystdata] push and pull fixes. [iglocska]
+
+  - push: check sharing group data correctly
+  - pull: Don't throw errors if not all 3 types of notes exist on the remote
+- [UI] Fix MISP logo display on object templates index. [Jeroen Pinoy]
+- [stix2 import] Making the organisation uuid argument specific to
+  external STIX 2 import. [Christian Studer]
+- [analystdata] removed invalid field from the change before the last.
+  [iglocska]
+- [analyst data blocklist] removed unused edit button. [iglocska]
+- [analystdata] restrict what to display in associated models.
+  [iglocska]
+- [analystdata] fixed editing of context specific editable fields.
+  [iglocska]
+- [analyst data] zero out sharing group ID when other distribution
+  setting is selected. [iglocska]
+- [analystdata] clarified hover text. [iglocska]
+- [analystdata ui] oversanitisation of relationships fixed. [iglocska]
+- [stix2 import] Added missing `organisation_uuid` argument. [Christian
+  Studer]
+- [upload_stix] Fixed naive copy paste failing after an arbitrary
+  variable name change. [Christian Studer]
+- [upload_stix] Fixed undefined index `cluster_sharing_group_id` when
+  uploading stix file. [Christian Studer]
+- [UI] Catch exception when custom file is not readable. [Jakub Onderka]
+- [users:login401] Usage of Image->base64 to follow what users:login
+  does. [Sami Mokaddem]
+- [user:login] Make sure welcome_logos exists before trying to render
+  them. [Sami Mokaddem]
+- [users:login] Check file existence in the correct location. [Sami
+  Mokaddem]
+- [UI] Custom logos. [Jakub Onderka]
+- [users:login] Check file existence in the correct location. [Sami
+  Mokaddem]
+- [processtool] make old versions happy. [iglocska]
+
+  - proc_open only started accepting $command as an array in 7.4
+- [users:login401] Usage of Image->base64 to follow what users:login
+  does. [Sami Mokaddem]
+- [user:login] Make sure welcome_logos exists before trying to render
+  them. [Sami Mokaddem]
+- [eventReports:view/analystData] Load assets before trying to render
+  notes. [Sami Mokaddem]
+- [internal] exif_imagetype is not standard part of PHP. [Jakub Onderka]
+- [UI] Catch exception when custom file is not readable. [Jakub Onderka]
+- [UI] correct encoding for the notes. [iglocska]
+- [notes] changed timestamp output to not include timezone. [iglocska]
+
+  - doesn't work on all versions of mariadb/mysql
+- [users:login] Check file existence in the correct location. [Sami
+  Mokaddem]
+- [login:UI] Reverted change that swapped `main_logo` with `home_logo`
+  [Sami Mokaddem]
+- [db_schema] Bumped db_version. [Sami Mokaddem]
+- [galaxyCluster:view/analystData] Load assets before trying to render
+  notes. [Sami Mokaddem]
+- [stix2 import] Setting the `single_event` argument to avoid skipping
+  content in case of multiple reports or groupings. [Christian Studer]
+- [UI] Custom logos. [Jakub Onderka]
+- [workflowModules:attributeEditionOperation] Make sure to call
+  Attribute->editAttribute on data to be saved. [Sami Mokaddem]
+- [workflow] fix attribute edit module actions. [Jeroen Pinoy]
+- [analyst-data:relationship] Make sure to rearrange data only when the
+  referrenced element exists. [Sami Mokaddem]
+- [analyst-data:view] Fixed analyst-data/view/all endpoint. [Sami
+  Mokaddem]
+- [db_schema] Bumped db_version. [Sami Mokaddem]
+- [app] Fixed error while merging in db_change number. [Sami Mokaddem]
+- [analyst-data:pull] Return early if there is nothing to pull. [Sami
+  Mokaddem]
+- [test:testlive_sync] Adapted message to adhere to server change. [Sami
+  Mokaddem]
+- [object:editObject] Call function from the correct model. [Sami
+  Mokaddem]
+- [object:editObject] Avoid un-nesting object when not applicable. [Sami
+  Mokaddem]
+- [aclComponent] Make queryACL not complaining. [Sami Mokaddem]
+- [eventReport:editReport] Call function from the correct model. [Sami
+  Mokaddem]
+- [attribute:editAttributePostProcessing] Call function from the correct
+  model. [Sami Mokaddem]
+- [analyst-data:add] Allow not providing a language when creating a
+  note. [Sami Mokaddem]
+- [analyst-data:recursive-fetch] Second tentative to prevent recursion
+  in relationship. [Sami Mokaddem]
+- [analystData:fetchChildNotesAndOpinions] Added support of depth. [Sami
+  Mokaddem]
+- [analyst-data:add] Added missing field `related_object_type` in form.
+  [Sami Mokaddem]
+- [console:serverShell] Set `CurrentUserId` to the ID of the user being
+  used. [Sami Mokaddem]
+- [collection] Enforce cascade on delete. [Sami Mokaddem]
+- [analyst-data:pull] Make sure to correctly decode returned data. [Sami
+  Mokaddem]
+- [analyst-data:indexMinimal] Use the organisation name instead of UUID.
+  [Sami Mokaddem]
+
+  - This is because PULL sync filter rules relies on organisation names of the remote
+  - This change is to avoid rewriting the regular sync path that relies on the org name
+- [analyst-data] Various fixes regarding ACL and recursive fetching.
+  [Sami Mokaddem]
+- [analyst-data:push] Correctly adjust locked flag for push. [Sami
+  Mokaddem]
+- [analyst-data:pull] Correctly adjust distribution level and locked
+  flag when pulling. [Sami Mokaddem]
+- [analyst-data:edit] Bump `modified` field before updating. [Sami
+  Mokaddem]
+- [analyst-data:pushAnalystData] Typo in success reporting log line.
+  [Sami Mokaddem]
+- [analyst-data:CRUD] Make sure to return the data in the afterFind
+  function. [Sami Mokaddem]
+- [analyst-data:db-migration] Fixed typo in create table instruction.
+  [Sami Mokaddem]
+- [events:view/analyst-data] Added missing relationship_path. [Sami
+  Mokaddem]
+- [analyst-data:ui-generic] Make sure to always show analyst-data. [Sami
+  Mokaddem]
+- [analyst-data:afterFind] Only rearrange key sharing-group key if they
+  distribution exists. [Sami Mokaddem]
+- [analyst-data:view] Use correct model to access element property.
+  [Sami Mokaddem]
+- [analyst-data] Fixed sharing group associations. [Sami Mokaddem]
+- [analyst-data-behavior:afterFind] Restored behavior that fetched child
+  notes and opinions in the analyst-data afterFind method. [Sami
+  Mokaddem]
+
+  Might be reverted later on
+- [analyst-data:ui-generic] Fixed template overriding the $seed leading
+  to weird behaviors with bootstrap tabs. [Sami Mokaddem]
+- [analyst-data:ui-generic] Small refacto + fixed style not being
+  generated for first-level opinions. [Sami Mokaddem]
+- [analystdata] added behavior to objects. [iglocska]
+- [CRUD] more accurate results in save functions (show the state after
+  the save) [iglocska]
+- [UI] uuid length for the display fixed. [iglocska]
+- [events:getThreads] Removed fake unused function. [Sami Mokaddem]
+- [analyst-notes:ui] Small fix on the vbar for opinion's comment. [Sami
+  Mokaddem]
+- [upload_stix] Avoiding issues with sharing group arguments being null.
+  [Christian Studer]
+- [stix2 import] Fixed STIX2 parser name. [Christian Studer]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' into 2.4. [Sami Mokaddem]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge remote-tracking branch 'origin/develop' into 2.4. [Sami
+  Mokaddem]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge pull request #9508 from JakubOnderka/redis-info. [Jakub Onderka]
+
+  new: [UI] Show dragonfly version in diagnostics
+- Merge pull request #9594 from Wachizungu/fix-object-templates-misp-
+  logo-display. [Jakub Onderka]
+
+  fix: [UI] Fix MISP logo display on object templates index
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9588 from vincenzocaputo/fix-workflow-tag-
+  replacement-module-description. [Alexandre Dulaunoy]
+
+  Fix Tag replacement workflow module description
+- Fix Tag replacement workflow module description. [Vincenzo Caputo]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge pull request #9440 from chrisr3d/develop. [Christian Studer]
+
+  Handling clusters distribution and sharing group for content imported from STIX 2.x
+- Add: [stix2 import] Added organisation UUID parameter to be used when
+  generating custom Galaxy Clusters UUID. [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge remote-tracking branch 'origin/2.4' into develop. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/2.4' into develop. [Sami
+  Mokaddem]
+- Merge branch 'fix/custom-image-rendering' into 2.4. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9582 from cudeso/2.4. [Alexandre Dulaunoy]
+
+  Minor documentation changes; add example to create users via REST API
+- Minor documentation changes; add example to create users via REST API.
+  [Koen Van Impe]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Revert "fix: [users:login] Check file existence in the correct
+  location" [Sami Mokaddem]
+
+  This reverts commit a1bba71204cbb54de21eac5d324ff14288e89574.
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9583 from JakubOnderka/image-helper-fix. [Jakub
+  Onderka]
+
+  fix: [UI] Catch exception when custom file is not readable
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge pull request #9575 from JakubOnderka/fix-custom-logos. [Jakub
+  Onderka]
+
+  fix: [UI] Custom logos
+- Merge remote-tracking branch 'origin/develop' into notes. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge remote-tracking branch 'origin/develop' into notes. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into notes. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into notes. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into notes. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into notes. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into notes. [Sami
+  Mokaddem]
+- Ichg: [analyst-note:pull] Continuation of adding support of PULL sync
+  filtering rule - WiP. [Sami Mokaddem]
+- Merge branch 'feature/analyst-data' into notes. [Sami Mokaddem]
+- Merge branch 'notes' of github.com:MISP/MISP into notes. [iglocska]
+- Chf: [notes] wip. [iglocska]
+- Merge branch 'feature/analyst-notes' into notes. [Sami Mokaddem]
+- Merge remote-tracking branch 'mokaddem/feature/analyst-note-ui' into
+  feature/analyst-notes. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Add: [upload_stix] Handling cluster distribution and sharing group for
+  content imported from STIX 2.x. [Christian Studer]
+
+
+v2.4.185 (2024-02-16)
+---------------------
+
+Changes
+~~~~~~~
+- [VERSION] bump. [iglocska]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [doc/openapi] clarify 'deleted' restsearch filter (#9485) [Jeroen
+  Pinoy]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [PyMISP] fix a few regressions. [Raphaël Vinot]
+- [servers:getVersion] Include the remote instance UUID if user has
+  perm_sync permission. [Sami Mokaddem]
+- [develop] merge back the Curl option issue. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [missing images] re-added. [iglocska]
+- [db_schema] bump. [iglocska]
+- Fix objects restsearch first_seen filter. [Jeroen Pinoy]
+- [sighting sync] speculative fix for critical sync issue. [iglocska]
+
+  - pulls from an instance with extremely high numbers of sightings (~300M+) can lead to the pulled instance becoming unusable
+  - This fix addresses multiple issues:
+    - The use of last:0 as a sighting pull filter parameter lead to a search using an unindexed field
+    - Internally searching for sighting IDs across 500 events in one shot can lead to massive data-sets
+    - Internally searching for sighting IDs by Event.uuid on a joined table is extremely slow compared to searching on the sighting table alone
+- Fix object_name, object_template_uuid and object_template_version
+  object restsearch filters. [Jeroen Pinoy]
+- CurlClient doesn't use correct Proxy settings. [Benni0]
+- [security] Org image upload moved out of webroot. [iglocska]
+
+  - images will no longer be accessible directly, only via inclusion via file-read/b64 encoding
+  - The new store for org images is MISP/app/files/img/orgs
+
+  - As reported by Yusuke Nakajima
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9564 from Wachizungu/fix-objects-restsearch-first-
+  seen. [Andras Iklody]
+
+  fix: fix objects restsearch first_seen filter
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9563 from Wachizungu/fix-object-restsearch-
+  filters. [Andras Iklody]
+
+  fix: fix object_name, object_template_uuid and object_template_versio…
+- Merge pull request #9551 from Benni0/2.4. [Alexandre Dulaunoy]
+
+  fix: CurlClient doesn't use correct Proxy settings
+- Merge pull request #9544 from pswapneel/2.4. [Alexandre Dulaunoy]
+
+  Added Shreshta Newly registered domain names 1-week and 1-month community policy feeds
+- Added Shreshta NRD 1 week and 1 month community feeds. [Swapneel
+  Patnekar]
+
+
+v2.4.184 (2024-02-02)
+---------------------
+
+New
+~~~
+- [internal] Binary cache plugin. [Jakub Onderka]
+- [CLI] User::ip_country. [Jakub Onderka]
+- [internal] Code cleanup for ApcuCacheTool. [Jakub Onderka]
+- [internal] Store browscap cache in apcu. [Jakub Onderka]
+- [test] Check if includeUuid works for sighting rest search. [Jakub
+  Onderka]
+- [test] test_restsearch_sightings. [Jakub Onderka]
+- [CLI] cake User init command. [Jakub Onderka]
+
+  Deprecate cake UserInit
+- [test] Add test for RPZ export. [Jakub Onderka]
+- [CLI] AdminShell isEncryptionKeyValid command. [Jakub Onderka]
+- [zmq] Example Python client. [Jakub Onderka]
+- [zmq] Allow to manager ZMQ process by supervisor. [Jakub Onderka]
+- [curl] Add support for zstd encoding. [Jakub Onderka]
+- [sync] Experimental curl client. [Jakub Onderka]
+- [CLI] Add ability to show running jobs. [Jakub Onderka]
+- [CLI] Worker shell. [Jakub Onderka]
+- [CLI] IP address normalization script. [Jakub Onderka]
+- [event:publication] Added new setting to block event publication if
+  the user is the creator. [Sami Mokaddem]
+
+  Enabling this setting will change the behavior of MISP so that it will block the publication of an Event if the publisher is the same as the event creator.
+
+Changes
+~~~~~~~
+- [GeoOpen] updated. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [PyMISP] bumped. [iglocska]
+- [appcontroller] versions bump. [iglocska]
+- [submodules] updated. [iglocska]
+- [VERSION] bump. [iglocska]
+- [PyMISP] Bump to preliminary release with strict typing - take 9.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing - take 8.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing - take 7.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing - take 6.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing - take 5.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing - take 4.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing - third fix.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing - second fix.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing - first fix.
+  [Raphaël Vinot]
+- [PyMISP] Bump to preliminary release with strict typing. [Raphaël
+  Vinot]
+- [PyMISP] Update back to 2.4.183. [Jakub Onderka]
+- [develop] merge back 2.4. [Alexandre Dulaunoy]
+- [events:export] Make setting `MISP.disable_cached_exports` enabled by
+  default. [Sami Mokaddem]
+
+  Since the /events/export has been marked deprecated for a years started
+  the process to phase it out by first disabling the endpoint by default.
+- [internal] Faster freetext parsing. [Jakub Onderka]
+- [internal] Faster check for session destruction. [Jakub Onderka]
+- [internal] Use Attribute::fetchAttributesInChunks for correlations.
+  [Jakub Onderka]
+- [internal] ssdeep correlation speedup. [Jakub Onderka]
+- [internal] Use iterator_to_array. [Jakub Onderka]
+- [internal] Use array_push($array, ...) instead of slower array_merge.
+  [Jakub Onderka]
+- [internal] Remove unused and broken method. [Jakub Onderka]
+- [internal] Detect serialization format in RedisTool. [Jakub Onderka]
+- [internal] Use compressed version of browscap and update to latest
+  version. [Jakub Onderka]
+- [export] Fix notice in NISD export. [Jakub Onderka]
+- [test] Small cleanup. [Jakub Onderka]
+- [test] Test snort rule without msg. [Jakub Onderka]
+- [export] NidsExport code cleanup. [Jakub Onderka]
+- [test] Do not run test twice and disable not necessary output. [Jakub
+  Onderka]
+- [test] Add snort attribute to test. [Jakub Onderka]
+- [internal] Faster checking if array is list. [Jakub Onderka]
+- [internal] Slightly optimise Mysql::insertMulti. [Jakub Onderka]
+- [test] Do not show progressbar for curl commands. [Jakub Onderka]
+- [test] Remove unused travis test definition. [Jakub Onderka]
+- [test] Try to avoid sudo. [Jakub Onderka]
+- [internal] Simplify getting current repo commit. [Jakub Onderka]
+- [internal] Log exceptions when doing diagnostics. [Jakub Onderka]
+- [CLI] Better warning messages for cake user authkey_valid. [Jakub
+  Onderka]
+- [CLI] Better error messages for cake admin isEncryptionKeyValid.
+  [Jakub Onderka]
+- [oidc] More verbose log messages. [Jakub Onderka]
+- [CLI] Optimise cake user authkey_valid. [Jakub Onderka]
+- [test] Try to avoid zmq warnings in logs. [Jakub Onderka]
+- [CLI] Be more strict for setSetting accepted values. [Jakub Onderka]
+- [CLI] More clear warning message. [Jakub Onderka]
+- [internal] Code cleanup. [Jakub Onderka]
+- [internal] PHP 7.4 is required, so we can remove hacks for older
+  versions vol. 2. [Jakub Onderka]
+- [internal] PHP 7.4 is required, so we can remove hacks for older
+  versions. [Jakub Onderka]
+- [internal] Cleanup code for RPZ export. [Jakub Onderka]
+- [internal] Log errors for git. [Jakub Onderka]
+- [internal] Better error messages. [Jakub Onderka]
+- [CLI] Track worker process ID. [Jakub Onderka]
+- [CLI] Show deprecated message for all deprecated commands. [Jakub
+  Onderka]
+- [internal] Add support for orjson for zmq. [Jakub Onderka]
+- [module] Keep connection between requests. [Jakub Onderka]
+- [internal] Try to close CURL connection. [Jakub Onderka]
+- [curl] Better error message. [Jakub Onderka]
+- [internal] Use curl when possible. [Jakub Onderka]
+- [galaxies] Allow to update galaxy fields when doing update. [Jakub
+  Onderka]
+- [internal] Track running jobs. [Jakub Onderka]
+- [auth] Do not log auth_fail for JSON requests. [Jakub Onderka]
+- [CLI] Log exception if file was not found during attachment scan.
+  [Jakub Onderka]
+- [CLI] Deprecate LiveShell. [Jakub Onderka]
+- [CLI] Better logging for workers. [Jakub Onderka]
+- [internal] Do not scan attachment that are bigger than 25 MB. [Jakub
+  Onderka]
+- [internal] Move attachment scanning to prio queue. [Jakub Onderka]
+- [totp] add clarifications to totp setup view. [Jeroen Pinoy]
+- [UI] More sane Sync Actions menu. [Jakub Onderka]
+- [internal] Optimise reportValidationIssuesAttributes. [Jakub Onderka]
+- [validation] Remove CIDR from /32 IPv4 and /128 IPv6 to normalize
+  values. [Jakub Onderka]
+- [tools:misp-delegation] Added support of log-level as script parameter
+  and improved logging. [Sami Mokaddem]
+- [event:publish] Reverse condition for readability and consistency with
+  _add. [Sami Mokaddem]
+- [event:publish] Exempt sync users from
+  MISP.block_publishing_for_same_creator. [Sami Mokaddem]
+- [event:publish] Prevent publication if publishing is coming from /add
+  or /edit. [Sami Mokaddem]
+- [events:publish] Improved phrasing on the publication blocking if
+  creator == publisher. [Sami Mokaddem]
+- [garbage collection] added cached exports. [iglocska]
+
+Fix
+~~~
+- [tests] remove useless call. [Raphaël Vinot]
+- [tests] Disable a couple tests. [Raphaël Vinot]
+- [tests] just messin' around. [Raphaël Vinot]
+- [tests] use more lenient internal call... [Raphaël Vinot]
+- Return the right thing in test. [Raphaël Vinot]
+- Avoid call on internal method... [Raphaël Vinot]
+- [log] Do not save to database big changes. [Jakub Onderka]
+- [security] auditlogs's fullChange lack of ACL controls. [Sami
+  Mokaddem]
+
+  Added proper ACL handling
+  - As reported by Jeroen Pinoy
+- [internal] Raise size for access_logs action column. [Jakub Onderka]
+- [security] Improved security checks for organisation logo upload.
+  [Sami Mokaddem]
+
+  - As reported by Andrei Agape / Teliacompany
+
+  Checks are:
+  - Maximum file size of 250K since the recommanded picture size is 48x48.
+  - File extension check
+  - File mime type checks
+- [security] Enforce usage of POST to start an export generation
+  process. [Sami Mokaddem]
+
+  As reported by Andrei Agape / Teliacompany
+- [organisation:orgMerge] Added missing models for organisation
+  handover. [Sami Mokaddem]
+- [organisation:orgMerge] Make sure to serialize array before insertion.
+  [Sami Mokaddem]
+- [admin] Show logos in SVG format in admin. [Jakub Onderka]
+- Incorrect foreing key. [Luciano Righetti]
+- [internal] Email new login sending. [Jakub Onderka]
+- [GalaxyClusters] fix tag_name restsearch filter (#9512) [Jeroen Pinoy]
+- [internal] More explaining error message. [Jakub Onderka]
+- [internal] Fetching latest remote Git version. [Jakub Onderka]
+- [appController:harvestParameters] Always support page and limit
+  parameters while harvesting parameters. [Sami Mokaddem]
+
+  There is not point in not always supporting these two parameters
+- [CLI] Do not load config twice. [Jakub Onderka]
+- [test] Delete event after test pass. [Jakub Onderka]
+- [API] Return proper exception for rest search. [Jakub Onderka]
+- [objects] restsearch first/last seen filters added. [iglocska]
+
+  - also a fix for the allowedlists generating notice errors / not firing correctly
+- [API] Missing includeUuid param for Sighting rest search. [Jakub
+  Onderka]
+- [API] Missing UUID param for Sighting rest search. [Jakub Onderka]
+- [internal] Rate limiting. [Jakub Onderka]
+- [internal] Access log errors from test. [Jakub Onderka]
+- [internal] Try to cleanup memory when fetching feed. [Jakub Onderka]
+- [internal] Fix error code when fetching sightings. [Jakub Onderka]
+- [internal] Attachment scanning. [Jakub Onderka]
+- [tools:event_timeline] Fixed typo in the getTimline function for
+  objectAttributes. [Sami Mokaddem]
+- [UI] Remove double dot. [Jakub Onderka]
+- [internal] Code style. [Jakub Onderka]
+- [internal] Do not use deprecated method. [Jakub Onderka]
+- [internal] Remove unused variables. [Jakub Onderka]
+- [security] auditlogs's fullChange lack of ACL controls. [Sami
+  Mokaddem]
+
+  Added proper ACL handling
+  - As reported by Jeroen Pinoy
+- [appController:harvestParameters] Always support page and limit
+  parameters while harvesting parameters. [Sami Mokaddem]
+
+  There is not point in not always supporting these two parameters
+- [tools:event_timeline] Fixed typo in the getTimline function for
+  objectAttributes. [Sami Mokaddem]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge pull request #9543 from JakubOnderka/audit-log-skip-big-change.
+  [Jakub Onderka]
+
+  fix: [log] Do not save to database big changes
+- Merge pull request #9538 from JakubOnderka/access-log-action-column.
+  [Jakub Onderka]
+
+  fix: [internal] Raise size for access_logs action column
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #9534 from JakubOnderka/speedup-vol2. [Jakub
+  Onderka]
+
+  chg: [internal] Faster check for session destruction
+- Merge pull request #9532 from JakubOnderka/svg-logos. [Jakub Onderka]
+
+  fix: [admin] Show logos in SVG format in admin
+- Revert "fix: incorrect foreing key" [Luciano Righetti]
+
+  This reverts commit 6a36d7a3cdf1a7ecd32b43c3a10da6122418501d.
+- Merge pull request #9528 from JakubOnderka/binary-file-cache. [Jakub
+  Onderka]
+
+  new: [internal] Binary cache plugin
+- Merge pull request #9530 from JakubOnderka/fix-9526. [Jakub Onderka]
+
+  fix: [internal] Email new login sending
+- Merge pull request #9525 from JakubOnderka/speedup. [Jakub Onderka]
+
+  chg: [internal] Use Attribute::fetchAttributesInChunks for correlations
+- Merge pull request #9524 from JakubOnderka/speedup. [Jakub Onderka]
+
+  Speedup
+- Merge pull request #9510 from JakubOnderka/redis-serialization-format.
+  [Jakub Onderka]
+
+  chg: [internal] Detect serialization format in RedisTool
+- Merge pull request #9523 from JakubOnderka/browscap-apcu-cache. [Jakub
+  Onderka]
+
+  Browscap apcu cache
+- Merge pull request #9522 from JakubOnderka/browscap-apcu-cache. [Jakub
+  Onderka]
+
+  new: [internal] Store browscap cache in apcu
+- Merge pull request #9521 from JakubOnderka/snort-fix. [Jakub Onderka]
+
+  chg: [test] Add snort attribute to test
+- Merge pull request #9520 from JakubOnderka/test-cleanup. [Jakub
+  Onderka]
+
+  Test cleanup
+- Merge pull request #9519 from JakubOnderka/exception-logging. [Jakub
+  Onderka]
+
+  Exception logging
+- Merge pull request #9506 from JakubOnderka/small-fixes. [Jakub
+  Onderka]
+
+  Small fixes
+- Merge pull request #9499 from JakubOnderka/oidc-messages. [Jakub
+  Onderka]
+
+  chg: [oidc] More verbose log messages
+- Merge pull request #9498 from JakubOnderka/optimise-authkey-valid.
+  [Jakub Onderka]
+
+  chg: [CLI] Optimise cake user authkey_valid
+- Merge pull request #9497 from JakubOnderka/rate-limit-fix. [Jakub
+  Onderka]
+
+  fix: [internal] Rate limiting
+- Merge pull request #9496 from JakubOnderka/fix-access-log-errors.
+  [Jakub Onderka]
+
+  fix: [internal] Access log errors from test
+- Merge pull request #9495 from JakubOnderka/cleanup-php74. [Jakub
+  Onderka]
+
+  chg: [internal] PHP 7.4 is required, so we can remove hacks for older…
+- Merge pull request #9494 from JakubOnderka/cleanup-php74. [Jakub
+  Onderka]
+
+  chg: [internal] PHP 7.4 is required, so we can remove hacks for older PHP
+- Merge pull request #9493 from JakubOnderka/rpz. [Jakub Onderka]
+
+  new: [test] Add test for RPZ export
+- Merge pull request #9492 from JakubOnderka/error-handling. [Jakub
+  Onderka]
+
+  chg: [internal] Log errors for git
+- Merge pull request #9479 from JakubOnderka/cleanup. [Jakub Onderka]
+
+  new: [CLI] AdminShell isEncryptionKeyValid command
+- Merge pull request #9491 from JakubOnderka/zmq-supervisor. [Jakub
+  Onderka]
+
+  Zmq supervisor
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #8717 from JakubOnderka/experimental-curl-client.
+  [Jakub Onderka]
+
+  new: [sync] Experimental curl client
+- Merge pull request #9100 from JakubOnderka/galaxy-improt-update.
+  [Jakub Onderka]
+
+  chg: [galaxies] Allow to update galaxy fields when doing update
+- Merge pull request #9480 from JakubOnderka/attachment-scan. [Jakub
+  Onderka]
+
+  Attachment scan
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #9481 from Wachizungu/add-totp-setup-
+  clarifications. [Alexandre Dulaunoy]
+
+  chg: [totp] add clarifications to totp setup view
+- Merge pull request #8831 from JakubOnderka/ui-fixes. [Jakub Onderka]
+
+  Better UI
+- Merge pull request #9431 from JakubOnderka/remove-ip-cidr. [Jakub
+  Onderka]
+
+  chg: [validation] Remove CIDR from /32 IPv4 and /128 IPv6 to normalize
+- Merge branch 'feature/publication-blocking-same-user' into develop.
+  [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9477 from JakubOnderka/cleanup. [Jakub Onderka]
+
+  Cleanup
+
+
 v2.4.183 (2024-01-05)
 ---------------------
 

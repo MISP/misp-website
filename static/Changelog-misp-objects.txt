@@ -1,6 +1,170 @@
 # Changelog
 
 
+## %%version%% (unreleased)
+
+### Changes
+
+* [cs-beacon-config] encoded-data as file attachment instead of text. [Alexandre Dulaunoy]
+
+  As encoded-data might be large and not really useful to be displayed in
+  the UI of MISP. We moved it to an `attachment` attribute type.
+
+  We keep the `attachment` as Base64 to avoid any risk of people
+  downloading or executing as potential malicious file. So it MUST be
+  encoded in Base64 as it was before.
+
+* [organization] add a MISP UUID if present. [Alexandre Dulaunoy]
+
+* [relationships] add initiated-by, summarizes, summarized-by. [Jeroen Pinoy]
+
+### Fix
+
+* [jq] all the things. [iglocska]
+
+### Other
+
+* Organization object. [Andras Iklody]
+
+  - Added "private" to the list of sectors as suggested by Monsieur Hamm.
+
+* Merge pull request #431 from Wachizungu/add-summarises-relationship. [Alexandre Dulaunoy]
+
+  chg: [relationships] add initiated-by, summarizes, summarized-by
+
+
+## v2.4.192 (2024-04-26)
+
+### Changes
+
+* [registry-key] jq all the things. [Alexandre Dulaunoy]
+
+* [registry-key] added Artifacts dropped as potential category. [Christophe Vandeplas]
+
+* [relationships] updated. [Alexandre Dulaunoy]
+
+* [ransomware-group-post] severity field sane default added. [Alexandre Dulaunoy]
+
+* [doc] updated. [Alexandre Dulaunoy]
+
+* [cs-beacon-config] major update following shadowserver.org requirements. [Alexandre Dulaunoy]
+
+  - Fixed some matching type instead of text (like size-in-bytes or integer)
+  - Added many fields and replace name with `_` to `-`
+  - Added some basic description
+
+* [ransomware-group-post] updated with shadowserver object template format. [Alexandre Dulaunoy]
+
+  - underscores replaced with hyphen
+  - descriptions added
+  - decorrelation added for some fields
+
+* [instant-message] remove newlines. [Alexandre Dulaunoy]
+
+* [relationships] `publishes` added. [Alexandre Dulaunoy]
+
+* [flowintel-cm] notes. [David Cruciani]
+
+### Fix
+
+* [ransomware-group-post] added the missing descriptions for `actor-geo-stats-30d` and `actor-total-stats-30d` [Alexandre Dulaunoy]
+
+* [cs-beacong-config] typo fixed. [Alexandre Dulaunoy]
+
+* [cs-beacon-config] updated the NAICS description. [Alexandre Dulaunoy]
+
+* [relationships] newline story. [Alexandre Dulaunoy]
+
+### Other
+
+* Merge pull request #429 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  add relationship interviews/is-interviewed-by
+
+* Fix version. [Delta-Sierra]
+
+* Merge https://github.com/MISP/misp-objects. [Delta-Sierra]
+
+* Relationship interview. [Delta-Sierra]
+
+* Merge pull request #428 from menewol/main. [Alexandre Dulaunoy]
+
+  Added Mattermost
+
+* Added Mattermost. [menewol]
+
+* Merge pull request #427 from Delta-Sierra/master. [Alexandre Dulaunoy]
+
+  Moar relationships
+
+* Moar relationships. [Delta-Sierra]
+
+* Merge. [Delta-Sierra]
+
+* Add deploy relationship. [Delta-Sierra]
+
+* Merge pull request #426 from DavidCruciani/main. [Alexandre Dulaunoy]
+
+  flowintel-cm notes change
+
+* Merge branch 'MISP:main' into main. [David Cruciani]
+
+
+## v2.4.190 (2024-04-18)
+
+### New
+
+* [gpf] Split actors_speaker and settings_competition into more. [Christophe Vandeplas]
+
+* [gpf] Added Generalizing Persuasion Framework. [Christophe Vandeplas]
+
+### Changes
+
+* [readme] updated list of objects. [Christophe Vandeplas]
+
+* [news-media] add governmental communication and also news agency source (including alert type) [Alexandre Dulaunoy]
+
+* [doc] list updated. [Alexandre Dulaunoy]
+
+* [relationships] `shares` relationship added. [Alexandre Dulaunoy]
+
+  Thanks to @gregWDumont for the feedback
+
+* [network-traffic] Going for the `protocol` attribute in singular. [Christian Studer]
+
+### Fix
+
+* [relatonships] because mirrors are great. [Alexandre Dulaunoy]
+
+* [relationships] newline. [Alexandre Dulaunoy]
+
+* Changed a few attribute types in different template. [Christian Studer]
+
+* [network-connection] Using the `size-in-bytes` attribute type for information expressed in bytes. [Christian Studer]
+
+### Other
+
+* Merge pull request #425 from Wachizungu/add-sponsors-and-supports-relationship-types. [Alexandre Dulaunoy]
+
+  add: [relationships] add a few relationship types and opposites
+
+* Add: [relationships] add a few relationship types and opposites. [Jeroen Pinoy]
+
+* Merge pull request #424 from cvandeplas/main. [Christophe Vandeplas]
+
+  new: Generalizing Persuasion (GP) Framework
+
+* Merge branch 'main' of github.com:MISP/misp-objects. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-objects into main. [Alexandre Dulaunoy]
+
+* Add: [network-traffic] Generic Network Traffic object. [Christian Studer]
+
+  - Following the STIX 2.1 spec
+
+* Merge branch 'main' of github.com:MISP/misp-objects. [Christian Studer]
+
+
 ## v2.4.189 (2024-04-05)
 
 ### New

@@ -2,6 +2,438 @@ Changelog
 =========
 
 
+%%version%% (unreleased)
+------------------------
+
+Fix
+~~~
+- [server/feed] correlation bug. [iglocska]
+
+  - too many correlating events makes MISP barf
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #9720 from schatzistogias/patch-1. [Alexandre
+  Dulaunoy]
+
+  Add Infoblox feed to defaults.json
+- Add Infoblox feed to defaults.json. [schatzistogias]
+
+
+v2.4.192 (2024-05-03)
+---------------------
+
+New
+~~~
+- [analyst data] missing views added. [iglocska]
+- [test] Security test for OTP disabled. [Jakub Onderka]
+- [test] Security test for forget password. [Jakub Onderka]
+- [security] Make possible to disable (T/H)OTP. [Jakub Onderka]
+
+  This is useful if MISP is connected to identity provider that already provides strong authentication
+- [fast api auth] added. [iglocska]
+
+  - added a new optional functionality to temporarily store hashed API keys in redis
+    - The duration of the temporary storage is controllable by a setting (defaults to 3 minutes)
+    - the hashing function used is an hmac sha-512 function, with the key being stored in a generated file on the instance
+    - this cuts the query times of extremely fast endpoints down drastically on heavy repeated use (such as warninglists/checkValue)
+- [fast api auth] added. [iglocska]
+
+  - added a new optional functionality to temporarily store hashed API keys in redis
+    - The duration of the temporary storage is controllable by a setting (defaults to 3 minutes)
+    - the hashing function used is an hmac sha-512 function, with the key being stored in a generated file on the instance
+    - this cuts the query times of extremely fast endpoints down drastically on heavy repeated use (such as warninglists/checkValue)
+- [internal] Send more logs to sentry as breadcrumbs. [Jakub Onderka]
+
+Changes
+~~~~~~~
+- [component:CRUD] Added support of afterFind in the delete function.
+  [Sami Mokaddem]
+- [schema] fix. [iglocska]
+- [VERSION] bump. [iglocska]
+- [analyst-data:view] Removed the redundant UUID popover button from the
+  UUID field. [Sami Mokaddem]
+- [analyst-data:beforeSave] Make sure to set distribution to default
+  value if not provided. [Sami Mokaddem]
+- [analyst-data:UI] Removed dep libraries. [Sami Mokaddem]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [test] Avoid sleep for 6 seconds. [Jakub Onderka]
+- [acl] Move site admin check as last check. [Jakub Onderka]
+- [security] Disable resetting password when password change is
+  disabled. [Jakub Onderka]
+- [analyst-data] Added support of capturing analyst-data nested in
+  attributes, events, eventreports and objects. [Sami Mokaddem]
+- [ls22shell] Improvement for LS24 adding support of analyst-data &
+  detection/mitigation rules + some tweaks. [Sami Mokaddem]
+- [UI] clicking on your user name should bring up the user profile,
+  fixes #9708. [iglocska]
+- Set BrowscapPHP logging from default DEBUG to INFO. [Bradley Logan]
+- [version bump] [iglocska]
+- [config] Allow Oidc roles as string. [christianmg99]
+- [config] Allow Oidc roles as string. [christianmg99]
+- [behavior:analystDataParent] Prevent double nesting analyst data when
+  bulk fetching. [Sami Mokaddem]
+- [CLI] Simplify updating JSON structures. [Jakub Onderka]
+- [UI] Make menu little bit nicer. [Jakub Onderka]
+- [internal] Remove outdated code from beforeFilter. [Jakub Onderka]
+- [internal] Remove old way for putting API key to rest search. [Jakub
+  Onderka]
+
+Fix
+~~~
+- [redirect loops] fixed for users that haven't done multiple mandatory
+  tasks during login yet. [iglocska]
+
+  - such as email OTP, change PW, read the news, etc.
+- [news UI] fixed notice error. [iglocska]
+- [security tests] removed otp_disabled check for email otp endpoint.
+  [iglocska]
+
+  - the two are distinct features
+- [OTP] restored. [iglocska]
+- [Email OTP] invalid ACL check reverted, allowing the feature to
+  function again. [iglocska]
+- [evnet view] excluding correlations should also exclude
+  over_correlated attributes, fixes #9366. [iglocska]
+- [external auth] fixed auth logging generating notices, fixes #9445.
+  [iglocska]
+- [workflow:workflow-shell] Make sure a user is set when using non-
+  blocking workflow. [Sami Mokaddem]
+
+  - Fix #9722
+  - Thanks to @microblag for the proposed fix
+- [analystdata] don't include the parent via the viewAnalystData
+  endpoints. [iglocska]
+- [UI] added missing views. [iglocska]
+- [UI] removed dumb check. [iglocska]
+- [analystdata] ui fixes. [iglocska]
+- [oidc] Fix issuer if not set. [Jakub Onderka]
+- [logs] Fixed bug in paginating logs. [Sami Mokaddem]
+- [analyst data] UI changes to make the loading on demand in the event
+  view. [iglocska]
+- [event add] default value of threat level ID correctly injected into
+  the form, fixes #9714. [iglocska]
+- [freetext] ip-src/ip-dst meta-type didn't have a valid category list.
+  [iglocska]
+- [user registration] pgp key not saved from the registration.
+  [iglocska]
+- [logs:index] Fixed UI pagination in application logs. [Sami Mokaddem]
+- [galaxy_clusters] Add orgc filter option for index, set it as default
+  for galaxy view 'My Clusters' [Jeroen Pinoy]
+- [sql logs] captured when benchmarking is enabled but debug level is <
+  2. [iglocska]
+- [security] stored XSS in the correlation top list. [iglocska]
+
+  - if an attribute with an XSS payload as its value ends up being in the top list of correlations, then an administrator viewing the top correlations would execute the XSS
+
+  - as reported by Grzegorz Misiun
+- [workflow:ui] Make sure to use full available width. [Sami Mokaddem]
+- [benchmarking] speculative fix for using db settings and benchmarking,
+  fixes #9702. [iglocska]
+
+  - causes issues for some users, couldn't reproduce it, but addressed the potential issues
+- [events:index] Fixed `tags` index filtering parameter to correctly
+  support list. [Sami Mokaddem]
+- [internal] Normalize extension for image helper. [Jakub Onderka]
+
+  Fixes #9692
+- [analyst-data:fetchAnalystDataBulk] Make sure to include all analyst-
+  data type. [Sami Mokaddem]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'feature/analyst-data-api' into develop. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into feature/analyst-
+  data-api. [Sami Mokaddem]
+- Merge pull request #9690 from JakubOnderka/opt_disabled. [Jakub
+  Onderka]
+
+  new: [security] Make possible to disable (T/H)OTP
+- Merge pull request #9700 from JakubOnderka/oidc-issuer-fix. [Jakub
+  Onderka]
+
+  fix: [oidc] Fix issuer if not set
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9697 from Wachizungu/add-orgc-filter-for-galaxy-
+  clusters-index. [Andras Iklody]
+
+  fix: [galaxy_clusters] Add orgc filter option for index, set it as de…
+- Merge branch 'browscap_default' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9695 from christianmg99/allow-oidc-roles-string.
+  [Jakub Onderka]
+
+  chg: [config] Allow Oidc roles as string
+- Merge branch '2.4' into develop. [Sami Mokaddem]
+- Revert "Revert "new: [event:index] Added support of ANDed tag
+  filtering in the backend"" [Sami Mokaddem]
+
+  This reverts commit 7cf9bcc94c0765e38aa8a4c8a69afaf46258857a.
+- Merge remote-tracking branch 'origin/2.4' into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge pull request #9696 from JakubOnderka/json-update. [Jakub
+  Onderka]
+
+  chg: [CLI] Simplify updating JSON structures
+- Merge pull request #8673 from JakubOnderka/menu-ui. [Jakub Onderka]
+
+  chg: [UI] Make menu little bit nicer
+- Merge pull request #8464 from JakubOnderka/restsearch-key-fetch.
+  [Jakub Onderka]
+
+  chg: [internal] Remove old way for putting API key to rest search
+- Merge pull request #9686 from JakubOnderka/sentry-breadcrumb. [Jakub
+  Onderka]
+
+  new: [internal] Send more logs to sentry as breadcrumbs
+- Merge pull request #9693 from JakubOnderka/image-helper-fix-vol2.
+  [Jakub Onderka]
+
+  fix: [internal] Normalize extension for image helper
+
+
+v2.4.191 (2024-04-22)
+---------------------
+
+Changes
+~~~~~~~
+- [config] Set Oidc issuer. [Christian Morales Guerrero]
+
+Fix
+~~~
+- [analyst-data:fetchAnalystDataBulk] Make sure to include all analyst-
+  data type. [Sami Mokaddem]
+- [analyst-data:thread] Make sure to link the add_analyst_* buttons to
+  the correct element. [Sami Mokaddem]
+
+Other
+~~~~~
+- Revert "new: [event:index] Added support of ANDed tag filtering in the
+  backend" [Sami Mokaddem]
+
+  This reverts commit fc922910929e7bbaf2a89c2e3387c3f743910549.
+- Merge pull request #9694 from christianmg99/set-oidc-issuer. [Jakub
+  Onderka]
+
+  chg: [config] Set Oidc issuer
+
+
+v2.4.190 (2024-04-18)
+---------------------
+
+New
+~~~
+- [feed:pullEvents] Added support of tag collection in feed
+  configuration. [Sami Mokaddem]
+
+  This allow to specify a tag collection for which all the tags will be applied on the pulled Events
+- [workflowMouldes:stop-execution] Added message paramter to allow user
+  to provide a reason why the execution was stopped. [Sami Mokaddem]
+- [event:index] Added support of ANDed tag filtering in the backend.
+  [Sami Mokaddem]
+
+  In addition of the OR filtering using searchtag:1|2, /events/index now supports AND filtering with searchtag:1&2.
+  The UI has not been updated yet.
+- [feed] Added unpublish_event setting to ensure pulled events are in
+  the unpublished state. [Sami Mokaddem]
+- [benchmarking suite] added. [iglocska]
+
+  - collect metrics about the usage of MISP
+    - stored in redis
+    - per endpoint / user / user-agent collection
+    - collection of execution time, php memory use, sql execution time, sql query count
+    - the collection happens on a daily basis
+  - Searchable / filterable interface for the collected data
+  - Dashboard widget for the collected data
+
+Changes
+~~~~~~~
+- [PyMISP] Bump. [Raphaël Vinot]
+- [warninglists] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [version] bump. [iglocska]
+- Bump PyMISP. [Raphaël Vinot]
+- [db_schema] Bumped version. [Sami Mokaddem]
+- [feed] Added support of tag_collection_id when dealing with feeds.
+  [Sami Mokaddem]
+- [syslog] output slightly changed. [iglocska]
+
+  - always have a consistent number of fields conveyed, include delimited ( -- ) fields even if no data is passed to a field
+  - Avoid linebreaks in content
+- [README] add the CLA FREE logo. [Alexandre Dulaunoy]
+- [workflow:editor] Show 100 entry max in picker. [Sami Mokaddem]
+- [internal] Log content type when JSON could not be parsed. [Jakub
+  Onderka]
+- [sync] Reduce default timeout for remote HTTP request to 300 seconds
+  (5 mins) [Jakub Onderka]
+- [sync] Change way how event index is cached in Redis to save memory.
+  [Jakub Onderka]
+- [sync] Try to reduce memory usage when fetching event index from
+  Redis. [Jakub Onderka]
+- [sync] Enable garbage collector when pulling events from remote
+  server. [Jakub Onderka]
+- [sync] Try to save memory when fetching sightings. [Jakub Onderka]
+- [internal] Ltrim response in HttpSocketHttpException. [Jakub Onderka]
+- [CI] Split logs in CI. [Jakub Onderka]
+- [internal] Server sync debug messages. [Jakub Onderka]
+- [openapi] STIX export is also supported at attribute level. [Alexandre
+  Dulaunoy]
+- [workflowModules:distribution-if] Allow choosing `sharing-group` and
+  keeping the selected sharing-group list empty. [Sami Mokaddem]
+
+  This enables users to simply check that the sharing-group distribution was used
+- [ui:galaxy_matrix] Resize matrix header on load. [Sami Mokaddem]
+- [analystData:API] Automatically encapsulate request's data into the
+  analystType. [Sami Mokaddem]
+- [eventReports:extractAllFromReport] Expose functionality to API. [Sami
+  Mokaddem]
+- [statistics] (R)etrieval (o)f (m)ember (m)etrics (e)valuation (l)ist
+  (f)or (s)tatistics changed. [iglocska]
+
+  - will include soft deleted attributes too
+- [attribute search] by uuid updated. [iglocska]
+
+  - pre-checks if the passed UUID is actually an event UUID before going with the slow query against both tables
+- [statistics] (R)etrieval (o)f (m)ember (m)etrics (e)valuation (l)ist
+  (f)or (s)tatistics changed. [iglocska]
+
+  - will include soft deleted attributes too
+- [comment] added to the previous fix to make it clear what it does.
+  [iglocska]
+- [sync] Move blocklist fetching out of ServerSyncTool and reduce
+  sightings fetched in one fetch. [Jakub Onderka]
+
+Fix
+~~~
+- [feed] Added tag_collection_id as column. [Sami Mokaddem]
+- [analyst-data:thread] Only render the HTML when opening the popover.
+  [Sami Mokaddem]
+- [eventreport] import from url api fixed. [iglocska]
+- [workflow:evaluateConfition] Fixed bug in `in_and` operator to make it
+  order independant. [Sami Mokaddem]
+- [users:statistics] Division by 0 when no events or no orgs. [Sami
+  Mokaddem]
+- [analystData:editableField] Made getEditableFields inheritance aware.
+  [Sami Mokaddem]
+- [eventreports:transformFreeTextIntoSuggestion] Add to_ids fallback
+  value. [Sami Mokaddem]
+- [tagCollection:removeTag] Fixed incorrect permission check. [Sami
+  Mokaddem]
+- [component:restSearch] Restored behavior of searching for org and
+  cluster metadata. [Sami Mokaddem]
+- [dashboard:updating] Prevent sending multiple time the same save
+  request[1;5D. [Sami Mokaddem]
+- [widget:EventEvolutionWidget] Fixed filtering on organisation not
+  working as expected. [Sami Mokaddem]
+- [dashboard:widgetAdd] Improved error handling for invalid JSON config.
+  [Sami Mokaddem]
+- [status widget] ignore index hint for deleted field. [iglocska]
+- [index] Don't load analyst data by default. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #9529 from obert01/fix-hover-enrich-accessibility.
+  [Andras Iklody]
+- Accessibility: Added the possibility to focus the hover enrichment
+  icon on attributes. [Olivier BERT]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'feed_tag_collections' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9639 from JakubOnderka/http-json-content-type.
+  [Jakub Onderka]
+
+  chg: [internal] Log content type when JSON could not be parsed
+- Merge pull request #9659 from JakubOnderka/curl-timeout-5-mins. [Jakub
+  Onderka]
+
+  chg: [sync] Reduce default timeout for remote HTTP request to 300 sec…
+- Merge pull request #9651 from JakubOnderka/server-sync-debug. [Jakub
+  Onderka]
+
+  Server sync debug
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9678 from TheDr1ver/patch-1. [Andras Iklody]
+
+  Define $relationshipsInbound before call
+- Define $relationshipsInbound before call. [Nick Driver]
+
+  Debug.log was showing the following error otherwise:
+
+  ```
+  2024-04-12 14:11:52 Notice: Notice (8): Undefined variable: relationshipsInbound in [/var/www/MISP/app/View/Elements/Events/View/row_object.ctp, line 40]
+  Trace:
+  ErrorHandler::handleError() - APP/Lib/cakephp/lib/Cake/Error/ErrorHandler.php, line 230
+  include - APP/View/Elements/Events/View/row_object.ctp, line 40
+  View::_evaluate() - APP/Lib/cakephp/lib/Cake/View/View.php, line 971
+  View::_render() - APP/Lib/cakephp/lib/Cake/View/View.php, line 933
+  View::_renderElement() - APP/Lib/cakephp/lib/Cake/View/View.php, line 1224
+  View::element() - APP/Lib/cakephp/lib/Cake/View/View.php, line 418
+  include - APP/View/Elements/eventattribute.ctp, line 148
+  View::_evaluate() - APP/Lib/cakephp/lib/Cake/View/View.php, line 971
+  View::_render() - APP/Lib/cakephp/lib/Cake/View/View.php, line 933
+  View::_renderElement() - APP/Lib/cakephp/lib/Cake/View/View.php, line 1224
+  View::element() - APP/Lib/cakephp/lib/Cake/View/View.php, line 418
+  include - APP/View/Elements/Events/View/event_contents.ctp, line 64
+  View::_evaluate() - APP/Lib/cakephp/lib/Cake/View/View.php, line 971
+  View::_render() - APP/Lib/cakephp/lib/Cake/View/View.php, line 933
+  View::_renderElement() - APP/Lib/cakephp/lib/Cake/View/View.php, line 1224
+  View::element() - APP/Lib/cakephp/lib/Cake/View/View.php, line 418
+  include - APP/View/Elements/genericElements/SingleViews/single_view.ctp, line 113
+  View::_evaluate() - APP/Lib/cakephp/lib/Cake/View/View.php, line 971
+  View::_render() - APP/Lib/cakephp/lib/Cake/View/View.php, line 933
+  View::_renderElement() - APP/Lib/cakephp/lib/Cake/View/View.php, line 1224
+  View::element() - APP/Lib/cakephp/lib/Cake/View/View.php, line 418
+  include - APP/View/Events/view.ctp, line 296
+  View::_evaluate() - APP/Lib/cakephp/lib/Cake/View/View.php, line 971
+  View::_render() - APP/Lib/cakephp/lib/Cake/View/View.php, line 933
+  View::render() - APP/Lib/cakephp/lib/Cake/View/View.php, line 473
+  Controller::render() - APP/Lib/cakephp/lib/Cake/Controller/Controller.php, line 968
+  Dispatcher::_invoke() - APP/Lib/cakephp/lib/Cake/Routing/Dispatcher.php, line 200
+  Dispatcher::dispatch() - APP/Lib/cakephp/lib/Cake/Routing/Dispatcher.php, line 167
+  [main] - APP/webroot/index.php, line 101
+
+  ```
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Fix [event:view] Missing variable definition in row_object. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [Sami Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #9665 from JakubOnderka/sightings-fetching-cleanup.
+  [Jakub Onderka]
+
+  chg: [sync] Move blocklist fetching out of ServerSyncTool
+
+
 v2.4.189 (2024-04-05)
 ---------------------
 
