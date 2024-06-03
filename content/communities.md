@@ -554,6 +554,16 @@ C3Ij/2IWN6eLTSzd0ikG7wOOKExTrCltTycyEMC0HwRSKYqQaBKPZcNSgm+3ma70FCv2
 </details>
 
 
+### misp-lea.org <i class="far fa-check-circle" style="color:green; "></i>
+![Logo](/img/communities/89e14331911b7f0763dff05d278ed22f.png "{class='community_logo'}")
+- Website: https://www.misp-lea.org/
+- Sector: Law Enforcement
+- Nationality: International
+
+
+MISP-LEA project consists in an law enforcement agency information sharing community. It’s powered by MISP and AIL project, two leading open source projects led by CIRCL. The community is only accessible to law enforcement agencies.
+- Contact: info@misp-lea.org
+
 ### BEAM SOC MISP Community
 ![Logo](/img/communities/e5188294bc0a4a5ce1578373fc5fa192.png "{class='community_logo'}")
 - Website: https://misp.beamteknoloji.com
