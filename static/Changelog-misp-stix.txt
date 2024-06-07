@@ -1,6 +1,533 @@
 # Changelog
 
 
+## v2.4.193 (2024-06-06)
+
+### Changes
+
+* [poetry] Bumped latest version in lock file. [Christian Studer]
+
+* [poetry] Updated version. [Christian Studer]
+
+* [stix2 import] Adding `source` information to the custom Galaxy Clusters imported from STIX 2.x objects. [Christian Studer]
+
+* [stix2 import] Simplify loading JSON files. [Jakub Onderka]
+
+* [tests] Updated tests for `domain-ip` objects import from STIX 2.1 to cover specific cases with UUIDs handling. [Christian Studer]
+
+* [stix2 import] Using the file observable references parsing method to convert v2.0 observable objects. [Christian Studer]
+
+* [stix2 import] Making the network-traffic objects parsing more generic. [Christian Studer]
+
+  - Some parts will be more easily reused for
+    network traffic objects associated to some
+    observed data objects
+
+* [stix2 import] Added generic conversion methods for observable objects associated to observed data objects imported as MISP objects. [Christian Studer]
+
+* [tests] Deduplicating existing tests for external directory observable objects. [Christian Studer]
+
+### Fix
+
+* [stix2 import] Making Python 3.8 & 3.9 happy with the typing. [Christian Studer]
+
+* [stix2 import] Post Observed Data Converter merge clean up and reassembling. [Christian Studer]
+
+* [stix2 import] Merged missing conflicts. [Christian Studer]
+
+* [stix2 import] Invalid typehint. [Jakub Onderka]
+
+* [stix2 import] Avoid running git process. [Jakub Onderka]
+
+* [stix2 import] No longer require to exclude patterns with 'AND' and 'OR' [Christian Studer]
+
+  - With indicators' patterns parsed with the pattern
+    data parser, we do not need to deal ourselves with
+    some patterns complexity
+  - Patterns with 'AND' and 'OR' are parsed as
+    expected with no loss of one of the expression
+
+* [stix2 import] Fixed UUID handling for `email` object attributes parsed from `email-message` references. [Christian Studer]
+
+* [stix2 import] Fixed `domain-ip` objects UUID handling. [Christian Studer]
+
+* [stix2 import] Handling domains resolving other domains with object references. [Christian Studer]
+
+* [stix2 import] Removed unnecessary intermediary method. [Christian Studer]
+
+* [stix2 import] Avoiding `domain-name` observable objects to be skipped because they're referenced by another domain-name object. [Christian Studer]
+
+* [stix2 import] Fixed `domain-ip` attributes UUIDs handling. [Christian Studer]
+
+* [stix2 import] Fixed `domain-ip` object attributes handling as `_sanitise_attribute_uuid` already returns a dict with the `uuid` key included. [Christian Studer]
+
+* [stix2 import] Fixed `_observable` variable name. [Christian Studer]
+
+* [stix2 import] Protocols error message made clearer. [Christian Studer]
+
+* [tests] Better UUID tests for objects imported from STIX 2.x Network Traffic Observable objects. [Christian Studer]
+
+* [stix2 import] Better internal http-request objects import from Observable objects. [Christian Studer]
+
+* [stix2 import] Better handling of attributes uuid for values converted from internal Network Traffic Observable objects. [Christian Studer]
+
+* [stix2 import] Fixing the internal STIX2 Network Traffic Observable objects and references IDs handling. [Christian Studer]
+
+* [stix2 import] Fixed Network Traffic Observable objects from internal STIX 2.x content parsing. [Christian Studer]
+
+  - Added `connection_protocols` mapping to the internal
+    mapping as it was removed from the parent mapping
+    to avoid issues with the external mapping but was
+    supposed to be moved and not completely removed
+  - Added specific parsing for internal network traffic
+    references objects
+
+* [stix2 import] Fixed STIX 2.0 Network Traffic Observable objects parsing. [Christian Studer]
+
+* [stix2 import] Added missing `protocol_attribute` property in STIX2Mapping parent class. [Christian Studer]
+
+* [stix2 import] Better handling of internal Galaxy & Cluster description. [Christian Studer]
+
+* [stix2 import] Updated Network Traffic observables objects mapping to MISP objects. [Christian Studer]
+
+* [stix2 import] Importing Network Traffic observable objects referenced by external Observed Data objects with the `network-traffic` generic MISP object template. [Christian Studer]
+
+* [stix2 import] Fixed email message objects parsing. [Christian Studer]
+
+* [stix2 import] Avoiding issues introduced since we updated the observables fetching method. [Christian Studer]
+
+  - As observables are fetched in a generator, we have to handle
+    it before returning a single or multiple observable(s) to
+    avoid breaking the automation on conversion of the internal
+    STIX 2.x content without modifying the different methods
+
+* [stix2 import] Avoiding issues with the internal STIX 2.1 Autonomous System observable objects fetching method. [Christian Studer]
+
+* [stix2 import] Making the multiple observables fetching method available to both internal and external STIX 2 Observed Data object converters. [Christian Studer]
+
+* [stix2 import] Avoiding issues with `ssdeep` hash type in STIX 2.0 external content. [Christian Studer]
+
+* [stix2 import] Updated pe object mapping with the `compilation-timestamp` attribute. [Christian Studer]
+
+* [stix2 import] Better STIX 2.0 `windows-pebinary-ext` within File observable object handling. [Christian Studer]
+
+* [stix2 import] MISP object references handling method name. [Christian Studer]
+
+* [stix2 import] Error exceptions handling method name. [Christian Studer]
+
+* [stix2 import] Fixed the MISP object reference duplicates checking. [Christian Studer]
+
+* [stix2 import] Deduplication of MISP object references. [Christian Studer]
+
+  - Checking the presence of references with the same
+    referenced uuid AND relationship type before
+    adding a reference to a MISP object
+
+* [stix2 import] Fixed File PE extension parsing method name to avoid confusion with the generic method used then from the observable objects converter class. [Christian Studer]
+
+* [stix2 import] Avoiding issues with observables references, by keeping track of each reference within a single STIX 2.0 observed data objects list. [Christian Studer]
+
+* [stix2 import] Returning MISPAttributes in some generic observable objects conversion methods. [Christian Studer]
+
+* [stix2 import] Fixed wrong variable name for a MISP object meta fields check. [Christian Studer]
+
+* [tests] Fixed tests for external STIX 2.x SDOs imported as Galaxy Clusters following the recent add of the `organisation_uuid` argument. [Christian Studer]
+
+* [stix2 import] Setting `single_event` when parsing a bundle with a single report/grouping, to avoid issues raised with multiple reports/groupings handling methods. [Christian Studer]
+
+* [stix2 import] Fixed the case with multiple events as result. [Christian Studer]
+
+  - As `single_event` was set again for each report or grouping,
+    there was no possibility the multiple events were saved
+    accordingly on different result files
+
+* [stix2 import] In the end we have to parse the Sighting & Opinion objects and convert them as MISP Sighting when they are used. [Christian Studer]
+
+  - Parsing them when the loading methods are called
+    can raise issues with some referenced identity
+    objects are not loaded already
+
+* [stix2 import] Fixed relationships handling between sighting & opinion objects, and their references. [Christian Studer]
+
+* [stix2 import] Fixed MISP Sightings handling. [Christian Studer]
+
+* [stix2 import] Removed unused import. [Christian Studer]
+
+  - I guess this was an auto completion typo
+
+* [stix2 import] Avoiding issues with STIX 2.x content coming from a TAXII collection or embedded into a single list instead of a Bundle. [Christian Studer]
+
+* [stix2 import] Removed unsued import & added missing blank lines to make pep8 happy. [Christian Studer]
+
+* [stix2 import] Added the missing sorting statement for observable objects types passed to match mapping. [Christian Studer]
+
+* [stix2 import] Clearer observable objects mapping handling in the observed data conversion methods. [Christian Studer]
+
+* [stix2 import] Reusing the STIX 2.1 observable objects fetching method. [Christian Studer]
+
+* [stix2 import] Setting MISP objects timestamp with the datetime value instead of an int. [Christian Studer]
+
+* [stix2 import] Fixed AttributeError with method from parent conversion class. [Christian Studer]
+
+* [tests] Passing observable ids instead of objects themselves for some tests that only need to know about ids. [Christian Studer]
+
+* [tests] Testing MISP Object comment when its uuid is v5. [Christian Studer]
+
+* [stix2 import] Added observed data id as comment for misp objects converted from STIX 2.0 when it has a v5 uuid. [Christian Studer]
+
+* [stix2 import] Some typings fixed. [Christian Studer]
+
+* [stix2 import] Quick reordering to allow more reusability. [Christian Studer]
+
+* [stix2 import] Avoiding issues with marking definitions referenced but not present in a file. [Christian Studer]
+
+  - Checking TLP Markings
+
+* [stix2 import] Better tags from indicators parsing & simplified the tags handling method. [Christian Studer]
+
+* [stix2 import] Some methods deduplication between main parser & converters. [Christian Studer]
+
+* [stix2 import] Yield syntax. [Christian Studer]
+
+* [stix2 import] Copy-paste typo. [Christian Studer]
+
+* [tests] Quick fix on the `created` or `created_time` field from a process observable object. [Christian Studer]
+
+* [stix2 import] Avoid future potential issues with object names in generic conversion methods. [Christian Studer]
+
+  - When an object name has at least one `-` and we
+    want to use the related mapping, we need to
+    `replace('-', '_')` to avoid issues with
+    mapping names
+
+* [stix2 import] Quick fix in the Process observable objects associated with Observed Data objects conversion method. [Christian Studer]
+
+* [stix2 import] Utilising the newly added `environment-variables` attribute to properly import the environment variables & arguments of a STIX 2.x process object. [Christian Studer]
+
+* [stix2 import] Updated typings. [Christian Studer]
+
+* [stix2 import] Typo on the generic observable object parsing method to call. [Christian Studer]
+
+* [stix2 import] Deduplication in the STIX 2.1 Directory objects parsing. [Christian Studer]
+
+* [stix2 import] Removed duplicated MISP Attribute dict creation methods. [Christian Studer]
+
+* [stix2 import] Better handling of generic observable object parsers. [Christian Studer]
+
+* [stix2 import] Quick clean-up on some observed data method arguments. [Christian Studer]
+
+* [stix2 import] Fixed Observable objects types mapping. [Christian Studer]
+
+  - Considering the possibility to have both types of
+    IP addresses wihtin the Observed Data list of
+    obervable objects
+
+* [stix2 import] Better overall UUID sanitation & comments handling for MISP attributes creation. [Christian Studer]
+
+* [tests] Removed `spec_version` fields in STIX 2.0 samples. [Christian Studer]
+
+* [stix2 import] Properly calling the UUID sanitation method. [Christian Studer]
+
+* [stix2 import] Removing unused variable in marking definitions parsing. [Christian Studer]
+
+* [stix2 import] Fixed directory observable objects parsing method header. [Christian Studer]
+
+  - In this specific location, the `object_id` argument is not Optional
+
+* [tests] Added missing tests for directory path attribute types. [Christian Studer]
+
+* [stix2 import] Reuse of the method parsing Directory observable objects with an `id` field. [Christian Studer]
+
+* [stix2 import] Using the AS value parsing method for an AS value that was missing it. [Christian Studer]
+
+* [stix2 import] Fixed directory mapping. [Christian Studer]
+
+* [stix2 import] Quick pep8 clean-up. [Christian Studer]
+
+* [stix2 import] Fixed the converters composition. [Christian Studer]
+
+  - The `getattr` statements were actually making
+    their default argument execute itself and
+    re-initialising each converter attribute as if
+    it was there first call and the attribute did
+    not exist
+
+* [tests] A tiny clarification change. [Christian Studer]
+
+* [stix2 import] Observable objects fetcher moved to the parent class as it will be reused for internal & external conversion. [Christian Studer]
+
+* [stix2 import] Quick syntax fix. [Christian Studer]
+
+### Other
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:misp/misp-stix into parser_feature. [Christian Studer]
+
+* Merge branch 'acs-marking' of github.com:MISP/misp-stix into parser_feature. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into parser_feature. [Christian Studer]
+
+* Merge branch 'main' of github.com:misp/misp-stix into parser_feature. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge pull request #65 from JakubOnderka/fix-git. [Christian Studer]
+
+  fix: [stix2 import] Avoid running git process
+
+* Add: [tests] Tests for Email Message objects - and references - import from STIX 2.x. [Christian Studer]
+
+* Add: [stix2 import] Updated the STIX 2.x Email objects mappings. [Christian Studer]
+
+* Wip: [tests] Tests for `domain-ip` objects import from external STIX 2.x. [Christian Studer]
+
+* Wip: [tests] Tests for Network Traffic Observable objects imported from external STIX 2 bundles as `network-traffic` objects. [Christian Studer]
+
+* Wip: [stix2 import] Better conversion of Network Traffic references observable objects. [Christian Studer]
+
+  - Such as IP addresses, Domain names and Mac addresses
+    referenced with the `src_ref` and `dst_ref` fields
+
+* Wip: [stix2 import] Parsing Network Traffic Observable objects referenced in Observed Data from the Observed Data Converter. [Christian Studer]
+
+* Wip: [stix2 import] Parsing EmailMessage observable objects from Observed Data converter. [Christian Studer]
+
+* Wip: [stix2 import] Reusing `EmailMessage` observable parsing method. [Christian Studer]
+
+* Wip: [stix2 import] Parsing `DomainName` and IP observable objects resolving each others. [Christian Studer]
+
+* Wip: [stix2 import] Parsing `archive-ext` from standalone file observable objects. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Wip: [tests] Added tests for file objects with extensions. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Wip: [stix2 import] Parsing File objects extensions. [Christian Studer]
+
+* Wip: [stix2 import] Parsing STIX 2.0 Observed Data objects with multiple embedded observable objects with no specific mapping. [Christian Studer]
+
+* Wip: [stix2 import] Better observable objects fetching methods. [Christian Studer]
+
+* Wip: [stix2 import] Parsing Observable objects referenced together by a single Observed Data object with no specific mapping. [Christian Studer]
+
+* Wip: [tests] Tests for File objects and their Directory & Artifact references import from STIX 2.x. [Christian Studer]
+
+* Wip: [stix2 import] Converting File observable objects and their Directory & Artifact references. [Christian Studer]
+
+* Wip: [stix2 import] Better observable objects parsing. [Christian Studer]
+
+* Wip: [stix2 import] Better embedded directory observable object references parsing. [Christian Studer]
+
+* Wip: [stix2 import] Parsing the observable objects referenced with `contains_refs` references in a generic method that will be reused later. [Christian Studer]
+
+* Wip: [tests] Tests for some objects referenced by Opinions. [Christian Studer]
+
+* Add: [stix2 import] Added `organisation_uuid` argument to use to generate the custom clusters UUID. [Christian Studer]
+
+* Wip: [tests] Tests for user account observable objects referenced by registry keys as creators. [Christian Studer]
+
+* Wip: [stix2 import] Handling cases where some STIX 2.1 observable objects are referenced by multiple observed data objects. [Christian Studer]
+
+* Wip: [stix2 import] Parsing User Account observables referenced by registry keys to be the creator reference. [Christian Studer]
+
+* Wip: [tests] Tests for STIX 2.x Windows Registry Key objects conversion. [Christian Studer]
+
+* Wip: [stix2 import] Converting STIX 2.x Windows Registry Key objects. [Christian Studer]
+
+* Wip: [tests] Tests for External STIX 2.x User Account observable objects import as MISP objects. [Christian Studer]
+
+* Wip: [stix2 import] Parsing external STIX 2.x User Account observable objects from converters. [Christian Studer]
+
+* Wip: [tests] Tests for external STIX 2.x Process observable objects associated with Observed Data object import as MISP `process` objects. [Christian Studer]
+
+* Wip: [stix2 import] Parsing Process observable objects from converters. [Christian Studer]
+
+* Wip: [tests] Tests for X509 Certificate objects import from STIX 2.x. [Christian Studer]
+
+* Wip: [stix2 import] Reusing the generic observed data parsing methods to support X509 observable objects conversion from the converters. [Christian Studer]
+
+* Wip: [tests] Tests for external Software Observable objects - within or referenced by Observed data objects - import to MISP objects. [Christian Studer]
+
+* Wip: [stix2 import] Reusing the generic observed data parsing methods to support Software observable objects conversion from the converters. [Christian Studer]
+
+* Wip: [tests] Tests for external STIX 2.x Observed Data with artifact observable objects import to MISP. [Christian Studer]
+
+* Wip: [stix2 import] Parsing external STIX 2.x Observed data with artifact observable objects, from converters. [Christian Studer]
+
+* Wip: [stix2 import] Handling the observable relationships after the observed data objects are all parsed. [Christian Studer]
+
+* Wip: [tests] Tests for Observable objects converted in a generic way to MISP attributes. [Christian Studer]
+
+* Wip: [stix2 import] Parsing some Observable objects - converted to MISP attributes - in a generic way, from Observed Data converter. [Christian Studer]
+
+* Wip: [tests] Tests for email address observable objects in observed data import from external STIX 2.x content. [Christian Studer]
+
+* Wip: [stix2 import] Parsing email address observable objects in observed data from external STIX 2.x content, in converters. [Christian Studer]
+
+* Add: [tests] Tests for Autonomous System observable objects with observed data import from STIX 2.x. [Christian Studer]
+
+* Add: [stix2 import] Parsing Observed Data with Autonomous System observable objects from converters. [Christian Studer]
+
+* Wip: [tests] Tests for directory observable objects import from STIX 2.x. [Christian Studer]
+
+* Wip: [stix2 import] Porting Observed Data objects conversion ability to converters, starting with Directory objects. [Christian Studer]
+
+  - Introducing a better conversion process
+  - Handling complex references between observable
+    objects amongst observed data objects
+
+
+## v2.4.188 (2024-03-21)
+
+### Changes
+
+* [poetry] Bumped lock file with latest versions. [Christian Studer]
+
+* [package] Bumping new version. [Christian Studer]
+
+### Fix
+
+* [stix2 import] Centralised the cluster creation in one single place and added the meta parsing as galaxy elements statement. [Christian Studer]
+
+* [stix2 import] Storing the galaxy args. [Christian Studer]
+
+  - The idea is to create a MISP Galaxy object each
+    time it is needed instead of storing it
+
+* [stix2 import] Using the `_add_misp_object` helper that already handles tags and other stuff related to a MISP object and its attributes. [Christian Studer]
+
+* [stix2 import] Added missing `collection_uuid` value to the ACS marking clusters. [Christian Studer]
+
+* [stix2 import] Some typing and pycodestyle issues fixed. [Christian Studer]
+
+* [stix2 import] Fixed ACS marking parsing. [Christian Studer]
+
+  - Privilege scope fields and values are correctly
+    flattened, and the Marking Definition spec'
+    version is correctly used
+
+* [stix2 import] Fixed variable assignment typo & storing of the acs marking clusters raising issues. [Christian Studer]
+
+### Other
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'acs-marking' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Wip: [stix2 import] Adding a set of tags alongside with the Galaxy Clusters converted from ACS markings. [Christian Studer]
+
+* Wip: [stix2 import] Attaching ACS markings as galaxies to the referenred data layer (attribute or event) [Christian Studer]
+
+* Wip: [stix2 import] First shot of an ACS marking parsing method. [Christian Studer]
+
+* Wip: [stix2 import] Preparing for an update on marking definitions parsing. [Christian Studer]
+
+
+## v2.4.186 (2024-02-27)
+
+### Changes
+
+* [package, poetry] New version. [Christian Studer]
+
+* [poetry] Bumped latest versions. [Christian Studer]
+
+### Fix
+
+* [tests] Fixed tests for external STIX 2.x SDOs imported as Galaxy Clusters following the recent add of the `organisation_uuid` argument. [Christian Studer]
+
+* [stix2 import] Avoiding issues with Marking Definition objects that are parsed and handle directly when they're loaded. [Christian Studer]
+
+* [stix2 import] Setting `single_event` when parsing a bundle with a single report/grouping, to avoid issues raised with multiple reports/groupings handling methods. [Christian Studer]
+
+* [stix2 import] Fixed the case with multiple events as result. [Christian Studer]
+
+  - As `single_event` was set again for each report or grouping,
+    there was no possibility the multiple events were saved
+    accordingly on different result files
+
+* [stix2 import] In the end we have to parse the Sighting & Opinion objects and convert them as MISP Sighting when they are used. [Christian Studer]
+
+  - Parsing them when the loading methods are called
+    can raise issues with some referenced identity
+    objects are not loaded already
+
+* [stix2 import] Fixed relationships handling between sighting & opinion objects, and their references. [Christian Studer]
+
+* [stix2 import] Fixed MISP Sightings handling. [Christian Studer]
+
+* [stix2 import] Avoiding issues with STIX 2.x content coming from a TAXII collection or embedded into a single list instead of a Bundle. [Christian Studer]
+
+### Other
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Add: [stix2 import] Added `organisation_uuid` argument to use to generate the custom clusters UUID. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+
+## v2.4.185 (2024-02-16)
+
+### Changes
+
+* [poetry] Bumped latest dependencies versions. [Christian Studer]
+
+* [poetry, package] Set latest version. [Christian Studer]
+
+### Fix
+
+* [stix2 import] Yield syntax. [Christian Studer]
+
+* [stix2 import] Fixed Observable objects types mapping. [Christian Studer]
+
+  - Considering the possibility to have both types of
+    IP addresses wihtin the Observed Data list of
+    obervable objects
+
+* [stix2 import] Removing unused variable in marking definitions parsing. [Christian Studer]
+
+* [stix2 import] Using the AS value parsing method for an AS value that was missing it. [Christian Studer]
+
+* [stix2 import] Fixed directory mapping. [Christian Studer]
+
+* [stix2 import] Fixed the converters composition. [Christian Studer]
+
+  - The `getattr` statements were actually making
+    their default argument execute itself and
+    re-initialising each converter attribute as if
+    it was there first call and the attribute did
+    not exist
+
+* [stix2 import] Avoiding issues with marking definitions referenced but not present in a file. [Christian Studer]
+
+  - Checking TLP Markings
+
+### Other
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+
 ## v2.4.183 (2024-01-04)
 
 ### Changes

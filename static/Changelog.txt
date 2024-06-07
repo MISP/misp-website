@@ -2,23 +2,189 @@ Changelog
 =========
 
 
-%%version%% (unreleased)
-------------------------
+v2.4.193 (2024-06-06)
+---------------------
+
+New
+~~~
+- [attributes/enrich] endpoint added. [iglocska]
+
+  - simply post a list of modules you wish to enrich the attribute by
+  - url: /attributes/enrich/[attrribute_id|attribute_uuid]
+  - post body in the format of `{"dns":1, "foo_bar_baz": 1}` listing all modules to execute
+- [misp-community] MISP-LEA information sharing community added.
+  [Alexandre Dulaunoy]
+- [events:view] New UI feature allowing to collapse Attributes contained
+  inside an object. [Sami Mokaddem]
+
+  - This comes with an MISP setting to configure this behavior at an instance-wide level
+- [fatal error] logging added. [iglocska]
+
+  - helps administrators to easily see what went wrong in terms of timeouts / oom issues
+- [feed acl] changed for feeds that have visibility set to 1. [iglocska]
+
+  - any user can now use open feeds to:
+    - browse the data
+    - preview individual events
+    - search the feed caches for the given feeds
+    - run overlap comparisons on them
+
+  - For any feeds/server correlations that do not allow for users to see the contents
+    - correctly show the server wide opt-in correlations on local events as text, rather than non-functional links
+- [feed] sync pull rule checks on manifest, fixes #9728. [iglocska]
+
+  - added a new set of checks to rule out events from MISP feed pulls that do not match the filter rules
+  - should speed things up considerably
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [diagnostics] add Database/MysqlObserverExtended to valid data sources
+  list. [Jeroen Pinoy]
+- [attributes/enrich] added to ACL. [iglocska]
+- [community] misp-lea.org is actually vetted by us. [Alexandre
+  Dulaunoy]
+- [PyMISP] Bump for testing. [Raphaël Vinot]
+- [event:view] Small UI improvement for attribute's type in the object
+  row. [Sami Mokaddem]
+- [events:view] Small UI tweak to prevent object name to wrap. [Sami
+  Mokaddem]
+- [galaxy:galaxy-matrix] Respect order of tabs based on kill_chain_order
+  definition. [Sami Mokaddem]
+- [analyst-data:relationship] Prevent self-referencing relationships.
+  [Sami Mokaddem]
+- [analyst-data:view] Always return attached analyst-data. [Sami
+  Mokaddem]
+- [analyst-data:capture] Recursively capture nested analyst-data. [Sami
+  Mokaddem]
+- [component:CRUD] Added support of afterFind in the delete function.
+  [Sami Mokaddem]
 
 Fix
 ~~~
+- [feed settings] unpublish_event setting had the inverted effect, fixes
+  #9739. [iglocska]
+- [JS] invalid comparison fixed. [iglocska]
+
+  - 2jsirl4jsirl
+- [tag search] fixed. [iglocska]
+- [modules] /queryEnrichment endpoint fixed in modules controller -
+  correctly pass module data. [iglocska]
+
+  - fixes #9758
+- [event fetcher] pop the tag filter after the first round of lookups.
+  [iglocska]
+
+  - no need to add the - in effect same - condition twice. The set_tag_filters() function already returns the conditions on multiple hierarchical levels
+- [tag search] fixes #1. [iglocska]
+
+  - correctly break the execution for AND ed tag searches if at least one of the tags in the list doesn't exist
+  - correctly compare against the event_id field in the attribute_tags table, rather than the copy pasta error of Event.id
+- [API] don't html encode JSON documents. [iglocska]
+
+  - earlier fix broke shit
+  - sometimes we pass the type as json sometimes as application/json to the response class, which handles it cleanly - but the check only accounted for one case
+- [security] changed menu_custom_right_link to CLI only. [iglocska]
+
+  - allows a malicious / hijacked admin account to embed malicious js in a global menu link otherwise
+  - as reported by Nils Putnins and Jeroen Pinoy from NCIA NCSC
+- [galaxyClusters:restSearch] filter on org_id and orgc_id if param set.
+  [Jeroen Pinoy]
+- [security] rest client additional sanitisation for non json responses.
+  [iglocska]
+
+  - escape non json response bodies
+  - as reported by Nils Putnins from NCIA NCSC
+- [security] changed menu_custom_right_link_html to CLI only. [iglocska]
+
+  - allows a malicious / hijacked admin account to embed malicious js in every page otherwise
+  - as reported by Nils Putnins from NCIA NCSC
+- [PyMISP] Fix the tests. [Raphaël Vinot]
+- [Collections] path pluralisation fix inb acl check for collections,
+  fixes #9745. [iglocska]
+
+  - no longer breaks collections index
+- [event:view] Correctly handle first click on toggle attribute
+  visibility. [Sami Mokaddem]
+- [audit-logs:eventIndex] Fixed pagination issue while viewing event
+  history. [Sami Mokaddem]
+
+  Fix #9726
+- [event-report:publishing] Do not reset the event timestamp when
+  updating an event report. [Sami Mokaddem]
+- [feeds] function name change not handled everywhere. [iglocska]
+- [ACL] private function name convention not kept for a new function.
+  [iglocska]
+
+  - causes the ACL self-test to complain about an accessible endpoint (which is a private function)
+- [correlation] small fix for the preview_event. [iglocska]
+- [server correlation UI] fixed link to index preview. [iglocska]
+- [password reset] ACL fix. [iglocska]
+- [ACL] fixed pre-auth dynamic function calls. [iglocska]
 - [server/feed] correlation bug. [iglocska]
 
   - too many correlating events makes MISP barf
+- [bruteforceProtection] Avoid failing when wrong user name is used.
+  [Sami Mokaddem]
 
 Other
 ~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge pull request #9764 from Wachizungu/add-mysqlobserverextended-
+  validdatasource. [Andras Iklody]
+
+  chg: [diagnostics] add Database/MysqlObserverExtended to valid data s…
+- Merge branch 'event_view_collapse' into develop. [iglocska]
+- Merge branch 'develop' into event_view_collapse. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge pull request #9717 from Wachizungu/fix-galaxyclusters-org-orgc-
+  restsearch-param. [Andras Iklody]
+
+  fix: [galaxyClusters:restSearch] filter on org_id and orgc_id if para…
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
 - Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #9741 from schatzistogias/2.4. [Alexandre Dulaunoy]
+
+  Updated git link
+- Updated git link. [Stelios Chatzistogias]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge branch 'visible_feeds' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
 - Merge pull request #9720 from schatzistogias/patch-1. [Alexandre
   Dulaunoy]
 
   Add Infoblox feed to defaults.json
 - Add Infoblox feed to defaults.json. [schatzistogias]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
 
 
 v2.4.192 (2024-05-03)
@@ -71,9 +237,6 @@ Changes
 - [UI] clicking on your user name should bring up the user profile,
   fixes #9708. [iglocska]
 - Set BrowscapPHP logging from default DEBUG to INFO. [Bradley Logan]
-- [version bump] [iglocska]
-- [config] Allow Oidc roles as string. [christianmg99]
-- [config] Allow Oidc roles as string. [christianmg99]
 - [behavior:analystDataParent] Prevent double nesting analyst data when
   bulk fetching. [Sami Mokaddem]
 - [CLI] Simplify updating JSON structures. [Jakub Onderka]
@@ -178,10 +341,6 @@ Other
 - Merge branch '2.4' into develop. [iglocska]
 - Merge branch '2.4' into develop. [Alexandre Dulaunoy]
 - Merge branch '2.4' into develop. [Alexandre Dulaunoy]
-- Merge pull request #9695 from christianmg99/allow-oidc-roles-string.
-  [Jakub Onderka]
-
-  chg: [config] Allow Oidc roles as string
 - Merge branch '2.4' into develop. [Sami Mokaddem]
 - Revert "Revert "new: [event:index] Added support of ANDed tag
   filtering in the backend"" [Sami Mokaddem]
@@ -217,6 +376,9 @@ v2.4.191 (2024-04-22)
 
 Changes
 ~~~~~~~
+- [version bump] [iglocska]
+- [config] Allow Oidc roles as string. [christianmg99]
+- [config] Allow Oidc roles as string. [christianmg99]
 - [config] Set Oidc issuer. [Christian Morales Guerrero]
 
 Fix
@@ -228,6 +390,10 @@ Fix
 
 Other
 ~~~~~
+- Merge pull request #9695 from christianmg99/allow-oidc-roles-string.
+  [Jakub Onderka]
+
+  chg: [config] Allow Oidc roles as string
 - Revert "new: [event:index] Added support of ANDed tag filtering in the
   backend" [Sami Mokaddem]
 
