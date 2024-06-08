@@ -3,12 +3,10 @@ title: MISP 2.4.193 released with many bugs fixed, API improvements and security
 date: 2024-06-07
 layout: post
 tags: ["MISP", "Threat Intelligence", "release" ]
-banner: /img/blog/opinion-view.png
+banner: /img/blog/object-collapse.png
 ---
 
 MISP 2.4.193 released with many bugs fixed, API improvements and security fixes
-
-![image](https://github.com/MISP/MISP/assets/3668672/81098352-619d-43b0-b44e-24b8d2646584)
 
 ## New
 
