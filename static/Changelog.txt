@@ -2,7 +2,123 @@ Changelog
 =========
 
 
-v2.4.193 (2024-06-06)
+%%version%% (unreleased)
+------------------------
+
+Changes
+~~~~~~~
+- [PyMISP] Bump changelog. [Raphaël Vinot]
+
+
+v2.4.194 (2024-06-21)
+---------------------
+
+New
+~~~
+- [bookmark] Added bookmark functionality. [Sami Mokaddem]
+
+  - Allow any user to create a bookmark
+  - Bookmarks can be shared to all users belonging to the bookmark organisation
+- [heartbeat] added. [iglocska]
+
+  - new endpoint, /users/heartbeat
+  - accessible unauthed, simply returns a 200 response if the instance is operational
+  - No checks are done on live status, version, etc. The idea is to simply see if the instance is up
+  - Skips most of beforefilter() altogether, making it very fast.
+- [skip otp requirement] role permission added to exclude certain roles
+  from the otp requirement. [iglocska]
+
+  - handy for filtered, local service accounts
+- [users api] added new boolean field to the output indicating whether
+  totp is set for the user. [iglocska]
+
+  - A simple boolean field to show whether totp has been set up for the given account
+  - works for /users/view, /admin/users/view, /admin/users/index
+
+Changes
+~~~~~~~
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [schema] bump. [iglocska]
+- [version] bump. [iglocska]
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [bookmark:index] Added title acting as doc for exposed_to_org field.
+  [Sami Mokaddem]
+- [bookmarks:index] Improved support of quick search. [Sami Mokaddem]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [ACL] added heartbeat to the ACL component. [iglocska]
+- [schema and mysql.sql] updated. [iglocska]
+
+  - it's been long overdue
+
+Fix
+~~~
+- [default roles] delegation permission added to sync user and
+  publisher. [iglocska]
+- [default role] readded. [iglocska]
+- [PyMISP] Mistake in tests. [Raphaël Vinot]
+- [roles] defaults fixed. [iglocska]
+- [event report markdown editor] not displaying tags, fixes #9774.
+  [iglocska]
+
+  - garbage response type bites us in the arse again
+- [feed ingestion] include a user agent to circumvent issues with feeds
+  requiring it, fixes #9773. [iglocska]
+- [galaxycluster blocklist] editing missing view, fixes #9766.
+  [iglocska]
+- [missing org logo] in decaying model readded, fixes #9768. [iglocska]
+
+  - went fubar after the move to base64 encoded org images
+- [decaying tool] JSON response fixes, fixes #9769. [iglocska]
+
+  - AJAX queries shouldn't receive the responses back as text/html when we're dealing with JSON responses
+- [object references links] fixed, fixes #9787. [iglocska]
+
+  - Clicking on a referenced object didn't refocus the view as it does for attributes
+  - moved to using data fields for referencing the correct object
+
+  - The code handling this was an eldritch nightmare that only worked when enough sheep have been sacirificed to the wicked javascript deity on the last full moon
+- [server edit] view - notice error fixed. [iglocska]
+
+  - url_params in the pull rules may not exist on old server objects
+- [bookmark:index] Fixed typo in description. [Sami Mokaddem]
+- [mysql.sql] default role settings fixed. [iglocska]
+
+  memory_limit / max_execution_time should be NULL not 0
+- [openapi] local flag in EventTags should be boolean. [iglocska]
+- [doc] correct filenames in rhel background worker migration guide
+  steps. [Jeroen Pinoy]
+- [sighting sync] raised tiny chunk size to improve performance.
+  [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'bookmarks' into develop. [iglocska]
+- Merge branch 'develop' into bookmarks. [iglocska]
+- Merge branch '2.4' into develop. [iglocska]
+- Update README.md. [Andras Iklody]
+- Merge pull request #9782 from mdhirt/mdhirt-fix-#9781. [Andras Iklody]
+
+  Update eventattributetoolbar.ctp
+- Update eventattributetoolbar.ctp. [Mike]
+
+  Fixed invalid object _( on lines 266 and 274
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9771 from Wachizungu/fix-rhel-background-workers-
+  migration-guide. [Alexandre Dulaunoy]
+
+  fix: [doc] correct filenames in rhel background worker migration guid…
+
+
+v2.4.193 (2024-06-11)
 ---------------------
 
 New
@@ -38,6 +154,11 @@ New
 
 Changes
 ~~~~~~~
+- [recorrelation] added new functionality to set the recorrelation chunk
+  size. [iglocska]
+
+  - recorrelate in configurable chunk sizes (rather than the old hard coded value of 500)
+  - immediately execute the saving of correlations after each chunk (should drastically reduce memory usage for massive events)
 - [version] bump. [iglocska]
 - [PyMISP] Bump version. [Raphaël Vinot]
 - [misp-stix] Bumped latest version. [Christian Studer]
@@ -135,6 +256,7 @@ Fix
 
 Other
 ~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
 - Merge branch 'develop' into 2.4. [iglocska]
 - Merge branch 'develop' of github.com:MISP/MISP into develop.
   [Christian Studer]

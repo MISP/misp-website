@@ -1,6 +1,54 @@
 # Changelog
 
 
+## v2.4.194 (2024-06-21)
+
+### Changes
+
+* [poetry] Updated lock file with latest versions. [Christian Studer]
+
+* [poetry] Latest version. [Christian Studer]
+
+* [stix2 export] Cleaner STIX 2.x object IDs handling. [Christian Studer]
+
+### Fix
+
+* [stix2 import] Deduplication of the Event tags that were also added to Attributes. [Christian Studer]
+
+  - Tags attached to Events are by definition
+    applied to all Attributes and do not need to be
+    attached again to any Attribute
+
+* [stix2 import] Removed unused methods. [Christian Studer]
+
+  - Removed all methods ported previously in the
+    different converters
+
+* [stix2 import] Avoid returning an error message for marking-definition refs not parsed. [Christian Studer]
+
+  - Marking definition objects are loaded and parsed
+    directly so we do not need to parse them when we
+    loop through the object refs.
+
+* [stix2 export] Cleaner code. [Christian Studer]
+
+  - At least whenever complying with pep8 does not
+    make the code definitely less readable than
+    leaving it as is
+
+* [stix2 import] Differenciating the network traffic mapping to use when parsing indicators. [Christian Studer]
+
+### Other
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+* Merge branch 'parser_feature' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+* Merge branch 'main' of github.com:misp/misp-stix into parser_feature. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-stix into dev. [Christian Studer]
+
+
 ## v2.4.193 (2024-06-06)
 
 ### Changes
