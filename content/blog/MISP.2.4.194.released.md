@@ -8,7 +8,7 @@ banner: /img/blog/object-collapse.png
 
 MISP 2.4.194 released with new functionalities and various bugs fixed.
 
-{{<video src="/img/blog/bookmark.webm)"  >}}
+{{<video src="/img/blog/bookmark.webm"  >}}
 
 ### New Features
 - **Bookmark Functionality**:
