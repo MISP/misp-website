@@ -8,7 +8,7 @@ banner: /img/blog/object-collapse.png
 
 MISP 2.4.194 released with new functionalities and various bugs fixed.
 
-[Screencast of the new bookmark functionality](https://github.com/MISP/MISP/assets/3309/9c0a48a6-4af3-4b90-9941-d2e5d6d68e7e)
+![Screencast of the new bookmark functionality](https://github.com/MISP/MISP/assets/3309/9c0a48a6-4af3-4b90-9941-d2e5d6d68e7e)
 
 ### New Features
 - **Bookmark Functionality**:
