@@ -48,6 +48,7 @@ The default feeds are described in a [simple JSON format](https://github.com/MIS
 - [firehol_level1](https://raw.githubusercontent.com/ktsaou/blocklist-ipsets/master/firehol_level1.netset) - iplists.firehol.org - feed format: freetext
 - [http://cybercrime-tracker.net gatelist](https://cybercrime-tracker.net/ccamgate.php) - http://cybercrime-tracker.net gatelist - feed format: freetext
 - [http://cybercrime-tracker.net hashlist](https://cybercrime-tracker.net/ccamlist.php) - http://cybercrime-tracker.net hashlist - feed format: freetext
+- [Infoblox-Threat-Intelligence](https://raw.githubusercontent.com/infobloxopen/threat-intelligence/main/indicators/misp) - infoblox.com - feed format: misp
 - [IP protocol 41](https://dataplane.org/proto41.txt) - dataplane.org - feed format: csv
 - [ip-block-list - snort.org](https://snort.org/downloads/ip-block-list) - https://snort.org - feed format: freetext
 - [IPs from High-Confidence DGA-Based C&Cs Actively Resolving - requires a valid license](https://osint.bambenekconsulting.com/feeds/c2-ipmasterlist-high.txt) - osint.bambenekconsulting.com - feed format: csv
@@ -93,6 +94,14 @@ The default feeds are described in a [simple JSON format](https://github.com/MIS
 - [This list contains all optional domains - An additional list for administrators](https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_optional.txt?inline=false) - ZeroDot1 - CoinBlockerLists - feed format: freetext
 - [threatfox indicators of compromise](https://threatfox.abuse.ch/export/csv/recent/) - abuse.ch - feed format: csv
 - [Threatfox](https://threatfox.abuse.ch/downloads/misp/) - abuse.ch - feed format: misp
+- [Threatview.io - Bitcoin Address Intel](https://threatview.io/Downloads/MALICIOUS-BITCOIN_FEED.txt) - threatview.io - feed format: freetext
+- [Threatview.io - C2 Hunt Feed](https://threatview.io/Downloads/High-Confidence-CobaltStrike-C2%20-Feeds.txt) - threatview.io - feed format: csv
+- [Threatview.io - Domain Blocklist](https://threatview.io/Downloads/DOMAIN-High-Confidence-Feed.txt) - threatview.io - feed format: freetext
+- [Threatview.io - IP Blocklist](https://threatview.io/Downloads/IP-High-Confidence-Feed.txt) - threatview.io - feed format: freetext
+- [Threatview.io - MD5 Hash Blocklist](https://threatview.io/Downloads/MD5-HASH-ALL.txt) - threatview.io - feed format: freetext
+- [Threatview.io - OSINT Threat Feed](https://threatview.io/Downloads/Experimental-IOC-Tweets.txt) - threatview.io - feed format: freetext
+- [Threatview.io - SHA File Hash Blocklist](https://threatview.io/Downloads/SHA-HASH-FEED.txt) - threatview.io - feed format: freetext
+- [Threatview.io - URL Blocklist](https://threatview.io/Downloads/URL-High-Confidence-Feed.txt) - threatview.io - feed format: freetext
 - [Tor ALL nodes](https://www.dan.me.uk/torlist/) - TOR Node List from dan.me.uk - careful, this feed applies a lock-out after each pull. This is shared with the "Tor exit nodes" feed. - feed format: csv
 - [Tor exit nodes](https://www.dan.me.uk/torlist/?exit) - TOR Node List from dan.me.uk - careful, this feed applies a lock-out after each pull. This is shared with the "Tor ALL nodes" feed. - feed format: csv
 - [URL Seen in honeypots](https://feeds.honeynet.asia/url/latest-url-unique.csv) - APNIC Community Honeynet Project - feed format: freetext
