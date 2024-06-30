@@ -41,7 +41,7 @@ MISP scraper implements
 
 The most common workflow is using the scraper as a cron job to read the list of RSS links of websites to monitor, push new URLs to Redis and then create MISP events and reports from these URLs.
 
-The MISP events are first in the **workflow state** 'incomplete'. In general it is not such a good idea to create these events in your 'main' MISP. Ideally you create them in a 'dirty' MISP, do the curation of the events and then synchronise these events with your production MISP. If you want to know more about curation, then have a look at the FIRSTCON22 talk from NVISO [In Curation We Trust](https://www.first.org/resources/papers/conf2022/FIRST_In-Curation-We-Trust.pdf). Once you have curated the events you can put them in the complete workflow state and then synchronise them with your production MISP.
+The MISP events are first in the **workflow state** 'incomplete'. In general it is not such a good idea to create these events in your 'main' MISP. Ideally you create them in a 'dirty' MISP, do the curation of the events and then synchronise these events with your production MISP. If you want to know more about curation, then have a look at the FIRSTCON22 talk from NVISO [In Curation We Trust](https://web.archive.org/web/20220814115359/https://www.first.org/resources/papers/conf2022/FIRST_In-Curation-We-Trust.pdf). Once you have curated the events you can put them in the complete workflow state and then synchronise them with your production MISP.
 
 ![MISP scraper workflow](/img/blog/misp-scraper-Workflow.drawio.png)
 
