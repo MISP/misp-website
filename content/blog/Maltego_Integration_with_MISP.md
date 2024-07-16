@@ -1,3 +1,13 @@
+---
+title: Maltego Integration with MISP 
+date: 2024-07-16
+layout: post
+authors:
+- Maltego 
+tags: ["maltego", "integration"]
+categories: []
+---
+
 Maltego Integration with MISP
 
 Understanding How Maltego Integrates with MISP Data for Enhanced Cyber Threat Analysis
