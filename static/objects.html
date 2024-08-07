@@ -506,6 +506,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_dark_pattern_item">dark-pattern-item</a></li>
 <li><a href="#_ddos">ddos</a></li>
 <li><a href="#_ddos_claim">ddos-claim</a></li>
+<li><a href="#_ddos_config">ddos-config</a></li>
 <li><a href="#_device">device</a></li>
 <li><a href="#_diameter_attack">diameter-attack</a></li>
 <li><a href="#_diamond_event">diamond-event</a></li>
@@ -597,6 +598,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_github_user">github-user</a></li>
 <li><a href="#_gitlab_user">gitlab-user</a></li>
 <li><a href="#_google_safe_browsing">google-safe-browsing</a></li>
+<li><a href="#_google_threat_intelligence_report">google-threat-intelligence-report</a></li>
 <li><a href="#_greynoise_ip">greynoise-ip</a></li>
 <li><a href="#_gtp_attack">gtp-attack</a></li>
 <li><a href="#_hashlookup">hashlookup</a></li>
@@ -10506,6 +10508,200 @@ ddos-claim is a MISP object available in JSON format at <a href="https://github.
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Target of the DDoS claim.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ddos_config"><a class="anchor" href="#_ddos_config"></a><a class="link" href="#_ddos_config">ddos-config</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>DDoS-claim object describes a current claim of DDoS activity.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+ddos-config is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/ddos-config/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Payload used for the DDos</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ddos-tool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">headers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Headers used in the DDoS requests</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">host</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hostname</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Hostname used as target of the DDoS attack</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ip</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ip-dst</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>IP address used as target of the DDoS attack</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">method</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Method of DDoS attack used ['ack', 'GET', 'method', 'PING', 'POST', 'syn', 'SYN', 'syn_ack', 'udp_flood']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">path</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>URL path used for the DDoS attack (excluded hostname)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">port</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">port</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Port used for attack (when the type and method requires it)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">request-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>request id</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">target-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>target id</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type of network protocol used for the DDoS attack ['http', 'http2', 'http3', 'nginx_loris', 'tcp', 'type', 'udp']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">use-ssl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>TLS/SSL used for the attack ['true', 'false']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -42119,6 +42315,137 @@ google-safe-browsing is a MISP object available in JSON format at <a href="https
 </div>
 </div>
 <div class="sect1">
+<h2 id="_google_threat_intelligence_report"><a class="anchor" href="#_google_threat_intelligence_report"></a><a class="link" href="#_google_threat_intelligence_report">google-threat-intelligence-report</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Google Threat Intelligence report that provides an assessment (verdict, severity and scoring) and combined information from VirusTotal and Mandiant.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+google-threat-intelligence-report is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/google-threat-intelligence-report/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">detection-ratio</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Detection Ratio</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">first-submission</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>First Submission</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">last-submission</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Last Submission</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">permalink</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Permalink Reference</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">severity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>GTI Severity</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">threat-score</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>GTI Threat Score</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">verdict</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>GTI Verdict</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_greynoise_ip"><a class="anchor" href="#_greynoise_ip"></a><a class="link" href="#_greynoise_ip">greynoise-ip</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -52566,7 +52893,7 @@ network-profile is a MISP object available in JSON format at <a href="https://gi
 <td class="tableblock halign-left valign-top"><p class="tableblock">service-abuse</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Service abused by threat actors as part of their infrastructure. ['OneDrive', 'Google Drive', 'Dropbox', 'Microsoft', 'Google', 'DuckDNS', 'Cloudflare', 'AWS']</p>
+<p>Service abused by threat actors as part of their infrastructure. ['OneDrive', 'Google Drive', 'Dropbox', 'Microsoft', 'Google', 'DuckDNS', 'Cloudflare', 'AWS', 'Yandex']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -56194,7 +56521,7 @@ pe is a MISP object available in JSON format at <a href="https://github.com/MISP
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">characteristics_hex</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">characteristics-hex</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hex</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The characteristics in a single hex value</p>
@@ -56354,6 +56681,19 @@ pe is a MISP object available in JSON format at <a href="https://github.com/MISP
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Type of machine ['AM33', 'AMD64', 'ARM', 'ARM64', 'ARMNT', 'EBC', 'I386', 'IA64', 'M32R', 'MIPS16', 'MIPSFPU', 'MIPSFPU16', 'POWERPC', 'POWERPCFP', 'R4000', 'SH3', 'SH3DSP', 'SH4', 'SH5', 'THUMB', 'UNKNOWN', 'WCEMIPSV2']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">machine-type-hex</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hex</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type of machine in a simple hex value</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -56546,7 +56886,7 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">address_of_entrypoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">address-of-entrypoint</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The address of the entry point relative to the image base when the executable file is loaded into memory</p>
@@ -56559,7 +56899,7 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">base_of_code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">base-of-code</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Address relative to the imagebase where the binary&#8217;s code starts</p>
@@ -56572,7 +56912,7 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">base_of_data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">base-of-data</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Address relative to the imagebase where the binary&#8217;s data starts</p>
@@ -56598,7 +56938,7 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">dll_characteristics</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dll-characteristics</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Some characteristics of the underlying binary ['APPCONTAINER', 'DYNAMIC_BASE', 'FORCE_INTEGRITY', 'GUARD_CF', 'HIGH_ENTROPY_VA', 'NO_BIND', 'NO_ISOLATION', 'NO_SEH', 'NX_COMPAT', 'TERMINAL_SERVER_AWARE', 'WDM_DRIVER']</p>
@@ -56611,7 +56951,7 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">dll_characteristics_hex</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dll-characteristics-hex</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hex</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The DLL characteristics in a single hex value</p>
@@ -56624,20 +56964,20 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">file_alignment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">file-alignment</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">size-in-bytes</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The alignment factor (in bytes) that is used to align the raw data of sections in the image file</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">image_base</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">image-base</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The preferred base address when mapping the binary in memory</p>
@@ -56650,7 +56990,7 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">loader_flags</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">loader-flags</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hex</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>According to the PE specifications, this value is reserved and should be 0</p>
@@ -56664,9 +57004,9 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">magic</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hex</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Magic value (PE_TYPE) that identifies a PE32 from a PE64</p>
+<p>Magic value (PE_TYPE) that identifies a PE32 from a PE64 ['PE32', 'PE32_PLUS']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -56676,7 +57016,20 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">major_image_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">magic-hex</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hex</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The magic value in a simple hex value</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">major-image-version</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The major version number of the image</p>
@@ -56689,7 +57042,7 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">major_linker_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">major-linker-version</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The linker major version number</p>
@@ -56702,7 +57055,7 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">major_os_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">major-os-version</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The major version number of the required operating system</p>
@@ -56715,7 +57068,7 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">major_subsystem_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">major-subsystem-version</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The major version number of the subsystem</p>
@@ -56728,7 +57081,7 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minor_image_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minor-image-version</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The minor version number of the image</p>
@@ -56741,7 +57094,7 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minor_linker_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minor-linker-version</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The linker minor version number</p>
@@ -56754,7 +57107,7 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minor_os_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minor-os-version</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The minor version number of the required operating system</p>
@@ -56767,7 +57120,7 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minor_subsystem_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minor-subsystem-version</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The minor version number of the subsystem</p>
@@ -56780,7 +57133,7 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">number_of_rva_and_size</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number-of-rva-and-size</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The number of DataDirectory that follow this header</p>
@@ -56793,130 +57146,130 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">section_alignment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">section-alignment</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">size-in-bytes</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The alignment (in bytes) of sections when they are loaded into memory. It must be greater than or equal to file_alignment and the default is the page size for the architecture</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">size_of_code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">size-of-code</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">size-in-bytes</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The size of the code .text section or the sum of all the sections that contain code</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">size_of_headers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">size-of-headers</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">size-in-bytes</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The combined size of an MS-DOS stub, PE header, and section headers rounded up to a multiple of file_alignment</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">size_of_heap_commit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">size-of-heap-commit</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">size-in-bytes</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The size of the local heap space to commit</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">size_of_heap_reserve</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">size-of-heap-reserve</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">size-in-bytes</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The size of the local heap space to reserve</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">size_of_image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">size-of-image</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">size-in-bytes</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The size (in bytes) of the image, including all headers, as the image is loaded in memory</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">size_of_initialised_data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">size-of-initialised-data</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">size-in-bytes</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The size of the initialized data which are usually located in the .data section. If the initialized data are split across multiple sections, it is the sum of the sections</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">size_of_stack_commit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">size-of-stack-commit</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">size-in-bytes</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The size of the stack to commit</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">size_of_stack_reserve</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">size-of-stack-reserve</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">size-in-bytes</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The size of the stack to reserve</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">size_of_uninitialised_data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">size-of-uninitialised-data</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">size-in-bytes</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The size of the uninitialized data which are usually located in the .bss section. If the uninitialized data are split across multiple sections, it is the sum of the sections</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -56936,7 +57289,20 @@ pe-optional-header is a MISP object available in JSON format at <a href="https:/
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">win32_version_value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subsystem-hex</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hex</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The subsystem in a simple hex value</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">win32-version-value</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hex</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Specifies the reserved win32 version value (must be zero)</p>
@@ -81156,7 +81522,7 @@ youtube-video is a MISP object available in JSON format at <a href="https://gith
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-26 18:17:11 +0200
+Last updated 2024-08-07 09:19:16 +0200
 </div>
 </div>
 </body>
