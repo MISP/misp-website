@@ -564,16 +564,6 @@ C3Ij/2IWN6eLTSzd0ikG7wOOKExTrCltTycyEMC0HwRSKYqQaBKPZcNSgm+3ma70FCv2
 MISP-LEA project consists in an law enforcement agency information sharing community. It’s powered by MISP and AIL project, two leading open source projects led by CIRCL. The community is only accessible to law enforcement agencies.
 - Contact: info@misp-lea.org
 
-### BEAM SOC MISP Community
-![Logo](/img/communities/e5188294bc0a4a5ce1578373fc5fa192.png "{class='community_logo'}")
-- Website: https://misp.beamteknoloji.com
-- Sector:  Various
-- Nationality: Turkey
-
-
- We want to increase the protection by sharing the threat information we have obtained from the companies we support with all members.
-- Contact: contact@beamteknoloji.com
-
 ### CSSA Cyber Security Sharing & Analytics (CSSA)
 ![Logo](/img/communities/076b1eaab7e68671742c4010ff4ead00.png "{class='community_logo'}")
 - Website: https://www.cssa.de/
@@ -592,6 +582,16 @@ CSSA was founded in November 2014 by seven major German companies as an alliance
 
 ICS-CSIRT.io is a community effort to disseminate security information on Industrial Control Systems. ICS-CSIRT.io is not affiliated or linked with a governmental or commercial partner. Membership of ICS-CSIRT.io is free and grants you access to a MISP and OpenCVE instance. In return for membership we ask you to submit content to the ICS threat data.
 - Contact: info@ics-csirt.io
+
+### INFINITUMIT SOC MISP Community
+![Logo](/img/communities/9d4cd7c8d1d8e2b3ca76a4acd5b22689.png "{class='community_logo'}")
+- Website: https://misp.infinitumit.com.tr
+- Sector:  Various
+- Nationality: Turkey
+
+
+ We want to increase the protection by sharing the threat information we have obtained from the companies we support with all members.
+- Contact: info@infinitumit.com.tr
 
 ### SecureGRID Alliance
 ![Logo](/img/communities/445d6ff368486444a47b6e75bb67d2c9.png "{class='community_logo'}")
