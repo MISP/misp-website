@@ -7,7 +7,143 @@ Changelog
 
 Changes
 ~~~~~~~
+- [misp-stix] Bumped latest submodule version including some fixes.
+  [Christian Studer]
+
+Other
+~~~~~
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+
+
+v2.4.195 (2024-07-26)
+---------------------
+
+New
+~~~
+- [legacy attribute search] internals added for some edge cases.
+  [iglocska]
+
+  - new setting allows an admin to flip the search strategy to one that mimics the old behaviour
+  - refrains from using subqueries
+- [attribute search and correlation] improvements. [iglocska]
+
+  - added correlationRules system
+    - create rules for non correlating events (such as events from the same org, events with a certain string in the event info field, or just manually chosen event IDs)
+    - should help combat recurring data in certain feeds / providers causing slowdowns
+  - rework of the attribute pagination
+    - use the memory limit based bucketing also when limits are set
+    - better handling of offsets (ordering + using lowest IDs for the next batch instead of mysql offsets)
+- [logging] Added more data to logging entry and new option to log used
+  authkeys in clear-text. [Sami Mokaddem]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-list] updated to the latest version. [Alexandre Dulaunoy]
+- [PyMISP] fix issue with buggy template. [Raphaël Vinot]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [db schema] bumped. [iglocska]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [workflow:webhook] Correctly send JSON data if content_type is set to
+  application/json. [Sami Mokaddem]
+- [docs] add an example of S/MIME self-signed key for your MISP.
+  [Alexandre Dulaunoy]
+- [pymisp] bump. [iglocska]
+- [pymisp] bump. [iglocska]
+- [pymisp] bump. [iglocska]
+- [pymisp] bump. [iglocska]
+- [pymisp] bump. [iglocska]
+- [pymisp] bump. [iglocska]
+
+  - let's see if this fixes the tests
+- [PyMISP] Test search & publish. [Raphaël Vinot]
+- [logos] added CCB's logo as per request to the defaults. [iglocska]
+
+  - also fixed a gitignore snafu
 - [PyMISP] Bump changelog. [Raphaël Vinot]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- Unify event create/update response. [Luciano Righetti]
+- Openapi path parameters are required. [Luciano Righetti]
+- Wrong parameter id in taxonomy endpoints. [Luciano Righetti]
+- Analyst data openapi spec. [Luciano Righetti]
+- [restClient:queryBuilder] Stop prefixing the scope for the fields in
+  restSearch context. [Sami Mokaddem]
+- [index hint] using mysql extended may be wrong. [iglocska]
+
+  - if attributes.deleted isn't indexed it would barf before
+  - added a check for the existence of the index
+- [publishing] if the publish timestamp can't be updated, throw an error
+  during the in-line publishing. [iglocska]
+- [fetchEvent] defaulting out conditions to null rather than false.
+  [iglocska]
+
+  - enabled the false behaviour that false would simply be ignored
+  - this caused published = false via the API to default to the published flag not being set at all
+  - new behaviour works same as 0/1 values for booleans
+- [Bookmark view] typo fixed. [Alexandre Dulaunoy]
+- [internal] more fixes to the deleted flag. [iglocska]
+
+  - this sure wouldn't be such a clusterfuck if the office had an AC and we weren't sitting in 28.3C
+- [deleted filter] fix for the previous commit. [iglocska]
+
+  - modify a local variable rather than the passed-by-reference params array
+- [event] Making sure we attach Analyst Data to Event Reports when
+  fetching Events. [Christian Studer]
+- [internal filtering] handle deleted cases better across the various
+  search endpoints. [iglocska]
+
+  - object restSearch() was not correcty adhering to the deleted:1 parameter among others
+- Unify event create/update response. [Luciano Righetti]
+- Openapi path parameters are required. [Luciano Righetti]
+- Wrong parameter id in taxonomy endpoints. [Luciano Righetti]
+- Analyst data openapi spec. [Luciano Righetti]
+- [ACL] user add always accessible to site admins. [Andras Iklody]
+- [issue] Update config.yml. [Alexandre Dulaunoy]
+
+  Removal of the discussion which is a source of issues.
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'correlation_rules' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'pr-9744' into develop. [Sami Mokaddem]
+- Merge branch 'develop' into pr-9744. [Sami Mokaddem]
+- Merge branch 'feature/cleartext-logging' into develop. [Sami Mokaddem]
+- Merge branch 'develop' into feature/cleartext-logging. [Sami Mokaddem]
+- Merge remote-tracking branch 'refs/remotes/origin/develop' into
+  develop. [Sami Mokaddem]
+- Merge pull request #9826 from righel/fix-openapi-spec-params. [Luciano
+  Righetti]
+
+  Fix openapi spec params
+- Fix OpenAPI spec. [Stefano Ortolani]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Update class properties. [Vincenzo Caputo]
+- Update module description. [Vincenzo Caputo]
+- Add attach decay score module. [Vincenzo Caputo]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9805 from ostefano/openapi. [Luciano Righetti]
+
+  Fix OpenAPI spec
+- Fix OpenAPI spec. [Stefano Ortolani]
+- Merge pull request #9792 from cudeso/2.4. [Alexandre Dulaunoy]
+
+  Adding Threatview.io MISP feeds
+- Adding Threatview.io MISP feeds. [Koen Van Impe]
 
 
 v2.4.194 (2024-06-21)
