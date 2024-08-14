@@ -11,7 +11,7 @@ layout: post
 
 Practical experience is essential for skill development, and effective training must be both engaging and capable of identifying gaps in understanding. That's why we're pleased to launch version 1.0.0 of SkillAegis, your new training companion.
 
-SkillAegis was developed with these principles in mind, providing trainers with a platform to design, execute, and monitor scenario-based exercises that simulate real-world cyber threats. Initially focused on integrating tools like MISP, SkillAegis offers a structured environment for honing skills in threat intelligence and information management.
+SkillAegis was developed with these principles in mind, providing trainers with a platform to design, execute, and monitor scenario-based exercises that simulate real-world situations that you may encounter as an outcome of cyber threats. Initially focused on integrating tools such as MISP, SkillAegis offers a structured environment for honing one's skills in working with threat intelligence and information management.
 
 
 ## Core Features of SkillAegis
@@ -22,13 +22,13 @@ SkillAegis enables trainers to design custom training exercises tailored to spec
 ![SkillAegis Scenario Creation](/img/blog/SkillAegis/SkillAegis-Editor_index_cut.png)
 
 ### Exercise Execution & Real-Time Monitoring
-After scenarios are designed, SkillAegis facilitates their deployment and execution, allowing participants to actively engage with the exercises. The platform's live dashboard offers real-time tracking of participant progress and exercise outcomes, giving trainers and trainees immediate feedback on performance.
+After the scenarios are designed, SkillAegis facilitates their deployment and execution, allowing participants to actively engage with the exercises. The platform's live dashboard offers real-time tracking of participant progress and exercise outcomes, giving trainers and trainees immediate feedback on their performance.
 
 ![SkillAegis Realtime Monitoring](/img/blog/SkillAegis/SkillAegis-Dashboard_exercise.png)
 
 ## The SkillAegis Platform
 
-The SkillAegis platforms consists in 3 applications:
+The SkillAegis platform consists of 3 applications:
 - **[SkillAegis](https://github.com/MISP/SkillAegis) Main Application**
 - **[SkillAegis Editor](https://github.com/MISP/SkillAegis-Editor)**
 - **[SkillAegis Dashboard](https://github.com/MISP/SkillAegis-Dashboard)**
@@ -46,7 +46,7 @@ The SkillAegis Editor is the tool for designing and creating new training exerci
 
 ![SkillAegis Scenario Creation](/img/blog/SkillAegis/SkillAegis-Editor_designer.png)
 
-Writing evaluations for injects can be challenging, even for experienced users, and poorly configured evaluation conditions can hinder trainees from completing exercises and lead to frustration. The built-in Inject Tester provides tools to configure, test, debug, and optimize individual injects, ensuring they work as expected.
+Writing evaluations for injects can be challenging, even for experienced users, and poorly configured evaluation conditions can hinder trainees from completing the exercises, leading to frustration. The built-in Inject Tester provides the tooling to configure, test, debug, and optimize individual injects, ensuring they work as expected.
 
 ![SkillAegis Scenario Creation](/img/blog/SkillAegis/SkillAegis-Editor_inject-tester.png)
 
@@ -54,11 +54,11 @@ Writing evaluations for injects can be challenging, even for experienced users, 
 
 The SkillAegis Dashboard application enables the execution of training sessions and provides real-time visualization of participant progress.
 
-Upon selecting a scenario to run, the application begins tracking and monitoring the progress of all participants. The interface displays the completion status for each inject, shows participant activity through a heatmap, and provides live logs of user actions within the training environment.
+Upon selecting a scenario to run, the application begins tracking and monitoring the progress of all participants. The interface displays the completion status for each inject, whilst also showing participant activity via a heatmap. It also provides live logs of user actions within the training environment.
 
 {{<video src="/img/blog/SkillAegis/SkillAegis-Dashboard-recording.mp4" title="SkillAegis Dashboard demo" >}}
 
-Additionally, the selected exercise can be displayed in fullscreen mode, making it suitable for presentation on a classroom screen.
+Additionally, the selected exercise can be displayed in fullscreen mode, making it suitable for presentations on a classroom screen.
 
 ![SkillAegis Dashboard Fullscreen exercise](/img/blog/SkillAegis/SkillAegis-Dashboard_fullscreen.png)
 
