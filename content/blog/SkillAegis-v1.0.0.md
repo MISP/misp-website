@@ -11,7 +11,7 @@ layout: post
 
 Practical experience is essential for skill development, and effective training must be both engaging and capable of identifying gaps in understanding. That's why we're pleased to launch version 1.0.0 of SkillAegis, your new training companion.
 
-SkillAegis was developed with these principles in mind, providing trainers with a platform to design, execute, and monitor scenario-based exercises that simulate real-world cyber threats. Initially focused on integrating tools like MISP, SkillAegis offers a structured environment for honing skills in threat intelligence and information management.
+SkillAegis was developed with these principles in mind, providing trainers with a platform to design, execute, and monitor scenario-based exercises that simulate real-world cyber threats. Based from our past experience in giving MISP training to various user groups, we realized that we needed a tool to help us improve the hands-on part we usually conduct. As a result, we drove the development on primarily integrating tools like MISP. Practically speaking, SkillAegis offers a structured environment for honing skills in threat intelligence and information management.
 
 
 ## Core Features of SkillAegis
