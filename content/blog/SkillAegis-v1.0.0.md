@@ -35,7 +35,7 @@ The SkillAegis platforms consists in 3 applications:
 
 Let's have a quick look at what these applications do.
 
-### [SkillAegis](https://github.com/MISP/SkillAegis) Main Application (Main Application) 
+### [SkillAegis](https://github.com/MISP/SkillAegis) (Main Application) 
 The **Main Application** configures and initiates the other two components of the system. It also includes several production-ready scenarios that trainers can use as inspiration or adapt for their own exercises. While each applications can be run individually, it's highly recommended to use it to streamline the experience.
 
 ![SkillAegis Main Platform](/img/blog/SkillAegis/skillaegis_main_app.png)
