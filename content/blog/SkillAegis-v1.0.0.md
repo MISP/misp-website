@@ -9,7 +9,7 @@ layout: post
 
 # Design and Execute Cyber Threat Intelligence Scenarios with SkillAegis
 
-Practical experience is essential for skill development, and effective training must be both engaging and capable of identifying gaps in understanding. That's why we're pleased to launch version 1.0.0 of SkillAegis, your new training companion.
+Practical experience is essential for skill development, and effective training must be both engaging and capable of identifying gaps in understanding. That's why we're pleased to launch [version 1.0.0](https://github.com/MISP/SkillAegis/releases/tag/v1.0.0) of [SkillAegis](https://github.com/MISP/SkillAegis), your new training companion.
 
 SkillAegis was developed with these principles in mind, providing trainers with a platform to design, execute, and monitor scenario-based exercises that simulate real-world situations that you may encounter as an outcome of cyber threats. Based from our past experience in delivering MISP trainings to various user groups, we realized that we needed a tool to help us improve the hands-on part we usually give. As a result, we drove the development on primarily integrating tools such as MISP.
 
