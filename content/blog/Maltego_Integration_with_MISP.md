@@ -6,7 +6,7 @@ authors:
 - Maltego 
 tags: ["maltego", "integration"]
 categories: []
-banner: /images/uploads/Hub-itemATT-CK-MISP.png
+banner: /img/Hub-itemATT-CK-MISP.png
 ---
 
 Maltego Integration with MISP
