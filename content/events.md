@@ -31,7 +31,8 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
     - Encoding a report
     - Making use of the various tools in MISP from an analyst perspective
 
-  *Event link:* To be published soon 
+  *Event link:* https://us02web.zoom.us/j/86554583845?pwd=BWo7fpnWLbj6Je7bvrWtjE7bZgS5yi.1
+ 
 
 #### MISP Training - Advanced Developer session from API to MISP internals
 
@@ -46,7 +47,7 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
     - Supporting dev libraries
     - Session on development of MISP internals
 
-  *Event link:* To be published soon 
+  *Event link:* https://us02web.zoom.us/j/86554583845?pwd=BWo7fpnWLbj6Je7bvrWtjE7bZgS5yi.1
 
 ### MISP Hackathon
 
