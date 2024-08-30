@@ -3,7 +3,51 @@
 
 ## %%version%% (unreleased)
 
+### New
+
+* [whois] added back the whois module based on Raphael changes. [Alexandre Dulaunoy]
+
+* [yara_export] new export module. [Christophe Vandeplas]
+
+### Changes
+
+* Re-implement uwhois module. [Raphaël Vinot]
+
+  Fix #684
+
+* [doc] make deploy. [Christophe Vandeplas]
+
+* [doc] link to website. [Christophe Vandeplas]
+
+* [doc] shorten README + link to githubio. [Christophe Vandeplas]
+
+* [doc] Big doc revamp #680. [Christophe Vandeplas]
+
+* [pip] changed yara-python version and updated pipfile.lock. [Christophe Vandeplas]
+
 ### Fix
+
+* [expansion] whois module added back. [Alexandre Dulaunoy]
+
+* [doc] make linting happy. [Christophe Vandeplas]
+
+* [make] be sure the version of misp_modules installed are the one for generating the documentation. [Alexandre Dulaunoy]
+
+* [doc] fixes newline in description. [Christophe Vandeplas]
+
+* Fixes issues added in latest commit. [Christophe Vandeplas]
+
+* [doc] align static documentation pages. [Christophe Vandeplas]
+
+* [modules] many modules not loaded as python module. [Christophe Vandeplas]
+
+* [cisco_firesight_manager_ACL_rule_export] include in __init__ [Christophe Vandeplas]
+
+* [yara_export] add new module to __init__ [Christophe Vandeplas]
+
+* [tests] fix yara issue in unit tests. [Christophe Vandeplas]
+
+* [cve] fix CVE module to new vulnerability.circl.lu url. [Christophe Vandeplas]
 
 * [doc] url fixed. [Alexandre Dulaunoy]
 
@@ -14,6 +58,113 @@
 * [doc] original JSON file type for GTI. [Alexandre Dulaunoy]
 
   related to #673
+
+### Other
+
+* Merge pull request #685 from ostefano/actions. [Alexandre Dulaunoy]
+
+  Update GitHub actions
+
+* Update GitHub actions. [Stefano Ortolani]
+
+* Merge pull request #686 from MISP/ostefano-refactory. [Alexandre Dulaunoy]
+
+  Ostefano refactory
+
+* Merge branch 'refactory' of https://github.com/ostefano/misp-modules into ostefano-refactory. [Alexandre Dulaunoy]
+
+* Migrate to poetry and optimize dependencies. [Stefano Ortolani]
+
+* Merge branch 'main' of https://github.com/MISP/misp-modules. [Christophe Vandeplas]
+
+* Merge branch 'main' of https://github.com/MISP/misp-modules. [Christophe Vandeplas]
+
+* Merge pull request #678 from ByronLabs/main. [Alexandre Dulaunoy]
+
+  Re-add Vysion
+
+* Merge branch 'MISP:main' into main. [Germán Esteban]
+
+* Merge pull request #5 from ByronLabs/pr/vysion. [Germán Esteban]
+
+  Update vysion package
+
+* Update Vysion in pipfile. [german-esteban]
+
+* Update REQUIREMENTS. [Germán Esteban]
+
+* Update vysion package. [german-esteban]
+
+* Merge branch 'MISP:main' into main. [Germán Esteban]
+
+* Added vysion ito Pipfile. [german-esteban]
+
+* Update expansion/vysion.py. [german-esteban]
+
+* Merge pull request #2 from ByronLabs/pr/vysion. [Germán Esteban]
+
+  Pr/vysion
+
+* Update documentation. [german-esteban]
+
+* Update requirements. [german-esteban]
+
+* Added cryptocurrencies types #2. [german-esteban]
+
+* Added cryptocurrencies types. [german-esteban]
+
+* Update REQUIREMENTS. [Germán Esteban]
+
+* Merge branch 'MISP:main' into pr/vysion. [Germán Esteban]
+
+* Update expansion module + Vysion client update version. [german-esteban]
+
+* Merge pull request #679 from VirusTotal/feat/more-gti-attributes. [Alexandre Dulaunoy]
+
+  feat(Google Threat Intelligence): Add more attributes to the GTI enrichment
+
+* WIP. [Daniel Pascual]
+
+* WIP. [Daniel Pascual]
+
+* WIP. [Daniel Pascual]
+
+* Add more attributes to the GTI enrichment. [Daniel Pascual]
+
+* Merge pull request #676 from VirusTotal/fix/vt-lib-event-loop-error. [Alexandre Dulaunoy]
+
+  fix(VirusTotal): Update vt lib which fix an event loop error
+
+* Update vt lib which fix an event loop error. [Daniel Pascual]
+
+* Merge pull request #677 from cudeso/main. [Alexandre Dulaunoy]
+
+  Fix 'Object' object has no attribute 'url' in virustotal
+
+* Fix 'Object' object has no attribute 'url' in virustotal. [Koen Van Impe]
+
+  Fix
+
+  File "/var/www/MISP/venv/lib/python3.8/site-packages/misp_modules/__init__.py", line 210, in run_request
+      response = module.handler(q=json_payload)
+    File "/var/www/MISP/venv/lib/python3.8/site-packages/misp_modules/modules/expansion/virustotal_public.py", line 248, in handler
+      parser.query_api(attribute)
+    File "/var/www/MISP/venv/lib/python3.8/site-packages/misp_modules/modules/expansion/virustotal_public.py", line 46, in query_api
+      self.input_types_mapping[self.attribute.type](self.attribute.value)
+    File "/var/www/MISP/venv/lib/python3.8/site-packages/misp_modules/modules/expansion/virustotal_public.py", line 143, in parse_hash
+      related_file_object = self.create_misp_object(related_file)
+    File "/var/www/MISP/venv/lib/python3.8/site-packages/misp_modules/modules/expansion/virustotal_public.py", line 83, in create_misp_object
+      misp_object.add_attribute('Url', type='url', value=report.url)
+    File "/var/www/MISP/venv/lib/python3.8/site-packages/vt/object.py", line 160, in __getattribute__
+      value = super().__getattribute__(attr)
+
+* Merge pull request #675 from VirusTotal/fix/vt-logo. [Alexandre Dulaunoy]
+
+  [VirusTotal] Update VT logo
+
+* Reduce size. [Daniel Pascual]
+
+* Update VT logo. [Daniel Pascual]
 
 
 ## v2.4.195 (2024-07-19)

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.21">
+<meta name="generator" content="Asciidoctor 2.0.23">
 <title>MISP taxonomies and classification as machine tags</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -594,6 +594,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_veris">veris</a></li>
 <li><a href="#_vmray">vmray</a></li>
 <li><a href="#_vocabulaire_des_probabilites_estimatives">vocabulaire-des-probabilites-estimatives</a></li>
+<li><a href="#_vulnerability_3">vulnerability</a></li>
 <li><a href="#_workflow">workflow</a></li>
 </ul>
 </li>
@@ -35868,6 +35869,15 @@ cryptocurrency-threat namespace available in JSON format at <a href="https://git
 </div>
 </div>
 <div class="sect2">
+<h3 id="_rag_pull">Rag Pull</h3>
+<div class="sect3">
+<h4 id="_cryptocurrency_threatrag_pull">cryptocurrency-threat:Rag Pull</h4>
+<div class="paragraph">
+<p>Crypto scam that occurs when a team pumps their project’s token before disappearing with the funds, leaving their investors with a valueless asset.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_pig_butchering_scam">Pig Butchering Scam</h3>
 <div class="sect3">
 <h4 id="_cryptocurrency_threatpig_butchering_scam">cryptocurrency-threat:Pig Butchering Scam</h4>
@@ -37479,6 +37489,15 @@ dark-web namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 </div>
 <div class="sect3">
+<h4 id="_dark_webstructureransomware_post">dark-web:structure="ransomware-post"</h4>
+<div class="paragraph">
+<p>ransomwarePost</p>
+</div>
+<div class="paragraph">
+<p>Ransomware post published by a ransomware group</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_dark_webstructureunclear">dark-web:structure="unclear"</h4>
 <div class="paragraph">
 <p>unclear</p>
@@ -37677,6 +37696,51 @@ dark-web namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 <div class="paragraph">
 <p>PGP public key block identified in the dark-web site</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dark_webcontentcountry">dark-web:content="country"</h4>
+<div class="paragraph">
+<p>country</p>
+</div>
+<div class="paragraph">
+<p>Associated country detected on the code of the dark-web site, following ISO 3166-1 alpha-2</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dark_webcontentcompany_name">dark-web:content="company-name"</h4>
+<div class="paragraph">
+<p>companyName</p>
+</div>
+<div class="paragraph">
+<p>Company name identified in a dark-web site</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dark_webcontentcompany_link">dark-web:content="company-link"</h4>
+<div class="paragraph">
+<p>companyLink</p>
+</div>
+<div class="paragraph">
+<p>Company link identified in a dark-web site</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dark_webcontentvictim_address">dark-web:content="victim-address"</h4>
+<div class="paragraph">
+<p>victimAddress</p>
+</div>
+<div class="paragraph">
+<p>Business address identified in a dark-web site</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dark_webcontentvictim_tld">dark-web:content="victim-TLD"</h4>
+<div class="paragraph">
+<p>victimTLD</p>
+</div>
+<div class="paragraph">
+<p>Business Top Level Domain (TLD) of a company identified in a dark-web site</p>
 </div>
 </div>
 </div>
@@ -59253,9 +59317,21 @@ malware_classification namespace available in JSON format at <a href="https://gi
 </div>
 </div>
 <div class="sect3">
+<h4 id="_malware_classificationmalware_categorystalkerware">malware_classification:malware-category="Stalkerware"</h4>
+<div class="paragraph">
+<p>Stalkerware</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_malware_classificationmalware_categoryspyware">malware_classification:malware-category="Spyware"</h4>
 <div class="paragraph">
 <p>Spyware</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_malware_classificationmalware_categoryzombieware">malware_classification:malware-category="Zombieware"</h4>
+<div class="paragraph">
+<p>Zombieware</p>
 </div>
 </div>
 <div class="sect3">
@@ -59874,37 +59950,52 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <div class="sect3">
 <h4 id="_mispevent_typeobservation">misp:event-type="observation"</h4>
 <div class="paragraph">
-<p>observation</p>
+<p>observation related to single entity, like an email</p>
+</div>
+<div class="paragraph">
+<p>This event describes traits and indicators closely related to a single entity, like an email campaign or sighting of a reference sample on VirusTotal. Events of this type are typically created by SOC staff and may be verified by analysts. Observed and verified indicators would be consumed by automated filtering systems in order to support near-time threat prevention. In retrospect, observations could be correlated with reports and analysis events in order to help understand the motivation for an attack and to reassess the associated risk.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_mispevent_typeincident">misp:event-type="incident"</h4>
 <div class="paragraph">
-<p>incident</p>
+<p>incident, based on first-hand information</p>
+</div>
+<div class="paragraph">
+<p>This event describes traits and indicators related to a security incident. As such, the event may refer to multiple entities like organizations, bank account numbers, files, and URLs. Events of this type contain first-hand information, that is, the reporting organization took part in the analysis of the incident. Use event type "Report" for second-hand information. Events of this type are typically created and consumed by analysts.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_mispevent_typereport">misp:event-type="report"</h4>
 <div class="paragraph">
-<p>report</p>
+<p>report, based on second-hand information</p>
+</div>
+<div class="paragraph">
+<p>Traceability of indicators can be essential to document compliance of processes with legal obligations or company regulations. This event preserves a report to document the origin and context of indicators. Events of this type need to be checked by a human to ensure correct reproduction of indicators and context. Intended consumers are automated processes. Events may also serve as a basis for analysis reports or to justify preventive measures. If your organization is or was directly involved in an incident and you want to provide a first-hand account, then please use event type "Incident" instead.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_mispevent_typecollection">misp:event-type="collection"</h4>
 <div class="paragraph">
-<p>collection</p>
+<p>collection of unrelated IoCs</p>
+</div>
+<div class="paragraph">
+<p>This event collects unrelated IoCs. For example, an event could combine all network IoCs that were learned of during a day or a week from events of other types.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_mispevent_typeanalysis">misp:event-type="analysis"</h4>
 <div class="paragraph">
-<p>analysis</p>
+<p>analysis, contains context and enrichments</p>
+</div>
+<div class="paragraph">
+<p>This event builds on "observation", "incident", and "report" events; adds enrichments; and provides context. Events of this type will be created by analysts with support by automated tools. Analysts are also the main consumers.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_mispevent_typeautomatic_analysis">misp:event-type="automatic-analysis"</h4>
 <div class="paragraph">
-<p>automatic-analysis</p>
+<p>the result of automated analysis.</p>
 </div>
 </div>
 </div>
@@ -67972,7 +68063,7 @@ priority-level namespace available in JSON format at <a href="https://github.com
 </table>
 </div>
 <div class="paragraph">
-<p>After an incident is scored, it is assigned a priority level. The six levels listed below are aligned with NCCIC, DHS, and the CISS to help provide a common lexicon when discussing incidents. This priority assignment drives NCCIC urgency, pre-approved incident response offerings, reporting requirements, and recommendations for leadership escalation. Generally, incident priority distribution should follow a similar pattern to the graph below. Based on <a href="https://www.us-cert.gov/NCCIC-Cyber-Incident-Scoring-System" class="bare">https://www.us-cert.gov/NCCIC-Cyber-Incident-Scoring-System</a>.</p>
+<p>After an incident is scored, it is assigned a priority level. The six levels listed below are aligned with NCCIC, DHS, and the CISS to help provide a common lexicon when discussing incidents. This priority assignment drives NCCIC urgency, pre-approved incident response offerings, reporting requirements, and recommendations for leadership escalation. Generally, incident priority distribution should follow a similar pattern to the graph below. Based on <a href="https://www.cisa.gov/news-events/news/cisa-national-cyber-incident-scoring-system-nciss" class="bare">https://www.cisa.gov/news-events/news/cisa-national-cyber-incident-scoring-system-nciss</a>.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -86515,6 +86606,113 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 </div>
 <div class="sect1">
+<h2 id="_vulnerability_3">vulnerability</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+vulnerability namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/vulnerability/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A taxonomy for describing vulnerabilities (software, hardware, or social) on different scales or with additional available information.</p>
+</div>
+<div class="sect2">
+<h3 id="_exploitability">exploitability</h3>
+<div class="paragraph">
+<p>Quantification of attack exploitability, providing a level of exploitation for the identified vulnerability.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Exclusive flag set which means the values or predicate below must be set exclusively.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_vulnerabilityexploitabilityindustrialised">vulnerability:exploitability="industrialised"</h4>
+<div class="paragraph">
+<p>Industrialised</p>
+</div>
+<div class="paragraph">
+<p>Existing vulnerability with detailed attack methods; multiple tools are available for exploitation.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vulnerabilityexploitabilitycustomised">vulnerability:exploitability="customised"</h4>
+<div class="paragraph">
+<p>Customised</p>
+</div>
+<div class="paragraph">
+<p>Existing vulnerability with a detailed attack approach and one known custom tool available for exploitation.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vulnerabilityexploitabilitydocumented">vulnerability:exploitability="documented"</h4>
+<div class="paragraph">
+<p>Documented</p>
+</div>
+<div class="paragraph">
+<p>Existing vulnerability is documented with an attack approach, but tools for exploitation are not available.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vulnerabilityexploitabilitytheoretical">vulnerability:exploitability="theoretical"</h4>
+<div class="paragraph">
+<p>Theoretical</p>
+</div>
+<div class="paragraph">
+<p>Publication describes a theoretical but no actual vulnerability is reported.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_information">information</h3>
+<div class="paragraph">
+<p>Complementary information related to the vulnerability.</p>
+</div>
+<div class="sect3">
+<h4 id="_vulnerabilityinformationpoc">vulnerability:information="PoC"</h4>
+<div class="paragraph">
+<p>Proof-of-Concept</p>
+</div>
+<div class="paragraph">
+<p>Reference to a proof-of-concept for exploiting the vulnerability.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vulnerabilityinformationremediation">vulnerability:information="remediation"</h4>
+<div class="paragraph">
+<p>Remediation</p>
+</div>
+<div class="paragraph">
+<p>Remediation to limit or block the exploitability of the vulnerability.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vulnerabilityinformationannotation">vulnerability:information="annotation"</h4>
+<div class="paragraph">
+<p>Annotation</p>
+</div>
+<div class="paragraph">
+<p>Annotation or clarification to a vulnerability.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_workflow">workflow</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -86666,7 +86864,31 @@ workflow namespace available in JSON format at <a href="https://github.com/MISP/
 <div class="sect3">
 <h4 id="_workflowtodopreserve_evidence">workflow:todo="preserve-evidence"</h4>
 <div class="paragraph">
-<p>Preseve evidence mentioned in the information tagged</p>
+<p>Preserve evidence mentioned in the information tagged</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflowtodoreview_relevance">workflow:todo="review-relevance"</h4>
+<div class="paragraph">
+<p>Review if the event is relevant</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflowtodoreview_completeness">workflow:todo="review-completeness"</h4>
+<div class="paragraph">
+<p>Review if the event is complete</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflowtodoreview_accuracy">workflow:todo="review-accuracy"</h4>
+<div class="paragraph">
+<p>Review the accuracy of an event or attribute</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflowtodoreview_quality">workflow:todo="review-quality"</h4>
+<div class="paragraph">
+<p>Review the quality of an event or attribute</p>
 </div>
 </div>
 </div>
@@ -87367,7 +87589,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-03-04 10:02:57 +0100
+Last updated 2024-08-30 09:45:18 +0200
 </div>
 </div>
 </body>

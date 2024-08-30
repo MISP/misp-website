@@ -2,21 +2,162 @@ Changelog
 =========
 
 
-%%version%% (unreleased)
-------------------------
+v2.4.196 (2024-08-21)
+---------------------
+
+New
+~~~
+- [decaying model] Add a DecayingModel based on true positive and false
+  positive sightings. [Marcel Slotema]
+- [log search] added optional hh:mm:ss accuracy. [iglocska]
+
+  - also some refactoring to deal with the boat-load of copy-pasta
+
+  ░░░░░░░░░░░░  ░░      ░░░░    ░░░░
+  ░░░░░░░░░░          ░░▒▒▓▓██████░░    ░░▒▒██████░░                ░░
+  ░░░░░░░░░░          ░░████      ██░░░░░░██      ██░░
+  ░░░░░░░░░░░░        ▒▒████    ████░░░░▒▒██    ████░░
+  ░░░░░░░░░░          ▒▒██▓▓      ██░░░░▒▒██      ██░░
+  ░░░░░░░░              ▒▒████████░░    ▒▒████████▒▒
+  ░░░░  ░░    ░░    ░░  ▒▒▒▒██░░██████░░▒▒██░░▓▓▓▓░░
+  ░░░░  ░░        ░░▒▒████████████░░░░██████  ▓▓██████▒▒
+  ░░░░░░░░      ▒▒████▒▒░░  ░░░░██░░██░░░░░░████▒▒    ▒▒▓▓
+  ░░░░░░    ░░▒▒██░░██▒▒▓▓████░░░░██░░░░██░░██▒▒  ▒▒██▓▓░░██
+  ░░░░  ░░░░▒▒██▒▒██░░  ▓▓██▒▒██  ░░████░░██░░  ▒▒▓▓▒▒▓▓████░░░░▒▒░░
+  ░░  ░░▒▒██████░░░░  ▓▓▓▓▒▒▒▒▒▒██░░░░░░░░██████▓▓▒▒▒▒▒▒▓▓██▒▒▓▓██████
+      ▒▒██░░▓▓████████▓▓▒▒▒▒▒▒▒▒██████████░░██▓▓▒▒▒▒▒▒▒▒▒▒██████░░░░██
+  ░░▒▒▓▓▒▒░░▓▓██▒▒██▓▓▒▒▒▒▒▒▒▒▒▒██░░░░░░██░░▓▓▓▓▒▒▒▒▒▒▒▒▒▒██  ░░████
+  ░░▒▒██░░▓▓▓▓██░░▒▒██▓▓████████░░░░██████░░░░▒▒██▒▒▒▒▒▒██░░░░██
+  ░░▒▒██░░██░░▒▒██░░░░██▒▒  ░░░░██████▒▒  ██▓▓▒▒████████░░████░░
+  ░░▒▒██▒▒██▒▒▒▒██████░░▓▓████░░░░██░░██░░██▓▓  ░░██▒▒████░░
+  ░░▒▒██████████░░▒▒▒▒██████░░██░░░░████░░  ░░██░░  ██░░
+  ░░░░▒▒▓▓██▒▒░░░░████░░░░░░██░░██░░██▓▓██░░░░████  ██▒▒░░
+  ░░░░▒▒██░░██████▓▓▒▒██████▒▒░░██░░██▓▓██  ░░████░░  ██░░
+  ░░░░▒▒██▓▓▒▒▒▒▒▒▒▒██░░░░░░░░██░░░░██▓▓████  ██▓▓██  ██░░
+  ░░░░░░▒▒▒▒  ░░▒▒██▒▒░░▓▓██████  ██▓▓▒▒████  ██▓▓██░░▓▓▓▓
+  ░░░░░░░░░░░░░░▒▒██░░████████░░██▒▒▒▒████▒▒██▓▓▒▒██░░██▓▓
+  ░░░░░░░░  ▒▒████░░░░▓▓▓▓▓▓████░░▒▒▒▒██▒▒▒▒██▓▓██░░▓▓▓▓
+  ░░░░░░░░▒▒▒▒████░░  ██▓▓▒▒██▓▓░░░░▒▒██▒▒▒▒██▒▒██░░▒▒▓▓
+  ░░░░░░░░▒▒██░░░░▒▒██▓▓░░░░░░░░░░░░  ████▓▓▒▒▒▒██░░▓▓▓▓
+  ░░░░░░░░▒▒████████░░░░  ░░░░░░░░░░          ░░██████░░
+- [review user logs] made the button useful. [iglocska]
+
+  - was linking to the log index without any filters before
+  - now links to any changes affecting the user (model = User, model_id = user_id)
+  - is aware of the use of the new audit log system, linking to the most useful logs
+  - future improvements: add a secondary button for searches on the user email address in the logs by creation
 
 Changes
 ~~~~~~~
+- [PyMISP] Bump. [Raphaël Vinot]
+- [version] bump. [iglocska]
+- [decaying-model-formulas] Catches undefined indexes. [Sami Mokaddem]
+- [decaying tool] Update sliders when a textbox is changed. [Marcel
+  Slotema]
+- [attributes:restSearch] Added X-Skipped-Elements-Count Header.
+  [Benni0]
+
+  Added the X-Skipped-Elements-Count header, which should indicate how many items are skipped due to postprocessing.
+  With this header, the client should be able to do proper pagination and can stop iteration when the amount of items,
+  including the skipped items, is lower than the limit
+- [internal] Include in logged message subject and e-mail address when
+  sending e-mail. [Jakub Onderka]
+- [misp-stix] Bumped latest tagged version. [Christian Studer]
+- [baseurl handling] fixed for reverse proxies. [iglocska]
+
+  - no more weird redirects that drop ports / externally requested baseurls from redirect links
+  - Thanks to @github-germ (Mitch Germansky) for the long, in-depth debug session and testing all the hacky attempts at fixing it
+- [warning-list] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-object] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [misp-stix] Bumped latest submodule version. [Christian Studer]
 - [misp-stix] Bumped latest submodule version including some fixes.
   [Christian Studer]
+- [Attributes restSearch] added sort support for publish_timestamp.
+  [Benni0]
+
+Fix
+~~~
+- [misp-stix] Bumped fixed version. [Christian Studer]
+- [stix2 import] Updated STIX 2 parsers usage following recent changes
+  on misp-stix. [Christian Studer]
+- [priority order in beforefilter] move the baseurl view var setting
+  further up in the chain. [iglocska]
+
+  - redis errors with benchmarking enabled could throw a notice error about the baseurl not being set for the views otherwise
+- [image helper] allow for variable width org logos without overlapping
+  the text. [iglocska]
+- [misp-stix] Bumped latest version including recent fixes. [Christian
+  Studer]
+- [workflow:getEnabledModules] Make sure to return the correct type if
+  redis fails to load. [Sami Mokaddem]
+- [cli setting change] in the previous commit fixed. [iglocska]
+
+  - Thanks @ostefano for noticing my fuckup
+- [workflow:getEnabledModules] Make sure to return the correct type if
+  redis fails to load. [Sami Mokaddem]
+- [settings] multiple fixes to changing settings on the instance.
+  [iglocska]
+
+  - fix an issue with simplebackgroundjobs setting changes barfing
+  - add a proper CLI check rather than that puzzling fileOnly shit we've had before
+- [attribute search ordering fix] [iglocska]
+- [attribute search] id based sliding window reverted. [iglocska]
+
+  - sadly the ordering is more expensive than the gain it looks like...
 
 Other
 ~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'env_dependencies' into develop. [iglocska]
+- Merge branch 'develop' into env_dependencies. [iglocska]
+- Merge branch 'attributeRestsearchOrder' into develop. [iglocska]
+- Merge branch 'develop' into attributeRestsearchOrder. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'pr-9849' into develop. [Sami Mokaddem]
+- Merge branch 'x-skipped-elements-count' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #9865 from JakubOnderka/log-exception-email.
+  [Andras Iklody]
+
+  chg: [internal] Include in logged message subject and e-mail address …
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'dependencies' into develop. [iglocska]
+- Default to env dependencies, and fallback to submodules' [Stefano
+  Ortolani]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9862 from kdrypr/patch-3. [Alexandre Dulaunoy]
+
+  Update defaults.json
+- Update defaults.json. [Kadir YAPAR]
+
+  changed company and community
+- Merge pull request #9859 from ostefano/openapi. [Andras Iklody]
+
+  Fix openapi specification
+- Fix openapi specification. [Stefano Ortolani]
 - Merge branch 'develop' of github.com:MISP/MISP into develop.
   [Christian Studer]
 - Merge branch '2.4' into develop. [iglocska]
 - Merge branch 'develop' of github.com:MISP/MISP into develop.
   [Christian Studer]
+- [chg] Modified Attributes to support mutlicolumn and
+  Model.publish_timestamp sorting. [Benni0]
+- [chg:AppModel] Modified findOrder to support multicolumn sorting.
+  [Benni0]
 
 
 v2.4.195 (2024-07-26)

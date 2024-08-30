@@ -1,6 +1,109 @@
 # Changelog
 
 
+## v2.4.196 (2024-08-21)
+
+### Changes
+
+* [package] Updated version. [Christian Studer]
+
+* [stix2 import] Excluding the producer from the event info title. [Christian Studer]
+
+* [poetry] Bumped latest versions in lock file. [Christian Studer]
+
+* [stix2 import] Better handling of the STIX2 Parser class arguments. [Christian Studer]
+
+  - Made the different arguments available with the
+    command line feature part of the parsing method
+    rather than setting them with the Parser init
+
+* [stix2 import] Added separation in the generic Event info field, between the title and information on the producer. [Christian Studer]
+
+* [stix2 import] Adding producer - when provided - to the generic info field. [Christian Studer]
+
+* [poetry] Bumped lock file with the latest versions. [Christian Studer]
+
+* [poetry] Bumped lock file with the latest dependencies versions. [Christian Studer]
+
+* [readme] Updated command-line import feature arguments instructions. [Christian Studer]
+
+* [misp_stix_converter] Getting the current user organisation uuid to use it for the Custom Clusters creation. [Christian Studer]
+
+* [readme] Updated instruction for the command line feature. [Christian Studer]
+
+### Fix
+
+* [poetry] Tentative to fix lock file. [Christian Studer]
+
+* [misp_stix_converter] Fixed some argparse help values. [Christian Studer]
+
+* [tests] Fixed tests for STIX 2.x Bundles imported as MISP Events where producer and info values are set by user. [Christian Studer]
+
+* [stix2 import] Fixed generic info field to use the title set by users. [Christian Studer]
+
+  - Title set by users is defining the info field if set
+  - Producer information is included as well if set
+  - If title is not set, then we have the fallback option
+    with a generic title based on the Bundle id and producer
+
+* [stix2 export] Avoiding issues with EventReport referencing attributes or objects exported as Custom STIX 2 Object. [Christian Studer]
+
+  - As Event Reports are converted into STIX 2.1 Note
+    objects, and we check all the references to existing
+    data layer within the Event, some Attributes or
+    objects referenced in the Event report might be
+    converted to Custom STIX objects
+  - We have to check if those references are pointing
+    to custom objects and add the `allow_custom` flag
+    in that case
+
+* [stix2 import] Avoiding issue with `getattr` which isn't able to check whether a `__` prefixed variable exists or not. [Christian Studer]
+
+* [misp_stix_converter] Handling cases where url or authentication key is not provided to connect to MISP. [Christian Studer]
+
+* [stix2 import] Added missing `producer` argument. [Christian Studer]
+
+* [misp_stix_converter] Updated command-line import arguments. [Christian Studer]
+
+  - Added some descriptions on the default values
+  - Removed the default value for the `org_uuid`
+    parameter as the default value is set in the
+    method that is called already, which allows us
+    to check is the value is None in order to set
+    the UUID of the organisation of the current user
+    when we use the MISP connection
+
+* [stix2 import] Added bundle id to the generic Event info field used when there is no Report or Grouping to parse. [Christian Studer]
+
+* [misp_stix_converter] Quick fixes on the command-line feature. [Christian Studer]
+
+* [misp_stix_converter] Providing default value to the version and distribution arguments with the command line feature. [Christian Studer]
+
+* [stix2 import] Avoiding issues with the Event tags variable. [Christian Studer]
+
+### Other
+
+* Add: [misp_stix_converter] Global version argument added. [Christian Studer]
+
+  - This answers the request in #66
+
+* Add: [tests] Tests for STIX 2.x Bundle import with specific producer or title set by user. [Christian Studer]
+
+* Add: [misp_stix_converter] Added `title` argument to prefix Event info field with some title. [Christian Studer]
+
+* Add: [readme] Added instructions on the producer argument. [Christian Studer]
+
+* Add: [misp_stix_converter, stix2 import] Added `producer` argument to add in the Events converted from STIX 2.x the name of the producer. [Christian Studer]
+
+* Add: [readme] Added more instructions and examples on the command-line feature usage. [Christian Studer]
+
+* Add: [readme] Additional instructions on the installation process. [Christian Studer]
+
+* Add: [misp_stix_converter] Extended the command line feature to allow to push Events on MISP from the conversion of STIX 2.x Bundles. [Christian Studer]
+
+* Merge branch 'dev' of github.com:MISP/misp-stix. [Christian Studer]
+
+
 ## v2.4.194 (2024-06-21)
 
 ### Changes
