@@ -2,6 +2,168 @@ Changelog
 =========
 
 
+%%version%% (unreleased)
+------------------------
+
+Fix
+~~~
+- [internal] Throw exception in GpgTool if GnuPG.homedir is empty.
+  [Jakub Onderka]
+- [internal] Throw exception in EncryptedValue invalid state. [Jakub
+  Onderka]
+
+Other
+~~~~~
+- Merge pull request #9896 from JakubOnderka/encrypt-exception. [Jakub
+  Onderka]
+
+  Encrypt exception
+- Merge pull request #9897 from MISP/2.4. [Jakub Onderka]
+
+  Merge 2.4 into develop
+
+
+v2.4.197 (2024-09-02)
+---------------------
+
+New
+~~~
+- Add config option user_org_uuid_in_response_header, allowing to
+  include a response header with the requesting user's org UUID. [Jeroen
+  Pinoy]
+- [build] Show required STIX dependencies versions. [Jakub Onderka]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [warning-list] updated. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [PyMISP] Bump. [Raphaël Vinot]
+- [internal] Log when event will not be published. [Jakub Onderka]
+- [global_menu:bookmark] Added comment field as dropdown element's
+  title. [Sami Mokaddem]
+- [db:bookmark] Added DB upgrade to support bookmarks' comment. [Sami
+  Mokaddem]
+- [bookmark:view] Added missing comma for new comment function. [Jan Z.]
+
+  Added a missing comma for the new comment function
+- [bookmark:View] Added field for Comment. [Jan Z.]
+
+  Added a field for comments for bookmarks
+- [bookmark:index] Added a field for Comment. [Jan Z.]
+
+  Added a field to display comment to the Bookmarks
+- [bookmark:add] Added a comment field. [Jan Z.]
+
+  Added a field to add and edit comments for bookmarks.
+- [misp-object] updated to the latest version. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [UI/footer] Avoid confusion for some users. [Alexandre Dulaunoy]
+
+  Verse 1
+  I was sittin' at my desk, feeling mighty fine,
+  Encryption's my jam, yeah, it’s my time to shine.
+  But then I hit a wall, a digital brick,
+  I mixed up my keys, oh what a trick!
+
+  Pre-Chorus
+  Sent my own key to the server’s side,
+  Now my secrets ain’t safe, and I wanna hide.
+  What a mix-up, what a shame,
+  Who’s to blame in this encryption game?
+
+  Chorus
+  Oh, PGP, don’t play tricks on me,
+  Keep my secrets locked, let my mind be free.
+  I sent my own key, oh what a fuss,
+  When I needed the server’s, now I’m outta luck!
+
+  Verse 2
+  I tried to decrypt, but nothing would show,
+  I thought it was the server, but now I know.
+  My own key’s sittin' there, feelin' so right,
+  But it’s not the one I need to lock up tight.
+
+  Pre-Chorus
+  Sent my secrets into the cloud,
+  But they bounced right back, I ain’t so proud.
+  What a mix-up, what a twist,
+  In the encryption dance, I must persist!
+
+  Chorus
+  Oh, PGP, don’t play tricks on me,
+  Keep my secrets locked, let my mind be free.
+  I sent my own key, oh what a fuss,
+  When I needed the server’s, now I’m outta luck!
+
+  Bridge
+  Next time I’ll check, I’ll double-click twice,
+  Make sure the right key’s rollin’ the dice.
+  No more confusion, no more regret,
+  I’ll get this encryption thing down just yet!
+
+  Chorus
+  Oh, PGP, don’t play tricks on me,
+  Keep my secrets locked, let my mind be free.
+  I sent my own key, oh what a fuss,
+  When I needed the server’s, now I’m outta luck!
+
+  Outro
+  So here’s my lesson, loud and clear,
+  In the world of keys, gotta steer clear.
+  Of mix-ups and mess-ups, it’s a tricky ride,
+  But I’ll master this PGP with pride!
+- [ioc import] Check if provided XML is valid. [Jakub Onderka]
+- [schema] Schema version. [Jakub Onderka]
+- [ui] Returned data are already parsed for tag popover. [Jakub Onderka]
+- [bookmarks:add] Lower-cased comment field. [Sami Mokaddem]
+- [sighting] Correctly pull sightings per requested event. [Tom King]
+- [bookmarks] fix an issue with overly verbose returns from bookmarks
+  when shared with the org. [iglocska]
+
+  - as reported by Sharad Kumar Dahal of Green Tick Nepal Pvt. Ltd.
+- [feed] Feed pull, check events against rules if rules specified.
+  [Benni0]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.4. [iglocska]
+- Merge branch 'develop' into pr-9893. [Sami Mokaddem]
+- Merge branch 'develop' into pr-9885. [Sami Mokaddem]
+- Merge pull request #9889 from JakubOnderka/log-unpublished. [Jakub
+  Onderka]
+
+  chg: [internal] Log when event will not be published
+- Merge pull request #9888 from JakubOnderka/tag-popover-fix. [Jakub
+  Onderka]
+
+  fix: [ui] Returned data are already parsed for tag popover
+- Merge branch 'pr-9841' into develop. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4' into develop. [Alexandre Dulaunoy]
+- Merge pull request #9876 from tomking2/bug/sighting_rest_search.
+  [Andras Iklody]
+
+  Fixes performance of sightings restSearch when performing MISP sync
+- Merge pull request #9875 from JakubOnderka/stixtest-build. [Jakub
+  Onderka]
+
+  new: [build] Show required STIX dependencies versions
+- Merge branch '2.4' into develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #9881 from andrewdhicks/fix-sightings-rest-search-
+  org. [Andras Iklody]
+
+  Fix sightings rest search by org uuid
+- Merge branch 'MISP:2.4' into fix-sightings-rest-search-org. [Andrew
+  Hicks]
+- Fix negation of org id for sightings restSearch. [Andrew Hicks]
+
+
 v2.4.196 (2024-08-21)
 ---------------------
 
