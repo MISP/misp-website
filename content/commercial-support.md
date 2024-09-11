@@ -21,8 +21,8 @@ In complement, the following MISP Commercial Support is available from external 
 
 | Name   | Type of support | Further details  | Region |
 |---|---|---|---|
-| **cudeso.be**  | Remote and on-site | [https://www.cudeso.be/misp.html](https://www.cudeso.be/misp.html) | Europe |
-|            | - Hosting, installation and configuration <br /> - Development and integration in your IT environment <br /> - Threat feed integrations <br /> - Best practices threat intelligence <br /> - Training and consultancy <br /> - [MISP online workshops](https://www.cudeso.be/misp-workshop.html) |   | |
+| **cudeso.be**  | Remote and on-site | [https://www.cudeso.be/misp](https://www.cudeso.be/misp) | Europe |
+|            | - Architecture, installation and configuration <br /> - Development and customisations <br /> - Threat feed integrations <br /> - Best practices threat intelligence with MISP <br /> - Support, updates and maintenance <br /> - Training and consultancy <br /> - [MISP online workshops](https://www.cudeso.be/misp-workshop.html) |   | |
 | **xameco.be** | Remote and on-site | [https://xameco.be/](https://xameco.be/) | Europe |
 |               | - Architecture <br />- Installation, maintenance<br />- Integration/automation<br />- Training | | |
 | **eCrimeLabs ApS** | Remote | [https://www.ecrimelabs.com/hosted-and-managed-misp](https://www.ecrimelabs.com/hosted-and-managed-misp) | Europe |
