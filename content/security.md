@@ -111,7 +111,7 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [CVE-2024-29858](https://cvepremium.circl.lu/cve/CVE-2024-29858) < MISP 2.4.187 - `__uploadLogo` in app/Controller/OrganisationsController.php does not properly check for a valid logo upload. 
 - CVE-2024-33855 < MISP 2.4.191 - [A malicious user could send a highly correlating value with an XSS payload to reach the top list of the correlation. The page is only accessible to site admin user.](https://github.com/MISP/MISP/commit/597977694dae9c6ad93f0cbdf8be48ef87ba7f39)
 - [CVE-2024-45509](https://vulnerability.circl.lu/vuln/cve-2024-45509) < MISP 2.4.197 - In MISP through 2.4.196, app/Controller/BookmarksController.php does not properly restrict access to bookmarks data in the case where the user is not an org admin.
-- [CVE-2024-46918](https://vulnerability.circl.lu/vuln/cve-2024-45509) < MISP 2.4.198 - app/Controller/UserLoginProfilesController.php in MISP before 2.4.198 does not prevent an org admin from viewing sensitive login fields of another org admin in the same org.
+- [CVE-2024-46918](https://vulnerability.circl.lu/vuln/cve-2024-46918) < MISP 2.4.198 - app/Controller/UserLoginProfilesController.php in MISP before 2.4.198 does not prevent an org admin from viewing sensitive login fields of another org admin in the same org.
 
 ## PGP Key
 
