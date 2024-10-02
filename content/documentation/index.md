@@ -29,7 +29,7 @@ MISP [training materials are available on](/misp-training/).
 
 ##### MISP Training Threat Intelligence Introduction for Analysts and Security Professional
 
-{{< youtube sb36MMRTtLM >}}
+{{< youtube boaCrgLZMCU  >}}
 
 ##### MISP Training Administration and Deployment of MISP software
 
