@@ -15,11 +15,15 @@ MISP Install guides (stock install instructions for getting a base MISP system r
 
 ### Requirements
 
-MISP can be easily installed on any standard GNU/Linux distribution. Installation guides for various distributions are included in the [INSTALL directory](https://github.com/MISP/MISP/tree/2.4/INSTALL). If you did a git clone of MISP for the installation, an [UPDATE procedure is available](https://github.com/MISP/MISP/blob/2.4/INSTALL/UPDATE.txt) to keep your MISP up-to-date.
+MISP can be easily installed on any standard GNU/Linux distribution.
+
+For MISP 2.5, we highly recommend the use of Ubuntu 24.04, using [the provided installer]([https://github.com/MISP/MISP/tree/2.4/INSTALL/](https://raw.githubusercontent.com/MISP/MISP/refs/heads/2.5/INSTALL/INSTALL.ubuntu2404.sh)), for other distributions and versions some manual tinkering may be required.
+
+For MISP 2.4, Installation guides for various distributions are included in the [INSTALL directory](https://github.com/MISP/MISP/tree/2.4/INSTALL). If you did a git clone of MISP for the installation, an [UPDATE procedure is available](https://github.com/MISP/MISP/blob/2.4/INSTALL/UPDATE.txt) to keep your MISP up-to-date. We advise against installing new instances of 2.4 at this point though, unless you are absolutely bound by the distribution requirements of 2.5.
 
 ### Recommended distribution
 
-We recommend to use a recent and stable Ubuntu distribution (such as 22.04) for deploying MISP.
+We recommend to use a recent and stable Ubuntu distribution (such as 24.04) for deploying MISP.
 
 ### Virtual images for testing
 
@@ -63,11 +67,6 @@ We invite you to read the GitHub README page of each version to understand what 
 ### Ansible
 
 - [MISP ansible](https://github.com/juju4/ansible-MISP) An ansible role to setup a MISP instance.
-
-
-### AutoMISP
-
-- [AutoMISP is shell script](https://github.com/da667/AutoMISP) to automatically install MISP and misp-modules together on Ubuntu 16.04 or 18.04.
 
 ### misp-cloud - Cloud-ready images of MISP
 
