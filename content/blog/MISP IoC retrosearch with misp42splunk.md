@@ -4,7 +4,7 @@ date: 2024-10-22
 layout: post
 authors:
 - Remi Seguy
-tags: ["Io", "retrosearch", "splunk", "misp42", "integration"]
+tags: ["IOC", "retrosearch", "splunk", "misp42", "integration"]
 categories: []
 ---
 
