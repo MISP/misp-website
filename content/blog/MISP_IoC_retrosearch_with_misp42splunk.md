@@ -18,7 +18,7 @@ The framework will run a series of scheduled searches to pull the IoC from MISP,
 
 All results are written to a summary index.
 
-![MISP IoC retrosearch lifecycle](https://github.com/remg427/misp42splunk/blob/master/images/misp42_ioc_retrosearch_lifecycle.png)
+![MISP IoC retrosearch lifecycle](https://raw.githubusercontent.com/remg427/misp42splunk/refs/heads/master/images/misp42_ioc_retrosearch_lifecycle.png)
 
 ## Preparation
 
@@ -65,11 +65,11 @@ field.sourcetype = string
 ```
 You could use Splunk App for Lookup File Editing:  
 
-![Create KV store](https://github.com/remg427/misp42splunk/blob/master/images/misp42_ioc_retrosearch_kvstore_creation.png)
+![Create KV store](https://raw.githubusercontent.com/remg427/misp42splunk/refs/heads/master/images/misp42_ioc_retrosearch_kvstore_creation.png)
 
 and then create a lookup definition **HUNT_LD_201_RETRO_catch_ip** pointing to the KV store HUNT_KV_201_RETRO_catch_ip.  
 
-![Lookup definition](https://github.com/remg427/misp42splunk/blob/master/images/misp42_ioc_retrosearch_lookup_defintion.png)
+![Lookup definition](https://raw.githubusercontent.com/remg427/misp42splunk/refs/heads/master/images/misp42_ioc_retrosearch_lookup_defintion.png)
 
 
 #### Collecting findings in a dedicated index
