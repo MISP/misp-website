@@ -7,14 +7,12 @@ toc: true
 
 
 
-# Project (1) Pauline Bourmeau - Social Perspectives in Intelligence Activities within Sharing Communities - CNAM Paris Department of Criminology 
+# Project (1) Pauline Bourmeau - Social Perspectives in Intelligence Activities within Sharing Communities 
 
 
 Contact for this research project: social-perspective@misp-project.org
 
 ## Social Perspectives in Intelligence Activities within Sharing Communities
-
-## Introduction
 
 ## Subject scope
 
@@ -31,14 +29,6 @@ While much of the research in information security and intelligence has traditio
 
 We face missed opportunities for successful information sharing within the research community. To understand and address this issue, we aim to describe the information sharing processes, examining functional challenges from social and cultural perspectives. This involves identifying both the incentives for and barriers to sharing.
 
-
-### State of the Art
-
-A significant portion of academic research has been dedicated to examining the structure of information, with a particular emphasis on the tools employed for this purpose. Much of this research is specialized, focusing on areas like competitive analysis construction or the structuring of data exchanges.
-
-In our bibliography, we have specifically included papers related to the MISP platform. This focus will facilitate our engagement with and interviews of groups actively involved in information sharing, leveraging insights from those who use MISP in their operations.
-
-
 ## Research methodology
 
 ### Research design
@@ -46,16 +36,6 @@ In our bibliography, we have specifically included papers related to the MISP pl
 A series of interviews are conducted with various sharing communities. We aim to compare the actual usage of the platform, as observed by us, with the users' perspectives as shared in the interviews.
 
 We utilize both technical observations, such as platform statistics, and qualitative insights from the interviews, through discourse analysis.
-
-As a starting point, we included a list of question related to information sharing addressed to participants "Example list".
-
-We narrow our questioning about the following points:
-
-- Common assumed (survey) reasons why organizations are not sharing.
-- Common reasons why organizations are sharing.
-
-In order to integrate as much data as possible and to avoid pre-interview categorization, we perform free interviews.
-
 
 ### Data Analysis Model
 
