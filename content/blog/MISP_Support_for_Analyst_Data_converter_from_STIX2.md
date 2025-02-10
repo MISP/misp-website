@@ -1,5 +1,5 @@
 ---
-title: Latest misp-stix Release: Enhanced Support for Analyst Data
+title: "Latest misp-stix Release: Enhanced Support for Analyst Data"
 banner: /img/blog/analyst-data_event.png
 author:
  - MISP Project team
