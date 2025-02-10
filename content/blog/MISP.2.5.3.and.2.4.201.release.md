@@ -8,7 +8,7 @@ tags: ["MISP", "Threat Intelligence", "release" ]
 layout: post
 ---
 
-We are excited to announce the latest updates to MISP with versions **v2.5.3** and **v2.4.201**, which bring numerous enhancements, bug fixes, and security improvements to strengthen threat information sharing capabilities. As with any security release, we highly recommend that you update ASAP and inform your partners to do the same. 
+We are excited to announce the latest updates to [MISP](https://github.com/misp/misp) with versions **v2.5.3** and **v2.4.201**, which bring numerous enhancements, bug fixes, and security improvements to strengthen threat information sharing capabilities. As with any security release, we highly recommend that you update ASAP and inform your partners to do the same. 
 
 ## 🚀 **New Features**  
 

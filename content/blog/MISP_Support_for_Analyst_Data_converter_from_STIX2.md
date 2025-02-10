@@ -40,7 +40,7 @@ The full release notes are available [here](https://github.com/MISP/misp-stix/re
 
 ## In-depth details
 
-![Event with Analyst Data](/img/blog/analyst-data_event.png)
+![Event with Analyst Data](/img/blog/analyst-data_event.png "{class='img-responsive'}")
 
 With the recent introduction of the Analyst Data feature in MISP, users can now attach notes or opinions to any data layer or even to other analyst data objects. This provides the ability to annotate and assess shared intelligence with additional insights.
 
@@ -50,7 +50,7 @@ The main structural difference to be aware of lies in data organization: while S
 
 ### Detailed mapping
 
-![In-depth mapping](/img/blog/analyst_data_json.png)
+![In-depth mapping](/img/blog/analyst_data_json.png "{class='img-responsive'}")
 
 #### STIX 2.1 Note object conversion to MISP Analyst Note
 

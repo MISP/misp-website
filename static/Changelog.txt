@@ -7,7 +7,541 @@ Changelog
 
 Fix
 ~~~
+- [stix2 import] Updated misp-stix method imported, that changes on
+  misp-stix recently. [Christian Studer]
+- [analystdata] Fixed collection of analyst data for the view at Object
+  level failing when an Object has no Attribute. [Christian Studer]
+
+Other
+~~~~~
+- Merge pull request #10165 from rubentroncon/patch-1. [Andras Iklody]
+
+  Create INSTALL.debian12.sh
+- Create INSTALL.debian12.sh. [Ruben Tronçon]
+
+  - Replaced strings 'Ubuntu' -> 'Debian'
+  - Edited os_version_check() to check for Debian 12 instead of Ubuntu
+  - Fixed ssdeep install (apt install libfuzzy-dev and create symlink to /usr/local/lib, otherwise install fails)
+- Merge branch '2.5' of github.com:MISP/MISP into 2.5. [Christian
+  Studer]
+
+
+v2.5.6 (2025-01-03)
+-------------------
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [correlation] tuning. [iglocska]
+
+  - split the lookup for correlating attributes into two distinct queries on value1/value2
+  - using OR in this case in MySQL causes worse performance
+- [CI] Move `Check if Redis is ready` task before updating. [Jakub
+  Onderka]
+- [CLI] Schema diagnostic little fixes. [Jakub Onderka]
+- [internal] Reduce memory usage when fetching index from Redis cache.
+  [Jakub Onderka]
+
+Fix
+~~~
+- [duplicate correlation condition] removed. [iglocska]
+- [advanced correlations] re-added to the correlation engine. [iglocska]
+
+  - it's hacky, but should be faster
+- [usersettings] ACL relaxed a bit. [iglocska]
+
+  - was a bit overzealous with the last round of tightening
+  - matches setting description now
+
+  - thanks to Jeroen Pinoy for pointing this out
+- [security] reflected xss in serversettings reload. [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [user settings] further tightening of the enforcement of disabling
+  user self management. [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [disableUserSelfManagement] didn't properly disable users from
+  modifying their settings. [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [analystdata] recursion fixed for analystdata/view. [iglocska]
+- [internal] Avoid one redis command when scanning. [Jakub Onderka]
+- [analystdata] recursion fixed for analystdata/view. [iglocska]
+- [hotfix] temporary fix for broken analystdata view. [Luciano Righetti]
+
+Other
+~~~~~
+- Merge branch '2.5' of github.com:MISP/MISP into 2.5. [iglocska]
+- Merge pull request #10119 from kdrypr/patch-4. [Alexandre Dulaunoy]
+
+  Threatmon MISP Community Added
+- Threatmon MISP Community Added. [Kadir YAPAR]
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge pull request #10139 from JakubOnderka/redis-optimisations.
+  [Jakub Onderka]
+
+  Small Redis optimisations
+- Merge pull request #10104 from JakubOnderka/reduce-memory-usage.
+  [Jakub Onderka]
+
+  chg: [internal] Reduce memory usage when fetching index from Redis cache
+
+
+v2.4.204 (2025-01-03)
+---------------------
+
+Changes
+~~~~~~~
+- [AuditLog] add SharingGroupOrg and SharingGroupBlueprint filtering
+  options. [Jeroen Pinoy]
+- [version] bump. [iglocska]
+- [correlation] tuning. [iglocska]
+
+  - split the lookup for correlating attributes into two distinct queries on value1/value2
+  - using OR in this case in MySQL causes worse performance
+- [logs] added created time to application logs. [iglocska]
+- [tools] fix the category and types generator. [Alexandre Dulaunoy]
+- [tools] fix the category and types generator. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [authkeys] add accepts the user_id via URL params and posted JSON
+  body. [Jeroen Pinoy]
+- [Dashboard:TrendingATtributesWidget] Correct description. [Jeroen
+  Pinoy]
+- [duplicate correlation condition] removed. [iglocska]
+- [advanced correlations] re-added to the correlation engine. [iglocska]
+
+  - it's hacky, but should be faster
+- [backport] fix. [iglocska]
+- [sharing group blueprints] multiple fixes. [iglocska]
+
+  - fixes to inconsistend ACL checks
+  - fixes to invalid behaviour in certain cases creating broken objects
+
+  - as reported by Jeroen Pinoy
+- [usersettings] ACL relaxed a bit. [iglocska]
+
+  - was a bit overzealous with the last round of tightening
+  - matches setting description now
+
+  - thanks to Jeroen Pinoy for pointing this out
+- Fix several typos. [Jeroen Pinoy]
+- [security] reflected xss in serversettings reload. [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [user settings] further tightening of the enforcement of disabling
+  user self management. [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [disableUserSelfManagement] didn't properly disable users from
+  modifying their settings. [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [hotfix] temporary fix for broken analystdata view. [Luciano Righetti]
+- Positions  correctly in 3 instances by also passing in ID to
+  RestResponse->saveSuccessResponse. [Tom King]
+- [merge issue] resolved. [iglocska]
+- [hotfix] temporary fix for broken analystdata view. [Luciano Righetti]
+- [analystdata] recursion fixed for analystdata/view. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge pull request #10144 from Wachizungu/add-blueprint-
+  sharinggrouporg-auditlog-filtering-options. [Andras Iklody]
+
+  chg: [AuditLog] add SharingGroupOrg and SharingGroupBlueprint filteri…
+- Merge pull request #10141 from Wachizungu/fix-specify-user-id-on-add-
+  authkey-via-post-body. [Andras Iklody]
+
+  fix: [authkeys] add accepts the user_id via URL params and posted JSO…
+- Merge pull request #10142 from Wachizungu/correct-description-of-
+  trending-attributes-widget. [Andras Iklody]
+
+  fix: [Dashboard:TrendingAttributesWidget] Correct description
+- Merge pull request #10140 from Wachizungu/fix-typos. [Alexandre
+  Dulaunoy]
+
+  fix: fix several typos
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Threatmon MISP Community Added. [Kadir YAPAR]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge pull request #10135 from tomking2/bug/restResponse. [Luciano
+  Righetti]
+
+  Fixes the response on three rest API requests: GalaxyClusterRelation (Add/Edit) and  SightingsDB (Add)
+- Merge branch '2.4' into 2.4-develop. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+
+
+v2.5.5 (2024-12-31)
+-------------------
+
+New
+~~~
+- [test] Include misp_stix_converter in stixtest.py. [Jakub Onderka]
+
+Changes
+~~~~~~~
+- [VERSION] bump. [iglocska]
+
+Fix
+~~~
+- [password change] patch from before fixed. [iglocska]
+
+  - different approach
+- [debug] removed. [iglocska]
+- [analystdata] fixes for analyst data without any nesting failing.
+  [iglocska]
+- [password change] disabled blocked site admins from setting it for
+  users too. [iglocska]
+- [analystdata] invalid empty check in nested data. [iglocska]
+
+  - we need to go deeper!
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge pull request #10134 from JakubOnderka/stix-fix. [Jakub Onderka]
+
+  new: [test] Include misp_stix_converter in stixtest.py
+- Revert "chg: [misp-stix] Bumped latest version" [Jakub Onderka]
+
+  This reverts commit 9dd3c26faf0649a94b5209499fa544995e916c6a.
+
+
+v2.4.203 (2024-12-30)
+---------------------
+
+New
+~~~
+- [Log search] rework. [iglocska]
+
+  - new, saner internals not using sessions
+  - fixed pagination persistence of search filters
+  - added information to search fields' purpose
+  - using the modern UI abstraction
+
+  - As reported by Jeroen Pinoy
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [settings] added more cli_only flags. [iglocska]
+- Add link to security advisories to SECURITY.md. [Jeroen Pinoy]
+
+Fix
+~~~
+- [security] sanitise user object on edit. [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [security] feeds headers redacted. [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [settings] paranoid log settings made cli only. [iglocska]
+- [2.5 backport] of setting changes. [iglocska]
+- [acl] too restrictive acl on collections fixed. [iglocska]
+- [acl] report ACL tightened. [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [security] better sanitisation list. [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [security] better sanitisation of the logs for API keys. [iglocska]
+
+  - as reported by Jeroen Pinoy
+
+Other
+~~~~~
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+- Merge pull request #10129 from MISP/add-select-object-attrs-check.
+  [Luciano Righetti]
+
+  add: [ui] add select object attributes checkbox on event view
+- Add: [ui] add select object attributes checkbox on event view.
+  [Luciano Righetti]
+- Merge pull request #10132 from Wachizungu/add-link-to-security-
+  advisories. [Alexandre Dulaunoy]
+
+  chg: Add link to security advisories to SECURITY.md
+
+
+v2.5.4 (2024-12-24)
+-------------------
+
+Changes
+~~~~~~~
+- [config] added a new setting to skip the baseurl coercion for the
+  framework. [iglocska]
+
+  - this seems to solve some issues when running MISP under a subdirectory (but may be detrimental for everyone else)
+- [stats] Added # analyst-data & event reports. [Sami Mokaddem]
+- [config] added a new setting to skip the baseurl coercion for the
+  framework. [iglocska]
+
+  - this seems to solve some issues when running MISP under a subdirectory (but may be detrimental for everyone else)
+
+Fix
+~~~
+- [Templates] make element attribute and element file validation checks
+  work with php8. [Jeroen Pinoy]
+- [internal] 'Call to a member function query() on null' when fetching
+  cache. [Jakub Onderka]
+- [security] don't log the totp secret in the new audit logs, fixes
+  #10116. [iglocska]
+
+  - as reported by @marjatech and Jeroen Pinoy
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge pull request #10126 from Wachizungu/fix-template-validation-
+  checks-php-8. [Andras Iklody]
+
+  fix: [Templates] make element attribute and element file validation c…
+- Merge pull request #10094 from JakubOnderka/query-null-fix. [Andras
+  Iklody]
+
+  fix: [internal] 'Call to a member function query() on null' when fetching cache
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge branch '2.5' into develop. [iglocska]
+
+
+v2.4.202 (2024-12-24)
+---------------------
+
+Changes
+~~~~~~~
+- [config] added a new setting to skip the baseurl coercion for the
+  framework. [iglocska]
+
+  - this seems to solve some issues when running MISP under a subdirectory (but may be detrimental for everyone else)
+- [version] bump. [iglocska]
+- [settings] tightened some rest client related settings. [iglocska]
+
+  - rest_client_baseurl is now CLI only
+  - rest_client_enable_arbitrary_urls has a scarier description
+- [misp-taxonomies] updated. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [ci] path fixed. [iglocska]
+- [branch] added ci. [iglocska]
+- [analystData] Flattening analyst data. [Christian Studer]
+
+  - Analyst Data objects such as Notes and Opinions
+    are no longer nested but returned as flattened
+    lists attached to the given data layer
+- [UI] tiny tweak. [iglocska]
+- [attributes:addTag] allow combinations of tag collection tags, and
+  other tags, to be added at the same time. [Jeroen Pinoy]
+- [unused setting] removed. [iglocska]
+
+  - Security.disable_form_security was a dangerous setting used mostly for pentesting / testing purposes as it made things easier for those use-cases
+  - Once the need for it was gone, the functionality was removed but the setting itself lingered, not doing anything
+  - removed
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [PyMISP] Dump. [Raphaël Vinot]
+- [Attributes] support array of tag names on attributes/addTag. [Jeroen
+  Pinoy]
+- [config] added a new setting to skip the baseurl coercion for the
+  framework. [iglocska]
+
+  - this seems to solve some issues when running MISP under a subdirectory (but may be detrimental for everyone else)
+- [stats] Added # analyst-data & event reports. [Sami Mokaddem]
+
+Fix
+~~~
+- [PyMISP] Bumped latest version including some properties fixed.
+  [Christian Studer]
+- [analystdata] I must be blind... [iglocska]
+- [analystdata] If at first you don't succeed... [iglocska]
+- [copypasta] error fixed. [iglocska]
+- [Analystdata] include direct child elements in /analystData/view.
+  [iglocska]
+
+  - a bit hcky for the org object cleaning...
+- [security] don't use jsontool::encode() in any views. [iglocska]
+
+  - pre-emptive fix, don't think any of them are exploitable, but better safe than sorry.
+
+  - as reported by Jeroen Pinoy
+- [security] 2 cases of stored XSS. [iglocska]
+
+  - XSS when using JsonTool::encode() to feed Javascript
+
+  - as reported by Jeroen
+- [security] tightening of the template elements endpoints against
+  potential abuse. [iglocska]
+
+  - cast the passed ID to int, just to be sure
+
+  - as reported by Jeroen Pinoy
+- [security] follow up to the previous commit. [iglocska]
+
+  - ensure that ID is numeric in the templateElementAddChoices() endpoint
+
+  - as reported by Jeroen Pinoy
+- [security] xss in the (non-working) templating system. [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [Templates:index] correctly display template names. [Jeroen Pinoy]
+- [Templates] use correct encoding in upload_file view element. [Jeroen
+  Pinoy]
+- [PyMISP] Bumped PyMISP to let the tests go further to the next
+  potential error. [Christian Studer]
+- [analystData] Fetching child Notes and Opinions with `$this->__isRest`
+  only when it is set, and the default false instead. [Christian Studer]
+
+  - This was causing issues with the `.json` call on Events containing analyst data
+- [sync] analyst data progress. [iglocska]
+
+  - update progress bar when starting analyst data sync
+- [analystdata] default to 5 nesting levels depth. [iglocska]
+- [analystdata] pass __isRest rather than hardcore value. [iglocska]
+- [AnalystData] Fixed default value for the `isREst` argument.
+  [Christian Studer]
+- [analystdata] nesting adheres to isRest() correctly. [iglocska]
+- [EventReport, analystData] Avoiding missing analystData attached on
+  EventReport while capturing data. [Christian Studer]
+- [analystData] Avoid over-writing `object_type` and `object_uuid`
+  during the Analyst Data capture. [Christian Studer]
+
+  - This prevents from losing the reference to the
+    parent data layer
+  - It is now needed as Analyst Data is described in
+    the JSON format as flat lists attached to their
+    data layer rather than nested
+- [analystData] Setting a private variable to save the request type.
+  [Christian Studer]
+
+  - The initial idea was to set the default value
+    for `$isRest` to false and overwrite it for
+    rest requests but it ended up being too complex
+    without altering a lot of generic method - like
+    `find`, `afterFind` in different places
+- [analystData] Reverting back the ability to fetch nested analyst data.
+  [Christian Studer]
+
+  - This is useful for the view of analyst data on
+    the GUI to show the nesting
+  - For JSON export we keep the flat lists
+- [analystDataBehavior] Simple indentation issue fixed. [Christian
+  Studer]
+- [security] file upload tightening. [iglocska]
+
+  - Could be abused to check the existence of a file
+
+  - as reported by Jeroen Pinoy
+- [OpenApi] add clarifications for attributes/addTag. fixes #10114.
+  [Jeroen Pinoy]
+- [internal] Variable $extending is undefined. [Jakub Onderka]
+- [EventReport] Properly passing the EventReport to get the Analyst Data
+  captured. [Christian Studer]
+- [acl] checkcomposites is an admin task, org admins shouldn't have
+  access. [iglocska]
+
+  - not a big deal, it just returns the IDs of all value1|value2 attributes in the instance (an endpoint to gauge how frequently it is still used)
+- [eventreport from url] correctly check enabled modules for the user.
+  [iglocska]
+
+  - was only checking html module before, rather than the chosen module based on extension
+
+  - as reported by Jeroen Pinoy
+- [restsearch] removed waterfall behaviour of the deleted flag.
+  [iglocska]
+
+  - deleted objects will only contain deleted attributes anyway
+  - condition was ANDed on attribute and object level producing incorrect results
+- [security] don't log the totp secret in the new audit logs, fixes
+  #10116. [iglocska]
+
+  - as reported by @marjatech and Jeroen Pinoy
 - [INSTALL.sh] removed checksum check. [Andras Iklody]
+- [AadAuthenticate] set default value for auth_property_name. allow
+  other properties than mail or userNamePrincipal. [Luciano Righetti]
+
+Other
+~~~~~
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+- Merge branch '2.4' into 2.4-develop. [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge pull request #10127 from Wachizungu/fix-template-index-names.
+  [Andras Iklody]
+
+  fix: [Templates:index] correctly display template names
+- Merge pull request #10122 from Wachizungu/fix-incorrect-encoding-
+  template-file-upload-view. [Andras Iklody]
+
+  fix: [Templates] use correct encoding in upload_file view element
+- Merge branch 'feature/analystData_flattening' of github.com:MISP/MISP
+  into 2.4-develop. [Christian Studer]
+- Merge branch 'feature/analystData_flattening' of github.com:MISP/MISP
+  into feature/analystData_flattening. [iglocska]
+- Merge branch 'feature/analystData_flattening' of github.com:MISP/MISP
+  into feature/analystData_flattening. [Christian Studer]
+- Merge branch 'feature/analystData_flattening' of github.com:MISP/MISP
+  into feature/analystData_flattening. [Christian Studer]
+- Merge branch 'feature/analystData_flattening' of github.com:MISP/MISP
+  into feature/analystData_flattening. [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into
+  feature/analystData_flattening. [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into
+  feature/analystData_flattening. [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into
+  feature/analystData_flattening. [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into
+  feature/analystData_flattening. [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Allow site admin to see authkey from other admins. [JSCU-CNI]
+
+  Improves the fix from 8577790e75b50d57b71a5c82d2e4611b130983f7 by explicitly checking if the current user is not a site admin before redacting the authkey.
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '10121' into 2.4-develop. [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge pull request #10120 from Wachizungu/clarify-attribute-addTag-
+  doc. [Andras Iklody]
+
+  fix: [OpenAPI] add clarifications for attributes/addTag. fixes #10114
+- Threatmon MISP Community Added. [Kadir YAPAR]
+- CustomImage image path check update. [Lino Pacheco]
+- Merge pull request #10117 from Wachizungu/support-array-of-tag-names-
+  attribute-addTag. [Andras Iklody]
+
+  chg: [Attributes] support array of tag names on attributes/addTag
+- Merge branch '2.4' into 2.4-develop. [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge remote-tracking branch 'origin/2.4-develop' into 2.4-develop.
+  [Sami Mokaddem]
+- Merge branch '2.4' into 2.4-develop. [iglocska]
 
 
 v2.4.201 (2024-12-16)
