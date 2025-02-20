@@ -3,9 +3,101 @@
 
 ## %%version%% (unreleased)
 
+### New
+
+* [onion_lookup] Added module. [Sami Mokaddem]
+
+### Changes
+
+* [doc] updated. [Alexandre Dulaunoy]
+
+* [onion_lookup] updated. [Alexandre Dulaunoy]
+
+* [onion_lookup] logo added. [Alexandre Dulaunoy]
+
+* [doc] updated. [Alexandre Dulaunoy]
+
+* [vulnerability_lookup] Adding to the vulnerability object the Vulnerability Lookup link to the vulnerability description. [Christian Studer]
+
+* [cve] Updated module to use the Vulnerability Lookup API. [Christian Studer]
+
+  - API available at https://cve.circl.lu
+
+* [vulnerability_lookup] Moving the parsing code to the vulnerability parser script. [Christian Studer]
+
+  - `VulnerabilityLookupParser` can then be reused in other modules if needed
+
 ### Fix
 
+* [onion_lookup] add a `name` field to the module info. [Alexandre Dulaunoy]
+
+* [init] `onion_lookup` module added + clean-up of the list. [Alexandre Dulaunoy]
+
+* [tests] Updated test for the cve module following its recent changes. [Christian Studer]
+
+* [reversedns] add the `ip` attribute type. [Alexandre Dulaunoy]
+
+* [vulnerability_lookup] Quick fix on a typing and an indentation. [Christian Studer]
+
+  - Typing was correct but failing for some old python versions
+
+* [vulnerability_lookup] Better reference between vulnerability and weakness objects. [Christian Studer]
+
+* [vulnerability_lookup] Fixed potentially missing fields in the GSD description of a vulnerability. [Christian Studer]
+
+* [vulnerability_lookup] Updated API url. [Christian Studer]
+
 * [yara_query] description fixed. [Alexandre Dulaunoy]
+
+### Other
+
+* Merge pull request #709 from MISP/dependabot/pip/jinja2-3.1.5. [Alexandre Dulaunoy]
+
+  build(deps): bump jinja2 from 3.1.4 to 3.1.5
+
+* Build(deps): bump jinja2 from 3.1.4 to 3.1.5. [dependabot[bot]]
+
+  Bumps [jinja2](https://github.com/pallets/jinja) from 3.1.4 to 3.1.5.
+  - [Release notes](https://github.com/pallets/jinja/releases)
+  - [Changelog](https://github.com/pallets/jinja/blob/main/CHANGES.rst)
+  - [Commits](https://github.com/pallets/jinja/compare/3.1.4...3.1.5)
+
+  ---
+  updated-dependencies:
+  - dependency-name: jinja2
+    dependency-type: indirect
+  ...
+
+* Merge branch 'main' of github.com:MISP/misp-modules. [Christian Studer]
+
+* Add: [vulnerability_lookup] Added logo for documentation. [Christian Studer]
+
+* Add: [vulnerability_lookup] Module info. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-modules. [Christian Studer]
+
+* Add: [vulnerability_lookup, variot] Parsing CVSS v2 too. [Christian Studer]
+
+* Add: [vulnerability_lookup] Parsing Tailscale descriptions. [Christian Studer]
+
+* Add: [vulnerability_lookup] Parsing JVNDB descriptions. [Christian Studer]
+
+* Add: [vulnerability_lookup] Enhanced CSAF format parsing. [Christian Studer]
+
+  - Supporting NCSC-NL CSAF format & the CISA CSAF
+      format prefixed with `va`
+  - Extracting cpe information from `product_tree`
+      for all the CSAF formats
+
+* Add: [vulnerability_lookup] Handling weakness (CWE) information while parsing OpenSSF vulnerability descriptions. [Christian Studer]
+
+* Add: [vulnerability_lookup] Handling weakness (CWE) information while parsing github vulnerabilities. [Christian Studer]
+
+* Add: [vulnerability_lookup] Added cpe information from CVE lookups. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-modules. [Christian Studer]
+
+* Merge branch 'main' of github.com:MISP/misp-modules. [Christian Studer]
 
 
 ## v2.4.199 (2024-11-24)

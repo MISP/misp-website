@@ -2,11 +2,85 @@ Changelog
 =========
 
 
-%%version%% (unreleased)
-------------------------
+v2.5.7 (2025-02-20)
+-------------------
+
+New
+~~~
+- [overcorrelations] added quick search for values. [iglocska]
+- [server:test-sync-rules] Added widget to test the number of filtered
+  events under sync filtering rules. [Sami Mokaddem]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [doc] Update references to latest stable version to 2.5 from 2.4.
+  [orjanj5]
+
+  Also updated the link to the Code of Conduct to match latest stable version.
+- [server:sync-filter] Usage of org UUIDs instead of org name. [Sami
+  Mokaddem]
+- [server:test-sync-rules] Initial work on having a way to test result
+  of sync rules. [Sami Mokaddem]
+- [js:gridstack] Updated from v1.0.0 to v1.2.1. [Sami Mokaddem]
+
+  - Fixes #10208
+  - Thanks to @marjatech for the report
+- [js:markdown-it] Updated from v12.3.2 to v14.1.0. [Sami Mokaddem]
+
+  - Fixes #10159
+  - Thanks to @marjatech for the report
+- [galaxy cluster search] relaxed on the index to include other fields
+  in the search scope than synonyms. [iglocska]
 
 Fix
 ~~~
+- Broken recorrelation on 2.5 branch. [Luciano Righetti]
+- [ui:server-pull] Removed debug leftover. [Sami Mokaddem]
+- [server:filter-pushable] Correctly supports org UUIDs for push. [Sami
+  Mokaddem]
+- [acl] added entry. [iglocska]
+
+  - graphman, (╯°□°)╯︵ ┻━┻
+- Broken recorrelation on 2.5 branch. [Luciano Righetti]
+- [tag:tag-relationship] Added support of custom verb. [Sami Mokaddem]
+- [cerebrate:sharing-group-pull] Default to roaming mode. [Sami
+  Mokaddem]
+- [ui:global-menu] Typo in date checking. [Sami Mokaddem]
+- Bug that prevents galaxy clusters to be added to a galaxy by uuid.
+  [jsman]
+- [event:import_event] Gracefully handle analyst data for Attribute-less
+  objects. [Sami Mokaddem]
+- [console:event-shell] Fixed regression on events/export for many
+  format. [Sami Mokaddem]
+
+  - Fixes #10202
+  - Correctly fallback MispAttribute model instead of Attribute
+- Correctly remove unauthorized access toast. fixes #10131. [Luciano
+  Righetti]
+- [correlation] avoid overcorrelating events when adding a full event.
+  [iglocska]
+
+  - future improvements: create entries for overcorrelations
+- [server settings] correlation limit displayed default changed to match
+  actual behaviour. [iglocska]
+- Bug that prevents galaxy clusters to be added to a galaxy by uuid.
+  [jsman]
+- [console:event-shell] Fixed regression on events/export for many
+  format. [Sami Mokaddem]
+
+  - Fixes #10202
+  - Correctly fallback MispAttribute model instead of Attribute
+- [plugin>LdapAuth] correct ldap bind account for getUserMemberships
+  function. [arteta22000]
+
+  If we want the “getUserMemberships” function to work in all cases, we need the "ldapReaderUser" user.
+- [galaxycluster] query on the galaxy level was failing with unknown
+  Galaxy.default. [iglocska]
+
+  - replaced it with a subquery
+- [galaxyclusters] ambiguous id fixed. [iglocska]
+- [galaxycluser] index internal error fixed, fixes #10062. [iglocska]
 - [stix2 import] Updated misp-stix method imported, that changes on
   misp-stix recently. [Christian Studer]
 - [analystdata] Fixed collection of analyst data for the view at Object
@@ -14,6 +88,115 @@ Fix
 
 Other
 ~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge branch '2.5' of github.com:MISP/MISP into 2.5. [iglocska]
+- Merge pull request #10182 from orjanj5/patch-1. [Andras Iklody]
+
+  chg: [doc] Update references to latest stable version to 2.5 from 2.4
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into change/sync-filter-
+  org-uuids. [Sami Mokaddem]
+- Merge branch 'taxii_proxy' into develop. [iglocska]
+- Merge branch 'MISP:2.5' into patch-2. [DocArmoryTech]
+- Merge branch 'MISP:2.5' into patch-2. [DocArmoryTech]
+- Taxiiserver DB changes skip_proxy. [DocArmoryTech]
+
+  - Update db_schema.json to
+    - include a skip_proxy column in the taxii_servers table
+    - increment db_version to `135`
+  - update AppModel.php to alter the taxii_server table to include a skip_proxy column
+  - Update MYSQL.sql to include a skip_proxy column in the taxii_servers table
+- Proxy and skip_proxy logic. [DocArmoryTech]
+
+  - defaulting to false, add validation for a `skip_proxy` boolean option
+  - adjust `queryInstance()` to make use of MISPs proxy settings, unless `skip_proxy` is set
+- Introduce skip_proxy to taxiiserver. [DocArmoryTech]
+
+  Add a `skip_proxy` boolean to taxiiserver Views:
+  - `add.ctp` added a "Skip Proxy (if applicable)" checkbox after Baseurl
+  - `view.ctp` added a "Skip Proxy (if applicable)" key to the view, and set the type to `json` to have it render as true/false
+  - `index.ctp` added a "Skip Proxy" column, rendered as a boolean, after the Baseurl column
+- Merge branch 'corr_limit_bulk' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into corr_limit_bulk.
+  [iglocska]
+- Merge pull request #10235 from MISP/fix-recorrelation-2.5. [Luciano
+  Righetti]
+
+  fix: broken recorrelation on 2.5 branch
+- Merge branch 'develop' into pr-10148. [Sami Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into pr-10145. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into pr-10143. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Update build-deb.sh. [RubinAzad]
+
+  Spelling correction from "intialized" -> "initialized"
+
+  Questions
+  * [ ] Does it require a DB change?
+  * [ ] Are you using it in production?
+  * [ ] Does it require a change in the API (PyMISP for example)?
+- Merge branch '2.5' into develop. [iglocska]
+- Merge branch '2.5' of github.com:MISP/MISP into 2.5. [iglocska]
+- Merge pull request #10229 from cudeso/patch-3. [Alexandre Dulaunoy]
+
+  Update README.md
+- Update README.md. [Koen Van Impe]
+
+  Add SSL verification error/solution for AadAuth plugin
+- Merge pull request #10221 from jsman/fix-galaxyclusters-bug. [Luciano
+  Righetti]
+
+  fix: bug that prevents galaxy clusters to be added to a galaxy by uuid
+- Merge pull request #10212 from cudeso/2.5. [Alexandre Dulaunoy]
+
+  Add Rösti - Repackaged Öpen Source Threat Intelligence
+- Update defaults.json. [Koen Van Impe]
+- Add Rösti - Repackaged Öpen Source Threat Intelligence. [Koen Van
+  Impe]
+- Merge pull request #10192 from arteta22000/2.5. [Luciano Righetti]
+
+  fix: [plugin>LdapAuth] correct ldap bind account for getUserMembershi…
+- Merge pull request #10188 from DocArmoryTech/patch-1. [Alexandre
+  Dulaunoy]
+
+  fix: taxii server upload action tooltip typo
+- Taxii server action typo. [DocArmoryTech]
+
+  The tooltip for the action to "push" to a taxii server says "pull"
+- Merge pull request #10174 from RubinAzad/Patch-2. [Alexandre Dulaunoy]
+
+  Spelling Correction
+- Spelling correction from "clonining" -> "cloning" [Rubin Azad]
+- Merge pull request #1 from RubinAzad/RubinAzad-patch-2. [RubinAzad]
+
+  Update INSTALL.ubuntu2404.sh
+- Update INSTALL.ubuntu2404.sh. [RubinAzad]
+
+  Spelling corerction from "clonining" -> "cloning"
+- Merge pull request #10172 from RubinAzad/RubinAzad-patch-1. [Alexandre
+  Dulaunoy]
+
+  Update build-deb.sh
+- Update build-deb.sh. [RubinAzad]
+
+  Spelling correction from "intialized" -> "initialized"
+
+  Questions
+  * [ ] Does it require a DB change?
+  * [ ] Are you using it in production?
+  * [ ] Does it require a change in the API (PyMISP for example)?
 - Merge pull request #10165 from rubentroncon/patch-1. [Andras Iklody]
 
   Create INSTALL.debian12.sh
@@ -24,6 +207,204 @@ Other
   - Fixed ssdeep install (apt install libfuzzy-dev and create symlink to /usr/local/lib, otherwise install fails)
 - Merge branch '2.5' of github.com:MISP/MISP into 2.5. [Christian
   Studer]
+
+
+v2.4.205 (2025-02-20)
+---------------------
+
+New
+~~~
+- [overcorrelations] added quick search for values. [iglocska]
+- [server:test-sync-rules] Added widget to test the number of filtered
+  events under sync filtering rules. [Sami Mokaddem]
+
+Changes
+~~~~~~~
+- [galaxy cluster search] relaxed on the index to include other fields
+  in the search scope than synonyms. [iglocska]
+- [versions] bumped for pymisp. [iglocska]
+- [pymisp] bump. [iglocska]
+- [submodules] bumped. [iglocska]
+- [version] bump. [iglocska]
+- [submodule] bump. [iglocska]
+- [doc:OidcAuth] fix typo and clarify some configuration steps. [Jeroen
+  Pinoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [server:sync-filter] Usage of org UUIDs instead of org name. [Sami
+  Mokaddem]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [server:test-sync-rules] Initial work on having a way to test result
+  of sync rules. [Sami Mokaddem]
+- [js:gridstack] Updated from v1.0.0 to v1.2.1. [Sami Mokaddem]
+
+  - Fixes #10208
+  - Thanks to @marjatech for the report
+- [js:markdown-it] Updated from v12.3.2 to v14.1.0. [Sami Mokaddem]
+
+  - Fixes #10159
+  - Thanks to @marjatech for the report
+- Add permissions on custom ca note. [Luciano Righetti]
+- [misp-stix] Bumped latest version with changes on arguments aligned
+  with MISP. [Christian Studer]
+- [AuditLog] add valid models like notes and opinions, to possible
+  filters list. [Jeroen Pinoy]
+- [misp-stix] Bumped latest version including fixes and updates.
+  [Christian Studer]
+- [stix2 import] Aesthetic internal CLI arguments changes. [Christian
+  Studer]
+- [misp-stix] Bumped latest version. [Christian Studer]
+
+Fix
+~~~
+- [stix2 import] Updated misp-stix method imported, that changes on
+  misp-stix recently. [Christian Studer]
+- [analystdata] Fixed collection of analyst data for the view at Object
+  level failing when an Object has no Attribute. [Christian Studer]
+- [galaxycluser] index internal error fixed, fixes #10062. [iglocska]
+- [ui:server-pull] Removed debug leftover. [Sami Mokaddem]
+- [server:filter-pushable] Correctly supports org UUIDs for push. [Sami
+  Mokaddem]
+- [php 7.x] - parameter fixed for backport. [iglocska]
+- [correlation] avoid overcorrelating events when adding a full event.
+  [iglocska]
+
+  - future improvements: create entries for overcorrelations
+- [server settings] correlation limit displayed default changed to match
+  actual behaviour. [iglocska]
+- [galaxycluster] query on the galaxy level was failing with unknown
+  Galaxy.default. [iglocska]
+
+  - replaced it with a subquery
+- [galaxyclusters] ambiguous id fixed. [iglocska]
+- [acl] added missing action. [Andras Iklody]
+- [tag:tag-relationship] Added support of custom verb. [Sami Mokaddem]
+- [cerebrate:sharing-group-pull] Default to roaming mode. [Sami
+  Mokaddem]
+- [ui:global-menu] Typo in date checking. [Sami Mokaddem]
+- [import modules] Running validation only on required config fields.
+  [Christian Studer]
+
+  - We're introducing at the same time a `required`
+    field within the import module user config in
+    order to avoid issue with empty config values
+    when they are optional
+- [event:import_event] Gracefully handle analyst data for Attribute-less
+  objects. [Sami Mokaddem]
+- Fix: [regression] support add galaxy cluster via uuid. fixed by @jsman
+  PR ##10221. [Luciano Righetti]
+- [EvenReport:GUI] fix some typos. [Jeroen Pinoy]
+- [install] Updated requirement for `misp-stix` [Christian Studer]
+- [stix2 import] Updated misp-stix method imported, that changes on
+  misp-stix recently. [Christian Studer]
+- [analystdata] Fixed collection of analyst data for the view at Object
+  level failing when an Object has no Attribute. [Christian Studer]
+- [SharingGroupBlueprint:add] fix typo in view. [Jeroen Pinoy]
+- [stix1 import] An ancient fix missed in the abyss and found back
+  today. [Christian Studer]
+- [EventReport:markdownEditor] fix typos in messages and code. [Jeroen
+  Pinoy]
+- [SharingGroupBlueprints:encode_sync_rule] remove unused code, and
+  don't try to do weird ajax redirect magic. [Jeroen Pinoy]
+- [Sightingdb:org_picker] show all local orgs as possible options for
+  org restrictions. [Jeroen Pinoy]
+
+Other
+~~~~~
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+- Merge branch '2.4' into 2.4-develop. [iglocska]
+- Merge pull request #10228 from cudeso/patch-2. [Alexandre Dulaunoy]
+
+  Update README.md
+- Update README.md. [Koen Van Impe]
+
+  Add SSL verification error/solution for AadAuth plugin
+- Merge pull request #10213 from cudeso/patch-1. [Alexandre Dulaunoy]
+
+  Add Rösti - Repackaged Öpen Source Threat Intelligence in 2.4
+- Update defaults.json. [Koen Van Impe]
+- Add Rösti - Repackaged Öpen Source Threat Intelligence in 2.4. [Koen
+  Van Impe]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge pull request #10232 from Wachizungu/chg-oidcauth-doc. [Andras
+  Iklody]
+
+  chg: [doc:OidcAuth] fix typo and clarify some configuration steps
+- Merge remote-tracking branch 'origin/2.4-develop' into 2.4-develop.
+  [Sami Mokaddem]
+- Taxiiserver DB changes skip_proxy. [DocArmoryTech]
+
+  - Update db_schema.json to
+    - include a skip_proxy column in the taxii_servers table
+    - increment db_version to `135`
+  - update AppModel.php to alter the taxii_server table to include a skip_proxy column
+  - Update MYSQL.sql to include a skip_proxy column in the taxii_servers table
+- Proxy and skip_proxy logic. [DocArmoryTech]
+
+  - defaulting to false, add validation for a `skip_proxy` boolean option
+  - adjust `queryInstance()` to make use of MISPs proxy settings, unless `skip_proxy` is set
+- Introduce skip_proxy to taxiiserver. [DocArmoryTech]
+
+  Add a `skip_proxy` boolean to taxiiserver Views:
+  - `add.ctp` added a "Skip Proxy (if applicable)" checkbox after Baseurl
+  - `view.ctp` added a "Skip Proxy (if applicable)" key to the view, and set the type to `json` to have it render as true/false
+  - `index.ctp` added a "Skip Proxy" column, rendered as a boolean, after the Baseurl column
+- Attribute tag removal: add missing field when fetching attribute to
+  fix MispAttribute->touch() [Remigiusz Kollataj]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Alexandre Dulaunoy]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge remote-tracking branch 'origin/2.4-develop' into pr-10148. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/2.4-develop' into pr-10145. [Sami
+  Mokaddem]
+- Merge branch '2.4-develop' into pr-10143. [Sami Mokaddem]
+- Merge pull request #10190 from Wachizungu/fix-typos-in-event-report-
+  gui. [Alexandre Dulaunoy]
+
+  fix: [EvenReport:GUI] fix some typos
+- Add: custom ca cert issues troubleshooting. [Luciano Righetti]
+- Add: [stix import] Argument to force conversion of contextual STIX
+  objects as contextual MISP data such as Galaxy Cluster or Tag.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge pull request #10149 from Wachizungu/update-auditlog-model-list.
+  [Alexandre Dulaunoy]
+
+  chg: [AuditLog] add valid models like notes and opinions, to possible…
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge pull request #10150 from Wachizungu/fix-typo-in-
+  sharinggroupblueprints-add. [Alexandre Dulaunoy]
+
+  fix: [SharingGroupBlueprint:add] fix typo in view
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
 
 
 v2.5.6 (2025-01-03)
