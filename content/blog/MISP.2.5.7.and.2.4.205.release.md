@@ -10,7 +10,7 @@ layout: post
 
 # Combined Release Notes: MISP v2.5.7 & v2.4.205 (2025-02-24)
 
-The MISP Project is pleased to announce the release of **MISP v2.5.7 and v2.4.205**, bringing several new features, important fixes, and enhancements to improve the overall user experience and platform functionality. This release addresses critical improvements in synchronization filtering, correlation management, and UI enhancements, ensuring a more stable and efficient MISP environment.
+The MISP Project is pleased to announce the release of **[MISP v2.5.7](https://github.com/MISP/MISP/releases/tag/v2.5.7) and [v2.4.205](https://github.com/MISP/MISP/releases/tag/v2.4.205)**, bringing several new features, important fixes, and enhancements to improve the overall user experience and platform functionality. This release addresses critical improvements in synchronization filtering, correlation management, and UI enhancements, ensuring a more stable and efficient MISP environment.
 
 ### New Features
 
