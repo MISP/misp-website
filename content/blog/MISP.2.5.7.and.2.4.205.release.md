@@ -42,7 +42,7 @@ The MISP Project is pleased to announce the release of **[MISP v2.5.7](https://g
   - Improved handling of **attribute-less objects** in event imports to avoid errors.
   - Fixed regression issues in `events/export` affecting multiple formats.
 - **Security & Access Control**:
-  - Corrected unauthorized access toast removal.
+  - Corrected unauthorized access test (and not toast as mentioned in the commit logs) removal.
   - Improved ACL (Access Control List) handling.
 - **Performance & Backend Stability**:
   - Defaulted **Cerebrate sharing-group pull to roaming mode**.
