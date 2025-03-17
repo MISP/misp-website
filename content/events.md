@@ -20,7 +20,7 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 #### MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals
 
-  *When:* {{< fixedtime `1st October 2024 14:00-17:00 CEST` `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` `20241001T12` `3` >}}
+  *When:* {{< fixedtime `16th April 2025 14:00-17:00 CEST` `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` `20250416T12` `3` >}}
 
   *Where:* Remote (Zoom and online MISP training instance)
 
@@ -31,26 +31,11 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
     - Encoding a report
     - Making use of the various tools in MISP from an analyst perspective
 
-  *Event link:* https://us02web.zoom.us/j/86554583845?pwd=BWo7fpnWLbj6Je7bvrWtjE7bZgS5yi.1
- 
-
-#### MISP Training - Advanced Developer session from API to MISP internals
-
-  *When:* {{< fixedtime `2nd October 2024 14:00-17:00 CEST` `MISP Training - Advanced Developer session from API to MISP internals` `20241002T12` `3` >}}
-
-  *Where:* Remote (Zoom and online MISP training instance)
-
-  *Price:* Freely accessible (session will be recorded) 
-
-  *Summary agenda:*
-    - Intro to API usage
-    - Supporting dev libraries
-    - Session on development of MISP internals
-
-  *Event link:* https://us02web.zoom.us/j/86554583845?pwd=BWo7fpnWLbj6Je7bvrWtjE7bZgS5yi.1
+  *Event link:* [https://us02web.zoom.us/j/82309910308?pwd=AGqFSNzqP0Ow1TwnLoSEod9zfvPaET.1](https://us02web.zoom.us/j/82309910308?pwd=AGqFSNzqP0Ow1TwnLoSEod9zfvPaET.1) 
 
 ### MISP Hackathon
 
+- [hackathon.lu 2025 - 2-day physical Hackathon, held in Luxembourg on April 8th and 9th, 2025](https://hackathon.lu/)
 
 ### Past events
 
