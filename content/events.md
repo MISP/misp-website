@@ -14,6 +14,8 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### Conferences 
 
+- FIC 2025 (Forum Incyber Europe) 1-3 April 2025, Lille, France. Booth F9-14 (Luxembourg)
+
 
 ### Public MISP trainings 
 
