@@ -2,11 +2,616 @@ Changelog
 =========
 
 
-%%version%% (unreleased)
-------------------------
+v2.5.9 (2025-03-26)
+-------------------
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- Use SimpleBackgroundJobs instead of CakeResque in test action (#10266)
+  [Luciano Righetti]
+
+  * chg: use SimpleBackgroundJobs (supervisor based) instead of CakeResque
+
+  * fix: add default supervisor config
+
+  * fix: enable ShibbAuth plugin before running tests
 
 Fix
 ~~~
+- Do not fetch user recursive for audit logging. [Benni0]
+- [attribute save] generating notice errors when disable_correlation is
+  not set, fixes #10274. [iglocska]
+- Do not fetch user recursive for audit logging. [Benni0]
+- [galaxy-cluster:edit] Disambiguated uuid origin. [Sami Mokaddem]
+- [galaxy-cluster:fetch-relations] Correctly use source cluster ACL for
+  fetching relations. [Sami Mokaddem]
+- [attribute save] generating notice errors when disable_correlation is
+  not set, fixes #10274. [iglocska]
+- Enable CakeResque for test actions. [Luciano Righetti]
+- [cluster relations] further fixes to aliasing. [iglocska]
+- [galaxy clusters] invalid query fixed in the shittiest way possible.
+  [iglocska]
+
+  - I'll go and wash my mouth out with soap
+
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡛⠛⠷⣶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⡇⠀⠀⠀⠙⠻⣷⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⠟⠀⠀⠀⠀⠀⠀⠈⣹⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⣠⡴⠞⠉⠈⠻⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣿⡧⠤⠤⠶⠖⠋⠉⠀⠀⠀⠀⠀⢹⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⠞⠉⠀⠉⠙⠻⣶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⣀⣀⣀⠀⠀⠀⠀⢀⣠⡴⠞⠉⠀⢀⣀⣀⣀⠀⠀⠘⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢈⣿⣆⣴⠟⠉⠉⠉⠛⢶⡖⠛⠉⠁⠀⠀⢠⡾⠋⠉⠈⠉⠻⣦⣰⣿⣀⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⢀⣤⣾⠟⠋⡿⠁⢀⣾⣿⣷⣄⠈⢿⡀⠀⠀⠀⢠⡟⠀⢠⣾⣿⣷⡄⠘⣿⠉⠛⢿⣦⡀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⢠⣿⠏⠀⠀⢸⡇⠀⢸⣿⣿⣿⣿⠀⢸⡇⠀⠀⠀⢸⡇⠀⣿⣿⣿⣿⣧⠀⢹⡇⠀⠀⠙⣿⡆⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⢸⡏⠀⠀⠀⠘⣧⠀⠘⣿⣿⣿⡟⠀⣸⠇⠀⣀⣤⢾⣇⠀⠹⣿⣿⣿⠇⠀⣾⠁⠀⠀⠀⢸⣿⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⢸⣷⠀⠀⠀⠀⠹⣧⡀⠈⠉⠁⢀⣴⠿⠞⠋⠉⠀⠀⠻⣦⡀⠈⠉⠁⣠⡾⠃⠀⠀⠀⠀⣾⡏⠀⠀⠀⠀
+  ⠀⠀⢀⣠⣶⠿⠛⠛⠛⠛⠛⠛⠉⠙⠛⠒⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠚⠛⠉⠀⠀⠀⠀⢀⡼⠿⢷⣦⣄⠀⠀
+  ⠀⣠⡿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣟⠛⠛⠒⠶⠶⠶⠶⠶⠶⠶⠖⠚⠛⢛⡷⠀⠀⠀⣀⡴⠋⠀⠀⠀⠈⠻⣷⡄
+  ⢰⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢷⣄⡀⠀⠀⠀⠀⠀⠀⠀⢀⣠⡶⠛⢁⣠⡴⠞⠋⠀⠀⠀⠀⠀⠀⠀⠘⣿
+  ⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠓⠶⠶⠦⠶⠶⣚⣫⡥⠶⠚⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿
+  ⠈⢿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣤⡤⠴⠖⠚⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⡿⠃
+  ⠀⠈⠛⣷⣦⣤⣤⣤⣤⣤⣤⣶⡶⠾⠿⠟⠿⠿⠿⠶⣶⣶⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣶⠶⠿⠛⠉⠀⠀
+- [sharing-group-blueprint:update] Stopped pre-mature failing on
+  updates. [Sami Mokaddem]
+- [component:CRUD] Ensure pagination's order is set before using it.
+  [Sami Mokaddem]
+- [workflow] Fixed enabled adhocs workflow and saved values for the
+  select_options_url option. [Sami Mokaddem]
+- Permissions. [Luciano Righetti]
+- Wrong path. [Luciano Righetti]
+- Enable CakeResque plugin after copying the file. [Luciano Righetti]
+- Enable CakeResque for test actions. [Luciano Righetti]
+- CakeResque is no longer installed by default on 2.5. [Luciano
+  Righetti]
+- [workflow:tags] Improved loading time of modules using tags. [Sami
+  Mokaddem]
+
+  - Fix #10256
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch 'firstpassword' into develop. [iglocska]
+- Merge branch develop. [vincenzocaputo]
+- Merge branch 'develop' of github.com:vincenzocaputo/MISP into fix-
+  first-login-change-password-bug. [vincenzocaputo]
+- Disable change password on first login if disable_user_password_change
+  is set. [vincenzocaputo]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge pull request #10267 from Benni0/2.5. [Andras Iklody]
+
+  fix: Do not fetch users associated objects recursive for audit logging
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge branch '2.5' of github.com:MISP/MISP into 2.5. [iglocska]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+
+
+v2.4.207 (2025-03-26)
+---------------------
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+
+Fix
+~~~
+- Do not fetch user recursive for audit logging. [Benni0]
+- [galaxy-cluster:edit] Disambiguated uuid origin. [Sami Mokaddem]
+- [galaxy-cluster:fetch-relations] Correctly use source cluster ACL for
+  fetching relations. [Sami Mokaddem]
+- [attribute save] generating notice errors when disable_correlation is
+  not set, fixes #10274. [iglocska]
+- [sharing-group-blueprint:update] Stopped pre-mature failing on
+  updates. [Sami Mokaddem]
+- [component:CRUD] Ensure pagination's order is set before using it.
+  [Sami Mokaddem]
+- [workflow] Fixed enabled adhocs workflow and saved values for the
+  select_options_url option. [Sami Mokaddem]
+- [workflow:tags] Improved loading time of modules using tags. [Sami
+  Mokaddem]
+
+  - Fix #10256
+- [galaxy clusters] invalid query fixed in the shittiest way possible.
+  [iglocska]
+
+  - I'll go and wash my mouth out with soap
+
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡛⠛⠷⣶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⡇⠀⠀⠀⠙⠻⣷⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⠟⠀⠀⠀⠀⠀⠀⠈⣹⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⣠⡴⠞⠉⠈⠻⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣿⡧⠤⠤⠶⠖⠋⠉⠀⠀⠀⠀⠀⢹⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⠞⠉⠀⠉⠙⠻⣶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⣀⣀⣀⠀⠀⠀⠀⢀⣠⡴⠞⠉⠀⢀⣀⣀⣀⠀⠀⠘⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢈⣿⣆⣴⠟⠉⠉⠉⠛⢶⡖⠛⠉⠁⠀⠀⢠⡾⠋⠉⠈⠉⠻⣦⣰⣿⣀⠀⠀⠀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⠀⢀⣤⣾⠟⠋⡿⠁⢀⣾⣿⣷⣄⠈⢿⡀⠀⠀⠀⢠⡟⠀⢠⣾⣿⣷⡄⠘⣿⠉⠛⢿⣦⡀⠀⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⢠⣿⠏⠀⠀⢸⡇⠀⢸⣿⣿⣿⣿⠀⢸⡇⠀⠀⠀⢸⡇⠀⣿⣿⣿⣿⣧⠀⢹⡇⠀⠀⠙⣿⡆⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⢸⡏⠀⠀⠀⠘⣧⠀⠘⣿⣿⣿⡟⠀⣸⠇⠀⣀⣤⢾⣇⠀⠹⣿⣿⣿⠇⠀⣾⠁⠀⠀⠀⢸⣿⠀⠀⠀⠀
+  ⠀⠀⠀⠀⠀⢸⣷⠀⠀⠀⠀⠹⣧⡀⠈⠉⠁⢀⣴⠿⠞⠋⠉⠀⠀⠻⣦⡀⠈⠉⠁⣠⡾⠃⠀⠀⠀⠀⣾⡏⠀⠀⠀⠀
+  ⠀⠀⢀⣠⣶⠿⠛⠛⠛⠛⠛⠛⠉⠙⠛⠒⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠚⠛⠉⠀⠀⠀⠀⢀⡼⠿⢷⣦⣄⠀⠀
+  ⠀⣠⡿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣟⠛⠛⠒⠶⠶⠶⠶⠶⠶⠶⠖⠚⠛⢛⡷⠀⠀⠀⣀⡴⠋⠀⠀⠀⠈⠻⣷⡄
+  ⢰⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢷⣄⡀⠀⠀⠀⠀⠀⠀⠀⢀⣠⡶⠛⢁⣠⡴⠞⠋⠀⠀⠀⠀⠀⠀⠀⠘⣿
+  ⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠓⠶⠶⠦⠶⠶⣚⣫⡥⠶⠚⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿
+  ⠈⢿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣤⡤⠴⠖⠚⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⡿⠃
+  ⠀⠈⠛⣷⣦⣤⣤⣤⣤⣤⣤⣶⡶⠾⠿⠟⠿⠿⠿⠶⣶⣶⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣶⠶⠿⠛⠉⠀⠀
+- Do not fetch user recursive for audit logging. [Benni0]
+- [attribute save] generating notice errors when disable_correlation is
+  not set, fixes #10274. [iglocska]
+- [cluster relations] further fixes to aliasing. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+- Disable change password on first login if disable_user_password_change
+  is set. [vincenzocaputo]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge branch '2.4' into 2.4-develop. [iglocska]
+
+
+v2.5.8 (2025-03-19)
+-------------------
+
+New
+~~~
+- [workflow-module:filter-tag] Added new module to filter data based on
+  tags. [Sami Mokaddem]
+- [object-relationships] Added CRUD and highlighting support for
+  relationship_types. [Sami Mokaddem]
+- [workflow:user_notification] Added new module `notify_user_toast` to
+  create notification toast. [Sami Mokaddem]
+- [workflow-module:add_analyst_data] Added new module to create analyst
+  data. [Sami Mokaddem]
+- [galaxy] Added new default distribution setting. [Sami Mokaddem]
+- [event:pull] Added support of `remove_missing_tags` on Event level.
+  [Sami Mokaddem]
+- [sync:perm_sync_internal] Added new flag to allow internal pull. [Sami
+  Mokaddem]
+
+  - Before, pull would downgrade the distribution regardless of the state of the `internal instance` flag
+  - Now, if the remote user has the permission `perm_sync_internal`, the pulling instance will not
+  downgrande the distribution anymore
+  - This way, it's always up to the remote to decide if the downgrade happens or not
+
+Changes
+~~~~~~~
+- [workflow-module:if-tag] Added support of event-report filtering.
+  [Sami Mokaddem]
+- [users:otp] Purge invalid otp code on failure. [Sami Mokaddem]
+- [users:otp] Added autocomplete=off on the otp field. [Sami Mokaddem]
+
+  - This will make a lot of people happy.
+- [object-relationship:CRUD] Added support of `highlighted` field in
+  /add and /edit. [Sami Mokaddem]
+- [workflow:editor] Added support of more html attributes for form
+  inputs. [Sami Mokaddem]
+- [db_schema] Bumped. [Sami Mokaddem]
+- [perf] Filter tags to be pruned with database condition instead of if
+  path. [Sami Mokaddem]
+- [server:edit] Improve checkbox label for `remove_missing_tags` [Sami
+  Mokaddem]
+- [permission:sync_authoritative] Added permission flag. [Sami Mokaddem]
+- [server:index] Added # of events to be synced when testing sync rules.
+  [Sami Mokaddem]
+- [event] Initial support of perm_sync_authoritative. [Sami Mokaddem]
+
+Fix
+~~~
+- CakeResque is no longer installed by default on 2.5. [Luciano
+  Righetti]
+- [attributes] controller fixes after merge fuckup. [iglocska]
+- [merge] fuckup. [iglocska]
+- [analyst-data:view] Fixed link of target-object. [Sami Mokaddem]
+
+  - Fix #10246
+- [suricata-export:url-rule] Remove rule if path is used in https. [Sami
+  Mokaddem]
+
+  - There is no point to output a rule that cannot be used by the IDS
+  - It cannot be used by the IDS as the path part of the URL is encrypted
+  - Fix #10258
+- [event-report:md-parsing] Gracefully handle object without attributes.
+  [Sami Mokaddem]
+- [suricata-export:url-rule] Added missing support of path for tls URLs.
+  [Sami Mokaddem]
+- [attribute] Fixed typo in condition. [Sami Mokaddem]
+- [user:collect-notification-toast] Make sure user is logged in. [Sami
+  Mokaddem]
+- [analyst-data:rearrange-fields] Gracefully handle missing sharing-
+  group data or org data. [Sami Mokaddem]
+- [index-table:distribution-levels] Gracefully handle missing sharing-
+  group data. [Sami Mokaddem]
+- [worflow:before-filter] Stopped wrongly rendering the view before
+  collecting all errors. [Sami Mokaddem]
+- [galaxy-cluster-relation:edit] Fixed alias issue with source-cluster
+  and target-cluster. [Sami Mokaddem]
+- [attribute:touch] Include more fields for beforeValidate. [Sami
+  Mokaddem]
+- [attribute:set_filter_value] Correctly strip negation character. [Sami
+  Mokaddem]
+- [event-report:build-acl] Typo preventing event-report with sharing-
+  group to be collected. [Sami Mokaddem]
+- [event-report:capture] Correctly access saved report ID. [Sami
+  Mokaddem]
+- [event-report-tag:logging] Ensure the log model is loaded. [Sami
+  Mokaddem]
+- [event-report:rest-search] Added blockedEventReportTags allowing
+  filtering event-reports based on their tags. [Sami Mokaddem]
+- [galaxy:captureGalaxy] Call function from the correct model. [Sami
+  Mokaddem]
+- [galaxy:sync] Typo with undefined index. [Sami Mokaddem]
+- [galaxy:afterFind] Set kill_chain to null if not set. [Sami Mokaddem]
+- [event-report:tag] Correctly 'touch' the report and unpublish the
+  event when doing tag operations. [Sami Mokaddem]
+- [event-report:editReport] Typo in branching for attaching tags. [Sami
+  Mokaddem]
+- [event-report:sync] Include event-report tags during sync and attach
+  them if user can. [Sami Mokaddem]
+- [event-report:tags] Exposes event-report tags in REST context. [Sami
+  Mokaddem]
+- [event-report-tags:sync] Added support of tag synchronisation for edit
+  path. [Sami Mokaddem]
+- [event-report-tags:sync] Added support of tag synchronisation. [Sami
+  Mokaddem]
+- [galaxy:capture] Added missing org handling and support of 'fromPull'
+  option. [Sami Mokaddem]
+- [Attribute] Syntax typo. [Sami Mokaddem]
+- [analyst-data:add] Fixed beforeSave not returning the payload. [Sami
+  Mokaddem]
+- [analyst-data:edit] Typo in anonymous function. [Sami Mokaddem]
+- [sharing-group:creation] Typo in condition and associated models.
+  [Sami Mokaddem]
+- [sharing-group:creation] Add check in few places to verify if the user
+  can use/create the passed sharing-group - WiP. [Sami Mokaddem]
+- [events:galaxy-matrix] Enable picker behavior to change the matrix.
+  [Sami Mokaddem]
+- [event-report] Correctly show galaxy's icon in the report. [Sami
+  Mokaddem]
+- [security] Stored XSS in Event reports. [Sami Mokaddem]
+
+  - sanitize input sent to mermaid rendering function
+  - as reported by Jeroen Pinoy and Matthew Keay
+- [web:event-report] Mermaid diagrams are correctly rendered. [Sami
+  Mokaddem]
+
+  - Updated code to reflect changes in mermaid's render API interface
+- [security] Updated mermaid to the latest version (11.4.1) [Sami
+  Mokaddem]
+
+  - Fixed a Stored XSS in Event reports
+  - As reported by Jeroen Pinoy
+- [component:compressed-request-handler] Decompress requests before
+  appController::beforeFilter is called. [Sami Mokaddem]
+
+  - This ensure that any access to the posted payload will be in the correct content-type
+  - The only discovered functionality that was impacted was during a connection POST test
+  When paranoid logging and include_post_body were enabled
+- [validation] use is_numeric and filter_var to validate integer
+  attribute type. [Kevin Finnigin]
+- [README.md] Added warning about using old database.php files. [Andras
+  Iklody]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch 'develop-feature/perm_sync_internal' into develop. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into develop-
+  feature/perm_sync_internal. [Sami Mokaddem]
+- Merge pull request #10260 from kfinny/fix-integer-validation. [Andras
+  Iklody]
+
+  fix: [validation] use is_numeric and filter_var to validate integer a…
+- Fixed Ubuntu version. [Sascha Rommelfangen]
+
+
+v2.4.206 (2025-03-18)
+---------------------
+
+New
+~~~
+- [workflow-module:filter-tag] Added new module to filter data based on
+  tags. [Sami Mokaddem]
+- [object-relationships] Added CRUD and highlighting support for
+  relationship_types. [Sami Mokaddem]
+- [workflow:user_notification] Added new module `notify_user_toast` to
+  create notification toast. [Sami Mokaddem]
+- [workflow-module:add_analyst_data] Added new module to create analyst
+  data. [Sami Mokaddem]
+- [galaxy] Added new default distribution setting. [Sami Mokaddem]
+- [event:pull] Added support of `remove_missing_tags` on Event level.
+  [Sami Mokaddem]
+- [sync:perm_sync_internal] Added new flag to allow internal pull. [Sami
+  Mokaddem]
+
+  - Before, pull would downgrade the distribution regardless of the state of the `internal instance` flag
+  - Now, if the remote user has the permission `perm_sync_internal`, the pulling instance will not
+  downgrande the distribution anymore
+  - This way, it's always up to the remote to decide if the downgrade happens or not
+- [attribute search] rework. [iglocska]
+
+  - no longer using session variables
+  - introduced the option to pass parameters as query strings
+  - search form turned into GET form
+  - easy downloading of the search results
+  - more consistent search with the restsearch behaviour
+  - no duplicate index / search_index endpoints
+  - fixed pagination (though hacky for now should be backed into the scaffold and then into the CRUD component)
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version (major changes with the
+  UUID) [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-list] updated. [Alexandre Dulaunoy]
+- [db_schema] update. [iglocska]
+- [workflow-module:if-tag] Added support of event-report filtering.
+  [Sami Mokaddem]
+- [users:otp] Purge invalid otp code on failure. [Sami Mokaddem]
+- [users:otp] Added autocomplete=off on the otp field. [Sami Mokaddem]
+
+  - This will make a lot of people happy.
+- [object-relationship:CRUD] Added support of `highlighted` field in
+  /add and /edit. [Sami Mokaddem]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [workflow:editor] Added support of more html attributes for form
+  inputs. [Sami Mokaddem]
+- [db_schema] Bumped. [Sami Mokaddem]
+- [perf] Filter tags to be pruned with database condition instead of if
+  path. [Sami Mokaddem]
+- [server:edit] Improve checkbox label for `remove_missing_tags` [Sami
+  Mokaddem]
+- [permission:sync_authoritative] Added permission flag. [Sami Mokaddem]
+- [event] Initial support of perm_sync_authoritative. [Sami Mokaddem]
+- [server:index] Added # of events to be synced when testing sync rules.
+  [Sami Mokaddem]
+
+Fix
+~~~
+- [tests] make them happy. [iglocska]
+- [workflow modules] Using the `Attribute` class name in 2.4. [Christian
+  Studer]
+- [authkeys] don't try to order by a field that doesn't exist.
+  [iglocska]
+- [analystdata] orgc linking fixed. [iglocska]
+- [cluster relations] fix alias name use. [iglocska]
+- [acl] added missing entry. [iglocska]
+- [submodules] Added default branch for every submodule. [Christian
+  Studer]
+- [correlationrule] don't try to json encode/decode that which doesn't
+  exist. [iglocska]
+- [correlation rule] invalid schema default causes failure when saving
+  new rule, fixes #10261. [iglocska]
+- [analyst-data:view] Fixed link of target-object. [Sami Mokaddem]
+
+  - Fix #10246
+- [suricata-export:url-rule] Remove rule if path is used in https. [Sami
+  Mokaddem]
+
+  - There is no point to output a rule that cannot be used by the IDS
+  - It cannot be used by the IDS as the path part of the URL is encrypted
+  - Fix #10258
+- [event-report:md-parsing] Gracefully handle object without attributes.
+  [Sami Mokaddem]
+- [suricata-export:url-rule] Added missing support of path for tls URLs.
+  [Sami Mokaddem]
+- [attribute] Fixed typo in condition. [Sami Mokaddem]
+- [user:collect-notification-toast] Make sure user is logged in. [Sami
+  Mokaddem]
+- [analyst-data:rearrange-fields] Gracefully handle missing sharing-
+  group data or org data. [Sami Mokaddem]
+- [index-table:distribution-levels] Gracefully handle missing sharing-
+  group data. [Sami Mokaddem]
+- [diagnostic] Fixed python libraries version check. [Christian Studer]
+
+  - Following update on the expected versions
+- [diagnostic] Updated STIX dependencies diagnostic. [Christian Studer]
+
+  - Added `misp-stix`
+  - Updated version requirements
+- [diagnostic] Properly displaying all submodules status. [Christian
+  Studer]
+
+  - In case of changes, and `git status` starting
+    with `+` the nanme and commit were not properly
+    extracted and then not displayed on the
+    diagnostic page
+- [worflow:before-filter] Stopped wrongly rendering the view before
+  collecting all errors. [Sami Mokaddem]
+- [galaxy-cluster-relation:edit] Fixed alias issue with source-cluster
+  and target-cluster. [Sami Mokaddem]
+- [attribute:touch] Include more fields for beforeValidate. [Sami
+  Mokaddem]
+- [attribute:set_filter_value] Correctly strip negation character. [Sami
+  Mokaddem]
+- [event-report:build-acl] Typo preventing event-report with sharing-
+  group to be collected. [Sami Mokaddem]
+- [event-report:capture] Correctly access saved report ID. [Sami
+  Mokaddem]
+- [event-report-tag:logging] Ensure the log model is loaded. [Sami
+  Mokaddem]
+- [event-report:rest-search] Added blockedEventReportTags allowing
+  filtering event-reports based on their tags. [Sami Mokaddem]
+- [galaxy:captureGalaxy] Call function from the correct model. [Sami
+  Mokaddem]
+- [galaxy:sync] Typo with undefined index. [Sami Mokaddem]
+- [galaxy:afterFind] Set kill_chain to null if not set. [Sami Mokaddem]
+- [event-report:tag] Correctly 'touch' the report and unpublish the
+  event when doing tag operations. [Sami Mokaddem]
+- [event-report:editReport] Typo in branching for attaching tags. [Sami
+  Mokaddem]
+- [event-report:sync] Include event-report tags during sync and attach
+  them if user can. [Sami Mokaddem]
+- [event-report:tags] Exposes event-report tags in REST context. [Sami
+  Mokaddem]
+- [event-report-tags:sync] Added support of tag synchronisation for edit
+  path. [Sami Mokaddem]
+- [event-report-tags:sync] Added support of tag synchronisation. [Sami
+  Mokaddem]
+- [galaxy:capture] Added missing org handling and support of 'fromPull'
+  option. [Sami Mokaddem]
+- [Attribute] Syntax typo. [Sami Mokaddem]
+- [analyst-data:add] Fixed beforeSave not returning the payload. [Sami
+  Mokaddem]
+- [analyst-data:edit] Typo in anonymous function. [Sami Mokaddem]
+- [sharing-group:creation] Typo in condition and associated models.
+  [Sami Mokaddem]
+- [sharing-group:creation] Add check in few places to verify if the user
+  can use/create the passed sharing-group - WiP. [Sami Mokaddem]
+- [events:galaxy-matrix] Enable picker behavior to change the matrix.
+  [Sami Mokaddem]
+- [event-report] Correctly show galaxy's icon in the report. [Sami
+  Mokaddem]
+- [security] Stored XSS in Event reports. [Sami Mokaddem]
+
+  - sanitize input sent to mermaid rendering function
+  - as reported by Jeroen Pinoy and Matthew Keay
+- [web:event-report] Mermaid diagrams are correctly rendered. [Sami
+  Mokaddem]
+
+  - Updated code to reflect changes in mermaid's render API interface
+- [security] Updated mermaid to the latest version (11.4.1) [Sami
+  Mokaddem]
+
+  - Fixed a Stored XSS in Event reports
+  - As reported by Jeroen Pinoy
+- [component:compressed-request-handler] Decompress requests before
+  appController::beforeFilter is called. [Sami Mokaddem]
+
+  - This ensure that any access to the posted payload will be in the correct content-type
+  - The only discovered functionality that was impacted was during a connection POST test
+  When paranoid logging and include_post_body were enabled
+
+Other
+~~~~~
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch 'feature/perm_sync_internal' into 2.4-develop. [Sami
+  Mokaddem]
+- Merge branch 'feature/perm_sync_internal' into 2.4-develop. [Sami
+  Mokaddem]
+- Merge branch '2.4-develop' into feature/perm_sync_internal. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/2.4-develop' into
+  feature/perm_sync_internal. [Sami Mokaddem]
+- Merge remote-tracking branch 'origin/2.4-develop' into
+  feature/perm_sync_internal. [Sami Mokaddem]
+- Merge remote-tracking branch 'origin/2.4-develop' into
+  feature/perm_sync_internal. [Sami Mokaddem]
+
+
+v2.5.7 (2025-02-20)
+-------------------
+
+New
+~~~
+- [overcorrelations] added quick search for values. [iglocska]
+- [server:test-sync-rules] Added widget to test the number of filtered
+  events under sync filtering rules. [Sami Mokaddem]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [doc] Update references to latest stable version to 2.5 from 2.4.
+  [orjanj5]
+
+  Also updated the link to the Code of Conduct to match latest stable version.
+- [server:sync-filter] Usage of org UUIDs instead of org name. [Sami
+  Mokaddem]
+- [server:test-sync-rules] Initial work on having a way to test result
+  of sync rules. [Sami Mokaddem]
+- [js:gridstack] Updated from v1.0.0 to v1.2.1. [Sami Mokaddem]
+
+  - Fixes #10208
+  - Thanks to @marjatech for the report
+- [js:markdown-it] Updated from v12.3.2 to v14.1.0. [Sami Mokaddem]
+
+  - Fixes #10159
+  - Thanks to @marjatech for the report
+- [galaxy cluster search] relaxed on the index to include other fields
+  in the search scope than synonyms. [iglocska]
+
+Fix
+~~~
+- Broken recorrelation on 2.5 branch. [Luciano Righetti]
+- [ui:server-pull] Removed debug leftover. [Sami Mokaddem]
+- [server:filter-pushable] Correctly supports org UUIDs for push. [Sami
+  Mokaddem]
+- [acl] added entry. [iglocska]
+
+  - graphman, (╯°□°)╯︵ ┻━┻
+- Broken recorrelation on 2.5 branch. [Luciano Righetti]
+- [tag:tag-relationship] Added support of custom verb. [Sami Mokaddem]
+- [cerebrate:sharing-group-pull] Default to roaming mode. [Sami
+  Mokaddem]
+- [ui:global-menu] Typo in date checking. [Sami Mokaddem]
+- Bug that prevents galaxy clusters to be added to a galaxy by uuid.
+  [jsman]
+- [event:import_event] Gracefully handle analyst data for Attribute-less
+  objects. [Sami Mokaddem]
+- [console:event-shell] Fixed regression on events/export for many
+  format. [Sami Mokaddem]
+
+  - Fixes #10202
+  - Correctly fallback MispAttribute model instead of Attribute
+- Correctly remove unauthorized access toast. fixes #10131. [Luciano
+  Righetti]
+- [correlation] avoid overcorrelating events when adding a full event.
+  [iglocska]
+
+  - future improvements: create entries for overcorrelations
+- [server settings] correlation limit displayed default changed to match
+  actual behaviour. [iglocska]
+- Bug that prevents galaxy clusters to be added to a galaxy by uuid.
+  [jsman]
+- [console:event-shell] Fixed regression on events/export for many
+  format. [Sami Mokaddem]
+
+  - Fixes #10202
+  - Correctly fallback MispAttribute model instead of Attribute
+- [plugin>LdapAuth] correct ldap bind account for getUserMemberships
+  function. [arteta22000]
+
+  If we want the “getUserMemberships” function to work in all cases, we need the "ldapReaderUser" user.
+- [galaxycluster] query on the galaxy level was failing with unknown
+  Galaxy.default. [iglocska]
+
+  - replaced it with a subquery
+- [galaxyclusters] ambiguous id fixed. [iglocska]
+- [galaxycluser] index internal error fixed, fixes #10062. [iglocska]
 - [stix2 import] Updated misp-stix method imported, that changes on
   misp-stix recently. [Christian Studer]
 - [analystdata] Fixed collection of analyst data for the view at Object
@@ -14,6 +619,115 @@ Fix
 
 Other
 ~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge branch '2.5' of github.com:MISP/MISP into 2.5. [iglocska]
+- Merge pull request #10182 from orjanj5/patch-1. [Andras Iklody]
+
+  chg: [doc] Update references to latest stable version to 2.5 from 2.4
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into change/sync-filter-
+  org-uuids. [Sami Mokaddem]
+- Merge branch 'taxii_proxy' into develop. [iglocska]
+- Merge branch 'MISP:2.5' into patch-2. [DocArmoryTech]
+- Merge branch 'MISP:2.5' into patch-2. [DocArmoryTech]
+- Taxiiserver DB changes skip_proxy. [DocArmoryTech]
+
+  - Update db_schema.json to
+    - include a skip_proxy column in the taxii_servers table
+    - increment db_version to `135`
+  - update AppModel.php to alter the taxii_server table to include a skip_proxy column
+  - Update MYSQL.sql to include a skip_proxy column in the taxii_servers table
+- Proxy and skip_proxy logic. [DocArmoryTech]
+
+  - defaulting to false, add validation for a `skip_proxy` boolean option
+  - adjust `queryInstance()` to make use of MISPs proxy settings, unless `skip_proxy` is set
+- Introduce skip_proxy to taxiiserver. [DocArmoryTech]
+
+  Add a `skip_proxy` boolean to taxiiserver Views:
+  - `add.ctp` added a "Skip Proxy (if applicable)" checkbox after Baseurl
+  - `view.ctp` added a "Skip Proxy (if applicable)" key to the view, and set the type to `json` to have it render as true/false
+  - `index.ctp` added a "Skip Proxy" column, rendered as a boolean, after the Baseurl column
+- Merge branch 'corr_limit_bulk' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into corr_limit_bulk.
+  [iglocska]
+- Merge pull request #10235 from MISP/fix-recorrelation-2.5. [Luciano
+  Righetti]
+
+  fix: broken recorrelation on 2.5 branch
+- Merge branch 'develop' into pr-10148. [Sami Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into pr-10145. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into pr-10143. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Update build-deb.sh. [RubinAzad]
+
+  Spelling correction from "intialized" -> "initialized"
+
+  Questions
+  * [ ] Does it require a DB change?
+  * [ ] Are you using it in production?
+  * [ ] Does it require a change in the API (PyMISP for example)?
+- Merge branch '2.5' into develop. [iglocska]
+- Merge branch '2.5' of github.com:MISP/MISP into 2.5. [iglocska]
+- Merge pull request #10229 from cudeso/patch-3. [Alexandre Dulaunoy]
+
+  Update README.md
+- Update README.md. [Koen Van Impe]
+
+  Add SSL verification error/solution for AadAuth plugin
+- Merge pull request #10221 from jsman/fix-galaxyclusters-bug. [Luciano
+  Righetti]
+
+  fix: bug that prevents galaxy clusters to be added to a galaxy by uuid
+- Merge pull request #10212 from cudeso/2.5. [Alexandre Dulaunoy]
+
+  Add Rösti - Repackaged Öpen Source Threat Intelligence
+- Update defaults.json. [Koen Van Impe]
+- Add Rösti - Repackaged Öpen Source Threat Intelligence. [Koen Van
+  Impe]
+- Merge pull request #10192 from arteta22000/2.5. [Luciano Righetti]
+
+  fix: [plugin>LdapAuth] correct ldap bind account for getUserMembershi…
+- Merge pull request #10188 from DocArmoryTech/patch-1. [Alexandre
+  Dulaunoy]
+
+  fix: taxii server upload action tooltip typo
+- Taxii server action typo. [DocArmoryTech]
+
+  The tooltip for the action to "push" to a taxii server says "pull"
+- Merge pull request #10174 from RubinAzad/Patch-2. [Alexandre Dulaunoy]
+
+  Spelling Correction
+- Spelling correction from "clonining" -> "cloning" [Rubin Azad]
+- Merge pull request #1 from RubinAzad/RubinAzad-patch-2. [RubinAzad]
+
+  Update INSTALL.ubuntu2404.sh
+- Update INSTALL.ubuntu2404.sh. [RubinAzad]
+
+  Spelling corerction from "clonining" -> "cloning"
+- Merge pull request #10172 from RubinAzad/RubinAzad-patch-1. [Alexandre
+  Dulaunoy]
+
+  Update build-deb.sh
+- Update build-deb.sh. [RubinAzad]
+
+  Spelling correction from "intialized" -> "initialized"
+
+  Questions
+  * [ ] Does it require a DB change?
+  * [ ] Are you using it in production?
+  * [ ] Does it require a change in the API (PyMISP for example)?
 - Merge pull request #10165 from rubentroncon/patch-1. [Andras Iklody]
 
   Create INSTALL.debian12.sh
@@ -24,6 +738,204 @@ Other
   - Fixed ssdeep install (apt install libfuzzy-dev and create symlink to /usr/local/lib, otherwise install fails)
 - Merge branch '2.5' of github.com:MISP/MISP into 2.5. [Christian
   Studer]
+
+
+v2.4.205 (2025-02-20)
+---------------------
+
+New
+~~~
+- [overcorrelations] added quick search for values. [iglocska]
+- [server:test-sync-rules] Added widget to test the number of filtered
+  events under sync filtering rules. [Sami Mokaddem]
+
+Changes
+~~~~~~~
+- [galaxy cluster search] relaxed on the index to include other fields
+  in the search scope than synonyms. [iglocska]
+- [versions] bumped for pymisp. [iglocska]
+- [pymisp] bump. [iglocska]
+- [submodules] bumped. [iglocska]
+- [version] bump. [iglocska]
+- [submodule] bump. [iglocska]
+- [doc:OidcAuth] fix typo and clarify some configuration steps. [Jeroen
+  Pinoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [server:sync-filter] Usage of org UUIDs instead of org name. [Sami
+  Mokaddem]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [server:test-sync-rules] Initial work on having a way to test result
+  of sync rules. [Sami Mokaddem]
+- [js:gridstack] Updated from v1.0.0 to v1.2.1. [Sami Mokaddem]
+
+  - Fixes #10208
+  - Thanks to @marjatech for the report
+- [js:markdown-it] Updated from v12.3.2 to v14.1.0. [Sami Mokaddem]
+
+  - Fixes #10159
+  - Thanks to @marjatech for the report
+- Add permissions on custom ca note. [Luciano Righetti]
+- [misp-stix] Bumped latest version with changes on arguments aligned
+  with MISP. [Christian Studer]
+- [AuditLog] add valid models like notes and opinions, to possible
+  filters list. [Jeroen Pinoy]
+- [misp-stix] Bumped latest version including fixes and updates.
+  [Christian Studer]
+- [stix2 import] Aesthetic internal CLI arguments changes. [Christian
+  Studer]
+- [misp-stix] Bumped latest version. [Christian Studer]
+
+Fix
+~~~
+- [stix2 import] Updated misp-stix method imported, that changes on
+  misp-stix recently. [Christian Studer]
+- [analystdata] Fixed collection of analyst data for the view at Object
+  level failing when an Object has no Attribute. [Christian Studer]
+- [galaxycluser] index internal error fixed, fixes #10062. [iglocska]
+- [ui:server-pull] Removed debug leftover. [Sami Mokaddem]
+- [server:filter-pushable] Correctly supports org UUIDs for push. [Sami
+  Mokaddem]
+- [php 7.x] - parameter fixed for backport. [iglocska]
+- [correlation] avoid overcorrelating events when adding a full event.
+  [iglocska]
+
+  - future improvements: create entries for overcorrelations
+- [server settings] correlation limit displayed default changed to match
+  actual behaviour. [iglocska]
+- [galaxycluster] query on the galaxy level was failing with unknown
+  Galaxy.default. [iglocska]
+
+  - replaced it with a subquery
+- [galaxyclusters] ambiguous id fixed. [iglocska]
+- [acl] added missing action. [Andras Iklody]
+- [tag:tag-relationship] Added support of custom verb. [Sami Mokaddem]
+- [cerebrate:sharing-group-pull] Default to roaming mode. [Sami
+  Mokaddem]
+- [ui:global-menu] Typo in date checking. [Sami Mokaddem]
+- [import modules] Running validation only on required config fields.
+  [Christian Studer]
+
+  - We're introducing at the same time a `required`
+    field within the import module user config in
+    order to avoid issue with empty config values
+    when they are optional
+- [event:import_event] Gracefully handle analyst data for Attribute-less
+  objects. [Sami Mokaddem]
+- Fix: [regression] support add galaxy cluster via uuid. fixed by @jsman
+  PR ##10221. [Luciano Righetti]
+- [EvenReport:GUI] fix some typos. [Jeroen Pinoy]
+- [install] Updated requirement for `misp-stix` [Christian Studer]
+- [stix2 import] Updated misp-stix method imported, that changes on
+  misp-stix recently. [Christian Studer]
+- [analystdata] Fixed collection of analyst data for the view at Object
+  level failing when an Object has no Attribute. [Christian Studer]
+- [SharingGroupBlueprint:add] fix typo in view. [Jeroen Pinoy]
+- [stix1 import] An ancient fix missed in the abyss and found back
+  today. [Christian Studer]
+- [EventReport:markdownEditor] fix typos in messages and code. [Jeroen
+  Pinoy]
+- [SharingGroupBlueprints:encode_sync_rule] remove unused code, and
+  don't try to do weird ajax redirect magic. [Jeroen Pinoy]
+- [Sightingdb:org_picker] show all local orgs as possible options for
+  org restrictions. [Jeroen Pinoy]
+
+Other
+~~~~~
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+- Merge branch '2.4' into 2.4-develop. [iglocska]
+- Merge pull request #10228 from cudeso/patch-2. [Alexandre Dulaunoy]
+
+  Update README.md
+- Update README.md. [Koen Van Impe]
+
+  Add SSL verification error/solution for AadAuth plugin
+- Merge pull request #10213 from cudeso/patch-1. [Alexandre Dulaunoy]
+
+  Add Rösti - Repackaged Öpen Source Threat Intelligence in 2.4
+- Update defaults.json. [Koen Van Impe]
+- Add Rösti - Repackaged Öpen Source Threat Intelligence in 2.4. [Koen
+  Van Impe]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [Christian
+  Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge pull request #10232 from Wachizungu/chg-oidcauth-doc. [Andras
+  Iklody]
+
+  chg: [doc:OidcAuth] fix typo and clarify some configuration steps
+- Merge remote-tracking branch 'origin/2.4-develop' into 2.4-develop.
+  [Sami Mokaddem]
+- Taxiiserver DB changes skip_proxy. [DocArmoryTech]
+
+  - Update db_schema.json to
+    - include a skip_proxy column in the taxii_servers table
+    - increment db_version to `135`
+  - update AppModel.php to alter the taxii_server table to include a skip_proxy column
+  - Update MYSQL.sql to include a skip_proxy column in the taxii_servers table
+- Proxy and skip_proxy logic. [DocArmoryTech]
+
+  - defaulting to false, add validation for a `skip_proxy` boolean option
+  - adjust `queryInstance()` to make use of MISPs proxy settings, unless `skip_proxy` is set
+- Introduce skip_proxy to taxiiserver. [DocArmoryTech]
+
+  Add a `skip_proxy` boolean to taxiiserver Views:
+  - `add.ctp` added a "Skip Proxy (if applicable)" checkbox after Baseurl
+  - `view.ctp` added a "Skip Proxy (if applicable)" key to the view, and set the type to `json` to have it render as true/false
+  - `index.ctp` added a "Skip Proxy" column, rendered as a boolean, after the Baseurl column
+- Attribute tag removal: add missing field when fetching attribute to
+  fix MispAttribute->touch() [Remigiusz Kollataj]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Alexandre Dulaunoy]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge remote-tracking branch 'origin/2.4-develop' into pr-10148. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/2.4-develop' into pr-10145. [Sami
+  Mokaddem]
+- Merge branch '2.4-develop' into pr-10143. [Sami Mokaddem]
+- Merge pull request #10190 from Wachizungu/fix-typos-in-event-report-
+  gui. [Alexandre Dulaunoy]
+
+  fix: [EvenReport:GUI] fix some typos
+- Add: custom ca cert issues troubleshooting. [Luciano Righetti]
+- Add: [stix import] Argument to force conversion of contextual STIX
+  objects as contextual MISP data such as Galaxy Cluster or Tag.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge pull request #10149 from Wachizungu/update-auditlog-model-list.
+  [Alexandre Dulaunoy]
+
+  chg: [AuditLog] add valid models like notes and opinions, to possible…
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge pull request #10150 from Wachizungu/fix-typo-in-
+  sharinggroupblueprints-add. [Alexandre Dulaunoy]
+
+  fix: [SharingGroupBlueprint:add] fix typo in view
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
 
 
 v2.5.6 (2025-01-03)
