@@ -7,12 +7,12 @@ toc: true
 
 
 
-# Project (1) Pauline Bourmeau - Social Perspectives in Intelligence Activities within Sharing Communities 
+# Project (1) Pauline Bourmeau - Social Perspectives in Intelligence Sharing within MISP Communities 
 
 
 Contact for this research project: social-perspective@misp-project.org
 
-## Social Perspectives in Intelligence Activities within Sharing Communities
+## Social Perspectives in Intelligence Sharing within MISP Communities 
 
 ## Subject scope
 
@@ -35,64 +35,23 @@ We face missed opportunities for successful information sharing within the resea
 
 A series of interviews are conducted with various sharing communities. We aim to compare the actual usage of the platform, as observed by us, with the users' perspectives as shared in the interviews.
 
-We utilize both technical observations, such as platform statistics, and qualitative insights from the interviews, through discourse analysis.
+We utilize both technical observations, such as platform statistics, and qualitative insights from the interviews.
 
 ### Data Analysis Model
 
 - Collection of structured information from sharing platforms.
-- Conducting interviews using an unstructured or semi-structured approach[^2].
+- Conducting interviews using an unstructured or semi-structured approach.
 
 
 ### Expected Results and Contribution
 Our research aims to detail the social practices that facilitate information sharing. The focus is on uncovering and testing social models to better understand specific dynamics in this area. Key areas of exploration will include:
 
-- Differentiating between organizations that primarily produce information and those that disseminate it [^1], acknowledging that producers and sharers may be distinct entities.
+- Differentiating between organizations that primarily produce information and those that disseminate it, acknowledging that producers and sharers may be distinct entities.
 - Describing the contextual factors surrounding the creation and dissemination of information.
 - Analyzing the dynamics of information sharing within communities.
 - Investigating factors that could enhance the effectiveness of sharing practices.
   
 These insights are expected to contribute to the development of more sophisticated detection mechanisms within organizations.
-
-
-### Conclusion
-The outcomes of our research could be influenced by several factors:
-
-- The challenge of managing a highly diverse (heterogeneous) dataset.
-- The presence of tampered or false information within sharing communities.
-- Constraints related to the representativeness of the dataset, particularly concerning specific sharing communities.
-- Significant deviations from established standards in data collection or analysis.
-- Challenges in data collection due to high confidentiality levels within certain sharing communities.
-
-
-## Bibliography
-
-- Beuving, J. and De Vries, G., 2015. Doing qualitative research: The craft of naturalistic inquiry. Amsterdam University Press.
-- Charmaz, K. and Belgrave, L.L., 2007. Grounded theory. The Blackwell encyclopedia of sociology.
-- Corballis, M.C., 2014. The recursive mind: The origins of human language, thought, and civilization-updated edition. Princeton University Press.
-- Corbin, J. and Strauss, A., 2014. Basics of qualitative research: Techniques and procedures for developing grounded theory. Sage publications.
-- Corsín Jiménez, A., 2011. Trust in anthropology. Anthropological Theory, 11(2), pp. 177-196.
-- Edgar, T.W. and Manz, D.O., 2017. Research methods for cyber security. Syngress. pp. 96-105.
-- Glaser, B.G. and Strauss, A.L., 2017. Discovery of grounded theory: Strategies for qualitative research. Routledge.
-- Goldenberg, I. and Dean, W.H., 2017. Enablers and barriers to information sharing in military and security operations: lessons learned. In Information Sharing in Military Operations (pp. 251-267). Springer, Cham.
-- Goldenberg, I., Soeters, J. and Dean, W.H. eds., 2017. Information sharing in military operations. Springer International Publishing.
-- Hernandez-Ardieta, J.L., Tapiador, J.E. and Suarez-Tangil, G., 2013, June. Information sharing models for cooperative cyber defence. In 2013 5th International Conference on Cyber Conflict (CYCON 2013) (pp. 1-28). IEEE.
-- Heuer, R.J., 1999. Psychology of intelligence analysis. Center for the Study of Intelligence.
-- Hunger, I. and Müller, J., 2016. Barney G. Glaser/Anselm L. Strauss: The Discovery of Grounded Theory. Strategies for Qualitative Research, Aldine Publishing Company: Chicago 1967, 271 S.(dt. Grounded Theory. Strategien qualitativer Forschung, Bern: Huber 1998, 270 S.). In Klassiker der Sozialwissenschaften (pp. 259-262). Springer VS, Wiesbaden.
-- Jiménez, A.C., 2017. The anthropology of organisations. Routledge.
-- Johnston, R., 2005. Analytic culture in the US intelligence community: An ethnographic study (No. 14). Central Intelligence Agency.
-- Mermoud, A., Keupp, M.M., Huguenin, K., Palmié, M. and Percia David, D., 2019. To share or not to share: a behavioral perspective on human participation in security information sharing. Journal of Cybersecurity, 5(1), p.tyz006.
-- Moore, D.T., 2010. Critical thinking and intelligence analysis (No. 14). Government Printing Office.
-- Murdoch, S. and Leaver, N., 2015, October. Anonymity vs. trust in cyber-security collaboration. In Proceedings of the 2nd ACM Workshop on Information Sharing and Collaborative Security (pp. 27-29).
-- Price, D.H., 2008. Anthropological intelligence: the deployment and neglect of American anthropology in the Second World War. Duke University Press.
-- Skopik, F., Settanni, G. and Fiedler, R., 2016. A problem shared is a problem halved: A survey on the dimensions of collective cyber defense through security information sharing. Computers & Security, 60, pp.154-176.
-- Soeters, J., 2017. Information sharing in military and security operations. In Information sharing in military operations (pp. 1-15). Springer, Cham.
-- Strauss, A. and Corbin, J., 1998. Basics of qualitative research techniques. Thousand Oaks, CA: Sage publications.
-- Sutton, R.I. and Staw, B.M., 1995. What theory is not. Administrative science quarterly, pp.371-384.
-- T. Sander and J. Hailpern. Ux aspects of threat information sharing platforms: An examination and lessons learned using personas. In Proceedings of the 2nd ACM Workshop on Information Sharing and Collaborative Security, WISCS '15, pages 51--59, New York, NY, USA, 2015. ACM.
-- Van den Heuvel, G., 2017. Information sharing in military organizations: a sociomaterial perspective. In Information Sharing in Military Operations (pp. 165-182). Springer, Cham.
-- Wagner, C., Dulaunoy, A., Wagener, G. and Iklody, A., 2016, October. Misp: The design and implementation of a collaborative threat intelligence sharing platform. In Proceedings of the 2016 ACM on Workshop on Information Sharing and Collaborative Security (pp. 49-56).
-- Zibak, A. and Simpson, A., 2019, August. Cyber threat information sharing: Perceived benefits and barriers. In Proceedings of the 14th International Conference on Availability, Reliability and Security (pp. 1-9).
-
 
 
 
