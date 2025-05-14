@@ -72,7 +72,7 @@ The default feeds are described in a [simple JSON format](https://github.com/MIS
 - [MalwareBazaar](https://bazaar.abuse.ch/downloads/misp/) - abuse.ch - feed format: misp
 - [Metasploit exploits with CVE assigned](https://feeds.ecrimelabs.net/data/metasploit-cve) - eCrimeLabs - feed format: csv
 - [mirai.security.gives](https://mirai.security.gives/data/ip_list.txt) - security.gives - feed format: freetext
-- [OpenPhish url list](https://openphish.com/feed.txt) - openphish.com - feed format: freetext
+- [OpenPhish url list](https://raw.githubusercontent.com/openphish/public_feed/refs/heads/main/feed.txt) - openphish.com - feed format: freetext
 - [Panels Tracker](https://benkow.cc/export.php) - Benkow.cc - feed format: csv
 - [PhishScore](https://phishstats.info/phish_score.csv) - PhishStats - feed format: csv
 - [Phishtank online valid phishing](https://data.phishtank.com/data/online-valid.csv) - Phishtank - feed format: csv
