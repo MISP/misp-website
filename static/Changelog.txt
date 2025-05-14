@@ -2,6 +2,493 @@ Changelog
 =========
 
 
+v2.4.210 (2025-05-14)
+---------------------
+
+Fix
+~~~
+- [events:index] Added default value for extendedEvents. [Sami Mokaddem]
+- [schema] updated. [iglocska]
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge branch '2.4-develop' into 2.4. [Sami Mokaddem]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+
+
+v2.5.12 (2025-05-14)
+--------------------
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [console:ls-shell] Updated for LS25. [Sami Mokaddem]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [warning-list] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [console:ls-shell] Updated for LS25. [Sami Mokaddem]
+
+Fix
+~~~
+- [events:index] Added default value for extendedEvents. [Sami Mokaddem]
+- I18n & hiding extending column. [ThomasLcr]
+- [security] information leakage in feed config when using tag
+  collections and viewing the jsonified list. [iglocska]
+
+  - as reported by Lassi Kapanen of Second Nature Security
+- [security] blind fix to potential xss in threads. [iglocska]
+
+  - as reported by Lassi Kapanen of Second Nature Security
+- [security] reflected XSS in server edit. [iglocska]
+
+  - as reported by Lassi Kapanen of Second Nature Security
+- [security] reflected xss in user login profiles view. [iglocska]
+
+  - as reported by Lassi Kapanen of Second Nature Security
+- [security] attribute replacement tool reflected xss fixed. [iglocska]
+
+  - as reported by Lassi Kapanen of Second Nature Security
+- [security] xss in server comparison tool. [iglocska]
+
+  - requires a malicious / compromised site admin
+
+  - as reported by Lassi Kapanen of Second Nature Security
+- [security] reflected xss in showattributetag. [iglocska]
+
+  - as reported by Lassi Kapanen of Second Nature Security
+- [security] clarified setting's impact. [iglocska]
+
+  - download_attachments_on_load is set to true by default, but setting this to false introduces a potential security risk. Clarified this in the setting
+
+  - as reported by Lassi Kapanen of Second Nature Security
+- [security] xss in rest client when requesting HTML view of arbitrary
+  malicious json data. [iglocska]
+
+  - only offer the HTML/JSON views when the response type makes sense
+    - this way the module is responsible for sanitising the data
+
+  - as reported by Lassi Kapanen of Second Nature Security
+- [security] xss in galaxy element JSON view. [iglocska]
+
+  - as reported by Lassi Kapanen of Second Nature Security
+- [Attribute validation] Syntax. [Christian Studer]
+- [Attribute Validation] Added missing vulnerability source. [Christian
+  Studer]
+- [Attribute Validation] Extended validation for `vulnerability`
+  Attributes. [Christian Studer]
+
+  - Validation vulnerability ID from all sources
+    supported in vulnerability-lookup
+- [analys-data:is-pushable] Check against the org UUID instead of the
+  ID. [Sami Mokaddem]
+- [analyst-data:index] Fixed quick filter search. [Sami Mokaddem]
+- [schema] updated. [iglocska]
+- [analys-data:is-pushable] Check against the org UUID instead of the
+  ID. [Sami Mokaddem]
+- [analyst-data:index] Fixed quick filter search. [Sami Mokaddem]
+- [schema] updated. [iglocska]
+- [schema] updated. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [Sami Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'pr-10345' into develop. [Sami Mokaddem]
+- Merge branch 'pr-10305' into develop. [Sami Mokaddem]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Update OpenPhish feed URL to new GitHub location. [Andrea Draghetti]
+
+  This PR updates the OpenPhish feed URL to point to their new GitHub-hosted location.
+
+  The original feed URL occasionally becomes unavailable, while the GitHub-based feed is now officially listed as a reliable alternative.
+
+  Switching to the GitHub feed ensures better reliability and availability of threat intelligence data.
+- Add: [Warninglists] Split Known Identifier from False Positive in the
+  event view. [ThomasLcr]
+- Add new feature: display extended event in the index or not V2.
+  [ThomasLcr]
+- Add new feature: display extended event in the index or not.
+  [ThomasLcr]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- [OTP/OIDC] Allow otp multiple auth (#10343) [Luciano Righetti]
+
+  * fix: calling AppController::beforeFilter() before setting the allowed actions prevents /users/otp to load when multiple authentication methods are enabled.
+
+  * chg: remove warning message
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge pull request #10342 from drego85/patch-1. [Alexandre Dulaunoy]
+
+  Update OpenPhish feed URL to new GitHub location
+- Update OpenPhish feed URL to new GitHub location. [Andrea Draghetti]
+
+  This PR updates the OpenPhish feed URL to point to their new GitHub-hosted location.
+
+  The original feed URL occasionally becomes unavailable, while the GitHub-based feed is now officially listed as a reliable alternative.
+
+  Switching to the GitHub feed ensures better reliability and availability of threat intelligence data.
+
+
+v2.5.11 (2025-05-02)
+--------------------
+
+New
+~~~
+- [workflow:editor] Allow running debugged ad-hoc workflow on event ids.
+  [Sami Mokaddem]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [doc] Added concrete example to upgrade from 2.4 -> 2.5. [Steve
+  Clement]
+- [workflow-module:filter-tag] Filter both the _AttributeFlatten and
+  Attribute key. [Sami Mokaddem]
+- [workflow:stateless-execution] Populate pickers with options loaded
+  from urls. [Sami Mokaddem]
+- [workflow:stateless-execution] Return filtered data for filtering
+  modules. [Sami Mokaddem]
+- [workflow-editor:doc] Added example of data in enrichment and warnings
+  keys in MISP core format section. [Sami Mokaddem]
+- [workflow:editor] Small UI improvement for manual debug run. [Sami
+  Mokaddem]
+- [event:run-workflow] Ajax calls now receive a rest response. [Sami
+  Mokaddem]
+- [workflow:jinja-rendering] Added _env dict in the passed variables to
+  contain env data. [Sami Mokaddem]
+
+  - Such as the MISP's base_url
+- [component:CRUD] Added missing `put` method in crud->add. [Sami
+  Mokaddem]
+
+Fix
+~~~
+- [upgrade script] run a cache cleaning just in case. [Andras Iklody]
+
+  Reported issue about the upgrade causing MISP not to run due to missing plugins, probably a leftover cache from the old instance's available plugins.
+- [sharing-group:checkIfCanBeUsed] Relaxed conditions to allow new
+  sharing-group to be created. [Sami Mokaddem]
+- [sharing-group:checkIfCanBeUsed] Relaxed conditions to allow new
+  sharing-group to be created. [Sami Mokaddem]
+- [workflow:view] Gracefully catch missing labels on links. [Sami
+  Mokaddem]
+- [workflow:tag_operation] Make sure to rebuild fastLookup array after
+  modifying data on-the-fly. [Sami Mokaddem]
+- [workflow:editor] Do not invalidate cache content when setting up
+  pickers. [Sami Mokaddem]
+- [workflow-module:filter-tag] Use valid default value for scope. [Sami
+  Mokaddem]
+- [workflow:_override] Fixed the on-the-fly override function. [Sami
+  Mokaddem]
+
+  - To correctly support override on filtered & unfiltered data
+  - To correctly support override on tags attached/removed
+- [workflow:execute-for-trigger] Correctly create log message. [Sami
+  Mokaddem]
+- [workflow-module:distribution-if] Correctly handle events without
+  attributes. [Sami Mokaddem]
+
+  - Also fixed sharing group condition and improved support in case of empty list
+  - Fix #10284
+- [workflow-blueprint:import] Correctly handle json paste and file
+  upload. [Sami Mokaddem]
+- [event-report:editor] Debounced the matrix drawing operation in
+  rendered report. [Sami Mokaddem]
+- [workflow:moduleStatelessExecution] Add fallback value for non-
+  filtering modules. [Sami Mokaddem]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge pull request #10327 from SteveClement/doc_install. [Luciano
+  Righetti]
+
+  chg: [doc] Added concrete example to upgrade from 2.4 -> 2.5
+- Add: [oidc-auth] Identity provider selector (#10329) [Luciano
+  Righetti]
+
+  * add: allow different identity providers to co-exist in peace
+  * chg: [oidc] update docs with mixedAuth setting
+
+
+v2.4.209 (2025-05-02)
+---------------------
+
+New
+~~~
+- [user IP] tools added to users controller. [iglocska]
+
+  - userIP
+  - IPUser
+
+  - as developed at hackathon.lu 2025 in a rubberduck session with @mokaddem
+- [collections] allow for edit/view/delete by uuid. [iglocska]
+
+  - as discovered by Jeroen Pinoy
+  - developed during the hackathon.lu 2025
+- [workflow:editor] Allow running debugged ad-hoc workflow on event ids.
+  [Sami Mokaddem]
+- [suricata] rework WiP. [iglocska]
+
+  - developed during hackathon.lu 2025
+  - Massive thanks to Eric Leblond for the sanity check and improvements
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [workflow-module:filter-tag] Filter both the _AttributeFlatten and
+  Attribute key. [Sami Mokaddem]
+- [workflow:stateless-execution] Populate pickers with options loaded
+  from urls. [Sami Mokaddem]
+- [workflow:stateless-execution] Return filtered data for filtering
+  modules. [Sami Mokaddem]
+- [workflow-editor:doc] Added example of data in enrichment and warnings
+  keys in MISP core format section. [Sami Mokaddem]
+- [workflow:editor] Small UI improvement for manual debug run. [Sami
+  Mokaddem]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [openapi:collections] Added content for collections. [Jeroen Pinoy]
+
+  - Developed during 2025 hackathon.lu
+- [db] make event info collation case insensitive. [Jeroen Pinoy]
+
+  - Developed during 2025 hackathon.lu
+- [event:run-workflow] Ajax calls now receive a rest response. [Sami
+  Mokaddem]
+- [workflow:jinja-rendering] Added _env dict in the passed variables to
+  contain env data. [Sami Mokaddem]
+
+  - Such as the MISP's base_url
+- [component:CRUD] Added missing `put` method in crud->add. [Sami
+  Mokaddem]
+
+Fix
+~~~
+- [sharing-group:checkIfCanBeUsed] Relaxed conditions to allow new
+  sharing-group to be created. [Sami Mokaddem]
+- [touch] attributes/events when removing galaxies, fixes #10338.
+  [iglocska]
+- [attribute] toggle correlation should update timestamps / unpublish
+  event. [iglocska]
+- [sharing-group:checkIfCanBeUsed] Relaxed conditions to allow new
+  sharing-group to be created. [Sami Mokaddem]
+- [workflow:view] Gracefully catch missing labels on links. [Sami
+  Mokaddem]
+- [workflow:tag_operation] Make sure to rebuild fastLookup array after
+  modifying data on-the-fly. [Sami Mokaddem]
+- [workflow:editor] Do not invalidate cache content when setting up
+  pickers. [Sami Mokaddem]
+- [workflow-module:filter-tag] Use valid default value for scope. [Sami
+  Mokaddem]
+- [workflow:_override] Fixed the on-the-fly override function. [Sami
+  Mokaddem]
+
+  - To correctly support override on filtered & unfiltered data
+  - To correctly support override on tags attached/removed
+- [user audit] fixed the link to the logs from the user view. [iglocska]
+
+  - as reported by @ROMMELFS
+- [workflow:execute-for-trigger] Correctly create log message. [Sami
+  Mokaddem]
+- [CorrelationRules:edit] UI fixes, correctly populate selectors field,
+  and don't try weird ajax redirect magic. [Jeroen Pinoy]
+
+  Developed during 2025 hackathon.lu
+- [workflow-module:distribution-if] Correctly handle events without
+  attributes. [Sami Mokaddem]
+
+  - Also fixed sharing group condition and improved support in case of empty list
+  - Fix #10284
+- [workflow-blueprint:import] Correctly handle json paste and file
+  upload. [Sami Mokaddem]
+- [event-report:editor] Debounced the matrix drawing operation in
+  rendered report. [Sami Mokaddem]
+- [workflow:moduleStatelessExecution] Add fallback value for non-
+  filtering modules. [Sami Mokaddem]
+- [security] XSS in periodic summary. [iglocska]
+
+  - as reported by Jeroen Pinoy
+  - Developed during 2025 hackathon.lu
+- [security] xss in the sync server rule creation view. [iglocska]
+
+  - as reported by Jeroen Pinoy
+  - Developed during 2025 hackathon.lu
+- [security] Fontawesome helper allowed for XSS in multiple views.
+  [iglocska]
+
+  - As reported by Jeroen Pinoy
+  - Developed during 2025 hackathon.lu
+
+Other
+~~~~~
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+- Merge branch '2.4' into 2.4-develop. [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Add: [oidc-auth] Identity provider selector (#10329) [Luciano
+  Righetti]
+
+  * add: allow different identity providers to co-exist in peace
+  * chg: [oidc] update docs with mixedAuth setting
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge pull request #10307 from Wachizungu/add-collection-openapi-doc.
+  [Andras Iklody]
+
+  chg: [openapi:collections] Added content for collections
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge pull request #10304 from Wachizungu/chg-event-info-collation.
+  [Andras Iklody]
+
+  chg: [db] make event info collation case insensitive
+
+  Thanks a lot!
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge pull request #10300 from Wachizungu/fix-correlation-rules-
+  redirect-magic. [Andras Iklody]
+
+  fix: [CorrelationRules:edit] UI fixes, correctly populate selectors f…
+
+
+v2.5.10 (2025-04-04)
+--------------------
+
+Changes
+~~~~~~~
+- Update docs to enable OidcAuth plugin on bootstrap.php. [Luciano
+  Righetti]
+- Update docs to enable OidcAuth plugin on bootstrap.php. [Luciano
+  Righetti]
+
+Fix
+~~~
+- [logging] warning on remote server version during sync. [Andreas B.
+  Berg]
+- [Validation] Add validation for S3 bucket prefix when deleting events.
+  [David Ygland]
+- [logging] warning on remote server version during sync. [Andreas B.
+  Berg]
+- [workflow:editor] Improved caching of ajax calls for
+  select_options_url and chosen behavior with after-draw callback. [Sami
+  Mokaddem]
+
+  - Potential fix for #10256
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge pull request #10263 from crym/sync_warning. [Andras Iklody]
+
+  fix: [logging] warning on remote server version during sync
+- Merge pull request #10244 from dygland/fix-s3-directory-type-cast.
+  [Andras Iklody]
+
+  fix: [Validation] Add validation for S3 bucket prefix when deleting e…
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge pull request #10293 from MISP/escape-ldap-filters. [Andras
+  Iklody]
+
+  add: [LdapAuth] configuration option to escape ldap filters
+- Add: [LdapAuth] configuration option to escape ldap filters. [Luciano
+  Righetti]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge pull request #10282 from ostefano/develop. [Andras Iklody]
+
+  Load AuthPlugins based on what is specified in the configuration file
+- Load AuthPlugins based on what is specified in the configuration file.
+  [Stefano Ortolani]
+
+
+v2.4.208 (2025-04-04)
+---------------------
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [versions] bump. [iglocska]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- Update docs to enable OidcAuth plugin on bootstrap.php. [Luciano
+  Righetti]
+- Update docs to enable OidcAuth plugin on bootstrap.php. [Luciano
+  Righetti]
+
+Fix
+~~~
+- [chg] pymisp version bump in appcontroller. [iglocska]
+- [warninglists] fix comment handling for other types of lists such as
+  CIDR blocks. [iglocska]
+- [logging] warning on remote server version during sync. [Andreas B.
+  Berg]
+- [security] xss stored in galaxy killchain. [iglocska]
+- [security] potentially insecure defaults for uploadFile/deleteFile's
+  type parameter. [iglocska]
+
+  - requires incorrect MISP configuration to have an effect, but not nice either way
+  - as reported by Patrik Wallström of Cparta Cyber Defense
+- [security] S3 access keys should not be shown in the plugin settings.
+  [iglocska]
+
+  as reported by Patrik Wallström of Cparta Cyber Defense
+- [security] xss resolved in icon element. [iglocska]
+
+  - as reported by Patrik Wallström of Cparta Cyber Defense
+- [workflow:editor] Improved caching of ajax calls for
+  select_options_url and chosen behavior with after-draw callback. [Sami
+  Mokaddem]
+
+  - Potential fix for #10256
+
+Other
+~~~~~
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4.
+  [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Add: [LdapAuth] configuration option to escape ldap filters. [Luciano
+  Righetti]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+
+
 v2.5.9 (2025-03-26)
 -------------------
 

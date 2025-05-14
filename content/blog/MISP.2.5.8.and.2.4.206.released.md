@@ -6,6 +6,7 @@ author:
 date: 2025-03-19
 tags: ["MISP", "Threat Intelligence", "release" ]
 layout: post
+slug: MISP.2.5.8.and.2.4.206.released 
 ---
 ## Summary
 

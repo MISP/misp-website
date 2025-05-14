@@ -22,8 +22,7 @@
                     <!-- *** LEFT COLUMN *** -->
 
                     <div class="col-md-9" id="blog-listing-medium">
-
-                        {{ $paginator := .Paginate (where .Data.Pages "Type" "blog") }}
+			{{ $paginator := .Paginate (where .Data.Pages "Type" "blog") }}
                         {{ range $paginator.Pages }}
                         <section class="post">
                             <div class="row">
@@ -80,7 +79,7 @@
                             {{ else }}
                             <li class="previous disabled"><a href="#">&larr; {{ i18n "newer" }}</a></li>
                             {{ end }}
-
+ 
                             {{ if .Paginator.HasNext }}
                             <li class="next"><a href="{{ .Paginator.Next.URL | relURL }}">{{ i18n "older" }} &rarr;</a></li>
                             {{ else }}
