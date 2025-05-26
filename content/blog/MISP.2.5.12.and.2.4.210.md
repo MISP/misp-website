@@ -1,5 +1,5 @@
 ---
-title: MISP 2.4.210 / 2.5.13 released with many improvements, UI enhancement and various fixes 
+title: MISP 2.4.210 / 2.5.12 released with many improvements, UI enhancement and various fixes 
 banner: /img/blog/galaxy-link.png
 author:
  - MISP Project team
