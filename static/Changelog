@@ -2,6 +2,243 @@ Changelog
 =========
 
 
+%%version%% (unreleased)
+------------------------
+
+Fix
+~~~
+- [Suricata export] unsafe sprintf concatenation leading to the suricata
+  export barfing. [iglocska]
+
+
+v2.4.212 (2025-06-05)
+---------------------
+
+Changes
+~~~~~~~
+- [VERSION] bump. [iglocska]
+
+Fix
+~~~
+- [added missing return statement] otherwise the upgrade script never
+  completes successfully. [iglocska]
+
+  (╯°□°)╯︵ ┻━┻
+
+
+v2.5.14 (2025-06-05)
+--------------------
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+
+  - quick hotfix release
+
+Fix
+~~~
+- [added missing return statement] otherwise the upgrade script never
+  completes successfully. [iglocska]
+
+  (╯°□°)╯︵ ┻━┻
+
+
+v2.5.13 (2025-06-05)
+--------------------
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [bootstrap.php] load cakeresque if simplebackgroundjobs aren't
+  enabled. [iglocska]
+
+  - but please enable it. For every new installed instance using cakeresque, cthulhu kills a kitten.
+- [update:galaxy-cluster] Added update to re-assign updated galaxy ID to
+  local value. [Sami Mokaddem]
+- [analystdata] only show the relevant fields for orgs in the
+  analystdata. [iglocska]
+
+Fix
+~~~
+- [security] don't allow setting filepaths for SMIME via GUI/API.
+  [iglocska]
+
+  - a rogue admin could abuse this for attacks via phar deserialization for example, as reported by Raimonds Liepins https://raimonds-liepins.com
+- [cleanup] removed debug line left in in the previous commit.
+  [iglocska]
+- [attribute index] fixed bug with default pagination rules being passed
+  to the index also on API calls. [iglocska]
+- [attribute index] speculative fix to appease the tests. [iglocska]
+
+  - make sure that enforcewarninglist isn't enabled when it shouldn't be
+- [private functions] in attributescontroller. [iglocska]
+- [attribute:capture] Ignore object_relation for regular Attributes.
+  [Sami Mokaddem]
+- [object:quick-add] Allow adding attachment through quick add attribute
+  form. [Sami Mokaddem]
+- [object:group-attributes] Preserve attachment when grouping attributes
+  into an object. [Sami Mokaddem]
+- [cluster-relation:capture] Access the correct model key when assigning
+  the id. [Sami Mokaddem]
+- [galaxy:fetchGalaxyClusters] Temporary fix to prevent fetching
+  targeting clusters twice. [Sami Mokaddem]
+- [cluster:capture_cluster] Ensure the cluster re-use the local galaxy
+  ID on updates. [Sami Mokaddem]
+- [security] dangerous object edit endpoint fixed. [iglocska]
+
+  - could lead to attribute ID overwrites
+- [event reports] allow for lookup by uuid. [iglocska]
+- [search/security] Attribute and log searches reworked. [iglocska]
+
+  - fixed a vulnerability allowing the circumvention of some ACL restrictions in the logs
+  - Reworked the attribute and log searches to use POST queries again
+    - using tokens to store the query parameters for the pagination
+    - tokens and parameters are stored in redis
+    - allows for correct pagination along with multiple tabs of active searches
+
+  - fixed multiple smaller issues with the attribute index
+- [API] small fix for the rest client. [iglocska]
+- [analystdata] added new parameters to the index search. [iglocska]
+
+  - also fixed an issue preventing from any of the filters working
+- [events:view] Fixed event view tools to use the new `include_extended`
+  syntax. [Sami Mokaddem]
+- [events:fetch_event] Renamed old `extend[ing/ed]` parameter into
+  `inlucde_*` [Sami Mokaddem]
+
+  - The new introduced parameters to filters if an event is extended or not
+  was using the same name as the old one to specify to merge the extension's data
+  into the event being fetched
+  - This patch tries to renamed the old parameter into a more fitting name
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'pr-10355' into develop. [Sami Mokaddem]
+- Merge branch 'fix/extend_api' into develop. [Sami Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge remote-tracking branch 'origin/2.4-develop' into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4-develop' into develop. [Sami Mokaddem]
+- Merge branch '2.4-develop' into develop. [Sami Mokaddem]
+- Merge branch '2.4-develop' into develop. [Sami Mokaddem]
+- Merge branch '2.4-develop' into develop. [Sami Mokaddem]
+- Update AUTHORS. [Christophe Vandeplas]
+
+
+v2.4.211 (2025-06-05)
+---------------------
+
+New
+~~~
+- [Event] add filtering option on the index for extending/extended.
+  [ThomasLcr]
+- [Doc] Updated API informations. [ThomasLcr]
+- [event:API] Extended flag  on /events/restseach and /events/index.
+  [ThomasLcr]
+- [Attributes] Add Warninglist in /attributes/search. [ThomasLcr]
+- [API] Accept header can define format. [ThomasLcr]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [update:galaxy-cluster] Added update to re-assign updated galaxy ID to
+  local value. [Sami Mokaddem]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [API] simplification of header process. [ThomasLcr]
+
+Fix
+~~~
+- [private functions] in attributescontroller. [iglocska]
+- [cleanup] removed debug line left in in the previous commit.
+  [iglocska]
+- [attribute index] fixed bug with default pagination rules being passed
+  to the index also on API calls. [iglocska]
+- [security] don't allow setting filepaths for SMIME via GUI/API.
+  [iglocska]
+
+  - a rogue admin could abuse this for attacks via phar deserialization for example, as reported by Raimonds Liepins https://raimonds-liepins.com
+- [security] dangerous object edit endpoint fixed. [iglocska]
+
+  - could lead to attribute ID overwrites
+- [event reports] allow for lookup by uuid. [iglocska]
+- [search/security] Attribute and log searches reworked. [iglocska]
+
+  - fixed a vulnerability allowing the circumvention of some ACL restrictions in the logs
+  - Reworked the attribute and log searches to use POST queries again
+    - using tokens to store the query parameters for the pagination
+    - tokens and parameters are stored in redis
+    - allows for correct pagination along with multiple tabs of active searches
+
+  - fixed multiple smaller issues with the attribute index
+- [API] small fix for the rest client. [iglocska]
+- [analystdata] added new parameters to the index search. [iglocska]
+
+  - also fixed an issue preventing from any of the filters working
+- [attribute:capture] Ignore object_relation for regular Attributes.
+  [Sami Mokaddem]
+- [object:quick-add] Allow adding attachment through quick add attribute
+  form. [Sami Mokaddem]
+- [object:group-attributes] Preserve attachment when grouping attributes
+  into an object. [Sami Mokaddem]
+- [cluster-relation:capture] Access the correct model key when assigning
+  the id. [Sami Mokaddem]
+- [galaxy:fetchGalaxyClusters] Temporary fix to prevent fetching
+  targeting clusters twice. [Sami Mokaddem]
+- [cluster:capture_cluster] Ensure the cluster re-use the local galaxy
+  ID on updates. [Sami Mokaddem]
+- [openapi] fix swagger editor errors. [Luciano Righetti]
+- [Event:api] Just removing useless double check. [ThomasLcr]
+- [Event:api] Correctly handle params for requests on /event/index.
+  [ThomasLcr]
+- [events:view] Fixed event view tools to use the new `include_extended`
+  syntax. [Sami Mokaddem]
+- [events:fetch_event] Renamed old `extend[ing/ed]` parameter into
+  `inlucde_*` [Sami Mokaddem]
+
+  - The new introduced parameters to filters if an event is extended or not
+  was using the same name as the old one to specify to merge the extension's data
+  into the event being fetched
+  - This patch tries to renamed the old parameter into a more fitting name
+- [Event:Api] Accepting boolean as [0] and [1] [ThomasLcr]
+- [event:api] Optimization of filtering. [ThomasLcr]
+- [Event] Removing whitespace. [ThomasLcr]
+- [API] extended/extending flags accept [0, 1] [ThomasLcr]
+- [API] Simplification of query filter. [ThomasLcr]
+- [attributes] Concatenation instead of reinitialisation. [ThomasLcr]
+- [attributes] optimize filtering of warnings. [ThomasLcr]
+- [API:Restclient] Add -k in curl command when skip ssl option ticked.
+  [ThomasLcr]
+- [API] support preference of type. [ThomasLcr]
+
+Other
+~~~~~
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge branch 'pr-10355' into 2.4-develop. [Sami Mokaddem]
+- Merge branch 'pr-10352' into 2.4-develop. [Sami Mokaddem]
+- Merge branch 'pr-10318' into 2.4-develop. [Sami Mokaddem]
+- Merge remote-tracking branch 'upstream/2.4' into extend_api.
+  [ThomasLcr]
+- Add: [API] Improve documentation. [ThomasLcr]
+- Merge branch 'pr-10314' into 2.4-develop. [Sami Mokaddem]
+- Merge branch 'pr-10335' into 2.4-develop. [Sami Mokaddem]
+- Merge remote-tracking branch 'origin/2.4-develop' into pr-10335. [Sami
+  Mokaddem]
+- Merge branch 'pr-10351' into 2.4-develop. [Sami Mokaddem]
+- Merge remote-tracking branch 'upstream/2.4' into format_api.
+  [ThomasLcr]
+
+
 v2.4.210 (2025-05-14)
 ---------------------
 
