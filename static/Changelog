@@ -2,13 +2,282 @@ Changelog
 =========
 
 
-%%version%% (unreleased)
-------------------------
+v2.5.15 (2025-06-19)
+--------------------
+
+New
+~~~
+- [correlation rules] rework. [iglocska]
+
+  - now correlation rules will work both ways, not just when deciding to correlate new data against the old, but the other way around too
+  - event.info based filters now work correctly
+  - fixed the "null" display of rule value lists if the list only contained a single value
+- [database handler rework] Unified extended and observer extended.
+  [iglocska]
+
+  - observer extended now simple extends extended.
+  - moved the new features of observerextended -> extended
+
+Changes
+~~~~~~~
+- [misp-stix] Bumped latest `misp-stix` version including hotfixes.
+  [Christian Studer]
+- [db schema] updated. [iglocska]
+- [objects restsearch] speed up attempt. [iglocska]
+
+  - added support for straight join and reverse straight joins to the query builder
+  - changed object restsearch to use it and prioritise the event table for faster lookups
+  - added option to set caps on object lookups (this will hopefully reduce the CPU time in PHP land when dealing with MASSIVE exports)
+- [db schema] changed taxii_server api key to text. [iglocska]
+
+  - apparently taxii keys ginormous
+- [component:restsearch] Added documentation for specifying the galaxy
+  matrix to return. [Sami Mokaddem]
 
 Fix
 ~~~
+- [event:enrich] Added support of first/last_seen for module import.
+  [Sami Mokaddem]
+- [test:comprehensive] Fixed test to ensure we only fetch the created
+  events. [Sami Mokaddem]
+- [test:comprehensive] Fixed test with the renaming of extended. [Sami
+  Mokaddem]
+- [merge fail] fixed. [iglocska]
+- [copy-pasta] more of it fixed. [iglocska]
+- [appmodel] copy pasta fail fixed. [iglocska]
+- [tag UI] clicking a tag on an attribute should redirect to the index
+  rather than the search page with the last changes. [iglocska]
+- [attribute search] correctly handle windows line breaks in the form.
+  [iglocska]
+- [correlation rules] index not displaying single value rules.
+  [iglocska]
+- [database handler] fixed. [iglocska]
+- [SQL] statement double AS fixed in aliasing. [iglocska]
+- [db_schema] bump. [iglocska]
+- [dbo support check] added. [iglocska]
+
+  - check if a feature is not supported by the DB handler (accessible from any model via $this->checkDbSupport($functionality)
+  - Added code path for no support of reverse straight joins in the currently used db handler
+- [enrich] function should flatten attributes to allow for enriching
+  object attributes. [iglocska]
+- [event:extended] Resolved hick up. [Sami Mokaddem]
+
+  - Introduced in 42a8ade07dc55a63150c03707e5d2b3b21fddaf8
+- [attributes:index] Added `object_relation` to the list of accepted
+  search fields. [Sami Mokaddem]
+- [misp-stix] Bumped latest version including fixes. [Christian Studer]
 - [Suricata export] unsafe sprintf concatenation leading to the suricata
   export barfing. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.5' of github.com:MISP/MISP into develop. [Christian
+  Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch 'fix/protected-event-internal-sync' into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch '2.4-develop' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'object_restsearch_speedup' into develop. [iglocska]
+- Merge branch '2.5' into object_restsearch_speedup. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge branch '2.4-develop' into develop. [Sami Mokaddem]
+- Merge branch '2.4-develop' into develop. [Sami Mokaddem]
+- Merge remote-tracking branch 'origin/2.4-develop' into develop. [Sami
+  Mokaddem]
+- Merge branch 'pr-10325' into develop_pr-10325. [Sami Mokaddem]
+- Merge branch '2.5' of github.com:MISP/MISP into develop. [Christian
+  Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+
+
+v2.4.213 (2025-06-19)
+---------------------
+
+New
+~~~
+- [correlation rules] rework. [iglocska]
+
+  - now correlation rules will work both ways, not just when deciding to correlate new data against the old, but the other way around too
+  - event.info based filters now work correctly
+  - fixed the "null" display of rule value lists if the list only contained a single value
+- [database handler rework] Unified extended and observer extended.
+  [iglocska]
+
+  - observer extended now simple extends extended.
+  - moved the new features of observerextended -> extended
+- [Event] Added Import Choice button above attribute list. [ThomasLcr]
+- [Attributes:search] Filtering option on object_relation. [ThomasLcr]
+- [Tests] Added a test for restSearch with extended/extending and a test
+  for warninglists category. [ThomasLcr]
+- [Roles] Added attribute to limit numbers of result by request.
+  [ThomasLcr]
+- [API] Flag limit editable in UI admin. [ThomasLcr]
+- [Galaxy:attribute] In the galaxy view, show the number of attributes
+  linked to the galaxy. [ThomasLcr]
+
+Changes
+~~~~~~~
+- [VERSION] bump. [iglocska]
+- [misp-stix] Bumped latest `misp-stix` version including hotfixes.
+  [Christian Studer]
+- [warning-list] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [db schema] changed taxii_server api key to text. [iglocska]
+
+  - apparently taxii keys ginormous
+- [server:interal-sync] Potentially fixes sync of protected events with
+  internal server / perm_sync_internal settings. [Sami Mokaddem]
+
+  - Addresses #9779
+- [db schema] updated. [iglocska]
+- [component:restsearch] Added documentation for specifying the galaxy
+  matrix to return. [Sami Mokaddem]
+- [app:user_rest_limit] Simplified logic for defaulting to role limit.
+  [Sami Mokaddem]
+- [Attributes:index] Limit the number of results according to the role
+  of the user. [ThomasLcr]
+- [Roles] Added bold lines to improve UX. [ThomasLcr]
+- [Roles] Removing an attribute & improvement of UI text. [ThomasLcr]
+- [Roles|API] updated description of limit. [ThomasLcr]
+- Better names. [ThomasLcr]
+- [Galaxy:attribute] Rename a line. [ThomasLcr]
+
+Fix
+~~~
+- [event:enrich] Added support of first/last_seen for module import.
+  [Sami Mokaddem]
+- [test:comprehensive] Fixed test to ensure we only fetch the created
+  events. [Sami Mokaddem]
+- [test:comprehensive] Fixed test with the renaming of extended. [Sami
+  Mokaddem]
+- [event:extended] Resolved hick up. [Sami Mokaddem]
+
+  - Introduced in 42a8ade07dc55a63150c03707e5d2b3b21fddaf8
+- [datasource] fixed MySQLExtended. [iglocska]
+
+  - Observer Extended still housed one of the required functions missing in Extended
+- Allow editing protected event flag on sync and consider it a
+  significant change. [Jeroen Pinoy]
+- [dbo support check] added. [iglocska]
+
+  - check if a feature is not supported by the DB handler (accessible from any model via $this->checkDbSupport($functionality)
+  - Added code path for no support of reverse straight joins in the currently used db handler
+- [attribute-tag:count-for-tag] Declare missing variable. [Sami
+  Mokaddem]
+- [attributes:index] Added `object_relation` to the list of accepted
+  search fields. [Sami Mokaddem]
+- [Attributes:search] Replace org_id by the correct flag org.
+  [ThomasLcr]
+- [Tests] Better name for test function. [ThomasLcr]
+- [misp-stix] Bumped latest version including fixes. [Christian Studer]
+- [Suricata export] unsafe sprintf concatenation leading to the suricata
+  export barfing. [iglocska]
+- [Role] Converting negative to zero for rate_limit_count. [ThomasLcr]
+- [Roles] UI improvement and blocking negative number. [ThomasLcr]
+- [Roles] Optimize getUserRestLimit. [ThomasLcr]
+- [Roles] Removing whitespaces. [ThomasLcr]
+- [Roles] Show unlimited in index if enforce_rate_limit left as
+  unticked. [ThomasLcr]
+- [API] Added endpoints for the new limit feature. [ThomasLcr]
+- [Galaxy:attribute] Looping on tag. [ThomasLcr]
+- [Galaxy:attribute] Using framework query. [ThomasLcr]
+- [Galaxy:attribute] Optimization of filtering & separated function.
+  [ThomasLcr]
+
+Other
+~~~~~
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge remote-tracking branch 'origin/2.4-develop' into 2.4-develop.
+  [Sami Mokaddem]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge branch 'fix/protected-event-internal-sync' into 2.4-develop.
+  [Sami Mokaddem]
+- Revert "Fix #2737: Improve password requirement indication."
+  [iglocska]
+
+  This reverts commit 459d7beb89ded5995be62e0ff6d3d3254ad86d77.
+- Update defaults.json. [Zhangir]
+
+  Fixed comma in json file
+- Fix #2737: Improve password requirement indication. [monjiapawne]
+- Update bootstrap.default.php. [Stefano Ortolani]
+- Add cerebrate skip_proxy ui. [DocArmoryTech]
+
+  add skip_proxy field to the Cerebrates UI components to add, view, and index configured cerebrates
+  - `view.ctp` (renders between `URL` and `Owner Organisation`)
+  - index index.ctp (renders after `Description`)
+  - add.ctp (renders after `description`)
+- Optionally setupHttpSocket with model. [DocArmoryTech]
+
+  Added a 4th argument to `AppModel::setupHttpSocket( ..)` (null by default) to allow specification of the `$model` to use when setting up via `SyncTool`.
+
+  `$model` defaults to null so that it falls though to the default model used by SyncTool::setupHttpSocket i.e. "Server"
+- Specify model in queryInstance. [DocArmoryTech]
+
+  Update the call to `AppModel::setupHttpSocket` to specify the server model as "Cerebrate" and thereby pass the model on to `SyncTool::setupHttpSocket` which picks-up the Cerebrate's `skip_proxy setting`
+- GetMessage typo. [DocArmoryTech]
+
+  corrected typo in error handling.
+  A `SocketException` attempts to access the erros's [sic] getMessage attribute when throwing a BadRequestException:
+  ```
+  throw new BadRequestException(__('Something went wrong. Error returned: %s', $e->getMessage));
+  ```
+
+  missing function parentheses added
+- Merge branch '10386' into 2.4-develop. [iglocska]
+- Merge remote-tracking branch 'origin/2.4-develop' into pr-10362. [Sami
+  Mokaddem]
+- Merge pull request #10359 from ThomasLcr/import_button. [Sami
+  Mokaddem]
+
+  new: [Event] Added Import Choice button above attribute list
+- Merge pull request #10358 from ThomasLcr/object_search_attribute.
+  [Sami Mokaddem]
+
+  new: [Attributes:search] Filtering option on object_relation  + fix: [Attributes:search] On organisation filtering
+- Merge pull request #10357 from ThomasLcr/integration_test. [Sami
+  Mokaddem]
+
+  new: [Tests] Added a test for restSearch with extended/extending flags and a test for warninglists category
+- Merge remote-tracking branch 'origin/2.4-develop' into pr-10325. [Sami
+  Mokaddem]
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4' into 2.4-develop. [iglocska]
+- Remove whitespace. [ThomasLcr]
+- Function to get Role limit restsearch. [ThomasLcr]
+- Merge remote-tracking branch 'upstream/2.4' into limit_restSearch.
+  [ThomasLcr]
+- Reset original code. [ThomasLcr]
+- Rm: [API] no more limit on event/index. [ThomasLcr]
+- Fix [API]: updated documentation. [ThomasLcr]
 
 
 v2.4.212 (2025-06-05)
