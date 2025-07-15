@@ -11,10 +11,9 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### Webinar
 
-
+- Two MISP training the 15th July 2025 and 16th July 2025 at the [CIRCL VSS (Virtual Summer School) 2025](https://www.circl.lu/pub/vss-2025/).
+ 
 ### Conferences 
-
-- FIC 2025 (Forum Incyber Europe) 1-3 April 2025, Lille, France. Booth F9-14 (Luxembourg)
 
 
 ### Public MISP trainings 
