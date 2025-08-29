@@ -7,12 +7,12 @@ toc: true
 
 # Contributing to MISP Project
 
-MISP project is a large free software project composed of multiple sub-projects which are contributed by different contributors who are generally active users of the MISP project. MISP project fully supports the [Contributor Covenant Code of Conduct](https://github.com/MISP/MISP/blob/2.4/code_of_conduct.md) to foster an open and dynamic environment for contributing and the exchange in the threat intelligence and information exchange field.
+MISP project is a large free software project composed of multiple sub-projects which are contributed by different contributors who are generally active users of the MISP project. MISP project fully supports the [Contributor Covenant Code of Conduct](https://github.com/MISP/MISP/blob/2.5/code_of_conduct.md) to foster an open and dynamic environment for contributing and the exchange in the threat intelligence and information exchange field.
 
-The [MISP roadmap](https://github.com/MISP/MISP/blob/2.4/roadmap.md) is mostly based on the user communities (e.g. private communities, CSIRTs communities, security researchers, ISACs - Information Sharing and Analysis Center, security providers, governmental or military organisations) relying on MISP to perform their duties of information sharing and analysis. 
+The [MISP roadmap](https://github.com/MISP/MISP/blob/2.5/roadmap.md) is mostly based on the user communities (e.g. private communities, CSIRTs communities, security researchers, ISACs - Information Sharing and Analysis Center, security providers, governmental or military organisations) relying on MISP to perform their duties of information sharing and analysis. 
 
 Participating in the MISP project is easy and everyone can contribute following their ability. 
-Get familiar with [how we use GitHub at MISP Project](https://github.com/MISP/MISP/blob/2.4/GITWORKFLOW.md), then read on for details on some ways you can contribute:
+Get familiar with [how we use GitHub at MISP Project](https://github.com/MISP/MISP/blob/2.5/GITWORKFLOW.md), then read on for details on some ways you can contribute:
 
 ## Reporting bugs, suggesting features
 
@@ -26,12 +26,12 @@ Don’t forget that you can cross-reference issues from other sub-projects.
 - **New issues should include all relevant information.** Add as much information as you can, including the version of MISP which you are running, screenshots with annotation, suggested features, and steps on how to reproduce an issue. You can also comment on existing issues; this is an indicator for us regarding the priority of certain features and how important these are to the users. If you know an answer or could help on a specific issue, we welcome all contributions including useful comments to reach a resolution. 
 - **Security policy.** To disclose a security issue confidentially, please see the [Reporting Security Vulnerabilities](#reporting-security-vulnerabilities) section.
 - **New issues should not be duplicates of existing issues.** Before opening a new issue, search both open and closed issues to avoid duplicate issues.  For example, you may be experiencing a bug that was just fixed, in which case the report for that bug is probably closed. Here, it would be useful to view all bug reports, both open and closed, with the most recently updated sorted to the top.  If you find an issue that seems to be similar to yours, read through it. If you find an issue that is the same as or subsumes yours, leave a comment on the existing issue rather than filing a new one, even if the existing issue is closed. The MISP team will see your comment and reopen the issue, if appropriate. For example, you can leave a comment with additional information to help the maintainer debug it. Adding a comment will subscribe you to email notifications, which can be helpful in getting important updates regarding the issue. If you don’t have anything to add but still want to receive email updates, you can click the “Subscribe” button at the side or bottom of the comments. Commenting on existing issues is an indicator for us regarding the priority of certain features and how important these are to the users.
-- **There are no guarantees that your issue will be addressed.** Creating a new issue is simply a way for you to submit an item for the MISP team’s consideration. It is up to the MISP team to decide whether or how to address your issue, which may include closing the issue without taking any action on it.  Even if your issue is kept open, however, you should not expect it to be addressed within any particular time frame, or at all.  At the time of this writing, there are well over 1.7 thousand open issues in the main MISP repo alone, not considering the other related repositories. The MISP team has its own [roadmap and priorities](https://github.com/MISP/MISP/blob/2.4/ROADMAP.md), which will govern the manner and order in which open issues are addressed.
+- **There are no guarantees that your issue will be addressed.** Creating a new issue is simply a way for you to submit an item for the MISP team’s consideration. It is up to the MISP team to decide whether or how to address your issue, which may include closing the issue without taking any action on it.  Even if your issue is kept open, however, you should not expect it to be addressed within any particular time frame, or at all.  At the time of this writing, there are well over 1.7 thousand open issues in the main MISP repo alone, not considering the other related repositories. The MISP team has its own [roadmap and priorities](https://github.com/MISP/MISP/blob/2.5/ROADMAP.md), which will govern the manner and order in which open issues are addressed.
 
 ### Following up afterward
 
 If the MISP developers make a code change that resolves your issue, then your GitHub issue will typically be closed from the relevant patch message. 
-There is one main MISP core branch, `2.4` (current stable version), that we consider as stable with frequent updates as hotfixes.
+There is one main MISP core branch, `2.5` (current stable version), that we consider as stable with frequent updates as hotfixes.
 Features are developed in separated branches and then regularly merged into the stable branch. 
 If you so choose, you can test the fix while it’s in the feature branch, or you can wait for it to land in the stable repository. 
 If, after testing the fix, you find that it does not fix your bug, please leave a comment on your issue explaining the situation. 
@@ -49,12 +49,12 @@ View our [Security Policy](https://github.com/MISP/MISP/security/policy).
 
 ## Contributing to MISP core
 
-Before you get started, read our [coding guidelines](https://github.com/MISP/MISP/blob/2.4/CODINGSTYLE.md).
+Before you get started, read our [coding guidelines](https://github.com/MISP/MISP/blob/2.5/CODINGSTYLE.md).
 
 If you want to contribute to the [MISP core](https://github.com/MISP/MISP) project:
 
 - First fork the [MISP core project](https://github.com/MISP/MISP)
-- Branch off from 2.4 (2.4 branch is the main branch of development in MISP) `git checkout 2.4`
+- Branch off from 2.5 (2.5 branch is the main branch of development in MISP) `git checkout 2.5`
 - Then create a branch for your own contribution (bug fixes, enhancement, new features) by typing `git checkout -b fix-glossy-user-interface`
 - Work on your fix or feature (only work on that, avoid committing any debug functionalities, testing, or unused code)
 - Commit your fix or feature (and sign it with GnuPG -- if you have a GnuPG key) with a meaningful commit message as recommended in our [Commit Messages Best Practices](https://github.com/MISP/MISP/wiki/CommitMessageBestPractices). MISP uses [gitchangelog](https://github.com/vaab/gitchangelog/blob/master/src/gitchangelog/gitchangelog.rc.reference) to generate changelog, so it's recommended that when writing commit messages, use `new:` for new features, `fix:` when it's a bug-fix or `chg` when it's re-factoring or clean-up.
