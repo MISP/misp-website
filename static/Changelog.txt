@@ -2,6 +2,109 @@ Changelog
 =========
 
 
+v2.5.21 (2025-09-10)
+--------------------
+
+New
+~~~
+- [recorrelate] event functionality added. [iglocska]
+
+  - recorrelate any event on demand if you are a site admin
+  - also usable via the API (/events/recorrelate/{event_id})
+  - reusing existing internal faculties
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [top correlations] pass engine type to UI. [iglocska]
+- [misp-galaxy] updated to the latest release. [Alexandre Dulaunoy]
+- [galaxy cluster] should include the tag_id when possible for its
+  connector tag. [iglocska]
+- [AttributeValidationTool] Supporting more vulnerability ID types.
+  [Christian Studer]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [ondemand correlations] toplist reworked. [iglocska]
+- [misp-stix] Bumped latest version. [Christian Studer]
+
+Fix
+~~~
+- [db_schema] updated. [iglocska]
+- [top correlations] removed incorrect cache age for
+  onDemandCorrelations. [iglocska]
+- [overcorrelations] value links should lead to the filtered event
+  index. [iglocska]
+
+  - not the search page
+- [acl] name fixed for the recorrelation action to please the CI gods.
+  [iglocska]
+- [tag:sync] Remove temporary fix. [ThomasLcr]
+- [indeces] forcing of event index usage temporarily disabled.
+  [iglocska]
+
+  - a use index call on a subquery was leading to exceptions
+  - temporarily commented it out
+- [ondemand correlation] invalid correlations. [iglocska]
+
+  - correlation disabled events should not be visible via correlations
+  - correlation disabled events should not attempt to load correlations on view
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge pull request #10464 from Renater/hotfix/javascript-error-with-
+  french-language. [Alexandre Dulaunoy]
+
+  remove quotes, as they trigger a javascript syntax error
+- Remove quotes, as they trigger a javascript syntax error. [Guillaume
+  Rousse]
+
+  Even if escaped in the translation file, they are passed unescaped in
+  javascript code, ie:
+  'ServerName' : "Un nom qui définira clairement ce qu'est cette instance. Par exemple: "Instance de l'organisation A"",
+- Merge pull request #10469 from DocArmoryTech/patch-userview. [Andras
+  Iklody]
+
+  fix(users-view): correct action name in server link
+- Fix(users-view): correct action name in server link. [DocArmoryTech]
+
+  Changed the link action from 'view' to 'previewIndex' in
+  app/View/Users/view.ctp to fix navigation to the correct "Bound Server"
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #10465 from marjatech/fix-proposals-block-
+  attributes. [Andras Iklody]
+
+  fix: bind ShadowAttribute Model also to allow proposals to block attributes
+- Bind ShadowAttribute Model also to allow proposals to block
+  attributes. [marjatech]
+- Merge branch '10470' into develop. [iglocska]
+- Fix(task-ui): typo - missing parenthesis. [DocArmoryTech]
+
+  the hour option for the `time_unit` field  (Period) was missing a closing parenthesis:
+   `hour(s` -> `hour(s)`
+- Merge branch '10472' into develop. [iglocska]
+- Fix(tasks): populate frequency fields in task edit form.
+  [DocArmoryTech]
+
+  Added value to time_multiplier and time_unit fields in app/View/Tasks/add.ctp to use existing task values in edit mode, preventing frequency from resetting to defaults.
+- Fix(tasks): decompose timer in TasksController edit action.
+  [DocArmoryTech]
+
+  Added logic to the afterFind callback in TasksController::edit to convert the timer field into time_multiplier and time_unit for the task edit form, ensuring existing frequency values are available for display.
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #10475 from ThomasLcr/local_tag. [Andras Iklody]
+
+  Solving the non-synchronization of local tags when pulling between internal instances
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+
+
 v2.5.20 (2025-08-27)
 --------------------
 
