@@ -1,4 +1,14 @@
-# MISP Synchronisation
+---
+title: MISP Synchronisation - Test and Validation Project
+banner: /img/blog/synchronisation/sync.png 
+author:
+ - Thomas Lacroix
+date: 2025-09-19
+tags: ["MISP", "Threat Intelligence"]
+layout: post
+---
+
+# MISP Synchronisation - Test and Validation Project
 
 ## Introduction
 
@@ -41,7 +51,6 @@ There are five distribution levels:
 The figure below illustrates how events with different distribution levels are propagated between multiple instances after a **PUSH** action:
 
 ![MISP distribution](/img/blog/synchronisation/distribution.png)
-
 
 ## Deploy several instance locally
 
