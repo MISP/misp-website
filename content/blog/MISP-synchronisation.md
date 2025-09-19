@@ -83,6 +83,6 @@ It should be noted that these errors mainly concern specific scenarios that are 
 * **MISP Synchronisation repository**: [https://github.com/MISP/misp-synchronisation](https://github.com/MISP/misp-synchronisation)
   (Deployment process and test execution are detailed here.)
 
-* **End-of-studies report**: My full report, including details about synchronisation testing during my internship, is available [here](/Internship-report_Lacroix).
+* **End-of-studies report**: My full report, including details about synchronisation testing during my internship, is available [here](/Internship-report_Lacroix.pdf).
 
 ---
