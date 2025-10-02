@@ -2,6 +2,79 @@ Changelog
 =========
 
 
+v2.5.22 (2025-10-02)
+--------------------
+
+New
+~~~
+- [actions:forgejo] Added the synchronisation workflow. [ThomasLcr]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [event-report:view] Added better support of extended event. [Sami
+  Mokaddem]
+
+  - Now all children of the current event are visible
+  - As well as all children of the parent of the curent event are visible
+- [schema] bump. [iglocska]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [misp-object] updated. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [actions:forgejo] Updating PATH for synchronisation CI. [Thomas
+  Lacroix]
+- Fill attribute search form inputs with values from named  url
+  parameters. [Jeroen Gui]
+- [eventreport:view] Fixed MISP element cache to not being overriden by
+  parent data. [Sami Mokaddem]
+- [indexing] account for high performance indexing scheme for the new
+  value based event search. [iglocska]
+
+  - value1/value2 indeces don't exist under those key names, check for their existence and fall back to no index hints gracefully
+- Adds complex query support to value filter in restSearch. [Karsa Rigó]
+- [Event] Switch Correlation and Warninglist filtering option.
+  [ThomasLcr]
+- [attribute search] uuid field only searches by UUID. [iglocska]
+
+  - doesn't align with the expected behaviour of the attribute search in the UI
+    - allow for numeric IDs to be used for events
+    - no change when providing valid UUIDs in the search parameter
+- Check PyMISP version in submodule, AppController and requirements.
+  [Raphaël Vinot]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge pull request #10498 from ThomasLcr/sync_CI. [Alexandre Dulaunoy]
+
+  Forgejo pipeline for synchronisation
+- Merge branch '10503' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '10251' into develop. [iglocska]
+- Merge branch 'MISP:2.5' into 10250-value-complex-query-support.
+  [Karsa]
+- Merge branch 'MISP:2.5' into 10250-value-complex-query-support.
+  [Karsa]
+- Merge branch 'MISP:2.5' into 10250-value-complex-query-support.
+  [Karsa]
+- Merge branch 'MISP:2.5' into 10250-value-complex-query-support.
+  [Karsa]
+- Merge branch '10440' into develop. [iglocska]
+- Merge branch '2.5' into feature/locked_feed_pulls. [Sid Odgers]
+- Set correct property on new event. [Sid Odgers]
+- Support for creating locked events on feed pulls. [Sid Odgers]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+
+
 v2.5.21 (2025-09-10)
 --------------------
 
