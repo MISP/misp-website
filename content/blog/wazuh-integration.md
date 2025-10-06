@@ -1,7 +1,7 @@
 ---
 title: Wazuh and MISP integration
 authors:
-- Arne Welzel
+- Luciano Righetti
 date: 2025-10-06
 banner: /img/blog/wazuh-logo.png
 layout: post
