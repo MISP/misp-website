@@ -3,7 +3,7 @@ title: Wazuh and MISP integration
 authors:
 - Luciano Righetti
 date: 2025-10-06
-banner: /img/blog/wazuh-misp.png
+banner: /img/blog/misp-wazuh.png
 layout: post
 ---
 
