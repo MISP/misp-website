@@ -240,3 +240,9 @@ tail -f /var/ossec/logs/integrations.log
 * https://wazuh.com/blog/detecting-and-responding-to-malicious-files-using-cdb-lists-and-active-response/
 * https://documentation.wazuh.com/current/user-manual/manager/integration-with-external-apis.html
 * https://wazuh.com/blog/how-to-integrate-external-software-using-integrator/
+
+# Funding
+
+This project is developed in the scope of the NGSOTI project and co-funded under Digital Europe Programme by the ECCC (European Cybersecurity Competence Centre and Network).
+
+The NGSOTI project is dedicated to training the next generation of Security Operation Center (SOC) operators, focusing on the human aspect of cybersecurity. It underscores the significance of providing SOC operators with the necessary skills and open-source tools to address challenges such as detection engineering, incident response, and threat intelligence analysis. Involving key partners such as CIRCL, Restena, Tenzir, and the University of Luxembourg, the project aims to establish a real operational infrastructure for practical training. This initiative integrates academic curricula with industry insights, offering hands-on experience in cyber ranges.
