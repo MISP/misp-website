@@ -3,7 +3,7 @@ title: Wazuh and MISP integration
 authors:
 - Luciano Righetti
 date: 2025-10-06
-banner: /img/blog/wazuh-logo.png
+banner: /img/blog/wazuh-misp.png
 layout: post
 ---
 
@@ -163,6 +163,11 @@ To trigger a positive match in MISP, add any of the `eicar.com` hashes to your M
 
 > Make sure the event containing the hashes is visible to the user associated with the API AuthKey, otherwise no match will occur.
 
+Some other recommended free feeds that share malware hashes and can be ingested in MISP:
+* **MalwareBazaar** by **ABUSE.ch**: https://bazaar.abuse.ch/downloads/misp/ 
+* **CIRCL OSINT Feed**: https://www.circl.lu/doc/misp/feed-osint
+* **BOTVRIJ.EU** by **cudeso.be**: https://www.botvrij.eu/data/feed-osint
+
 Inside the monitored host, download [eicar.com](https://secure.eicar.org/eicar.com) file to the monitored directory.
 
 ```bash
@@ -235,9 +240,3 @@ tail -f /var/ossec/logs/integrations.log
 * https://wazuh.com/blog/detecting-and-responding-to-malicious-files-using-cdb-lists-and-active-response/
 * https://documentation.wazuh.com/current/user-manual/manager/integration-with-external-apis.html
 * https://wazuh.com/blog/how-to-integrate-external-software-using-integrator/
-
-# Funding
-
-This project is developed in the scope of the NGSOTI project and co-funded under Digital Europe Programme by the ECCC (European Cybersecurity Competence Centre and Network).
-
-The NGSOTI project is dedicated to training the next generation of Security Operation Center (SOC) operators, focusing on the human aspect of cybersecurity. It underscores the significance of providing SOC operators with the necessary skills and open-source tools to address challenges such as detection engineering, incident response, and threat intelligence analysis. Involving key partners such as CIRCL, Restena, Tenzir, and the University of Luxembourg, the project aims to establish a real operational infrastructure for practical training. This initiative integrates academic curricula with industry insights, offering hands-on experience in cyber ranges.
