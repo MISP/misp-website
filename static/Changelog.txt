@@ -2,6 +2,429 @@ Changelog
 =========
 
 
+v2.5.23 (2025-10-15)
+--------------------
+
+New
+~~~
+- [first publication] added to events. [iglocska]
+- [benchmarks] slow query log endpoint now accepts additional flags.
+  [iglocska]
+
+  simple add /{param} to the /benchmarks/sqlMetrics endpoint's URL, with the following parameters currently implemented:
+
+  - /explain runs EXPLAIN on the sql query
+  - /analyze runs ANALYZE on the sql query (careful, this can be demanding, especially for unfiltered /benchmarks/sqlMetrics calls as it will iterate and execute analyze on each hit)
+- [doc] Added sharing group blueprints OpenAPI documentation. [Jeroen
+  Pinoy]
+- [preRelease] function added to admin shell. [iglocska]
+
+  - Currently only has two functionalities:
+    - dump the current db schema
+    - dump describeTypes.json
+
+  - Usage:
+  /var/www/MISP/app/Console/cake Admin preRelease
+
+Changes
+~~~~~~~
+- [querystring] bump. [iglocska]
+- [version] bump. [iglocska]
+- [doc] add sharing group blueprints viewOrgs OpenAPI documentation.
+  [Jeroen Pinoy]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [restsearch limits] tuned for events / objects scopes. [iglocska]
+
+  - use some basic heuristics to get sane limits for the given endpoints
+  - fixed DB update
+- [schema] update. [iglocska]
+- Enable Test Pull Rules without pull rules set, change wording.
+  [Luciano Righetti]
+- [typo reintroduced] for backwards compatibility. [iglocska]
+- [user edit] move the unsetting of the password field earlier.
+  [iglocska]
+
+  - will help avoid screw ups later on, the change was introduced in the previous commit
+
+Fix
+~~~
+- Workflow 'add tag' fails on events without existing tags. [Giacomo
+  Guerzoni]
+
+  When pulling events from remote servers, the workflow's 'add tag' function could fail if the incoming event JSON lacked an existing 'Tag' array. This resulted in `array_merge()` receiving `null` instead of an array, causing a fatal error during event synchronization.
+
+  This commit modifies `WorkflowBaseModule.php` to ensure that `$rData['Event']['Tag']` is always treated as an array (or an empty array if null), preventing `array_merge()` errors and ensuring workflow jobs complete successfully for events without pre-existing tags.
+- [schema] fix. [iglocska]
+- [galaxy cluster restsearch] don't barf back all results if an elements
+  filter yields no results. [iglocska]
+- Revert. [Luciano Righetti]
+- [object reverse join] fixed if no contain parameters are provided.
+  [iglocska]
+- [reverse join fix] for objects. [iglocska]
+- [benchmark controller] typo fix. [iglocska]
+- [TagCollections] correct permission check in removeTag() [frisb7]
+- [tag index link] fixed when clicking on tagged attributes. [iglocska]
+
+  - it redirected to /attributes/search/tags:{id} rather than /attributes/index/tags:{id}
+- [user edit] don't load related models when retrieving the user for
+  editing via the GUI. [iglocska]
+
+  - it lead to fetching all related event meta information, which can be a memory hog
+- [user edit] don't load related models when retrieving the user for
+  editing via the GUI, fixes #10509. [iglocska]
+
+  - it lead to fetching all related event meta information, which can be a memory hog
+- [galaxy timestamps] fixed when they are zeroed out. [iglocska]
+
+  - helps with tighter SQL modes
+- [tag-collection:removeTag] Reverted permission to allow deletion.
+  [Sami Mokaddem]
+- [sharing group blueprints] viewOrgs fixed for the API. [iglocska]
+- [galaxy cluster restsearch] improvements, fixes #3644. [iglocska]
+
+  - allow value/type searches again
+  - allow for substring searches (by using %) and multiple values
+  - Example:
+
+  {
+      "value": ["%Sofacy%", "%APT-29%"]
+  }
+- [galaxy cluster restsearch] fixes #3644. [iglocska]
+
+  - correctly use the elements parameter
+  - allow for substring searches
+  - allow for lists of values (that are ORed) within each element parameter such as:
+
+  "elements": {
+      "foo": ["ba%", "xyz"]
+  }
+- [db settings] fallback for cli_only settings when db_settings are
+  enabled, fixes #10504. [iglocska]
+
+  - not ideal, but at least we'll be able to save those settings using the config file rather than not having any way to enforce them
+  - Keep in mind, this solution means that the setting will have to be set across all instances in a load balanced setup
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '10423' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #10508 from Wachizungu/add-sharing-group-
+  blueprints-vieworgs-openapi. [Alexandre Dulaunoy]
+
+  chg: [doc] add sharing group blueprints viewOrgs OpenAPI documentation
+- Merge branch '2.5' into develop. [iglocska]
+- Merge pull request #10510 from jsoref/update-pr-template-branch-
+  to-2.5. [Andras Iklody]
+
+  chore: Update current release branch
+- Chore: Update current release branch. [Josh Soref]
+- Merge pull request #10512 from jsoref/update-issue-templates-branch-
+  to-2.5. [Alexandre Dulaunoy]
+
+  chore: Update code of conduct link for current release
+- Chore: Update code of conduct link for current release. [Josh Soref]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch '10518' into develop. [iglocska]
+- Spelling: fanciable. [Josh Soref]
+- Spelling: data. [Josh Soref]
+- Spelling: ctrl. [Josh Soref]
+- Spelling: cryptographic. [Josh Soref]
+- Spelling: crosshair. [Josh Soref]
+- Spelling: criteria. [Josh Soref]
+- Spelling: correlation. [Josh Soref]
+- Spelling: containing. [Josh Soref]
+- Spelling: container. [Josh Soref]
+- Spelling: your. [Josh Soref]
+- Spelling: writing. [Josh Soref]
+- Spelling: workflow. [Josh Soref]
+- Spelling: with. [Josh Soref]
+- Spelling: will. [Josh Soref]
+- Spelling: whether. [Josh Soref]
+- Spelling: whether or not. [Josh Soref]
+- Spelling: whenever. [Josh Soref]
+- Spelling: vulnerability. [Josh Soref]
+- Spelling: visible. [Josh Soref]
+- Spelling: useful. [Josh Soref]
+- Spelling: use the. [Josh Soref]
+- Spelling: unschön. [Josh Soref]
+- Spelling: unknown. [Josh Soref]
+- Spelling: uncommitted. [Josh Soref]
+- Spelling: treatment. [Josh Soref]
+- Spelling: transfer. [Josh Soref]
+- Spelling: trailing. [Josh Soref]
+- Spelling: toggled. [Josh Soref]
+- Spelling: to. [Josh Soref]
+- Spelling: throttle. [Josh Soref]
+- Spelling: threshold, [Josh Soref]
+- Spelling: threshold. [Josh Soref]
+- Spelling: their. [Josh Soref]
+- Spelling: the. [Josh Soref]
+- Spelling: the selected events from the blocklist. [Josh Soref]
+- Spelling: the following line to the end. [Josh Soref]
+- Spelling: than. [Josh Soref]
+- Spelling: telfhash. [Josh Soref]
+- Spelling: taxonomy. [Josh Soref]
+- Spelling: targeted. [Josh Soref]
+- Spelling: suspicious. [Josh Soref]
+- Spelling: successfully. [Josh Soref]
+- Spelling: successful. [Josh Soref]
+- Spelling: success. [Josh Soref]
+- Spelling: substitute. [Josh Soref]
+- Spelling: subdomain. [Josh Soref]
+- Spelling: stuff. [Josh Soref]
+- Spelling: strategy. [Josh Soref]
+- Spelling: stevengoossens. [Josh Soref]
+- Spelling: stateless. [Josh Soref]
+- Spelling: snippet. [Josh Soref]
+- Spelling: skipped. [Josh Soref]
+- Spelling: sightings. [Josh Soref]
+- Spelling: shouldn't. [Josh Soref]
+- Spelling: shim. [Josh Soref]
+- Spelling: separate. [Josh Soref]
+- Spelling: self-signed. [Josh Soref]
+- Merge branch '10517' into develop. [iglocska]
+- Spelling: scenario. [Josh Soref]
+- Spelling: satisfying. [Josh Soref]
+- Spelling: route. [Josh Soref]
+- Spelling: retrieve. [Josh Soref]
+- Spelling: resource. [Josh Soref]
+- Spelling: resetting. [Josh Soref]
+- Spelling: representation. [Josh Soref]
+- Spelling: repository. [Josh Soref]
+- Spelling: reports. [Josh Soref]
+- Spelling: rendered. [Josh Soref]
+- Spelling: remaining. [Josh Soref]
+- Spelling: reloaded. [Josh Soref]
+- Spelling: referencing. [Josh Soref]
+- Spelling: references. [Josh Soref]
+- Spelling: red hat. [Josh Soref]
+- Spelling: recursive. [Josh Soref]
+- Spelling: recommended. [Josh Soref]
+- Spelling: readme. [Josh Soref]
+- Spelling: quoted. [Josh Soref]
+- Spelling: querybuilder. [Josh Soref]
+- Spelling: processed. [Josh Soref]
+- Spelling: prerequisites. [Josh Soref]
+- Spelling: prepopulated. [Josh Soref]
+- Spelling: prepend. [Josh Soref]
+- Spelling: postponed. [Josh Soref]
+- Spelling: positive. [Josh Soref]
+- Spelling: phishing. [Josh Soref]
+- Spelling: persistent. [Josh Soref]
+- Spelling: permissive. [Josh Soref]
+- Spelling: permissions. [Josh Soref]
+- Spelling: permission. [Josh Soref]
+- Spelling: permanently. [Josh Soref]
+- Spelling: perform. [Josh Soref]
+- Spelling: pagination. [Josh Soref]
+- Spelling: overridden. [Josh Soref]
+- Spelling: outputted. [Josh Soref]
+- Spelling: outputs. [Josh Soref]
+- Spelling: originally. [Josh Soref]
+- Spelling: organisation. [Josh Soref]
+- Spelling: orange. [Josh Soref]
+- Spelling: opinion. [Josh Soref]
+- Spelling: only partially works. [Josh Soref]
+- Spelling: occurrence. [Josh Soref]
+- Spelling: occurred. [Josh Soref]
+- Spelling: observable. [Josh Soref]
+- Spelling: numerical. [Josh Soref]
+- Spelling: notify. [Josh Soref]
+- Spelling: note. [Josh Soref]
+- Spelling: notation. [Josh Soref]
+- Spelling: new. [Josh Soref]
+- Spelling: neither-nor. [Josh Soref]
+- Spelling: namespace. [Josh Soref]
+- Spelling: monthly. [Josh Soref]
+- Spelling: markdown. [Josh Soref]
+- Spelling: mark. [Josh Soref]
+- Spelling: mark selection. [Josh Soref]
+- Spelling: margin. [Josh Soref]
+- Spelling: malicious. [Josh Soref]
+- Spelling: magnetometer. [Josh Soref]
+- Spelling: lose. [Josh Soref]
+- Spelling: locally. [Josh Soref]
+- Spelling: lifecycle. [Josh Soref]
+- Spelling: libraries. [Josh Soref]
+- Merge branch '10516' into develop. [iglocska]
+- Spelling: ldapsearch. [Josh Soref]
+- Spelling: keepassxc. [Josh Soref]
+- Spelling: iterator. [Josh Soref]
+- Spelling: it. [Josh Soref]
+- Spelling: into. [Josh Soref]
+- Spelling: insufficient. [Josh Soref]
+- Spelling: instantiation. [Josh Soref]
+- Spelling: instantiating. [Josh Soref]
+- Spelling: instantiate. [Josh Soref]
+- Spelling: instance. [Josh Soref]
+- Spelling: initializer. [Josh Soref]
+- Spelling: initial. [Josh Soref]
+- Spelling: indices. [Josh Soref]
+- Spelling: independent. [Josh Soref]
+- Spelling: indented. [Josh Soref]
+- Spelling: included. [Josh Soref]
+- Spelling: inbetween. [Josh Soref]
+- Spelling: improvement. [Josh Soref]
+- Spelling: immediately. [Josh Soref]
+- Spelling: identify. [Josh Soref]
+- Spelling: https. [Josh Soref]
+- Spelling: how. [Josh Soref]
+- Spelling: highly. [Josh Soref]
+- Spelling: hiding. [Josh Soref]
+- Spelling: haveged. [Josh Soref]
+- Spelling: hashes. [Josh Soref]
+- Spelling: github. [Josh Soref]
+- Spelling: future. [Josh Soref]
+- Spelling: function. [Josh Soref]
+- Spelling: for. [Josh Soref]
+- Spelling: for a. [Josh Soref]
+- Spelling: fluid. [Josh Soref]
+- Spelling: fingerprint. [Josh Soref]
+- Spelling: files. [Josh Soref]
+- Spelling: fall back. [Josh Soref]
+- Spelling: extremely. [Josh Soref]
+- Spelling: exception. [Josh Soref]
+- Spelling: exceeds. [Josh Soref]
+- Spelling: exactly. [Josh Soref]
+- Spelling: event. [Josh Soref]
+- Spelling: errors. [Josh Soref]
+- Spelling: environments. [Josh Soref]
+- Spelling: enrichment. [Josh Soref]
+- Spelling: embedded. [Josh Soref]
+- Spelling: email. [Josh Soref]
+- Spelling: eligible. [Josh Soref]
+- Spelling: elementsearch. [Josh Soref]
+- Spelling: each day, [Josh Soref]
+- Spelling: duplicate. [Josh Soref]
+- Spelling: drawn. [Josh Soref]
+- Spelling: don't exist. [Josh Soref]
+- Spelling: documentation. [Josh Soref]
+- Spelling: dismissid. [Josh Soref]
+- Spelling: disadvantage. [Josh Soref]
+- Spelling: directory. [Josh Soref]
+- Spelling: dictionary. [Josh Soref]
+- Spelling: developers. [Josh Soref]
+- Spelling: detached. [Josh Soref]
+- Spelling: depending. [Josh Soref]
+- Spelling: dependencies. [Josh Soref]
+- Spelling: default. [Josh Soref]
+- Spelling: decline. [Josh Soref]
+- Spelling: debian. [Josh Soref]
+- Spelling: dead or alive. [Josh Soref]
+- Merge branch '10511' into develop. [iglocska]
+- Merge branch '10515' into develop. [iglocska]
+- Spelling: settings. [Josh Soref]
+- Spelling: occurrences. [Josh Soref]
+- Spelling: incognito. [Josh Soref]
+- Spelling: genuine. [Josh Soref]
+- Spelling: element. [Josh Soref]
+- Spelling: contained. [Josh Soref]
+- Spelling: constraint. [Josh Soref]
+- Spelling: constitute. [Josh Soref]
+- Spelling: connection. [Josh Soref]
+- Spelling: concurrency. [Josh Soref]
+- Spelling: completename. [Josh Soref]
+- Spelling: collapse. [Josh Soref]
+- Spelling: click. [Josh Soref]
+- Spelling: classes. [Josh Soref]
+- Spelling: children. [Josh Soref]
+- Spelling: characters. [Josh Soref]
+- Spelling: category. [Josh Soref]
+- Spelling: case-sensitive. [Josh Soref]
+- Spelling: case-insensitive. [Josh Soref]
+- Spelling: caret. [Josh Soref]
+- Spelling: cannot. [Josh Soref]
+- Spelling: can. [Josh Soref]
+- Spelling: campaign. [Josh Soref]
+- Spelling: button. [Josh Soref]
+- Spelling: bottom. [Josh Soref]
+- Spelling: bootstrapping. [Josh Soref]
+- Spelling: bootstrap. [Josh Soref]
+- Spelling: bokmål. [Josh Soref]
+- Spelling: below. [Josh Soref]
+- Spelling: belongsto. [Josh Soref]
+- Spelling: behavior. [Josh Soref]
+- Spelling: before validation. [Josh Soref]
+- Spelling: because. [Josh Soref]
+- Spelling: backing up. [Josh Soref]
+- Spelling: back in. [Josh Soref]
+- Spelling: azure. [Josh Soref]
+- Spelling: autonomous. [Josh Soref]
+- Spelling: autogenerated. [Josh Soref]
+- Spelling: authkeys. [Josh Soref]
+- Spelling: authentication. [Josh Soref]
+- Spelling: attributes. [Josh Soref]
+- Spelling: attribute. [Josh Soref]
+- Spelling: attempt. [Josh Soref]
+- Spelling: astronomy. [Josh Soref]
+- Spelling: appended. [Josh Soref]
+- Spelling: another. [Josh Soref]
+- Spelling: and. [Josh Soref]
+- Spelling: an. [Josh Soref]
+- Spelling: amount. [Josh Soref]
+- Spelling: amazon. [Josh Soref]
+- Spelling: allowed. [Josh Soref]
+- Spelling: against. [Josh Soref]
+- Spelling: advised. [Josh Soref]
+- Spelling: additional. [Josh Soref]
+- Spelling: added. [Josh Soref]
+- Spelling: adapted. [Josh Soref]
+- Spelling: achievements. [Josh Soref]
+- Spelling: accidentally. [Josh Soref]
+- Spelling: aberration. [Josh Soref]
+- Spelling: a. [Josh Soref]
+- Spelling: a tag name. [Josh Soref]
+- Merge branch '10514' into develop. [iglocska]
+- Replace deprecated apt-key. [Josh Soref]
+- Merge branch '10513' into develop. [iglocska]
+- Link: STIX format. [Josh Soref]
+- Link: old MISP automation page. [Josh Soref]
+- Link: OpenAPI spec of the MISP Automation API. [Josh Soref]
+- Link: continue to the start page. [Josh Soref]
+- Link: Refresh the page with the feed data loaded. [Josh Soref]
+- Link: mkdocs generated gh-pages site. [Josh Soref]
+- Link: MISP/MISP issues. [Josh Soref]
+- Link: Installation instructions for Ubuntu 20.04-server. [Josh Soref]
+- Link: Installation instructions for RHEL 7.x and CentOS 7.x. [Josh
+  Soref]
+- Link: Installation instructions for Ubuntu 20.04.6-server. [Josh
+  Soref]
+- Link: Installation instructions for Ubuntu 18.04.5-server. [Josh
+  Soref]
+- Link: Installation instructions for RHEL 8.x based distros. [Josh
+  Soref]
+- Link: Installation instructions for RHEL 7.x and CentOS 7.x. [Josh
+  Soref]
+- Link: See the fix permissions guide. [Josh Soref]
+- Merge pull request #10431 from Frisb7/fix/removeTagPermission. [Andras
+  Iklody]
+
+  fix: [TagCollections] correct permission check in removeTag()
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '10506' into develop. [iglocska]
+- Added Debian 13 installer and minor fix to Debian 12 installer.
+  [alk4lo1d]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #10505 from Wachizungu/add-sharing-group-
+  blueprints-openapi-doc. [Andras Iklody]
+
+  new: [doc] Added sharing group blueprints OpenAPI documentation
+
+
 v2.5.22 (2025-10-02)
 --------------------
 
