@@ -14,6 +14,8 @@ We're rolling out MISP 2.5.23! This release is another step in our continuous ef
 
 Think of it this way: the cyber world doesn't stand still, and neither do we. Our regular releases, like this one, are all about making sure you have the best tools to keep up. We're not just adding new shiny things; we're also fine-tuning what's already there and squashing those annoying bugs. This means less headache for you and more focus on what matters – tackling those threats. So, dive into 2.5.23.
 
+By the way, we recently [published a paper to fine-tune the performance of a MISP instance](/misp-performance-tuning/), which might be of interest to heavy MISP users. 
+
 ### New
 *   `[first publication]` added to events.
 *   `[benchmarks]` slow query log endpoint now accepts additional flags.
