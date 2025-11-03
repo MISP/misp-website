@@ -4,7 +4,6 @@ date: 2023-02-23
 layout: post
 authors:
 - Sascha Rommelfangen
-date: 2023-02-23
 tags: ["Collecting", "honeypot", "MISP", "Threat Intelligence"]
 categories: []
 banner: /assets/images/fail2ban-misp.png 
