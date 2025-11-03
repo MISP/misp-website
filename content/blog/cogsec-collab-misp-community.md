@@ -7,7 +7,6 @@ date: 2020-03-26
 tags: ["Disinformation", "Information Operations", "Cognitive Security", "MISP", "Threat Intelligence"]
 categories: []
 banner: /img/blog/cogsec/amitt.png
-date: 2020-03-27
 layout: post
 image:
   placement: 3
