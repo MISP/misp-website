@@ -4,7 +4,6 @@ date: 2020-09-30
 layout: post
 authors:
 - Pauline Bourmeau
-date: 2020-09-30
 tags: ["MISP", "Import Script", "MISP", "Threat Intelligence"]
 categories: []
 banner: /img/blog/misp-python.png
