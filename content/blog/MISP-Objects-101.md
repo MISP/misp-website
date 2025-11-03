@@ -4,7 +4,6 @@ date: 2021-03-17
 layout: post
 authors:
 - Koen Van Impe
-date: 2021-03-17
 tags: ["object", "objects", "MISP", "Threat Intelligence"]
 categories: []
 banner: /img/blog/object101/objects101.png

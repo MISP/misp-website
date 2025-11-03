@@ -4,7 +4,6 @@ date: 2020-07-31
 layout: post
 authors:
 - Koen Van Impe
-date: 2020-07-31
 tags: ["Galaxy", "Cluster", "MISP", "Threat Intelligence"]
 categories: []
 banner: /img/blog/galaxy101/galaxy.jpg

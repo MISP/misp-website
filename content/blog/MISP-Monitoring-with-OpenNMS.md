@@ -4,7 +4,6 @@ date: 2020-08-18
 layout: post
 authors:
 - Sascha Rommelfangen
-date: 2020-08-18
 tags: ["Monitoring", "OpenNMS", "MISP", "Threat Intelligence"]
 categories: []
 banner: /img/blog/opennms/sc-http-s-response_time.png

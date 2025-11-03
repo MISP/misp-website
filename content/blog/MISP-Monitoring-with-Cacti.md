@@ -4,7 +4,6 @@ date: 2020-08-22
 layout: post
 authors:
 - Koen Van Impe
-date: 2020-08-22
 tags: ["Monitoring", "Cacti", "MISP", "Threat Intelligence"]
 categories: []
 banner: /img/blog/monitor-cacti/cacti-exp.jpg
