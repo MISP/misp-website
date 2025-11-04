@@ -2,6 +2,187 @@ Changelog
 =========
 
 
+v2.4.216 (2025-11-03)
+---------------------
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [2.5 upgrade] script added to the install dir. [iglocska]
+
+  - it was a bit stupid that you had to wget it...
+- [cleanup] training change accidentally added. [iglocska]
+
+  - line from the MISP API/developer workshop accidentally left in a previous commit
+
+Fix
+~~~
+- [publish] tentative flipping of the publish flag at the start of the
+  publish process. [iglocska]
+
+  - avoids timing issues due to slow server responses
+- [users:periodic-summary] Better handling of tag filtering and usage of
+  defined variable. [Sami Mokaddem]
+- [workflow:tag-after-save] Correctly start execution when an event is
+  tagged. [Sami Mokaddem]
+
+  - Fix #10478
+- [logs:index] Ignore search_token and empty filters. [Sami Mokaddem]
+- [cerebrate:pull-sharinggroup] Correctly re-use the state of `extend`
+  set on Cerebrate. [Sami Mokaddem]
+- [attribute:add] Adhere to provided tag locality in /attributes/add.
+  [Sami Mokaddem]
+- [workflow:editor] Running a workflow for debugging correctly shows the
+  expected response. [Sami Mokaddem]
+- Broken named params search in logs controller fixes #10424. [Luciano
+  Righetti]
+- [overcorrelating values] chunk the lookup. [iglocska]
+
+  - it becomes unusable on large events
+- [fetcher] The analystdataparentbehavior's implementation becomes
+  exponentially slower due to a logic bunch the larger the event gets.
+  [iglocska]
+- [security] upgraded jquery-ui used by gridstack, fixes #10531.
+  [iglocska]
+
+  as reported by @tobmes42
+- [security] local file inclusion for document files via importFromUrl()
+  [iglocska]
+
+  - as reported by Jeroes Pinoy
+- [security] speculative fix for an edge case with an unescaped or name
+  in the decaying model tool. [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [security] mermaid sanitisation fixed. [iglocska]
+
+  - keeps ability to render mermaid arrows
+  - hacky, but works well
+
+  - As reported by Jeroen Pinoy
+- [security] logic error in file validity check. [iglocska]
+
+  - non-exploitable, but incorrect
+
+  - Thanks to Raphael Lob from NATO Cyber Security Center
+- [security] better sanitisation of the tmp_file name in object file
+  uploads. [iglocska]
+
+  - Thanks to Jeroen Pinoy from NATO Cyber Security Center
+- [security] sharing group blueprint access control tightened.
+  [iglocska]
+
+  - Thanks to Jeroen Pinoy from NATO Cyber Security Center
+- [security] fix invalid check for uploaded file validity. [iglocska]
+
+  - Thanks to Raphael Lob from NATO Cyber Security Center
+
+Other
+~~~~~
+- Merge branch '2.4' of github.com:MISP/MISP into 2.4. [iglocska]
+- Merge pull request #10528 from zbetcheckin/patch-1. [Alexandre
+  Dulaunoy]
+
+  Mirai tracker project discontinued
+- Mirai tracker project discontinued. [zbetcheckin]
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge branch '2.4' into 2.4-develop. [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge branch '2.4' into 2.4-develop. [iglocska]
+- Merge branch '2.4' into 2.4-develop. [iglocska]
+- Merge branch '2.4' into 2.4-develop. [iglocska]
+
+
+v2.5.24 (2025-11-03)
+--------------------
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [cleanup] training change accidentally added. [iglocska]
+
+  - line from the MISP API/developer workshop accidentally left in a previous commit
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [misp-stix] Bumped latest version. [Christian Studer]
+
+Fix
+~~~
+- [publish] tentative flipping of the publish flag at the start of the
+  publish process. [iglocska]
+
+  - avoids timing issues due to slow server responses
+- [publishing] moved to separate background processes. [iglocska]
+
+  - caused congestions when a server in the in-line execution was unreachable
+- [security] upgraded jquery-ui used by gridstack, fixes #10531.
+  [iglocska]
+
+  as reported by @tobmes42
+- [security] local file inclusion for document files via importFromUrl()
+  [iglocska]
+
+  - as reported by Jeroes Pinoy
+- [security] speculative fix for an edge case with an unescaped or name
+  in the decaying model tool. [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [security] mermaid sanitisation fixed. [iglocska]
+
+  - keeps ability to render mermaid arrows
+  - hacky, but works well
+
+  - As reported by Jeroen Pinoy
+- [security] logic error in file validity check. [iglocska]
+
+  - non-exploitable, but incorrect
+
+  - Thanks to Raphael Lob from NATO Cyber Security Center
+- [security] better sanitisation of the tmp_file name in object file
+  uploads. [iglocska]
+
+  - Thanks to Jeroen Pinoy from NATO Cyber Security Center
+- [security] sharing group blueprint access control tightened.
+  [iglocska]
+
+  - Thanks to Jeroen Pinoy from NATO Cyber Security Center
+- [security] fix invalid check for uploaded file validity. [iglocska]
+
+  - Thanks to Raphael Lob from NATO Cyber Security Center
+- [users:periodic-summary] Better handling of tag filtering and usage of
+  defined variable. [Sami Mokaddem]
+- [galaxy-cluster:fetcher] Use correct association when fetching target
+  cluster from relation. [Sami Mokaddem]
+- [workflow:tag-after-save] Correctly start execution when an event is
+  tagged. [Sami Mokaddem]
+
+  - Fix #10478
+- [logs:index] Ignore search_token and empty filters. [Sami Mokaddem]
+- [cerebrate:pull-sharinggroup] Correctly re-use the state of `extend`
+  set on Cerebrate. [Sami Mokaddem]
+- [ondemand correlation] fix integrity constraing violation when
+  correlating an event with multiple correlating equal value2
+  attributes. [iglocska]
+
+  - current fix comes with downsides - in these cases the correlations will only show up on a single attribute, rather than all instances of it
+  - as discussed in #10521
+- [logs:index] Ignore search_token and empty filters. [Sami Mokaddem]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch 'sec_fixes' into develop. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+
+
 v2.5.23 (2025-10-15)
 --------------------
 
