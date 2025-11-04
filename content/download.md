@@ -19,40 +19,13 @@ MISP can be easily installed on any standard GNU/Linux distribution.
 
 For MISP 2.5, we highly recommend the use of Ubuntu 24.04, using [the provided installer](https://raw.githubusercontent.com/MISP/MISP/refs/heads/2.5/INSTALL/INSTALL.ubuntu2404.sh), for other distributions and versions some manual tinkering may be required.
 
-For MISP 2.4, Installation guides for various distributions are included in the [INSTALL directory](https://github.com/MISP/MISP/tree/2.4/INSTALL). If you did a git clone of MISP for the installation, an [UPDATE procedure is available](https://github.com/MISP/MISP/blob/2.4/INSTALL/UPDATE.txt) to keep your MISP up-to-date. We advise against installing new instances of 2.4 at this point though, unless you are absolutely bound by the distribution requirements of 2.5.
+**[END OF LIFE]** For MISP 2.4, Installation guides for various distributions are included in the [INSTALL directory](https://github.com/MISP/MISP/tree/2.4/INSTALL). If you did a git clone of MISP for the installation, an [UPDATE procedure is available](https://github.com/MISP/MISP/blob/2.4/INSTALL/UPDATE.txt) to keep your MISP up-to-date. We strongly advise against installing new instances of 2.4 at this point, as it is in its security fix only end of life phase. If your OS distro is not supported by the installation scripts, we recommend that you use a dockerized installation.
 
 If you have a MISP 2.4 installation on Ubuntu 24.04 or an older Ubuntu installation, please upgrade your distribution to 24.04 and use the provided [upgrade script](https://raw.githubusercontent.com/MISP/MISP/refs/heads/2.5/INSTALL/UPGRADE.ubuntu2404.sh).
 
 ### Recommended distribution
 
-We recommend to use a recent and stable Ubuntu distribution (such as 24.04) for deploying MISP.
-
-### Virtual images for testing
-
-If you would like to test MISP and don't want to do an installation, CIRCL generates automatically VMware images and VirtualBox at each MISP core commit. Available at [https://vm.misp-project.org/](https://vm.misp-project.org/). The image is to be used for testing purposes only, production-use is considered to be dangerous as is, it contains much more than MISP alone but also misp-dashboard and viper which requires additional security review before being in production.
-
-The default credentials for the automatically generated virtual machines are the following:
-
-~~~~
-For the MISP web interface -> admin@admin.test:admin
-For the system -> misp:Password1234
-~~~~
-#### VirtualBox
-Please add the following forwards on your VM Host:
-~~~~
-VBoxManage controlvm MISP_VM_NAME natpf1 www,tcp,,8080,,80
-VBoxManage controlvm MISP_VM_NAME natpf1 ssh,tcp,,2222,,22
-VBoxManage controlvm MISP_VM_NAME natpf1 dashboard,tcp,,8001,,8001
-~~~~
-#### VMware Users
-Log in on the VM using the console, and change the baseurl to the IP address of your VM.
-~~~~
-sudo -u www-data /var/www/MISP/app/Console/cake Baseurl https://a.b.c.d
-sudo systemctl restart apache2
-~~~~
-### Vagrant
-
-[misp-vagrant](https://github.com/MISP/misp-vagrant) deploys MISP project software with Vagrant.
+We recommend to use the ubuntu 24.04 installation for deploying MISP or alternatively the misp-docker project.
 
 ### Docker containers
 
@@ -61,6 +34,7 @@ sudo systemctl restart apache2
 
 We invite you to read the GitHub README page of each version to understand what better fits your needs.
 
+
 ### Puppet
 
 - [puppet-misp](https://github.com/voxpupuli/puppet-misp) This module installs and configures MISP (Malware Information Sharing Platform) on CentOS 7.
@@ -68,10 +42,6 @@ We invite you to read the GitHub README page of each version to understand what 
 ### Ansible
 
 - [MISP ansible](https://github.com/juju4/ansible-MISP) An ansible role to setup a MISP instance.
-
-### misp-cloud - Cloud-ready images of MISP
-
-- [misp-cloud](https://github.com/MISP/misp-cloud) - The objective of this project is to deliver cloud-ready images of MISP for testing purposes. AWS is currently supported.
 
 ### RPM
 
