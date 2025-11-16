@@ -2,6 +2,72 @@ Changelog
 =========
 
 
+v2.5.25 (2025-11-12)
+--------------------
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [misp-stix] Bumped latest submodule version. [Christian Studer]
+
+Fix
+~~~
+- [restsearch] fixed the event level search that just broke when
+  searching by tag. [iglocska]
+- Add new scheduler worker to background jobs migration guide. [Luciano
+  Righetti]
+- [elements:generic-picker] Restored UUID picking behavior. [Sami
+  Mokaddem]
+
+  - Fixed css query selector to what it used to be
+- [galaxy-cluster:view-relation] Added missing sharing group
+  distribution level in the quick-relation-add interface. [Sami
+  Mokaddem]
+- [cluster-relation:edit] Fixed edition of relation and updated outcome
+  text message. [Sami Mokaddem]
+- [security] Stop exposing user passwords in workflows. [Sami Mokaddem]
+- [performance] attribute restsearch with tag filters fixes. [iglocska]
+
+  - move to a unioned sub query to avoid a per row inspection of each attribute candidate
+  - get rid of the straight join, it hurts more than it helps
+- [typo] in benchmarks. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge pull request #10533 from hidenseeklab/add-hidenseek-feeds.
+  [Andras Iklody]
+
+  Add hideNseek LAB Threat Intelligence Feeds
+- Add hideNseek threat intelligence feeds. [nate]
+
+  This commit adds three hideNseek threat intelligence feeds:
+
+  - hideNseek LAB JSON: AI-enriched threat data
+  - hideNseek LAB CSV: Detailed threat feed with 20 columns
+  - hideNseek LAB IP Blocklist: Plain text IP list with comments
+
+  All feeds are updated daily at 23:00 UTC.
+- Merge pull request #10534 from obert01/server-settings-accessibility-
+  fix. [Andras Iklody]
+
+  Improved the accessibility of the server settings screens
+- Accessibility: Editing values in the server settings is now far easier
+  for screen reader users. [Olivier BERT]
+
+  On each setting row, I have added a pure ARIA button, that switch the cell to edit mode when activating.
+  This avoid having to move the mouse cursor and double-click, which is challenging for screen reader users.
+  The behavior for "normal" users should remain unchanged.
+- Mirai tracker project discontinued. [zbetcheckin]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+
+
 v2.4.216 (2025-11-03)
 ---------------------
 
