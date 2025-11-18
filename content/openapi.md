@@ -7,4 +7,4 @@ aliases:
 ---
 
 <redoc spec-url='https://raw.githubusercontent.com/MISP/MISP/develop/app/webroot/doc/openapi.yaml'></redoc>
-<script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
+<script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"> </script>
