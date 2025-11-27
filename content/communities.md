@@ -561,8 +561,17 @@ C3Ij/2IWN6eLTSzd0ikG7wOOKExTrCltTycyEMC0HwRSKYqQaBKPZcNSgm+3ma70FCv2
 - Nationality: International
 
 
-MISP-LEA project consists in an law enforcement agency information sharing community. It’s powered by MISP and AIL project, two leading open source projects led by CIRCL. The community is only accessible to law enforcement agencies.
+MISP-LEA project consists in a law enforcement agency information sharing community. It’s powered by MISP and AIL project, two leading open source projects led by CIRCL. The community is only accessible to law enforcement agencies.
 - Contact: info@misp-lea.org
+
+### CSIRT.SK MISP Community
+- Website: https://csirt.sk/registracia-afrodita.html
+- Sector: Government
+- Nationality: Slovak
+
+
+The Slovak CSIRT team operates a system of interconnected MISP instances, providing governmental, public, and security organisations in Slovakia with a threat intelligence sharing platform.
+- Contact: cti@csirt.sk
 
 ### CSSA Cyber Security Sharing & Analytics (CSSA)
 ![Logo](/img/communities/076b1eaab7e68671742c4010ff4ead00.png "{class='community_logo'}")
@@ -601,6 +610,61 @@ ICS-CSIRT.io is a community effort to disseminate security information on Indust
 
 
 The SecureGRID Alliance is a cooperative framework for linking threat information between organizations that is free to join. Organizations participating in the alliance can mutually search MISP, which accumulates threat information provided by each alliance member organization, through a web portal site. By utilizing this framework, participating organizations will be able to have automatic analysis functions, strengthen information sharing and collaboration systems, and improve their own security levels and incident response capabilities.
+
+### THREATMON MISP Community
+![Logo](/img/communities/c0d0b339f281b9c27081f001384d3651.svg "{class='community_logo'}")
+- Website: https://misp.threatmonit.io
+- Sector:  Various
+- Nationality: International
+
+
+We share all kinds of data we detect by conducting Cyber Threat Intelligence monitoring and dark web research.
+- Contact: info@threatmonit.io
+
+### ThreatIntel.kz
+- Website: https://threatintel.kz
+- Sector: undefined
+- Nationality: Kazakh
+
+
+The Kazakhstan MISP User group/Community operates an information sharing community dedicated to Central Asia organisations.
+- Contact: misp@threatintel.kz
+<details><summary>GPG key</summary>
+
+```
+
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mQINBF49WD4BEADpDaqhEU1mWlCbqvWWxRLJcBJara4Cg7yGAlabAU/trfw2x0Ob
+on9Lh6p/CpyTY/CPcJ6fH4IrU18U8wN8RaWxmHLyml0GGKBHcSYNisDu7E4nCC5P
+SY8F0OH6yQ9dwX2Os3s6fJNo9ZqC3u9lxzBf0+OzH6cV6x4Olto7slGQAP1922s6
+ies8M21GhCJ4X+XO1sO9ap1nDlAT/44OvxQuQdYVXy46Letehk3QXo/RU8iVgqDQ
+1v/YIaFEibk9/6teeBTe1y77lULUfgl1pd9PnD68+w/WhNUuX+RECmsGH7Snm+kb
+L1x+WClQgYDJioVpTA+e4R2KYIBidKfhNw3F2Hcg70wo7Bq6u/i2iM3mtK5kALyb
+7jn1MHKpIGUq7vtHCzEa+d9wB1cMPj4HYF7tXIfDdtcl3bTv6IiOsNT6rhpI1+vy
+upNXyRplSGRQ6RV1kZ3ACqG8kErEp6L9g2AxCh1S5b4cf79JJvHMkkS60DLPnsF0
+p8RwZL1JxlNHbQ1UxgWkSHAie2d5FLY8cpTmQwTJ6/z48b68wUS7cvtntvyf6+bq
+PKZrUPK4I/ly/tcMlrShx1N+aC5oHGDujuQUmmQjax9Ec2MkLBilBZJd94+avyY3
+xZGuI4sfEQurD8cP89/cJOtGNZ24ZVM8NRQVAVEaqDV1r3RzF30XbVdy0QARAQAB
+tDVNSVNQIFRocmVhdCBTaGFyaW5nIChlQ3JpbWVMYWJzKSA8bWlzcEBlY3JpbWVs
+YWJzLmRrPokCTgQTAQoAOAIbAwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBMcp
+ObUHQyZwszqsoacaYbhQMh7/BQJePVjHAAoJEKcaYbhQMh7/4scP/14BEKdF8qse
+f0a4v8VrAjLEuiB97p/RI5EYqvdrPT4FqhpLOLrpGM8lBtemspzRiZyPOE9BQjN6
+LPhJumzGukolbCLCwF5/pMXwkAIz1vDL01qLRx1nG/OSdAY/US/gpkjhbAK9J4sU
+GpqiHqUwGFT7RMiUlRIzhz1xZaTITBK/LbkVnayU9UX3eoEq9q6k3yqp6dhqyM6r
+MF5ai0oouWJ0MaoPmjRSR/r9FA6WMAI2Ni8pnWZqJVJVSmwaZJLMFR7JyXTUpNXP
+AwrI+T3VEErMDx3bLhF2salZFCWS0HfQN313yhv81Nk9pDSl4JDahhao77gpSjtm
+mp7MaFeGaeOnS3CWI8I57/fMn4Fax9dAoHwoaG4cPTZ9mML6yH39eMCx4ik77Ucs
+F5vt4MImF5tucQga3P6JiYAzkDyBSzd5gQR0ocWECYnK7fMF9PmdYj6p56XqVwVs
+vR+0rDXc6NrqpELf62NHwnCegn9bPTwNOK158m5CHcZ+veuQBitL/6AbjHX8K7cf
+bb0iVJQpCskkIRq9oidNOXBDOt2vyrwLoG0RcfKS6uOJWoQakyO1TNCI87oo+fo3
+lUfyUqHhDCXX72lBmW2kXIPAPRhpJmVUaAyc3nzYBU5/5xV1xrH0VhXeyw17tj6w
+XpSrwosJzIkrJzto2oaJhAqehBPMTO0n
+=FHjc
+-----END PGP PUBLIC KEY BLOCK-----
+```
+</details>
+
 
 
 ### Adding your community to the list
