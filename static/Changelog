@@ -2,6 +2,215 @@ Changelog
 =========
 
 
+%%version%% (unreleased)
+------------------------
+- Merge pull request #10552 from ondov/patch-1. [Alexandre Dulaunoy]
+
+  Update defaults.json - new entry
+- Update defaults.json. [ondov]
+
+  Added new entry to the list for Slovak CSIRT.SK MISP Community
+
+
+v2.5.27 (2025-11-27)
+--------------------
+
+New
+~~~
+- [schema] JSON schema updated matching 2.5 features. [Alexandre
+  Dulaunoy]
+- [workflow-module:flowintel-create-case] Added new module. [Sami
+  Mokaddem]
+- [attribute fetcher pipeline] created and reorganised. [iglocska]
+
+  - trying to get the query optimiser to be a bit more sane
+
+Changes
+~~~~~~~
+- [internal] Use JsonTool for template generating. [Jakub Onderka]
+- [internal] Use SimdJsonBase64Encode if simdjson_php is installed.
+  [Jakub Onderka]
+- [internal] json_encode already supports escaping non unicode
+  characters. [Jakub Onderka]
+- [internal] Use simdjson_encode_to_stream for encoding events. [Jakub
+  Onderka]
+- [internal] Use simdjson_encode_to_stream for encoding big arrays.
+  [Jakub Onderka]
+- [internal] Use simdjson_encode if simdjson extension is installed.
+  [Jakub Onderka]
+- [internal] Optimise handling compressed requests, add support for
+  zstd. [Jakub Onderka]
+- [internal] Use data file for postsemail background job. [Jakub
+  Onderka]
+- [warning-list] updated to the latest version. [Alexandre Dulaunoy]
+- [workflow-module:webhook] More validation on passed params. [Sami
+  Mokaddem]
+- [index] further tuning. [iglocska]
+
+  - trying to resolve a massive performance blocker still
+- [filter pipeline] Another attempt. [iglocska]
+- [filter pipeline] Attempt #2. [iglocska]
+- [CI] added to feature branch. [iglocska]
+
+Fix
+~~~
+- [version] string fixed. [iglocska]
+- [version] bump. [iglocska]
+- [internal] Do not try to decode compressed content again for error
+  controller. [Jakub Onderka]
+- [UI] Return and use updated last_login time following
+  _postlogin->updateLoginTimes, resolves #10487. [GitLab CI]
+- [security] Fixed path traversal in view picture for site-admin. [Sami
+  Mokaddem]
+
+  - As reported by Esteban (Zerotistic) Tonglet during Hack the Government 2025 in Belgium
+- [users:edit] Fixed redirect to /users/index for all users but
+  siteadmins. [Sami Mokaddem]
+
+  - Fix #10543
+- [AttributeValidation] Stricter mac addresses validation. [Christian
+  Studer]
+- [AttributeValidation] Telfhash is made of hex characters. [Christian
+  Studer]
+- [security] reflected XSS in two forms. [iglocska]
+
+  - as reported by Dawid Czarnecki of Zigrin Security
+- [tag filters] another attempt as the joins are a bit too headachy.
+  [iglocska]
+- [tag negation set filter conditions] rework to joins. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch 'attribute_filter_pipeline' into develop. [iglocska]
+- Merge branch 'develop' into attribute_filter_pipeline. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #10124 from JakubOnderka/simdjson_decode. [Jakub
+  Onderka]
+
+  chg: [internal] Use simdjson_encode if simdjson extension is installed
+- Merge pull request #10277 from JakubOnderka/do-not-decode-again.
+  [Jakub Onderka]
+
+  fix: [internal] Do not try to decode compressed content again for error controller
+- Merge pull request #10324 from JakubOnderka/postsemail-data-file.
+  [Jakub Onderka]
+
+  chg: [internal] Use data file for postsemail background job
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge pull request #10550 from tomking2/fix/last_login_time. [Andras
+  Iklody]
+
+  fix: [UI] Return and use updated last_login time, opposed to 2nd last_login
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge pull request #10545 from chrisr3d/develop. [Christian Studer]
+
+  Quick update on the AttributeValidationTool
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:chrisr3d/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+
+
+v2.5.26 (2025-11-20)
+--------------------
+
+New
+~~~
+- [events] added option to try to always create event links with uuids
+  rather than IDs when possible. [iglocska]
+- [highperformance] new indeces added. [iglocska]
+
+  - should help with performance
+- [syslog] added option to save syslog messages as JSON, fixes #10539.
+  [iglocska]
+
+  - Bringing some nordic logging sanity to the syslog handler
+- [AttributeType] UUID attribute type added. [Alexandre Dulaunoy]
+
+  Req: FlowIntel and other object template requires an UUID (better than
+  actually using text)
+
+  Open points: do we have want to be lax or validate all the different
+  types of UUID from version 1 until version 7?
+
+Changes
+~~~~~~~
+- [misp-object] updated. [Alexandre Dulaunoy]
+- [version] bump. [iglocska]
+- [vis.js] remove reference to non existing vis.map. [iglocska]
+- [requirements] bump. [iglocska]
+
+  - as reported by Jakub Tomaszewski of Zigrin Security
+- [requirements] updated for PyMISP. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [AppController] updated to the correct version required. [Alexandre
+  Dulaunoy]
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [requirements.txt] updated. [iglocska]
+- [misp-stix] updated. [Alexandre Dulaunoy]
+- [PyMISP] updated. [Alexandre Dulaunoy]
+- [misp-stix] Using the latest version with better STIX 2 input
+  handling. [Christian Studer]
+
+  - We updated `misp-stix` to make it better handle
+    STIX 2 content and files which might contain
+    invalid STIX 2 format to avoid issues while
+    loading the content in the python stix2 library
+  - Updated the different scripts using `misp-stix`
+    to reflect the changes on the way methods are
+    imported and used
+
+Fix
+~~~
+- [side menu] event ID link fixed. [iglocska]
+
+  - thanks @jl for being a hero
+- [doT.js] remove eval from doT.js in favour of globalThis. [iglocska]
+- [security] force stronger ciphers. [iglocska]
+
+  - default cipersuites set
+
+  - as reported by Jakub Tomaszewski of Zigrin Security
+- [AttributeValidation] Validating Attributes of type `uuid` [Christian
+  Studer]
+- [requirements] taxii client version requirement added. [iglocska]
+- [bug] in object enrichment fixed. [iglocska]
+- [bug] in object enrichment fixed. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch '2.5' of github.com:MISP/MISP into develop. [Christian
+  Studer]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge branch '2.5' into develop. [Alexandre Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+
+
 v2.5.25 (2025-11-12)
 --------------------
 
