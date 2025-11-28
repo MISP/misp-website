@@ -565,6 +565,7 @@ MISP-LEA project consists in a law enforcement agency information sharing commun
 - Contact: info@misp-lea.org
 
 ### CSIRT.SK MISP Community
+![Logo](/img/communities/6f8ae1fdedf47c3b29dc2b62f7715a4a.jpeg "{class='community_logo'}")
 - Website: https://csirt.sk/registracia-afrodita.html
 - Sector: Government
 - Nationality: Slovak
