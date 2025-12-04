@@ -371,6 +371,16 @@ xJlLUC2lY9a62qs8kTCX88338AuN
 </details>
 
 
+### CSIRT.SK MISP Community <i class="far fa-check-circle" style="color:green; "></i>
+![Logo](/img/communities/6f8ae1fdedf47c3b29dc2b62f7715a4a.jpeg "{class='community_logo'}")
+- Website: https://csirt.sk/registracia-afrodita.html
+- Sector: Government
+- Nationality: Slovak
+
+
+The Slovak CSIRT team operates a system of interconnected MISP instances, providing governmental, public, and security organisations in Slovakia with a threat intelligence sharing platform.
+- Contact: cti@csirt.sk
+
 ### CiviCERT MISP Community <i class="far fa-check-circle" style="color:green; "></i>
 ![Logo](/img/communities/4c6e1cba447bab6d6ec6ec143b06d971.png "{class='community_logo'}")
 - Website: https://www.civicert.org/
@@ -563,16 +573,6 @@ C3Ij/2IWN6eLTSzd0ikG7wOOKExTrCltTycyEMC0HwRSKYqQaBKPZcNSgm+3ma70FCv2
 
 MISP-LEA project consists in a law enforcement agency information sharing community. It’s powered by MISP and AIL project, two leading open source projects led by CIRCL. The community is only accessible to law enforcement agencies.
 - Contact: info@misp-lea.org
-
-### CSIRT.SK MISP Community
-![Logo](/img/communities/6f8ae1fdedf47c3b29dc2b62f7715a4a.jpeg "{class='community_logo'}")
-- Website: https://csirt.sk/registracia-afrodita.html
-- Sector: Government
-- Nationality: Slovak
-
-
-The Slovak CSIRT team operates a system of interconnected MISP instances, providing governmental, public, and security organisations in Slovakia with a threat intelligence sharing platform.
-- Contact: cti@csirt.sk
 
 ### CSSA Cyber Security Sharing & Analytics (CSSA)
 ![Logo](/img/communities/076b1eaab7e68671742c4010ff4ead00.png "{class='community_logo'}")
