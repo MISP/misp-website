@@ -4,6 +4,280 @@ Changelog
 
 %%version%% (unreleased)
 ------------------------
+
+New
+~~~
+- [event index] new way to load org logos. [iglocska]
+
+  - still uses non webroot exposed images
+  - served via a dedicated endpoint, allowing for using cached images rather than base64 decoding each image live
+  - much faster rendering
+
+Changes
+~~~~~~~
+- [upgrade script] Remove MISP updates from upgrade script. [Andras
+  Iklody]
+
+  Removed MISP updates execution from upgrade script.
+
+Fix
+~~~
+- [restsearch] added org_id and orgc_id filters. [iglocska]
+- [restsearch] added org_id as a filter. [iglocska]
+- [upgrade script] Update upgrade script by removing database update.
+  [Andras Iklody]
+
+  Removed database update command from upgrade script. It will run automatically anyway.
+
+Other
+~~~~~
+- Merge pull request #10569 from mdhirt/10561-fix-taxii_push.py.
+  [Christian Studer]
+
+  Suggested fix for issue #10561
+- Suggested fix for issue #10561. [Michael Hirt]
+- Merge pull request #10571 from ostefano/dev. [Alexandre Dulaunoy]
+
+  New proposal
+- New proposal. [Stefano Ortolani]
+- Merge branch '2.5' of github.com:MISP/MISP into 2.5. [iglocska]
+- Merge pull request #10570 from ostefano/dev. [Andras Iklody]
+
+  Fix type of 'SharingGroupId'
+- Fix type of 'SharingGroupId' [Stefano Ortolani]
+- Merge pull request #10524 from
+  Cosive/feature/fix_ipv4_mapped_ipv6_correlations. [Andras Iklody]
+
+  Correlation - fix ipv4-mapped ipv6 address handling
+- Correlation - don't use str_contains to determine if address is ipv4
+  or ipv6 since this breaks on ipv4-mapped ipv6 addresss. [Sid Odgers]
+
+
+v2.4.217 (2025-12-10)
+---------------------
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [dashboard] moved to gridstack 12. [iglocska]
+
+  - quite a few changes to accomodate it
+  - SCREW CSS AND JS
+- [security] improved url sanitisation. [iglocska]
+
+Fix
+~~~
+- [security] Fixed the functionality and an XSS in the world map view.
+  [iglocska]
+
+  - with the move to gridstack 12 the widget config saving broke
+  - this change restores the functionality
+  - which re-exposes the XSS attempted to be fixed prior
+
+  - as reported by Jeroen Pinoy
+- [security] local file inclusion for document files via importFromUrl()
+  [iglocska]
+
+  - as reported by Jeroes Pinoy
+- [security] reflected XSS in two forms. [iglocska]
+
+  - as reported by Dawid Czarnecki of Zigrin Security
+- [security] XSS via the actions table element. [iglocska]
+
+  - as reported by Louis PLUVIOSE and Mathis FRANEL
+- [security] XSS in workflow execution-path. [Sami Mokaddem]
+
+  - As reported by Franck FERMAN
+- [security] reflected xss in preview index. [iglocska]
+
+  - requires site admin
+  - requires malicious URL -> additional user interaction (clicking on the filter button)
+
+  - as reported by Jeroen Pinoy
+- [map widget] fixes to the behaviour for correct resizing. [iglocska]
+
+  - (ノಠ益ಠ)ノ彡┻━┻
+- [dashboard] fixed adding a new widget. [iglocska]
+- [security] sharing group edit XSS via external_baseurl. [iglocska]
+
+  - requires a compromised site admin account
+  - as reported by Jeroen Pinoy
+- [security] XSS. [iglocska]
+
+  - low impact, high requirements (site admin can attack other site admins)
+
+  - as reported by Jeroen Pinoy
+- [security] XSS. [iglocska]
+
+  - low impact / high difficulty xss
+
+  - as reported by Jeroen Pinoy
+- [security] Fixed path traversal in view picture for site-admin. [Sami
+  Mokaddem]
+
+  - As reported by Esteban (Zerotistic) Tonglet during Hack the Government 2025 in Belgium
+- [cluster-relation:edit] Fixed edition of relation and updated outcome
+  text message. [Sami Mokaddem]
+- [security] Stop exposing user passwords in workflows. [Sami Mokaddem]
+
+Other
+~~~~~
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+- Merge remote-tracking branch 'origin/2.4-develop' into 2.4-develop.
+  [Sami Mokaddem]
+- Revert "fix: [security] upgraded jquery-ui used by gridstack, fixes
+  #10531" [iglocska]
+
+  This reverts commit c5cd3657e4d74bce34f25d1c74d86f58dfb1cb90.
+
+
+v2.5.28 (2025-12-10)
+--------------------
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [dashboard] moved to gridstack 12. [iglocska]
+
+  - quite a few changes to accomodate it
+  - SCREW CSS AND JS
+- [security] improved url sanitisation. [iglocska]
+- [meta communities] Review MISP events shared within that community.
+  [Alexandre Dulaunoy]
+
+  - Events are following best practices (such as using object templates)
+  - Using sharing groups properly
+  - Contextual information added.
+
+  The CSIRT.SK MISP Community is now vetted.
+- [tag filter] made the decision to bounce between union / exists
+  queries a bit tighter. [iglocska]
+- [cleanup] removed unused view file. [iglocska]
+- [tag filter] attempting to combine the two previous attempts, with a
+  selector. [iglocska]
+
+  - if the query has heavier attribute filters, use the exists branch - hopefully we can limit the data-set enough
+  - if not, use unions
+- [collections] redact the creator user information for non site admins.
+  [iglocska]
+
+  - consistency with other similar behaviours
+  - as reported by Jeroen Pinoy
+- [cakephp] updated. [Alexandre Dulaunoy]
+- [misp-taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [meta communities] Review MISP events shared within that community.
+  [Alexandre Dulaunoy]
+
+  - Events are following best practices (such as using object templates)
+  - Using sharing groups properly
+  - Contextual information added.
+
+  The CSIRT.SK MISP Community is now vetted.
+- [openapi] misp version. [David Cruciani]
+- [metadata] fixed. [Alexandre Dulaunoy]
+- [communities] updated. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [security] Fixed the functionality and an XSS in the world map view.
+  [iglocska]
+
+  - with the move to gridstack 12 the widget config saving broke
+  - this change restores the functionality
+  - which re-exposes the XSS attempted to be fixed prior
+
+  - as reported by Jeroen Pinoy
+- [enrichment] gracefully pass on to the next enrichment if a previous
+  one returns nothing. [iglocska]
+
+  - don't throw an exception
+- [JS] function parameters aligned with call. [iglocska]
+- [security] XSS. [iglocska]
+
+  - low impact / high difficulty xss
+
+  - as reported by Jeroen Pinoy
+- [security] XSS. [iglocska]
+
+  - low impact, high requirements (site admin can attack other site admins)
+
+  - as reported by Jeroen Pinoy
+- [security] sharing group edit XSS via external_baseurl. [iglocska]
+
+  - requires a compromised site admin account
+  - as reported by Jeroen Pinoy
+- [map widget] fixes to the behaviour for correct resizing. [iglocska]
+
+  - (ノಠ益ಠ)ノ彡┻━┻
+- [dashboard] fixed adding a new widget. [iglocska]
+- [security] reflected xss in preview index. [iglocska]
+
+  - requires site admin
+  - requires malicious URL -> additional user interaction (clicking on the filter button)
+
+  - as reported by Jeroen Pinoy
+- [indentation] fixed. [iglocska]
+
+  - Eagle-eye @mokaddem spotted it
+- [security] XSS in workflow execution-path. [Sami Mokaddem]
+
+  - As reported by Franck FERMAN
+- [dead code] View removed. [iglocska]
+
+  - there is no view for correlation rules, copy pasta leftorver trash
+  - as reported by Jeroen Pinoy
+- [proposal:sync] Correctly catpure the proposal's orgc when PUSHing.
+  [Sami Mokaddem]
+- [events:index] Filtering using `searchall` ignores deleted attributes.
+  [Sami Mokaddem]
+- [galaxy-cluster:before-validate] Added default value for
+  collectio_uuid. [Sami Mokaddem]
+- [openapi:galaxy-import] Fixed doc. [Sami Mokaddem]
+
+  - As reported by @DavidCruciani
+- [galaxy:validates] Added uuid uniqueness validation. [Sami Mokaddem]
+
+  - As reported by @DavidCruciani
+- [analyst-data] Added missing validation rules. [Sami Mokaddem]
+- [security] XSS via the actions table element. [iglocska]
+
+  - as reported by Louis PLUVIOSE and Mathis FRANEL
+- [validation] of http-method types tightened. [iglocska]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'attribute_filter_pipeline' into develop. [iglocska]
+- Merge branch '2.5' into attribute_filter_pipeline. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge branch '2.5' into develop. [Alexandre Dulaunoy]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge branch '2.5' into develop. [Alexandre Dulaunoy]
+- Merge branch '2.5' of github.com:MISP/MISP into 2.5. [Alexandre
+  Dulaunoy]
+- Merge pull request #10553 from tomiodarim/2.5. [Alexandre Dulaunoy]
+
+  Installation instruction for OpenBSD7.8
+- Add installation guide for OpenBSD 7.8. [tomiodarim]
+- Add installation guide for OpenBSD 7.8. [tomiodarim]
+- Merge pull request #10554 from DavidCruciani/2.5. [Alexandre Dulaunoy]
+
+  chg: [openapi] misp version
 - Merge pull request #10552 from ondov/patch-1. [Alexandre Dulaunoy]
 
   Update defaults.json - new entry
