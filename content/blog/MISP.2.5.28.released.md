@@ -1,5 +1,5 @@
 ---
-title: MISP v2.5.28 Release: Security, Dashboard Upgrade, and Community Enhancements 
+title: "MISP v2.5.28 Release: Security, Dashboard Upgrade, and Community Enhancements"
 banner: /img/blog/graph-cn.png
 author:
  - MISP Project team
