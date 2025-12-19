@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-%%version%% (unreleased)
-------------------------
+v2.5.29 (2025-12-12)
+--------------------
 
 New
 ~~~
@@ -15,22 +15,135 @@ New
 
 Changes
 ~~~~~~~
+- [version] bump. [iglocska]
+- [regexp] remove edit view already integrated with add view.
+  [ThomasLcr]
+- [regexp] migrate add/edit view to factory. [ThomasLcr]
+- [regexp] migrate index view to factory. [ThomasLcr]
+- [pre-release] schema and type document generation. [iglocska]
+- [bookmarks] change url field to text to allow for long urls, fixes
+  #10564. [iglocska]
 - [upgrade script] Remove MISP updates from upgrade script. [Andras
   Iklody]
 
   Removed MISP updates execution from upgrade script.
+- [warninglists] updated to the latest version. [Alexandre Dulaunoy]
 
 Fix
 ~~~
+- [event view] minor notice error fixed. [iglocska]
+- [missing variable] readded. [iglocska]
+- [regexp] minor fixes to the move to generators. [iglocska]
+
+  - Unifying the add/edit views is a welcome change, the controller needs to explicitly call the rendering of the correct view in this case though
+  - If a field has no 'field' key, it needs a 'label' field as it can't auto-derive the label from the field.
+- [sharing groups] edit can become inoperable in certain conditions.
+  [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [sharing groups] edit can become inoperable in certain conditions.
+  [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [security] further xss vectors for sharing group edit resolved.
+  [iglocska]
+
+  - as discovered during regression testing of #4524133753b60e6f5c7763ad5ae2cc1d5ddfa557
+  - as reported by Jeroen Pinoy
+- [security] further possible xss via a malicious external_baseurl
+  fixed. [iglocska]
+
+  - this is a follow up to #cac45809bf2001d47e092d6efbb7965306a13148 based on regression testing
+  - as reported by Jeroen Pinoy
+- [ondemand correlation] fixed issue with long value2 values breaking
+  event loading. [iglocska]
+- [dashboard] add function fixed. [iglocska]
 - [restsearch] added org_id and orgc_id filters. [iglocska]
 - [restsearch] added org_id as a filter. [iglocska]
 - [upgrade script] Update upgrade script by removing database update.
   [Andras Iklody]
 
   Removed database update command from upgrade script. It will run automatically anyway.
+- [doc:OpenAPI] align sharing group blueprint add sharing_group_id
+  definition. [Jeroen Pinoy]
 
 Other
 ~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '10560' into develop. [iglocska]
+- Opt-in beta UI / UX mode, redesigned event index + nav bar. [Chris
+  Horsley]
+
+  This commit makes significant changes to the user experience in MISP 2.x,
+  starting in a limited way but providing the foundational approach to
+  make further changes gradually.
+
+  Principles:
+
+  * Add method to turn on and off new interface elements easily
+  * For any UI rework, make it possible to iterate gradually in reworking the
+    many pages that MISP 2.x contains.
+  * As pages are redesigned, all other pages will appear as they are
+    today.
+  * This PR aims to the foundational set of changes to enable further UI /
+    UX improvements over time.
+  * In this release, only the Event Index and top navigation are changed
+    to validate / assess this approach. Later, more changes (e.g. Event
+    page) can be added.
+
+  Detailed changes:
+
+  * Adds the ability to turn on / off beta UI options via user settings,
+    also in the nav menu
+  * Reworks the Event Index with these UI / UX principles:
+    * Responsive design for table for no horizontal scrolling
+    * Move Event Info (title) to position 3 and hyperlink as the most
+      distinctive piece of data for each Event
+    * Move right-most icons (view, edit, delete, publish) into a dropdown
+      manu on the left side, integrated into the checkbox selector
+    * Move Distribution icons beside event name to save space
+    * Use colour-coded widget for Distribution to make more distinctive
+    * Add "Highlight Tags" column to just display taxonomy tags with
+      "Highlight" enabled; this saves a lot of visual noise vs showing all
+      tags
+    * Make Correlation counter badge style to more distinctively show
+      which events have correlations
+    * Make timestamps humanised (e.g. 2m ago, 3m ago) for easier relative
+      timing awareness
+    * Clicking humanised timestamps copies absolute timestamp into
+      clipboard for each copy-paste
+    * Add labels to all Creator Org for visual consistency
+    * Remove left nav bar for horizonal optimisation
+    * Make Create Event more prevalent; add dropdown option for importing
+      data
+    * Make Event Collections more prominent as a button to manage intel
+      collections
+    * Reorganise buttons and search
+  * Navigation changes
+    * Uses the principle of maximum 7 elements in a menu where possible.
+    * Reorganise the MISP main navigation bar for better clustering of
+      like concepts
+    * Use fly-out menus to support hierarchical menu structures and avoid
+      overwhelming with choice
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge branch '2.5' into develop. [Alexandre Dulaunoy]
+- Merge pull request #10523 from cudeso/2.5. [Alexandre Dulaunoy]
+
+  Action modules to add tags based on MMDB and vulnerability information
+- Merge branch 'MISP:2.5' into 2.5. [Koen Van Impe]
+- Update roamingdata and switch to vulnerability.circl.lu. [Koen Van
+  Impe]
+
+  - Update roamingdata after tag and content changes
+  - Switch from cvepremium.circl.lu to vulnerability.circl.lu
+- Action modules to add tags based on MMDB and vulnerability
+  information. [Koen Van Impe]
+- Merge branch '10572' into develop. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
 - Merge pull request #10569 from mdhirt/10561-fix-taxii_push.py.
   [Christian Studer]
 
@@ -40,6 +153,9 @@ Other
 
   New proposal
 - New proposal. [Stefano Ortolani]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
 - Merge branch '2.5' of github.com:MISP/MISP into 2.5. [iglocska]
 - Merge pull request #10570 from ostefano/dev. [Andras Iklody]
 
@@ -51,6 +167,12 @@ Other
   Correlation - fix ipv4-mapped ipv6 address handling
 - Correlation - don't use str_contains to determine if address is ipv4
   or ipv6 since this breaks on ipv4-mapped ipv6 addresss. [Sid Odgers]
+- Suggested fix for issue #10561. [Michael Hirt]
+- Merge pull request #10568 from Wachizungu/Wachizungu-patch-1. [Andras
+  Iklody]
+
+  fix: [doc:OpenAPI] align sharing group blueprint add sharing_group_id…
+- Merge branch '2.5' into develop. [iglocska]
 
 
 v2.4.217 (2025-12-10)
