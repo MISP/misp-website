@@ -2,6 +2,184 @@ Changelog
 =========
 
 
+v2.5.31 (2025-12-23)
+--------------------
+
+Changes
+~~~~~~~
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [GeoOpen] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [warning-lists] updated. [Alexandre Dulaunoy]
+- [ui] slight date snafu. [iglocska]
+- [version] bump. [iglocska]
+- [UI] Minor change. [iglocska]
+
+  - Nothing to see here citizen, move along
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [settings:sighting-policy] Default sightings visibily to "Everyone"
+  instead of "Event Owner" [Sami Mokaddem]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [Object Templates] Refactoring the table for elements. [ThomasLcr]
+- [Object Template] Migrate index view to factory. [ThomasLcr]
+
+Fix
+~~~
+- [tests] further tests removed. [Andras Iklody]
+
+  The premise of the tests was wrong, as described in the previous commit.
+- [tests] sg edit by sync user. [Andras Iklody]
+
+  Test assertion removed from testlive_security
+
+  This was a logic bug that has been corrected by 26ec3274374c4771e6996272c8108422f0fec34e
+  A sync user should in fact be able to update a sharing group that they can view, even if they're not the creator user
+  Otherwise race conditions via multiple sync paths may block future updates to the sharing group.
+- [sharing group] saving relaxed for sync users. [iglocska]
+
+  - allow for sync users to push updates to a sharing group via a different sync connection than the SG was originally received from
+  - sync user needs to be able to see the sharing group
+- [sharing group] saving relaxed for sync users. [iglocska]
+
+  - allow for sync users to push updates to a sharing group via a different sync connection than the SG was originally received from
+  - sync user needs to be able to see the sharing group
+- [tags index] remove sighting sparkline. [iglocska]
+
+  - it was FUBAR and the query fetching the data is crushingly slow
+- [event index] removed leftover characters appended to the org name.
+  [iglocska]
+
+  - didn't notice it as all my org names on my dev instance are XSS payloads...
+  - (ノಠ益ಠ)ノ彡┻━┻
+- Use proxy config in OIDC client #8535. [hgrob]
+- [Regexp] Prevent the deletion of Regexp edited if type is All.
+  [ThomasLcr]
+- [Regexp] Adding the checkbox state for edit view. [ThomasLcr]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '10588' into develop. [iglocska]
+- Update generic_picker.ctp. [pettai]
+
+  Add enhanced sorting, so the most relevant item ends up at the top of the list
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch '2.5' into develop. [Alexandre Dulaunoy]
+- Merge pull request #10584 from DocArmoryTech/oapi-galaxy. [Alexandre
+  Dulaunoy]
+- OpenAPI: refine exportGalaxyClusters. [DocArmoryTech]
+
+  The OpenAPI spec for exportGalaxyClusters previously described the query parameters `default` and `custom` as exclusion filters and limited `distribution` to a scalar value.
+
+  This update documents the additive inclusion behavior implemented in the GalxiesController and allows distribution to be specified as an array, reflecting CakePHP’s IN query behavior already supported by the endpoint.
+- Fix SERPRO reputation feed freetext configuration. [MailsonRS]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge branch '2.5' of github.com:MISP/MISP into 2.5. [iglocska]
+- Merge branch '10551' into develop. [iglocska]
+- Merge pull request #10576 from ThomasLcr/migration. [Andras Iklody]
+
+  Migration for Object Template
+- Merge pull request #10575 from ThomasLcr/fix-migration. [Andras
+  Iklody]
+
+  Somes fixes for the Regexp page
+- Merge pull request #10574 from TomOgs/NOCACTI-Feeds. [Alexandre
+  Dulaunoy]
+
+  Adding NOCACTI Adversary Infrastructure/Intrusion Feeds
+- Update defaults.json. [TomOgs]
+
+
+v2.5.30 (2025-12-13)
+--------------------
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [beta event index] updated the org fields. [iglocska]
+
+  - using the new endpoint for faster rendering now
+
+Fix
+~~~
+- [security] xss in index image rendering. [iglocska]
+
+  - as reported by Jeroen Pinoy
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+
+
+v2.4.218 (2025-12-12)
+---------------------
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [version check] extended to 200 tags that we fetch from github.
+  [iglocska]
+
+  - as it's no longer temporally sorted
+- [pymisp] bump. [iglocska]
+- [lief] version bump. [iglocska]
+
+  - I am desperate
+- [pymisp] bump. [iglocska]
+- [stix] file updated. [iglocska]
+- [pymisp] requirement updated. [iglocska]
+
+Fix
+~~~
+- [pymisp] version string bump in appcontroller. [iglocska]
+- [stix framing] Fixed imports after changes on `misp-stix` [Christian
+  Studer]
+- [attribute type] uuid bound to some categories to match 2.5.
+  [iglocska]
+- [stix1 export] Importing the right methods after updates on misp-stix.
+  [Christian Studer]
+- [sharing groups] edit can become inoperable in certain conditions.
+  [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [sharing groups] edit can become inoperable in certain conditions.
+  [iglocska]
+
+  - as reported by Jeroen Pinoy
+- [security] further xss vectors for sharing group edit resolved.
+  [iglocska]
+
+  - as discovered during regression testing of #4524133753b60e6f5c7763ad5ae2cc1d5ddfa557
+  - as reported by Jeroen Pinoy
+- [security] further possible xss via a malicious external_baseurl
+  fixed. [iglocska]
+
+  - this is a follow up to #cac45809bf2001d47e092d6efbb7965306a13148 based on regression testing
+  - as reported by Jeroen Pinoy
+
+Other
+~~~~~
+- Merge branch '2.4-develop' into 2.4. [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [iglocska]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4-develop' of github.com:MISP/MISP into 2.4-develop.
+  [Christian Studer]
+- Merge branch '2.4' into 2.4-develop. [iglocska]
+- Merge branch '2.4' into 2.4-develop. [iglocska]
+
+
 v2.5.29 (2025-12-12)
 --------------------
 
