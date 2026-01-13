@@ -137,6 +137,7 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [GCVE-1-2025-0019](https://vulnerability.circl.lu/vuln/gcve-1-2025-0019) < MISP 2.5.26 - The “view picture” functionality in EventReport for site-administrators suffered from a path traversal vulnerability.
 - [GCVE-1-2025-0030](https://vulnerability.circl.lu/vuln/gcve-1-2025-0030) < MISP 2.5.27 - A cross-site scripting (XSS) vulnerability in the “actions” table element template in app/View/Elements/genericElements/IndexTable/Fields/actions.ctp allows an attacker to inject arbitrary JavaScript code into the generated HTML. 
 - [GCVE-1-2025-0031](https://vulnerability.circl.lu/vuln/gcve-1-2025-0031) < MISP 2.5.27 - A cross-site scripting (XSS) vulnerability was identified in the workflow execution-path view in app/View/Elements/Workflows/executionPath.ctp.
+- [GCVE-1-2025-0032](https://vulnerability.circl.lu/vuln/gcve-1-2026-0003) < MISP 2.5.32 - Stored/Reflected XSS via Unsanitized Parameters in URL Generation and JavaScript Context.
 
 ## PGP Key
 
