@@ -2,6 +2,103 @@ Changelog
 =========
 
 
+%%version%% (unreleased)
+------------------------
+
+Fix
+~~~
+- [feed metadata] fix as reported in #10598. [Andras Iklody]
+
+Other
+~~~~~
+- Merge pull request #10589 from MailsonRS/patch-2. [Andras Iklody]
+
+  Fix SERPRO reputation feed freetext configuration
+- Fix SERPRO reputation feed freetext configuration. [MailsonRS]
+
+
+v2.5.32 (2026-01-14)
+--------------------
+
+New
+~~~
+- [workflow-module:aggregate-comparator] Added new module to aggregate
+  and compare a field. [Sami Mokaddem]
+
+  The aggregation can then be compared and fed to an IF statement
+- [workflow-module:filter-timestamp] Added new module to filter on
+  timestamp. [Sami Mokaddem]
+- [workflow:trigger-event-before-delete] Added new trigger to act upon
+  event deletion. [Sami Mokaddem]
+- [attachment] bucketing added to file attachments, fixes #10581.
+  [iglocska]
+
+  - new setting to start using the bucketed storage system
+    - files will be stored in MISP/app/files/bucket_5000/5333/1111111 rather than MISP/app/files/5333/1111111
+  - Compatible with attachments created prior to the change, if a file is not found in the new location, the old one is also checked
+  - should help with too many elements in the app/files/ directory causing to fs level issues.
+- [forgot password] email text has been made configurable, fixes #10591.
+  [iglocska]
+
+  - Similarly to password change e-mail texts that can be configured via the server settings interface
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- Bump PyMISP. [Raphaël Vinot]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [warninglists] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [object:debug] Remove debug statement. [Sami Mokaddem]
+- [Oidc] Update openid-connect-php dependency to version 1.3.0. [Maxime
+  Escourbiac]
+- [Oidc] Move from JakubOnderka to CertMichelin openid-connect-php.
+  [Maxime Escourbiac]
+- [internal] Use simdjson_decode_from_stream for faster decoding JSON
+  from files. [Jakub Onderka]
+
+Fix
+~~~
+- [workflow] Return correct value when error occurs. [Sami Mokaddem]
+- [workflow-module:ids-operation] Renamed 'toggle' to 'enable' [Sami
+  Mokaddem]
+
+  - As reported by @Andurin
+- [dashboard] export functionalities weren't aware of the gridstack
+  change. [iglocska]
+- [password policy] moved the logic higher to avoid unset rules for the
+  change_pw form when using it after a failed attempt. [iglocska]
+- [security] XSS issues in crafted URLs requiring user interaction.
+  [Sami Mokaddem]
+
+  - As reported by Mathis Franel
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge pull request #10604 from MISP/fix-oidc-proxy-bug. [Luciano
+  Righetti]
+
+  Fix OIDC proxy bug with proxy settings
+- Add: fix remove proxy method prepended to proxy url, skip proxy
+  settings by default for backward compatibility. [Luciano Righetti]
+- Add: new oidc auth setting to skip/enforce global misp proxy settings.
+  [Luciano Righetti]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge branch '10599' into develop. [iglocska]
+- Improve backward compatibility with older OIDC client. [Maxime
+  Escourbiac]
+- Merge pull request #10593 from
+  JakubOnderka/simdjson_decode_from_stream. [Andras Iklody]
+
+  chg: [internal] Use simdjson_decode_from_stream for faster decoding J…
+
+
 v2.5.31 (2025-12-23)
 --------------------
 
