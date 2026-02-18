@@ -123,8 +123,6 @@ Failover is not a backup. It protects you from hardware failure, not from corrup
 
 Monitor reachability and core services (web, database, Redis). Also monitor worker health and queue depth. A system can look fine from the outside whilst jobs quietly pile up.
 
-Diagram placeholder (active-passive failover):
-
 ### Quick decision guide
 
 **Deployment model**
