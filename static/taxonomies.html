@@ -505,6 +505,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_economical_impact">economical-impact</a></li>
 <li><a href="#_ecsirt">ecsirt</a></li>
 <li><a href="#_enisa">enisa</a></li>
+<li><a href="#_ensoc">ensoc</a></li>
 <li><a href="#_estimative_language">estimative-language</a></li>
 <li><a href="#_eu_marketop_and_publicadmin">eu-marketop-and-publicadmin</a></li>
 <li><a href="#_eu_nis_sector_and_subsectors">eu-nis-sector-and-subsectors</a></li>
@@ -607,7 +608,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_vmray">vmray</a></li>
 <li><a href="#_vocabulaire_des_probabilites_estimatives">vocabulaire-des-probabilites-estimatives</a></li>
 <li><a href="#_vulnerability_4">vulnerability</a></li>
-<li><a href="#_workflow">workflow</a></li>
+<li><a href="#_workflow_2">workflow</a></li>
 </ul>
 </li>
 <li><a href="#_mapping_of_taxonomies">Mapping of taxonomies</a></li>
@@ -41344,6 +41345,24 @@ dcso-sharing namespace available in JSON format at <a href="https://github.com/M
 <p>This event collects unrelated IoCs. For example, an event could combine all network IoCs that were learned of during a day or a week from events of other types.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_dcso_sharingevent_typepublic_reporting">dcso-sharing:event-type="Public Reporting"</h4>
+<div class="paragraph">
+<p>This event contains indicators that are the result of enriched OSINT data.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dcso_sharingevent_typefocus">dcso-sharing:event-type="Focus"</h4>
+<div class="paragraph">
+<p>This event contains indicators that are the result of original research and in-depth analysis.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dcso_sharingevent_typetracking">dcso-sharing:event-type="Tracking"</h4>
+<div class="paragraph">
+<p>This event contains indicators that are the result of continuous monitoring and tracking of various sources.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -46898,6 +46917,191 @@ enisa namespace available in JSON format at <a href="https://github.com/MISP/mis
 </div>
 <div class="paragraph">
 <p>Threat of using authorised access to perform illegitimate actions.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ensoc">ensoc</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+ensoc namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/ensoc/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Official ENSOC (or EU CyberHUB) taxonomy covering all labels used during information exchange.</p>
+</div>
+<div class="sect2">
+<h3 id="_workflow">workflow</h3>
+<div class="paragraph">
+<p>Describes the current processing stage of the information within ENSOC.</p>
+</div>
+<div class="sect3">
+<h4 id="_ensocworkflowto_validate">ensoc:workflow="to-validate"</h4>
+<div class="paragraph">
+<p>To validate</p>
+</div>
+<div class="paragraph">
+<p>Information has been shared but has not yet been reviewed or validated by ENSOC analysts.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ensocworkflowvalidated">ensoc:workflow="validated"</h4>
+<div class="paragraph">
+<p>Validated</p>
+</div>
+<div class="paragraph">
+<p>Information has been shared and validated by at least one analyst in the ENSOC partners.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_source">source</h3>
+<div class="paragraph">
+<p>Identifies the origin or nature of the data feed.</p>
+</div>
+<div class="sect3">
+<h4 id="_ensocsourcefeed">ensoc:source="feed"</h4>
+<div class="paragraph">
+<p>Feed</p>
+</div>
+<div class="paragraph">
+<p>Data originating from an automated or external feed, this is the default except if a more detail source description is known.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ensocsourcepartner_feed">ensoc:source="partner-feed"</h4>
+<div class="paragraph">
+<p>Partner feed</p>
+</div>
+<div class="paragraph">
+<p>Data originating from an automated or external feed, this is the default except if a more detail source description is known.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ensocsourcecommercial_feed">ensoc:source="commercial-feed"</h4>
+<div class="paragraph">
+<p>Commercial feed</p>
+</div>
+<div class="paragraph">
+<p>Data originating from a commercial feed producer.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ensocsourceosint_feed">ensoc:source="osint-feed"</h4>
+<div class="paragraph">
+<p>OSINT feed</p>
+</div>
+<div class="paragraph">
+<p>Data originating from an OSINT feed.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ensocsourceincident_response">ensoc:source="incident-response"</h4>
+<div class="paragraph">
+<p>Incident response</p>
+</div>
+<div class="paragraph">
+<p>Data originating from an incident response.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_recommended_action">recommended-action</h3>
+<div class="paragraph">
+<p>Recommended action for the information tagged.</p>
+</div>
+<div class="sect3">
+<h4 id="_ensocrecommended_actiondetection">ensoc:recommended-action="detection"</h4>
+<div class="paragraph">
+<p>Detection</p>
+</div>
+<div class="paragraph">
+<p>The data can be used for detection.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ensocrecommended_actionfiltering">ensoc:recommended-action="filtering"</h4>
+<div class="paragraph">
+<p>Filtering</p>
+</div>
+<div class="paragraph">
+<p>The data can be used for filtering.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class">class</h3>
+<div class="paragraph">
+<p>Indicates the confidence level or trust classification of the information.</p>
+</div>
+<div class="sect3">
+<h4 id="_ensocclassvalidated">ensoc:class="validated"</h4>
+<div class="paragraph">
+<p>Validated</p>
+</div>
+<div class="paragraph">
+<p>Information has been reviewed and confirmed as reliable.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ensocclassnon_validated">ensoc:class="non-validated"</h4>
+<div class="paragraph">
+<p>Non validated</p>
+</div>
+<div class="paragraph">
+<p>Information has not yet been validated or lacks sufficient confidence.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ensocclasstest">ensoc:class="test"</h4>
+<div class="paragraph">
+<p>Test</p>
+</div>
+<div class="paragraph">
+<p>Information is actually used in test or exercise and should not be used in production excepting for testing workflow.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_state">state</h3>
+<div class="paragraph">
+<p>Represents the consensus status reached within ENSOC.</p>
+</div>
+<div class="sect3">
+<h4 id="_ensocstatevalidated">ensoc:state="validated"</h4>
+<div class="paragraph">
+<p>Validated</p>
+</div>
+<div class="paragraph">
+<p>Consensus reached at ENSOC level; information is considered confirmed.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ensocstaterejected">ensoc:state="rejected"</h4>
+<div class="paragraph">
+<p>Rejected</p>
+</div>
+<div class="paragraph">
+<p>Information has been reviewed and rejected, potentially based on analyst input or contradictory evidence.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ensocstateunknown">ensoc:state="unknown"</h4>
+<div class="paragraph">
+<p>Unknown</p>
+</div>
+<div class="paragraph">
+<p>No clear consensus could be reached, or insufficient information is available or initial import of a new feed.</p>
 </div>
 </div>
 </div>
@@ -58241,7 +58445,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_source">source</h3>
+<h3 id="_source_2">source</h3>
 <div class="sect3">
 <h4 id="_infoleaksourcepublic_website">infoleak:source="public-website"</h4>
 <div class="paragraph">
@@ -71690,7 +71894,7 @@ passivetotal namespace available in JSON format at <a href="https://github.com/M
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class">class</h3>
+<h3 id="_class_2">class</h3>
 <div class="sect3">
 <h4 id="_passivetotalclassmalicious">passivetotal:class="malicious"</h4>
 <div class="paragraph">
@@ -72359,7 +72563,7 @@ phishing namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 </div>
 <div class="sect2">
-<h3 id="_state">state</h3>
+<h3 id="_state_2">state</h3>
 <div class="paragraph">
 <p>State of the phishing.</p>
 </div>
@@ -91831,10 +92035,43 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_nvd">nvd</h3>
+<div class="paragraph">
+<p>Tags used by the CVE program and documented at <a href="https://nvd.nist.gov/vuln/vulnerability-detail-pages" class="bare">https://nvd.nist.gov/vuln/vulnerability-detail-pages</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_vulnerabilitynvddisputed">vulnerability:nvd="disputed"</h4>
+<div class="paragraph">
+<p>Disputed</p>
+</div>
+<div class="paragraph">
+<p>When one party disagrees with another party&#8217;s assertion that a particular issue in software is a vulnerability, a CVE Record assigned to that issue may be tagged as being 'disputed'.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vulnerabilitynvdunsupported_when_assigned">vulnerability:nvd="unsupported-when-assigned"</h4>
+<div class="paragraph">
+<p>Unsupported When Assigned</p>
+</div>
+<div class="paragraph">
+<p>Used by the assigning CNA to indicate that when a request for a CVE assignment was received, the product was already end-of-life (EOL) or a product or specific version was deemed not to be supported by the vendor. This tag should only be applied to a CVE Record when all affected products or version lines referenced in the CVE-Record are EOL.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vulnerabilitynvdexclusively_hosted_service">vulnerability:nvd="exclusively-hosted-service"</h4>
+<div class="paragraph">
+<p>Exclusively Hosted Service</p>
+</div>
+<div class="paragraph">
+<p>All known software and/or hardware affected by this CVE Record is known to exist only in the affected hosted service. If the vulnerability affects both hosted and on-prem software and/or hardware, then the tag should not be used.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_workflow">workflow</h2>
+<h2 id="_workflow_2">workflow</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
 <table>
@@ -92020,7 +92257,7 @@ workflow namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 </div>
 <div class="sect2">
-<h3 id="_state_2">state</h3>
+<h3 id="_state_3">state</h3>
 <div class="paragraph">
 <p>State are the different states of the information or data being tagged.</p>
 </div>
@@ -92716,7 +92953,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-12-05 10:46:04 +0100
+Last updated 2026-01-26 09:26:49 +0100
 </div>
 </div>
 </body>
