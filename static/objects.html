@@ -507,9 +507,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_cytomic_orion_file">cytomic-orion-file</a></li>
 <li><a href="#_cytomic_orion_machine">cytomic-orion-machine</a></li>
 <li><a href="#_dark_pattern_item">dark-pattern-item</a></li>
+<li><a href="#_data_url">data-url</a></li>
 <li><a href="#_ddos">ddos</a></li>
 <li><a href="#_ddos_claim">ddos-claim</a></li>
 <li><a href="#_ddos_config">ddos-config</a></li>
+<li><a href="#_detection">detection</a></li>
 <li><a href="#_device">device</a></li>
 <li><a href="#_diameter_attack">diameter-attack</a></li>
 <li><a href="#_diamond_event">diamond-event</a></li>
@@ -719,6 +721,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_regripper_system_hive_general_configuration">regripper-system-hive-general-configuration</a></li>
 <li><a href="#_regripper_system_hive_network_information">regripper-system-hive-network-information</a></li>
 <li><a href="#_regripper_system_hive_services_drivers">regripper-system-hive-services-drivers</a></li>
+<li><a href="#_remote_controller">remote-controller</a></li>
 <li><a href="#_report">report</a></li>
 <li><a href="#_research_scanner">research-scanner</a></li>
 <li><a href="#_risk_assessment_report">risk-assessment-report</a></li>
@@ -11039,6 +11042,98 @@ dark-pattern-item is a MISP object available in JSON format at <a href="https://
 </div>
 </div>
 <div class="sect1">
+<h2 id="_data_url"><a class="anchor" href="#_data_url"></a><a class="link" href="#_data_url">data-url</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>URL prefixed with the data: scheme, used to embed inline files in documents.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+data-url is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/data-url/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">base64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Is the data base64 encoded or not</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">malware-sample</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The data, as-is, not decoded.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">media-type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mime-type</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The mimetype indicating the type of data, without the parameter</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mime-type-parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A parameter associated to the mimetype, generally a charset or a boundary.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_ddos"><a class="anchor" href="#_ddos"></a><a class="link" href="#_ddos">ddos</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -11586,6 +11681,579 @@ ddos-config is a MISP object available in JSON format at <a href="https://github
 </div>
 </div>
 <div class="sect1">
+<h2 id="_detection"><a class="anchor" href="#_detection"></a><a class="link" href="#_detection">detection</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A comprehensive object to document a detection analytic, its logic, robustness, validation, and associated response playbooks. It is based on an advanced detection engineering template that integrates concepts like 'Summiting the Pyramid' for robustness scoring and a 'Funnel of Fidelity' for validation, along with structured SOAR automation steps.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+detection is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/detection/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">alert-severity-default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 6) The default severity level of the alert. ['Low', 'Medium', 'High', 'Critical']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">alert-trigger-condition</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 6) The condition that triggers the automated playbook (e.g., IF 'detection-logic' RETURNS 'true').</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">analytic-robustness-justification</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 3) Justification for the chosen robustness level.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">analytic-robustness-level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 3) The robustness level of the analytic based on the 'Summiting the Pyramid' model. ['Level 1: Ephemeral', 'Level 2: Core to Adversary-Brought Tool', 'Level 3: Core to Pre-Existing Tool', 'Level 4: Core to Some Implementations of a (Sub-)Technique', 'Level 5: Core to a (Sub-)Technique (Invariant Behavior)']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">analytic-title</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 1) A clear, descriptive title of the detection rule (e.g., 'LSASS Memory Access via OpenProcess').</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">author</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 1) The name or team responsible for creating/maintaining the analytic.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">d3fend-tactic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 7) The D3FEND Tactic this analytic maps to (e.g., Detect (D3-DET)).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">d3fend-technique</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 7) The D3FEND Technique this analytic maps to (e.g., Process Spawn Analysis (D3-PSA)).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data-event</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 3) The specific event(s) required (e.g., Sysmon Event ID 10).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data-platform</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 3) The platform where the data is sourced (e.g., Windows, Linux, Network).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data-source</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 3) The specific data source (e.g., EDR, Sysmon, Zeek).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date-created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 1) The date the analytic was initially created.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date-modified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 1) The date the analytic was last modified.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 2) A brief, high-level summary of the detection&#8217;s purpose. What threat or behavior is this designed to catch? Why is it important?</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">detection-logic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sigma</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 4) The detection logic, preferably in the vendor-agnostic SIGMA format. Include heavy commenting to explain the logic.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event-robustness-column</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 3) The robustness of the event source telemetry. ['Host-Based: Application (A)', 'Host-Based: User-Mode (U)', 'Host-Based: Kernel-Mode (K)', 'Network-Based: Protocol Payload (P)', 'Network-Based: Protocol Header (H)']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event-robustness-justification</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 3) Justification for the chosen event robustness column.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exclusion-strategy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 4) The strategy for filtering out false positives. Focus on robust, context-rich attributes.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">final-summiting-score</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 3) The combined robustness score (e.g., 4K, 3U).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hypothesis</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 2) The scientific hypothesis for the detection. E.g., 'We hypothesize that an adversary performing will execute [Procedure]. This can be observed through [Observables]&#8230;&#8203;'</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 1) A unique identifier for tracking the analytic (e.g., DE-TA0006-T1003.001-001).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">investigation-steps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 5) A clear, step-by-step checklist for deeper investigation by a responding analyst.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">known-false-positives</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 4) A list of any legitimate activities or tools that may trigger this alert.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mitre-attack-subtechnique</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 2) The MITRE ATT&amp;CK Sub-technique(s) this analytic addresses (e.g., 'LSASS Memory (T1003.001)'). Use the attack-pattern object for full mapping.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mitre-attack-tactic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 2) The MITRE ATT&amp;CK Tactic(s) this analytic addresses (e.g., 'Credential Access (TA0006)'). Use the attack-pattern object for full mapping.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mitre-attack-technique</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 2) The MITRE ATT&amp;CK Technique(s) this analytic addresses (e.g., 'OS Credential Dumping (T1003)'). Use the attack-pattern object for full mapping.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mitre-engage-approach</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 7) The MITRE Engage Approach this analytic uses (e.g., Detect (A0001)).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mitre-engage-goal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 7) The MITRE Engage Goal this analytic supports (e.g., Disrupt (G0009)).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">response-remediation-steps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 5) Immediate, standard response and remediation actions if the activity is confirmed malicious.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">soar-step-action</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 6) The automated action to perform (e.g., Get-UserDetails, Isolate-Host, Create-Ticket).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">soar-step-execute-flag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 6) For containment actions, specifies if execution is automatic (true) or requires manual approval (false). Default should be false.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">soar-step-input</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 6) The entity from the alert used as input for the action (e.g., event.AccountName).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">soar-step-output</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 6) The new information to be added or the expected result (e.g., user.title, host.os).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">soar-step-source-system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 6) The source or destination system for the action (e.g., VirusTotal, Jira, ServiceNow).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">soar-step-type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 6) The type of SOAR step (Enrichment, Triage, Containment, Notification). Add one full set of 'soar-step-*' attributes for each logical step. ['Enrichment', 'Triage Logic', 'Containment', 'Notification']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 1) The current maturity status of the analytic. ['Experimental', 'Test', 'Production', 'Deprecated']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test-case-result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 5) The result of the validation test. ['Detected', 'Not Detected']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test-case-tool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 5) The tool or procedure used for the validation test.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test-case-type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 5) The type of validation test performed (e.g., Functional Synonym). Add one set of test-case attributes per test. ['Functional Synonym', 'Procedural Synonym', 'Sub-Technical Synonym']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">triage-steps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 5) A clear, step-by-step checklist for initial triage by a responding analyst.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(Section 1) The semantic version of the analytic (e.g., 1.0, 1.1, 2.0).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_device"><a class="anchor" href="#_device"></a><a class="link" href="#_device">device</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -11772,6 +12440,19 @@ device is a MISP object available in JSON format at <a href="https://github.com/
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">perspective</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Perspective of the device ['Victim', 'Adversary', 'Unknown']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -16401,6 +17082,19 @@ file is a MISP object available in JSON format at <a href="https://github.com/MI
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">magic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Magic file detection</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -56776,7 +57470,7 @@ opentide is a MISP object available in JSON format at <a href="https://github.co
 <td class="tableblock halign-left valign-top"><p class="tableblock">opentide-type</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Type of the OpenTIDE Object ['tvm', 'cdm', 'mdr']</p>
+<p>Type of the OpenTIDE Object ['tvm', 'dom', 'mdr']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -59294,6 +59988,19 @@ pe is a MISP object available in JSON format at <a href="https://github.com/MISP
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pdb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pdb</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>PDB path of the PE</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pehash</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pehash</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -61699,6 +62406,19 @@ phone is a MISP object available in JSON format at <a href="https://github.com/M
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Globally Unique Temporary UE Identity (GUTI) is a temporary identification to not reveal the phone (user equipment in 3GPP jargon) composed of GUMMEI and the M-TMSI.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">iccid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>E.118 - Integrated Circuit Card Identifier (ICCID) number to identify associated SIM or eSIM.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -68269,6 +68989,228 @@ regripper-system-hive-services-drivers is a MISP object available in JSON format
 </div>
 </div>
 <div class="sect1">
+<h2 id="_remote_controller"><a class="anchor" href="#_remote_controller"></a><a class="link" href="#_remote_controller">remote-controller</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Remote controller.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+remote-controller is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/remote-controller/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">battery-type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type of battery used in the remote controller (e.g., LiPo, Li-ion, NiMH). ['LiPo', 'Li-ion', 'NiMH', 'NiCd', 'other', 'unknown']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fcc-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>FCC ID assigned to the remote controller.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">firmware-hash-sha256</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sha256</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Hash of controller firmware (SHA256).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">firmware-version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Firmware version installed on the remote controller.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">first-seen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>First time this remote controller has been seen</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">imei</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>International Mobile Equipment Identity (IMEI) number of the remote controller, if applicable.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mac-address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>MAC address of the remote controller communication module.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">manufacturer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Manufacturer (e.g., DJI, Radiomaster).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Model of the remote controller.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">notes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Additional notes or comments about the remote controller.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">picture</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">attachment</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Picture related to the remote controller</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remote-controller-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of the remote controller.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">serial-number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Manufacturer&#8217;s serial number (unique identifier).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">year-of-manufacture</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Year the remote controller was manufactured.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_report"><a class="anchor" href="#_report"></a><a class="link" href="#_report">report</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -73869,6 +74811,45 @@ spearphishing-campaign is a MISP object available in JSON format at <a href="htt
 <td class="tableblock halign-left valign-top"><p class="tableblock">ip-src</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>IP from where the TA attempts to log in</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mitm-connect-back-ja4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>JA4 signature used by the TA for log in attempts</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mitm-connect-back-ja4http</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>JA4HTTP signature used by the TA for log in attempts</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mitm-connect-back-ja4tcp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>JA4TCP signature used by the TA for log in attempts</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -81255,6 +82236,19 @@ uav is a MISP object available in JSON format at <a href="https://github.com/MIS
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">craftname</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Configured Craft name or reference.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">fcc-id</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -81271,7 +82265,7 @@ uav is a MISP object available in JSON format at <a href="https://github.com/MIS
 <td class="tableblock halign-left valign-top"><p class="tableblock">firmware-hash-sha256</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sha256</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Hash of the firmware installed on the UAV (SHA256).</p>
+<p>Hash of the flight controller installed on the UAV (SHA256).</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -81284,7 +82278,7 @@ uav is a MISP object available in JSON format at <a href="https://github.com/MIS
 <td class="tableblock halign-left valign-top"><p class="tableblock">firmware-version</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Firmware version installed on the UAV.</p>
+<p>Flight Controller version installed on the UAV.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -81447,6 +82441,19 @@ uav is a MISP object available in JSON format at <a href="https://github.com/MIS
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">picture</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">attachment</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Picture related to the Unmanned Aerial Vehicle (UAV)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -83081,6 +84088,19 @@ vulnerability is a MISP object available in JSON format at <a href="https://gith
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">impact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Impact of the vulnerability</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
 </div></div></td>
 </tr>
 <tr>
@@ -86317,6 +87337,286 @@ youtube-video is a MISP object available in JSON format at <a href="https://gith
 <td class="tableblock halign-left valign-top"><p class="tableblock">The source weakness weakens the target object.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">takes-off-from</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object taking off from a location, platform, or site.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is-takeoff-site-for</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes a location, platform, or site being the takeoff origin for an object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">launches-from</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being launched from a location, platform, or site (e.g., catapult/vehicle launch).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is-launch-site-for</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes a location, platform, or site being the launch origin for an object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">departs-from</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object departing from a location (e.g., airfield, helipad, vessel).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is-departure-point-for</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes a location being the departure point for an object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lands-at</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object landing at a location, platform, or site.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is-landing-site-for</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes a location, platform, or site being the landing destination for an object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">recovers-at</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being recovered at a location or by a recovery system (e.g., net, arresting gear).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is-recovery-site-for</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes a location or system being used to recover an object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">returns-to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object returning to a location or platform (e.g., return-to-home).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is-return-destination-for</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes a location or platform being the return destination for an object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">aborts-landing-at</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object aborting a landing at a location (go-around / wave-off).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is-aborted-landing-site-for</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes a location where an attempted landing was aborted.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">intercepted-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being intercepted by another object (e.g., counter-UAS, aircraft, air defense).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">shadowed-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being shadowed/escorted/monitored closely by another object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">shadows</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object shadowing/escorting/monitoring another object closely.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tracked-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being tracked by another object (e.g., radar, sensor, platform).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tracks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object tracking another object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">identified-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being identified (positively identified / classified) by another object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jammed-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being jammed by another object (electronic attack, RF jamming).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jams</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object jamming another object (electronic attack, RF jamming).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">spoofed-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being spoofed by another object (e.g., GNSS spoofing, identity/radio spoofing).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">spoofs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object spoofing another object (e.g., GNSS spoofing, identity/radio spoofing).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">neutralized-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being neutralized (non-necessarily destroyed) by another object (e.g., countermeasure).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">neutralizes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object neutralizing another object (non-necessarily destroyed) via a countermeasure.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">crashed-at</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object crashing at a location.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is-crash-site-for</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes a location being the crash site for an object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">crashed-into</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object crashing into another object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">was-crashed-into-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being impacted by another object that crashed into it.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">forced-down-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being forced down (forced landing / compelled to land) by another object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">forces-down</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object forcing another object down (forced landing / compelled to land).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">shot-down-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being shot down by another object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">shoots-down</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object shooting down another object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">destroyed-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being destroyed by another object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">destroys</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object destroying another object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lost-contact-with</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object losing contact with another object (telemetry/command link loss).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">contact-lost-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object for which contact was lost by another object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">malfunctioned-during</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object malfunctioning during a specific phase, operation, or event.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">had-malfunction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes a phase, operation, or event during which an object malfunctioned.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">recovered-from</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes recovery of an object from a location or context (e.g., wreckage recovered from field).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is-recovery-origin-for</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes a location or context from which an object was recovered.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">taken-over-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being taken over (control hijacked) by another object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">takes-over</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object taking over control of another object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">commandeered-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being commandeered by another object (unauthorized control).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">commandeers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object commandeering another object (unauthorized control).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disabled-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being disabled by another object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disables</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object disabling another object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">diverted-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being diverted (flight path altered) by another object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">diverts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object diverting another object (flight path altered).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prepared-at</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being prepared at a location (pre-flight setup, staging).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is-preparation-site-for</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes a location being used to prepare an object (pre-flight setup, staging).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">maintained-at</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being maintained at a location.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is-maintenance-site-for</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes a location being used to maintain an object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inspected-by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object being inspected by another object (authority, operator, maintenance org).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inspects</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This relationship describes an object inspecting another object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">['misp']</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -86324,7 +87624,7 @@ youtube-video is a MISP object available in JSON format at <a href="https://gith
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-12-19 11:46:32 +0100
+Last updated 2026-02-25 16:07:36 +0100
 </div>
 </div>
 </body>
