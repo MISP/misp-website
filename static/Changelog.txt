@@ -2,19 +2,647 @@ Changelog
 =========
 
 
-%%version%% (unreleased)
-------------------------
+v2.5.33 (2026-02-27)
+--------------------
+
+New
+~~~
+- [Overmind] Adding distribution column and improving Organisation one.
+  [ThomasLcr]
+- [Overmind] Updated css. [ThomasLcr]
+- [Overmind] Event index adapted to the new theme. [ThomasLcr]
+- [Overmind] Noticelist index adapted to the new theme. [ThomasLcr]
+- [Overmind] Updated footer with Boostrap 5. [ThomasLcr]
+- [Overmind] Navbar inspired by betaUI and using BS5. [ThomasLcr]
+- [Overmind] Flash alert reworked with Bootstrap5. [ThomasLcr]
+- [Overmind] New MISP logo. [ThomasLcr]
+- [Overmind] Add Font Awesome 7. [ThomasLcr]
+- [Overmind] Add custom Bootstrap 5 and main css. [ThomasLcr]
+- [Overmind] Login page rework. [ThomasLcr]
+- [Overmind] default.ctp modified to manage Bootstrap 2 and Bootstrap 5
+  according to the view. [ThomasLcr]
+- [sync] fast caching client side implementation. [iglocska]
+- [sync] added fast Caching endpoint. [iglocska]
+
+  - we don't need the full blown restsearch for this
+  - much more performant, smaller memory footprint
+  - hashing done on DB side
+  - fallback to old method when syncing with an instance < 2.5.33
+- [event view] Allow the events to be served without sightings.
+  [iglocska]
+
+  - follow up to the previous commit, this should solve a lot of sync issues
+- [default theme] added the option to set a default theme. [iglocska]
+
+  - not meant for production instances for now, but will be in the future
+  - used for development
+- [Claude] added Claude.md file. [iglocska]
+
+  - so others don't have to burn through their tokens
+- [new themes] added. [iglocska]
+
+  - BetaUI - moved Chris Horseley's work to a separate theme
+  - Overmind - ************
+- [themeing added] Including a host of changes. [iglocska]
+
+  - new Theme system
+  - changes to the setting system
+  - removal of the beta UI from the core views
+- [themes] added a theme system and the related setting. [iglocska]
+
+  - new setting type added (options)
+  - added the new enable_themes setting
+  - added the two current beta approach toggles
+
+  - users can select a "theme" if the server setting is enabled
+    - meant for beta UX code
+    - currently 2 themes forseen: 3.x and ui_beta (by Chris Horsley)
+
+Changes
+~~~~~~~
+- [misptheme] changes. [iglocska]
+- [Overmind] Rename Data into Contents. [ThomasLcr]
+- [Feeds] remove redundant tags query in edit. [Jeroen Pinoy]
+- [internal] Optimize base64 encoding if simdjson extension is
+  installed. [Jakub Onderka]
+- [internal] Slightly optimize BinaryFileEngine cache. [Jakub Onderka]
+- [oidc] Add support for disable_request_object also for
+  JakubOnderka\OpenIDConnectClient. [Jakub Onderka]
+- [fixes] to the new getter function. [iglocska]
+
+  - renamed from getId() to getAttributeByB64Value()
+- [PyMISP] Bump version. [Raphaël Vinot]
+- [version] bump. [iglocska]
+- [Overmind] Footer now sticked to the bottom of the page. [ThomasLcr]
+- [Overmind] Rename some menu sections. [ThomasLcr]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated. [Alexandre Dulaunoy]
+- [app:before-filter] Still force default theme. [Sami Mokaddem]
+- [app:beforeFilter] Cleanup due to changes introduced by Andras. [Sami
+  Mokaddem]
+- [global menu] some fixes, nested theme selector. [iglocska]
+- [server:settings] Added new setting `workflow_enable_arbitrary_urls`
+  [Sami Mokaddem]
+- [setsettings] output fix. [iglocska]
+- [freetext] Implement browser extension id conversion. [fukusuket]
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [tags] crud refactor. [iglocska]
+- [CRUD] component - automatically add quickfilter parameter name to the
+  list of valid filters if there are quickfilters defined. [iglocska]
+- [crud] refactor of org controller. [iglocska]
+- [internal] Reduce memory usage when processing events. [Jakub Onderka]
+- [Event] ensure galaxy cluster uniqueness in event view, even in
+  extended events. [fukusuket]
+- [crud] further work on the crud. [iglocska]
+- [crud refactor] made 2 more indeces work with the alternative
+  keywords. [iglocska]
+- [CRUD] component allows for custom quickFilter field names to allow
+  for legacy endpoints to be migrated. [iglocska]
+- [GH-workflows] added branch to workflows. [iglocska]
+- [Warninglists] refactored to use CRUD component. [Claude Opus 4.5,
+  iglocska]
+- [UserLoginProfiles] refactored to use CRUD component. [Claude Opus
+  4.5, iglocska]
+- [Templates] refactored to use CRUD component. [Claude Opus 4.5,
+  iglocska]
+- [Taxonomies] refactored to use CRUD component. [Claude Opus 4.5,
+  iglocska]
+- [Noticelist] refactored to use CRUD component. [Claude Opus 4.5,
+  iglocska]
+- [Galaxies] refactored to use CRUD component. [Claude Opus 4.5,
+  iglocska]
+- [EventGraph] refactored to use CRUD component. [Claude Opus 4.5,
+  iglocska]
+- [tests] making them happy. [iglocska]
+
+  - giving up, the old authkey test is a mess now since the bug was fixed with the old + new authkey being the same value (this should never have worked in the first place)
+- [controllers] two more moved to the CRUD component. [iglocska]
+- [taxonomies] moved some of the CRUD functions to using the component.
+  [iglocska]
+- [objecttemplates] controller, further moves to the CRUD component.
+  [iglocska]
+- [roles] controller moved a function to use the CRUD component.
+  [iglocska]
+- [object templates] controller switched to using the CRUD component.
+  [iglocska]
+- [news] controller moved to CRUD component use. [iglocska]
+- [tags] lookup of tag name -> ID cached to avoid repeated calls.
+  [iglocska]
+- [attribute search] cache the buildConditions() results per org_id/role
+  id to avoid constant repeated executions. [iglocska]
+- [attribute restsearch] index check caching added to avoid constant
+  queries. [iglocska]
+- [server:preview-index] Adapted commit b05c8ac about pulling
+  unpublished events. [ThomasLcr]
+- [Server] Migration of the preview index. [ThomasLcr]
+- [Server] Migration of the index. [ThomasLcr]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [pymisp update] [iglocska]
+- [describe types] updated. [iglocska]
+- [component:rest-response] Tag suggestion only propose from taxonomies.
+  [Sami Mokaddem]
+- [server:preview-index] Allow pulling of unpublished events. [Sami
+  Mokaddem]
+- [workflow-modules:threat-level-if] Bumped version. [Sami Mokaddem]
+- [pymisp] bump. [iglocska]
 
 Fix
 ~~~
-- [feed metadata] fix as reported in #10598. [Andras Iklody]
+- [Overmind] Adding primary key needed in row.ctp. [ThomasLcr]
+- [analyst_data:blocklists] use correct controller name for redirect on
+  massDelete success. [Jeroen Pinoy]
+- [SharingGroups:removeServer] use correct SharingGroupServer ID for
+  deletion. [Jeroen Pinoy]
+- [Cerebrate] correct error message in captureSg. [Jeroen Pinoy]
+- [TaxiiServers] correct saveFailResponse action name for
+  getCollections. [Jeroen Pinoy]
+- [Servers:saveCert] correct file size check. [Jeroen Pinoy]
+- [Galaxy:detachCluster] set correct orgc id for attributes. [Jeroen
+  Pinoy]
+- [SharingGroupBlueprint:execute] set correct conditional 'id' value to
+  send to view. [Jeroen Pinoy]
+- [GalaxyElements:index] correctly set canModify, to display delete
+  button for those who have the correct privileges. [Jeroen Pinoy]
+- [UI:logs] don't try to do weird ajax redirect magic on search, display
+  result properly. [Jeroen Pinoy]
+- [AnalystData:fetchChildNotesAndOpinions] correctly set org and orgc
+  nationality field. [Jeroen Pinoy]
+- [sync:SharingGroup] do not overwrite local flag on syncing of edits.
+  [Jeroen Pinoy]
+- [SharingGroup] correctly allow user without sync perm to update own
+  sharing group, using REST api. [Jeroen Pinoy]
+- [Servers] use 'validationErrors' instead of 'validationError' [Jeroen
+  Pinoy]
+- [ShadowAttribute] correct typo in afterSaveCorrelation db query
+  params. [Jeroen Pinoy]
+- [Sightings] return saved 'false' on failures. [Jeroen Pinoy]
+- Pass module timeout in /query payload for misp-modules. [Frisb]
+- [TagCollections] correctly set a specific tag when submitting a string
+  like 'tag_name' using addTag. [Jeroen Pinoy]
+- [TagCollections] make it possible to add multiple tags at once via
+  addTag by submitting an array of names as json string. [Jeroen Pinoy]
+- [TagCollections:removeTag] allow removing tags by setting
+  tag_collection id in the POST body. [Jeroen Pinoy]
+- [ObjectTemplates:index] fix broken search(all) [Jeroen Pinoy]
+- [ObjectTemplates] fix likely typo in pagination sort param. [Jeroen
+  Pinoy]
+- [WarningList:zmq] include WarninglistEntry and WarningListType in zmq
+  publications. [Jeroen Pinoy]
+- [ServersController:eventBlockRule] use success response for success,
+  and fail response for fail. [Jeroen Pinoy]
+- [Collections] make edits work for collections with sharing group
+  distribution. [Jeroen Pinoy]
+- [Model:AnalystData] use correct variable name for empty check, before
+  filtering fields for notes in fetchChildNotesAndOpinions. [Jeroen
+  Pinoy]
+- Check for undefined array key decay_score. [miaowdelivery]
+- [ACL] added ACL entry for getAttributeByB64Value. [iglocska]
+- [sync] correct version set for the new caching. [iglocska]
+- [feed caching] fixes. [iglocska]
+- [Overmind] Some improvements for the event index. [ThomasLcr]
+- [Overmind] Use current flag system for noticelist. [ThomasLcr]
+- [Overmind] Some fix for the Flash messages. [ThomasLcr]
+- [gh action] Update package list. [Thomas Lacroix]
+- [Tasks] use 'validationErrors' instead of 'validationError' in
+  controller. [Jeroen Pinoy]
+- [workflow-modules:aggregate-if] Made it not a filtering module. [Sami
+  Mokaddem]
+- [server:upload-file] Fixed inconsistency in file type validation when
+  uploading org logo. [Sami Mokaddem]
+
+  If the server is configured not to enable svg logos,
+  site-admins should not be able to upload some through the file manager
+
+  - As reported by Maxime ESCOURBIAC from Michelin CERT
+- [security] Prevent redirection to external websites in dashboard's
+  button widget. [Sami Mokaddem]
+
+  - As reported by Maxime ESCOURBIAC from Michelin CERT
+- [security] Ensure proper org restriction in the user contact form.
+  [Sami Mokaddem]
+
+  - As reported by Maxime ESCOURBIAC from Michelin CERT
+- [event-report:import-from-url] Gated functionnality behind the setting
+  `Security.eventreport_enable_arbitrary_urls` [Sami Mokaddem]
+
+  - As reported by Maxime ESCOURBIAC from Michelin CERT
+- [sync] header name consistency. [iglocska]
+- [global menu] default to the default theme if none selected in the
+  display showing which theme is active. [iglocska]
+- [global menu] added requirement to theme menu, disable if not enabled.
+  [iglocska]
+- [mock file] removed, not needed after all. [iglocska]
+- Added missing ctp file. [iglocska]
+- [app:beforeFilter] Set theme variables even when themes are not
+  enabled. [Sami Mokaddem]
+- [event-graph:export] Exporting as JSON now also includes edges. [Sami
+  Mokaddem]
+
+  - How could it take so much time to be noticed?
+- [global menu] accidental deletion reverted. [iglocska]
+- [sync] don't include sightings when pulling events. [iglocska]
+
+  - these are pulled separately at a later stage and it can absolutely blow up event sizes
+- [gh action] another attempt. [iglocska]
+
+  - stop reading my non-sense
+- [gh actions]  another attempt. [iglocska]
+
+  - I am aging 2 seconds every second.
+- [reshuffle] Let's not switch to the python check. [iglocska]
+
+  - the issue was the ordering of GH action steps
+- [gh actions] another attempt. [iglocska]
+
+  - Happy Tree Friends intro tune playing in my head
+- [UI beta] added links to the old themes back to the menu. [iglocska]
+
+  - also some fixes to stuff I broke
+- [css] fixed the dropdowns in the css. [iglocska]
+
+  - thanks Claude, fuck touching css
+- [theming] fixed misaligned setting name. [iglocska]
+- [gh actions] another attempt. [iglocska]
+
+  - please?
+- [gh actions] another attempt at fixing it. [iglocska]
+
+  - FML
+- [gh actions] another attempt. [iglocska]
+- [gh actions] another attempt at fixing the mariadb mess on the gh
+  action. [iglocska]
+- [schema] remove incorrect requirement for sharing_group. [Jeroen
+  Pinoy]
+- [github actions] potential fix for the failing tests. [iglocska]
+- [cryptokey] Fixed ingestInstanceKey to return the correct fingerprint.
+  [Sami Mokaddem]
+- [theme] minor fixes for the settings. [iglocska]
+- [settings] theme selector fortified by switching to CLI only.
+  [iglocska]
+
+  - Thanks @ThomasLcr for the reminder ;)
+- [usersetting] fixes. [iglocska]
+- [event] correct the Extended Event parameter name for Filter Event
+  Index. [fukusuket]
+- [event:extended] Update accepted filtering parameters to include
+  'extended' [fukusuket]
+- [misp-delegation python tool] requirements updated. [iglocska]
+- [audit log system] not logging when new audit logging is enabled with
+  DB settings, fixes #9536. [iglocska]
+- [CRUD] handle the case when a deletion of an object fails. [iglocska]
+- [tags index] fix the output format to conform to prior versions.
+  [iglocska]
+- [objecttemplates] re-added missing contain to avoid performance
+  issues. [iglocska]
+- [CRUD] index shouldn't barf on no filters available for an index.
+  [iglocska]
+- [organisations controller] fixed index quickfilter. [iglocska]
+- [tag galaxy detection] The regexes didn't actually match the spec. :
+  and = are valid characters for galaxy cluster values. [iglocska]
+- [galaxies controller] add default ordering back to the index.
+  [iglocska]
+- [tests] with the enabling of the advanced authkeys automatically we
+  can skip the legacy key test for username inclusion in the response
+  header. [iglocska]
+- [testlive_security] changed check on X-Username header to expect an
+  advanced authkey. [iglocska]
+- [testlive security] promising attempt to fix the test snafu.
+  [iglocska]
+- [testlive_security] attempts at fixing it. [iglocska]
+- [testlive security] fixing the previous fuckup. [iglocska]
+- [galaxies controller / CRUD] fixes. [iglocska]
+- [galaxy index] search updated to allow for the custom quickFilter name
+  to match the prior behaviour. [iglocska]
+- [cleanup] removed left over junk from the previous attempts.
+  [iglocska]
+- [tests] another attempt. [iglocska]
+- [testlive security] another attempt and moving the
+  SightingDBController to the CRUD system. [iglocska]
+
+  - I need a bucketload of caffeine
+- [taxonomies] fix to the containment in the CRUD refactor. [iglocska]
+- [delegation CLI tool] updated to use non vulnerable dependencies.
+  [iglocska]
+- [components] restored, they're not inherited / loaded in a different
+  order after all. [iglocska]
+- [testlive security] fixes. [iglocska]
+- [testlive security] fixes. [iglocska]
+- [testlive security] small error in the previous commit rectified.
+  [iglocska]
+- [security tests] Switching back to advanced auth keys sooner.
+  [iglocska]
+
+  - due to a fix in the user init script, the legacy + modern authkeys created for the initial user will no longer be identical
+  - this caused the tests to fail as they assumed that the old behaviour simply allows them to switch advanced authkeys on / off on the fly with the same key
+- [security] initial user enrollment authkey generation stored as both
+  new/old style authkey. [iglocska]
+
+  - authkeys are stored hashed in the database when using the default "new" authkey system
+  - when the initial user is enrolled the authkey is encoded both as a legacy cleartext stored authkey and as a new authkey hash
+  - This means that the initial key can be deduced from the initial user's user object, removing the protection offered by only storing password hashes
+
+  - as reported by Raimonds Liepins https://raimonds-liepins.com
+- [sharing group blueprints] fixed issues with the encoding of rules in
+  blueprints. [iglocska]
+
+  - removed a double encoding that was generating invalid rules when created via the API
+  - removed the pretty printing of JSON rules for the API
+- [periodic-report] Fixed invalid condition. [Sami Mokaddem]
+- [periodic-summary] Fixed counting of empty objects. [Sami Mokaddem]
+- [Server] Pagination for preview index. [ThomasLcr]
+- [Server] Remove local tag modification/deletion in the preview.
+  [ThomasLcr]
+- [Server] Remove warnings generated in the tags column. [ThomasLcr]
+- [Server] Replace undefined variable. [ThomasLcr]
+- [galaxy] uuid generation moved. [iglocska]
+
+  - the uuid was being created after the validation, causing validation failures
+  - as solved by @louayykaltoum in #10612
+- [taxonomies] update getTagsForNamespace call to prevent OOM error.
+  [jsman]
+- [validation] fixed. [iglocska]
+
+  - new validation was inserted into a waterfall switch statement terminating the validation selection with an invalid check for multiple types
+  - moved the validation out of the block
+- Add searchall to restSearch for attributes. [Matt Anderson]
+- Fix /attributes/restSearch searchall parameter. [Matt Anderson]
+- [galaxy:add] Ensure custom galaxy has a uuid. [Sami Mokaddem]
+- [events:push-proposals] Correctly unset Org. [Sami Mokaddem]
+- [periodic-report] Fixed invalid condition. [Sami Mokaddem]
+- [schema] sighting wording - Fix #10605. [Alexandre Dulaunoy]
+- [periodic-summary] Fixed counting of empty objects. [Sami Mokaddem]
 
 Other
 ~~~~~
-- Merge pull request #10589 from MailsonRS/patch-2. [Andras Iklody]
+- Merge branch '2.5' of github.com:MISP/MISP into 2.5. [iglocska]
+- Merge pull request #10670 from Frisb7/fix/gitWorkflowsTypo. [Andras
+  Iklody]
+- CI: Fix PHP version in GitHub Actions matrix. [Frisb]
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '10652' into develop. [iglocska]
+- Merge branch 'develop' into 2026-02-theme-improvements. [Chris
+  Horsley]
+- Warn if themes disabled; add theme descriptions; add MispTheme class;
+  add theme dev flag. [Chris Horsley]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #10683 from ThomasLcr/UI_Overmind. [Thomas Lacroix]
 
-  Fix SERPRO reputation feed freetext configuration
-- Fix SERPRO reputation feed freetext configuration. [MailsonRS]
+  Start of MISP Overmind (again)
+- Merge pull request #10585 from pettai/addobject_faster. [Andras
+  Iklody]
+
+  Add Object faster workflow
+- Revert 69e8c70. [pettai]
+- Add option for non-'multiple' -> chosen:open. [pettai]
+
+  Adds the possibility for non-'multiple' to also get chosen:open and keeps backward compatibility (chosen:activate by default)
+- Update ObjectTemplatesController.php. [pettai]
+
+  This makes the search bar appear directly without user interaction. yet another click saved :)
+- Update side_menu.ctp. [pettai]
+
+  Jump into object list directly, skip choosing (meta)category
+- Merge pull request #10638 from Wachizungu/align-analystdatablocklists-
+  massdelete-controller-redirects. [Andras Iklody]
+
+  fix: [analyst_data:blocklists] use correct controller name for redire…
+- Merge pull request #10640 from Wachizungu/fix-sharing-groups-remove-
+  server. [Andras Iklody]
+
+  fix: [SharingGroups:removeServer] use correct SharingGroupServer ID f…
+- Merge pull request #10642 from Wachizungu/correct-cerebrate-capturesg-
+  message. [Andras Iklody]
+
+  fix: [Cerebrate] correct error message in captureSg
+- Merge pull request #10643 from Wachizungu/correct-taxiiservers-
+  getcollections-response. [Andras Iklody]
+
+  fix: [TaxiiServers] correct saveFailResponse action name for getColle…
+- Merge pull request #10645 from Wachizungu/fix-servers-savecert-size-
+  check-logic. [Andras Iklody]
+
+  fix: [Servers:saveCert] correct file size check
+- Merge pull request #10646 from Wachizungu/fix-galaxy-detachCluster-
+  set-correct-orgc-id-for-attributes. [Andras Iklody]
+
+  fix: [Galaxy:detachCluster] set correct orgc id for attributes
+- Merge pull request #10647 from Wachizungu/fix-
+  sharinggroupblueprintscontroller-execute-view-id-assignment. [Andras
+  Iklody]
+
+  fix: [SharingGroupBlueprint:execute] set correct conditional 'id' val…
+- Merge pull request #10648 from Wachizungu/fix-galaxy-elements-
+  controller-index-canModify. [Andras Iklody]
+
+  fix: [GalaxyElements:index] correctly set canModify, to display delet…
+- Merge pull request #10649 from Wachizungu/fix-logs-search-weird-
+  redirect-magic. [Andras Iklody]
+
+  fix: [UI:logs] don't try to do weird ajax redirect magic on search, d…
+- Merge pull request #10650 from Wachizungu/fix-analystdata-
+  fetchchildren-org-field-nationality. [Andras Iklody]
+
+  fix: [AnalystData:fetchChildNotesAndOpinions] correctly set org and o…
+- Merge pull request #10651 from Wachizungu/fix-sharing-group-sync-
+  local-override. [Andras Iklody]
+
+  fix: [sync:SharingGroup] do not overwrite local flag on syncing of edits
+- Merge pull request #10653 from Wachizungu/fix-allow-sg-owner-without-
+  sync-perm-to-update-sg. [Andras Iklody]
+
+  fix: [SharingGroup] correctly allow user without sync perm to update …
+- Merge pull request #10654 from Wachizungu/fix-serverscontroller-
+  validation-errors-typo. [Andras Iklody]
+
+  fix: [Servers] use 'validationErrors' instead of 'validationError'
+- Merge pull request #10655 from Wachizungu/chg-feeds-edit-remove-
+  redundant-tags-query. [Andras Iklody]
+
+  chg: [Feeds] remove redundant tags query in edit
+- Merge pull request #10656 from Wachizungu/fix-shadowattribute-
+  aftersave-correlation-array-syntax. [Andras Iklody]
+
+  fix: [ShadowAttribute] correct typo in afterSaveCorrelation db query …
+- Merge pull request #10657 from Wachizungu/fix-sightings-controller-
+  return-saved-false-on-failures. [Andras Iklody]
+
+  fix: [Sightings] return saved 'false' on failures
+- Merge pull request #10661 from Frisb7/2.5. [Andras Iklody]
+
+  fix: propagate Plugin.<family>_timeout to misp-modules /query payload
+- Merge pull request #10662 from Wachizungu/fix-tag-collection-add-
+  single-tag-based-on-name-as-string. [Andras Iklody]
+
+  fix: [TagCollections] correctly set a specific tag when submitting a …
+- Merge pull request #10663 from Wachizungu/fix-tag-collections-addtag-
+  add-multiple-tags-based-on-name-array. [Andras Iklody]
+
+  fix: [TagCollections] make it possible to add multiple tags at once v…
+- Merge pull request #10664 from Wachizungu/fix-tag-collections-
+  removetag-collection-id-post-body. [Andras Iklody]
+
+  fix: [TagCollections:removeTag] allow removing tags by setting tag_co…
+- Merge pull request #10665 from Wachizungu/fix-object-templates-
+  searchall. [Andras Iklody]
+
+  fix: [ObjectTemplates:index] fix broken search(all)
+- Merge pull request #10666 from Wachizungu/fix-object-templates-
+  paginate-param-typo. [Andras Iklody]
+
+  fix: [ObjectTemplates] fix likely typo in pagination sort param
+- Merge pull request #10667 from Wachizungu/fix-warninglist-typo-
+  contain-zmq. [Andras Iklody]
+
+  fix: [WarningList:zmq] correct typo that led to missing info i…
+- Merge pull request #10668 from Wachizungu/fix-event-block-rule-
+  success-vs-fail. [Andras Iklody]
+
+  fix: [ServersController:eventBlockRule] use success response for succ…
+- Merge pull request #10674 from JakubOnderka/base64-from-stream.
+  [Andras Iklody]
+
+  chg: [internal] Optimize base64 encoding if simdjson extension is installed
+- Merge pull request #10671 from Wachizungu/fix-collections-edit-for-
+  collection-with-sg. [Andras Iklody]
+
+  fix: [Collections] make edits work for collections with sharing group…
+- Merge pull request #10672 from Wachizungu/fix-analystdata-fetch-child-
+  notes-opinions. [Andras Iklody]
+
+  fix: [Model:AnalystData] use correct variable name for empty check, b…
+- Merge pull request #10673 from JakubOnderka/optimise-binary-file-
+  engine. [Andras Iklody]
+
+  chg: [internal] Slightly optimize BinaryFileEngine cache
+- Merge pull request #10675 from JakubOnderka/oidc-disable-request-
+  object. [Andras Iklody]
+
+  chg: [oidc] Add support for disable_request_object also for JakubOnde…
+- Merge pull request #10680 from miaowdelivery/fix-undefined-array-key-
+  decay-score. [Andras Iklody]
+- Merge branch '10617' into develop. [iglocska]
+- Feat(api): Add /attributes/getid endpoint for efficient attribute
+  lookup by value. [louayykaltoum]
+
+  This commit adds a new API endpoint that allows users to search for attributes
+  by their value and retrieve full attribute details including the ID.
+
+  Key features:
+  - Efficient database lookup using indexed value1/value2 columns
+  - Base64 encoded attribute value in URL path to handle special characters
+  - Returns all matching attributes with full details (id, event_id, type, etc.)
+  - Proper access control using existing MISP permission system
+  - Support for composite attributes (e.g., ip|port)
+
+  Usage example:
+    VALUE="192.168.1.1"
+    BASE64=$(echo -n "$VALUE" | base64 -w0)
+    curl -H "Authorization: API_KEY" https://misp/attributes/getid/${BASE64}
+
+  This is useful for automation scripts and integrations that need to:
+  - Check if an attribute already exists before adding
+  - Get the ID of an attribute for further operations
+  - Retrieve attribute metadata by its value
+
+  Also includes OpenAPI documentation for the new endpoint.
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #10682 from ThomasLcr/UI_Overmind. [Thomas Lacroix]
+
+  Start of MISP Overmind (some fixs)
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge pull request #10637 from ThomasLcr/UI_Overmind. [Thomas Lacroix]
+
+  Start of MISP Overmind
+- Merge pull request #10669 from Wachizungu/fix-tasks-controller-
+  validationerrors. [Andras Iklody]
+
+  fix: [Tasks] use 'validationErrors' instead of 'validationError' in c…
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #10639 from chorsley/2026-02-show-current-theme.
+  [Andras Iklody]
+
+  Make UI theme list dynamically populate from available options
+- Make the list of UI themes dynamically populate from available
+  options. [Chris Horsley]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #10635 from Wachizungu/correct-schema. [Andras
+  Iklody]
+
+  fix: [schema] remove incorrect requirement for sharing_group
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge pull request #10632 from fukusuket/fix-filter-extended-event-
+  filter-index. [Andras Iklody]
+
+  fix: [event] correct the Extended Event parameter name for Filter Eve…
+- Merge pull request #10628 from fukusuket/fix-extended-events-
+  attribute-pagenation. [Andras Iklody]
+
+  fix: [event:extended] Update accepted filtering parameters to include `extended`
+- Merge pull request #10621 from fukusuket/chg-add-extraction-browser-
+  id-to-freetext. [Alexandre Dulaunoy]
+
+  chg: [freetext] added browser extension id extraction.
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'crud_refactor' into develop. [iglocska]
+- Merge branch 'develop' into crud_refactor. [iglocska]
+- Merge branch 'develop' into crud_refactor. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #10619 from JakubOnderka/events-memory-usage.
+  [Andras Iklody]
+
+  chg: [internal] Reduce memory usage when processing events
+- Merge branch '10618' into develop. [iglocska]
+- Accessibility: only shows the "edit" ARIA button if the given setting
+  is editable. [Olivier BERT]
+- Merge branch '10623' into develop. [iglocska]
+- Merge pull request #10590 from ThomasLcr/migration. [Andras Iklody]
+
+  Server views migration
+- Merge branch 'develop' into migration. [Thomas Lacroix]
+- Merge branch 'MISP:2.5' into migration. [Thomas Lacroix]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #10607 from jsman/fix/taxonomy-addtag-attribute-
+  tag-oom. [Andras Iklody]
+
+  fix: [taxonomies] update getTagsForNamespace call to prevent OOM error
+- Merge branch '10601' into develop. [iglocska]
+- Add edge-extension-id to OpenAPI specification. [eCrimeLabs]
+- Add edge-extension-id to describeTypes.json. [eCrimeLabs]
+
+  Added the "edge-extension-id" attribute
+- Add regex validation for Chrome extension IDs, and added Edge.
+  [eCrimeLabs]
+
+  Added Edge extension ID as well as added regular expression for both Edge and Chrome
+- Add edge-extension-id to categories. [eCrimeLabs]
+
+  Added "edge-extension-id" similar to "chrome-extension-id"
+- Merge branch '10608' into develop. [iglocska]
+- Merge remote-tracking branch 'origin/develop' into develop. [Sami
+  Mokaddem]
+- Merge branch '2.5' into develop. [Alexandre Dulaunoy]
+- Merge remote-tracking branch 'origin/develop' into pr-10587. [Sami
+  Mokaddem]
+- Merge branch '2.5' into develop. [iglocska]
+- Fixed workflow logic. [Omoshalewa]
 
 
 v2.5.32 (2026-01-14)
