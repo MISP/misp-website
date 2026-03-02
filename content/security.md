@@ -137,7 +137,11 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [GCVE-1-2025-0019](https://vulnerability.circl.lu/vuln/gcve-1-2025-0019) < MISP 2.5.26 - The “view picture” functionality in EventReport for site-administrators suffered from a path traversal vulnerability.
 - [GCVE-1-2025-0030](https://vulnerability.circl.lu/vuln/gcve-1-2025-0030) < MISP 2.5.27 - A cross-site scripting (XSS) vulnerability in the “actions” table element template in app/View/Elements/genericElements/IndexTable/Fields/actions.ctp allows an attacker to inject arbitrary JavaScript code into the generated HTML. 
 - [GCVE-1-2025-0031](https://vulnerability.circl.lu/vuln/gcve-1-2025-0031) < MISP 2.5.27 - A cross-site scripting (XSS) vulnerability was identified in the workflow execution-path view in app/View/Elements/Workflows/executionPath.ctp.
-- [GCVE-1-2025-0032](https://vulnerability.circl.lu/vuln/gcve-1-2026-0003) < MISP 2.5.32 - Stored/Reflected XSS via Unsanitized Parameters in URL Generation and JavaScript Context.
+- [GCVE-1-2026-0003](https://vulnerability.circl.lu/vuln/gcve-1-2026-0003) < MISP 2.5.32 - Stored/Reflected XSS via Unsanitized Parameters in URL Generation and JavaScript Context.
+- [GCVE-1-2026-0016](https://vulnerability.circl.lu/vuln/gcve-1-2026-0016) < MISP 2.5.33 - Server-Side Request Forgery via Event Report Import From URL in MISP.
+- [GCVE-1-2026-0017](https://vulnerability.circl.lu/vuln/gcve-1-2026-0017) < MISP modules 3.0.5 - Improper Neutralization of Raw HTML in MISP modules Markdown-to-PDF Module Leads to HTML Injection.
+- [GCVE-1-2026-0018](https://vulnerability.circl.lu/vuln/gcve-1-2026-0018) < MISP 2.5.33 - Improper access control in MISP user contact form allows cross-organisation email targeting.
+- [GCVE-1-2026-0019](https://vulnerability.circl.lu/vuln/gcve-1-2026-0019) < MISP 2.5.33 - Improper URL validation in MISP dashboard button widget allows external redirection.
 
 ## PGP Key
 
