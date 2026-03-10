@@ -88,7 +88,7 @@ In this case, **MISP** allows storing detailed information about the incident, i
 
 ### Case 2 - A Drone in the City
 
-Another common incident (here fictional) is where drones are discovered, either or not in a no fly zone. From forensic data could be extracted, it may sometimes be possible to discover juicy information like sync uid, waypoints. Also many informations that could be now be registerend in misp. Adding to this, you still "profite" de la capacité de misp de correller les attribut de different evenement ce qui peut permettre par exemple de correller une télécommande a un firmware de drone.
+Another common incident (here fictional) is where drones are discovered, either or not in a no fly zone. From forensic data could be extracted, it may sometimes be possible to discover juicy information like sync uid, waypoints. Also many informations that could be now be registerend in misp. In addition, you still benefit from MISP’s ability to correlate attributes across different events, which can, for example, allow correlating a remote control with a drone firmware. 
 
 Another common incident (fictional in this case) occurs when a drone is discovered in an urban area, sometimes within a no-fly zone. Through digital forensics, investigators may extract valuable data such as Sync UID, waypoints, firmware information, or device informations.
 
