@@ -2,20 +2,21 @@
 title: MISP Workbench `v1.0` (beta) Released
 authors:
 - Luciano Righetti
-date: 2025-10-06
+date: 2026-03-13
 banner: /img/blog/misp-workbench/MISP-satellite_workbench-verti-color.jpg
+tags: ["integration", "MISP", "Threat Intelligence", "opensearch", "misp-workbench"]
 layout: post
 ---
 
 # MISP Workbench – First Release `v1.0` (beta)
 MISP Workbench is a powerful analyst-focused platform designed to tame the challenge of working with large volumes of threat intelligence at scale. It is capable of ingesting data from multiple origins — including MISP instances, external feeds, and other threat intelligence sources — and consolidates them into a unified workspace where analysts can actually get things done.
-At its core, MISP Workbench puts the analyst in control: query across your entire data corpus, enrich and process indicators, pivot between related intelligence, and push curated results back to MISP or downstream consumers — all from one place. Whether you're triaging a flood of incoming indicators, hunting for patterns across feeds, or preparing a finished intelligence product, MISP Workbench is built to cut through the noise and accelerate the workflow from raw data to actionable insight.
+At its core, MISP Workbench puts the analyst in control: query across your entire data corpus, enrich and process indicators, pivot between related intelligence, and push curated results back to MISP or downstream consumers — all from one place. Whether you're triaging a large batch of incoming indicators, hunting for patterns across feeds, or preparing a finished intelligence product, MISP Workbench is built to cut through the noise and accelerate the workflow from raw data to actionable insight.
 
 This first beta release marks the foundation of that vision — expect rough edges, rapid iteration, and a strong appetite for [feedback](https://github.com/MISP/misp-workbench/discussions/218).
 
 ## Use Cases
 
-**Indicator triage at scale** — When a flood of new indicators arrives from multiple feeds, Workbench lets analysts query, filter, and correlate across the full corpus without jumping between tools or writing one-off scripts.
+**Indicator triage at scale** — When a large batch of new indicators arrives from multiple feeds, Workbench lets analysts query, filter, and correlate across the full corpus without jumping between tools or writing one-off scripts.
 
 **Threat hunting** — Define saved searches (hunts) that run on a schedule and alert when matching indicators appear. Useful for persistent monitoring of specific adversary TTPs, infrastructure patterns, or emerging campaigns.
 
@@ -46,11 +47,11 @@ This first beta release marks the foundation of that vision — expect rough edg
 | **REST API** | FastAPI backend with automatic OpenAPI documentation |
 | **Storage** | Garage (S3-compatible) or local filesystem for attachments |
 
-## Repository 
+## Get Started
 
-https://github.com/MISP/misp-workbench
-
-* Release: https://github.com/MISP/misp-workbench/releases/tag/beta-1.0
+- **Repository:** [MISP/misp-workbench](https://github.com/MISP/misp-workbench)
+- **Release:** [beta-1.0](https://github.com/MISP/misp-workbench/releases/tag/beta-1.0)
+- **Documentation:** [misp-workbench.readthedocs.io](https://misp-workbench.readthedocs.io/en/latest/)
 
 ## Roadmap
 
@@ -70,5 +71,3 @@ Have a feature request, a bug report, or just want to share your experience? Dro
 ![hunt-view](/img/blog/misp-workbench/misp-workbench-1_explore.png)
 ![add-json-feed](/img/blog/misp-workbench/misp-workbench-json-feeds-view.png)
 
-## Documentation
-* https://misp-workbench.readthedocs.io/en/latest/
