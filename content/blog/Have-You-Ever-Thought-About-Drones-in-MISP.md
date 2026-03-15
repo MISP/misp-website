@@ -60,7 +60,7 @@ A dedicated [**MISP Galaxy**](https://misp-galaxy.org/uavs/) containing more tha
 
 ![UAV's Galaxy](/img/blog/uav/1.png)
 
-Each entry includes general description, detailed technical and manufacturer specifications, as well as reference links. This database is maintained by CIRCL team and is **fully open source**. The information it contains is based on **OSINT sources** and is also enriched with data collected through our **dark web monitoring plateform ([AIL](https://ail-project.org)**, which enables tracking of **Telegram channels** where UAV-related information may appear. This allows analysts to quickly identify and update specific drone informations.
+Each entry includes general description, detailed technical and manufacturer specifications, as well as reference links. This database is maintained by CIRCL team and is **fully open source**. The information it contains is based on **OSINT sources** and is also enriched with data collected through our **dark web monitoring plateform ([AIL](https://ail-project.org))**, which enables tracking of **Telegram channels** where UAV-related information may appear. This allows analysts to quickly identify and update specific drone informations.
 
 ### Drone-Specific Taxonomies
 
@@ -102,14 +102,14 @@ These artifacts can then be registered in MISP in object within events. This all
 If you would like to learn more about Drones, how they operate, knowns security bypass techniques, and forensic data extraction from FPV drones, CIRCL will be present at the FIRST [2026 Cyber Threat Intelligence Conference](https://www.first.org/conference/firstcti26/program#pDrone-Threat-Intelligence-Workshop), in Munich, Germany, on April 21, 2026. We will do a workshop dedicated on these topics, covering drone-related threat intelligence and forensic analysis.
 
 ## Links
-- MISP: https://www.misp-project.org/
-- AIL: https://ail-project.org/
-- UAV's MISP Galaxy: https://misp-galaxy.org/uavs/
-- UAV's Related Objects: 
-  - https://www.misp-project.org/objects.html#_uav
-  - https://www.misp-project.org/objects.html#_remote_controller
-- UAV's Related Taxonomy
-  - ce-uas-classification: https://www.misp-project.org/taxonomies.html#_ce_uas_classification
-  - nato-uas-classification: https://www.misp-project.org/taxonomies.html#_nato-uas-classification/machinetag.json
-  - uas-additional-classification: https://www.misp-project.org/taxonomies.html#_uas_additionnal_classification
 
+- MISP: [https://www.misp-project.org/](https://www.misp-project.org/)
+- AIL: [https://ail-project.org/](https://ail-project.org/)
+- UAV's MISP Galaxy: [https://misp-galaxy.org/uavs/](https://misp-galaxy.org/uavs/)
+- UAV's Related Objects:
+  - [https://www.misp-project.org/objects.html#_uav](https://www.misp-project.org/objects.html#_uav)
+  - [https://www.misp-project.org/objects.html#_remote_controller](https://www.misp-project.org/objects.html#_remote_controller)
+- UAV's Related Taxonomy
+  - ce-uas-classification: [https://www.misp-project.org/taxonomies.html#_ce_uas_classification](https://www.misp-project.org/taxonomies.html#_ce_uas_classification)
+  - nato-uas-classification: [https://www.misp-project.org/taxonomies.html#_nato-uas-classification/machinetag.json](https://www.misp-project.org/taxonomies.html#_nato-uas-classification/machinetag.json)
+  - uas-additional-classification: [https://www.misp-project.org/taxonomies.html#_uas_additionnal_classification](https://www.misp-project.org/taxonomies.html#_uas_additionnal_classification)
