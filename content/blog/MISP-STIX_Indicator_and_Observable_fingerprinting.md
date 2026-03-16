@@ -1,6 +1,6 @@
 ---
 title: MISP-STIX 2026.3.13 Released
-date: 2026-03-13
+date: 2026-03-16
 layout: post
 authors:
 - Christian Studer
