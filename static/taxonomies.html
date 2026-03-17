@@ -507,6 +507,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_enisa">enisa</a></li>
 <li><a href="#_ensoc">ensoc</a></li>
 <li><a href="#_estimative_language">estimative-language</a></li>
+<li><a href="#_eu_ai_act">eu-ai-act</a></li>
 <li><a href="#_eu_marketop_and_publicadmin">eu-marketop-and-publicadmin</a></li>
 <li><a href="#_eu_nis_sector_and_subsectors">eu-nis-sector-and-subsectors</a></li>
 <li><a href="#_euci">euci</a></li>
@@ -601,6 +602,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_tor">tor</a></li>
 <li><a href="#_trust">trust</a></li>
 <li><a href="#_type_8">type</a></li>
+<li><a href="#_uas_additionnal_classification">uas-additionnal-classification</a></li>
 <li><a href="#_unified_kill_chain">unified-kill-chain</a></li>
 <li><a href="#_unified_ransomware_kill_chain">unified-ransomware-kill-chain</a></li>
 <li><a href="#_use_case_applicability">use-case-applicability</a></li>
@@ -47257,6 +47259,257 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 </div>
 <div class="sect1">
+<h2 id="_eu_ai_act">eu-ai-act</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+eu-ai-act namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/eu-ai-act/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Taxonomy for the EU Artificial Intelligence Act (Regulation (EU) 2024/1689). Classifies AI systems by risk level, prohibited practices, high-risk use cases, and incident types for GRC and SOC reporting.</p>
+</div>
+<div class="sect2">
+<h3 id="_risk_level">risk-level</h3>
+<div class="paragraph">
+<p>The risk level of the AI system according to the EU AI Act framework.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Exclusive flag set which means the values or predicate below must be set exclusively.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_actrisk_levelunacceptable">eu-ai-act:risk-level="unacceptable"</h4>
+<div class="paragraph">
+<p>Unacceptable Risk (Prohibited)</p>
+</div>
+<div class="paragraph">
+<p>Systems that pose a clear threat to safety, livelihoods, and rights.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_actrisk_levelhigh_risk">eu-ai-act:risk-level="high-risk"</h4>
+<div class="paragraph">
+<p>High-Risk</p>
+</div>
+<div class="paragraph">
+<p>AI systems with significant impact on health, safety or fundamental rights.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_actrisk_levelsystemic_risk_gpai">eu-ai-act:risk-level="systemic-risk-gpai"</h4>
+<div class="paragraph">
+<p>Systemic Risk (GPAI)</p>
+</div>
+<div class="paragraph">
+<p>General-purpose AI models with high-impact capabilities (e.g. &gt;10^25 FLOPS).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_actrisk_levellimited_risk">eu-ai-act:risk-level="limited-risk"</h4>
+<div class="paragraph">
+<p>Limited Risk</p>
+</div>
+<div class="paragraph">
+<p>Systems requiring specific transparency obligations (e.g. chatbots, deepfakes).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_actrisk_levelminimal_risk">eu-ai-act:risk-level="minimal-risk"</h4>
+<div class="paragraph">
+<p>Minimal/No Risk</p>
+</div>
+<div class="paragraph">
+<p>Most AI systems like spam filters or AI-enabled video games.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_prohibited_practice">prohibited-practice</h3>
+<div class="paragraph">
+<p>AI practices that are strictly prohibited within the EU.</p>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_actprohibited_practicebiometric_categorisation">eu-ai-act:prohibited-practice="biometric-categorisation"</h4>
+<div class="paragraph">
+<p>Biometric categorisation (sensitive traits)</p>
+</div>
+<div class="paragraph">
+<p>Categorising individuals based on sensitive data (race, political views, etc.).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_actprohibited_practicesocial_scoring">eu-ai-act:prohibited-practice="social-scoring"</h4>
+<div class="paragraph">
+<p>Social Scoring</p>
+</div>
+<div class="paragraph">
+<p>Classification of people based on social behavior or personality traits.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_actprohibited_practicesubliminal_manipulation">eu-ai-act:prohibited-practice="subliminal-manipulation"</h4>
+<div class="paragraph">
+<p>Subliminal/Manipulative techniques</p>
+</div>
+<div class="paragraph">
+<p>Techniques to distort behavior causing physical or psychological harm.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_actprohibited_practicerbi_public_space">eu-ai-act:prohibited-practice="rbi-public-space"</h4>
+<div class="paragraph">
+<p>Real-time remote biometric ID in public spaces</p>
+</div>
+<div class="paragraph">
+<p>Use for law enforcement (subject to narrow exceptions).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_high_risk_category">high-risk-category</h3>
+<div class="paragraph">
+<p>Specific areas where AI systems are classified as high-risk.</p>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_acthigh_risk_categorycritical_infrastructure">eu-ai-act:high-risk-category="critical-infrastructure"</h4>
+<div class="paragraph">
+<p>Critical Infrastructure</p>
+</div>
+<div class="paragraph">
+<p>AI in management and operation of road traffic, water, gas, electricity.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_acthigh_risk_categoryemployment_hr">eu-ai-act:high-risk-category="employment-hr"</h4>
+<div class="paragraph">
+<p>Employment and HR</p>
+</div>
+<div class="paragraph">
+<p>Recruitment, promotion, termination, and task allocation systems.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_acthigh_risk_categorylaw_enforcement">eu-ai-act:high-risk-category="law-enforcement"</h4>
+<div class="paragraph">
+<p>Law Enforcement</p>
+</div>
+<div class="paragraph">
+<p>Risk assessment, polygraphs, or evidence reliability tools.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_acthigh_risk_categoryeducation_vocational">eu-ai-act:high-risk-category="education-vocational"</h4>
+<div class="paragraph">
+<p>Education and Vocational Training</p>
+</div>
+<div class="paragraph">
+<p>Determining access to education or assessing learning outcomes.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_acthigh_risk_categorymigration_asylum">eu-ai-act:high-risk-category="migration-asylum"</h4>
+<div class="paragraph">
+<p>Migration, Asylum and Border Control</p>
+</div>
+<div class="paragraph">
+<p>AI for polygraphs, risk assessment, or verifying travel documents.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_acthigh_risk_categoryjustice_democracy">eu-ai-act:high-risk-category="justice-democracy"</h4>
+<div class="paragraph">
+<p>Administration of Justice and Democracy</p>
+</div>
+<div class="paragraph">
+<p>AI used by judicial authorities or for influencing elections.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_incident_type">incident-type</h3>
+<div class="paragraph">
+<p>Nature of the security or fundamental rights incident (Art. 73).</p>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_actincident_typeserious_incident">eu-ai-act:incident-type="serious-incident"</h4>
+<div class="paragraph">
+<p>Serious Incident (Art. 73)</p>
+</div>
+<div class="paragraph">
+<p>Death, serious health damage, or major critical infrastructure disruption.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_actincident_typefundamental_rights_violation">eu-ai-act:incident-type="fundamental-rights-violation"</h4>
+<div class="paragraph">
+<p>Fundamental Rights Breach</p>
+</div>
+<div class="paragraph">
+<p>Incident leading to the breach of obligations protecting fundamental rights.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_actincident_typeadversarial_attack">eu-ai-act:incident-type="adversarial-attack"</h4>
+<div class="paragraph">
+<p>Adversarial Attack / Evasion</p>
+</div>
+<div class="paragraph">
+<p>Intentional manipulation of AI input to cause malfunction.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_actincident_typedata_poisoning">eu-ai-act:incident-type="data-poisoning"</h4>
+<div class="paragraph">
+<p>Data Poisoning</p>
+</div>
+<div class="paragraph">
+<p>Compromising the training data or fine-tuning process.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_compliance_status">compliance-status</h3>
+<div class="paragraph">
+<p>The current state of compliance of the AI system.</p>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_actcompliance_statusnon_compliant">eu-ai-act:compliance-status="non-compliant"</h4>
+<div class="paragraph">
+<p>Non-Compliant</p>
+</div>
+<div class="paragraph">
+<p>The AI system does not meet the requirements of the Act.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_eu_ai_actcompliance_statusconformity_assessed">eu-ai-act:compliance-status="conformity-assessed"</h4>
+<div class="paragraph">
+<p>Conformity Assessed (CE Mark)</p>
+</div>
+<div class="paragraph">
+<p>System has undergone required assessment and carries CE marking.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_eu_marketop_and_publicadmin">eu-marketop-and-publicadmin</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -48981,6 +49234,15 @@ exercise namespace available in JSON format at <a href="https://github.com/MISP/
 </div>
 <div class="paragraph">
 <p>An exercise done in the scope of the NGSOTI infrastructure</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_exercisegenerichoplite">exercise:generic="hoplite"</h4>
+<div class="paragraph">
+<p>HOPLITE</p>
+</div>
+<div class="paragraph">
+<p>An exercise done in the scope of the HOPLITE EU Project</p>
 </div>
 </div>
 </div>
@@ -76731,7 +76993,7 @@ srbcert namespace available in JSON format at <a href="https://github.com/MISP/m
 <p>SRB-CERT Taxonomy - Schemes of Classification in Incident Response and Detection</p>
 </div>
 <div class="sect2">
-<h3 id="_incident_type">incident-type</h3>
+<h3 id="_incident_type_2">incident-type</h3>
 <div class="sect3">
 <h4 id="_srbcertincident_typevirus">srbcert:incident-type="virus"</h4>
 <div class="paragraph">
@@ -77916,7 +78178,7 @@ threatmatch namespace available in JSON format at <a href="https://github.com/MI
 </div>
 </div>
 <div class="sect2">
-<h3 id="_incident_type_2">incident-type</h3>
+<h3 id="_incident_type_3">incident-type</h3>
 <div class="sect3">
 <h4 id="_threatmatchincident_typeatm_attacks">threatmatch:incident-type="ATM Attacks"</h4>
 <div class="paragraph">
@@ -79092,6 +79354,236 @@ type namespace available in JSON format at <a href="https://github.com/MISP/misp
 </div>
 <div class="paragraph">
 <p>gathered from analysis of monetary or financial transactions</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_uas_additionnal_classification">uas-additionnal-classification</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+uas-additionnal-classification namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/uas-additionnal-classification/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Additional UAV and UCAV-related tags for qualifying usage and model specifications.</p>
+</div>
+<div class="sect2">
+<h3 id="_fpv">FPV</h3>
+<div class="paragraph">
+<p>Unmanned aerial system operated via real-time video transmission, providing the pilot with an immersive first-person perspective. Commonly used for precision strike, reconnaissance, or high-maneuverability missions.</p>
+</div>
+<div class="sect3">
+<h4 id="_uas_additionnal_classificationfpv">uas-additionnal-classification:FPV</h4>
+<div class="paragraph">
+<p>First person View</p>
+</div>
+<div class="paragraph">
+<p>Unmanned aerial system operated via real-time video transmission, providing the pilot with an immersive first-person perspective. Commonly used for precision strike, reconnaissance, or high-maneuverability missions.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_vtol">VTOL</h3>
+<div class="paragraph">
+<p>Unmanned aerial system capable of vertical take-off and landing without requiring a runway, enabling deployment in constrained or austere environments.</p>
+</div>
+<div class="sect3">
+<h4 id="_uas_additionnal_classificationvtol">uas-additionnal-classification:VTOL</h4>
+<div class="paragraph">
+<p>Vertical Take-Off and Landing</p>
+</div>
+<div class="paragraph">
+<p>Unmanned aerial system capable of vertical take-off and landing without requiring a runway, enabling deployment in constrained or austere environments.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lm">LM</h3>
+<div class="paragraph">
+<p>Unmanned aerial system designed to loiter over an area before engaging a target through self-detonation, combining surveillance and strike capabilities in a single platform.</p>
+</div>
+<div class="sect3">
+<h4 id="_uas_additionnal_classificationlm">uas-additionnal-classification:LM</h4>
+<div class="paragraph">
+<p>Loitering Munition</p>
+</div>
+<div class="paragraph">
+<p>Unmanned aerial system designed to loiter over an area before engaging a target through self-detonation, combining surveillance and strike capabilities in a single platform.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_isr">ISR</h3>
+<div class="paragraph">
+<p>Unmanned aerial system configured to conduct intelligence gathering, persistent surveillance, and reconnaissance missions using optical, infrared, or electronic sensors.</p>
+</div>
+<div class="sect3">
+<h4 id="_uas_additionnal_classificationisr">uas-additionnal-classification:ISR</h4>
+<div class="paragraph">
+<p>Intelligence Surveillance and Reconnaissance</p>
+</div>
+<div class="paragraph">
+<p>Unmanned aerial system configured to conduct intelligence gathering, persistent surveillance, and reconnaissance missions using optical, infrared, or electronic sensors.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_quad">QUAD</h3>
+<div class="paragraph">
+<p>Multirotor unmanned aerial system featuring four rotors, offering high maneuverability, vertical lift capability, and suitability for short-range tactical missions.</p>
+</div>
+<div class="sect3">
+<h4 id="_uas_additionnal_classificationquad">uas-additionnal-classification:QUAD</h4>
+<div class="paragraph">
+<p>Quadcopter (Quad motors)</p>
+</div>
+<div class="paragraph">
+<p>Multirotor unmanned aerial system featuring four rotors, offering high maneuverability, vertical lift capability, and suitability for short-range tactical missions.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_octo">OCTO</h3>
+<div class="paragraph">
+<p>Multirotor unmanned aerial system equipped with eight rotors, providing increased lift capacity, redundancy, and improved payload capability compared to smaller multirotor platforms.</p>
+</div>
+<div class="sect3">
+<h4 id="_uas_additionnal_classificationocto">uas-additionnal-classification:OCTO</h4>
+<div class="paragraph">
+<p>Octocopter (Eight motors)</p>
+</div>
+<div class="paragraph">
+<p>Multirotor unmanned aerial system equipped with eight rotors, providing increased lift capacity, redundancy, and improved payload capability compared to smaller multirotor platforms.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fiber">FIBER</h3>
+<div class="paragraph">
+<p>Unmanned aerial system capable of command and control via a fiber-optic tether, reducing vulnerability to radio-frequency jamming and electronic warfare interference.</p>
+</div>
+<div class="sect3">
+<h4 id="_uas_additionnal_classificationfiber">uas-additionnal-classification:FIBER</h4>
+<div class="paragraph">
+<p>Drone may be remotely controlled by fiber optic link</p>
+</div>
+<div class="paragraph">
+<p>Unmanned aerial system capable of command and control via a fiber-optic tether, reducing vulnerability to radio-frequency jamming and electronic warfare interference.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_interceptor">INTERCEPTOR</h3>
+<div class="paragraph">
+<p>Unmanned aerial system specifically engineered to intercept and neutralize other aerial platforms during flight, typically used in counter-UAS roles.</p>
+</div>
+<div class="sect3">
+<h4 id="_uas_additionnal_classificationinterceptor">uas-additionnal-classification:INTERCEPTOR</h4>
+<div class="paragraph">
+<p>Drone designed to do in flight interception</p>
+</div>
+<div class="paragraph">
+<p>Unmanned aerial system specifically engineered to intercept and neutralize other aerial platforms during flight, typically used in counter-UAS roles.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_heli">HELI</h3>
+<div class="paragraph">
+<p>Unmanned aerial system utilizing a rotary-wing helicopter configuration, enabling hovering capability and extended endurance compared to multirotor systems.</p>
+</div>
+<div class="sect3">
+<h4 id="_uas_additionnal_classificationheli">uas-additionnal-classification:HELI</h4>
+<div class="paragraph">
+<p>Helicopter airframe</p>
+</div>
+<div class="paragraph">
+<p>Unmanned aerial system utilizing a rotary-wing helicopter configuration, enabling hovering capability and extended endurance compared to multirotor systems.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hexa">HEXA</h3>
+<div class="paragraph">
+<p>Multirotor unmanned aerial system with six rotors, balancing maneuverability, payload capacity, and redundancy for tactical and operational missions.</p>
+</div>
+<div class="sect3">
+<h4 id="_uas_additionnal_classificationhexa">uas-additionnal-classification:HEXA</h4>
+<div class="paragraph">
+<p>Hexacopter (Six Motors)</p>
+</div>
+<div class="paragraph">
+<p>Multirotor unmanned aerial system with six rotors, balancing maneuverability, payload capacity, and redundancy for tactical and operational missions.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_wing">WING</h3>
+<div class="paragraph">
+<p>Unmanned aerial system employing a flying wing aerodynamic configuration, optimizing lift-to-drag ratio, endurance, and reduced radar cross-section.</p>
+</div>
+<div class="sect3">
+<h4 id="_uas_additionnal_classificationwing">uas-additionnal-classification:WING</h4>
+<div class="paragraph">
+<p>Flying wing configuration</p>
+</div>
+<div class="paragraph">
+<p>Unmanned aerial system employing a flying wing aerodynamic configuration, optimizing lift-to-drag ratio, endurance, and reduced radar cross-section.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_barrage">BARRAGE</h3>
+<div class="paragraph">
+<p>Loitering munition system intended for coordinated or saturation attacks, capable of persistent presence over a target area before terminal engagement.</p>
+</div>
+<div class="sect3">
+<h4 id="_uas_additionnal_classificationbarrage">uas-additionnal-classification:BARRAGE</h4>
+<div class="paragraph">
+<p>Barrage loitering munition</p>
+</div>
+<div class="paragraph">
+<p>Loitering munition system intended for coordinated or saturation attacks, capable of persistent presence over a target area before terminal engagement.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cargo">CARGO</h3>
+<div class="paragraph">
+<p>Unmanned aerial system configured for the transport and delivery of logistical payloads, supplies, or equipment to forward or remote positions.</p>
+</div>
+<div class="sect3">
+<h4 id="_uas_additionnal_classificationcargo">uas-additionnal-classification:CARGO</h4>
+<div class="paragraph">
+<p>Cargo delivery drone</p>
+</div>
+<div class="paragraph">
+<p>Unmanned aerial system configured for the transport and delivery of logistical payloads, supplies, or equipment to forward or remote positions.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_owa">OWA</h3>
+<div class="paragraph">
+<p>Unmanned aerial system that utilize GNSS and/or inertial navigation to fly to specific, pre-programmed geographical coordinates. They generally do not possess the ability to loiter, hunt for moving targets or return to base if a target is not found.</p>
+</div>
+<div class="sect3">
+<h4 id="_uas_additionnal_classificationowa">uas-additionnal-classification:OWA</h4>
+<div class="paragraph">
+<p>One way attack drone</p>
+</div>
+<div class="paragraph">
+<p>Unmanned aerial system that utilize GNSS and/or inertial navigation to fly to specific, pre-programmed geographical coordinates. They generally do not possess the ability to loiter, hunt for moving targets or return to base if a target is not found.</p>
 </div>
 </div>
 </div>
@@ -91992,6 +92484,15 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 <p>Annotation or clarification to a vulnerability.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_vulnerabilityinformationdetection">vulnerability:information="detection"</h4>
+<div class="paragraph">
+<p>Detection</p>
+</div>
+<div class="paragraph">
+<p>Detection of a vulnerability or a vulnerable product.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_origin_3">origin</h3>
@@ -92953,7 +93454,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-01-26 09:26:49 +0100
+Last updated 2026-03-10 14:57:18 +0100
 </div>
 </div>
 </body>
