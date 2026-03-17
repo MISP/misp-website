@@ -1,6 +1,6 @@
 ---
 title: Setting up UniqueSignal in MISP
-date: 2026-03-10
+date: 2026-03-17
 layout: post
 authors:
 - Koen Van Impe
