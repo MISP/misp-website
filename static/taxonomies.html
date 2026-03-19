@@ -461,6 +461,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_admiralty_scale">admiralty-scale</a></li>
 <li><a href="#_adversary">adversary</a></li>
 <li><a href="#_ai_bias_terminology">ai-bias-terminology</a></li>
+<li><a href="#_ai_computer_assisted">ai-computer-assisted</a></li>
 <li><a href="#_ai_safety_benchmark">ai-safety-benchmark</a></li>
 <li><a href="#_ais_marking">ais-marking</a></li>
 <li><a href="#_analyst_assessment">analyst-assessment</a></li>
@@ -9420,6 +9421,164 @@ ai-bias-terminology namespace available in JSON format at <a href="https://githu
 </div>
 <div class="paragraph">
 <p>Arises when a user imposes their own self-selected biases and behavior during interaction with data, output, results, etc.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ai_computer_assisted">ai-computer-assisted</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+ai-computer-assisted namespace available in JSON format at <a href="https://github.com/MISP/misp-taxonomies/blob/main/ai-computer-assisted/machinetag.json"><strong>this location</strong></a>. The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a> taxonomy.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Taxonomy describing the level of AI assistance and the level of review/update involved in the creation of an intelligence package or event.</p>
+</div>
+<div class="sect2">
+<h3 id="_assistance_level">assistance-level</h3>
+<div class="paragraph">
+<p>Describes the degree to which AI assisted in the original creation of the intelligence package or event.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Exclusive flag set which means the values or predicate below must be set exclusively.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_ai_computer_assistedassistance_levelnone">ai-computer-assisted:assistance-level="none"</h4>
+<div class="paragraph">
+<p>0% AI / fully human generated</p>
+</div>
+<div class="paragraph">
+<p>The content was generated entirely by a human without AI assistance.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ai_computer_assistedassistance_levelai_assisted_minor">ai-computer-assisted:assistance-level="ai-assisted-minor"</h4>
+<div class="paragraph">
+<p>Minor AI assistance</p>
+</div>
+<div class="paragraph">
+<p>AI provided limited support such as wording suggestions, spell-checking, summarisation, or formatting, but the substantive content was human generated.</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="25"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ai_computer_assistedassistance_levelai_assisted_substantial">ai-computer-assisted:assistance-level="ai-assisted-substantial"</h4>
+<div class="paragraph">
+<p>Substantial AI assistance</p>
+</div>
+<div class="paragraph">
+<p>AI substantially contributed to drafting or structuring the content, but a human remained the primary author.</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="50"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ai_computer_assistedassistance_levelai_generated_human_directed">ai-computer-assisted:assistance-level="ai-generated-human-directed"</h4>
+<div class="paragraph">
+<p>AI generated with human direction</p>
+</div>
+<div class="paragraph">
+<p>AI generated most of the content based on human prompts, instructions, or curation.</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="75"</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ai_computer_assistedassistance_levelai_generated">ai-computer-assisted:assistance-level="ai-generated"</h4>
+<div class="paragraph">
+<p>100% AI generated</p>
+</div>
+<div class="paragraph">
+<p>The content was generated entirely or almost entirely by AI.</p>
+</div>
+<div class="paragraph">
+<p>Associated numerical value="100"</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_review_level">review-level</h3>
+<div class="paragraph">
+<p>Describes the level of human or AI review, validation, or update performed after the initial creation.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Exclusive flag set which means the values or predicate below must be set exclusively.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_ai_computer_assistedreview_levelunreviewed">ai-computer-assisted:review-level="unreviewed"</h4>
+<div class="paragraph">
+<p>Unreviewed</p>
+</div>
+<div class="paragraph">
+<p>No meaningful review or validation was performed after generation.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ai_computer_assistedreview_levelai_reviewed">ai-computer-assisted:review-level="ai-reviewed"</h4>
+<div class="paragraph">
+<p>AI reviewed</p>
+</div>
+<div class="paragraph">
+<p>The content was reviewed, refined, or checked only by AI.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ai_computer_assistedreview_levelhuman_reviewed">ai-computer-assisted:review-level="human-reviewed"</h4>
+<div class="paragraph">
+<p>Human reviewed</p>
+</div>
+<div class="paragraph">
+<p>A human reviewed the content for quality, coherence, or correctness.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ai_computer_assistedreview_levelhuman_reviewed_updated">ai-computer-assisted:review-level="human-reviewed-updated"</h4>
+<div class="paragraph">
+<p>Human reviewed and updated</p>
+</div>
+<div class="paragraph">
+<p>A human reviewed the content and made substantive corrections, updates, or additions.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ai_computer_assistedreview_levelmulti_party_reviewed">ai-computer-assisted:review-level="multi-party-reviewed"</h4>
+<div class="paragraph">
+<p>Multi-party reviewed</p>
+</div>
+<div class="paragraph">
+<p>The content underwent review by multiple humans, or a formal editorial/analytic validation process.</p>
 </div>
 </div>
 </div>
@@ -93454,7 +93613,7 @@ Exclusive flag set which means the values or predicate below must be set exclusi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-10 14:57:18 +0100
+Last updated 2026-03-19 09:19:25 +0100
 </div>
 </div>
 </body>
