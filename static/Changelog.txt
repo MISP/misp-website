@@ -2,6 +2,306 @@ Changelog
 =========
 
 
+v2.5.35 (2026-03-18)
+--------------------
+
+New
+~~~
+- [Overmind] Beginning of the Attribute View + implementing ajax loading
+  for event view. [ThomasLcr]
+- [event view] attribute list header is now sticky, fixes #10701.
+  [iglocska]
+- [attribute search] move to using a cursor rather than offset to help
+  with some performance issues. [iglocska]
+
+  - cross instance caching was becoming problematic
+  - if order is specified for the query we do not use a cursor
+  - default ordering of attributes restsearch has been changed by this, but it's well worth the change
+- [attribute search] documentation added. [iglocska]
+- [attribute search] benchmark result comparison tool. [iglocska]
+- [attribute search] benchmark suite added and documented. [iglocska]
+- [attribute search] benchmark suite added and documented. [iglocska]
+- [theme] Add EventTest theme with AJAX-loaded event view. [Claude Opus
+  4.6, iglocska]
+
+  Reference UI implementation demonstrating the decomposed event view
+  endpoints. Includes view templates for the metadata shell, paginated
+  attributes (wrapping row_attribute.ctp), objects, related events,
+  warninglist hits, and inline galaxies. Adds flatten toggle and
+  quick filter controls for the attribute listing.
+
+  Registers EventTest as a selectable theme in UserSetting.
+- [event] Add decomposed AJAX endpoints for event view. [Claude Opus
+  4.6, iglocska]
+
+  Introduces five new controller actions that split the monolithic
+  view() into lightweight, purpose-built endpoints:
+  - view2(): event metadata shell with tags, galaxies, extensions
+  - viewAttributes(): paginated attributes with flatten/search controls
+  - viewObjects(): paginated objects with nested enriched attributes
+  - viewRelatedEvents(): event-level correlation summary
+  - viewWarninglistHits(): aggregated warninglist hit summary
+
+  All endpoints support both REST (JSON) and HTML (layout-free fragments)
+  responses. ACL entries added for all new actions.
+- [event] Add paginated attribute/object fetchers with shared enrichment
+  pipeline. [Claude Opus 4.6, iglocska]
+
+  Introduces fetchPaginatedAttributes() and fetchPaginatedObjects() model
+  methods with DB-level pagination, sorting, filtering, and distribution
+  ACL. Both funnel through a shared __enrichAttributes() method that
+  applies warninglist matching, feed/server correlations, attribute
+  correlations, sightings, and analyst data in bulk.
+- [correlation] Add getAttributeCorrelations() for scoped attribute
+  correlation lookups. [Claude Opus 4.6, iglocska]
+
+  Adds a new correlation dispatcher and implementations across all three
+  correlation engines (Default, NoAcl, OnDemand) to fetch correlations
+  for a specific set of attribute IDs rather than entire events. This
+  enables efficient per-page correlation loading for the decomposed
+  event view endpoints.
+- [Overmind] Added Tom Select for better selects. [ThomasLcr]
+- [Overmind] Moving from jquery to vanilla js. [ThomasLcr]
+- [Overmind] Added theme selection in navbar + add event in index view.
+  [ThomasLcr]
+- [Overmind] Mass select button for event index. [ThomasLcr]
+- [Overmind] Field for timestamp. [ThomasLcr]
+- [Overmind] Improved Card view and filtering bar. [ThomasLcr]
+- [Overmind] Selector actions for publication and deletion. [ThomasLcr]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [taxonomies] updated. [Alexandre Dulaunoy]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [CI] temporarily disable the stix search test. [iglocska]
+
+  - test needs updating / fixing
+- [attack sighting] minor change. [iglocska]
+- [attribute search bench] updated with the location of the search
+  pipeline document. [iglocska]
+- [attribute search] documentation moved to the right docs directory.
+  [iglocska]
+- [attribute search bench] documentation updated. [iglocska]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [attribute restsearch] rework. [iglocska]
+
+  - Claude assisted attempt at some performance tuning
+- [misp-galaxy] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+- [dynamic event view] updated developer .md. [iglocska]
+- [ACL] added ACL to require themeing to be enabled for the new
+  endpoints. [iglocska]
+- [docs] Add AJAX endpoints guide for EventTest theme. [Claude Opus 4.6,
+  iglocska]
+
+  Documents all decomposed event view endpoints with URL patterns,
+  parameters, response formats, data structures, and enrichment
+  pipeline details. Intended as a reference for building the new
+  event view UX.
+- [Overmind] Some improvments for Fields. [ThomasLcr]
+- [misp-stix] Bumped latest version. [Christian Studer]
+- [PyMISP] Bump latest version. [Christian Studer]
+- [warning-list] updated. [Alexandre Dulaunoy]
+- [doc] logo updated. [Alexandre Dulaunoy]
+- [logo] scaled down. [Alexandre Dulaunoy]
+- [doc] logo visual 2.0 updated. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [viewAtributes] Fix for pagination and ACL. [ThomasLcr]
+- [CI] Reverting 23c6ef105b73a60d304c73cf431207645b993329 to re-enable
+  the stix search test. [Christian Studer]
+- [installer] Harden debian12, debian13, and rhel94 install scripts
+  based on SC3 audit. [iglocska]
+
+  Port the same fixes applied to INSTALL.ubuntu2404.sh to the remaining
+  three installers, based on the report by The Scottish Cyber Coordination
+  Centre (SC3):
+
+  Security:
+  - Move credentials file to /root/misp_settings.txt with mode 600
+  - Use mktemp for API key capture instead of predictable /tmp path
+  - Hard-fail on composer checksum mismatch
+  - Re-exec under sudo early to avoid /var/log permission errors
+
+  Bugfixes:
+  - Define MISP_BASEURL and wire it into both baseurl settings
+  - Add missing max_input_time PHP variable
+  - Fix cgroup memory detection (was comparing literal string, not file contents)
+  - Wire PATH_TO_SSL_CERT/KEY through to Apache vhost config
+  - Use correct mariadb service name
+
+  Idempotency/re-run safety:
+  - Guard supervisor inet_http_server append with grep check
+  - Overwrite misp-workers.conf instead of appending
+  - Make session.save_path update idempotent
+  - Write MariaDB tuning to dedicated z-misp.cnf instead of editing stock config
+  - Guard git safe.directory against duplicate entries
+  - Use mkdir -p for /var/www/.cache
+  - Use ln -sf for ssdeep symlink (debian only)
+- [export attributes] when pivoting from a galaxy cluster was broken,
+  fixes #10697. [iglocska]
+- [Theme] Avoid themesEnabled to be set as null. [ThomasLcr]
+- [UI] blind fix for an issue that shows up in the tests. [iglocska]
+- [Overmind] Restore js for triggering all checkboxes. [ThomasLcr]
+- [Overmind] Multiselect export/delete for index. [ThomasLcr]
+- [Overmind] Updated noticelist index with new factory with css.
+  [ThomasLcr]
+- [Overmind] Selector working for multiple index. [ThomasLcr]
+- [Overmind] Updated noticelist index with new factory. [ThomasLcr]
+- [Overmind] Correlation number clickable on event index. [ThomasLcr]
+- [Overmind] Override background color for card view. [ThomasLcr]
+- [Overmind] Pagination and name for the top bar of the index.
+  [ThomasLcr]
+- [Overmind] ACL for Index Actions & improvement published field.
+  [ThomasLcr]
+- [Overmind] Remove debug pannel on login page. [ThomasLcr]
+- [themes] Merge theme behavior between old and new version. [ThomasLcr]
+- [Overmind] Dropdown and input filter for Event Index. [ThomasLcr]
+- [Overmind] Fix on Navbar future features. [ThomasLcr]
+- [Overmind] Translated comments and added top padding for BS2 Views.
+  [ThomasLcr]
+- [Overmind] Some UI improvments. [ThomasLcr]
+- [requirements] Making sure we get the latest `misp-stix` version.
+  [Christian Studer]
+- [requirement] Making the requirement check happy... [Christian Studer]
+- [requirements] Adjusted PyMISP version. [Christian Studer]
+- [Controller] Bumped latest PyMISP version. [Christian Studer]
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge pull request #10706 from ThomasLcr/Overmind_V1. [Andras Iklody]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch '2.5' of github.com:MISP/MISP into develop. [Christian
+  Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- [installer] Harden install script based on SC3 audit. [iglocska]
+
+  Address issues reported by The Scottish Cyber Coordination Centre (SC3):
+
+    Security:
+    - Move credentials file to /root/misp_settings.txt with mode 600
+    - Use mktemp for API key capture instead of predictable /tmp path
+    - Hard-fail on composer checksum mismatch
+    - Re-exec under sudo early to avoid /var/log permission errors
+
+    Bugfixes:
+    - Define MISP_BASEURL and wire it into both baseurl settings
+    - Add missing max_input_time PHP variable
+    - Fix cgroup memory detection (was comparing literal string, not file contents)
+    - Wire PATH_TO_SSL_CERT/KEY through to Apache vhost config
+    - Use correct mariadb service name instead of mysql alias
+
+    Idempotency/re-run safety:
+    - Guard supervisor inet_http_server append with grep check
+    - Overwrite misp-workers.conf instead of appending
+    - Make session.save_path update idempotent
+    - Write MariaDB tuning to dedicated z-misp.cnf instead of editing 50-server.cnf
+    - Guard git safe.directory against duplicate entries
+    - Use mkdir -p for /var/www/.cache
+    - Use ln -sf for ssdeep symlink
+- Merge branch 'attribute_restsearch' into develop. [iglocska]
+- Merge branch 'develop' into attribute_restsearch. [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge pull request #10702 from ThomasLcr/fix_theme. [Thomas Lacroix]
+
+  fix: [Theme] Avoid themesEnabled to be set as null
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Christian Studer]
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [iglocska]
+- Merge pull request #10696 from ThomasLcr/UI_Overmind. [Thomas Lacroix]
+
+  UI overmind
+- Merge branch 'MISP:2.5' into UI_Overmind. [Thomas Lacroix]
+- Merge pull request #10693 from ThomasLcr/UI_Overmind. [Thomas Lacroix]
+
+  UI Overmind
+- Merge branch 'develop' of https://github.com/ThomasLcr/MISP into
+  UI_Overmind. [ThomasLcr]
+- Merge branch 'UI_Overmind' of https://github.com/ThomasLcr/MISP into
+  UI_Overmind. [ThomasLcr]
+- Merge branch '2.5' of github.com:MISP/MISP into 2.5. [Alexandre
+  Dulaunoy]
+- Merge branch '2.5' of github.com:MISP/MISP into 2.5. [Christian
+  Studer]
+- Merge pull request #10698 from ComfortCurve2000/update-libfuzzy-dev-
+  install. [Alexandre Dulaunoy]
+
+  Add `-y` to libfuzzy-dev install in `INSTALL.ubuntu2404.sh`
+- Add `-y` to libfuzzy-dev install. [Justin Mason]
+
+
+v2.5.34 (2026-03-06)
+--------------------
+
+New
+~~~
+- [Overmind] Visual section for debug mode. [ThomasLcr]
+
+Changes
+~~~~~~~
+- [version] bump. [iglocska]
+- [warning-lists] updated to the latest version. [Alexandre Dulaunoy]
+- [misp-galaxy] updated. [Alexandre Dulaunoy]
+- [misp-objects] updated to the latest version. [Alexandre Dulaunoy]
+- [taxonomies] updated to the latest version. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [diagnostics] initialisation of a counter as array causes exception,
+  fixes #10689. [iglocska]
+- [TaxiiServer] use correct casing for 'Basic' authorization header.
+  [Jeroen Pinoy]
+- [menu] re-added accidentally hidden buttons from global actions, fixes
+  #10691. [iglocska]
+- Incorrect html anchor rendering during "populate from template"
+  [Hendrik Baecker]
+- [server caching] fix. [iglocska]
+
+  - the caching also purged the combined cache, but this would purge the initial lookup for other servers too
+
+Other
+~~~~~
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge branch 'develop' into 2.5. [iglocska]
+- Merge pull request #10644 from Wachizungu/fix-taxiiserver-basic-case.
+  [Andras Iklody]
+
+  fix: [TaxiiServer] use correct casing for 'Basic' authorization header
+- Merge branch '2.5' into develop. [Alexandre Dulaunoy]
+- Merge pull request #10686 from DCSO/fix_populate_from_template_signed.
+  [Alexandre Dulaunoy]
+
+  fix: incorrect html anchor rendering during "populate from template"
+- Merge branch 'develop' of github.com:MISP/MISP into develop.
+  [Alexandre Dulaunoy]
+- Merge branch '2.5' into develop. [iglocska]
+- Merge pull request #10684 from ThomasLcr/Overmind_debug. [Thomas
+  Lacroix]
+
+  new: [Overmind] Visual section for debug mode
+- Merge branch '2.5' into develop. [iglocska]
+
+
 v2.5.33 (2026-02-27)
 --------------------
 
