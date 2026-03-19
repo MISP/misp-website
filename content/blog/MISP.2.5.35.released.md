@@ -1,5 +1,5 @@
 ---
-title: "MISP v2.5.35: Decomposed Event Views, Overmind UI Enhancements, Security Hardening and MISP-STIX majpor update"
+title: "MISP v2.5.35: Decomposed Event Views, Overmind UI Enhancements, Security Hardening and MISP-STIX major update"
 author:
  - MISP Project team
 date: 2026-03-19
