@@ -25,8 +25,6 @@ In complement, the following MISP Commercial Support is available from external 
 |            | - Architecture, installation and configuration <br />- Integrations, automation and custom development<br />- Threat feed ingestion and enrichment<br />- Threat intelligence best practices and consultancy<br />- Support, updates and maintenance<br />- Training and workshops |   | |
 | **xameco.be** | Remote and on-site | [https://xameco.be/](https://xameco.be/) | Europe |
 |               | - Architecture <br />- Installation, maintenance<br />- Integration/automation<br />- Training | | |
-| **eCrimeLabs ApS** | Remote | [https://www.ecrimelabs.com/hosted-and-managed-misp](https://www.ecrimelabs.com/hosted-and-managed-misp) | Europe |
-|               | - Fully Managed and Hosted MISP<br />- SOAR implementation Architecture <br />- Integration/automation<br />- Consulting | | |
 | **Cosive CloudMISP** | Remote | [https://www.cosive.com/cloud-misp](https://www.cosive.com/cloud-misp) | Worldwide |
 |               | - Fully managed and hosted MISP<br />- Choose hosting AWS location worldwide<br />- MISP configuration support<br />- Multi-instance deployments<br />- Customised builds and custom integrations<br />- Professional services / Training | | |
 | **NVISO**  | Remote and on-site | [https://www.nviso.eu/en/contact](https://www.nviso.eu/en/contact) | Europe |
