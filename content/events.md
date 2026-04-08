@@ -21,7 +21,7 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 #### MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals
 
-  *When:* {{< fixedtime `6th Mai 2025 14:00-17:00 CEST` `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` `20260506T12` `3` >}}
+  *When:* {{< fixedtime `4th Mai 2025 14:00-17:00 CEST` `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` `20260506T12` `3` >}}
 
   *Where:* Remote (Zoom and online MISP training instance)
 
@@ -31,7 +31,7 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
     - General usage
     - Encoding a report
     - Making use of the various tools in MISP from an analyst perspective
-    - Regulatory aspects
+    - Regulatory aspects and Incidentron
 
   *Event link:* [https://us02web.zoom.us/meetings/84200601623/invitations?signature=TfZpJw9_R8ysy6M3Lh64CIY_5XwxGwnDBysH8HutxCY](https://us02web.zoom.us/meetings/84200601623/invitations?signature=TfZpJw9_R8ysy6M3Lh64CIY_5XwxGwnDBysH8HutxCY) 
 
