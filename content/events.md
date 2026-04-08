@@ -11,7 +11,7 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 ### Webinar
 
-- Two MISP training the 15th July 2025 and 16th July 2025 at the [CIRCL VSS (Virtual Summer School) 2025](https://www.circl.lu/pub/vss-2025/).
+- Two MISP training in July 2026 at the CIRCL VSS (Virtual Summer School) 2026, to be announced soon.
  
 ### Conferences 
 
@@ -21,7 +21,7 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
 
 #### MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals
 
-  *When:* {{< fixedtime `16th April 2025 14:00-17:00 CEST` `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` `20250416T12` `3` >}}
+  *When:* {{< fixedtime `6th Mai 2025 14:00-17:00 CEST` `MISP Training - Threat Intelligence Introduction for Analysts and Security Professionals` `20260506T12` `3` >}}
 
   *Where:* Remote (Zoom and online MISP training instance)
 
@@ -31,12 +31,13 @@ Want to join us at an event, discuss opportunities or projects around the MISP p
     - General usage
     - Encoding a report
     - Making use of the various tools in MISP from an analyst perspective
+    - Regulatory aspects
 
-  *Event link:* [https://us02web.zoom.us/j/82309910308?pwd=AGqFSNzqP0Ow1TwnLoSEod9zfvPaET.1](https://us02web.zoom.us/j/82309910308?pwd=AGqFSNzqP0Ow1TwnLoSEod9zfvPaET.1) 
+  *Event link:* [https://us02web.zoom.us/meetings/84200601623/invitations?signature=TfZpJw9_R8ysy6M3Lh64CIY_5XwxGwnDBysH8HutxCY](https://us02web.zoom.us/meetings/84200601623/invitations?signature=TfZpJw9_R8ysy6M3Lh64CIY_5XwxGwnDBysH8HutxCY) 
 
 ### MISP Hackathon
 
-- [hackathon.lu 2025 - 2-day physical Hackathon, held in Luxembourg on April 8th and 9th, 2025](https://hackathon.lu/)
+- [hackathon.lu 2026 - 2-day physical Hackathon, held in Luxembourg on April 14th and 15th, 2026](https://hackathon.lu/)
 
 ### Past events
 
