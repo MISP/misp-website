@@ -85,6 +85,12 @@ MISP no longer ships its own fork of `cti-python-stix2`. The upstream `stix2` li
 - **UUID validation on Collections** — collection UUID input is now validated against RFC 4122 (reported by Jeroen Pinoy).
 - **Event-template XSS hardening** — XSS-surface review of the event-template builder, picker modal, and user form on both default and Overmind themes.
 
+### GCVE Allocation
+
+- [GCVE-1-2026-0029](https://vulnerability.circl.lu/vuln/gcve-1-2026-0029) < MISP 2.5.37 - Improper UUID validation in MISP Collections
+- [GCVE-1-2026-0030](https://vulnerability.circl.lu/vuln/gcve-1-2026-0030) < MISP 2.5.37 - MISP - Improper access control in auth key reset allows privilege escalation to site administrator
+- [GCVE-1-2026-0031](https://vulnerability.circl.lu/vuln/gcve-1-2026-0031) < MISP 2.5.37 - MISP - SQL injection via unvalidated ordering parameters in event and shadow attribute listings
+
 ## Bug Fixes
 
 - Decay score no longer collapses to zero when `last_seen` is in the future.
