@@ -8,8 +8,6 @@ layout: post
 banner: /img/blog/dashboard2.png
 ---
 
-<img width="3405" height="1314" alt="image" src="https://github.com/user-attachments/assets/9e6842e1-ccc0-4abb-b01c-fdc119f59128" />
-
 A sizeable feature release headlined by collection synchronisation between instances, continued rollout of the Overmind (Bootstrap 5) UI, the first cut of
 the Pivotick pivot explorer, environment-variable-based settings, and a batch of security and sync hardening fixes.
 
@@ -31,6 +29,8 @@ MISP collections can now be synchronised between instances, in both pull and pus
   operational)
   - Add tags/galaxies on attributes directly from the event view, "Populate from" modal, object add/edit form, collection card in the event view, clickable
   compatibility matrix, and numerous badge/display refinements
+
+<img width="3405" height="1314" alt="image" src="https://github.com/user-attachments/assets/9e6842e1-ccc0-4abb-b01c-fdc119f59128" />
 
 ###  Pivot Explorer (Pivotick)
 

@@ -14,9 +14,6 @@ Security release — upgrading is strongly recommended. It closes two RCE vector
 
 The review covered 74 controllers and led to fixes for mass-assignment, broken-access-control, and authentication-related issues, as well as remediation of two remote-code-execution vectors. This focused audit demonstrated the value of a structured, codebase-wide security review: it uncovered issues that could have been difficult to identify through isolated testing and resulted in concrete, preventative hardening measures across the platform.
 
-<img width="1944" height="1430" alt="Overmind preview ;-)" src="https://github.com/user-attachments/assets/9eb614de-8b71-4058-b001-d8670f1c008d" />
-
-
 ## Security
 
 #### GCVE / CVEs:
