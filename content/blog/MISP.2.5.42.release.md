@@ -1,5 +1,5 @@
 ---
-title: "MISP 2.5.42 - MISP 2.5.42: Major Codebase Hardening Release, Scheduled TAXII Push and Many Updates"
+title: "MISP 2.5.43 strengthens collaborative threat intelligence with major OverMind improvements, collection synchronisation and enhanced security."
 author:
  - MISP Project team
 date: 2026-06-22
@@ -8,80 +8,79 @@ layout: post
 banner: /img/blog/dashboard2.png
 ---
 
-This [MISP release 2.5.42](https://github.com/MISP/MISP/releases/tag/v2.5.42) and is primarily a security hardening release, alongside a large iteration on the new Overmind UI, new TAXII scheduled-push capability, and the usual data-library refreshes.
+<img width="3405" height="1314" alt="image" src="https://github.com/user-attachments/assets/9e6842e1-ccc0-4abb-b01c-fdc119f59128" />
 
-Security release — upgrading is strongly recommended. It closes two RCE vectors, an authentication-hardening issue, and a broad sweep of  mass-assignment / broken-access-control fixes across the controller layer.
+A sizeable feature release headlined by collection synchronisation between instances, continued rollout of the Overmind (Bootstrap 5) UI, the first cut of
+the Pivotick pivot explorer, environment-variable-based settings, and a batch of security and sync hardening fixes.
 
-The review covered 74 controllers and led to fixes for mass-assignment, broken-access-control, and authentication-related issues, as well as remediation of two remote-code-execution vectors. This focused audit demonstrated the value of a structured, codebase-wide security review: it uncovered issues that could have been difficult to identify through isolated testing and resulted in concrete, preventative hardening measures across the platform.
+## Highlights
 
-<img width="1944" height="1430" alt="Overmind preview ;-)" src="https://github.com/user-attachments/assets/9eb614de-8b71-4058-b001-d8670f1c008d" />
+###  Collection synchronisation
 
+MISP collections can now be synchronised between instances, in both pull and push directions. This includes:
 
-## Security
+  - New per-server pull_collections / push_collections toggles
+  - Feature negotiation so a modern instance detects whether a remote peer supports collection sync (and skips it gracefully otherwise), with paginated negotiation to keep memory usage low
+  - A collections.locked flag and origin-protection to mirror the model used for galaxy clusters, so synced collections are handled safely and idempotently
+  - Developer documentation and a checked-in two-instance E2E test script
 
-#### GCVE / CVEs:
+###  Overmind theme (Bootstrap 5)
 
--  [GCVE-1-2026-20105](https://vulnerability.circl.lu/vuln/gcve-1-2026-20105) - CVE-2026-56447
--  [GCVE-1-2026-20134](https://vulnerability.circl.lu/vuln/gcve-1-2026-20134) - CVE-2026-56446
--  [GCVE-1-2026-20091](https://vulnerability.circl.lu/vuln/gcve-1-2026-20091) - CVE-2026-56425
--  [GCVE-1-2026-20099](https://vulnerability.circl.lu/vuln/gcve-1-2026-20099) - CVE-2026-56424
--  [GCVE-1-2026-20094](https://vulnerability.circl.lu/vuln/gcve-1-2026-20094) - CVE-2026-56423
--  [GCVE-1-2026-20087](https://vulnerability.circl.lu/vuln/gcve-1-2026-20087) - CVE-2026-56422
+  The Overmind UI rework advanced considerably, migrating many more screens to the new look:
+  - User index, Categories & types, Application / Audit / Access logs, Galaxies / Galaxy Clusters / Galaxy Relationships, and Proposals (now fully
+  operational)
+  - Add tags/galaxies on attributes directly from the event view, "Populate from" modal, object add/edit form, collection card in the event view, clickable
+  compatibility matrix, and numerous badge/display refinements
 
- #### Remote Code Execution
-  - RCE via arbitrary rdkafka config paths — the rdkafka config file path/name is now strictly validated, and the setting is restricted to CLI-only configuration. Previously only mitigated by requiring a compromised site-admin account. (Reported by Jakub Chyliński and Jeroen Pinoy)
-  - RCE via arbitrary ndjson log paths — the ndjson log file path/name is now strictly controlled. Same prior mitigation as above. (Reported by Jakub Chyliński and Jeroen Pinoy)
+###  Pivot Explorer (Pivotick)
 
- #### Authentication
-  - Azure AD (AAD) authentication hardening. (Reported by Cormac Doherty)
+  Initial integration of [Pivotick](https://github.com/Pivotick/Pivotick) as a drop-in replacement for the legacy event graph, plus a draft drag-and-drop reference editor. This is an early
+  work-in-progress / proof-of-concept and is not yet a finished feature.
 
-  #### Mass-assignment & broken-access-control sweep
-  - A systematic audit of the controller layer (74 controllers reviewed) resulted in 13 mass-assignment fix commits plus 2 preventative hardening commits, ensuring request data can no longer set fields outside each action's intended whitelist.
-  - Broken-access-control / IDOR fixes (DPT-1 … DPT-7):
-    - DPT-1: broken access control in EventReports and SharingGroups deleteSelection
-    - DPT-2: cross-org IDOR in EventReports::removeTag 
-    - DPT-3: wrong-entity authorization in CollectionElements::deleteSelection
-    - DPT-4: capture path bypassed canEditAnalystData on update
-    - DPT-5: wrong-entity authorization in TemplateElements::edit
-    - DPT-6: missing edit-ownership check in the DecayingModel sub-system
-    - DPT-7: crypto keys now restricted to the supported Event parent type
-
-## New features & changes
-
-#### Overmind UI (next-generation interface) — 24 commits continuing the Overmind/Insight UI buildout:
-  - Tags & galaxy clusters can now be added directly from the Event View
-  - Correlation graph integrated into the Insight UI 
-  - Object index and event-report views/forms migrated, including attachment add and a migrated event-report add form
-  - New colour scheme and bolder MISP element icons across the UI 
-  - Item-count badges in index views, clickable breadcrumbs that return to the index, and various selection/handling fixes
-
-#### TAXII (contributed by Cosive)
-  - Scheduled TAXII push — TAXII added as a scheduled task type with single-server and all-enabled push modes, an enabled flag per TAXII server (defaults
-  enabled on upgrade), and blocking of pushes for disabled servers (#10859)
-  - Proxy support for TAXII push (#10860)
-
-#### Authentication
-  - Option to disable OIDC Pushed Authorization Requests (PAR) (contributed by BytesUnlimited-net, #10870)
+  Settings via environment variables (#10811)
   
-#### Feeds
-  - Added SiberKapan (Turkey-focused threat-intel platform) to the default feeds (contributed by OktayAlver, #10868)
+  Environment variables are now supported as a third settings source, alongside the config file and database — useful for containerised and
+  infrastructure-as-code deployments.
 
-## Bug fixes
+  TAXII server improvements
 
-  - csvimport: resolved attribute-tag erasure inside the `__fillAttribute` loop (contributed by Doemin04, #10869)
-  - Sync (custom galaxies): fixed propagation of custom galaxy updates (contributed by Wachizungu, #10660)
-  - Dashboards: EventStreamWidget now forces default columns when only invalid fields are requested (contributed by Wachizungu, #10867)
-  - authkeys: unique_ips is now derive-only and can no longer be seeded on key creation (data-integrity fix)
-  - Sighting: guard against a missing org_id to avoid a warning
-  - Reverted the "only request event tags fingerprint instead of full tag list" sync change
-  - db_schema fix
-  - CI: run the PHP 8.3 job on ubuntu-24.04
+  - Bearer authentication for TAXII servers, plus a streamlined add flow for basic auth
+  - The TAXII "API key" is renamed to Token in the UI and obfuscated in the server view
 
-# Data libraries
+### Security fixes
 
-Updated to their latest upstream versions:
-  - MISP galaxies
-  - MISP objects
-  - Taxonomies
-  - Warning lists
+  - [security] ACL tightening for toggleEnable on galaxies, and hardening for massenable
+  - [security] Fix XSS via the automation page and malicious API keys
+  - [security] Tighten the sharing-group check so it also runs when distribution is not explicitly set to sharing groups
+  - [security] Honor per-org module restriction in getEnabledModule()
+  - [security] Enforce modify rights on the importModule / misp_standard write path
+  - [security] Fix invalid attribute name used for CLI-only settings
+
+### Sync & server fixes
+
+  - [sync] Restrict full tag loading of all local events to internal-only sync; request only the event-tag fingerprint instead of the full tag list
+  - [internal sync] Various issues resolved
+  - [server:remove-older-events] Ensure the local event exists before checking its tags
+  - [ServersController] Correctly return update results when not using async update
+  - [sharingGroup] Guard RemoteOrg uuid in checkIfServerInSG
+  - [Servers] Add the remote user's org name and uuid to "view sync user"
+
+### Other fixes & changes
+
+  - [dashboard] Geomap country sources now derive from geolocation + country-code objects (#10817)
+  - [freetext import] Keep a valid category on type change (#10873)
+  - [StixExport] Properly pass the meta field to event galaxy clusters alongside an attribute collection
+  - [Export] Remove stray leading newlines from module export files
+  - [OrgEventsWidget] Fix target date computation
+  - [Galaxy] Set the initial version correctly using max() of the cluster version fields
+  - [csp] Allow blob: workers so the Pivotick graph can render
+  - [collections] Guard optional element keys in captureElements
+  - Add zeromq supervisor setting and status check; smartDelete reference handling; workflow roaming data written to temp file for walkGraph
+  - Add HoneyLabs default feeds (active exploiters, malware infrastructure)
+  - [ci] Accept the ondrej/php PPA metadata change in apt-get update
+
+### Library & data updates
+
+  - Updated warninglists, misp-objects, taxonomies, and misp-galaxy to their latest versions
+  - Bumped misp-stix (2026.7.8) and the [Pivotick JS library](https://github.com/Pivotick/Pivotick)
 
