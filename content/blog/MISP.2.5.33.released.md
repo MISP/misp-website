@@ -26,11 +26,11 @@ In order to support the development of multiple future UI concepts, we have adde
 
 For regular MISP installations:
 
-- `/var/www/MISP/app/Console/cake Admin setSetting "MISP.enable_themes" 1`
+- `sudo -u www-data /var/www/MISP/app/Console/cake Admin setSetting "MISP.enable_themes" 1`
 
 For Docker installations:
 
-- `docker exec -it misp-docker-misp-core-1 /var/www/MISP/app/Console/cake Admin setSetting "MISP.enable_themes" 1`
+- `docker exec -it -u www-data misp-docker-misp-core-1 /var/www/MISP/app/Console/cake Admin setSetting "MISP.enable_themes" 1`
 
 
 ## ⚡ Sync & Performance: Built for Speed

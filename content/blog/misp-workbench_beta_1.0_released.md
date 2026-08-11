@@ -68,6 +68,8 @@ Have a feature request, a bug report, or just want to share your experience? Dro
 
 ## Screenshots
 ![explore-view](/img/blog/misp-workbench/misp-workbench-1_explore.png)
-![hunt-view](/img/blog/misp-workbench/misp-workbench-1_explore.png)
+<br />
+![hunt-view](/img/blog/misp-workbench/misp-workbench-4_hunts_view-opensearch-hunt-matches.png)
+<br />
 ![add-json-feed](/img/blog/misp-workbench/misp-workbench-json-feeds-view.png)
 

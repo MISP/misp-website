@@ -142,6 +142,9 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 - [GCVE-1-2026-0017](https://vulnerability.circl.lu/vuln/gcve-1-2026-0017) < MISP modules 3.0.5 - Improper Neutralization of Raw HTML in MISP modules Markdown-to-PDF Module Leads to HTML Injection.
 - [GCVE-1-2026-0018](https://vulnerability.circl.lu/vuln/gcve-1-2026-0018) < MISP 2.5.33 - Improper access control in MISP user contact form allows cross-organisation email targeting.
 - [GCVE-1-2026-0019](https://vulnerability.circl.lu/vuln/gcve-1-2026-0019) < MISP 2.5.33 - Improper URL validation in MISP dashboard button widget allows external redirection.
+- [GCVE-1-2026-0029](https://vulnerability.circl.lu/vuln/gcve-1-2026-0029) < MISP 2.5.37 - Improper UUID validation in MISP Collections
+- [GCVE-1-2026-0030](https://vulnerability.circl.lu/vuln/gcve-1-2026-0030) < MISP 2.5.37 - MISP - Improper access control in auth key reset allows privilege escalation to site administrator
+- [GCVE-1-2026-0031](https://vulnerability.circl.lu/vuln/gcve-1-2026-0031) < MISP 2.5.37 - MISP - SQL injection via unvalidated ordering parameters in event and shadow attribute listings
 
 ## PGP Key
 

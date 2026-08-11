@@ -481,6 +481,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_cap_info">cap-info</a></li>
 <li><a href="#_cap_resource">cap-resource</a></li>
 <li><a href="#_cert_pl_phishing">cert-pl-phishing</a></li>
+<li><a href="#_chat_message">chat-message</a></li>
 <li><a href="#_cloth">cloth</a></li>
 <li><a href="#_coin_address">coin-address</a></li>
 <li><a href="#_command">command</a></li>
@@ -511,6 +512,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_ddos">ddos</a></li>
 <li><a href="#_ddos_claim">ddos-claim</a></li>
 <li><a href="#_ddos_config">ddos-config</a></li>
+<li><a href="#_decoded_barcode">decoded-barcode</a></li>
+<li><a href="#_decoded_qrcode">decoded-qrcode</a></li>
 <li><a href="#_detection">detection</a></li>
 <li><a href="#_device">device</a></li>
 <li><a href="#_diameter_attack">diameter-attack</a></li>
@@ -601,6 +604,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_game_cheat">game-cheat</a></li>
 <li><a href="#_generalizing_persuasion_framework">Generalizing Persuasion Framework</a></li>
 <li><a href="#_geolocation">geolocation</a></li>
+<li><a href="#_ghidra_function">ghidra-function</a></li>
 <li><a href="#_git_vuln_finder">git-vuln-finder</a></li>
 <li><a href="#_github_action">github-action</a></li>
 <li><a href="#_github_repo">github-repo</a></li>
@@ -665,10 +669,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_network_traffic">network-traffic</a></li>
 <li><a href="#_news_agency">news-agency</a></li>
 <li><a href="#_news_media">news-media</a></li>
+<li><a href="#_nova_rule">nova-rule</a></li>
+<li><a href="#_nse">nse</a></li>
+<li><a href="#_ocrized_image">ocrized-image</a></li>
 <li><a href="#_open_data_security">open-data-security</a></li>
 <li><a href="#_opentide">opentide</a></li>
 <li><a href="#_organization">organization</a></li>
 <li><a href="#_original_imported_file">original-imported-file</a></li>
+<li><a href="#_owasp_crs_rule">owasp-crs-rule</a></li>
 <li><a href="#_paloalto_threat_event">paloalto-threat-event</a></li>
 <li><a href="#_parler_account">parler-account</a></li>
 <li><a href="#_parler_comment">parler-comment</a></li>
@@ -694,7 +702,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_probabilistic_data_structure">probabilistic-data-structure</a></li>
 <li><a href="#_process">process</a></li>
 <li><a href="#_publication">publication</a></li>
-<li><a href="#_python_etvx_event_log">python-etvx-event-log</a></li>
+<li><a href="#_python_evtx_event_log">python-evtx-event-log</a></li>
 <li><a href="#_query">query</a></li>
 <li><a href="#_r2graphity">r2graphity</a></li>
 <li><a href="#_ransom_negotiation">ransom-negotiation</a></li>
@@ -814,6 +822,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_vulnerability">vulnerability</a></li>
 <li><a href="#_weakness">weakness</a></li>
 <li><a href="#_whois">whois</a></li>
+<li><a href="#_wifi_connection">wifi-connection</a></li>
 <li><a href="#_windows_service">windows-service</a></li>
 <li><a href="#_x_header">x-header</a></li>
 <li><a href="#_x509">x509</a></li>
@@ -6609,6 +6618,280 @@ cert-pl-phishing is a MISP object available in JSON format at <a href="https://g
 </div>
 </div>
 <div class="sect1">
+<h2 id="_chat_message"><a class="anchor" href="#_chat_message"></a><a class="link" href="#_chat_message">chat-message</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A message exchanged on a chat or messaging platform.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+chat-message is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/chat-message/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional server of the chat application. If no network is specified, the address is assumed to be reachable on the public Internet.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">chat-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of the chat, room, channel, guild, or conversation containing the message.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">content</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Content of the message.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">forwarded-from-chat-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of the original chat or conversation from which the message was forwarded.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">forwarded-from-message-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of the original forwarded message.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">language</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Language of the message.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Unique identifier of the message.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">network</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional network used to access the chat application, such as Tor or I2P. It is only used when the service is not reachable on the public Internet.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">protocol</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of the chat protocol or application, such as matrix, xmpp, or telegram.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">protocol-instance-uuid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>UUIDv5 identifier of the chat application, generated from the protocol name and, when specified, the network and address.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reaction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reaction or emoji attached to the message.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reply-to-channel-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of the channel or conversation containing the replied-to message.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reply-to-message-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of the message this message replies to.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subchannel-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of a subchannel or subchat.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">thread-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of the discussion thread containing the message.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Timestamp of when the message was created or sent.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Permalink or external URL pointing to the message, if available.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user-account-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of the user account that authored or posted the message.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_cloth"><a class="anchor" href="#_cloth"></a><a class="link" href="#_cloth">cloth</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -11668,6 +11951,229 @@ ddos-config is a MISP object available in JSON format at <a href="https://github
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>TLS/SSL used for the attack ['true', 'false']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_decoded_barcode"><a class="anchor" href="#_decoded_barcode"></a><a class="link" href="#_decoded_barcode">decoded-barcode</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Object describing a decoded barcode, including its decoded value, barcode type, original image, and contextual description.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+decoded-barcode is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/decoded-barcode/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">barcode-image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">attachment</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Original image containing the barcode.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">barcode-type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Detected barcode symbology. ['CODE128', 'CODE39', 'CODE93', 'CODABAR', 'EAN8', 'EAN13', 'ITF', 'UPC-A', 'UPC-E', 'PDF417', 'DATAMATRIX', 'AZTEC']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">decoded-value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Decoded content extracted from the barcode.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Human-readable description or context about the decoded barcode.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference or link related to the decoded barcode artifact.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Source system or project that produced the decoded barcode. ['AIL']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_decoded_qrcode"><a class="anchor" href="#_decoded_qrcode"></a><a class="link" href="#_decoded_qrcode">decoded-qrcode</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Object describing a decoded QR code, including its decoded value, original image, and contextual description.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+decoded-qrcode is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/decoded-qrcode/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">decoded-value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Decoded content extracted from the QR code.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Human-readable description or context about the decoded QR code.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">qr-image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">attachment</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Original image containing the QR code.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference or link related to the decoded QR code artifact.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Source system or project that produced the decoded QR code. ['AIL']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -43401,6 +43907,280 @@ geolocation is a MISP object available in JSON format at <a href="https://github
 </div>
 </div>
 <div class="sect1">
+<h2 id="_ghidra_function"><a class="anchor" href="#_ghidra_function"></a><a class="link" href="#_ghidra_function">ghidra-function</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ghidra function.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+ghidra-function is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/ghidra-function/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bsim-signature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hex</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>BSIM signature of the vector</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bsim-vector</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>comma separated BSIM Feature Vector</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calling-convention</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The calling convention used by the function (e.g., cdecl, stdcall)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">decompiled-function</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Ghidra decompiled function</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">decompiler-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ghidra&#8217;s decompiler version used to generate the FID and BSIM hashes.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">entrypoint-address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>function entrypoint address (integer in a text for consistency with the entrypoint-address in ELF/PE/Mach-O Objects)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">external-library</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>external library name if the function is an import</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fid-fh-hash</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hex</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Function ID FH Function hash</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fid-fx-hash</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hex</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Function ID FX Extended hash</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">flirt-hash</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hex</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>IDA pro FLIRT hash</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">function-name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>function name</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">function-scope</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ghidra function scope (export, import, internal) ['export', 'import', 'internal']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">function-signature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Function signature</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">instruction-count</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Instruction count</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is-thunk</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>identifies a thunk function</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ghidra symbol label(s) associated with the function</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">language-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Language id of the program (architecture, compiler, etc.)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">return-type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The data type returned by the function</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_git_vuln_finder"><a class="anchor" href="#_git_vuln_finder"></a><a class="link" href="#_git_vuln_finder">git-vuln-finder</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -45839,7 +46619,7 @@ hhhash is a MISP object available in JSON format at <a href="https://github.com/
 <td class="tableblock halign-left valign-top"><p class="tableblock">hhhash-tool</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>HHHash crawling infrastructure or tool used to produce the HHHash value.  ['python-hhhash', 'c-hhhash', 'go-hhhash', 'r-hhhash', 'lacus', 'Common Crawl', 'other']</p>
+<p>HHHash crawling infrastructure or tool used to produce the HHHash value.  ['python-hhhash', 'c-hhhash', 'go-hhhash', 'r-hhhash', 'lacus', 'Common Crawl', 'AIL', 'other']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-check"></i></span></p>
@@ -50619,7 +51399,7 @@ iot-firmware is a MISP object available in JSON format at <a href="https://githu
 <p>Format of the firmware ['raw', 'Intel hex', 'Motorola S-Record', 'Unknown']</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
@@ -57209,6 +57989,581 @@ news-media is a MISP object available in JSON format at <a href="https://github.
 </div>
 </div>
 <div class="sect1">
+<h2 id="_nova_rule"><a class="anchor" href="#_nova_rule"></a><a class="link" href="#_nova_rule">nova-rule</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>NOVA prompt detection rule metadata and logic for a single NOVA rule.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+nova-rule is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/nova-rule/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">author</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Rule author from the meta section.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Rule category from the meta section, such as jailbreak, injection, unicode, OWASP LLM, or incident.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">condition</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Boolean condition expression defining when the rule matches.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Human-readable description from the meta section.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filename</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Source .nov filename containing the rule.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keyword</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Keyword selector from the keywords section, including exact strings or regex patterns.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keyword-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of a keyword selector, such as $keyword1.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">llm-check</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Natural-language LLM evaluation prompt from the llm section.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">llm-threshold</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Threshold associated with an LLM selector.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">raw-rule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Original raw NOVA rule content.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference URL for the NOVA rule, repository, documentation, or related detection category.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rule-name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of the NOVA rule declared after the rule keyword.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">semantic-pattern</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Semantic selector text from the semantics section.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">semantic-threshold</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Threshold associated with a semantic selector.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">severity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Rule severity from the meta section. ['low', 'medium', 'high', 'critical']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_nse"><a class="anchor" href="#_nse"></a><a class="link" href="#_nse">nse</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An object describing an Nmap NSE script using the standard NSE script format fields.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+nse is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/nse/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">action</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Action function containing the instructions executed when a rule triggers.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">author</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Script author name or contact reference.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">categories</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>One or more NSE categories assigned to the script.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Comment or analyst note about the NSE script.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dependencies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Names of scripts that should run before this script if also selected.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Brief synopsis and optional detailed description of the NSE script.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hostrule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Rule function determining whether the script runs against a host.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">license</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>License of the NSE script.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nse</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Full NSE script content.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nse-script-name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>NSE script name.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">portrule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Rule function determining whether the script runs against a port.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">postrule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Rule function executed after scanning is complete.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prerule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Rule function executed before host discovery or port scanning.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference or origin of the NSE script.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Version of Nmap or NSE the script is associated with.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ocrized_image"><a class="anchor" href="#_ocrized_image"></a><a class="link" href="#_ocrized_image">ocrized-image</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Object describing an OCRized image, including the original image, extracted text, and contextual description.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+ocrized-image is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/ocrized-image/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Human-readable description or context about the OCRized image.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">attachment</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Original image submitted for OCR processing.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ocr-text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Text extracted from the image by OCR.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference or link related to the OCRized image artifact.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Source system or project that produced the OCR result.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_open_data_security"><a class="anchor" href="#_open_data_security"></a><a class="link" href="#_open_data_security">open-data-security</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -57817,6 +59172,228 @@ original-imported-file is a MISP object available in JSON format at <a href="htt
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_owasp_crs_rule"><a class="anchor" href="#_owasp_crs_rule"></a><a class="link" href="#_owasp_crs_rule">owasp-crs-rule</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OWASP Core Rule Set (CRS) rule metadata for a WAF detection rule.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+owasp-crs-rule is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/owasp-crs-rule/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">action</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Primary action of the rule, such as block, deny, pass, or log.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>High-level rule category, such as SQL injection, XSS, LFI, or protocol attack.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">crs-version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>OWASP CRS version associated with the rule.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filename</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>CRS rule file where the rule is defined, such as REQUEST-942-APPLICATION-ATTACK-SQLI.conf.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Rule message / description.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">operator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Operator used by the rule, such as rx, pm, detectSQLi.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">paranoia-level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>CRS paranoia level for the rule. ['1', '2', '3', '4']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">phase</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Processing phase where the rule is evaluated. ['1', '2', '3', '4', '5']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">raw-rule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Original raw SecRule content.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference URL for the rule or documentation.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rule-id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Unique OWASP CRS rule identifier.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">severity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Severity assigned to the rule. ['CRITICAL', 'ERROR', 'WARNING', 'NOTICE']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>CRS metadata tag, such as paranoia-level/2 or OWASP_CRS/WEB_ATTACK/SQL_INJECTION.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">target</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Target variable(s) inspected by the rule, such as REQUEST_HEADERS or ARGS.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -63777,10 +65354,10 @@ publication is a MISP object available in JSON format at <a href="https://github
 </div>
 </div>
 <div class="sect1">
-<h2 id="_python_etvx_event_log"><a class="anchor" href="#_python_etvx_event_log"></a><a class="link" href="#_python_etvx_event_log">python-etvx-event-log</a></h2>
+<h2 id="_python_evtx_event_log"><a class="anchor" href="#_python_evtx_event_log"></a><a class="link" href="#_python_evtx_event_log">python-evtx-event-log</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Event log object template to share information of the activities conducted on a system. .</p>
+<p>Event log object template to share information of the activities conducted on a system. The object template is mapped with the python-etvx module. <a href="https://github.com/williballenthin/python-evtx" class="bare">https://github.com/williballenthin/python-evtx</a>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -63789,7 +65366,7 @@ publication is a MISP object available in JSON format at <a href="https://github
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-python-etvx-event-log is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/python-etvx-event-log/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+python-evtx-event-log is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/python-evtx-event-log/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
 </td>
 </tr>
 </table>
@@ -84513,6 +86090,293 @@ whois is a MISP object available in JSON format at <a href="https://github.com/M
 </div>
 </div>
 <div class="sect1">
+<h2 id="_wifi_connection"><a class="anchor" href="#_wifi_connection"></a><a class="link" href="#_wifi_connection">wifi-connection</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Wireless network connection parameters including SSID, authentication, encryption and configuration details.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+wifi-connection is a MISP object available in JSON format at <a href="https://github.com/MISP/misp-objects/blob/main/objects/wifi-connection/definition.json"><strong>this location</strong></a>  The JSON format can be freely reused in your application or automatically enabled in <a href="https://www.github.com/MISP/MISP">MISP</a>.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object attribute</th>
+<th class="tableblock halign-left valign-top">MISP attribute type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Disable correlation</th>
+<th class="tableblock halign-left valign-top">Multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">authentication-type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Authentication method used by the wireless network ['open', 'wep', 'wpa-personal', 'wpa2-personal', 'wpa3-personal', 'wpa-enterprise', 'wpa2-enterprise', 'wpa3-enterprise', '802.1x', 'unknown']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bssid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mac-address</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Access Point MAC address (BSSID)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">captive-portal-url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Captive portal URL associated with the WiFi network</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">channel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>WiFi channel number</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Additional contextual information</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">country-code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Regulatory country code advertised by the AP</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">device-model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Wireless access point model</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">encryption</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Encryption algorithm used ['none', 'wep', 'tkip', 'ccmp-aes', 'gcpm', 'unknown']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">essid-hidden</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates whether the SSID is hidden</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">first-seen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>First observation timestamp</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">frequency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Operating frequency band ['2.4ghz', '5ghz', '6ghz']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hostname</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hostname</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Hostname of the wireless access point</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ip-address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ip-dst</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>IP address assigned to the access point</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">last-seen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">datetime</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Last observation timestamp</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>WiFi pre-shared key or password (sensitive information)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-check"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">security-protocol</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Wireless security protocol ['802.11a', '802.11b', '802.11g', '802.11n', '802.11ac', '802.11ax', '802.11be']</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">signal-strength</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Observed signal strength (RSSI in dBm)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ssid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>WiFi network SSID (Service Set Identifier)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vendor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Access point vendor or manufacturer</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-minus"></i></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_windows_service"><a class="anchor" href="#_windows_service"></a><a class="link" href="#_windows_service">windows-service</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -87624,7 +89488,7 @@ youtube-video is a MISP object available in JSON format at <a href="https://gith
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-02-25 16:07:36 +0100
+Last updated 2026-03-25 15:39:06 +0100
 </div>
 </div>
 </body>
