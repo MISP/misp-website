@@ -3,7 +3,7 @@ title: CTI-Transmute 1.5 released with 16 security fixes and a first-class publi
 author:
  - Christian Studer
 date: 2026-08-11
-tags: ["MISP", "Threat Intelligence", "release" ]
+tags: ["MISP", "Threat Intelligence", "release", "CTI-Transmute", "STIX"]
 layout: post
 banner: /img/blog/cti-transmute.png
 ---
