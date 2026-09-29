@@ -784,8 +784,19 @@ h3.text-uppercase {
     margin-top: 6px;
 }
 
+#blog-listing-medium .post .image {
+    /* The theme caps and clips post thumbnails by default. Blog banners have
+       varying aspect ratios, so let each one keep its natural height. */
+    max-height: none;
+    overflow: visible;
+}
+
 #blog-listing-medium .post .image img {
     border-radius: var(--radius-sm);
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    width: 100%;
 }
 
 .panel,
