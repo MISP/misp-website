@@ -505,6 +505,98 @@ h3.text-uppercase {
     overflow: hidden;
 }
 
+/* In-page navigation */
+.page-toc {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    position: sticky;
+    top: 104px;
+}
+
+.page-toc__heading {
+    border-bottom: 1px solid var(--line);
+    padding: 20px 22px 17px;
+    position: relative;
+}
+
+.page-toc__heading::after {
+    background: var(--primary-accent);
+    border-radius: 99px;
+    bottom: -2px;
+    content: "";
+    height: 3px;
+    left: 22px;
+    position: absolute;
+    width: 44px;
+}
+
+.page-toc__eyebrow {
+    color: var(--ink-muted);
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+}
+
+#content .page-toc__heading h2 {
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+
+.page-toc__content {
+    font-size: 14px;
+    line-height: 1.45;
+    max-height: calc(100vh - 220px);
+    overflow-y: auto;
+    padding: 12px 10px 14px;
+}
+
+.page-toc nav > ul,
+.page-toc nav > ol {
+    margin: 0;
+}
+
+.page-toc ul,
+.page-toc ol {
+    list-style: none;
+    padding-left: 0;
+}
+
+.page-toc li {
+    margin: 2px 0;
+}
+
+.page-toc li li {
+    border-left: 1px solid var(--line);
+    margin-left: 13px;
+    padding-left: 9px;
+}
+
+.page-toc a {
+    border-radius: 7px;
+    color: #3d505b;
+    display: block;
+    overflow-wrap: anywhere;
+    padding: 7px 10px;
+    text-decoration: none;
+}
+
+.page-toc a:hover,
+.page-toc a:focus {
+    background: var(--primary-accent-light);
+    color: var(--primary-accent-dark);
+}
+
+#content :is(h2, h3, h4, h5, h6)[id] {
+    scroll-margin-top: 110px;
+}
+
 /* Footer */
 #footer {
     background: #102633;
@@ -583,6 +675,15 @@ ul ul {
 
     .box-simple {
         min-height: 0;
+    }
+
+    .page-toc {
+        margin-top: 36px;
+        position: static;
+    }
+
+    .page-toc__content {
+        max-height: none;
     }
 }
 
