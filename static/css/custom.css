@@ -775,15 +775,33 @@ h3.text-uppercase {
 
 /* Footer */
 #footer {
-    background: #102633;
+    background: linear-gradient(135deg, #102633 0%, #0d2d3a 100%);
+    border-top: 4px solid var(--primary-accent);
     color: #bdd0d7;
-    padding: 58px 0 38px;
+    padding: 64px 0 48px;
 }
 
 #footer h4,
 #footer h5 {
     color: #fff;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
     text-transform: none;
+}
+
+#footer .row > [class*="col-"] {
+    position: relative;
+}
+
+#footer .row > [class*="col-"]:not(:last-child)::after {
+    background: rgba(255, 255, 255, 0.1);
+    content: "";
+    height: 100%;
+    position: absolute;
+    right: 14px;
+    top: 0;
+    width: 1px;
 }
 
 #footer a {
@@ -793,6 +811,54 @@ h3.text-uppercase {
 #footer a:hover,
 #footer a:focus {
     color: #7cdeeb;
+}
+
+#footer .footer-about__link {
+    display: inline-block;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+#footer .footer-about__logos {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#footer .footer-about__logos a {
+    display: inline-block;
+}
+
+#footer .footer-about__logo {
+    border-radius: 4px;
+    height: auto;
+    margin: 0;
+    width: auto;
+}
+
+#footer .footer-about__logo--misp {
+    max-width: 210px;
+}
+
+#footer .footer-about__logo--eu {
+    max-width: 230px;
+}
+
+#footer .blog-entries .item {
+    border-bottom-color: rgba(255, 255, 255, 0.14);
+    padding-bottom: 14px;
+}
+
+#footer .blog-entries .item:last-child {
+    border-bottom: 0;
+}
+
+#footer .btn-template-main {
+    border-radius: 8px;
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.16);
+    font-weight: 700;
+    padding: 10px 18px;
 }
 
 #copyright {
@@ -865,6 +931,10 @@ ul ul {
     .content-sidebar {
         margin-top: 36px;
     }
+
+    #footer .row > [class*="col-"]:not(:last-child)::after {
+        display: none;
+    }
 }
 
 @media (max-width: 767px) {
@@ -917,6 +987,14 @@ ul ul {
     .community_logo {
         float: none;
         margin: 0 auto 20px;
+    }
+
+    #footer {
+        padding: 48px 0 32px;
+    }
+
+    #footer .row > [class*="col-"] {
+        margin-bottom: 32px;
     }
 }
 
