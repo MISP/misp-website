@@ -17,13 +17,23 @@
         {{ partial "breadcrumbs.html" . }}
 
         <div id="content">
-            <div class="container">
+            <div class="container content-container">
 
-                <div class="row">
+                <div class="content-layout" data-sidebar-layout>
+
+                    <div class="content-layout__toolbar">
+                        <button class="sidebar-toggle" type="button" data-sidebar-toggle
+                                aria-controls="content-sidebar" aria-expanded="true" hidden>
+                            <i class="fas fa-columns" aria-hidden="true"></i>
+                            <span data-sidebar-toggle-label>Hide sidebar</span>
+                        </button>
+                    </div>
+
+                    <div class="row">
 
                     <!-- *** LEFT COLUMN *** -->
 
-                    <div class="col-md-9" id="blog-post">
+                    <div class="col-md-9 content-layout__main" id="blog-post">
 
                         {{ if or .Params.author .Params.date }}
                           <p class="text-muted text-uppercase mb-small text-right">
@@ -54,7 +64,7 @@
 
                     <!-- *** RIGHT COLUMN *** -->
 
-                    <aside class="col-md-3 content-sidebar" aria-label="Related content">
+                    <aside class="col-md-3 content-sidebar" id="content-sidebar" aria-label="Related content">
 
                         <!-- *** MENUS AND WIDGETS *** -->
 
@@ -67,8 +77,11 @@
 
                     <!-- *** RIGHT COLUMN END *** -->
 
+                    </div>
+                    <!-- /.row -->
+
                 </div>
-                <!-- /.row -->
+                <!-- /.content-layout -->
 
             </div>
             <!-- /.container -->
