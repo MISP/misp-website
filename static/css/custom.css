@@ -505,6 +505,182 @@ h3.text-uppercase {
     overflow: hidden;
 }
 
+/* Sidebar discovery tools */
+.content-sidebar {
+    min-width: 0;
+}
+
+.content-sidebar .panel.sidebar-menu {
+    background: var(--surface);
+    margin-bottom: 22px;
+}
+
+.content-sidebar .sidebar-menu .panel-heading {
+    background: var(--surface);
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 18px 20px 15px;
+    position: relative;
+}
+
+.content-sidebar .sidebar-menu .panel-heading::after {
+    background: var(--primary-accent);
+    border-radius: 99px;
+    bottom: -2px;
+    content: "";
+    height: 3px;
+    left: 20px;
+    position: absolute;
+    width: 42px;
+}
+
+#content .content-sidebar .sidebar-menu .panel-title {
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.content-sidebar .sidebar-menu .panel-body {
+    padding: 18px 20px 20px;
+}
+
+.content-sidebar .sidebar-menu form,
+.content-sidebar .sidebar-menu .input-group {
+    margin: 0;
+    width: 100%;
+}
+
+.content-sidebar .sidebar-menu .input-group {
+    display: flex;
+}
+
+.content-sidebar .sidebar-menu .input-group .form-control {
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+    flex: 1 1 auto;
+    font-size: 15px;
+    height: 44px;
+    min-width: 0;
+}
+
+.content-sidebar .sidebar-menu .input-group-btn {
+    display: flex;
+    flex: 0 0 46px;
+    width: 46px;
+}
+
+.content-sidebar .sidebar-menu .input-group-btn .btn {
+    align-items: center;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+}
+
+.content-sidebar .sidebar-menu ul:not(.tag-cloud) {
+    list-style: none;
+    margin: -6px 0;
+    padding: 0;
+}
+
+.content-sidebar .sidebar-menu ul:not(.tag-cloud) li {
+    border-bottom: 1px solid var(--line);
+    margin: 0;
+}
+
+.content-sidebar .sidebar-menu ul:not(.tag-cloud) li:last-child {
+    border-bottom: 0;
+}
+
+.content-sidebar .sidebar-menu ul:not(.tag-cloud) a {
+    border-radius: 6px;
+    display: block;
+    overflow-wrap: anywhere;
+    padding: 10px 8px;
+    text-decoration: none;
+}
+
+.content-sidebar .sidebar-menu ul:not(.tag-cloud) a:hover,
+.content-sidebar .sidebar-menu ul:not(.tag-cloud) a:focus {
+    background: var(--primary-accent-light);
+}
+
+.sidebar-tags .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-tags .tag-cloud li {
+    margin: 0;
+    max-width: 100%;
+}
+
+.sidebar-tags .tag-cloud a {
+    align-items: center;
+    background: var(--surface-soft);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: #34505d;
+    display: inline-flex;
+    font-size: 12px;
+    font-weight: 700;
+    gap: 6px;
+    line-height: 1.25;
+    max-width: 100%;
+    padding: 7px 9px;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.sidebar-tags .tag-cloud a span:not(.tag-count) {
+    overflow-wrap: anywhere;
+}
+
+.sidebar-tags .tag-cloud a:hover,
+.sidebar-tags .tag-cloud a:focus,
+.sidebar-tags .tag-cloud .active a {
+    background: var(--primary-accent-light);
+    border-color: #9fd7e0;
+    color: var(--primary-accent-dark);
+}
+
+.sidebar-tags .tag-cloud i {
+    color: var(--primary-accent);
+    flex: 0 0 auto;
+}
+
+.sidebar-tags .tag-count {
+    align-items: center;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink-muted);
+    display: inline-flex;
+    flex: 0 0 auto;
+    font-size: 10px;
+    justify-content: center;
+    min-height: 20px;
+    min-width: 20px;
+    padding: 1px 5px;
+}
+
+.sidebar-more-link {
+    align-items: center;
+    border-top: 1px solid var(--line);
+    display: flex;
+    font-size: 13px;
+    font-weight: 700;
+    justify-content: space-between;
+    margin-top: 18px;
+    padding-top: 14px;
+    text-decoration: none;
+}
+
 /* In-page navigation */
 .page-toc {
     background: var(--surface);
@@ -684,6 +860,10 @@ ul ul {
 
     .page-toc__content {
         max-height: none;
+    }
+
+    .content-sidebar {
+        margin-top: 36px;
     }
 }
 
