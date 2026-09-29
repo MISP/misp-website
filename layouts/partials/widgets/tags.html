@@ -1,24 +1,34 @@
 {{ if .Site.Params.widgets.tags }}
 {{ if isset .Site.Taxonomies "tags" }}
 {{ if not (eq (len .Site.Taxonomies.tags) 0) }}
-<div class="panel sidebar-menu">
+<section class="panel sidebar-menu sidebar-tags" aria-labelledby="sidebar-tags-title">
 
     <div class="panel-heading">
-        <h3 class="panel-title">{{ i18n "tagsTitle" }}</h3>
+        <h3 class="panel-title" id="sidebar-tags-title">{{ i18n "tagsTitle" }}</h3>
     </div>
 
     <div class="panel-body">
         <ul class="tag-cloud">
             {{ $current := . }}
-            {{ range $name, $items := .Site.Taxonomies.tags }}
-            <li {{ if eq $current.RelPermalink (printf "%s/%s/" ("tags" | relLangURL) ($name)) }}class="active"{{ end }}>
-                <a href="{{ "tags/" | relLangURL }}{{ $name | urlize }}"><i class="fas fa-tags"></i> {{ $name }}</a>
+            {{ range first 24 .Site.Taxonomies.tags.ByCount }}
+            {{ $tagURL := .Page.RelPermalink }}
+            <li {{ if eq $current.RelPermalink $tagURL }}class="active"{{ end }}>
+                <a href="{{ $tagURL }}">
+                    <i class="fas fa-tag" aria-hidden="true"></i>
+                    <span>{{ .Page.Title }}</span>
+                    <span class="tag-count" aria-label="{{ .Count }} posts">{{ .Count }}</span>
+                </a>
             </li>
             {{ end }}
         </ul>
+        {{ if gt (len .Site.Taxonomies.tags) 24 }}
+        <a class="sidebar-more-link" href="{{ "tags/" | relLangURL }}">
+            Browse all tags <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        {{ end }}
     </div>
 
-</div>
+</section>
 {{ end }}
 {{ end }}
 {{ end }}
