@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    {{ partial "headers.html" . }}
+    {{ partial "custom_headers.html" . }}
+  </head>
+  <body>
+    <div id="all">
+      {{ partial "top.html" . }}
+      {{ partial "nav.html" . }}
+
+      <main id="content" class="features-page">
+        <section class="features-hero">
+          <div class="container">
+            <div class="features-hero__content">
+              <span class="features-eyebrow">Open source threat intelligence</span>
+              <h1>Intelligence becomes more powerful when it is connected.</h1>
+              <p>MISP gives teams one flexible platform to collect, enrich, correlate, automate, and securely share threat intelligence&mdash;from a single indicator to a community-wide knowledge base.</p>
+              <div class="features-hero__actions">
+                <a class="btn btn-template-main btn-lg" href="{{ "/download/" | relURL }}">Get MISP</a>
+                <a class="features-text-link" href="{{ "/documentation/" | relURL }}">Explore the documentation <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            <div class="features-hero__visual" aria-hidden="true">
+              <div class="signal signal--one"><i class="fas fa-shield-alt"></i></div>
+              <div class="signal signal--two"><i class="fas fa-code-branch"></i></div>
+              <div class="signal signal--three"><i class="fas fa-users"></i></div>
+              <div class="signal signal--core"><span>MISP</span><small>collect · connect · share</small></div>
+            </div>
+          </div>
+        </section>
+
+        <nav class="features-jump" aria-label="Feature categories">
+          <div class="container">
+            {{ range .Site.Data.feature_catalog }}<a href="#{{ .id }}"><i class="{{ .icon }}" aria-hidden="true"></i>{{ .title }}</a>{{ end }}
+          </div>
+        </nav>
+
+        <section class="features-intro container">
+          <span class="features-eyebrow">A complete intelligence lifecycle</span>
+          <h2>Built for analysts, communities, and machines</h2>
+          <p>Use structured, machine-readable intelligence without losing the human context behind it. MISP combines day-to-day analyst tools with scalable sharing and automation.</p>
+        </section>
+
+        <div class="features-catalog container">
+          {{ range $index, $group := .Site.Data.feature_catalog }}
+          <section class="feature-group" id="{{ $group.id }}">
+            <header class="feature-group__header">
+              <div class="feature-group__icon"><i class="{{ $group.icon }}" aria-hidden="true"></i></div>
+              <div><span class="feature-group__number">0{{ add $index 1 }}</span><h2>{{ $group.title }}</h2><p>{{ $group.summary }}</p></div>
+            </header>
+            <div class="feature-grid">
+              {{ range $group.features }}
+              <article class="feature-card">
+                <i class="fas fa-check" aria-hidden="true"></i>
+                <div><h3>{{ .title }}</h3><p>{{ .description }}</p>{{ with .link }}<a href="{{ . }}">Learn more <span aria-hidden="true">&rarr;</span></a>{{ end }}</div>
+              </article>
+              {{ end }}
+            </div>
+          </section>
+          {{ end }}
+        </div>
+
+        <section class="features-cta">
+          <div class="container">
+            <div><span class="features-eyebrow">Start sharing smarter</span><h2>Put collective intelligence to work.</h2><p>Deploy MISP, connect your tools, and join a global ecosystem built around open collaboration.</p></div>
+            <div class="features-cta__actions"><a class="btn btn-template-main btn-lg" href="{{ "/download/" | relURL }}">Download MISP</a><a class="btn btn-ghost btn-lg" href="{{ "/communities/" | relURL }}">Find a community</a></div>
+          </div>
+        </section>
+      </main>
+
+      {{ partial "footer.html" . }}
+    </div>
+    {{ partial "scripts.html" . }}
+  </body>
+</html>
