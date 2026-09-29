@@ -1,7 +1,8 @@
 (function () {
     "use strict";
 
-    var sourceUrl = "https://raw.githubusercontent.com/cudeso/misp-tip-of-the-week/main/misp-tip-of-the-week.json";
+    var scriptElement = document.currentScript;
+    var sourceUrl = scriptElement && scriptElement.dataset.tipsUrl;
     var repositoryUrl = "https://github.com/cudeso/misp-tip-of-the-week";
     var titleElement = document.getElementById("tip-of-the-week-title");
     var textElement = document.getElementById("tip-of-the-week-text");
@@ -12,6 +13,10 @@
 
     if (!titleElement || !textElement || !linkElement || !refreshButton) {
         return;
+    }
+
+    if (!sourceUrl) {
+        sourceUrl = "/data/misp-tip-of-the-week.json";
     }
 
     function firstString(object, keys) {
