@@ -1,0 +1,31 @@
+{{ if default true .Site.Params.carouselHomepage.enable }}
+<section class="home-carousel" aria-label="MISP highlights">
+  <div class="container">
+    <div class="homepage owl-carousel">
+      {{ range sort .Site.Data.carousel "weight" }}
+      {{ $slide := . }}
+      <article class="home-hero">
+        <div class="home-hero__content">
+          {{ with .eyebrow }}<p class="home-hero__eyebrow">{{ . }}</p>{{ end }}
+          <h1>{{ .title }}</h1>
+          <div class="home-hero__description">{{ .description | safeHTML }}</div>
+          {{ if or .url .secondary_url }}
+          <div class="home-hero__actions">
+            {{ with .url }}<a class="btn btn-template-main home-hero__primary" href="{{ . | relURL }}">{{ $slide.button_label | default "Learn more" }}</a>{{ end }}
+            {{ with .secondary_url }}<a class="home-hero__secondary" href="{{ . | relURL }}">{{ $slide.secondary_label | default "Explore MISP" }} <span aria-hidden="true">&rarr;</span></a>{{ end }}
+          </div>
+          {{ end }}
+        </div>
+        <div class="home-hero__visual">
+          <div class="home-hero__window">
+            <div class="home-hero__window-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <img class="img-responsive" src="{{ .image | relURL }}" alt="{{ .image_alt | default .title }}">
+          </div>
+          {{ with .image_caption }}<p class="home-hero__caption">{{ . }}</p>{{ end }}
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
