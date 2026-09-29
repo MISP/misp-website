@@ -518,6 +518,58 @@ h3.text-uppercase {
     padding-top: 52px;
 }
 
+/* Give long-form content more of the viewport while keeping comfortable gutters. */
+@media (min-width: 1200px) {
+    #content .content-container {
+        max-width: 1420px;
+        width: calc(100% - 64px);
+    }
+}
+
+.content-layout__toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin: -20px 0 18px;
+}
+
+.sidebar-toggle {
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid #cbd8de;
+    border-radius: 999px;
+    color: #40545f;
+    display: inline-flex;
+    font-size: 13px;
+    font-weight: 700;
+    gap: 8px;
+    padding: 7px 13px;
+    transition: background-color 160ms ease, border-color 160ms ease,
+        color 160ms ease, box-shadow 160ms ease;
+}
+
+.sidebar-toggle[hidden] {
+    display: none;
+}
+
+.sidebar-toggle:hover,
+.sidebar-toggle:focus {
+    background: var(--primary-accent-light);
+    border-color: #9fd7e0;
+    color: var(--primary-accent-dark);
+}
+
+.content-layout__main {
+    transition: width 220ms ease;
+}
+
+.content-layout.is-sidebar-hidden .content-layout__main {
+    width: 100%;
+}
+
+.content-layout.is-sidebar-hidden .content-sidebar {
+    display: none;
+}
+
 #content h2,
 #content h3 {
     margin-top: 1.6em;
@@ -1258,6 +1310,10 @@ ul ul {
         font-size: 16px;
         padding-bottom: 44px;
         padding-top: 36px;
+    }
+
+    .content-layout__toolbar {
+        margin-top: -12px;
     }
 
     .community_logo {
