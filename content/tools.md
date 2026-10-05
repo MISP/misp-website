@@ -304,7 +304,3 @@ These links are retained for users maintaining existing integrations. Archived p
 | [OpenDXL-ATD-MISP](https://github.com/mohlcyber/OpenDXL-ATD-MISP) | Older McAfee ATD/OpenDXL collection workflow. |
 | [OpenDXL-MISP-IntelMQ-Output](https://github.com/mohlcyber/OpenDXL-MISP-IntelMQ-Output) | Earlier IntelMQ/OpenDXL bridge for MISP intelligence. |
 | [misp-to-sentinel Azure Function](https://github.com/zolderio/misp-to-sentinel) | Earlier integration based on Microsoft's Graph security API. For the STIX objects Upload Indicators API, see misp2sentinel above. |
-
-### Keeping this directory current
-
-The [MISP repositories](https://github.com/orgs/MISP/repositories), [CIRCL projects](https://circl.lu/projects/), and [misp-modules catalog](https://github.com/MISP/misp-modules) are the primary sources for this directory. Check those sources and each integration's upstream documentation when choosing a tool or contributing an update.
