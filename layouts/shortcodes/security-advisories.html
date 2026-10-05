@@ -1,6 +1,7 @@
 {{- $sourceURL := "https://vulnerability.circl.lu/recent/cvelistv5.atom?vendor=MISP&per_page=30" -}}
 {{- $feedURL := "" -}}
-{{- /* Publish a same-origin copy because the website's Atom route need not allow CORS. */ -}}
+{{- /* Use a same-origin copy because the website's Atom route need not allow CORS.
+      Publish as plain text so embedded XHTML stays inert if opened directly. */ -}}
 {{- $options := dict
   "headers" (dict "Accept" "application/atom+xml")
   "timeout" "10s"
@@ -10,7 +11,7 @@
   {{- with .Err -}}
     {{- warnf "Unable to refresh MISP advisories; the full-list link remains available: %s" . -}}
   {{- else with .Value -}}
-    {{- $snapshot := resources.FromString "security/misp-advisories.atom" .Content -}}
+    {{- $snapshot := resources.FromString "security/misp-advisories.txt" .Content -}}
     {{- $feedURL = $snapshot.RelPermalink -}}
   {{- end -}}
 {{- end -}}

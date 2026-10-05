@@ -35,8 +35,8 @@ To compile a local version of the website, run the following commands in a termi
 
 The Pages workflow builds on pushes to `new` and every six hours. Each build
 downloads the MISP CVE Atom feed from Vulnerability-Lookup and publishes a
-same-origin copy for the security page's JavaScript reader. Hugo's feed cache
-key changes hourly so subsequent builds can fetch new advisories.
+same-origin plain-text copy for the security page's JavaScript reader. Hugo's
+feed cache key changes hourly so subsequent builds can fetch new advisories.
 
 Local builds need HTTPS access to `vulnerability.circl.lu` to populate this list.
 A failed feed request times out after ten seconds and produces a warning without
