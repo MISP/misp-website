@@ -231,7 +231,6 @@ These tools are developed by their respective communities or vendors. Check upst
 | --- | --- |
 | [TheHive](https://docs.strangebee.com/) | Incident response platform with MISP integration. Current versions are distributed by StrangeBee; the former public TheHive 3/4 repositories are no longer maintained or distributed. |
 | [Cortex MISP analyzer](https://github.com/TheHive-Project/Cortex-Analyzers/tree/master/analyzers/MISP) | Looks up observables in MISP from Cortex analysis workflows. |
-| [OpenCTI MISP connector](https://github.com/OpenCTI-Platform/connectors/tree/master/external-import/misp) | Imports MISP threat intelligence into OpenCTI. |
 | [IntelMQ](https://github.com/certtools/intelmq) | Collects, processes, and exchanges security feeds, including MISP input/output bots. |
 | [Rapid7 InsightConnect](https://github.com/rapid7/insightconnect-plugins/tree/master/plugins/misp) | MISP actions and triggers for automation workflows. |
 | [RTIR MISP extension](https://github.com/bestpractical/rtir-extension-misp) | Connects RTIR incident handling with MISP. |
