@@ -27,6 +27,17 @@ Choose tools for your use case and check their installation instructions, suppor
 | [mail_to_misp](https://github.com/MISP/mail_to_misp) | Creates MISP events from email, principally through mail-server workflows such as Postfix. The older desktop mail-client integrations are unmaintained. |
 | [misp-workbench](https://github.com/MISP/misp-workbench) | A standalone MISP-compatible analysis stack for ingesting feeds, searching indicators, and generating correlations, with a Python API and Vue frontend. |
 
+#### Enrichment, import, export, and workflow module catalog
+
+The [misp-modules documentation](https://misp.github.io/misp-modules/) and [repository](https://github.com/MISP/misp-modules) provide the module catalog, configuration, and dependencies. Consult that catalog instead of relying on a fixed list of individual Python files, which changes as integrations evolve.
+
+* **Enrichment and expansion:** passive DNS/SSL, vulnerability lookup, hash reputation, sandbox results, geolocation, and other contextual sources.
+* **Import:** external intelligence formats, email, documents, and analysis reports.
+* **Export:** supported intelligence and reporting formats.
+* **Workflow actions:** modules used by MISP's automation workflows.
+
+Some modules require a separate account, API key, paid service plan, or local dependency. Enable the modules appropriate to your deployment.
+
 #### Data models, validation, and knowledge bases
 
 These resources can also be used by tools that do not run a MISP instance.
@@ -157,19 +168,42 @@ The [MISP organisation's repository directory](https://github.com/orgs/MISP/repo
 
 ### CIRCL projects and services
 
-CIRCL develops MISP and a wider set of security tools and services. Projects have their own requirements; some integrate directly with MISP, while others support investigation, enrichment, or incident response alongside it. MISP projects are listed above to avoid duplicating them here.
+CIRCL develops MISP and a wider set of security tools and services. The following table covers the projects in the [CIRCL open source catalog](https://circl.lu/projects/). Some integrate directly with MISP; others support investigation, enrichment, incident response, or training alongside it.
+
+#### Projects in the CIRCL catalog
+
+| Project | Purpose and relationship to MISP | Source code |
+| --- | --- | --- |
+| [MISP](https://circl.lu/projects/misp/) | Threat intelligence sharing platform and standards ecosystem. See the MISP software directory above for its tools, libraries, and resources. | [MISP](https://github.com/MISP) |
+| [AIL Framework](https://circl.lu/projects/ail-framework/) | Collects and analyses unstructured data to identify information leaks and cyber threats, with MISP event/object export. | [ail-framework](https://github.com/ail-project/ail-framework) |
+| [FlowIntel](https://circl.lu/projects/flowintel/) | Investigation and case management with MISP taxonomies/galaxies, enrichment through misp-modules, and MISP export. | [flowintel](https://github.com/Flowintel/flowintel) |
+| [Cerebrate](https://circl.lu/projects/cerebrate/) | Trusted community and contact management, with interconnection and orchestration of tools such as MISP. | [cerebrate](https://github.com/cerebrate-project/cerebrate) |
+| [Draugnet](https://circl.lu/projects/draugnet/) | Submits threat reports to MISP communities without requiring a user account; submission tokens let reporters follow subsequent updates. | [draugnet](https://github.com/draugnet/draugnet) |
+| [Lookyloo](https://circl.lu/projects/lookyloo/) | Captures websites and visualises their relationships; can look up indicators in MISP and export captures as MISP events. | [lookyloo](https://github.com/Lookyloo/lookyloo) |
+| [Pandora](https://circl.lu/projects/pandora/) | Analysis platform for examining suspicious files and understanding their contents and risks. | [pandora](https://github.com/pandora-analysis/pandora) |
+| [hashlookup](https://circl.lu/projects/hashlookup/) | Known-file hash lookup and forensic tools for identifying legitimate files and reducing investigation noise. | [hashlookup tools](https://github.com/hashlookup) |
+| [Rulezet](https://circl.lu/projects/rulezet/) | Shares, evaluates, and manages detection rules such as YARA, Sigma, and Suricata, with MISP-compatible tag metadata. | [rulezet-core](https://github.com/rulezet/rulezet-core) |
+| [Pivotick](https://circl.lu/projects/pivotick/) | TypeScript network visualisation library for exploring relationships and interactively pivoting through connected data. | [Pivotick](https://github.com/Pivotick/Pivotick) |
+| [Kunai](https://circl.lu/projects/kunai/) | Linux security monitoring and threat hunting with detailed system-event telemetry. | [kunai](https://github.com/kunai-project/kunai) |
+| [FAnything](https://circl.lu/projects/fanything/) | Network fingerprint format and tooling for correlating protocol and implementation behaviour across SSH, TLS, QUIC, and other protocols. | [fanything](https://github.com/fanything-project/fanything) |
+| [BinTriage](https://circl.lu/projects/bintriage/) | Collection of projects for rapid binary triage and analysis. | [BinTriage repositories](https://github.com/BinTriage) |
+| [D4 Project](https://circl.lu/projects/d4/) | Distributed sensor and analysis framework for collecting and processing security observations and network telemetry. | [D4 repositories](https://github.com/D4-project) |
+| [Typo-squatting Finder](https://circl.lu/projects/typosquatting-finder/) | Generates, resolves, and assesses look-alike domain names for investigating typo-squatting. | [Typosquatter repositories](https://github.com/typosquatter) |
+| [Vulnerability-Lookup](https://circl.lu/projects/vulnerability-lookup/) | Aggregates and correlates vulnerability information and community observations. MISPSight transfers vulnerability sightings from MISP. | [vulnerability-lookup](https://github.com/vulnerability-lookup/vulnerability-lookup) |
+| [GCVE](https://circl.lu/projects/gcve/) | Decentralised vulnerability identifier allocation and publication, with tooling for vulnerability management applications. | [GCVE repositories](https://github.com/gcve-eu) |
+| [cve-search](https://circl.lu/projects/cve-search/) | Imports, indexes, and searches CVE/CPE information locally; accessible through MISP enrichment modules. | [cve-search](https://github.com/cve-search/cve-search) |
+| [NGSOTI](https://circl.lu/projects/ngsoti/) | Training material and tools for security operations and threat intelligence. | [NGSOTI repositories](https://github.com/ngsoti) |
+| [Neolea](https://circl.lu/projects/neolea/) | Digital forensics and information-sharing training for law enforcement and CSIRT communities. | [neolea-training-materials](https://github.com/neolea/neolea-training-materials) |
+| [SkillAegis](https://circl.lu/projects/skillaegis/) | Designs, runs, and monitors exercise scenarios for MISP and other security applications. | [SkillAegis](https://github.com/SkillAegis/SkillAegis) |
+
+#### Additional CIRCL tools and services
+
+Related services, libraries, and investigation tools are available through CIRCL and its project organisations. Review their individual documentation for access conditions, dependencies, and maintenance status.
 
 | Project or service | Purpose and relationship to MISP |
 | --- | --- |
-| [AIL](https://github.com/ail-project/ail-framework) | Analysis of information leaks, with MISP event/object export. The current project is in the ail-project organisation. |
-| [Flowintel](https://github.com/Flowintel/flowintel) | Investigation and case management with MISP taxonomies/galaxies, enrichment through misp-modules, and MISP export. |
-| [Lookyloo](https://github.com/Lookyloo/lookyloo) | Captures websites and visualises their relationships; can look up indicators in MISP and export captures as MISP events. |
-| [Lacus](https://github.com/ail-project/lacus) | Browser capture service using Playwright, usable by other analysis applications. |
-| [Pandora](https://github.com/pandora-analysis/pandora) | Document and file analysis platform for examining suspicious submissions. |
-| [Vulnerability-Lookup](https://github.com/vulnerability-lookup/vulnerability-lookup) | Aggregates vulnerability information and community observations. MISPSight transfers vulnerability sightings from MISP. |
-| [cve-search](https://github.com/cve-search/cve-search) | Local vulnerability search and API, accessible through MISP enrichment modules. |
-| [hashlookup](https://github.com/hashlookup/hashlookup-server) | Known-file hash lookup for identifying legitimate files and reducing noise during investigations. |
-| [D4](https://github.com/D4-project/d4-core) | Distributed sensor and analysis framework for collecting security observations. |
+| [Lacus](https://github.com/ail-project/lacus) | Browser capture service using Playwright, usable by AIL and other analysis applications. |
+| [hashlookup server](https://github.com/hashlookup/hashlookup-server) and [forensic analyser](https://github.com/hashlookup/hashlookup-forensic-analyser) | Known-file hash lookup API and analysis of files on forensic targets using CIRCL's public service. |
 | [BGP Ranking](https://github.com/D4-project/BGP-Ranking) | Ranks autonomous systems using observed malicious activity. |
 | [IPASN History](https://github.com/D4-project/IPASN-History) | Historical IP-to-ASN lookup for investigating network infrastructure. |
 | [CIRCL Passive DNS](https://circl.lu/services/passive-dns/) | Historical DNS observations for domains and IP addresses; available through misp-modules and [PyPDNS](https://github.com/CIRCL/PyPDNS). |
@@ -185,18 +219,7 @@ CIRCL develops MISP and a wider set of security tools and services. Projects hav
 | [ASN Description History](https://github.com/CIRCL/ASN-Description-History) | Tracks changes in autonomous-system descriptions. |
 | [CIRCL threat intelligence workshop](https://github.com/CIRCL/circl-threat-intel-workshop) | Hands-on notebooks for learning to use CIRCL tools and services. |
 
-See the [CIRCL projects directory](https://circl.lu/projects/) and [CIRCL repositories](https://github.com/CIRCL) for project documentation and related utilities. Access conditions for hosted services are documented on their service pages.
-
-### MISP enrichment, import, and export modules
-
-The [misp-modules documentation](https://misp.github.io/misp-modules/) and [repository](https://github.com/MISP/misp-modules) provide the module catalog, configuration, and dependencies. Consult that catalog instead of relying on a fixed list of individual Python files, which changes as integrations evolve.
-
-* **Enrichment and expansion:** passive DNS/SSL, vulnerability lookup, hash reputation, sandbox results, geolocation, and other contextual sources.
-* **Import:** external intelligence formats, email, documents, and analysis reports.
-* **Export:** supported intelligence and reporting formats.
-* **Workflow actions:** modules used by MISP's automation workflows.
-
-Some modules require a separate account, API key, paid service plan, or local dependency. Enable the modules appropriate to your deployment.
+The [CIRCL projects directory](https://circl.lu/projects/) links to project documentation and the full repository inventories of CIRCL's project organisations.
 
 ### Third-party integrations
 
@@ -272,6 +295,7 @@ These links are retained for users maintaining existing integrations. Archived p
 | [CERT Australia CTI Toolkit](https://github.com/Cosive/cti-toolkit) | Archived toolkit containing STIX/MISP conversion tools. |
 | [CERT-Bund yara-exporter](https://github.com/CERT-Bund/yara-exporter) | Archived upstream YARA exporter; a MISP-hosted fork is listed above. |
 | [LOKI](https://github.com/Neo23x0/Loki) | The Python scanner and its MISP receiver are deprecated upstream. Follow the repository's successor guidance; do not assume identical MISP integration in the successor. |
+| [Viper 1.x](https://github.com/viper-framework/viper) | Archived binary analysis framework with a MISP module. Its README points to Viper 2 for the refactor; verify integration availability there. |
 | [Cuckoo modified](https://github.com/spender-sandbox/cuckoo-modified) | Earlier sandbox fork with a MISP reporting module. Review its runtime requirements before using it. |
 | [Automated Payload Test Controller](https://github.com/jymcheong/aptc) | Earlier PyMISP-based payload testing scripts with version-specific installation instructions. |
 | [FireMISP](https://github.com/jaegeral/FireMISP) | FireEye alert import scripts, moved from the former deralexxx repository. |
