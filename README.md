@@ -33,4 +33,13 @@ To compile a local version of the website, run the following commands in a termi
 
 ## How to deploy the MISP website
 
+The Pages workflow builds on pushes to `new` and every six hours. Each build
+downloads the MISP CVE Atom feed from Vulnerability-Lookup and publishes a
+same-origin plain-text copy for the security page's JavaScript reader. Hugo's
+feed cache key changes hourly so subsequent builds can fetch new advisories.
 
+Local builds need HTTPS access to `vulnerability.circl.lu` to populate this list.
+A failed feed request times out after ten seconds and produces a warning without
+preventing the site from building. The security page keeps a link to the full
+Vulnerability-Lookup results even when the feed is unavailable or JavaScript is
+disabled.
