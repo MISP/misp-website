@@ -20,7 +20,7 @@ We firmly believe that, even though unfortunately it is often not regarded as co
 
 ## Advisories
 
-Recent MISP CVE advisories are loaded automatically from [Vulnerability-Lookup](https://vulnerability.circl.lu/). This list is refreshed with the website, scheduled every six hours.
+Recent MISP CVE advisories are loaded automatically from [Vulnerability-Lookup](https://vulnerability.circl.lu/).
 
 [View the full list of MISP vulnerabilities on Vulnerability-Lookup](https://vulnerability.circl.lu/search?sort_sources%5B%5D=gna-1&date_sort=updated&sort_order=desc&vendor=misp), including GCVE records and older advisories.
 
