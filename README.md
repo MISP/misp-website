@@ -8,7 +8,7 @@ The MISP website is based on Hugo, a static site generator. If you plan on contr
 
 To compile a local version of the website, run the following commands in a terminal:
 
-1. Install all [Hugo and its prerequisites](https://gohugo.io/getting-started/installing/).
+1. Install [Hugo Extended 0.165.0 and its prerequisites](https://gohugo.io/getting-started/installing/), matching the version used in CI.
 
 2. Clone the misp-website repository
     ```

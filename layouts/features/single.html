@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang="{{ .Site.Language.Locale }}">
   <head>
     {{ partial "headers.html" . }}
     {{ partial "custom_headers.html" . }}
@@ -32,7 +32,7 @@
 
         <nav class="features-jump" aria-label="Feature categories">
           <div class="container">
-            {{ range .Site.Data.feature_catalog }}<a href="#{{ .id }}"><i class="{{ .icon }}" aria-hidden="true"></i>{{ .title }}</a>{{ end }}
+            {{ range hugo.Data.feature_catalog }}<a href="#{{ .id }}"><i class="{{ .icon }}" aria-hidden="true"></i>{{ .title }}</a>{{ end }}
           </div>
         </nav>
 
@@ -43,7 +43,7 @@
         </section>
 
         <div class="features-catalog container">
-          {{ range $index, $group := .Site.Data.feature_catalog }}
+          {{ range $index, $group := hugo.Data.feature_catalog }}
           <section class="feature-group" id="{{ $group.id }}">
             <header class="feature-group__header">
               <div class="feature-group__icon"><i class="{{ $group.icon }}" aria-hidden="true"></i></div>

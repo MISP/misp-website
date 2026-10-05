@@ -64,7 +64,7 @@
 {{ $is_valid_image := print "static/" $image | fileExists }}
 {{ if $is_valid_image }}
 {{ $image_ext := path.Ext $image }}
-<meta property="og:locale" content="{{ replace .Site.LanguageCode "-" "_" }}">
+<meta property="og:locale" content="{{ replace .Site.Language.Locale "-" "_" }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:title" content="{{ $title_plain }}">
 <meta property="og:type" content="{{ cond $is_blog "article" "website" }}">
