@@ -1,0 +1,122 @@
+<style>
+  #misp-feed-intro {
+    --mfi-ink: #172c42;
+    --mfi-muted: #52667b;
+    --mfi-line: #dce5ed;
+    --mfi-link: #17669d;
+    color: var(--mfi-ink);
+    font: 15px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0 0 32px;
+  }
+  #misp-feed-intro, #misp-feed-intro * { box-sizing: border-box; }
+  #misp-feed-intro a { color: var(--mfi-link); }
+  #misp-feed-intro a:focus-visible { outline: 3px solid var(--mfi-link); outline-offset: 4px; }
+  #misp-feed-intro .mfi-overview {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: 30px;
+    padding: 30px;
+    background: linear-gradient(120deg, #f1f7fc, #f5faf8);
+    border: 1px solid var(--mfi-line);
+    border-radius: 16px;
+  }
+  #misp-feed-intro .mfi-eyebrow {
+    color: #32677f;
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  #misp-feed-intro h2 {
+    font: 700 clamp(25px, 3vw, 31px)/1.25 system-ui, sans-serif;
+    letter-spacing: -.025em;
+    text-transform: none;
+    color: var(--mfi-ink);
+    margin: 0 0 14px;
+  }
+  #misp-feed-intro p { margin: 0; color: var(--mfi-muted); }
+  #misp-feed-intro .mfi-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 22px; }
+  #misp-feed-intro .mfi-actions a { font-size: 13px; font-weight: 700; }
+  #misp-feed-intro a.mfi-browse {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: var(--mfi-link);
+    color: #fff;
+    text-decoration: none;
+  }
+  #misp-feed-intro a.mfi-browse:hover { background: #124f7b; }
+  #misp-feed-intro .mfi-browse svg { flex-shrink: 0; }
+  #misp-feed-intro .mfi-modes { display: grid; align-content: center; gap: 12px; }
+  #misp-feed-intro .mfi-mode { padding: 17px 18px; background: #fff; border: 1px solid var(--mfi-line); border-radius: 10px; }
+  #misp-feed-intro h3 { font: 700 16px/1.4 system-ui, sans-serif; text-transform: none; letter-spacing: 0; color: var(--mfi-ink); margin: 0 0 7px; }
+  #misp-feed-intro .mfi-mode p { font-size: 13px; }
+  #misp-feed-intro .mfi-format-heading { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px 20px; margin: 24px 0 12px; }
+  #misp-feed-intro .mfi-format-heading h2 { font-size: 19px; letter-spacing: -.01em; margin: 0; }
+  #misp-feed-intro .mfi-format-heading p { font-size: 12px; }
+  #misp-feed-intro .mfi-formats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  #misp-feed-intro .mfi-format { padding: 20px; border: 1px solid var(--mfi-line); border-radius: 10px; background: #fff; }
+  #misp-feed-intro .mfi-format p { font-size: 13px; }
+  #misp-feed-intro .mfi-format-label { display: inline-block; padding: 3px 8px; border-radius: 5px; font-size: 10px; font-weight: 750; letter-spacing: .03em; margin-bottom: 12px; color: #225b85; background: #eaf3fb; }
+  #misp-feed-intro .mfi-format-label--csv { color: #236145; background: #eaf5ef; }
+  #misp-feed-intro .mfi-format-label--text { color: #624889; background: #f1edfa; }
+  @media (max-width: 700px) {
+    #misp-feed-intro .mfi-overview { grid-template-columns: 1fr; gap: 22px; padding: 22px; }
+    #misp-feed-intro .mfi-modes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #misp-feed-intro .mfi-formats { grid-template-columns: 1fr; }
+    #misp-feed-intro .mfi-format { padding: 18px; }
+  }
+  @media (max-width: 420px) {
+    #misp-feed-intro .mfi-modes { grid-template-columns: 1fr; }
+  }
+</style>
+
+<section id="misp-feed-intro" aria-labelledby="mfi-title">
+  <div class="mfi-overview">
+    <div>
+      <p class="mfi-eyebrow">Open-source intelligence</p>
+      <h2 id="mfi-title">More context for your investigations</h2>
+      <p>MISP's default feeds bring together public indicators and threat intelligence from community providers. Use them to investigate matches in your events and attributes, discover related activity, and compare coverage across sources.</p>
+      <div class="mfi-actions">
+        <a class="mfi-browse" href="#misp-feed-catalog">Browse the feeds <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M8 2v11M3 8l5 5 5-5"/></svg></a>
+        <a href="https://www.circl.lu/doc/misp/managing-feeds/">Feed setup guide</a>
+      </div>
+    </div>
+    <div class="mfi-modes">
+      <div class="mfi-mode">
+        <h3>Cache &amp; correlate</h3>
+        <p>Check your existing attributes against feed indicators without creating local events.</p>
+      </div>
+      <div class="mfi-mode">
+        <h3>Fetch &amp; import</h3>
+        <p>Bring selected feed content into your MISP instance for further analysis.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mfi-format-heading">
+    <h2 id="mfi-formats-title">Three supported feed formats</h2>
+    <p>Read from a network URL or a local file.</p>
+  </div>
+  <div class="mfi-formats" role="group" aria-labelledby="mfi-formats-title">
+    <div class="mfi-format">
+      <span class="mfi-format-label">STRUCTURED EVENTS</span>
+      <h3><a href="https://github.com/MISP/misp-rfc/blob/master/misp-core-format/raw.md.txt">MISP format</a></h3>
+      <p>The native format for sharing complete events, with attributes and their context.</p>
+    </div>
+    <div class="mfi-format">
+      <span class="mfi-format-label mfi-format-label--csv">TABULAR DATA</span>
+      <h3>CSV</h3>
+      <p>Select the columns to parse and import from a table of indicators.</p>
+    </div>
+    <div class="mfi-format">
+      <span class="mfi-format-label mfi-format-label--text">UNSTRUCTURED TEXT</span>
+      <h3>Free text</h3>
+      <p>Let MISP detect supported indicator types in an unstructured text source.</p>
+    </div>
+  </div>
+</section>
