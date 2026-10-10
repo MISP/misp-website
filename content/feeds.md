@@ -5,27 +5,19 @@ permalink: /feeds/
 toc: true
 ---
 
-MISP includes a set of public OSINT feeds in its default configuration. The feeds can
-be used as a source of correlations for all of your events and attributes without the need to
-import them directly into your system. The MISP feed system allows for fast correlation but also
-a for quick comparisons of the feeds against one another.
-
-The feeds can be in three different formats:
-
-- [MISP standardized format](https://github.com/MISP/misp-rfc/blob/master/misp-core-format/raw.md.txt) which is the preferred format to benefit from all the MISP functionalities.
-- CSV format, allowing you to pick the columns that are to be imported.
-- freetext format which allows automatic ingestion and detection of indicator/attribute by parsing any unstructured text.
-
-and located in different input transports:
-
-- Network (URL)
-- Local (file)
+{{< feed-intro >}}
 
 <!-- BEGIN GENERATED MISP FEEDS -->
 {{< feed-catalog >}}
 <!-- END GENERATED MISP FEEDS -->
 
-To enable a feed for caching, you just need to check the enabled field to benefit automatically of the feeds in your local MISP instance. To allow other users of your MISP instance to benefit from this functionality, simply check the "lookup visible" checkbox.
+## Using feeds in your MISP instance
+
+- **Cache for correlation:** turn on **Caching enabled** for your selected feeds, then run a cache action from the Feeds screen. Caching prepares indicator lookups without creating local events.
+- **Share lookups:** enable **Lookup visible** so other users on your instance can see feed correlations.
+- **Import when needed:** enable the feed and use a fetch action to store its data locally.
+
+See the [feed management guide](https://www.circl.lu/doc/misp/managing-feeds/) for configuration steps and the site administrator permissions required to manage feeds.
 
 ## Feed overlap analysis matrix
 
