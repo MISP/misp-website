@@ -61,23 +61,39 @@ def fetch(url, timeout):
 def archive_records(raw):
     """Read JSON directly; never extract paths from an upstream archive."""
     files = {}
+    members = {}
     total = 0
     with tarfile.open(fileobj=io.BytesIO(raw), mode="r:gz") as archive:
         for member in archive:
             parts = member.name.split("/")
-            relevant = (len(parts) == 2 and parts[1] == "MANIFEST.json") or (
-                len(parts) == 3 and parts[2] == "machinetag.json")
+            while parts and parts[0] == ".":
+                parts.pop(0)
+            relevant = (len(parts) in (1, 2) and parts[-1] == "MANIFEST.json") or (
+                len(parts) in (2, 3) and parts[-1] == "machinetag.json")
             if not relevant or not member.isfile():
                 continue
             if any(p in ("", ".", "..") for p in parts):
                 raise ValueError("Invalid archive metadata path.")
-            path = "/".join(parts[1:])
+            path = tuple(parts)
             total += member.size
-            if member.size > LIMIT or total > LIMIT or path in files:
+            if member.size > LIMIT or total > LIMIT or path in members:
                 raise ValueError("Archive metadata exceeds limits or contains duplicate paths.")
-            files[path] = json.loads(archive.extractfile(member).read().decode("utf-8-sig"))
-    if "MANIFEST.json" not in files:
-        raise ValueError("Source has no MANIFEST.json.")
+            members[path] = member
+        manifests = [path for path in members if path[-1] == "MANIFEST.json"]
+        if not manifests:
+            raise ValueError("Source has no MANIFEST.json.")
+        if len(manifests) != 1:
+            raise ValueError("Source has multiple MANIFEST.json files.")
+        prefix = manifests[0][:-1]
+        for parts, member in members.items():
+            if parts[:len(prefix)] != prefix:
+                continue
+            relative = parts[len(prefix):]
+            if relative != ("MANIFEST.json",) and not (
+                    len(relative) == 2 and relative[1] == "machinetag.json"):
+                continue
+            files["/".join(relative)] = json.loads(
+                archive.extractfile(member).read().decode("utf-8-sig"))
     return files.pop("MANIFEST.json"), files
 
 
@@ -102,7 +118,11 @@ def load_source(source, ref, timeout):
             elif (path / ".git").exists():
                 revision = subprocess.check_output(
                     ["git", "-C", str(path), "rev-parse", "HEAD"], text=True).strip()
-            # Content hashes below also identify dirty or non-Git local sources.
+                changed = subprocess.check_output(
+                    ["git", "-C", str(path), "status", "--porcelain", "--",
+                     "MANIFEST.json", "*/machinetag.json"], text=True)
+                if changed:
+                    revision = None
             return manifest, files, revision
         with path.open("rb") as stream:
             raw = stream.read(LIMIT + 1)
@@ -192,6 +212,8 @@ def validate(metadata, name):
 
 
 def build_catalog(manifest, files, revision=None):
+    if revision is not None and not re.fullmatch(r"[0-9a-f]{40}", revision):
+        raise ValueError("Source revision must be a full immutable commit SHA.")
     if not isinstance(manifest, dict) or not isinstance(manifest.get("taxonomies"), list) or not manifest["taxonomies"]:
         raise ValueError("Expected a non-empty manifest taxonomies array.")
     listed = {}
@@ -217,8 +239,8 @@ def build_catalog(manifest, files, revision=None):
                         "predicate_count": len(metadata["predicates"]),
                         "value_count": sum(len(v.get("entry", [])) for v in metadata.get("values", [])),
                         "tag_count": sum(1 for _ in machine_tags(metadata)),
-                        "source_url": REPOSITORY + "/tree/" + quote(revision or "main", safe="") + "/" + quote(name, safe=""),
-                        "json_url": "https://raw.githubusercontent.com/MISP/misp-taxonomies/" + quote(revision or "main", safe="") + "/" + quote(name, safe="") + "/machinetag.json"})
+                        "source_url": REPOSITORY + "/tree/" + revision + "/" + quote(name, safe="") if revision else None,
+                        "json_url": "https://raw.githubusercontent.com/MISP/misp-taxonomies/" + revision + "/" + quote(name, safe="") + "/machinetag.json" if revision else None})
     records.sort(key=lambda r: (r["metadata"]["namespace"].casefold(), r["name"]))
     return {"schema_version": 1, "repository": REPOSITORY, "revision": revision,
             "manifest": manifest, "taxonomy_count": len(records), "taxonomies": records}
@@ -247,10 +269,13 @@ def render_card(record):
         details += f'<dt>References</dt><dd><ul>{refs}</ul></dd>'
     badge = '<span class="mt-deprecated">Deprecated</span>' if status == "deprecated" else ""
     structure = "values" if record["value_count"] else "predicates"
+    resources = (f'<nav aria-label="{escape(name)} resources"><a href="{escape(record["source_url"])}">Source</a>'
+                 f'<a href="{escape(record["json_url"])}">JSON</a></nav>'
+                 if record["source_url"] and record["json_url"] else "")
     return f'''<article class="mt-card" id="taxonomy-{escape(record['name'])}" data-search="{escape(search)}" data-status="{status}" data-structure="{structure}" data-namespace="{escape(name.lower())}" data-tags="{record['tag_count']}">
 <div class="mt-card-head"><h3>{escape(name)}</h3>{badge}<span class="mt-version">v{metadata['version']}</span></div>
 {title}<p class="mt-description">{escape(metadata['description'])}</p>
-<div class="mt-card-footer"><span class="mt-tag-count">{record['tag_count']:,} defined tags</span><nav aria-label="{escape(name)} resources"><a href="{escape(record['source_url'])}">Source</a><a href="{escape(record['json_url'])}">JSON</a></nav></div>
+<div class="mt-card-footer"><span class="mt-tag-count">{record['tag_count']:,} defined tags</span>{resources}</div>
 <details><summary>Tag examples &amp; metadata</summary><ul class="mt-examples">{examples}</ul><dl>{details}</dl></details>
 </article>'''
 

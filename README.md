@@ -113,7 +113,14 @@ python3 scripts/update_taxonomies.py --output /tmp/taxonomy-preview
 Open `taxonomies.html` in that directory; its download links to the adjacent
 `taxonomies.json`. To pin the upstream source, add `--ref <commit-or-tag>`. For
 offline operation, add `--source /path/to/misp-taxonomies` or a repository
-`.tar.gz` archive. Network requests use a 30-second timeout and retry transient
+`.tar.gz` archive. Archives may contain the repository files at the root (as
+produced by `git archive`) or beneath one common directory (GitHub downloads).
+Offline snapshots without a known commit SHA omit the per-taxonomy upstream
+Source/JSON links; the complete metadata download remains available. A directory
+may provide its upstream commit in a `REVISION` file containing the full
+40-character SHA. Clean Git checkouts use `HEAD`; changes to the manifest or
+taxonomy files make the checkout a local snapshot. Network requests use a
+30-second timeout and retry transient
 failures up to twice; override the timeout with `--timeout`. Repeated runs with
 identical source content produce identical output and preserve file timestamps.
 Generation does not publish the website; deployment uses the existing workflow.
