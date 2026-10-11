@@ -69,6 +69,57 @@ deployment uses the existing website workflow.
 
 Generator checks can be run with `python3 -m unittest discover -s tests`.
 
+## Updating the taxonomy catalogue
+
+The datamodels taxonomy section is generated from all `machinetag.json` files in
+[`MISP/misp-taxonomies`](https://github.com/MISP/misp-taxonomies). Python 3.9 or
+later is sufficient; no packages or API credentials are required.
+
+```sh
+python3 scripts/update_taxonomies.py --website-root .
+hugo server
+```
+
+The collector resolves `main` to a commit and downloads that revision's archive.
+It verifies that every taxonomy in `MANIFEST.json` is present, also includes any
+unlisted taxonomy definitions, and validates all definitions before writing.
+Version zero and predicate-only taxonomies are supported. The downloadable JSON
+preserves the full manifest and every metadata field, including UUIDs, references,
+colours, numerical values, predicates and value descriptions. It adds counts,
+source links, the source revision and a canonical JSON SHA-256 for each definition.
+
+Commit these generated files alongside the script and its CSS/JavaScript assets:
+
+- `content/datamodels.md`: the list becomes `{{< taxonomy-catalog >}}`, preserving
+  the introduction and other data-model sections.
+- `layouts/shortcodes/taxonomy-catalog.html`: responsive cards with search over
+  namespaces, descriptions, predicate/value labels, references and machine tags.
+- `static/data/taxonomies.json`: the complete metadata download.
+
+Search ignores case and accents and requires every space-separated term to match.
+The tag-structure filter separates taxonomies with enumerated values from those
+containing predicates only; sorting supports namespace or defined-tag count.
+Cards show the version, description, counts, tag examples and source/JSON links.
+All cards and expandable metadata remain available without JavaScript. Counts
+describe defined tags, not every possible free-text tag. A deprecated flag, if
+present in a source definition, is displayed without excluding the taxonomy.
+
+For a standalone preview and metadata export:
+
+```sh
+python3 scripts/update_taxonomies.py --output /tmp/taxonomy-preview
+```
+
+Open `taxonomies.html` in that directory; its download links to the adjacent
+`taxonomies.json`. To pin the upstream source, add `--ref <commit-or-tag>`. For
+offline operation, add `--source /path/to/misp-taxonomies` or a repository
+`.tar.gz` archive. Network requests use a 30-second timeout and retry transient
+failures up to twice; override the timeout with `--timeout`. Repeated runs with
+identical source content produce identical output and preserve file timestamps.
+Generation does not publish the website; deployment uses the existing workflow.
+
+Run generator checks with `python3 -m unittest discover -s tests`.
+
 ## How to deploy the MISP website
 
 The Pages workflow builds on pushes to `new` and every six hours. Each build
