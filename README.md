@@ -139,3 +139,54 @@ A failed feed request times out after ten seconds and produces a warning without
 preventing the site from building. The security page keeps a link to the full
 Vulnerability-Lookup results even when the feed is unavailable or JavaScript is
 disabled.
+
+## Updating the module catalogue
+
+The searchable `/modules/` page is generated from all public module Python files
+in [MISP/misp-modules](https://github.com/MISP/misp-modules), covering expansion,
+import, export and workflow action modules. Python 3.9+ and its standard library
+are sufficient; the generator never imports or runs module code, so optional
+module dependencies and API credentials are unnecessary.
+
+```sh
+python3 scripts/update_modules.py --website-root .
+hugo server
+```
+
+The generator resolves `main` to a commit and reads that exact revision's archive.
+Commit `layouts/shortcodes/module-catalog.html` and `static/data/modules.json`
+alongside the generator, page, CSS and JavaScript. Re-running with identical
+inputs produces identical output and preserves unchanged file timestamps.
+Refresh whenever upstream modules change; generation uses the existing website
+deployment workflow and does not publish by itself.
+
+For a pinned source, add `--ref <commit-or-tag>`. For offline operation, add
+`--source /path/to/misp-modules` or `--source /path/to/snapshot.tar.gz` (repository
+files at the root or beneath a common wrapper directory). Clean Git checkouts
+use `HEAD`; local snapshots can supply a full upstream commit SHA in a `REVISION`
+file. Archives supplied offline and modified checkouts have no verified revision,
+so source links use `main` and cards use initials. HTTP requests have a 30-second
+timeout, adjustable with `--timeout`. Invalid metadata fails before output writes.
+Underscore-prefixed helpers are excluded; every other module must provide static
+module metadata (including typed declarations, constant references and simple
+formatted strings). Newly introduced dynamic metadata causes an explicit error
+instead of silently omitting modules. Dynamic optional input/output declarations
+are marked explicitly with a link to their source.
+
+For a standalone preview and JSON export:
+
+```sh
+python3 scripts/update_modules.py --output /tmp/module-preview
+```
+
+Open `modules.html` in that directory. The responsive cards include names,
+descriptions, categories, requirements, inputs/outputs, authors and source links.
+Search is case/accent insensitive and matches all space-separated terms; it can
+be combined with the type filter. All cards and details are available without
+JavaScript. Logos use HTTPS URLs pinned to the same upstream revision, with
+initials on missing or failed images. They require access to
+`raw.githubusercontent.com`; no visitor search data is sent to any service.
+The catalogue describes upstream integrations, not the enabled modules or runtime
+availability of a particular MISP instance.
+
+Run checks with `python3 -m unittest discover -s tests`.
