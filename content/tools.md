@@ -29,7 +29,7 @@ Choose tools for your use case and check their installation instructions, suppor
 
 #### Enrichment, import, export, and workflow module catalog
 
-The [misp-modules documentation](https://misp.github.io/misp-modules/) and [repository](https://github.com/MISP/misp-modules) provide the module catalog, configuration, and dependencies. Consult that catalog instead of relying on a fixed list of individual Python files, which changes as integrations evolve.
+The [misp-modules documentation](https://misp.github.io/misp-modules/) and [repository](https://github.com/MISP/misp-modules) provide the module catalog, configuration, and dependencies. Browse the [searchable module catalogue](/modules/) for module cards, logos, inputs, outputs, and requirements.
 
 * **Enrichment and expansion:** passive DNS/SSL, vulnerability lookup, hash reputation, sandbox results, geolocation, and other contextual sources.
 * **Import:** external intelligence formats, email, documents, and analysis reports.
