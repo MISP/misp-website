@@ -190,3 +190,57 @@ The catalogue describes upstream integrations, not the enabled modules or runtim
 availability of a particular MISP instance.
 
 Run checks with `python3 -m unittest discover -s tests`.
+
+## Updating the warning-list catalogue
+
+The searchable `/warninglists/` page, linked under **Documentation**, is generated
+from every `lists/*/list.json` in
+[MISP/misp-warninglists](https://github.com/MISP/misp-warninglists). Python 3.9+
+and its standard library are sufficient; no packages or API credentials are needed.
+
+```sh
+python3 scripts/update_warninglists.py --website-root .
+hugo server
+```
+
+The script resolves `main` to a commit and downloads that revision's archive. It
+validates every list before writing, then regenerates these two files:
+
+- `layouts/shortcodes/warninglist-catalog.html`
+- `static/data/warninglists.json`
+
+Commit both generated files. Refresh them whenever upstream warning lists change.
+Identical source content produces identical output and preserves unchanged file
+timestamps. Generation does not publish the website; deployment uses the existing
+website workflow.
+
+Cards use the same responsive style as the module catalogue, with case/accent
+insensitive search (all space-separated terms must match), match-type and attribute
+filters, entry counts, versions, categories when supplied, matching attributes,
+and up to five example entries. Lists matching `ALL` are included for every
+attribute filter. All cards and details remain available without JavaScript.
+Counts describe source entries and may include overlaps between lists; a match
+is context for analysis, not proof that an indicator is benign. The catalogue
+does not report the lists enabled in a visitor's MISP instance.
+
+The metadata download retains every source field except the full `list` array,
+adding counts, examples and revision-pinned source/JSON links. Large entry arrays
+stay upstream to keep the website small. Downloads stream to a temporary file;
+limits are 256 MiB per download/definition and 512 MiB of definitions per archive.
+
+For a standalone preview and metadata export:
+
+```sh
+python3 scripts/update_warninglists.py --output /tmp/warninglist-preview
+```
+
+Open `warninglists.html` in that directory. Add `--ref <commit-or-tag>` to pin
+the upstream source, or `--source /path/to/misp-warninglists` (or a repository
+`.tar.gz` archive) for offline operation. Archives can have files at the root or
+under one common wrapper directory. Clean Git checkouts use `HEAD`; plain
+directories may supply a full upstream commit SHA in `REVISION`. Modified Git
+checkouts and offline archives have no verified revision, so upstream source/JSON
+links are omitted. Network requests use a 30-second timeout, adjustable with
+`--timeout`.
+
+Run checks with `python3 -m unittest discover -s tests`.

@@ -19,6 +19,10 @@ MISP Install guides (stock install instructions for getting a base MISP system r
 - [MISP objects](https://github.com/MISP/misp-objects) are documented and available in [HTML format](/objects.html) or [PDF format](/objects.pdf).
 - [MISP taxonomies](https://github.com/MISP/misp) are documented and available in [HTML format](/taxonomies.html) or [PDF format](/taxonomies.pdf).
 
+### MISP warning lists
+
+Browse the [warning-list catalogue](/warninglists/) to search all upstream lists, inspect matching attributes and examples, and open their source definitions.
+
 ### MISP training materials
 
 All MISP training materials (including source code) are available at [https://github.com/MISP/misp-training](https://github.com/MISP/misp-training).
