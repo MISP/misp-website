@@ -212,7 +212,7 @@ The MISP shell scripts include a package meant to remedy this issue. To view the
 
 ## 6.1 High performance Indexing
 
-`/var/www/MISP/app/Console/cake Admin highPerformance` in particular is meant to improve performance dramatically, assuming you are not constrained by a low memory system. It will in particular reindex the main data tables (attributes, events, objects, correlations, etc.). It is re-run safe and will over time see changes to what exactly gets indexed, making it a habit of running the script is considered good practice.
+`/var/www/MISP/app/Console/cake Admin runDBScript highPerformance` in particular is meant to improve performance dramatically, assuming you are not constrained by a low memory system. It will in particular reindex the main data tables (attributes, events, objects, correlations, etc.). It is re-run safe and will over time see changes to what exactly gets indexed, making it a habit of running the script is considered good practice.
 
 Scripts that detect no required changes to be made finish instantly.
 
@@ -220,9 +220,9 @@ Scripts that detect no required changes to be made finish instantly.
 
 By default, The logs in MISP are not indexed, making searches extremely costly. However, this was considered to be the lesser evil when deciding which indeces to omit for lower specced servers, especially for instances that are not used as sharing hubs, but rather as local tools and thus require less auditing.
 
-If being able to actively search the logs is desired, the additional indeces can be enabledby using the above mentioned `runDBScript` with the `indexLogs` parameter:
+If being able to actively search the logs is desired, the additional indeces can be enabled by using the above mentioned `runDBScript` with the `indexLogs` parameter:
 
-`/var/www/MISP/app/Console/cake Admin indexLogs`
+`/var/www/MISP/app/Console/cake Admin runDBScript indexLogs`
 
 
 # 7. General tips for building data-sets that are manageable
