@@ -253,6 +253,7 @@ These tools are developed by their respective communities or vendors. Check upst
 | [sigmai](https://github.com/0xThiebaut/sigmai) | Generates Sigma rules from MISP indicators. For storing and exchanging existing Sigma rules, MISP also has native Sigma support. |
 | [MISP2CbR](https://github.com/eCrimeLabs/MISP2CbR) | Converts MISP intelligence into a Carbon Black Response threat feed. Check compatibility with your product version. |
 | [MISP CrowdStrike scripts](https://github.com/aacgood/MISP-Integrations) | Scripts for exporting MISP indicators to CrowdStrike; review the supported CrowdStrike API before use. |
+| [Huntbase](https://docs.huntbase.io/docs/integrations/catalog/misp-feed) | Threat-hunting platform that ingests a MISP server (API mode, read-only auth key) or a published MISP feed as indicators, with tag, threat-level and published-only filters. Matches them against connected SIEM, EDR and cloud data and retro-hunts new feeds. |
 
 #### Collection and analyst utilities
 
