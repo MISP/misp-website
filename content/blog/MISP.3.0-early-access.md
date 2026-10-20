@@ -163,6 +163,22 @@ The Early Access lives on the `3.0_wip` branch of the [MISP repository](https://
 To get the code, follow the [update instructions](https://github.com/MISP/MISP/blob/3.0_wip/docs/UPDATE.md),
 pulling the `3.0_wip` branch, then convert the database as described below.
 
+**Prefer Docker?** The [`misp-3.0_wip` branch of misp-docker](https://github.com/MISP/misp-docker/tree/misp-3.0_wip)
+builds MISP from `3.0_wip`. No pre-built images are published for the Early Access, so build the
+image yourself:
+
+```bash
+git clone -b misp-3.0_wip https://github.com/MISP/misp-docker.git
+cd misp-docker
+cp template.env .env
+docker compose build
+docker compose up
+```
+
+A fresh deployment gets the MISP 3.0 schema on first boot. `3.0_wip` keeps moving: to pick up new
+commits, rebuild with `docker compose build --no-cache`, or pin a commit with `CORE_COMMIT` in `.env`.
+If you point the containers at an existing 2.5 database, it still needs the conversion below.
+
 ### Upgrading an existing instance
 
 **The upgrade is one-way.** Once upgraded, the database can no longer be used by MISP 2.5 and
