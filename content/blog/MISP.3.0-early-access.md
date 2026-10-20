@@ -211,3 +211,5 @@ Report bugs and remarks as [GitHub issues](https://github.com/MISP/MISP/issues),
 the new version with us on [Gitter](https://gitter.im/MISP/MISP).
 
 MISP has changed. Are you ready?
+
+[Hack.lu 2026 Reveal Trailer](https://cra.circl.lu/misp-v3-trailer-HACK.lu-web.mp4)
