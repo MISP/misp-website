@@ -14,7 +14,7 @@ years: a complete new interface, a page for every value you hold, analyst profil
 matters to *you*, and graphs you can pivot through, keep and share. The data model, the API and sync stay
 what you know, so your tools, your scripts and your sharing partners keep working.
 
-**[TODO: embed the release trailer here with Hugo's youtube shortcode once it is uploaded]**
+{{< youtube mmRKTLelxr0 >}}
 
 This post is a quick tour of the highlights.
 
@@ -159,7 +159,9 @@ default, so they may have gone unnoticed. In v3 they are simply part of MISP:
 
 Remember: **a test instance, not production**.
 
-**[TODO: where to get it — branch / tag, Docker image]**
+The Early Access lives on the `3.0_wip` branch of the [MISP repository](https://github.com/MISP/MISP/tree/3.0_wip).
+To get the code, follow the [update instructions](https://github.com/MISP/MISP/blob/3.0_wip/docs/UPDATE.md),
+pulling the `3.0_wip` branch, then convert the database as described below.
 
 ### Upgrading an existing instance
 
@@ -205,6 +207,7 @@ behind `MISP.value_hover_card`, and enrichment running automatically on value pa
 `Plugin.ValueIntelligence_enrichment_auto_run`.
 
 Your feedback is what turns the Early Access into the release.
-**[TODO: feedback channel — GitHub issues / discussions link]**
+Report bugs and remarks as [GitHub issues](https://github.com/MISP/MISP/issues), and come and discuss
+the new version with us on [Gitter](https://gitter.im/MISP/MISP).
 
 MISP has changed. Are you ready?
