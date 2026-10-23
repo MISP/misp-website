@@ -31,6 +31,20 @@ To compile a local version of the website, run the following commands in a termi
 6. To preview your site in your web browser, navigate to [http://localhost:1313](http://localhost:1313).
 
 
+## Embedding videos
+
+Use the shared shortcode so videos have a visible, centered play button:
+
+```text
+{{< video src="/img/blog/demo.webm" title="Description of the demo" >}}
+```
+
+Videos start on click, tap, or keyboard activation instead of autoplaying. The
+button returns when playback is paused or ends; native controls remain available,
+including when JavaScript is disabled. Videos play inline on mobile, retain the
+existing looping behavior, and preload metadata rather than requesting full
+playback on page load. An optional `type` parameter sets the source MIME type.
+
 ## Updating the default feed catalogue
 
 The feed catalogue is generated from the MISP **2.5** branch's
