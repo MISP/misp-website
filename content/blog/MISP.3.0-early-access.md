@@ -6,7 +6,6 @@ author:
 date: 2026-10-16
 tags: ["MISP", "Threat Intelligence", "release", "MISP v3"]
 layout: post
-draft: true
 ---
 
 **MISP v3.0 is here in Early Access.** It is the biggest change to the way you work in MISP in
