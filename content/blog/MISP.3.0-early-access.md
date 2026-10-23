@@ -15,7 +15,7 @@ what you know, so your tools, your scripts and your sharing partners keep workin
 
 {{<video src="https://cra.circl.lu/misp-v3-trailer-corporate-web.webm" title="Reveal Trailer" >}}
 
-This post is a quick tour of the highlights.
+This post is a quick tour of the highlights. Expect more blog posts for each new feature.
 
 <blockquote style="border-left: 4px solid #e0a800; background: #fff8e1; padding: 0.8em 1.2em;">
 <p><strong>⚠ Early Access: not for production.</strong></p>
