@@ -1,6 +1,11 @@
-<div class="myvideo">
-   <video style="display:block; width:100%; height:auto;" autoplay controls loop="loop">
-        <source src="{{ index .Params "src" }}"  {{ if isset .Params "title"}} title="{{ index .Params "title" }}" {{end}} />
+{{- $title := .Get "title" | default "Video" -}}
+<div class="myvideo" data-video-player>
+    <video controls loop playsinline preload="metadata" aria-label="{{ $title }}">
+        <source src="{{ .Get "src" }}"{{ with .Get "type" }} type="{{ . }}"{{ end }}>
         Sorry, cannot display the video as the video tag is not supported by your browser.
-   </video>
+    </video>
+    <button class="video-play" type="button" aria-label="Play {{ $title }}" data-video-play hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        <span>Play video</span>
+    </button>
 </div>

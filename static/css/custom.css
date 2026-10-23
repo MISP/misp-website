@@ -27,6 +27,62 @@
     --shadow-md: 0 14px 38px rgba(23, 38, 51, 0.11);
 }
 
+/* Keep the play action visible without hovering over the native controls. */
+.myvideo {
+    position: relative;
+    background: #102633;
+}
+
+.myvideo video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto 16 / 9;
+}
+
+.myvideo .video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-width: 112px;
+    min-height: 88px;
+    padding: 10px 16px;
+    border: 2px solid #fff;
+    border-radius: 14px;
+    background: rgba(16, 38, 51, 0.92);
+    color: #fff;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.myvideo .video-play[hidden] {
+    display: none;
+}
+
+.myvideo .video-play:hover,
+.myvideo .video-play:focus-visible {
+    background: #006f86;
+}
+
+.myvideo .video-play:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 4px;
+}
+
+.myvideo .video-play svg {
+    width: 36px;
+    height: 36px;
+}
+
 html {
     scroll-behavior: smooth;
 }
