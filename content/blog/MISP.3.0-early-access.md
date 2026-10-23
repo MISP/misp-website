@@ -14,7 +14,7 @@ years: a complete new interface, a page for every value you hold, analyst profil
 matters to *you*, and graphs you can pivot through, keep and share. The data model, the API and sync stay
 what you know, so your tools, your scripts and your sharing partners keep working.
 
-{{<video src="https://cra.circl.lu/misp-v3-trailer-corporate-web.mp4" title="Reveal Trailer" >}}
+{{<video src="https://cra.circl.lu/misp-v3-trailer-corporate-web.webm" title="Reveal Trailer" >}}
 
 This post is a quick tour of the highlights.
 
