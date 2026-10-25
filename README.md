@@ -31,6 +31,23 @@ To compile a local version of the website, run the following commands in a termi
 6. To preview your site in your web browser, navigate to [http://localhost:1313](http://localhost:1313).
 
 
+## Blog images
+
+The `banner` front matter supplies the thumbnail and sharing image. On individual
+posts it appears in a compact featured-image panel with a full-size link. If the
+same image is already embedded in the article, the featured panel is omitted so
+the image appears once, in context. Set `show_banner: false` to omit the panel
+while retaining the thumbnail and sharing image.
+
+Use `banner_alt` for an accessible image description and `banner_caption` for an
+optional visible caption. Images inside the article retain their natural aspect
+ratio and receive space above and below. A Markdown image title becomes a visible
+caption on blog posts:
+
+```markdown
+![The enrichment settings panel](/img/blog/mod2.png "Configure enrichment modules in MISP.")
+```
+
 ## Embedding videos
 
 Use the shared shortcode so videos have a visible, centered play button:
