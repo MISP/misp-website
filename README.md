@@ -183,7 +183,11 @@ so source links use `main` and cards use initials. HTTP requests have a 30-secon
 timeout, adjustable with `--timeout`. Invalid metadata fails before output writes.
 Underscore-prefixed helpers are excluded; every other module must provide static
 module metadata (including typed declarations, constant references and simple
-formatted strings). Newly introduced dynamic metadata causes an explicit error
+formatted strings). Imported helpers in `misp_modules/lib` are also supported
+when their body consists only of returning a dictionary built from literal
+positional arguments, such as the shared network ACL export metadata helper.
+Helper source is read from the same snapshot; it is never imported or executed.
+Newly introduced dynamic metadata causes an explicit error
 instead of silently omitting modules. Dynamic optional input/output declarations
 are marked explicitly with a link to their source.
 
