@@ -2,6 +2,631 @@ Changelog
 =========
 
 
+v3.1.1 (2026-10-25)
+-------------------
+
+Changes
+~~~~~~~
+- [pyproject] v3.1.1 release. [Alexandre Dulaunoy]
+- [onyphe] Align Search enrichment with the OpenAPI data models.
+  [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [csvimport] parse custom delimiters with csv, tolerate empty cells,
+  import attribute_tag. [Andrei Bacescu]
+
+  With a special delimiter, every line was first split on commas by
+  csv.reader and only the first piece was split on the delimiter, so a
+  comma inside a field truncated the rest of the line (a comment lost
+  everything after its first comma, a line with a comma in its first
+  field was dropped). Single-character delimiters now go through
+  csv.reader with that delimiter, which also honours CSV quoting; longer
+  delimiters split the raw lines and skip blank ones.
+
+  An empty to_ids or category cell raised KeyError and aborted the whole
+  import. These cells are now left unset, as for other empty fields.
+
+  With a header of MISP attribute field names, the attribute_tag column
+  was never turned into tags because the code looked for a Tag key, which
+  header validation never accepts. Read attribute_tag instead.
+- [defender_endpoint_export] match sha256 values against
+  InitiatingProcessSHA256. [Andrei Bacescu]
+
+  The sha256 query compared the value with InitiatingProcessSHA1, which
+  holds SHA-1 hashes and can never equal a SHA-256 value, so matches on
+  the initiating process image were missed. Use InitiatingProcessSHA256,
+  the matching column in the advanced hunting schema.
+- [reversinglabs] Complete upload metadata before detonation. [Alexandre
+  Dulaunoy]
+- [reversinglabs] Parse the documented query hash object. [Alexandre
+  Dulaunoy]
+- [qualys] Use the active API and report missing endpoints. [Alexandre
+  Dulaunoy]
+- [proofpoint] Preserve structured sample sizes. [Alexandre Dulaunoy]
+- [osint industries] Honor lookup timeout and result schemas. [Alexandre
+  Dulaunoy]
+- [orion] Bound cumulative report lookup time. [Alexandre Dulaunoy]
+- [datalake] Use the current versioned lookup endpoint. [Alexandre
+  Dulaunoy]
+- [scout] Preserve usable intelligence in partial conversions.
+  [Alexandre Dulaunoy]
+- [wildfire] Support appliance CA bundles with verified TLS. [Alexandre
+  Dulaunoy]
+- [malbeacon] Preserve IP types for C2 indicators. [Alexandre Dulaunoy]
+- [zetalytics] Preserve provider observation timestamps. [Alexandre
+  Dulaunoy]
+- [unpacme] Parse child counts and retrieve private results. [Alexandre
+  Dulaunoy]
+- [scout] Preserve usable intelligence in partial conversions.
+  [Alexandre Dulaunoy]
+- [silentpush] Extract pivots from resolved IP records. [Alexandre
+  Dulaunoy]
+- [shadowtrackr] Preserve the documented lookup endpoint. [Alexandre
+  Dulaunoy]
+- [shadowtrackr] Send credentials in a JSON request body. [Alexandre
+  Dulaunoy]
+- Match osquery DNS indicators case-insensitively. [Alexandre Dulaunoy]
+- Align osquery exports and add local pack publishing. [Alexandre
+  Dulaunoy]
+- Update HTTP dependencies for emSign and Brotli security fixes.
+  [Alexandre Dulaunoy]
+- [export] Keep ASA IPv4 and IPv6 entries in one ACL. [Alexandre
+  Dulaunoy]
+- Generate poetry.lock. [Badger]
+- [wazuh] Raise CDB size limit and support analysisd reload. [Alexandre
+  Dulaunoy]
+- [cef export] Align file serialization with the CEF standard.
+  [Alexandre Dulaunoy]
+- [onyphe] Address CTI model review findings. [Alexandre Dulaunoy]
+
+Other
+~~~~~
+- Merge pull request #1004 from bacescuandrei/fix/csvimport-parsing.
+  [Alexandre Dulaunoy]
+
+  fix: [csvimport] parse custom delimiters with csv, tolerate empty cells, import attribute_tag
+- Merge pull request #1005 from bacescuandrei/fix/defender-
+  sha256-column. [Alexandre Dulaunoy]
+
+  fix: [defender_endpoint_export] match sha256 values against InitiatingProcessSHA256
+- Merge pull request #1003 from MISP/codex/expansion-gcve-cpe.
+  [Alexandre Dulaunoy]
+
+  Add GCVE CPE expansion module
+- Handle zero-page empty GCVE CPE searches. [Alexandre Dulaunoy]
+- Add GCVE CPE expansion module. [Alexandre Dulaunoy]
+- Merge pull request #1002 from MISP/codex/expansion-import-external-
+  reference. [Alexandre Dulaunoy]
+
+  Add Import External Reference expansion module
+- Handle completed reference streams before reusing their socket.
+  [Alexandre Dulaunoy]
+- Fix import external reference API response and pagination handling.
+  [Alexandre Dulaunoy]
+- Add Import External Reference expansion module. [Alexandre Dulaunoy]
+- Merge pull request #1001 from MISP/codex/expansion-hygiene. [Alexandre
+  Dulaunoy]
+
+  Add Hygiene Warninglist Check expansion module
+- Fix hygiene API response and pagination handling. [Alexandre Dulaunoy]
+- Add Hygiene Warninglist Check expansion module. [Alexandre Dulaunoy]
+- Merge pull request #1000 from MISP/codex/expansion-lastinfosec.
+  [Alexandre Dulaunoy]
+
+  Add LastInfoSec expansion module
+- Add LastInfoSec expansion module. [Alexandre Dulaunoy]
+- Merge pull request #999 from MISP/codex/expansion-kaspersky.
+  [Alexandre Dulaunoy]
+
+  Add Kaspersky Threat Intelligence Portal expansion module
+- Fix kaspersky API response and pagination handling. [Alexandre
+  Dulaunoy]
+- Add Kaspersky Threat Intelligence Portal expansion module. [Alexandre
+  Dulaunoy]
+- Merge pull request #998 from MISP/codex/expansion-ivre. [Alexandre
+  Dulaunoy]
+
+  Add IVRE expansion module
+- Fix ivre API response and pagination handling. [Alexandre Dulaunoy]
+- Add IVRE expansion module. [Alexandre Dulaunoy]
+- Merge pull request #997 from MISP/codex/expansion-intezer. [Alexandre
+  Dulaunoy]
+
+  Add Intezer Sandbox expansion module
+- Fix intezer API response and pagination handling. [Alexandre Dulaunoy]
+- Add Intezer Sandbox expansion module. [Alexandre Dulaunoy]
+- Merge pull request #996 from MISP/codex/expansion-hybrid-analysis.
+  [Alexandre Dulaunoy]
+
+  Add Hybrid Analysis Sandbox expansion module
+- Fix hybrid analysis API response and pagination handling. [Alexandre
+  Dulaunoy]
+- Add Hybrid Analysis Sandbox expansion module. [Alexandre Dulaunoy]
+- Merge pull request #995 from MISP/codex/expansion-intel471-hunt.
+  [Alexandre Dulaunoy]
+
+  Add Intel 471 Hunter expansion module
+- Fix intel471 hunt API response and pagination handling. [Alexandre
+  Dulaunoy]
+- Add Intel 471 Hunter expansion module. [Alexandre Dulaunoy]
+- Merge pull request #994 from MISP/codex/expansion-hostio. [Alexandre
+  Dulaunoy]
+
+  Add Host.io expansion module
+- Fix hostio API response and pagination handling. [Alexandre Dulaunoy]
+- Add Host.io expansion module. [Alexandre Dulaunoy]
+- Merge pull request #992 from MISP/codex/expansion-reversinglabs-
+  spectra-intel-submission. [Alexandre Dulaunoy]
+
+  Add ReversingLabs Spectra Intelligence Submission expansion module
+- Add: [expansion] ReversingLabs Spectra Intelligence Submission.
+  [Alexandre Dulaunoy]
+- Merge pull request #991 from MISP/codex/expansion-reversinglabs-
+  malware-presence. [Alexandre Dulaunoy]
+
+  Add ReversingLabs Malware Presence expansion module
+- Add: [expansion] ReversingLabs Malware Presence. [Alexandre Dulaunoy]
+- Merge pull request #990 from MISP/codex/expansion-qualys-cve.
+  [Alexandre Dulaunoy]
+
+  Add Qualys CVE Enrichment expansion module
+- Add: [expansion] Qualys CVE Enrichment. [Alexandre Dulaunoy]
+- Merge pull request #989 from MISP/codex/expansion-proofpoint-et-
+  intelligence. [Alexandre Dulaunoy]
+
+  Add Proofpoint ET Intelligence expansion module
+- Add: [expansion] Proofpoint ET Intelligence. [Alexandre Dulaunoy]
+- Merge pull request #988 from MISP/codex/expansion-polyswarm-sandbox.
+  [Alexandre Dulaunoy]
+
+  Add PolySwarm Sandbox expansion module
+- Add: [expansion] PolySwarm Sandbox. [Alexandre Dulaunoy]
+- Merge pull request #987 from MISP/codex/expansion-polyswarm.
+  [Alexandre Dulaunoy]
+
+  Add PolySwarm Enrichment expansion module
+- Add: [expansion] PolySwarm Enrichment. [Alexandre Dulaunoy]
+- Merge pull request #985 from MISP/codex/expansion-osint-industries.
+  [Alexandre Dulaunoy]
+
+  Add OSINT Industries expansion module
+- Add: [expansion] OSINT Industries. [Alexandre Dulaunoy]
+- Merge pull request #984 from MISP/codex/expansion-orion-malware.
+  [Alexandre Dulaunoy]
+
+  Add Orion Malware expansion module
+- Add: [expansion] Orion Malware. [Alexandre Dulaunoy]
+- Merge pull request #983 from MISP/codex/expansion-orange-cyberdefense.
+  [Alexandre Dulaunoy]
+
+  Add Orange Cyberdefense Datalake expansion module
+- Add: [expansion] Orange Cyberdefense Datalake. [Alexandre Dulaunoy]
+- Merge pull request #993 from MISP/codex/scout-partial-conversion-
+  followup. [Alexandre Dulaunoy]
+
+  Preserve partial intelligence in Team Cymru Scout enrichment
+- Merge pull request #980 from MISP/codex/expansion-virustotal-
+  downloader. [Alexandre Dulaunoy]
+
+  Add VirusTotal Sample Downloader expansion module
+- Add: [expansion] VirusTotal Sample Downloader. [Alexandre Dulaunoy]
+- Merge pull request #986 from MISP/codex/expansion-paloalto-wildfire.
+  [Alexandre Dulaunoy]
+
+  Add Palo Alto WildFire expansion module
+- Add: [expansion] Palo Alto WildFire. [Alexandre Dulaunoy]
+- Merge pull request #982 from MISP/codex/expansion-metras. [Alexandre
+  Dulaunoy]
+
+  Add Metras Enrichment expansion module
+- Add: [expansion] Metras Enrichment. [Alexandre Dulaunoy]
+- Merge pull request #981 from MISP/codex/expansion-malbeacon.
+  [Alexandre Dulaunoy]
+
+  Add MalBeacon expansion module
+- Add: [expansion] MalBeacon. [Alexandre Dulaunoy]
+- Merge pull request #979 from MISP/codex/expansion-vmray-analyzer.
+  [Alexandre Dulaunoy]
+
+  Add VMRay Analyzer Lookup expansion module
+- Add: [expansion] VMRay Analyzer Lookup. [Alexandre Dulaunoy]
+- Merge pull request #978 from MISP/codex/expansion-zetalytics.
+  [Alexandre Dulaunoy]
+
+  Add Zetalytics Passive DNS expansion module
+- Add: [expansion] Zetalytics Passive DNS. [Alexandre Dulaunoy]
+- Merge pull request #977 from MISP/codex/expansion-unpac-me. [Alexandre
+  Dulaunoy]
+
+  Add UnpacMe Lookup expansion module
+- Add: [expansion] UnpacMe Lookup. [Alexandre Dulaunoy]
+- Merge pull request #976 from MISP/codex/expansion-team-cymru-scout-
+  search. [Alexandre Dulaunoy]
+
+  Add Team Cymru Scout Search expansion module
+- Add: [expansion] Team Cymru Scout Search. [Alexandre Dulaunoy]
+- Merge pull request #974 from MISP/codex/expansion-silentpush.
+  [Alexandre Dulaunoy]
+
+  Add Silent Push Enrichment expansion module
+- Style: [silentpush] Apply repository string formatting. [Alexandre
+  Dulaunoy]
+- Add: [expansion] Silent Push Enrichment. [Alexandre Dulaunoy]
+- Merge pull request #973 from MISP/codex/expansion-shadowtrackr.
+  [Alexandre Dulaunoy]
+
+  Add ShadowTrackr expansion module
+- Add: [expansion] ShadowTrackr. [Alexandre Dulaunoy]
+- Merge pull request #975 from MISP/codex/expansion-team-cymru-scout.
+  [Alexandre Dulaunoy]
+
+  Add Team Cymru Scout expansion module
+- Add: [expansion] Team Cymru Scout. [Alexandre Dulaunoy]
+- Merge pull request #972 from MISP/codex/expansion-shodan-internetdb.
+  [Alexandre Dulaunoy]
+
+  Add Shodan InternetDB expansion module
+- Add: [expansion] Shodan InternetDB. [Alexandre Dulaunoy]
+- Merge pull request #971 from MISP/codex/osquery-pack-format-and-
+  action. [Alexandre Dulaunoy]
+
+  Align osquery export with current packs and add local publish action
+- Merge pull request #970 from MISP/codex/matrix-chat-action. [Alexandre
+  Dulaunoy]
+
+  Add Matrix workflow action module
+- Add: [action] Send workflow messages to Matrix rooms. [Alexandre
+  Dulaunoy]
+- Merge pull request #969 from MISP/codex/update-http-security-
+  dependencies. [Alexandre Dulaunoy]
+
+  fix: update HTTP dependencies for emSign and Brotli vulnerabilities
+- Merge pull request #968 from MISP/codex/vendor-acl-exports. [Alexandre
+  Dulaunoy]
+
+  add: [export] Add PAN-OS, Junos, FortiOS, ASA and RouterOS ACL exporters
+- Add: [export] Add common vendor ACL export modules. [Alexandre
+  Dulaunoy]
+- Merge pull request #952 from badger-anyrun-integrations/dev-01-update-
+  anyrun-modules. [Alexandre Dulaunoy]
+
+  fix: [expansion_mod, import_mod] Add proxy settings for ANY.RUN modules and fix the report bug
+- Doc: clean up docstring in the anyrun config. [Badger]
+- General: add proxy settings to the anyrun connectors and fix a bug in
+  report. [Badger]
+- Merge pull request #967 from doersf/sochain. [Alexandre Dulaunoy]
+
+  add: [sochain] Expansion module for BTC, LTC, DOGE and ZEC addresses
+- Add: [sochain] Expansion module for BTC, LTC, DOGE and ZEC addresses.
+  [Atif Nazir]
+
+  Looks up a btc attribute or a coin-address object on SoChain and returns
+  its balance, totals, transaction count, first and last activity, recent
+  counterparties and any address poisoning look-alikes as coin-address
+  objects. Works without an API key; an optional apikey is sent as API-KEY.
+- Merge pull request #966 from MISP/codex/owasp-crs-export. [Alexandre
+  Dulaunoy]
+
+  Add OWASP CRS export for IDS-marked HTTP indicators
+- Add: [export] Export IDS-marked HTTP indicators for OWASP CRS.
+  [Alexandre Dulaunoy]
+- Merge pull request #964 from MISP/codex/wazuh-cdb-connector.
+  [Alexandre Dulaunoy]
+
+  Add Wazuh CDB export and publish modules
+- Add: [wazuh] Export and publish typed CDB indicator lists. [Alexandre
+  Dulaunoy]
+- Merge pull request #963 from MISP/codex/cef-export-standard.
+  [Alexandre Dulaunoy]
+
+  Fix CEF export serialization and standard compliance
+- Merge pull request #962 from MISP/codex/onyphe-openapi. [Alexandre
+  Dulaunoy]
+
+  Update ONYPHE enrichment for the OpenAPI CTI and ASM data models
+- Test: [onyphe] Preserve large numeric certificate serials. [Alexandre
+  Dulaunoy]
+- Merge pull request #961 from MISP/codex/squid-proxy-export. [Alexandre
+  Dulaunoy]
+
+  Add IDS-filtered Squid proxy export module
+- Add IDS-filtered Squid proxy export module. [Alexandre Dulaunoy]
+- Merge pull request #960 from MISP/codex/webarchive-expansion.
+  [Alexandre Dulaunoy]
+
+  Add Wayback Machine webarchive expansion module
+- Add Wayback Machine webarchive expansion module. [Alexandre Dulaunoy]
+
+
+v3.1.0 (2026-10-20)
+-------------------
+
+Changes
+~~~~~~~
+- [pyproject] v3.0.13. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- [version] v3.1.0. [Alexandre Dulaunoy]
+
+
+v3.0.13 (2026-10-19)
+--------------------
+
+Changes
+~~~~~~~
+- [rdap] look hostnames up at their registered domain. [Claude Opus 5.5
+  (1M context), Sami Mokaddem]
+
+  Registries only hold registered domains, so asking rdap.org for a
+  hostname, a subdomain or the host of a URL returned no record. The
+  module now finds the registered domain with the ICANN section of the
+  Public Suffix List and asks for it once; a public suffix is asked as
+  given. The private section is skipped on purpose: duckdns.org is
+  registered under .org, and its registry answers for duckdns.org, not
+  foo.duckdns.org.
+
+  The whois object's domain is the lowercased name that was asked, not
+  RDAP's ldhName, and a comment says when it is the registered domain of
+  the input host. The host is not added as a second domain, so the record
+  does not read as the subdomain's own registration. A 404 or 400 on a
+  domain lookup is reported as no record found, naming both names when
+  they differ. Input is trimmed, lowercased and stripped of a trailing
+  dot. IP lookups are unchanged.
+
+Fix
+~~~
+- [html_to_markdown] block unspecified, shared, ULA and link-local
+  ranges. [Claude Opus 5 (1M context), elhoim]
+
+  is_safe_url() still let http://0.0.0.0/ (reaches loopback on Linux),
+  100.64.0.0/10 (carrier-grade NAT), [::], fc00::/7 and fe80::/10 through,
+  because BLOCKED_RANGES only listed loopback, RFC 1918 and IPv4
+  link-local. Add those ranges, including their IPv4-mapped forms via the
+  existing normalisation, and cover them with literal and resolved-host
+  tests.
+- [reversedns] fix nameserver fallback when config is an empty dict.
+  [Claude Opus 5, elhoim]
+
+  The module only fell back to the documented Google public DNS address (8.8.8.8)
+  when the "config" key was entirely absent from the request. When MISP sends
+  "config": {} (config present but no nameserver set, which happens whenever the
+  module is enabled without an explicit nameserver override), the else branch
+  that sets the fallback never runs, and the resolver silently falls back to
+  whatever nameservers are configured on the system running misp-modules instead
+  of the documented default. Analysts get PTR lookups resolved through an
+  unexpected resolver with no indication the documented fallback was skipped.
+
+  Replaced the presence check with a single expression that reads the
+  nameserver from config when present and non-empty, and otherwise uses
+  8.8.8.8, matching the documented behavior in all cases.
+
+  Verified with flake8 (clean) and the full test suite against a locally
+  started misp-modules server: 161 passed, 4 skipped, 5 subtests passed.
+- [export_mod/goamlexport] fix typo'd dict name in introspection()
+  [Claude Opus 5, elhoim]
+
+  introspection() builds its result in a dict named modulesetup, but the
+  inputSource branch assigns into moduleSetup instead (wrong capitalization).
+  This is currently latent because the preceding `inputSource` bare-name
+  existence check already raises NameError and is caught, so the buggy line
+  never executes today; but the moment a caller defines module-level
+  inputSource, the function would raise NameError('moduleSetup is not
+  defined') instead of returning the introspection dict with inputSource
+  included, breaking module setup reporting for any export module relying on
+  that field.
+
+  Verified with flake8 (clean) and the full pytest suite against a live
+  misp-modules server on port 6780: 161 passed, 4 skipped, 5 subtests passed,
+  matching baseline.
+- [pgp_keyserver] ignore non-critical extension packets. [Alexandre
+  Dulaunoy]
+- [pgp_keyserver] accept optional HKP index fields. [Alexandre Dulaunoy]
+- [scanmalware] report a degraded CT answer instead of no results.
+  [Jonas Lejon]
+
+  /ct/dns sheds load under pressure and then answers 200 with
+  degraded: true. The API documents that as "we could NOT look": an empty
+  subdomain list is an absence of data, not a fact about the domain. The
+  module read it as an answer, so a lookup that never happened came back
+  as "No ScanMalware results for this attribute". It now adds a partial
+  result note saying the data could not be read and to retry.
+- [scanmalware] list only hosts a browser actually contacted. [Jonas
+  Lejon]
+
+  The /hosts endpoint's default sources are observed, scripts and stream.
+  A stream host was never fetched: a third party asked about it and DNS
+  confirms it exists. The module labelled every returned host "contacted
+  by a browser during a scan", so for github.com 156 of the 174 hosts it
+  added carried a false label. It now asks for sources=observed,scripts,
+  the two runtime-observed sources, which is what the label and the module
+  description say.
+- [scanmalware] ignore a trailing dot on the scanned host too. [Jonas
+  Lejon]
+
+  _is_scan_of_host stripped a trailing dot from the attribute's host but
+  not from the scanned URL's host, so a URL on example.com. never matched
+  the host's own scan of https://example.com./ and the module reported no
+  result. Both hosts are now normalized the same way.
+
+Other
+~~~~~
+- V3.0.13. [Alexandre Dulaunoy]
+- Merge pull request #958 from MISP/codex/cisco-acl-export. [Alexandre
+  Dulaunoy]
+
+  Add Cisco IOS ACL export with deny and permit-log modes
+- Limit generated Cisco ACL names to the IOS XE maximum. [Alexandre
+  Dulaunoy]
+- Add Cisco IOS ACL export with deny and permit-log modes. [Alexandre
+  Dulaunoy]
+- Merge pull request #957 from MISP/codex/netfilter-export. [Alexandre
+  Dulaunoy]
+
+  Add netfilter nftables export with blocking and logging modes
+- Add netfilter nftables export with blocking and logging modes.
+  [Alexandre Dulaunoy]
+- Merge pull request #956 from MISP/codex/openbsd-pf-export. [Alexandre
+  Dulaunoy]
+
+  Add OpenBSD PF export with blocking and logging modes
+- Add OpenBSD PF export with blocking and logging modes. [Alexandre
+  Dulaunoy]
+- Merge pull request #955 from MISP/codex/vulnerability-lookup-output-
+  relationships. [Alexandre Dulaunoy]
+
+  Expose vulnerability lookup relationships alongside output objects
+- Expose vulnerability lookup relationships alongside output objects.
+  [Alexandre Dulaunoy]
+- Merge pull request #954 from MISP/codex/module-statistics. [Alexandre
+  Dulaunoy]
+
+  Add per-module query statistics endpoint
+- Add per-module query statistics endpoint. [Alexandre Dulaunoy]
+- Merge pull request #951 from MISP/codex/opencti-expansion. [Alexandre
+  Dulaunoy]
+
+  Add OpenCTI observable expansion module
+- Fix OpenCTI hostname observable mapping. [Alexandre Dulaunoy]
+- Add OpenCTI observable expansion module. [Alexandre Dulaunoy]
+- Merge pull request #953 from MISP/codex/apivoid-v2. [Alexandre
+  Dulaunoy]
+
+  Migrate APIVoid expansion module to API v2
+- Migrate APIVoid expansion module to API v2. [Alexandre Dulaunoy]
+- Merge pull request #908 from elhoim/fix/html-to-markdown-ssrf-blocked-
+  ranges. [Alexandre Dulaunoy]
+
+  [critical] fix: [html_to_markdown] block unspecified, shared, ULA and link-local ranges in the URL safety check
+- Merge pull request #949 from MISP/codex/zeek-intel-export. [Alexandre
+  Dulaunoy]
+
+  Add Zeek Intel Framework export module
+- Match Zeek HTTP URL decoding and port observations. [Alexandre
+  Dulaunoy]
+- Add Zeek Intel Framework export module. [Alexandre Dulaunoy]
+- Merge pull request #948 from MISP/codex/qradar-reference-set-export.
+  [Alexandre Dulaunoy]
+
+  Add QRadar reference-set export and publishing action
+- Add QRadar reference-set export and publishing modules. [Alexandre
+  Dulaunoy]
+- Merge pull request #947 from MISP/codex/sentinelone-ioc-publish.
+  [Alexandre Dulaunoy]
+
+  Add SentinelOne IOC publishing workflow action
+- Add SentinelOne Threat Intelligence IOC publishing action. [Alexandre
+  Dulaunoy]
+- Merge pull request #946 from MISP/codex/crowdstrike-ioc-publish.
+  [Alexandre Dulaunoy]
+
+  Add CrowdStrike IOC publishing workflow action
+- Enforce Falcon's normalized domain IOC length limit. [Alexandre
+  Dulaunoy]
+- Add CrowdStrike IOC publishing workflow action. [Alexandre Dulaunoy]
+- Merge pull request #886 from elhoim/fix/077-reversedns-nameserver-
+  fallback. [Alexandre Dulaunoy]
+
+  [medium] fix: [reversedns] fix nameserver fallback when config is an empty dict
+- Merge pull request #945 from MISP/codex/elastic-ecs-export. [Alexandre
+  Dulaunoy]
+
+  Add Elastic ECS threat indicator Bulk NDJSON export
+- Fix ECS export URL credentials and oversized index terms. [Alexandre
+  Dulaunoy]
+- Add Elastic ECS threat indicator Bulk NDJSON export. [Alexandre
+  Dulaunoy]
+- Merge pull request #944 from MISP/codex/splunk-export. [Alexandre
+  Dulaunoy]
+
+  Add Splunk CSV lookup export for event and object indicators
+- Add Splunk CSV lookup export for event and object indicators.
+  [Alexandre Dulaunoy]
+- Merge pull request #889 from elhoim/fix/080-goamlexport-modulesetup-
+  typo. [Alexandre Dulaunoy]
+
+  [low] fix: [export_mod/goamlexport] fix typo'd dict name in introspection()
+- Merge pull request #942 from MISP/codex/malpedia-expansion. [Alexandre
+  Dulaunoy]
+
+  Add Malpedia query and expansion module
+- Use Malpedia defaults for unset MISP module settings. [Alexandre
+  Dulaunoy]
+- Add Malpedia query and expansion module. [Alexandre Dulaunoy]
+- Merge pull request #940 from MISP/codex/sherlock-lookup-module.
+  [Alexandre Dulaunoy]
+
+  Add Sherlock username lookup expansion module
+- Preserve literal Sherlock usernames in text attributes. [Alexandre
+  Dulaunoy]
+- Add Sherlock username lookup expansion module. [Alexandre Dulaunoy]
+- Merge pull request #943 from MISP/codex/dns-record-enumeration.
+  [Alexandre Dulaunoy]
+
+  Add comprehensive DNS record enumeration and pivot enrichment
+- Keep bundled DNS template identical to canonical upstream definition.
+  [Alexandre Dulaunoy]
+- Add DNS record enumeration enrichment with complete RDATA and pivots.
+  [Alexandre Dulaunoy]
+- Merge pull request #939 from MISP/codex/lookyloo-analyst-enrichment.
+  [Alexandre Dulaunoy]
+
+  Add Lookyloo indicator lookup and capture enrichment modules
+- Add Lookyloo indicator lookup and capture enrichment modules.
+  [Alexandre Dulaunoy]
+- Merge pull request #938 from MISP/codex/pgp-signature-extraction.
+  [Alexandre Dulaunoy]
+
+  Add optional PGP signature extraction to pgp_keyserver
+- Add: [pgp_keyserver] optionally extract key signature packets.
+  [Alexandre Dulaunoy]
+- Merge pull request #937 from MISP/rdap-registered-domain. [Alexandre
+  Dulaunoy]
+
+  chg: [rdap] look hostnames up at their registered domain
+- Merge pull request #936 from MISP/codex/pgp-keyserver-expansion.
+  [Alexandre Dulaunoy]
+
+  Add PGP keyserver expansion for key IDs and UID metadata
+- Add: [pgp_keyserver] expand OpenPGP key IDs and UID metadata.
+  [Alexandre Dulaunoy]
+- Merge pull request #932 from elakkuvan-r/whisper-misp-0.0.2.
+  [Alexandre Dulaunoy]
+
+  Bump whisper-misp to 0.0.2, default to graph.whisper.online, backfill attribute uuids
+- Whisper: default to graph.whisper.online and backfill missing
+  attribute uuids. [Claude Fable 5.1, elakkuvan]
+
+  The Whisper graph API moved to its own front door, graph.whisper.online,
+  on 2026-08-22; graph.whisper.security is being decommissioned. Installs
+  that leave the api_url setting empty should reach the current host.
+
+  A hand-crafted POST /query without an attribute uuid made the converter
+  reference objects against a missing id; MISP itself always sends one.
+  Backfill a uuid so direct API callers get well-formed object references.
+- Bump whisper-misp to 0.0.2. [Claude Fable 5.1, elakkuvan]
+
+  whisper-misp 0.0.2 identifies the client to the Whisper graph API
+  (User-Agent: whisper-misp/<version>, X-Whisper-Client,
+  X-Whisper-Client-Version) and sends bound query values under
+  "parameters", the key the API binds, instead of "params". The module's
+  moduleinfo version moves with the package.
+
+  Fixes #930
+- Merge pull request #935 from jonaslejon/fix/scanmalware-hosts-and-dot.
+  [Alexandre Dulaunoy]
+
+  fix: [scanmalware] list only browser-contacted hosts, report a degraded CT answer, trailing dot
+- Merge pull request #934 from MISP/feat/spamcop-expansion. [Alexandre
+  Dulaunoy]
+
+  Add a dedicated SpamCop expansion module
+- Test: handle DNSBL errors and wait for CI server readiness. [Alexandre
+  Dulaunoy]
+- Feat: add dedicated SpamCop expansion module. [Alexandre Dulaunoy]
+
+
 v3.0.12 (2026-10-14)
 --------------------
 
