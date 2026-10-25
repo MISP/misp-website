@@ -97,3 +97,7 @@ Plus added some fixes (\w+ => [\w-]+)
                 {{ print  $attr `="` (delimit $val ` ` ) `"` | safeHTMLAttr }}
               {{- end -}}
             {{- end -}} />
+
+{{- if and (eq .Page.Type "blog") $figcaption -}}
+<span class="post-image-caption">{{ $figcaption | markdownify }}</span>
+{{- end -}}

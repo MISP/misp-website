@@ -35,6 +35,9 @@
 
 <!-- Custom stylesheet - for your changes -->
 <link href="{{ "css/custom.css" | relURL}}" rel="stylesheet">
+{{ if and (eq .Type "blog") (eq .Kind "page") }}
+<link href="{{ "css/blog-post.css" | relURL }}" rel="stylesheet">
+{{ end }}
 <script src="{{ "js/table-enhancements.js" | relURL}}" defer></script>
 <script src="{{ "js/sidebar-toggle.js" | relURL}}" defer></script>
 <script src="{{ "js/video-player.js" | relURL}}" defer></script>

@@ -1,0 +1,36 @@
+<header class="post-header">
+  <a class="post-header__back" href="{{ "blog/" | relLangURL }}"><span aria-hidden="true">&larr;</span> All posts</a>
+  <div class="post-header__meta">
+    {{ with .Date }}
+      {{ $createdAt := .Format $.Site.Params.date_format }}
+      {{ range $month := slice "January" "February" "March" "April" "May" "June" "July" "August" "September" "October" "November" "December" }}
+        {{ $createdAt = replace $createdAt $month (i18n $month) }}
+      {{ end }}
+      <time datetime="{{ .Format "2006-01-02" }}">{{ $createdAt }}</time>
+    {{ end }}
+    {{ with .Params.authors }}
+      <span>{{ i18n "authorBy" }} {{ range $index, $author := . }}{{ if $index }}, {{ end }}<a href="{{ printf "%s/%s" ("authors" | relLangURL) ($author | urlize) }}">{{ $author }}</a>{{ end }}</span>
+    {{ else }}
+      {{ with .Params.author }}<span>{{ i18n "authorBy" }} {{ if reflect.IsSlice . }}{{ delimit . ", " }}{{ else }}{{ . }}{{ end }}</span>{{ end }}
+    {{ end }}
+  </div>
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p class="post-header__description">{{ . | markdownify }}</p>{{ end }}
+</header>
+
+{{ with .Params.banner }}
+  {{ $banner := . | relURL }}
+  {{/* If the banner already appears in the article, keep it in its original context. */}}
+  {{ $inContent := or (strings.Contains $.Content (printf "src=\"%s\"" $banner)) (strings.Contains $.Content (printf "src=\"%s\"" .)) }}
+  {{ if and (ne $.Params.show_banner false) (not $inContent) }}
+    <figure class="post-featured">
+      <a class="post-featured__link" href="{{ $banner }}" aria-label="View featured image at full size">
+        <img src="{{ $banner }}" alt="{{ $.Params.banner_alt | default "" }}" fetchpriority="high" decoding="async">
+      </a>
+      <figcaption>
+        <span>{{ with $.Params.banner_caption }}{{ . | markdownify }}{{ else }}Featured image{{ end }}</span>
+        <a href="{{ $banner }}">View full size <span aria-hidden="true">&nearr;</span></a>
+      </figcaption>
+    </figure>
+  {{ end }}
+{{ end }}

@@ -6,7 +6,7 @@
     {{ partial "custom_headers.html" . }}
   </head>
 
-  <body>
+  <body{{ if eq .Type "blog" }} class="blog-article"{{ end }}>
 
     <div id="all">
 
@@ -14,7 +14,7 @@
 
         {{ partial "nav.html" . }}
 
-        {{ partial "breadcrumbs.html" . }}
+        {{ if ne .Type "blog" }}{{ partial "breadcrumbs.html" . }}{{ end }}
 
         <div id="content">
             <div class="container content-container">
@@ -33,7 +33,11 @@
 
                     <!-- *** LEFT COLUMN *** -->
 
-                    <div class="col-md-9 content-layout__main" id="blog-post">
+                    <article class="col-md-9 content-layout__main" id="blog-post">
+
+                        {{ if eq .Type "blog" }}
+                          {{ partial "blog-post-header.html" . }}
+                        {{ else }}
 
                         {{ if or .Params.author .Params.date }}
                           <p class="text-muted text-uppercase mb-small text-right">
@@ -53,11 +57,12 @@
                         {{ if isset .Params "banner" }}
                         <img src="{{ .Params.banner | relURL }}" class="img-responsive" alt="" >
                         {{ end }}
+                        {{ end }}
                         <div id="post-content">
                           {{ .Content }}
                         </div>
 
-                    </div>
+                    </article>
                     <!-- /#blog-post -->
 
                     <!-- *** LEFT COLUMN END *** -->

@@ -6,6 +6,8 @@ date: 2026-10-14
 tags: ["MISP", "Threat Intelligence", "release", "modules" ]
 layout: post
 banner: /img/blog/mod1.png
+banner_alt: "MISP server settings showing the enrichment module catalogue and configuration options."
+banner_caption: "Manage enrichment modules from MISP server settings."
 ---
 
 # MISP Modules v3.0.12 Released
@@ -18,7 +20,7 @@ One of the most important improvements in this release is the extensive transiti
 
 The release also introduces several new expansion and hover modules, improves vulnerability intelligence integration, and extends infrastructure analysis capabilities.
 
-![](/img/blog/mod2.png)
+![MISP module selector listing enrichment modules for an indicator.](/img/blog/mod2.png "Choose an enrichment module directly from an indicator in MISP.")
 
 ## Highlights
 
