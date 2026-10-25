@@ -5,6 +5,8 @@ permalink: /modules/
 description: Search the MISP module catalogue for enrichment, import, export and workflow integrations.
 ---
 
+![MISP modules logo](/img/misp-modules-logo.png "{.img-responsive width='420' height='108'}")
+
 # Extend your intelligence with MISP modules
 
 Explore the integrations in [misp-modules](https://github.com/MISP/misp-modules): enrich indicators, bring in new data, export intelligence, and connect your workflows. Search by service, module name, input type, or requirement.
