@@ -5,7 +5,7 @@ permalink: /modules/
 description: Search the MISP module catalogue for enrichment, import, export and workflow integrations.
 ---
 
-![MISP modules logo](/img/misp-modules-logo.png "{width='420' height='108'}")
+![MISP modules logo](/img/misp-modules-logo.png "{.img-responsive width='420' height='108'}")
 
 # Extend your intelligence with MISP modules
 
