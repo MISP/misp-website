@@ -33,13 +33,14 @@ def load_source(source=None, ref='main', timeout=30):
         root = Path(source)
         if root.is_dir():
             paths = sorted((root / 'misp_modules/modules').glob('*/*.py'))
+            paths += sorted((root / 'misp_modules/lib').glob('*.py'))
             files = {p.relative_to(root).as_posix(): p.read_text(encoding='utf-8') for p in paths}
             logos = {p.name for p in (root / 'documentation/logos').glob('*') if p.is_file()}
             if (root / 'REVISION').is_file():
                 revision = (root / 'REVISION').read_text().strip()
             elif (root / '.git').exists():
                 revision = subprocess.check_output(['git', '-C', str(root), 'rev-parse', 'HEAD'], text=True).strip()
-                if subprocess.check_output(['git', '-C', str(root), 'status', '--porcelain', '--', 'misp_modules/modules', 'documentation/logos'], text=True):
+                if subprocess.check_output(['git', '-C', str(root), 'status', '--porcelain', '--', 'misp_modules/modules', 'misp_modules/lib', 'documentation/logos'], text=True):
                     revision = None
             return files, logos, revision
         raw = root.read_bytes()
@@ -56,7 +57,7 @@ def load_source(source=None, ref='main', timeout=30):
             if not member.isfile():
                 continue
             path = member.name.removeprefix('./')
-            match = re.fullmatch(r'(?:[^/]+/)?(misp_modules/modules/[^/]+/[^/]+\.py|documentation/logos/[^/]+)', path)
+            match = re.fullmatch(r'(?:[^/]+/)?(misp_modules/modules/[^/]+/[^/]+\.py|misp_modules/lib/[^/]+\.py|documentation/logos/[^/]+)', path)
             if not match:
                 continue
             if '..' in path.split('/'):
@@ -74,18 +75,21 @@ def load_source(source=None, ref='main', timeout=30):
     return files, logos, revision
 
 
-def literal(node, constants):
+def literal(node, constants, functions=None):
     """Evaluate a small data-only AST subset; no arbitrary calls or attributes."""
+    def read(value):
+        return literal(value, constants, functions)
+
     if isinstance(node, ast.Name) and node.id in constants:
         return constants[node.id]
     if isinstance(node, ast.List):
-        return [literal(x, constants) for x in node.elts]
+        return [read(x) for x in node.elts]
     if isinstance(node, ast.Tuple):
-        return tuple(literal(x, constants) for x in node.elts)
+        return tuple(read(x) for x in node.elts)
     if isinstance(node, ast.Dict) and all(k is not None for k in node.keys):
-        return {literal(k, constants): literal(v, constants) for k, v in zip(node.keys, node.values)}
+        return {read(k): read(v) for k, v in zip(node.keys, node.values)}
     if isinstance(node, ast.BinOp) and isinstance(node.op, ast.Add):
-        left, right = literal(node.left, constants), literal(node.right, constants)
+        left, right = read(node.left), read(node.right)
         if type(left) == type(right) and isinstance(left, (str, list, tuple)):
             return left + right
     if isinstance(node, ast.JoinedStr):
@@ -94,7 +98,7 @@ def literal(node, constants):
             if isinstance(part, ast.Constant) and isinstance(part.value, str):
                 chunks.append(part.value)
             elif isinstance(part, ast.FormattedValue) and part.conversion == -1 and part.format_spec is None:
-                value = literal(part.value, constants)
+                value = read(part.value)
                 if not isinstance(value, (str, int, float)):
                     raise ValueError('Unsupported format value')
                 chunks.append(str(value))
@@ -102,29 +106,70 @@ def literal(node, constants):
                 raise ValueError('Unsupported formatted string')
         return ''.join(chunks)
     if isinstance(node, ast.Call) and not node.keywords:
+        function = (functions or {}).get(ast.unparse(node.func))
+        if function is not None:
+            parameters, result = function
+            if len(node.args) != len(parameters):
+                raise ValueError('Invalid metadata helper arguments')
+            return literal(result, dict(zip(parameters, (read(arg) for arg in node.args))))
         if isinstance(node.func, ast.Name) and node.func.id == 'list' and len(node.args) == 1:
-            return list(literal(node.args[0], constants))
+            return list(read(node.args[0]))
         if isinstance(node.func, ast.Attribute) and node.func.attr == 'keys' and not node.args:
-            value = literal(node.func.value, constants)
+            value = read(node.func.value)
             if isinstance(value, dict):
                 return list(value)
         if isinstance(node.func, ast.Attribute) and isinstance(node.func.value, ast.Name) and node.func.value.id == 'dict' and node.func.attr == 'fromkeys' and len(node.args) == 1:
-            return dict.fromkeys(literal(node.args[0], constants))
+            return dict.fromkeys(read(node.args[0]))
     return ast.literal_eval(node)
 
 
-def metadata(source, filename):
+def metadata_helpers(tree, files):
+    """Read imported lib helpers consisting only of a dictionary return expression."""
+    functions = {}
+    for node in tree.body:
+        if not isinstance(node, ast.ImportFrom) or node.level or not node.module:
+            continue
+        for alias in node.names:
+            if node.module == 'misp_modules.lib':
+                module, selected = node.module + '.' + alias.name, None
+            elif node.module.startswith('misp_modules.lib.'):
+                module, selected = node.module, alias.name
+            else:
+                continue
+            source = files.get(module.replace('.', '/') + '.py')
+            if source is None:
+                continue
+            for function in ast.parse(source, filename=module).body:
+                if not isinstance(function, ast.FunctionDef) or function.decorator_list:
+                    continue
+                body = function.body
+                if body and isinstance(body[0], ast.Expr) and isinstance(body[0].value, ast.Constant) and isinstance(body[0].value.value, str):
+                    body = body[1:]
+                args = function.args
+                if (len(body) != 1 or not isinstance(body[0], ast.Return) or not isinstance(body[0].value, ast.Dict)
+                        or args.defaults or args.kwonlyargs or args.vararg or args.kwarg):
+                    continue
+                if selected is not None and selected != function.name:
+                    continue
+                name = alias.asname or alias.name
+                key = name if selected else name + '.' + function.name
+                functions[key] = ([arg.arg for arg in args.posonlyargs + args.args], body[0].value)
+    return functions
+
+
+def metadata(source, filename, files=None):
     """Read top-level data declarations. Never eval or import modules."""
     constants = {}
     unresolved = set()
     tree = ast.parse(source, filename=filename)
+    functions = metadata_helpers(tree, files or {})
     for node in tree.body:
         if isinstance(node, (ast.Assign, ast.AnnAssign)):
             targets = node.targets if isinstance(node, ast.Assign) else [node.target]
             for target in targets:
                 if isinstance(target, ast.Name):
                     try:
-                        constants[target.id] = literal(node.value, constants)
+                        constants[target.id] = literal(node.value, constants, functions)
                         unresolved.discard(target.id)
                     except (ValueError, TypeError, KeyError):
                         constants.pop(target.id, None)
@@ -160,7 +205,7 @@ def catalog(files, logos, revision):
         group, filename = parts[-2:]
         if group not in GROUPS or filename.startswith('_'):
             continue
-        info, attributes = metadata(source, path)
+        info, attributes = metadata(source, path, files)
         slug = filename[:-3]
         logo = info.get('logo', '')
         if logo and (Path(logo).name != logo or logo not in logos):
