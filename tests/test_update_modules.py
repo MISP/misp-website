@@ -87,6 +87,61 @@ moduleinfo = acl.module_info("Cisco ASA ACL Export", "cisco_asa_export", "Export
             with self.subTest(source=source), self.assertRaisesRegex(ValueError, 'non-literal moduleinfo'):
                 m.metadata(source, 'missing.py', {} if source == self.helper_module else {self.helper_path: self.helper_source})
 
+    def test_domaintools_iris_metadata(self):
+        library = '''import nonexistent_dependency
+raise RuntimeError("library must not be executed")
+REFERENCE = "https://github.com/DomainTools/domaintools_misp"
+PIVOT_MAP = {"domain": "domain", "hostname": "nameserver_host", "ip-src": "ip"}
+def enrich(q, mode):
+    raise RuntimeError("handler must not be executed")
+'''
+        template = '''from misp_modules.lib.domaintools_iris import PIVOT_MAP, REFERENCE, enrich
+mispattributes = {"input": list(PIVOT_MAP) if "MODE" == "pivot" else ["domain"], "format": "misp_standard"}
+moduleconfig = ["username", "api_key", "results_limit"] + (["guided_pivot_threshold"] if "MODE" == "pivot" else [])
+moduleinfo = {
+    "name": "DomainTools Iris MODE",
+    "module-type": ["expansion"] + ([] if "MODE" == "pivot" else ["hover"]),
+    "references": [REFERENCE],
+    "input": ", ".join(mispattributes["input"]),
+}
+'''
+        files = {'misp_modules/lib/domaintools_iris.py': library}
+        for mode in ('enrich', 'investigate', 'pivot'):
+            files[f'misp_modules/modules/expansion/domaintools_iris_{mode}.py'] = template.replace('MODE', mode)
+        data = m.catalog(files, set(), None)
+        self.assertEqual(data['count'], 3)
+        for module in data['modules']:
+            pivot = module['slug'].endswith('pivot')
+            info = module['metadata']
+            self.assertEqual(info['module-type'], ['expansion'] if pivot else ['expansion', 'hover'])
+            self.assertEqual(info['references'], ['https://github.com/DomainTools/domaintools_misp'])
+            self.assertEqual(info['input'], 'domain, hostname, ip-src' if pivot else 'domain')
+            self.assertEqual(module['attributes']['input'], ['domain', 'hostname', 'ip-src'] if pivot else ['domain'])
+
+    def test_imported_constants_use_snapshot_and_aliases(self):
+        source = '''from misp_modules.lib.domaintools_iris import REFERENCE as ref
+moduleinfo = {"references": [ref]}
+'''
+        path = 'misp_modules/lib/domaintools_iris.py'
+        info, _ = m.metadata(source, 'alias.py', {path: 'BASE = "https://example.org"\nREFERENCE: str = BASE + "/iris"'})
+        self.assertEqual(info['references'], ['https://example.org/iris'])
+        for files in ({}, {path: 'REFERENCE = unknown_call()'}):
+            with self.subTest(files=files), self.assertRaisesRegex(ValueError, 'non-literal moduleinfo'):
+                m.metadata(source, 'unresolved.py', files)
+
+    def test_static_conditionals_and_lookups(self):
+        source = '''TYPES = ["domain", "hostname"]
+moduleinfo = {"name": TYPES[0] if "enrich" != "pivot" else unknown_call(),
+              "description": " / ".join((TYPES[0], TYPES[1]))}
+'''
+        info, _ = m.metadata(source, 'conditional.py')
+        self.assertEqual(info, {'name': 'domain', 'description': 'domain / hostname'})
+        for expression in ('unknown_call() if True else "safe"', 'unknown_call().join(["domain"])',
+                           '", ".join([unknown_call()])', 'TYPES[9]', 'TYPES["domain"]',
+                           '{"domain": "Domain"}["missing"]'):
+            with self.subTest(expression=expression), self.assertRaisesRegex(ValueError, 'non-literal moduleinfo'):
+                m.metadata('TYPES = ["domain"]\nmoduleinfo = {"name": ' + expression + '}', 'unsafe.py')
+
     def test_directory_snapshot_includes_metadata_helpers(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
