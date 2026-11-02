@@ -88,6 +88,16 @@ def literal(node, constants, functions=None):
         return tuple(read(x) for x in node.elts)
     if isinstance(node, ast.Dict) and all(k is not None for k in node.keys):
         return {read(k): read(v) for k, v in zip(node.keys, node.values)}
+    if isinstance(node, ast.Compare) and len(node.ops) == 1:
+        if isinstance(node.ops[0], (ast.Eq, ast.NotEq)):
+            equal = read(node.left) == read(node.comparators[0])
+            return equal if isinstance(node.ops[0], ast.Eq) else not equal
+    if isinstance(node, ast.IfExp):
+        return read(node.body if read(node.test) else node.orelse)
+    if isinstance(node, ast.Subscript):
+        value = read(node.value)
+        if isinstance(value, (dict, list, tuple, str)):
+            return value[read(node.slice)]
     if isinstance(node, ast.BinOp) and isinstance(node.op, ast.Add):
         left, right = read(node.left), read(node.right)
         if type(left) == type(right) and isinstance(left, (str, list, tuple)):
@@ -118,14 +128,36 @@ def literal(node, constants, functions=None):
             value = read(node.func.value)
             if isinstance(value, dict):
                 return list(value)
+        if isinstance(node.func, ast.Attribute) and node.func.attr == 'join' and len(node.args) == 1:
+            separator, values = read(node.func.value), read(node.args[0])
+            if isinstance(separator, str) and isinstance(values, (list, tuple)) and all(isinstance(x, str) for x in values):
+                return separator.join(values)
         if isinstance(node.func, ast.Attribute) and isinstance(node.func.value, ast.Name) and node.func.value.id == 'dict' and node.func.attr == 'fromkeys' and len(node.args) == 1:
             return dict.fromkeys(read(node.args[0]))
     return ast.literal_eval(node)
 
 
-def metadata_helpers(tree, files):
-    """Read imported lib helpers consisting only of a dictionary return expression."""
-    functions = {}
+def declarations(tree, constants=None, functions=None):
+    """Collect statically readable top-level assignments."""
+    constants = dict(constants or {})
+    unresolved = set()
+    for node in tree.body:
+        if isinstance(node, (ast.Assign, ast.AnnAssign)):
+            targets = node.targets if isinstance(node, ast.Assign) else [node.target]
+            for target in targets:
+                if isinstance(target, ast.Name):
+                    try:
+                        constants[target.id] = literal(node.value, constants, functions)
+                        unresolved.discard(target.id)
+                    except (ValueError, TypeError, KeyError, IndexError):
+                        constants.pop(target.id, None)
+                        unresolved.add(target.id)
+    return constants, unresolved
+
+
+def metadata_imports(tree, files):
+    """Read lib constants and helpers returning dictionaries without executing code."""
+    constants, functions, libraries = {}, {}, {}
     for node in tree.body:
         if not isinstance(node, ast.ImportFrom) or node.level or not node.module:
             continue
@@ -139,7 +171,14 @@ def metadata_helpers(tree, files):
             source = files.get(module.replace('.', '/') + '.py')
             if source is None:
                 continue
-            for function in ast.parse(source, filename=module).body:
+            if module not in libraries:
+                library = ast.parse(source, filename=module)
+                libraries[module] = library, declarations(library)[0]
+            library, values = libraries[module]
+            name = alias.asname or alias.name
+            if selected in values:
+                constants[name] = values[selected]
+            for function in library.body:
                 if not isinstance(function, ast.FunctionDef) or function.decorator_list:
                     continue
                 body = function.body
@@ -151,29 +190,16 @@ def metadata_helpers(tree, files):
                     continue
                 if selected is not None and selected != function.name:
                     continue
-                name = alias.asname or alias.name
                 key = name if selected else name + '.' + function.name
                 functions[key] = ([arg.arg for arg in args.posonlyargs + args.args], body[0].value)
-    return functions
+    return constants, functions
 
 
 def metadata(source, filename, files=None):
     """Read top-level data declarations. Never eval or import modules."""
-    constants = {}
-    unresolved = set()
     tree = ast.parse(source, filename=filename)
-    functions = metadata_helpers(tree, files or {})
-    for node in tree.body:
-        if isinstance(node, (ast.Assign, ast.AnnAssign)):
-            targets = node.targets if isinstance(node, ast.Assign) else [node.target]
-            for target in targets:
-                if isinstance(target, ast.Name):
-                    try:
-                        constants[target.id] = literal(node.value, constants, functions)
-                        unresolved.discard(target.id)
-                    except (ValueError, TypeError, KeyError):
-                        constants.pop(target.id, None)
-                        unresolved.add(target.id)
+    imported, functions = metadata_imports(tree, files or {})
+    constants, unresolved = declarations(tree, imported, functions)
     if 'moduleinfo' in unresolved:
         raise ValueError(f'{filename}: non-literal moduleinfo')
     info = constants.get('moduleinfo')

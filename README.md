@@ -199,8 +199,10 @@ file. Archives supplied offline and modified checkouts have no verified revision
 so source links use `main` and cards use initials. HTTP requests have a 30-second
 timeout, adjustable with `--timeout`. Invalid metadata fails before output writes.
 Underscore-prefixed helpers are excluded; every other module must provide static
-module metadata (including typed declarations, constant references and simple
-formatted strings). Imported helpers in `misp_modules/lib` are also supported
+module metadata (including typed declarations, constant references, simple
+formatted strings, constant conditionals, data lookups and string joins).
+Constants imported directly from `misp_modules/lib` are read from top-level
+data declarations in the same snapshot. Imported helpers are also supported
 when their body consists only of returning a dictionary built from literal
 positional arguments, such as the shared network ACL export metadata helper.
 Helper source is read from the same snapshot; it is never imported or executed.
