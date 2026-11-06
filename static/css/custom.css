@@ -1147,8 +1147,36 @@ h3.text-uppercase {
     color: var(--primary-accent-dark);
 }
 
-#content :is(h2, h3, h4, h5, h6)[id] {
+#content :is(h1, h2, h3, h4, h5, h6)[id] {
     scroll-margin-top: 110px;
+}
+
+#content .heading-anchor {
+    border-radius: 3px;
+    color: var(--primary-accent-dark);
+    display: inline-block;
+    font-size: 0.7em;
+    font-weight: 400;
+    margin-inline-start: 0.25em;
+    padding: 0.1em 0.25em;
+    text-decoration: none;
+    vertical-align: baseline;
+}
+
+/* Keep the symbol out of Hugo's word counts and automatically cut summaries. */
+.heading-anchor span::before {
+    content: "#";
+}
+
+#content .heading-anchor:hover,
+#content .heading-anchor:focus-visible {
+    background: var(--primary-accent-light);
+    color: var(--ink);
+}
+
+#content .heading-anchor:focus-visible {
+    outline: 2px solid var(--primary-accent-dark);
+    outline-offset: 2px;
 }
 
 /* Footer */

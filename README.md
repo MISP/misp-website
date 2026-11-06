@@ -31,6 +31,13 @@ To compile a local version of the website, run the following commands in a termi
 6. To preview your site in your web browser, navigate to [http://localhost:1313](http://localhost:1313).
 
 
+## Section links
+
+Every Markdown heading includes a `#` permalink for navigating to or sharing that
+section. These links work without JavaScript and use Hugo's existing heading IDs,
+so table-of-contents links and previously shared URLs keep working. Use an explicit
+heading ID (`## Section title {#stable-id}`) when a link must survive title changes.
+
 ## Blog images
 
 The `banner` front matter supplies the thumbnail and sharing image. On individual
