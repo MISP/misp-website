@@ -208,9 +208,10 @@ timeout, adjustable with `--timeout`. Invalid metadata fails before output write
 Underscore-prefixed helpers are excluded; every other module must provide static
 module metadata (including typed declarations, constant references, simple
 formatted strings, constant conditionals, data lookups and string joins).
-Constants imported directly from `misp_modules/lib` are read from top-level
-data declarations in the same snapshot. Imported helpers are also supported
-when their body consists only of returning a dictionary built from literal
+Constants imported from `misp_modules/lib`, including module aliases such as
+`xdr.AUTH_REFERENCE`, are read from top-level data declarations in the same
+snapshot. Static list/tuple unpacking is supported. Imported helpers are also
+supported when their body consists only of returning a dictionary built from literal
 positional arguments, such as the shared network ACL export metadata helper.
 Helper source is read from the same snapshot; it is never imported or executed.
 Newly introduced dynamic metadata causes an explicit error
