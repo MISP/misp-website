@@ -82,10 +82,21 @@ def literal(node, constants, functions=None):
 
     if isinstance(node, ast.Name) and node.id in constants:
         return constants[node.id]
-    if isinstance(node, ast.List):
-        return [read(x) for x in node.elts]
-    if isinstance(node, ast.Tuple):
-        return tuple(read(x) for x in node.elts)
+    if isinstance(node, ast.Attribute) and isinstance(node.value, ast.Name):
+        key = node.value.id + '.' + node.attr
+        if key in constants:
+            return constants[key]
+    if isinstance(node, (ast.List, ast.Tuple)):
+        values = []
+        for item in node.elts:
+            if isinstance(item, ast.Starred):
+                value = read(item.value)
+                if not isinstance(value, (dict, list, tuple, str)):
+                    raise ValueError('Unsupported metadata unpacking')
+                values.extend(value)
+            else:
+                values.append(read(item))
+        return tuple(values) if isinstance(node, ast.Tuple) else values
     if isinstance(node, ast.Dict) and all(k is not None for k in node.keys):
         return {read(k): read(v) for k, v in zip(node.keys, node.values)}
     if isinstance(node, ast.Compare) and len(node.ops) == 1:
@@ -146,6 +157,9 @@ def declarations(tree, constants=None, functions=None):
             targets = node.targets if isinstance(node, ast.Assign) else [node.target]
             for target in targets:
                 if isinstance(target, ast.Name):
+                    for key in list(constants):
+                        if key.startswith(target.id + '.'):
+                            del constants[key]
                     try:
                         constants[target.id] = literal(node.value, constants, functions)
                         unresolved.discard(target.id)
@@ -178,6 +192,8 @@ def metadata_imports(tree, files):
             name = alias.asname or alias.name
             if selected in values:
                 constants[name] = values[selected]
+            if selected is None:
+                constants.update({name + '.' + key: value for key, value in values.items()})
             for function in library.body:
                 if not isinstance(function, ast.FunctionDef) or function.decorator_list:
                     continue

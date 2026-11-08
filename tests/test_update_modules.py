@@ -129,6 +129,53 @@ moduleinfo = {"references": [ref]}
             with self.subTest(files=files), self.assertRaisesRegex(ValueError, 'non-literal moduleinfo'):
                 m.metadata(source, 'unresolved.py', files)
 
+    def test_cortex_xdr_metadata_uses_module_alias_constants(self):
+        library = '''import nonexistent_dependency
+raise RuntimeError("library must not be executed")
+AUTH_REFERENCE = "https://example.org/auth"
+IOC_REFERENCE = "https://example.org/iocs"
+HASH_LENGTHS = {"md5": 32, "sha256": 64}
+INPUT_TYPES = [*HASH_LENGTHS, "domain", "hostname", "ip-src", "ip-dst"]
+CONFIG = ["url", "api_key"]
+'''
+        template = '''from misp_modules.lib import cortex_xdr as xdr
+moduleinfo = {"name": "Cortex XDR", "references": [xdr.AUTH_REFERENCE, xdr.IOC_REFERENCE]}
+mispattributes = {"input": xdr.INPUT_TYPES, "format": "misp_standard"}
+moduleconfig = [*xdr.CONFIG, "limit"]
+'''
+        files = {'misp_modules/lib/cortex_xdr.py': library}
+        for group, slug in (('action_mod', 'cortex_xdr_ioc_publish'), ('expansion', 'cortex_xdr_ioc_lookup')):
+            files[f'misp_modules/modules/{group}/{slug}.py'] = template
+        data = m.catalog(files, set(), 'a' * 40)
+        self.assertEqual(data['count'], 2)
+        for module in data['modules']:
+            self.assertEqual(module['metadata']['references'], ['https://example.org/auth', 'https://example.org/iocs'])
+            self.assertEqual(module['attributes']['input'], ['md5', 'sha256', 'domain', 'hostname', 'ip-src', 'ip-dst'])
+        unaliased = template.replace('cortex_xdr as xdr', 'cortex_xdr').replace('xdr.', 'cortex_xdr.')
+        self.assertEqual(m.metadata(unaliased, 'unaliased.py', files), m.metadata(template, 'aliased.py', files))
+
+    def test_module_alias_access_does_not_evaluate_arbitrary_attributes(self):
+        path = 'misp_modules/lib/cortex_xdr.py'
+        prefix = 'from misp_modules.lib import cortex_xdr as xdr\n'
+        for expression in ('xdr.MISSING', 'xdr.DYNAMIC', 'xdr.__dict__', 'xdr.AUTH_REFERENCE.upper()',
+                           'xdr.AUTH_REFERENCE.__class__', 'unknown.AUTH_REFERENCE', 'xdr.helper()'):
+            with self.subTest(expression=expression), self.assertRaisesRegex(ValueError, 'non-literal moduleinfo'):
+                m.metadata(prefix + 'moduleinfo = {"references": [' + expression + ']}', 'unsafe.py',
+                           {path: 'AUTH_REFERENCE = "https://example.org/auth"\nDYNAMIC = unknown_call()'})
+        for files in ({}, {path: 'AUTH_REFERENCE = unknown_call()'}):
+            with self.subTest(files=files), self.assertRaisesRegex(ValueError, 'non-literal moduleinfo'):
+                m.metadata(prefix + 'moduleinfo = {"references": [xdr.AUTH_REFERENCE]}', 'missing.py', files)
+        with self.assertRaisesRegex(ValueError, 'non-literal moduleinfo'):
+            m.metadata(prefix + 'xdr = {}\nmoduleinfo = {"references": [xdr.AUTH_REFERENCE]}', 'shadowed.py',
+                       {path: 'AUTH_REFERENCE = "https://example.org/auth"'})
+
+    def test_static_unpacking_and_invalid_unpacking(self):
+        info, _ = m.metadata('VALUES = ["md5", "sha256"]\nmoduleinfo = {"input": (*VALUES, "domain")}', 'tuple.py')
+        self.assertEqual(info['input'], ('md5', 'sha256', 'domain'))
+        for expression in ('[*unknown_call()]', '[*42]', '[*None]'):
+            with self.subTest(expression=expression), self.assertRaisesRegex(ValueError, 'non-literal moduleinfo'):
+                m.metadata('moduleinfo = {"input": ' + expression + '}', 'unsafe.py')
+
     def test_static_conditionals_and_lookups(self):
         source = '''TYPES = ["domain", "hostname"]
 moduleinfo = {"name": TYPES[0] if "enrich" != "pivot" else unknown_call(),
