@@ -36,6 +36,7 @@ MISP is used throughout this document as a reference implementation for structur
 - [Part IX - Example Target Operating Model](#part-ix---example-target-operating-model)
 - [Conclusion](#conclusion)
 - [References and source material](#references-and-source-material)
+- [Funding](#funding)
 
 ## What is an information-sharing community?
 
@@ -1439,6 +1440,16 @@ This consolidated guideline was prepared by **CIRCL - Computer Incident Response
 7. **CTI Capability Maturity Model**: <https://cti-cmm.org/>
 8. **MISP Project**, Taxonomies: <https://github.com/MISP/misp-taxonomies>
 9. **MISP Project**, Galaxies: <https://github.com/MISP/misp-galaxy>
+
+## Funding
+
+[![Co-funded by the European Union](/img/eu-co-funded-en.jpg "{.img-responsive width='440'}")](https://european-union.europa.eu/)
+
+This document was developed as part of the [FETTA (Federated European Team for Threat Analysis) project](https://www.circl.lu/pub/press/20240131/), co-funded by the European Union through the European Cybersecurity Competence Centre (ECCC) under the Digital Europe Programme (DEP).
+
+### Disclaimer
+
+Co-funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Cybersecurity Competence Centre. Neither the European Union nor the granting authority can be held responsible for them.
 
 ## Contact and contributions
 
