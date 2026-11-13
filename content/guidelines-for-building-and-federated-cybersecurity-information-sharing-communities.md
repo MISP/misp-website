@@ -20,24 +20,6 @@ The central principle is that effective information sharing is not primarily a t
 
 MISP is used throughout this document as a reference implementation for structured information exchange because its data model, distribution mechanisms, taxonomies, sharing groups, synchronization features, and decentralised deployment model map naturally to information-sharing communities. The organisational and governance principles, however, are applicable regardless of the platform selected.
 
-## Table of contents
-
-- [1. What is an information-sharing community?](#1-what-is-an-information-sharing-community)
-- [2. Core principles](#2-core-principles)
-- [3. A lifecycle for creating and federating a community](#3-a-lifecycle-for-creating-and-federating-a-community)
-- [Part I - Creating the Community](#part-i---creating-the-community)
-- [Part II - Rules for Information Sharing](#part-ii---rules-for-information-sharing)
-- [Part III - Building the Human Community](#part-iii---building-the-human-community)
-- [Part IV - Technical Architecture and Federation](#part-iv---technical-architecture-and-federation)
-- [Part V - Security, Privacy, and Compliance](#part-v---security-privacy-and-compliance)
-- [Part VI - Maturity and Federation](#part-vi---maturity-and-federation)
-- [Part VII - Operations and Sustainability](#part-vii---operations-and-sustainability)
-- [Part VIII - Practical Templates and Checklists](#part-viii---practical-templates-and-checklists)
-- [Part IX - Example Target Operating Model](#part-ix---example-target-operating-model)
-- [Conclusion](#conclusion)
-- [References and source material](#references-and-source-material)
-- [Funding](#funding)
-
 ## What is an information-sharing community?
 
 An information-sharing community is a group of organisations or individuals that agree to exchange information for a shared purpose. In cybersecurity, this can include information about:

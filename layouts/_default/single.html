@@ -71,6 +71,12 @@
 
                     <aside class="col-md-3 content-sidebar" id="content-sidebar" aria-label="Related content">
 
+                        {{ if and .Params.toc .Fragments.Headings }}
+                        <div class="mb-small">
+                            {{ partial "table-of-contents.html" . }}
+                        </div>
+                        {{ end }}
+
                         <!-- *** MENUS AND WIDGETS *** -->
 
                         {{ partial "sidebar.html" . }}
