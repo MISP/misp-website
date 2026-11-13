@@ -1,0 +1,21 @@
+flowchart TB
+  accTitle: Federation preserves local autonomy
+  accDescr: Community A keeps its governance, membership and private case data locally, and Community B does the same. Selected information moves from A to B only through an agreed exchange policy and synchronization filters that respect the originator's permissions. Permitted sightings and corrections can return from B to A. Connectivity does not authorise onward sharing.
+
+  subgraph a["Community A"]
+    alocal["Own governance and membership<br/>Private case data stays local"]:::muted
+    ashare["Local sharing platform"]:::accent
+    alocal -->|Approve selected findings| ashare
+  end
+
+  gate["Agreed exchange policy<br/>and synchronization filters"]
+
+  subgraph b["Community B"]
+    bshare["Local sharing platform"]:::accent
+    blocal["Own governance and membership<br/>Private case data stays local"]:::muted
+    bshare -->|Apply local handling rules| blocal
+  end
+
+  ashare -->|Select information permitted to leave| gate
+  gate -->|Preserve provenance and markings| bshare
+  bshare -.->|Permitted sightings and corrections| ashare

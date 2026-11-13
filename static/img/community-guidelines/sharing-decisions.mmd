@@ -1,0 +1,17 @@
+flowchart TB
+  accTitle: Check permission before sharing across a boundary
+  accDescr: For a proposed recipient and purpose, check handling, permitted actions, redistribution and reuse terms. If permission is missing or unclear, hold the exchange and clarify with the originator or policy owner. If permitted, check distribution settings, sharing groups and synchronization filters. Correct mismatches before sharing selected information with provenance and markings intact.
+
+  item["Information + intended<br/>recipient and purpose"]:::accent
+  policy{"Do handling, action,<br/>redistribution and reuse<br/>rules permit the exchange?"}
+  hold["Hold the exchange;<br/>clarify with the originator<br/>or policy owner"]:::caution
+  controls{"Do distribution settings,<br/>sharing groups and sync<br/>filters match the policy?"}
+  adjust["Correct controls<br/>before sending"]:::caution
+  share["Share selected information;<br/>preserve provenance<br/>and markings"]:::success
+
+  item -->|Review applicable terms| policy
+  policy -->|No or unclear| hold
+  policy -->|Yes| controls
+  controls -->|No| adjust
+  adjust -->|Recheck| controls
+  controls -->|Yes| share

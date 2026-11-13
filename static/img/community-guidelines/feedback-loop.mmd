@@ -1,0 +1,20 @@
+flowchart TB
+  accTitle: Turn shared information into collaborative intelligence
+  accDescr: A member contributes contextualised observations. Peers correlate, enrich and validate them. Information that meets the quality threshold for a proposed use can support detection or response. Information below that threshold remains available for analysis when policy allows. Sightings, corrections, uncertainty and outcomes feed back into updated shared information and the next assessment.
+
+  contribute["Contribute observations<br/>with context and provenance"]:::accent
+  assess["Correlate, enrich<br/>and validate"]
+  threshold{"Meets the quality threshold<br/>for the proposed use?"}
+  act["Use in detection<br/>or response"]:::success
+  analyse["Keep for analysis<br/>when policy allows"]:::muted
+  feedback["Return sightings, corrections,<br/>uncertainty and outcomes"]
+  update["Update shared information<br/>within its handling rules"]:::accent
+
+  contribute -->|Peers review| assess
+  assess -->|Assess confidence and relevance| threshold
+  threshold -->|Yes| act
+  threshold -->|Not yet| analyse
+  act -->|Report results| feedback
+  analyse -->|Report findings| feedback
+  feedback -->|Improve the contribution| update
+  update -->|Reassess as evidence changes| assess
