@@ -31,6 +31,34 @@ To compile a local version of the website, run the following commands in a termi
 6. To preview your site in your web browser, navigate to [http://localhost:1313](http://localhost:1313).
 
 
+## Community guide diagrams
+
+The [community-building and federation guide](content/guidelines-for-building-and-federated-cybersecurity-information-sharing-communities.md)
+uses Mermaid sources and committed SVGs in `static/img/community-guidelines/`.
+The SVGs render without browser-side JavaScript; each diagram links to its source
+and full-size image. Edit the `.mmd` files, then regenerate the SVGs and manifest.
+Hugo builds need no additional diagram dependencies.
+
+`assets/diagrams/theme.json` and `misp-logo.svg` are copied unchanged from
+[MISP/misp-book at 047e7cba326ad195a486a8fb671fb6654a5832e7](https://github.com/MISP/misp-book/tree/047e7cba326ad195a486a8fb671fb6654a5832e7/assets/diagrams).
+The renderer is adapted from that revision's `render.py`. It preserves the book's
+palette, font, semantic classes (`accent`, `muted`, `caution`, `success`), rounded
+shapes, edge-label backgrounds, and logo frame. Keep presentation in the shared
+theme; sources describe meaning and include `accTitle` and `accDescr`.
+
+To regenerate, install Playwright for Python in a local virtual environment and
+provide Chromium (or its path with `--chromium`). Download the pinned Mermaid
+browser bundle, then run:
+
+```sh
+curl -fL https://cdn.jsdelivr.net/npm/mermaid@11.12.0/dist/mermaid.min.js -o /tmp/mermaid-11.12.0.min.js
+python3 scripts/render_community_diagrams.py --mermaid-js /tmp/mermaid-11.12.0.min.js
+```
+
+Commit the sources, SVGs, and `manifest.json` together. The manifest records source,
+theme, logo, and Mermaid bundle hashes. When updating the theme from the book,
+update the pinned revision here and in the renderer, then regenerate all diagrams.
+
 ## Section links
 
 Every Markdown heading includes a `#` permalink for navigating to or sharing that

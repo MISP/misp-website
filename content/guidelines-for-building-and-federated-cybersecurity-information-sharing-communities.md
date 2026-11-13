@@ -132,6 +132,12 @@ A practical community lifecycle can be organised into the following phases:
 
 These phases do not need to be completed sequentially. A small community can start with a lightweight set of decisions and formalise them as participation grows.
 
+The diagram groups related decisions and shows how operational experience feeds back into the community's purpose. Activities can overlap; federation can begin with a narrow pilot whenever the relevant rules and capabilities are ready.
+
+[![Community lifecycle: purpose leads to governance and services, sharing rules and trust, architecture and safeguards, then operation and improvement, with lessons feeding back into purpose.](/img/community-guidelines/lifecycle.svg "{.img-responsive}")](/img/community-guidelines/lifecycle.svg)
+
+[Mermaid source](/img/community-guidelines/lifecycle.mmd)
+
 # Part I - Creating the Community
 
 ## Define purpose, scope, and value
@@ -444,6 +450,14 @@ The policy should define:
 
 Where relevant, state whether information can be reused, modified, redistributed, integrated into products, or published. Avoid assuming that all data received by the community can be redistributed merely because it is technically accessible.
 
+The following decision flow applies before sending information to another member or community. Review all applicable terms together: a dissemination marking alone does not describe every permitted action or reuse condition. Mandatory reporting obligations should be resolved through the applicable policy and legal process.
+
+[![Before sharing, check permission for the recipient and purpose, clarify missing permission, verify technical controls, and preserve provenance and markings when sending.](/img/community-guidelines/sharing-decisions.svg "{.img-responsive}")](/img/community-guidelines/sharing-decisions.svg)
+
+If the intended recipient or purpose changes, repeat the checks. Passing these checks permits the exchange; operational use still requires a separate assessment of quality, confidence, and suitability.
+
+[Mermaid source](/img/community-guidelines/sharing-decisions.mmd)
+
 ### Attribution and anonymity
 
 A community should decide whether members may:
@@ -633,6 +647,12 @@ Feedback makes sharing valuable. Useful mechanisms include:
 
 A community that only distributes information from a central source is a feed, not a collaborative sharing community.
 
+The feedback loop connects contribution to operational value. Information can remain useful for analysis even when it does not meet the threshold for a particular defensive action. Feedback and updates follow the same handling and redistribution rules as the original contribution.
+
+[![Peers enrich and validate observations, assess suitability for operational use, and return findings and corrections to improve the shared information.](/img/community-guidelines/feedback-loop.svg "{.img-responsive}")](/img/community-guidelines/feedback-loop.svg)
+
+[Mermaid source](/img/community-guidelines/feedback-loop.mmd)
+
 ### Recognition and credit
 
 Contributors should receive credit when policy permits. Recognition can be simple: acknowledgement in a report, visibility in community statistics, invitations to present work, or explicit thanks from other members.
@@ -815,6 +835,14 @@ Federation is not limited to synchronizing every item between every server. Comm
 - how incidents involving misuse are escalated.
 
 The objective is controlled interoperability, not maximum replication.
+
+This example shows one selected exchange between two autonomous communities. Each retains its own governance, membership, and private case data. Only approved findings cross the boundary, and feedback returns when permitted by policy.
+
+[![Two locally governed communities exchange selected information through agreed policy and synchronization filters; private case data stays local and permitted feedback can return.](/img/community-guidelines/federation.svg "{.img-responsive}")](/img/community-guidelines/federation.svg)
+
+The same checks apply in either direction and at every onward sharing boundary. A connection to a third community grants no automatic right to forward information received from the first.
+
+[Mermaid source](/img/community-guidelines/federation.mmd)
 
 
 ## Shared data sources
