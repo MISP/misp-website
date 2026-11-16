@@ -2,6 +2,1189 @@ Changelog
 =========
 
 
+v3.1.5 (2026-11-16)
+-------------------
+
+Changes
+~~~~~~~
+- [version] v3.1.5. [Alexandre Dulaunoy]
+
+Fix
+~~~
+- Support capture UUID attribute lookups in Lookyloo modules. [Alexandre
+  Dulaunoy]
+- [timesketch] normalize compact offsets for Python 3.10. [Alexandre
+  Dulaunoy]
+- [timesketch] accept compact timezone offsets from MISP. [Alexandre
+  Dulaunoy]
+- [network] Recognize supported Zeek ISO timestamp separators.
+  [Alexandre Dulaunoy]
+- [timesketch] Preserve response context and validate annotation maps.
+  [Alexandre Dulaunoy]
+- [volatility3] Validate process identifiers before promotion.
+  [Alexandre Dulaunoy]
+- [expansion/hashdd] return the misperrors dict when the API is not
+  accessible. [Claude Opus 5 (1M context), elhoim]
+
+  The non-200 path set misperrors["error"] and then returned the bare
+  string, while every other error path returns the misperrors dict the
+  module API expects.
+- [website] restrict post-login redirects to local paths. [Alexandre
+  Dulaunoy]
+- [assemblyline_query] make parsed event debugging opt-in. [Alexandre
+  Dulaunoy]
+- [website] commit external tool deletions. [Alexandre Dulaunoy]
+
+  Commit the delete transaction explicitly rather than relying on a later HTTP-session write. Add a regression check that removes the SQLAlchemy session and confirms the tool remains deleted.
+
+  This is a persistence correction kept separate from the three security fixes.
+- [website] require CSRF-protected POSTs for tool changes. [Alexandre
+  Dulaunoy]
+
+  Reject GET requests to the external-tool delete, status, and configuration endpoints. Send POST requests and the Flask-WTF CSRF token from the browser for status and deletion changes.
+
+  Add regression tests for rejected GETs and missing CSRF tokens, and verify POST methods and token headers through the real browser workflow.
+- [website] keep external tool API keys out of responses. [Alexandre
+  Dulaunoy]
+
+  Remove stored API keys from the public external-tools serializer. Treat the edit field as write-only: blank or missing retains the saved key and a nonempty value replaces it. Clear successful replacement inputs and update browser state only after a successful save.
+
+  Add disclosure and credential-edit regression coverage, including real browser and migration checks. Server-side submissions continue using the stored key. Related to #816.
+- [website] authorize external tool management. [Alexandre Dulaunoy]
+
+  Apply the optional admin-login policy before add, delete, status, and configuration handlers run. Reject anonymous management requests when ADMIN_PASSWORD is configured, including requests with valid CSRF tokens.
+
+  Includes authorization regression tests and preserves the existing open-management policy when no admin password is configured. Related to #816.
+
+Other
+~~~~~
+- Merge pull request #1144 from MISP/chore/refresh-poetry-lock-20261116.
+  [Alexandre Dulaunoy]
+
+  chore: refresh Poetry dependency lock
+- Chore: refresh Poetry dependency lock. [Alexandre Dulaunoy]
+- Merge pull request #1143 from MISP/feat/lookyloo-misp-export.
+  [Alexandre Dulaunoy]
+
+  Import native Lookyloo MISP export attributes and objects
+- Feat: import native MISP content from Lookyloo capture exports.
+  [Alexandre Dulaunoy]
+- Merge pull request #1142 from MISP/fix/lookyloo-uuid-attribute.
+  [Alexandre Dulaunoy]
+
+  fix: allow capture UUID attribute lookups in Lookyloo modules
+- Merge pull request #1141 from MISP/feat/adtimeline-import. [Alexandre
+  Dulaunoy]
+
+  Add ADTimeline replication metadata CSV import
+- Add native ADTimeline CSV replication metadata import. [Alexandre
+  Dulaunoy]
+- Merge pull request #1140 from MISP/fix/timesketch-compact-timezone-
+  offsets. [Alexandre Dulaunoy]
+
+  fix: [timesketch] accept compact timezone offsets from saved MISP datetimes
+- Merge pull request #1139 from MISP/feat/autopsy-selected-results.
+  [Alexandre Dulaunoy]
+
+  Import selected Autopsy and normalized mobile-forensic artifacts
+- Honor explicit UTC-prefixed offsets in forensic artifact timestamps.
+  [Alexandre Dulaunoy]
+- Add selected Autopsy and mobile-forensic artifact import with TSK
+  mappings. [Alexandre Dulaunoy]
+- Merge pull request #1138 from MISP/feat/pcap-provenance. [Alexandre
+  Dulaunoy]
+
+  Add capture and stream provenance to PCAP imports
+- Add capture hashes, stream flows and reconstruction provenance to PCAP
+  import. [Alexandre Dulaunoy]
+- Merge pull request #1137 from MISP/fix/email-import-bounds. [Alexandre
+  Dulaunoy]
+
+  Fix email import boolean options, bound ZIP extraction, and preserve original messages
+- Normalize email import options and bound ZIP extraction while
+  preserving originals. [Alexandre Dulaunoy]
+- Merge pull request #1136 from MISP/fix/yara-export-namespaces.
+  [Alexandre Dulaunoy]
+
+  Revamp YARA export: preserve collections and namespaces, make IOC generation opt-in
+- Fix YARA provenance locations and exclude oversized IOC literals.
+  [Alexandre Dulaunoy]
+- Revamp YARA export with preserved namespaces and explicit IOC
+  generation. [Alexandre Dulaunoy]
+- Merge pull request #1135 from MISP/feat/defender-kql-export.
+  [Alexandre Dulaunoy]
+
+  Revamp Defender Endpoint KQL export with validated literals and query batching
+- Validate IDNA domains before stripping the DNS root dot. [Alexandre
+  Dulaunoy]
+- Revamp Defender hunting export with validated table-specific batches.
+  [Alexandre Dulaunoy]
+- Merge pull request #1134 from MISP/feat/zeek-suricata-import.
+  [Alexandre Dulaunoy]
+
+  feat: [network] Import selected Zeek and Suricata observations
+- Feat: [network] Import Zeek and Suricata observations with capture
+  provenance. [Alexandre Dulaunoy]
+- Merge pull request #1133 from MISP/feat/osquery-results-import.
+  [Alexandre Dulaunoy]
+
+  feat: [osquery] Import snapshot and differential hunting results
+- Feat: [osquery] Import snapshot and differential results with hunting
+  provenance. [Alexandre Dulaunoy]
+- Merge pull request #1131 from MISP/feat/timesketch-plaso-exchange.
+  [Alexandre Dulaunoy]
+
+  feat: [timesketch] Import selected Timesketch/Plaso findings and export observations
+- Feat: [timesketch] Exchange selected Timesketch and Plaso
+  observations. [Alexandre Dulaunoy]
+- Merge pull request #1132 from MISP/feat/volatility3-results-import.
+  [Alexandre Dulaunoy]
+
+  feat: [volatility3] Import process, network, memory and YARA results
+- Feat: [volatility3] Import memory-analysis results with provenance.
+  [Alexandre Dulaunoy]
+- Merge pull request #1130 from MISP/feat/evtx-findings-import.
+  [Alexandre Dulaunoy]
+
+  Add Hayabusa and Chainsaw findings importer with linked event context
+- Add Hayabusa and Chainsaw findings importer with linked event context.
+  [Alexandre Dulaunoy]
+- Merge pull request #1129 from MISP/feat/velociraptor-results-import.
+  [Alexandre Dulaunoy]
+
+  Add offline Velociraptor results importer with forensic provenance
+- Fix explicit JSON selection and Velociraptor provenance direction.
+  [Alexandre Dulaunoy]
+- Add offline Velociraptor results importer with forensic provenance.
+  [Alexandre Dulaunoy]
+- Merge pull request #1128 from MISP/feat/kml-kmz-import-export.
+  [Alexandre Dulaunoy]
+
+  Add KML/KMZ import and export preserving source assets
+- Honor href-level xml:base in KML NetworkLinks. [Alexandre Dulaunoy]
+- Add KML and KMZ import and export with preserved assets. [Alexandre
+  Dulaunoy]
+- Merge pull request #1127 from MISP/feat/nmea-import-export. [Alexandre
+  Dulaunoy]
+
+  Add NMEA 0183 log import and original-log export
+- Add NMEA 0183 log import and original-log export. [Alexandre Dulaunoy]
+- Merge pull request #1126 from MISP/feat/geojson-import-export.
+  [Alexandre Dulaunoy]
+
+  Add GeoJSON import and export with linked geolocations
+- Add GeoJSON import and export with linked geolocations. [Alexandre
+  Dulaunoy]
+- Merge pull request #1125 from elhoim/fix/043-error-return-contract-v2.
+  [Alexandre Dulaunoy]
+
+  [medium] fix: [expansion/hashdd] return misperrors dict, not misperrors["error"], on API-not-accessible
+- Merge pull request #1124 from MISP/fix/gpx-export-regressions.
+  [Alexandre Dulaunoy]
+
+  Fix GPX export namespace and timestamp handling with real-file tests
+- Normalize valid GPX end-of-day timestamps across Python versions.
+  [Alexandre Dulaunoy]
+- Fix GPX export namespace and timestamp handling with real-file tests.
+  [Alexandre Dulaunoy]
+- Merge pull request #1122 from MISP/feat/gpx-import. [Alexandre
+  Dulaunoy]
+
+  Add GPX importer with linked geolocation objects
+- Mark GPX artifact hashes as non-security operations for FIPS hosts.
+  [Alexandre Dulaunoy]
+- Normalize valid GPX end-of-day timestamps across Python versions.
+  [Alexandre Dulaunoy]
+- Count only structural GPX observations toward the point limit.
+  [Alexandre Dulaunoy]
+- Reject invalid XML Schema timezone offsets in GPX timestamps.
+  [Alexandre Dulaunoy]
+- Test GPX import with the complete Morning Walk Strava track.
+  [Alexandre Dulaunoy]
+- Add GPX importer with linked geolocation objects. [Alexandre Dulaunoy]
+- Merge pull request #1123 from MISP/feat/gpx-export. [Alexandre
+  Dulaunoy]
+
+  Add GPX exporter for datasets and geolocation objects
+- Add GPX exporter for datasets and geolocation objects. [Alexandre
+  Dulaunoy]
+- Merge pull request #1121 from MISP/codex/fix-login-redirect.
+  [Alexandre Dulaunoy]
+
+  fix: [website] prevent external redirects after login
+- Merge pull request #1120 from MISP/codex/fix-pr-868-debug. [Alexandre
+  Dulaunoy]
+
+  fix: [assemblyline_query] replace temporary event dump with opt-in debug logging
+- Merge pull request #1119 from MISP/codex/fix-external-tool-management.
+  [Alexandre Dulaunoy]
+
+  fix: [website] secure external tool management and credentials
+- Merge pull request #1118 from RanaKhan77/docs/fix-dead-links.
+  [Alexandre Dulaunoy]
+
+  docs: replace dead PassiveTotal link in README
+- Docs: replace dead PassiveTotal link in README. [RanaKhan77]
+- Merge pull request #1117 from MISP/feat/wikidata-standard-expansion.
+  [Alexandre Dulaunoy]
+
+  Improve Wikidata enrichment, use MISP standard output and fix SPARQL injection
+- Restrict Wikidata query to Q items before applying result limit.
+  [Alexandre Dulaunoy]
+- Improve Wikidata enrichment and return MISP standard annotations.
+  [Alexandre Dulaunoy]
+- Merge pull request #1116 from MISP/feat/restore-bgpranking. [Alexandre
+  Dulaunoy]
+
+  Restore BGP Ranking expansion for the current CIRCL API
+- Restore BGP Ranking expansion for the current CIRCL API. [Alexandre
+  Dulaunoy]
+- Merge pull request #1115 from MISP/feat/stix2-pattern-export.
+  [Alexandre Dulaunoy]
+
+  Add STIX 2.1 pattern export using misp-stix
+- Add STIX 2.1 pattern export using misp-stix mappings. [Alexandre
+  Dulaunoy]
+- Merge pull request #1114 from MISP/feat/stix2-pattern-enrichment.
+  [Alexandre Dulaunoy]
+
+  Add STIX 2.1 pattern enrichment using misp-stix
+- Add STIX 2.1 pattern enrichment using misp-stix mappings. [Alexandre
+  Dulaunoy]
+
+
+v3.1.4 (2026-11-08)
+-------------------
+
+New
+~~~
+- [expansion] SiberKapan IP lookup module. [Oktay ALVER]
+
+Changes
+~~~~~~~
+- [release] 3.1.4. [Alexandre Dulaunoy]
+- [netapi] look up IP addresses in the NetAPI compromised IP feed.
+  [Slava Olesik]
+
+Fix
+~~~
+- Enforce native XDR hash support and upload deadline. [Alexandre
+  Dulaunoy]
+
+  Skip unsupported SHA-1 observables before publication and check the
+  operation deadline again after preflight before starting a write. Add
+  regressions and document the native IOC types and Pro license.
+- Restrict Cortex XDR IOC hashes to native MD5 and SHA-256. [Alexandre
+  Dulaunoy]
+
+  Align advertised inputs, normalization, tests and documentation with the
+  native IOC rule types; SHA-1 lookups are rejected before network access.
+- Preserve Cortex XDR non-expiring IOC sentinel. [Alexandre Dulaunoy]
+
+  Accept the documented expiration_date=-1 value while rejecting other
+  negative or malformed expiries. Cover transport metadata and lookup
+  output, and document the sentinel.
+- Accept unavailable Cisco PSIRT URL placeholders. [Alexandre Dulaunoy]
+
+  Treat NA/N/A optional publication and CSAF URLs as missing instead of
+  rejecting valid advisories. Cover absent links and mixed result sets
+  while retaining validation for malformed non-placeholder URLs.
+- Preserve IDNA2008 domain identities in Umbrella queries. [Alexandre
+  Dulaunoy]
+
+  Use the existing idna dependency with non-transitional UTS-46 processing
+  instead of Python's IDNA2003 codec. Cover sharp-s, final sigma, A-labels,
+  compatibility mappings and invalid joiners in API request regressions.
+- Validate CSV REST uploads and document the base64 data contract.
+  [Alexandre Dulaunoy]
+- Clarify CrowdStrike enrichment setup and handle Intel lookup failures.
+  [Alexandre Dulaunoy]
+- Import standalone CAPE reports and current report fields. [Alexandre
+  Dulaunoy]
+
+Other
+~~~~~
+- Merge pull request #1111 from MISP/fix/vt-graph-api-compat. [Alexandre
+  Dulaunoy]
+
+  Fix VirusTotal Graph export parsing and API v3 compatibility
+- Skip non-expandable nodes in VirusTotal Graph expansion. [Alexandre
+  Dulaunoy]
+- Fix VirusTotal Graph export parsing and API v3 compatibility.
+  [Alexandre Dulaunoy]
+- Merge pull request #1095 from OktayAlver/add-siberkapan-module.
+  [Alexandre Dulaunoy]
+
+  new: [expansion] SiberKapan IP lookup module
+- Test: [expansion] SiberKapan module tests. [Oktay ALVER]
+- Doc: [expansion] SiberKapan module documentation. [Oktay ALVER]
+- Merge pull request #1110 from MISP/feat/cortex-xsoar-incident-create.
+  [Alexandre Dulaunoy]
+
+  Add Cortex XSOAR 8 incident creation action
+- Docs: clarify XSOAR 8 incident response contract after review.
+  [Alexandre Dulaunoy]
+- Add Cortex XSOAR 8 incident creation action. [Alexandre Dulaunoy]
+- Merge pull request #1109 from MISP/feat/cortex-xsoar-indicator-lookup.
+  [Alexandre Dulaunoy]
+
+  Add Cortex XSOAR 8 indicator lookup
+- Add Cortex XSOAR 8 indicator lookup. [Alexandre Dulaunoy]
+- Merge pull request #1108 from MISP/feat/shuffle-workflow-execute.
+  [Alexandre Dulaunoy]
+
+  Add Shuffle workflow execution action
+- Add Shuffle workflow execution action. [Alexandre Dulaunoy]
+- Merge pull request #1107 from MISP/feat/shuffle-datastore-lookup.
+  [Alexandre Dulaunoy]
+
+  Add Shuffle Datastore lookup expansion module
+- Keep oversized Shuffle response test names bounded. [Alexandre
+  Dulaunoy]
+- Add Shuffle Datastore lookup expansion module. [Alexandre Dulaunoy]
+- Merge pull request #1106 from MISP/feat/torq-case-create. [Alexandre
+  Dulaunoy]
+
+  Add Torq case creation workflow module
+- Add Torq case creation workflow module. [Alexandre Dulaunoy]
+- Merge pull request #1105 from MISP/feat/torq-observable-lookup.
+  [Alexandre Dulaunoy]
+
+  Add Torq observable lookup expansion module
+- Add Torq observable lookup expansion module. [Alexandre Dulaunoy]
+- Merge pull request #1104 from MISP/feat/n8n-data-table-lookup.
+  [Alexandre Dulaunoy]
+
+  Add n8n Data Table lookup expansion module
+- Add n8n Data Table lookup expansion module. [Alexandre Dulaunoy]
+- Merge pull request #1103 from MISP/feat/n8n-webhook. [Alexandre
+  Dulaunoy]
+
+  Add n8n Webhook workflow action
+- Reject extracted workflow data before n8n webhook delivery. [Alexandre
+  Dulaunoy]
+- Add n8n Webhook workflow action. [Alexandre Dulaunoy]
+- Merge pull request #1102 from MISP/feat/tines-case-create. [Alexandre
+  Dulaunoy]
+
+  Add Tines Cases v2 creation workflow module
+- Add Tines Cases v2 creation workflow module. [Alexandre Dulaunoy]
+- Merge pull request #1101 from MISP/feat/tines-record-lookup.
+  [Alexandre Dulaunoy]
+
+  Add Tines Records v2 lookup expansion module
+- Add Tines Records v2 lookup expansion module. [Alexandre Dulaunoy]
+- Merge pull request #1100 from MISP/feat/cortex-xdr-ioc-publish.
+  [Alexandre Dulaunoy]
+
+  Add Cortex XDR IOC publication workflow action
+- Feat: add Cortex XDR IOC publishing action. [Alexandre Dulaunoy]
+
+  Preview or upload IDS-marked event/object indicators through the public
+  JSON IOC API. Preflight existing rules, require validated single-IOC
+  acknowledgements and report partial outcomes. Add server-side connection
+  settings, explicit expiry, contract tests and usage documentation.
+- Merge pull request #1099 from MISP/feat/cortex-xdr-ioc-lookup.
+  [Alexandre Dulaunoy]
+
+  Add Cortex XDR IOC lookup expansion module
+- Feat: add Cortex XDR IOC lookup module. [Alexandre Dulaunoy]
+
+  Support Standard and Advanced API keys, exact typed IOC lookups and
+  referenced MISP annotations. Add shared transport, normalization tests,
+  usage documentation and existing Palo Alto coverage review.
+- Merge pull request #1098 from MISP/feat/cisco-psirt. [Alexandre
+  Dulaunoy]
+
+  Add Cisco PSIRT openVuln expansion and hover module
+- Feat: add Cisco PSIRT openVuln enrichment module. [Alexandre Dulaunoy]
+
+  Look up CVEs, Cisco advisory IDs and bug IDs through openVuln v2 using
+  OAuth client credentials. Preserve source attributes and return linked
+  vulnerability and context objects with exact bug matching and bounded
+  results. Add API contract tests, usage documentation and catalog entries.
+- Merge pull request #1097 from MISP/feat/cisco-umbrella. [Alexandre
+  Dulaunoy]
+
+  Add Cisco Umbrella Investigate expansion and hover module
+- Feat: add Cisco Umbrella Investigate expansion module. [Alexandre
+  Dulaunoy]
+
+  Use Umbrella v2 OAuth credentials to query domain categorization and risk
+  scores. Preserve source attributes and return referenced annotations with
+  explicit partial failures. Add token caching, API tests and usage docs.
+- Merge pull request #1094 from MISP/feat/sigma-export-192. [Alexandre
+  Dulaunoy]
+
+  Add Sigma rule export module with opt-in Windows IOC generation
+- Feat: add Sigma rule export and opt-in Windows IOC generation.
+  [Alexandre Dulaunoy]
+- Merge pull request #1096 from MISP/fix/ci-lock-marker-overlap.
+  [Alexandre Dulaunoy]
+
+  fix(ci): prevent concurrent installation of overlapping lock versions
+- Fix(ci): prevent overlapping locked dependency installations.
+  [Alexandre Dulaunoy]
+
+  Make Python version markers disjoint for NumPy, ContourPy, Deprecated and
+  Soup Sieve. Check lock selections before Poetry installs project packages.
+- Merge pull request #1073 from juanmill4/add-darkeye-expansion.
+  [Alexandre Dulaunoy]
+
+  Add DarkEye domain exposure expansion module
+- Use a local HTTP fake in the DarkEye tests. [Juan Manuel Tejada]
+
+  The tests imported responses, which is not a misp-modules test
+  dependency, so CI stopped at collection. They now patch the requests
+  adapter with a small local fake, so no new dependency is needed.
+- Add DarkEye domain exposure expansion module. [Juan Manuel Tejada]
+- Merge pull request #1088 from MISP/codex/flowintel-case-enrichment.
+  [Alexandre Dulaunoy]
+
+  Add Flowintel case lookup enrichment module
+- Feat: add Flowintel case lookup enrichment module. [Alexandre
+  Dulaunoy]
+- Merge pull request #1093 from MISP/fix/csvimport-rest-input-604.
+  [Alexandre Dulaunoy]
+
+  Fix CSV import REST validation and document base64 uploads
+- Merge pull request #1092 from MISP/fix/crowdstrike-enrichment-408.
+  [Alexandre Dulaunoy]
+
+  Fix CrowdStrike enrichment diagnostics and document Falcon Intelligence setup
+- Docs: regenerate all CrowdStrike documentation outputs. [Alexandre
+  Dulaunoy]
+- Merge pull request #1091 from MISP/fix/cuckoo-cape-json-import-502.
+  [Alexandre Dulaunoy]
+
+  Fix Cuckoo/CAPE JSON imports and current CAPE field mappings
+- Merge pull request #965 from Sadman-TheDentian/feat/dectrax-misp-
+  expansion-module. [Alexandre Dulaunoy]
+
+  [Expansion Module] DECTRAX: Autonomous Cyber Deception & Honeypot Telemetry Enrichment
+- Fix(misp): align workflow taxonomy tag to workflow:state=complete.
+  [Sadman-TheDentian]
+- Feat(misp): add dectrax threat intelligence expansion module. [Sadman-
+  TheDentian]
+- Merge pull request #1090 from slavaolesik/netapi-ip-lookup. [Alexandre
+  Dulaunoy]
+
+  chg: [netapi] look up IP addresses in the NetAPI compromised IP feed
+
+
+v3.1.3 (2026-11-03)
+-------------------
+
+Changes
+~~~~~~~
+- [pyproject] updated to 3.1.3. [Alexandre Dulaunoy]
+
+Other
+~~~~~
+- Merge pull request #1086 from MISP/fix/sherlock-subprocess-
+  diagnostics. [Alexandre Dulaunoy]
+
+  Expose Sherlock subprocess progress and failure diagnostics
+- Expose Sherlock subprocess progress and failure diagnostics.
+  [Alexandre Dulaunoy]
+- Streamline dependencies. [Stefano Ortolani]
+- Merge pull request #1082 from MISP/feat/neutrino-expansion. [Alexandre
+  Dulaunoy]
+
+  Add NeutrinoAPI IP Blocklist expansion module
+- Normalize NeutrinoAPI credentials and reject special-use IPs.
+  [Alexandre Dulaunoy]
+- Add NeutrinoAPI IP Blocklist expansion module. [Alexandre Dulaunoy]
+- Merge pull request #1084 from MISP/feat/ssllabs-expansion. [Alexandre
+  Dulaunoy]
+
+  Add Qualys SSL Labs API v4 expansion module
+- Require scan consent before any SSL Labs analyze request. [Alexandre
+  Dulaunoy]
+- Add Qualys SSL Labs API v4 expansion module. [Alexandre Dulaunoy]
+- Merge pull request #1083 from MISP/feat/zoomeye-expansion. [Alexandre
+  Dulaunoy]
+
+  Add ZoomEye API v2 expansion module
+- Fix ZoomEye hostname coverage and credential handling. [Alexandre
+  Dulaunoy]
+- Add ZoomEye API v2 expansion module. [Alexandre Dulaunoy]
+- Merge pull request #1080 from MISP/feat/dshield-expansion. [Alexandre
+  Dulaunoy]
+
+  Add DShield / SANS ISC IP expansion module
+- Reject special-use IPs in DShield expansion. [Alexandre Dulaunoy]
+- Add DShield SANS ISC IP expansion module. [Alexandre Dulaunoy]
+- Merge pull request #1081 from MISP/feat/pulsedive-expansion.
+  [Alexandre Dulaunoy]
+
+  Add Pulsedive indicator expansion module
+- Preserve Pulsedive PTR pivots and normalize lookup configuration.
+  [Alexandre Dulaunoy]
+- Add Pulsedive indicator expansion module. [Alexandre Dulaunoy]
+- Merge pull request #1079 from MISP/fix/vulndb-flashpoint-oauth2.
+  [Alexandre Dulaunoy]
+
+  Update VulnDB for Flashpoint and OAuth 2 client credentials
+- Update VulnDB for Flashpoint and OAuth 2 client credentials.
+  [Alexandre Dulaunoy]
+- Merge pull request #1078 from MISP/feat/vuldb-expansion. [Alexandre
+  Dulaunoy]
+
+  Add VulDB vulnerability expansion module
+- Add VulDB vulnerability expansion module. [Alexandre Dulaunoy]
+- Merge pull request #1077 from MISP/feat/plum-island-discovery.
+  [Alexandre Dulaunoy]
+
+  Add Plum Island IP history and search expansion modules
+- Add Plum Island Discovery API history and search expansion modules.
+  [Alexandre Dulaunoy]
+- Bump dependencies. [Stefano Ortolani]
+
+
+v3.1.2 (2026-11-02)
+-------------------
+
+New
+~~~
+- Add DMARC aggregate report import module. [Alexandre Dulaunoy]
+- Add DuckDuckGo search expansion as Google Search alternative.
+  [Alexandre Dulaunoy]
+- [expansion] NetAPI Lookup: compromised feed listing and Top 1M rank.
+  [Slava Olesik]
+
+Changes
+~~~~~~~
+- [release] 3.1.2. [Alexandre Dulaunoy]
+- [netapi] return a reputation object instead of text attributes. [Slava
+  Olesik]
+- [expansion] NetAPI Lookup: domains only, IP attributes removed. [Slava
+  Olesik]
+
+Fix
+~~~
+- Keep GreyNoise dependency exports compatible. [Alexandre Dulaunoy]
+- [backscatter_io] accept ip-dst-only requests and reject empty ones.
+  [Claude Opus 5, elhoim]
+
+  The input guard in check_query reads "if not request.get("ip-src") and
+  request.get("ip-dst")", which is inverted. A hover or expansion on a plain
+  ip-dst attribute is rejected with "Unsupported attributes type." even though
+  ip-dst is a declared input, while a request carrying neither ip-src nor ip-dst
+  passes the guard and ends up with value None, so the module queries
+  backscatter.io with query=None and the analyst gets an opaque API error
+  instead of a clear unsupported-attribute message. The guard now requires both
+  values to be absent before bailing out, and the value is picked from whichever
+  of the two is actually populated rather than from mere key presence.
+
+  Verified with flake8 on the changed file and the full test suite against a
+  local modules server: 161 passed, 4 skipped, 5 subtests passed.
+- [iprep] reject a config that carries no apikey. [Claude Opus 5,
+  elhoim]
+
+  The config guard joins its two checks with `and`, so it only fires when
+  the config is both absent and missing an apikey. When a MISP instance
+  calls the module with no `config` key at all, the first operand is true
+  and evaluation continues into `request["config"].get("apikey")`, which
+  raises `KeyError` and surfaces to the analyst as an opaque module crash
+  rather than the intended "IPRep api key is missing" message. When a
+  config is present but has no apikey, the first operand is false, the
+  guard short-circuits, and the module happily issues a request to
+  packetmail.net with `apikey=None` — the analyst sees the API's rejection
+  (or an empty result) reported as a normal lookup. Using `or` makes
+  either condition fail validation, which is what the error message
+  already claims.
+
+  Verified with flake8 on the changed file and the full test suite against
+  a local modules server: 161 passed, 4 skipped, 5 subtests passed.
+- [eql] initialise attrType before the supported-type loop. [Claude Opus
+  5, elhoim]
+
+  The handler picks the requested attribute type by walking fieldmap and
+  assigning attrType only when the request carries a matching key, then
+  tests `if attrType:` to decide whether to build the EQL query or return
+  the "Unsupported attributes type" error. When the request contains none
+  of the supported keys the name is never bound, so the guard itself
+  raises UnboundLocalError: an analyst querying the module with an
+  attribute type it does not handle sees a module crash and a generic
+  server-side failure instead of the intended, readable error message.
+  Initialising attrType to None before the loop lets the existing error
+  branch run as written.
+
+  Verified with flake8 on the changed file and the full test suite against
+  a local misp-modules server: 161 passed, 4 skipped, 5 subtests passed.
+- [dnstwist] address review findings. [Alexandre Dulaunoy]
+- [censys_enrichmentapis] address review findings. [Alexandre Dulaunoy]
+- [domaintools_support] address review findings. [Alexandre Dulaunoy]
+- [eset_report] represent downloaded PDFs as report objects. [Alexandre
+  Dulaunoy]
+- [eset_report] address review findings. [Alexandre Dulaunoy]
+- [fortisandbox] address review findings. [Alexandre Dulaunoy]
+- [doppel_alert_takedown] address review findings. [Alexandre Dulaunoy]
+- [glimps_malware] address review findings. [Alexandre Dulaunoy]
+- [cape_sandbox] address review findings. [Alexandre Dulaunoy]
+- [triage_query] address review findings. [Alexandre Dulaunoy]
+- [greynoise_vuln] address review findings. [Alexandre Dulaunoy]
+- [dnslytics] address review findings. [Alexandre Dulaunoy]
+- [criminal_ip] address review findings. [Alexandre Dulaunoy]
+- [anyrun_lookup] address review findings. [Alexandre Dulaunoy]
+- [typo] fixed. [Alexandre Dulaunoy]
+- Repair website external-tools API key schema on upgrade. [Alexandre
+  Dulaunoy]
+- Accept DMARC pass dispositions from RFC 9990. [Alexandre Dulaunoy]
+- Preserve OpenIOC values rejected by MISP validation. [Alexandre
+  Dulaunoy]
+- [ipinfo] support current APIs and retain enrichment context.
+  [Alexandre Dulaunoy]
+
+  Add opt-in Lite and Core/Plus lookup endpoints while preserving legacy configurations. Parse partial responses, retain privacy, abuse and company data in referenced annotations, and fix hosted domain extraction.
+
+  Use Bearer authentication, bounded requests and explicit API errors. Add 40 mocked regression tests.
+
+  Fixes #600
+- Decode DuckDuckGo redirect links before validating results. [Alexandre
+  Dulaunoy]
+- [hibp] enable enrichment and harden API requests. [Alexandre Dulaunoy]
+- Populate Cytomic Orion object first_seen for timelines. [Alexandre
+  Dulaunoy]
+- Reuse forwarded URLs and accept folded headers. [Alexandre Dulaunoy]
+
+  Share URL objects across the carrier and inline forwards, with one
+  reference per email. Unfold indented forwarded headers while preserving
+  quote indentation and keeping indented body text out of header values.
+
+  Add regression coverage for both Codex review findings and for bracketed
+  subject metadata preserved by the latest main branch.
+- [sourcecache] cover IPv6 targets in the URL check. [Claude Opus 5 (1M
+  context), elhoim]
+
+  - An IPv6 address that carries an IPv4 one (IPv4-mapped ::ffff:0:0/96, 6to4
+    2002::/16, NAT64 64:ff9b::/96) must be routable on both counts:
+    http://[64:ff9b::7f00:1]/ reaches 127.0.0.1 and is now refused
+  - An unparsable address or an unclosed IPv6 bracket ("http://[::1/") is
+    refused instead of raising
+  - Tests: IPv6 loopback, unspecified, unique local, link-local, IPv4-mapped,
+    NAT64 and 6to4 literals are not fetched; a name with any internal AAAA
+    record is not fetched; a name with public AAAA records is
+- [sourcecache] refuse URLs that the URL parsers split differently.
+  [Claude Opus 5 (1M context), elhoim]
+
+  urlparse and the requests stack that url_archiver fetches with disagree on a backslash in the authority: http://127.0.0.1\@example.com/ is checked as example.com and fetched from 127.0.0.1. Refuse backslashes, whitespace and control characters before checking the host.
+- [sourcecache] validate URLs before archiving to block SSRF. [Claude
+  Opus 5 (1M context), elhoim]
+
+  The module hands the attribute value straight to url_archiver, so enriching a hostile link or url attribute makes the MISP server fetch any URL it can reach, loopback services and cloud metadata endpoints included, and store the answer in the event. Fetch only http and https URLs whose host resolves solely to globally routable addresses, and return an error otherwise.
+- Guard AssemblyLine submission responses and add regression coverage.
+  [Alexandre Dulaunoy]
+- Handle X-Force Exchange API failures. [Alexandre Dulaunoy]
+- Address Pandora password and filename review findings. [Alexandre
+  Dulaunoy]
+- [farsight] reject invalid derived SOA email addresses. [Alexandre
+  Dulaunoy]
+
+  Validate decoded local parts and domain labels before emitting dns-soa-email
+  attributes. Preserve raw SOA records for unsupported characters, malformed
+  local parts, and single-label domains that MISP cannot import.
+
+  Add regression coverage for escaped whitespace, controls, extra @ signs,
+  invalid domain labels, and local-part length.
+- [farsight] infer SOA email domains using the public suffix list.
+  [Alexandre Dulaunoy]
+
+  Restore SOA contact email extraction in the passive-DNS object parser.
+  Use the bundled public suffix list for ambiguous unescaped mailbox names,
+  respect escaped local-part dots, and retain raw records and object links.
+
+  Fixes #151.
+- [cef export] use the defaults for settings MISP sends as null. [Andrei
+  Bacescu]
+
+  MISP sends every module setting, with null for the ones an
+  administrator has not set. Those nulls replaced the defaults and were
+  then rejected, so the export failed until all four settings were
+  configured.
+- [mwdb] validate uploads and modernize metadata handling. [Alexandre
+  Dulaunoy]
+- [threat_connect_export] export ip|port and filename|md5 attributes.
+  [Andrei Bacescu]
+
+  These composite types were mapped to a single ThreatConnect type, so
+  splitting the value raised IndexError and the whole export failed. The
+  port and the filename have no ThreatConnect indicator type and are
+  skipped.
+- [website] preserve login inputs during toast initialization.
+  [Alexandre Dulaunoy]
+- [yara_export] pass attribute dicts to the handlers of combined
+  attributes. [Andrei Bacescu]
+
+  handle_combined() called the per-type handlers with a type and a value
+  instead of an attribute, and handle_malware_sample() called
+  handle_combined() the same way, so exporting an event with a to_ids
+  filename|<hash>, ip-dst|port, domain|ip or malware-sample attribute
+  raised TypeError.
+- [mass_eql_export] emit one valid query per event type and escape
+  values. [Andrei Bacescu]
+
+  The or-separator counter was shared across event types, so the file
+  query started with a dangling "or" and was written directly after the
+  closing quote of the network query. Values were inserted into
+  double-quoted EQL strings unescaped, so Windows paths and values
+  containing a double quote produced queries that do not parse.
+
+  Build each query from its own condition list, separate queries with a
+  blank line, and escape backslashes and double quotes.
+- Reject Signal acknowledgements with recipient errors. [Alexandre
+  Dulaunoy]
+
+  Treat HTTP 201 responses with nonempty errors as failed sends even when a valid timestamp is present. Add regression coverage for recipient and group errors, preserve empty-error success, and document partial-failure behavior.
+- [website] register state-changing routes as POST, not GET. [Claude
+  Opus 5, elhoim]
+
+  change_status (home.py) and the history remove_node_session/remove_node_tree
+  routes were registered with methods=["GET"]. Flask-WTF's CSRFProtect only
+  validates unsafe HTTP methods (POST/PUT/PATCH/DELETE), so a GET route that
+  mutates state bypasses CSRF protection entirely: a module can be silently
+  disabled, or a history node deleted, just by getting a logged-in admin's
+  browser to load an attacker-controlled <img src="/change_status?module_id=..">
+  or similar cross-site request, with no confirmation and no CSRF token check.
+
+  Switched the three routes to methods=["POST"] so CSRFProtect covers them,
+  and updated their JS/template callers (modules_config.html, history_session.html,
+  history_view.js) to issue POST requests carrying the X-CSRFToken header,
+  matching the pattern already used by /change_config.
+
+  Verified with py_compile on the two changed Python files (flake8 excludes
+  website/) and the full test suite against a locally started modules server
+  on port 6769: 161 passed, 4 skipped, 5 subtests passed, matching baseline.
+
+Other
+~~~~~
+- Fix pinned deps. [Stefano Ortolani]
+- Merge pull request #1075 from MISP/fix/greynoise-export-dependency-
+  conflict. [Alexandre Dulaunoy]
+
+  fix: keep GreyNoise dependency exports compatible
+- Merge pull request #838 from elhoim/fix/028-backscatter-io-input-
+  guard. [Alexandre Dulaunoy]
+
+  [high] fix: [backscatter_io] accept ip-dst-only requests and reject empty ones
+- Merge pull request #836 from elhoim/fix/026-iprep-config-check-
+  operator. [Alexandre Dulaunoy]
+
+  [high] fix: [iprep] reject a config that carries no apikey
+- Merge pull request #823 from elhoim/fix/014-eql-unbound-attrtype.
+  [Alexandre Dulaunoy]
+
+  [high] fix: [eql] initialise attrType before the supported-type loop
+- Merge pull request #1074 from MISP/codex/update-all-
+  dependencies-20261102. [Alexandre Dulaunoy]
+
+  Update module and website dependencies to latest compatible releases
+- Update module and website dependencies to latest compatible releases.
+  [Alexandre Dulaunoy]
+- Merge pull request #1068 from MISP/codex/enrich-dnstwist. [Alexandre
+  Dulaunoy]
+
+  feat: [dnstwist] add domain permutation enrichment
+- Feat: [dnstwist] add domain permutation enrichment. [Alexandre
+  Dulaunoy]
+- Merge pull request #1059 from MISP/codex/enrich-censys_enrichmentapis.
+  [Alexandre Dulaunoy]
+
+  feat: [censys_enrichmentapis] add enrichment API support
+- Feat: [censys_enrichmentapis] add enrichment API support. [Alexandre
+  Dulaunoy]
+- Merge pull request #1072 from MISP/codex/enrich-domaintools_support.
+  [Alexandre Dulaunoy]
+
+  feat: [domaintools] add Iris enrichment using provider reference
+- Feat: [domaintools] add Iris adapters using the provider reference.
+  [Alexandre Dulaunoy]
+- Docs: [domaintools_support] clarify support status and API coverage.
+  [Alexandre Dulaunoy]
+- Merge pull request #812 from elhoim/fix/047-qintel_qsentry-result-
+  tags-indexed. [Alexandre Dulaunoy]
+
+  [high] fix(expansion): tolerate missing tags in qintel_qsentry and yeti
+- Fix(expansion): tolerate results with no tags. [Claude Opus 5, elhoim]
+
+  qintel_qsentry's _make_tags indexed result["tags"] directly and
+  _format_hover called ", ".join(result.get("tags")), so a QSentry
+  response for a benign IP that carries no tags raised KeyError (or
+  TypeError on the hover path) outside the handler's try/except and
+  crashed the lookup. yeti.py's __get_attribute had the same pattern on
+  obs_to_add["tags"].
+
+  Use `.get("tags") or []` in all three places so the tag loop simply does
+  not execute and the join yields an empty string.
+- Merge pull request #1069 from MISP/codex/enrich-eset_report.
+  [Alexandre Dulaunoy]
+
+  feat: [eset_report] retrieve threat intelligence PDF reports
+- Feat: [eset_report] retrieve threat intelligence PDF reports.
+  [Alexandre Dulaunoy]
+- Merge pull request #878 from elhoim/fix/069-csrf-get-state-routes.
+  [Alexandre Dulaunoy]
+
+  [critical] fix: [website] register state-changing routes as POST, not GET
+- Merge upstream main into fix/069-csrf-get-state-routes. [Claude Opus 5
+  (1M context), elhoim]
+
+  Upstream replaced the inline Vue scripts of history_session.html and
+  modules_config.html with static modules (history/investigations.js,
+  modules-config.js) and rewrote history_view.js, so the GET -> POST
+  caller changes of this branch are ported there: removeNode() and
+  toggleModule() now send POST with the X-CSRFToken header. The templates
+  and history_view.js are taken from main as they are.
+
+  The new history_checks.py tests called the removal routes with GET; they
+  now use POST, as the routes only accept POST on this branch.
+- Merge pull request #1066 from MISP/codex/enrich-fortisandbox.
+  [Alexandre Dulaunoy]
+
+  feat: [fortisandbox] add hash ratings and sample submissions
+- Feat: [fortisandbox] add hash ratings and sample submissions.
+  [Alexandre Dulaunoy]
+- Merge pull request #1070 from MISP/codex/enrich-doppel_alert_takedown.
+  [Alexandre Dulaunoy]
+
+  feat: [doppel_alert_takedown] add alert and takedown workflow actions
+- Feat: [doppel_alert_takedown] add alert and takedown workflow actions.
+  [Alexandre Dulaunoy]
+- Merge pull request #1067 from MISP/codex/enrich-glimps_malware.
+  [Alexandre Dulaunoy]
+
+  feat: [glimps_malware] add analysis lookup and sample submission
+- Feat: [glimps_malware] add analysis lookup and sample submission.
+  [Alexandre Dulaunoy]
+- Merge pull request #1065 from MISP/codex/enrich-cape_sandbox.
+  [Alexandre Dulaunoy]
+
+  feat: [cape_sandbox] add sample submission and report enrichment
+- Feat: [cape_sandbox] add sample submission and report enrichment.
+  [Alexandre Dulaunoy]
+- Merge pull request #1063 from MISP/codex/enrich-triage_query.
+  [Alexandre Dulaunoy]
+
+  feat: [triage_query] retrieve existing sandbox reports
+- Feat: [triage_query] retrieve existing sandbox reports. [Alexandre
+  Dulaunoy]
+- Merge pull request #1062 from MISP/codex/enrich-greynoise_vuln.
+  [Alexandre Dulaunoy]
+
+  feat: [greynoise_vuln] add dedicated CVE intelligence lookups
+- Feat: [greynoise_vuln] add dedicated CVE intelligence lookups.
+  [Alexandre Dulaunoy]
+- Merge pull request #1061 from MISP/codex/enrich-dnslytics. [Alexandre
+  Dulaunoy]
+
+  feat: [dnslytics] add domain dataset searches
+- Feat: [dnslytics] add domain dataset searches. [Alexandre Dulaunoy]
+- Merge pull request #1060 from MISP/codex/enrich-criminal_ip.
+  [Alexandre Dulaunoy]
+
+  feat: [criminal_ip] add IP and domain report enrichment
+- Feat: [criminal_ip] add IP and domain report enrichment. [Alexandre
+  Dulaunoy]
+- Merge pull request #1058 from MISP/codex/enrich-anyrun_lookup.
+  [Alexandre Dulaunoy]
+
+  feat: [anyrun_lookup] add threat intelligence lookups
+- Feat: [anyrun_lookup] add threat intelligence lookups. [Alexandre
+  Dulaunoy]
+- Merge pull request #1064 from MISP/codex/enrich-first_epss. [Alexandre
+  Dulaunoy]
+
+  feat: [first_epss] add direct FIRST EPSS lookups
+- Feat: [first_epss] add direct FIRST EPSS lookups. [Alexandre Dulaunoy]
+- Merge pull request #1057 from MISP/fix/website-external-tools-schema.
+  [Alexandre Dulaunoy]
+
+  fix: repair missing external-tools API key column in website upgrades
+- Merge pull request #1056 from MISP/feat/website-export-modules.
+  [Alexandre Dulaunoy]
+
+  Add website export modules and OSINT feed input
+- Protect website exports and replace embedded credentials with
+  placeholders. [Alexandre Dulaunoy]
+- Add website export modules and OSINT feed input. [Alexandre Dulaunoy]
+- Merge pull request #1055 from MISP/fix/website-import-flask-compat.
+  [Alexandre Dulaunoy]
+
+  Fix website imports on Flask 3.0
+- Fix website import limits on Flask 3.0. [Alexandre Dulaunoy]
+- Merge pull request #1054 from MISP/feat/website-import-modules.
+  [Alexandre Dulaunoy]
+
+  Add import module testing and execution to the website
+- Add website workflows for import modules. [Alexandre Dulaunoy]
+- Merge pull request #1053 from MISP/feat/dmarc-import-508. [Alexandre
+  Dulaunoy]
+
+  new: add DMARC aggregate report import module
+- Merge pull request #1052 from MISP/feat/optional-module-result-cache.
+  [Alexandre Dulaunoy]
+
+  Add optional per-module query result caching
+- Feat: add opt-in per-module query result caching. [Alexandre Dulaunoy]
+- Merge pull request #1049 from MISP/feat/generic-csv-export-713.
+  [Alexandre Dulaunoy]
+
+  Add generic CSV export and web result downloads
+- Bundle CSV exporter with website to support locked backend releases.
+  [Alexandre Dulaunoy]
+- Add generic CSV export and website result downloads. [Alexandre
+  Dulaunoy]
+- Merge pull request #1050 from MISP/feat/optional-pap-red-policy.
+  [Alexandre Dulaunoy]
+
+  Add opt-in global PAP:RED expansion restrictions
+- Add opt-in global PAP:RED expansion restrictions. [Alexandre Dulaunoy]
+- Merge pull request #1051 from MISP/docs/custom-module-discovery-587.
+  [Alexandre Dulaunoy]
+
+  docs: explain how to load and enable custom MISP modules
+- Docs: explain custom module discovery and MISP enablement. [Alexandre
+  Dulaunoy]
+- Merge pull request #1044 from MISP/feat/cccs-yara-validator-362.
+  [Alexandre Dulaunoy]
+
+  Add CCCS YARA metadata validation module
+- Merge main and fix CCCS YARA parser dependency compatibility.
+  [Alexandre Dulaunoy]
+- Merge pull request #1048 from MISP/feat/phone-number-info-538.
+  [Alexandre Dulaunoy]
+
+  Add offline phone-number information expansion module
+- Merge main and resolve dependency lockfile conflict. [Alexandre
+  Dulaunoy]
+- Add offline phone-number information expansion module. [Alexandre
+  Dulaunoy]
+- Merge pull request #1047 from MISP/feat/legacy-openioc-import.
+  [Alexandre Dulaunoy]
+
+  feat: [openioc] provide a legacy import path for MISP 3
+- Feat: support legacy OpenIOC imports with native MISP output.
+  [Alexandre Dulaunoy]
+- Merge pull request #1045 from MISP/feat/mobsf-integration. [Alexandre
+  Dulaunoy]
+
+  Add MobSF mobile application analysis module
+- Add MobSF mobile application analysis expansion module. [Alexandre
+  Dulaunoy]
+- Merge pull request #1043 from MISP/fix/ipinfo-current-api-600.
+  [Alexandre Dulaunoy]
+
+  fix: [ipinfo] support current APIs and preserve enrichment context
+- Merge pull request #1042 from MISP/fix/601-duckduckgo-search.
+  [Alexandre Dulaunoy]
+
+  new: add DuckDuckGo search expansion without an API key
+- Add CCCS YARA metadata validation module. [Alexandre Dulaunoy]
+- Merge pull request #1040 from MISP/fix/hibp-enrichment-691. [Alexandre
+  Dulaunoy]
+
+  fix: [hibp] enable enrichment and harden API requests
+- Merge pull request #1041 from MISP/fix/cytomic-orion-object-first-
+  seen-559. [Alexandre Dulaunoy]
+
+  fix: populate Cytomic Orion object first_seen for timelines
+- Merge pull request #1039 from MISP/feat/email-inline-forwards-764.
+  [Alexandre Dulaunoy]
+
+  Extract inline forwarded emails as linked email objects
+- Feat: extract inline forwarded emails as linked objects. [Alexandre
+  Dulaunoy]
+
+  Add opt-in heuristic extraction for plain text and Outlook-style HTML,
+  reusing the forwarded EMailObject approach from mail_to_misp. Preserve
+  the carrier as evidence and mark reconstructed attributes for review.
+
+  Refs #764
+- Merge pull request #1036 from MISP/fix/crowdsec-cti-614. [Alexandre
+  Dulaunoy]
+
+  fix(crowdsec): update CTI enrichment and fix classification mapping
+- Fix(deps): select one dateutil version for documentation builds.
+  [Alexandre Dulaunoy]
+
+  Constrain python-dateutil to the 2.x version compatible with pypssl and
+  regenerate its lock entry. The previous lock installed both 2.9.0.post0
+  and 3.0.0 without mutually exclusive markers, overwriting shared files
+  and breaking documentation generation with an IndentationError.
+
+  Validated the docs install plan, module documentation generation,
+  MkDocs build and 107 CrowdSec/binGraph tests.
+- Fix(crowdsec): update CTI enrichment and classification mapping.
+  [Alexandre Dulaunoy]
+
+  Map false-positive classifications to the MISP object and taxonomy, retain
+  background noise scores including zero, and tolerate absent CTI enrichment.
+  Handle API failures and native boolean settings, and add mocked regression
+  tests covering issue #614 and existing enrichment.
+
+  Fixes #614
+- Merge pull request #941 from elhoim/fix/062-sourcecache-ssrf-url-
+  validation-v2. [Alexandre Dulaunoy]
+
+  [critical] fix: [sourcecache] validate URLs before archiving to block SSRF
+- Merge pull request #1038 from MISP/codex/assemblyline-submit-657.
+  [Alexandre Dulaunoy]
+
+  fix: guard AssemblyLine submission responses and add regression tests
+- Merge pull request #1037 from MISP/fix/preserve-email-subject-
+  metadata. [Alexandre Dulaunoy]
+
+  Preserve bracketed email subject metadata when stripping reply markers
+- Preserve bracketed email subject metadata when stripping reply
+  markers. [Alexandre Dulaunoy]
+- Merge pull request #1035 from MISP/codex/geoip-local-database-269.
+  [Alexandre Dulaunoy]
+
+  Improve local GeoIP database configuration and loading
+- Feat: improve local GeoIP database loading. [Alexandre Dulaunoy]
+- Merge pull request #1034 from MISP/fix/xforceexchange-api-errors.
+  [Alexandre Dulaunoy]
+
+  fix: handle X-Force Exchange API failures
+- Merge pull request #1030 from MISP/feat/bpf-capture-filter-export.
+  [Alexandre Dulaunoy]
+
+  Add BPF capture filter export for tcpdump and libpcap
+- Add BPF capture filter export for tcpdump and libpcap. [Alexandre
+  Dulaunoy]
+- Merge pull request #1032 from MISP/feat/pandora-submit. [Alexandre
+  Dulaunoy]
+
+  Add configurable Pandora file submission module
+- Feat: add configurable Pandora file submission module. [Alexandre
+  Dulaunoy]
+- Merge pull request #1031 from MISP/feat/geoplugin-438. [Alexandre
+  Dulaunoy]
+
+  Add geoPlugin IP geolocation expansion module
+- Add geoPlugin IP geolocation expansion module. [Alexandre Dulaunoy]
+
+  Closes #438.
+- Merge pull request #1033 from MISP/docs/668-systemd-redis-environment.
+  [Alexandre Dulaunoy]
+
+  docs: explain systemd environment setup for legacy Redis cache
+- Docs: explain systemd environment configuration for legacy Redis
+  cache. [Alexandre Dulaunoy]
+- Merge pull request #1028 from MISP/codex/fix-farsight-soa-
+  email-151-20261028. [Alexandre Dulaunoy]
+
+  fix: [farsight] infer SOA email domains using the public suffix list
+- Merge pull request #1029 from MISP/codex/ripestat-api. [Alexandre
+  Dulaunoy]
+
+  feat: add RIPEstat API expansion module
+- Feat: add RIPEstat expansion module. [Alexandre Dulaunoy]
+- Merge pull request #1027 from bacescuandrei/fix/cef-export-unset-
+  settings. [Alexandre Dulaunoy]
+
+  fix: [cef export] use the defaults for settings MISP sends as null
+- Merge pull request #1025 from MISP/feat/mwdb-query. [Alexandre
+  Dulaunoy]
+
+  Add MWDB hash query expansion module
+- Feat: add MWDB hash query expansion module. [Alexandre Dulaunoy]
+- Merge pull request #1013 from MISP/codex/manalyze-enrichment.
+  [Alexandre Dulaunoy]
+
+  Add local Manalyze enrichment for PE attachments and malware samples
+- Address Manalyze review: support FIPS hashing and validate source
+  UUIDs. [Alexandre Dulaunoy]
+- Add local Manalyze enrichment for PE attachments and malware samples.
+  [Alexandre Dulaunoy]
+- Merge pull request #1017 from MISP/codex/mwdb-submission-20261027.
+  [Alexandre Dulaunoy]
+
+  fix: [mwdb] validate uploads and modernize metadata handling
+- Merge pull request #1024 from bacescuandrei/fix/threatconnect-
+  composite. [Alexandre Dulaunoy]
+
+  fix: [threat_connect_export] export ip|port and filename|md5 attributes
+- Merge pull request #1023 from MISP/fix/website-login-ci. [Alexandre
+  Dulaunoy]
+
+  Fix login input loss during delayed Vue initialization
+- Merge pull request #1022 from MISP/feat/website-investigation-history.
+  [Alexandre Dulaunoy]
+
+  Redesign investigation trees and session history as readable connected paths
+- Feat: [website] redesign investigation paths and session history.
+  [Alexandre Dulaunoy]
+- Merge pull request #1019 from bacescuandrei/fix/yara-export-combined.
+  [Alexandre Dulaunoy]
+
+  fix: [yara_export] pass attribute dicts to the handlers of combined attributes
+- Merge pull request #1021 from MISP/feat/website-branding-result-cards.
+  [Alexandre Dulaunoy]
+
+  Update official MISP branding and improve visual enrichment result cards
+- Feat: [website] refresh MISP branding and enrichment result cards.
+  [Alexandre Dulaunoy]
+- Merge pull request #1020 from MISP/feat/website-enrichment-workspace.
+  [Alexandre Dulaunoy]
+
+  Redesign the website with guided enrichment and MISP 3.0 styling
+- Feat: [website] redesign enrichment workspace and module settings.
+  [Alexandre Dulaunoy]
+- Merge pull request #1018 from slavaolesik/netapi-reputation-object.
+  [Alexandre Dulaunoy]
+
+  chg: [netapi] return a reputation object instead of text attributes
+- Merge pull request #1014 from slavaolesik/netapi-expansion. [Alexandre
+  Dulaunoy]
+
+  new: [expansion] NetAPI Lookup: compromised feed listing and Top 1M rank
+- Merge pull request #1016 from MISP/codex/local-module-config-fallback.
+  [Alexandre Dulaunoy]
+
+  Add optional server-local defaults for module configuration
+- Add optional server-local module configuration defaults. [Alexandre
+  Dulaunoy]
+- Merge pull request #1012 from MISP/codex/resolve-url-shorteners.
+  [Alexandre Dulaunoy]
+
+  Add URL shortener resolution expansion
+- Use IDNA2008 host normalization for URL shorteners. [Alexandre
+  Dulaunoy]
+- Add URL shortener resolution expansion. [Alexandre Dulaunoy]
+- Merge pull request #1015 from bacescuandrei/fix/mass-eql-export.
+  [Alexandre Dulaunoy]
+
+  fix: [mass_eql_export] emit one valid query per event type and escape values
+- Merge pull request #1010 from MISP/codex/pcap-import-397. [Alexandre
+  Dulaunoy]
+
+  Add PCAP import module for files, email and network indicators
+- Address review: monitor TShark output and skip invalid email URLs.
+  [Alexandre Dulaunoy]
+- Add PCAP import module for files, email and network indicators.
+  [Alexandre Dulaunoy]
+- Merge pull request #1011 from MISP/codex/bingraph-expansion.
+  [Alexandre Dulaunoy]
+
+  Add binGraph expansion module for attachments and malware samples
+- Add binGraph expansion module for binary visualizations. [Alexandre
+  Dulaunoy]
+- Merge pull request #1007 from MISP/codex/signal-irc-actions.
+  [Alexandre Dulaunoy]
+
+  Add Signal and IRC workflow action modules
+- Feat: add Signal and IRC workflow action modules. [Alexandre Dulaunoy]
+- Merge pull request #1006 from MISP/feat/update-deps. [Alexandre
+  Dulaunoy]
+
+  Lock new deps
+- Install nasm. [Stefano Ortolani]
+- Add 3.15 as default version. [Stefano Ortolani]
+- Lock new deps. [Stefano Ortolani]
+
+
 v3.1.1 (2026-10-25)
 -------------------
 
