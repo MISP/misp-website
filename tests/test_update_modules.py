@@ -28,13 +28,45 @@ moduleinfo = acl.module_info("Cisco ASA ACL Export", "cisco_asa_export", "Export
         return 'import nonexistent_dependency\nmoduleinfo = ' + repr({'name': name, 'description': 'An enrichment', 'logo': 'test.png', 'requirements': ['api key']}) + '\nmispattributes = {"input": ["ip-src"]}\n'
 
     def test_all_categories_and_helpers(self):
-        files = {f'misp_modules/modules/{group}/test.py': self.source() for group in m.GROUPS}
+        groups = {'expansion', 'import_mod', 'export_mod', 'action_mod', 'gathering'}
+        files = {f'misp_modules/modules/{group}/test.py': self.source() for group in groups}
         files['misp_modules/modules/expansion/_helper.py'] = 'raise RuntimeError()'
+        files['misp_modules/modules/gathering/__init__.py'] = 'raise RuntimeError()'
         data = m.catalog(files, {'test.png'}, 'a' * 40)
-        self.assertEqual(data['count'], 4)
-        self.assertEqual({x['category'] for x in data['modules']}, set(m.GROUPS))
+        self.assertEqual(data['count'], 5)
+        self.assertEqual({x['category'] for x in data['modules']}, groups)
         self.assertTrue(all('/' + 'a' * 40 + '/' in x['logo'] for x in data['modules']))
         self.assertEqual(data['modules'][0]['attributes']['input'], ['ip-src'])
+
+    def test_gathering_introspection_is_read_without_execution(self):
+        path = 'misp_modules/modules/gathering/example.py'
+        source = '''from misp_modules.lib.gathering import CONTRACT_VERSION
+raise RuntimeError("module must not be executed")
+moduleinfo = {"name": "Example gathering", "module-type": ["gathering"]}
+PARAMETERS = {"type": "object", "properties": {"since": {"type": "string"}}}
+def introspection():
+    """Describe the feed and accepted parameters."""
+    return {"input": [], "output": ["MISP feed"], "gathering_version": CONTRACT_VERSION, "parameters": PARAMETERS}
+'''
+        files = {path: source, 'misp_modules/lib/gathering.py': 'CONTRACT_VERSION = 2'}
+        data = m.catalog(files, set(), 'a' * 40)
+        module = data['modules'][0]
+        self.assertEqual(module['id'], 'gathering/example')
+        self.assertTrue(module['source'].endswith(path))
+        self.assertEqual(module['attributes'], {
+            'input': [], 'output': ['MISP feed'], 'gathering_version': 2,
+            'parameters': {'type': 'object', 'properties': {'since': {'type': 'string'}}},
+        })
+        page = m.render(data)
+        self.assertIn('<option value="gathering">Gathering (1)</option>', page)
+        self.assertIn('data-type="gathering"', page)
+        self.assertIn('<span class="module-badge">Gathering</span>', page)
+        self.assertIn('<dt>Output</dt><dd>MISP feed</dd>', page)
+
+        dynamic = source.replace('return {"input"', 'side_effect()\n    return {"input"')
+        self.assertIn('computed dynamically', m.metadata(dynamic, path, files)[1]['note'])
+        self.assertEqual(m.metadata(dynamic + '\nmispattributes = {"output": ["feed"]}', path, files)[1],
+                         {'output': ['feed']})
 
     def test_code_is_never_executed_and_dynamic_metadata_fails(self):
         with self.assertRaisesRegex(ValueError, 'non-literal'):
