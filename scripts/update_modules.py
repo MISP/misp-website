@@ -13,7 +13,10 @@ from urllib.parse import quote
 from urllib.request import Request, urlopen
 
 REPO = 'https://github.com/MISP/misp-modules'
-GROUPS = {'expansion': 'Expansion', 'import_mod': 'Import', 'export_mod': 'Export', 'action_mod': 'Action'}
+GROUPS = {
+    'expansion': 'Expansion', 'import_mod': 'Import', 'export_mod': 'Export',
+    'action_mod': 'Action', 'gathering': 'Gathering',
+}
 LIMIT = 64 * 1024 * 1024
 
 
@@ -211,6 +214,21 @@ def metadata_imports(tree, files):
     return constants, functions
 
 
+def gathering_attributes(tree, constants, functions):
+    """Read a gathering module's static introspection return value."""
+    for node in tree.body:
+        if not isinstance(node, ast.FunctionDef) or node.name != 'introspection':
+            continue
+        body = node.body[1:] if ast.get_docstring(node, clean=False) is not None else node.body
+        if not node.decorator_list and len(body) == 1 and isinstance(body[0], ast.Return):
+            try:
+                return literal(body[0].value, constants, functions)
+            except (ValueError, TypeError, KeyError, IndexError):
+                pass
+        return {'note': 'Input/output attributes are computed dynamically; see source.'}
+    return {}
+
+
 def metadata(source, filename, files=None):
     """Read top-level data declarations. Never eval or import modules."""
     tree = ast.parse(source, filename=filename)
@@ -233,6 +251,8 @@ def metadata(source, filename, files=None):
     attributes = constants.get('mispattributes', constants.get('MISP_ATTRIBUTES', {}))
     if 'mispattributes' in unresolved:
         attributes = {'note': 'Input/output attributes are computed dynamically; see source.'}
+    elif info.get('module-type') == ['gathering'] and not {'mispattributes', 'MISP_ATTRIBUTES'}.intersection(constants):
+        attributes = gathering_attributes(tree, constants, functions)
     if not isinstance(attributes, dict):
         raise ValueError(f'{filename}: invalid mispattributes')
     return info, attributes
@@ -325,7 +345,7 @@ def main():
         js = (assets / 'js/module-catalog.js').read_text()
         raw = json.dumps(data, ensure_ascii=False, indent=2) + '\n'
         if args.output:
-            write(args.output / 'modules.html', '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MISP modules</title><style>body{font-family:system-ui;margin:0 auto;padding:32px;max-width:1200px;color:#183549}' + css + '</style><main><h1>MISP modules</h1><p>Explore integrations for enrichment, import, export and workflows.</p>' + body + '</main><script>' + js + '</script></html>')
+            write(args.output / 'modules.html', '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MISP modules</title><style>body{font-family:system-ui;margin:0 auto;padding:32px;max-width:1200px;color:#183549}' + css + '</style><main><h1>MISP modules</h1><p>Explore integrations for enrichment, import, export, workflows and gathering.</p>' + body + '</main><script>' + js + '</script></html>')
             write(args.output / 'modules.json', raw)
         else:
             write(args.website_root / 'layouts/shortcodes/module-catalog.html', '<link rel="stylesheet" href="{{ "css/module-catalog.css" | relURL }}">\n' + body + '<script src="{{ "js/module-catalog.js" | relURL }}" defer></script>\n')

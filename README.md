@@ -210,9 +210,8 @@ disabled.
 
 The searchable `/modules/` page is generated from all public module Python files
 in [MISP/misp-modules](https://github.com/MISP/misp-modules), covering expansion,
-import, export and workflow action modules. Python 3.9+ and its standard library
-are sufficient; the generator never imports or runs module code, so optional
-module dependencies and API credentials are unnecessary.
+import, export, workflow action and gathering modules. The generator uses Python
+3.9+ and its standard library to read module metadata without running module code.
 
 ```sh
 python3 scripts/update_modules.py --website-root .
@@ -242,6 +241,8 @@ snapshot. Static list/tuple unpacking is supported. Imported helpers are also
 supported when their body consists only of returning a dictionary built from literal
 positional arguments, such as the shared network ACL export metadata helper.
 Helper source is read from the same snapshot; it is never imported or executed.
+Gathering modules can declare feed output and parameter schemas in a static
+`introspection()` return value.
 Newly introduced dynamic metadata causes an explicit error
 instead of silently omitting modules. Dynamic optional input/output declarations
 are marked explicitly with a link to their source.
