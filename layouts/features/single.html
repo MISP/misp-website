@@ -10,61 +10,122 @@
       {{ partial "nav.html" . }}
 
       <main id="content" class="features-page">
-        <section class="features-hero">
+        <section class="features-hero" aria-labelledby="features-title">
           <div class="container">
             <div class="features-hero__content">
               <span class="features-eyebrow">Open source threat intelligence</span>
-              <h1>Intelligence becomes more powerful when it is connected.</h1>
-              <p>MISP gives teams one flexible platform to collect, enrich, correlate, automate, and securely share threat intelligence&mdash;from a single indicator to a community-wide knowledge base.</p>
+              <h1 id="features-title">Track threats. Share what you learn.</h1>
+              <p>MISP gives security teams one place to collect threat reports, connect clues such as suspicious links and files, and share their findings with the people who need them.</p>
               <div class="features-hero__actions">
-                <a class="btn btn-template-main btn-lg" href="{{ "/download/" | relURL }}">Get MISP</a>
-                <a class="features-text-link" href="{{ "/documentation/" | relURL }}">Explore the documentation <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                <a class="btn btn-template-main" href="#how-misp-works">See how MISP works</a>
+                <a class="features-text-link" href="{{ "/download/" | relURL }}">Download MISP <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </div>
             </div>
-            <div class="features-hero__visual" aria-hidden="true">
-              <div class="signal signal--one"><i class="fas fa-shield-alt"></i></div>
-              <div class="signal signal--two"><i class="fas fa-code-branch"></i></div>
-              <div class="signal signal--three"><i class="fas fa-users"></i></div>
-              <div class="signal signal--core"><span>MISP</span><small>collect · connect · share</small></div>
+            {{ $overview := .Params.banner | relURL }}
+            <figure class="features-hero__figure">
+              <img src="{{ $overview }}" width="1600" height="900" fetchpriority="high" alt="{{ .Params.banner_alt }}">
+              <figcaption>
+                <span>MISP 3.0 Early Access · Event overview</span>
+                <a href="{{ $overview }}">View full size<span class="sr-only"> of the event overview</span> <i class="fas fa-expand" aria-hidden="true"></i></a>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="features-workflow container" id="how-misp-works" aria-labelledby="features-workflow-title">
+          <h2 id="features-workflow-title">From a phishing report to a shared alert</h2>
+          <ol class="features-workflow__steps">
+            <li>
+              <i class="fas fa-inbox" aria-hidden="true"></i>
+              <h3>Collect the clues</h3>
+              <p>Save the report, suspicious domains, and file fingerprints (hashes) together in an <strong>event</strong>, MISP’s record of an incident or investigation.</p>
+            </li>
+            <li>
+              <i class="fas fa-project-diagram" aria-hidden="true"></i>
+              <h3>Connect the evidence</h3>
+              <p>See whether a domain or file has appeared in earlier reports. Add notes so teammates can follow what you found.</p>
+            </li>
+            <li>
+              <i class="fas fa-users" aria-hidden="true"></i>
+              <h3>Share with the right people</h3>
+              <p>Keep the event inside your organisation or share it with trusted partners. Set narrower sharing rules for individual details when needed.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="features-preview" aria-labelledby="features-preview-title">
+          <div class="container">
+            <div class="features-preview__header">
+              <div>
+                <h2 id="features-preview-title">A look inside MISP 3.0</h2>
+                <p>These screenshots show MISP 3.0 Early Access, intended for test environments. Use MISP 2.5 for production.</p>
+              </div>
+              {{ with .Site.GetPage "/blog/MISP.3.0-early-access.md" }}
+              <a href="{{ .RelPermalink }}">Read the Early Access announcement <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              {{ end }}
+            </div>
+            <div class="features-preview__screens">
+              {{ $indicator := "img/blog/misp-3.0/value-hover-card.png" | relURL }}
+              <figure class="features-preview__figure">
+                <img src="{{ $indicator }}" width="1706" height="938" loading="lazy" decoding="async" alt="MISP value hover card showing when a domain was seen, how many organisations reported it, and why it was flagged">
+                <figcaption>
+                  <h3>Check a suspicious domain</h3>
+                  <p>Hover over a domain to see when it was last seen, how many organisations reported it, and why MISP flagged it.</p>
+                  <a href="{{ $indicator }}">View full size<span class="sr-only"> of the indicator hover card</span> <i class="fas fa-expand" aria-hidden="true"></i></a>
+                </figcaption>
+              </figure>
+              {{ $graph := "img/blog/misp-3.0/object-or-cluster-pivot.png" | relURL }}
+              <figure class="features-preview__figure">
+                <img src="{{ $graph }}" width="1600" height="900" loading="lazy" decoding="async" alt="MISP Pivot Explorer graph connecting a threat actor to related entries from several intelligence sources">
+                <figcaption>
+                  <h3>Follow connections in a graph</h3>
+                  <p>Use Pivot Explorer to move from a threat actor to related records. Save the graph to revisit or share your investigation.</p>
+                  <a href="{{ $graph }}">View full size<span class="sr-only"> of the Pivot Explorer graph</span> <i class="fas fa-expand" aria-hidden="true"></i></a>
+                </figcaption>
+              </figure>
             </div>
           </div>
         </section>
 
-        <nav class="features-jump" aria-label="Feature categories">
-          <div class="container">
-            {{ range hugo.Data.feature_catalog }}<a href="#{{ .id }}"><i class="{{ .icon }}" aria-hidden="true"></i>{{ .title }}</a>{{ end }}
-          </div>
-        </nav>
-
-        <section class="features-intro container">
-          <span class="features-eyebrow">A complete intelligence lifecycle</span>
-          <h2>Built for analysts, communities, and machines</h2>
-          <p>Use structured, machine-readable intelligence without losing the human context behind it. MISP combines day-to-day analyst tools with scalable sharing and automation.</p>
-        </section>
-
-        <div class="features-catalog container">
-          {{ range $index, $group := hugo.Data.feature_catalog }}
-          <section class="feature-group" id="{{ $group.id }}">
+        <section class="features-catalog container" aria-labelledby="features-catalog-title">
+          <h2 id="features-catalog-title">Explore all features</h2>
+          <nav class="features-jump" aria-label="Feature categories">
+            {{ range hugo.Data.feature_catalog }}
+            <a href="#{{ .id }}"><i class="{{ .icon }}" aria-hidden="true"></i>{{ .title }}</a>
+            {{ end }}
+          </nav>
+          {{ range hugo.Data.feature_catalog }}
+          <section class="feature-group" id="{{ .id }}" aria-labelledby="{{ .id }}-title">
             <header class="feature-group__header">
-              <div class="feature-group__icon"><i class="{{ $group.icon }}" aria-hidden="true"></i></div>
-              <div><span class="feature-group__number">0{{ add $index 1 }}</span><h2>{{ $group.title }}</h2><p>{{ $group.summary }}</p></div>
+              <div class="feature-group__icon"><i class="{{ .icon }}" aria-hidden="true"></i></div>
+              <div>
+                <h3 id="{{ .id }}-title">{{ .title }}</h3>
+                <p>{{ .summary }}</p>
+              </div>
             </header>
             <div class="feature-grid">
-              {{ range $group.features }}
+              {{ range .features }}
               <article class="feature-card">
-                <i class="fas fa-check" aria-hidden="true"></i>
-                <div><h3>{{ .title }}</h3><p>{{ .description }}</p>{{ with .link }}<a href="{{ . }}">Learn more <span aria-hidden="true">&rarr;</span></a>{{ end }}</div>
+                <h4>{{ .title }}</h4>
+                <p>{{ .description }}</p>
+                {{ if .link }}<a href="{{ .link }}">{{ .link_label }} <span aria-hidden="true">&rarr;</span></a>{{ end }}
               </article>
               {{ end }}
             </div>
           </section>
           {{ end }}
-        </div>
+        </section>
 
-        <section class="features-cta">
+        <section class="features-cta" aria-labelledby="features-cta-title">
           <div class="container">
-            <div><span class="features-eyebrow">Start sharing smarter</span><h2>Put collective intelligence to work.</h2><p>Deploy MISP, connect your tools, and join a global ecosystem built around open collaboration.</p></div>
-            <div class="features-cta__actions"><a class="btn btn-template-main btn-lg" href="{{ "/download/" | relURL }}">Download MISP</a><a class="btn btn-ghost btn-lg" href="{{ "/communities/" | relURL }}">Find a community</a></div>
+            <div>
+              <h2 id="features-cta-title">Ready to try MISP?</h2>
+              <p>Set up your own instance with the <a href="{{ "/documentation/" | relURL }}">MISP documentation</a> or find a community to share with.</p>
+            </div>
+            <div class="features-cta__actions">
+              <a class="btn btn-template-main" href="{{ "/download/" | relURL }}">Download MISP</a>
+              <a class="btn btn-ghost" href="{{ "/communities/" | relURL }}">Find a community</a>
+            </div>
           </div>
         </section>
       </main>
