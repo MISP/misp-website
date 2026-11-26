@@ -51,6 +51,7 @@
               <p>Keep the event inside your organisation or share it with trusted partners. Set narrower sharing rules for individual details when needed.</p>
             </li>
           </ol>
+          <a class="features-workflow__examples" href="#circl-osint-examples">See a real phishing report in MISP <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
         </section>
 
         <section class="features-preview" aria-labelledby="features-preview-title">
@@ -84,6 +85,30 @@
                 </figcaption>
               </figure>
             </div>
+            <section class="features-preview__feed" id="circl-osint-examples" aria-labelledby="features-feed-title">
+              <h3 id="features-feed-title">Explore the CIRCL OSINT feed</h3>
+              <p>The <a href="{{ "/communities/" | relURL }}#circl-osint-feed">CIRCL OSINT feed</a> publishes open-source threat reports. These screenshots show six events imported from the feed, including a report on a phishing campaign targeting hotel guests in Luxembourg.</p>
+              <div class="features-preview__screens">
+                {{ $feedEvents := "img/features/misp-3.0/circl-events.webp" | relURL }}
+                <figure class="features-preview__figure">
+                  <img src="{{ $feedEvents }}" width="1600" height="900" loading="lazy" decoding="async" alt="MISP 3.0 Events card view showing six imported events with their sources, tags, and indicator counts">
+                  <figcaption>
+                    <h4>Browse imported events</h4>
+                    <p>Scan each event’s title, source, tags, and indicator count before deciding which one to open.</p>
+                    <a href="{{ $feedEvents }}">View full size<span class="sr-only"> of the imported events</span> <i class="fas fa-expand" aria-hidden="true"></i></a>
+                  </figcaption>
+                </figure>
+                {{ $phishingReport := "img/features/misp-3.0/circl-phishing-report.webp" | relURL }}
+                <figure class="features-preview__figure">
+                  <img src="{{ $phishingReport }}" width="1600" height="900" loading="lazy" decoding="async" alt="MISP 3.0 showing the executive summary of CIRCL’s report on phishing targeting hotel guests in Luxembourg">
+                  <figcaption>
+                    <h4>Read the report behind an event</h4>
+                    <p>Open CIRCL’s report to understand how the campaign targeted hotel guests and why it mattered.</p>
+                    <a href="{{ $phishingReport }}">View full size<span class="sr-only"> of the CIRCL phishing report</span> <i class="fas fa-expand" aria-hidden="true"></i></a>
+                  </figcaption>
+                </figure>
+              </div>
+            </section>
           </div>
         </section>
 
